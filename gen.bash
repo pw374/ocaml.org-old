@@ -23,3 +23,11 @@ do
     mkdir -p "$(dirname $target)" && make "$target"
 done
 
+find "$@" -type f -iname '*.html' |
+while read i
+do
+    target="$(sed -e 's/^md-pages/html-pages/' <<< "$i")"
+    mkdir -p "$(dirname $target)"
+    cp "$i" "$target"
+done
+
