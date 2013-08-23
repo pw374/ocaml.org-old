@@ -31,3 +31,11 @@ do
     cp "$i" "$target"
 done
 
+find "$@" -type f -iname '*.html.mpp' |
+while read i
+do
+    target="$(sed -e 's/\.html\.mpp$/.html/' -e 's/^md-pages/html-pages/' <<< "$i")"
+    mkdir -p "$(dirname $target)"
+    mpp -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -its < "$i" > "$target"
+done
+
