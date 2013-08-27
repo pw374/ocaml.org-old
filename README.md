@@ -9,5 +9,5 @@ sandbox for the next <http://ocaml.org> with the new (2013) design
 - ***undocumented files are either waiting to be documented, or deleted.***
 
 -------------------------------
-"MPP" Markdown means Markdown that needs to be processed with MPP
-before being real Markdown.
+"MPP Markdown" means "Markdown that needs to be processed with MPP
+before being real Markdown".
