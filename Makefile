@@ -9,6 +9,7 @@ html-pages/%.html:md-pages/%.md Makefile
 	if grep -q '*Table of contents*' "$<" ; then omd -otoc "$<" > "$@.toc" ; fi
 	if [ -f "$@.toc" ] ; then \
 	${MPP} -set "page=$@.tmp" -set "toc=$@.toc" < main_tpl.mpp > "$@" ; \
+	rm -f "$@.toc" ; \
 	else \
 	${MPP} -set "page=$@.tmp" < main_tpl.mpp > "$@" ; \
 	fi
