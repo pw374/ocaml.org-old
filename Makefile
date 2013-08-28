@@ -1,11 +1,17 @@
-
+MPP_OPTIONS = -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -its 
+MPP = mpp ${MPP_OPTIONS}
 
 all:html-pages/static
 	bash gen.bash md-pages
 
 html-pages/%.html:md-pages/%.md Makefile
 	omd < "$<" > "$@.tmp"
-	mpp -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -its -set "page=$@.tmp" < main_tpl.mpp > "$@"
+	if grep -q '*Table of contents*' "$<" ; then omd -otoc "$<" > "$@.toc" ; fi
+	if [ -f "$@.toc" ] ; then \
+	${MPP} -set "page=$@.tmp" -set "toc=$@.toc" < main_tpl.mpp > "$@" ; \
+	else \
+	${MPP} -set "page=$@.tmp" < main_tpl.mpp > "$@" ; \
+	fi
 	rm "$@.tmp"
 
 html-pages/img:skin/img
