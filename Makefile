@@ -4,9 +4,9 @@ MPP = mpp ${MPP_OPTIONS}
 all:html-pages/static
 	bash gen.bash md-pages
 
-html-pages/%.html:md-pages/%.md Makefile
+html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp navbar_tpl.mpp
 	omd < "$<" > "$@.tmp"
-	if grep -q '*Table of contents*' "$<" ; then omd -otoc "$<" > "$@.toc" ; fi
+	if grep -q '*Table of contents*' "$<" ; then omd -otoc -ts 2 "$<" > "$@.toc" ; fi
 	if [ -f "$@.toc" ] ; then \
 	${MPP} -set "page=$@.tmp" -set "toc=$@.toc" < main_tpl.mpp > "$@" ; \
 	rm -f "$@.toc" ; \
@@ -34,3 +34,4 @@ html-pages/static/img:skin/static/img
 
 clean:
 	rm -fr html-pages *~
+

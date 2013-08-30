@@ -26,13 +26,7 @@
           </button>
           <a class="brand" href="/"><img src="/static/img/ocaml.png" alt="OCaml"></a>
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li ((! ifdef learn class="active" !))><a href="/learn/">Learn</a></li>
-              <li ((! ifdef documentation class="active" !))><a href="/docs/">Documentation</a></li>
-              <li ((! ifdef platform class="active" !))><a href="/platform.html">Platform</a></li>
-              <li ((! ifdef packages class="active" !))><a href="/menu.html">Packages</a></li>
-              <li ((! ifdef community class="active" !))><a href="/community/">Community</a></li>
-            </ul>
+            (( input navbar_tpl.mpp ))
             <form class="navbar-search pull-right">
               <input class="search-query" type="text" placeholder="Search" />
             </form>
