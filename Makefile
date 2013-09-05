@@ -5,8 +5,8 @@ all:html-pages/static
 	bash gen.bash md-pages
 
 html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp navbar_tpl.mpp
-	omd < "$<" > "$@.tmp"
 	if grep -q '*Table of contents*' "$<" ; then omd -otoc -ts 2 "$<" > "$@.toc" ; fi
+	sed -e 's|\*Table of contents\*||g' "$<" | omd > "$@.tmp"
 	if [ -f "$@.toc" ] ; then \
 	${MPP} -set "page=$@.tmp" -set "toc=$@.toc" < main_tpl.mpp > "$@" ; \
 	rm -f "$@.toc" ; \
