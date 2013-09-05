@@ -49,19 +49,23 @@ x!}}
         <div id="content-primary" class="span8">
           <div class="content">
             {{! get contents !}}
-            <footer id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
-              <div class="navbar-inner">
-                <div class="container-fluid">
-                  <ul class="nav pull-right">
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Find us on GitHub</a></li>
-                  </ul>
-                </div>
-              </div>
-            </footer>
-            <!-- Load javascript from CDN -->
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-            <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id="footer" class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <ul class="nav pull-right">
+            <li><a href="#">Feedback</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Find us on GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- Load javascript from CDN -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
