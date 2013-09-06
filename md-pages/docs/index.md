@@ -1,3 +1,5 @@
+
+
 <div class="container">
     <h1>Documentation</h1>
     <div class="row">
@@ -10,21 +12,21 @@
             <h1 class="ruled">Reference</h1>
             <div class="row">
                 <a href="#" class="span3 documentation-highlight">
-                    <img src="static/img/manual.png" alt="">
+                    <img src="/static/img/manual.png" alt="">
                     OCaml Manual
                 </a>
                 <a href="#" class="span3 documentation-highlight">
-                    <img src="static/img/license.png" alt="">
+                    <img src="/static/img/license.png" alt="">
                     OCaml License
                 </a>
             </div>
             <div class="row">
                 <a href="#" class="span3 documentation-highlight">
-                    <img src="static/img/documents.png" alt="">
+                    <img src="/static/img/documents.png" alt="">
                     Package Documents
                 </a>
                 <a href="#" class="span3 documentation-highlight">
-                    <img src="static/img/cheat.png" alt="">
+                    <img src="/static/img/cheat.png" alt="">
                     Cheat Sheets
                 </a>
             </div>
@@ -41,7 +43,7 @@
             <div class="row">
                 <div class="span2 documentation-book">
                     <a href="#">
-                        <img src="static/img/real-world-ocaml.png" alt="Real Worl OCaml book">
+                        <img src="/static/img/real-world-ocaml.png" alt="Real Worl OCaml book">
                     </a>
                 </div>
                 <div class="span4">
@@ -59,7 +61,7 @@
                     <div class="span4">
                         <p class="documentation-video">
                             <a href="#">
-                                <img src="static/img/video.png" alt="Video">
+                                <img src="/static/img/video.png" alt="Video">
                             </a>
                         </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Duis aute irure dolor in reprehenderit in voluptate.</p>
@@ -67,7 +69,7 @@
                     <div class="span4">
                         <p class="documentation-video">
                             <a href="#">
-                                <img src="static/img/video.png" alt="Video">
+                                <img src="/static/img/video.png" alt="Video">
                             </a>
                         </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Duis aute irure dolor in reprehenderit in voluptate.</p>
@@ -75,7 +77,7 @@
                     <div class="span4">
                         <p class="documentation-video">
                             <a href="#">
-                                <img src="static/img/video.png" alt="Video">
+                                <img src="/static/img/video.png" alt="Video">
                             </a>
                         </p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Duis aute irure dolor in reprehenderit in voluptate.</p>
@@ -84,3 +86,4 @@
         </section>
     </div>
 </div>
+

@@ -2,35 +2,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>
+
+
+```ocaml
+
+```
+<content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<
 License
 </title>
   </head>
   <body>
-    <h1>
+
+
+```ocaml
+<h1>
+```
 OCaml's License
 </h1>
 
 <!--                                -*-html-*- -->
+
 <p>
 In the following, “the Library” refers to all files marked “Copyright
 Inria” in the following directories and their sub-directories of the
 distribution:
 </p>
+
+
+
+
+
+
+
 <blockquote><p>
   
 <tt>asmrun</tt>, <tt>byterun</tt>, <tt>camlp4</tt>, <tt>config</tt>,
 <tt>otherlibs</tt>, <tt>stdlib</tt>, <tt>win32caml</tt>
 
 </p></blockquote>
+
+
+
 <p>
 and “the Compiler” refers to all files marked “Copyright Inria” in the
 following directories and their sub-directories:
 </p>
+
+
+
+
+
+
+
 <blockquote><p>
   
 <tt>asmcomp</tt>, <tt>boot</tt>, <tt>bytecomp</tt>, <tt>debugger</tt>,
@@ -40,17 +66,26 @@ following directories and their sub-directories:
 
 </p></blockquote>
 
+
+
+
 <p>
 The Compiler is distributed under the terms of the
 <a href="#qpl" shape="rect">Q Public License</a> version 1.0 with a
 change to choice of law (included below).
 </p>
 
+
+
+
 <p>
 The Library is distributed under the terms of the
 <a href="#lgpl" shape="rect">GNU Library General Public License</a>
 version 2 (included below).
 </p>
+
+
+
 
 <p>
 
@@ -60,6 +95,9 @@ link with the original or modified versions of the Compiler and are not
 made available to the general public, without any of the additional
 requirements listed in clause 6c of the Q Public licence.
 </p>
+
+
+
 
 <p>
 As a special exception to the GNU Library General Public License, you
@@ -76,9 +114,15 @@ does not however invalidate any other reasons why the executable file
 might be covered by the GNU Library General Public License.
 </p>
 
+
+
+
 <h2>
 <a name="qpl" id="qpl"><!--0--></a>The Q Public License, version 1.0
 </h2>
+
+
+
 <pre xml:space="preserve">
               Copyright (C) 1999 Troll Tech AS, Norway.
                   Everyone is permitted to copy and
@@ -183,10 +227,15 @@ This license is governed by the Laws of France.
 </pre>
 
 
+
+
 <h2>
 <a name="lgpl" id="lgpl"><!--0--></a>The GNU Library General Public
 License, version 2
 </h2>
+
+
+
 
 <pre xml:space="preserve">
  Copyright (C) 1991 Free Software Foundation, Inc.
@@ -668,10 +717,10 @@ necessary.  Here is a sample; alter the names:
   Ty Coon, President of Vice
 
 That's all there is to it!
-</pre>    
+</pre>
+
+<br />
 
 </body>
 </html>
-
-
 

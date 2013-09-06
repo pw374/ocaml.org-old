@@ -1,15 +1,11 @@
-Recevoir de l'aide et contribuer
-================================
-
+# Recevoir de l'aide et contribuer
 Le développement d'OCaml est dirigé par
 l'[Inria](http://caml.inria.fr/). La communauté des développeurs OCaml
 vous aidera volontiers sur la [liste de diffusion
 officielle](mailing_lists.html). Un support commercial est fourni par
 [OCamlPro](#ocamlpro).
 
-Le Consortium à l'Inria
------------------------
-
+## Le Consortium à l'Inria
 e Consortium OCaml fédère les efforts de conception et de développement
 du langage OCaml et de son environnement. Le Consortium permet à ses
 membres de montrer leur intérêt pour le langage OCaml et de soutenir son
@@ -22,7 +18,8 @@ que le membre désire apporter. L'adhésion au Consortium OCaml est un
 acte important, non seulement pour le développement du langage et sa
 dissémination, mais aussi pour sa pérennité.
 
-### Membres
+###  Membres
+
 
 <table>
 <tbody>
@@ -49,8 +46,8 @@ dissémination, mais aussi pour sa pérennité.
 </tbody>
 </table>
 
-### Comment adhérer ?
 
+###  Comment adhérer ?
 Pour vous permettre d'adhérer en toute connaissance de cause au
 Consortium OCaml, il vous est possible au préalable de consulter en
 ligne l'accord de partenariat et ses annexes, disponible au format
@@ -60,7 +57,7 @@ TVA](http://caml.inria.fr/consortium/vat.fr.html).
 
 Si les clauses du Consortium vous agréent, vous pourrez alors compléter
 et envoyer le [formulaire
-d'adhésion](http://caml.inria.fr/consortium/form.fr.html) disponible en
+d&apos;adhésion](http://caml.inria.fr/consortium/form.fr.html) disponible en
 ligne. Cette demande sera examinée par un représentant habilité de
 l'Inria qui vous recontactera ensuite pour organiser la signature de
 l'accord en deux exemplaires.
@@ -69,10 +66,10 @@ Après signature par un représentant de votre entreprise/organisme et par
 un représentant habilité de l'Inria, une facture correspondant au
 montant de votre participation financière vous sera envoyée.
 
-Support commercial par OCamlPro
--------------------------------
-
+## Support commercial par OCamlPro
 Un support commercial est fourni par
 [OCamlPro](http://www.ocamlpro.com/). OCamlPro offre un éventail de
 services, du simple support au développement avancé en OCaml, des
 formation et de la consultance.
+
+

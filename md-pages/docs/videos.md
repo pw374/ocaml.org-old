@@ -2,9 +2,7 @@ The [OCamlorg YouTube account](http://www.youtube.com/user/ocamlorg)
 gathers several videos about OCaml, including videos of [all OUD
 presentations](http://www.youtube.com/playlist?list=PLOWQ4b7rjycjjAdv6uLy9SmzkvNzSY3HY).
 
-Videos
-======
-
+# Videos
 [The continuation of functional programming by other
 means](http://events.inf.ed.ac.uk/Milner2012/X_Leroy-html5-mp4.html),
 Xavier Leroy.
@@ -27,9 +25,11 @@ outperform the competition in the financial world.
 
 [GODI](http://video.google.com/videoplay?docid=-6322912779839034322#).
 
-  
-  
+<br />
+<br />
 
 [Experience Report: OCaml for an Industrial-strength Static Analysis
 Framework](http://vimeo.com/6652523) from [Malcolm
 Wallace](http://vimeo.com/user2191865) on [Vimeo](http://vimeo.com).
+
+

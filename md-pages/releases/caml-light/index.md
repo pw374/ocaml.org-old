@@ -1,9 +1,5 @@
-Caml Light
-==========
-
-Overview
---------
-
+# Caml Light
+## Overview
 Caml Light is a lightweight, portable implementation of the Caml
 language. that runs on most Unix machines, as well as PC under Microsoft
 Windows. Because of its stable status, it is actively used in education.
@@ -24,14 +20,14 @@ contribution.
 
 Some common questions are answered in the [FAQ](faq.html).
 
-Availability
-------------
-
+## Availability
 The Caml Light system is open source software, please read its
 [license](license.html) for more details. The [latest
 release](releases/) can be freely downloaded on this site, together with
-its [user's manual](http://caml.inria.fr/pub/docs/manual-caml-light/).
+its [user&apos;s manual](http://caml.inria.fr/pub/docs/manual-caml-light/).
 See also [Functional programming using Caml
 Light](http://caml.inria.fr/pub/docs/fpcl/index.html) for an
 introduction to functional programming in general and the Caml Light
 language in particular.
+
+

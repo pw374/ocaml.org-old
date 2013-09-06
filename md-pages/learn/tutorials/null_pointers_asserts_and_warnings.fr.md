@@ -1,9 +1,5 @@
-Pointeurs nuls, asserts et warnings
-===================================
-
-Pointeurs nuls
---------------
-
+# Pointeurs nuls, asserts et warnings
+## Pointeurs nuls
 Supposons que votre site web dispose d'un sondage, demandant à vos
 lecteurs leurs noms et leurs âges. Le problème, c'est que pour une
 raison quelconque certains de vos lecteurs refusent de donner leur âge -
@@ -26,13 +22,14 @@ L'autre méthode, plus correcte, est de stocker les âges dans un champ de
 type "entier ou NULL". Par exemple, en SQL, la table pour stocker les
 âges ressemblerait à :
 
-    create table users
-    (
-      userid serial,
-      name text not null,
-      age int             -- may be null
-    );
-
+```ocaml
+create table users
+(
+  userid serial,
+  name text not null,
+  age int             -- may be null
+);
+```
 Si l'âge n'est pas connu, c'est la valeur spéciale SQL `NULL` qui est
 enregistrée. SQL ne tient pas compte de ces entrées si on demande à
 calculer la moyenne des âges, etc.
@@ -54,29 +51,31 @@ OCaml propose une solution élégante pour les valeurs nulles, en
 utilisant un simple type variant polymorphique, défini (jusqu'à
 récemment, dans le module `Pervasives`) comme :
 
-    type 'a option = None | Some of 'a
-
+```ocaml
+type 'a option = None | Some of 'a
+```
 Une "valeur nulle" s'écrit `None`. Le type de age dans notre exemple (un
 entier ou la valeur nulle) est `int option` (le type est écrit "à
 l'envers", comme `int list` ou `int binary_tree` dans le chapitre
 précédent).
 
-    # Some 3;;
-    - : int option = Some 3
-
+```ocaml
+# Some 3;;
+- : int option = Some 3
+```
 Une liste d'entiers optionels ?
 
-    # [ None; Some 3; Some 6; None ];;
-    - : int option list = [None; Some 3; Some 6; None]
-
+```ocaml
+# [ None; Some 3; Some 6; None ];;
+- : int option list = [None; Some 3; Some 6; None]
+```
 Et une liste optionelle d'entiers ?
 
-    # Some [1; 2; 3];;
-    - : int list option = Some [1; 2; 3]
-
-Assertions, avertissements, erreurs fatales, et écriture vers stderr
---------------------------------------------------------------------
-
+```ocaml
+# Some [1; 2; 3];;
+- : int list option = Some [1; 2; 3]
+```
+## Assertions, avertissements, erreurs fatales, et écriture vers stderr
 Perl se distingue par un riche ensemble de commandes pour déboguer les
 programmes et gérer les erreurs inattendues, en particulier la
 possibilité d'imprimer l'état de la pile d'appels, de lever et de
@@ -92,9 +91,10 @@ recommandé, tout particulièrement pour les débutants), son effet sera de
 stopper le programme, et d'afficher l'emplacement (nom du fichier,
 numéro de ligne et de colonne) où l'erreur est survenue. Par exemple :
 
-    # assert (Sys.os_type = "Win32");;
-    Exception: Assert_failure ("", 0, 30).
-
+```ocaml
+# assert (Sys.os_type = "Win32");;
+Exception: Assert_failure ("", 0, 30).
+```
 (Bien entendu, cette exception ne sera pas levée sous Win32.)
 
 Vous pouvez utiliser `assert false` pour stopper votre programme dans
@@ -105,12 +105,13 @@ elle aussi, à moins d'être rattrappée, va stopper le programme et
 afficher le message d'erreur fourni. `failwith` est souvent utilisé lors
 du filtrage, comme dans cet exemple réel :
 
-      match Sys.os_type with
-        "Unix" | "Cygwin" ->   (* code omit *)
-      | "Win32" ->             (* code omit *)
-      | "MacOS" ->             (* code omit *)
-      | _ -> failwith "Ce système n'est pas supporté"
-
+```ocaml
+  match Sys.os_type with
+    "Unix" | "Cygwin" ->   (* code omit *)
+  | "Win32" ->             (* code omit *)
+  | "MacOS" ->             (* code omit *)
+  | _ -> failwith "Ce système n'est pas supporté"
+```
 A noter l'utilisation d'un couple de fonctionnalités supplémentaires du
 système de filtrage. L'union de motifs est utilisée pour reconnaître
 `"Unix"` ou `"Cygwin"`, et le motif spécial `_` pour reconnaître
@@ -121,30 +122,33 @@ aversion pour les débogueurs autres que gdb, vous voudrez sûrement faire
 afficher des avertissements par vos fonctions. Voici un exemple (notez
 le code surligné) :
 
+```ocaml
+open Graphics;;
 
-    open Graphics;;
-
-    open_graph " 640x480";;
-    for i = 12 downto 1 do
-      let radius = i * 20 in
-      <em>prerr_endline ("radius is " ^ (string_of_int radius));</em>
-      set_color (if (i mod 2) = 0 then red else yellow);
-      fill_circle 320 240 radius
-    done;;
-    read_line ();;
-
+open_graph " 640x480";;
+for i = 12 downto 1 do
+  let radius = i * 20 in
+  <em>prerr_endline ("radius is " ^ (string_of_int radius));</em>
+  set_color (if (i mod 2) = 0 then red else yellow);
+  fill_circle 320 240 radius
+done;;
+read_line ();;
+```
 Si vous préférez le style `printf` du langage C, essayez plutôt le
 module `Printf` d'OCaml :
 
-    open Graphics;;
-    <em>open Printf;;</em>
+```ocaml
+open Graphics;;
+<em>open Printf;;</em>
 
-    open_graph " 640x480";;
-    for i = 12 downto 1 do
-      let radius = i * 20 in
-      <em>eprintf "radius is %d\n" radius;</em>
+open_graph " 640x480";;
+for i = 12 downto 1 do
+  let radius = i * 20 in
+  <em>eprintf "radius is %d\n" radius;</em>
 
-      set_color (if (i mod 2) = 0 then red else yellow);
-      fill_circle 320 240 radius
-    done;;
-    read_line ();;
+  set_color (if (i mod 2) = 0 then red else yellow);
+  fill_circle 320 240 radius
+done;;
+read_line ();;
+
+```

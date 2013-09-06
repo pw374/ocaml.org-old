@@ -1,6 +1,4 @@
-Une histoire d'OCaml
-====================
-
+# Une histoire d'OCaml
 « Caml » était à l'origine un acronyme pour *Categorical Abstract
 Machine Language*. C'était un jeu de mots sur CAM, la Machine Abstraite
 Catégorique, et ML, la famille de langages de programmation à laquelle
@@ -13,9 +11,7 @@ Huet](http://cristal.inria.fr/~huet/). Son développement a continué dans
 l'équipe [Cristal](http://cristal.inria.fr/), et aujourd'hui dans son
 successeur, [Gallium](http://gallium.inria.fr/).
 
-L'origine
----------
-
+## L'origine
 L'équipe Formel commença à s'intéresser au langage ML en 1980–81. ML
 était le *métalangage* de la version d'Édimbourg de l'assistant de
 preuve LCF, tous deux conçus par [Robin
@@ -38,7 +34,7 @@ types de données algébriques et le filtrage, d'après des idées de
 Milner, que lui-même avait empruntées à Hope, un langage de
 programmation conçu par [Rod Burstall](http://www.dcs.ed.ac.uk/home/rb/)
 et [Dave McQueen](http://people.cs.uchicago.edu/~dbm/). À un certain
-moment, cette implantation fut nommée Le\_ML, appellation qui ne
+moment, cette implantation fut nommée Le_ML, appellation qui ne
 survécut pas. Elle fut utilisée par [Larry
 Paulson](http://www.cl.cam.ac.uk/users/lcp/) pour développer Cambridge
 LCF et par [Mike Gordon](http://www.cl.cam.ac.uk/users/mjcg/) pour la
@@ -49,27 +45,27 @@ Gordon.
 Vers 1984, trois événements nous encouragèrent à prendre une part plus
 grande dans le développement de ML:
 
--   À Édimbourg, [Luca Cardelli](http://lucacardelli.name/) développa
-    une implantation beaucoup plus rapide de ML à l'aide de sa
-    *Functional Abstract Machine (FAM)*. Il conçut également sa propre
-    version du langage, connue à l'époque sous le nom de *Cardelli's
-    ML*.
--   [Robin Milner](http://www.cl.cam.ac.uk/~rm135/) pensait que le
-    moment était venu de proposer une nouvelle définition de ML, de
-    façon à éviter la divergence entre les diverses implantations. Il
-    définit le noyau du langage Standard ML, qui fut ensuite complété
-    par un système de modules conçu par [Dave
-    McQueen](http://people.cs.uchicago.edu/~dbm/).
--   Au même moment, [Pierre-Louis
-    Curien](http://www.pps.jussieu.fr/~curien/) développa un calcul de
-    combinateurs catégoriques, ainsi qu'une correspondance entre
-    lambda-calcul et combinateurs catégoriques, qui, comme le remarqua
-    [Guy Cousineau](http://www.pps.jussieu.fr/~cousinea/), pouvait être
-    vue comme une technique de compilation pour ML. En effet, elle était
-    assez proche de la technique d'implantation originelle du ML
-    d'Édimbourg, mais pouvait être décrite, vérifiée, et optimisée de
-    façon simple. Ceci mena à la définition de la Machine Abstraite
-    Catégorique (CAM).
+* À Édimbourg, [Luca Cardelli](http://lucacardelli.name/) développa
+ une implantation beaucoup plus rapide de ML à l'aide de sa
+ *Functional Abstract Machine (FAM)*. Il conçut également sa propre
+ version du langage, connue à l'époque sous le nom de *Cardelli's
+ ML*.
+* [Robin Milner](http://www.cl.cam.ac.uk/~rm135/) pensait que le
+ moment était venu de proposer une nouvelle définition de ML, de
+ façon à éviter la divergence entre les diverses implantations. Il
+ définit le noyau du langage Standard ML, qui fut ensuite complété
+ par un système de modules conçu par [Dave
+ McQueen](http://people.cs.uchicago.edu/~dbm/).
+* Au même moment, [Pierre-Louis
+ Curien](http://www.pps.jussieu.fr/~curien/) développa un calcul de
+ combinateurs catégoriques, ainsi qu'une correspondance entre
+ lambda-calcul et combinateurs catégoriques, qui, comme le remarqua
+ [Guy Cousineau](http://www.pps.jussieu.fr/~cousinea/), pouvait être
+ vue comme une technique de compilation pour ML. En effet, elle était
+ assez proche de la technique d'implantation originelle du ML
+ d'Édimbourg, mais pouvait être décrite, vérifiée, et optimisée de
+ façon simple. Ceci mena à la définition de la Machine Abstraite
+ Catégorique (CAM).
 
 Ceci poussa [Guy Cousineau](http://www.pps.jussieu.fr/~cousinea/) à
 développer une nouvelle implantation de ML, basée sur la CAM. Cependant,
@@ -91,22 +87,20 @@ d'un langage « standard », qui n'est pas censé évoluer trop rapidement.
 Néanmoins, nous incorporâmes effectivement dans Caml la plupart des
 améliorations apportées par Standard ML vis-à-vis du ML d'Édimbourg.
 
-La première implantation
-------------------------
-
+## La première implantation
 La première implantation de Caml fut publiée en 1987, et développée
 jusqu'en 1992. Elle était principalement l'œuvre d'Ascander Suarez.
 Après le départ d'Ascander en 1988, [Pierre
 Weis](http://cristal.inria.fr/~weis/) et [Michel
 Mauny](http://michel.mauny.net/index.fr.php) continuèrent le
 développement et la maintenance du système. Cette implantation compilait
-Caml vers LLM3, la machine virtuelle du système Le\_Lisp.
+Caml vers LLM3, la machine virtuelle du système Le_Lisp.
 
 [Guy Cousineau](http://www.pps.jussieu.fr/~cousinea/) se souvient
 modestement: « Je dois admettre que lorsque le développement de Caml
 commença, mon expérience de l'implémentation des langages de
 programmation était très limitée. S'appuyer sur la machine abstraite
-LLM3 et sur le système d'allocation et de gestion de mémoire de Le\_Lisp
+LLM3 et sur le système d'allocation et de gestion de mémoire de Le_Lisp
 nous évitait un gros travail, mais ne permettait pas d'atteindre une
 grande efficacité. Le modèle CAM permettait la construction rapide des
 clôtures et un bon partage des environnements mais pénalisait l'accès à
@@ -120,9 +114,7 @@ portabilité et de l'ouverture. Malgré ces inadéquations, dont je suis
 initialement responsable, Ascander, Pierre et Michel ont fait du beau
 travail. »
 
-Caml Light
-----------
-
+## Caml Light
 En 1990 et 1991, [Xavier Leroy](http://cristal.inria.fr/~xleroy/) mit au
 point une implantation totalement nouvelle de Caml, basée sur un
 interprète de code-octets écrit en C. [Damien
@@ -137,9 +129,7 @@ Mauny](http://michel.mauny.net/index.fr.php), faisaient suite à un
 effort de longue haleine de l'équipe Formel pour promouvoir les outils
 de manipulation syntaxique.
 
-Caml Special Light
-------------------
-
+## Caml Special Light
 En 1995, [Xavier Leroy](http://cristal.inria.fr/~xleroy/) publia Caml
 Special Light, qui surpassait Caml Light de plusieurs façons. En premier
 lieu, un compilateur optimisant produisant du code natif est venu
@@ -154,12 +144,12 @@ modules de Standard ML. Ce système de modules fournit de puissants
 mécanismes d'abstraction et de paramétrisation, essentiels pour la
 programmation à grande échelle.
 
-Objective Caml
---------------
-
+## Objective Caml
 Les systèmes de types et l'inférence de types pour la programmation par
 objets sont un domaine actif de recherche depuis le début des années
-1990. [Didier Rémy](http://cristal.inria.fr/~remy/) et ensuite [Jérôme
+
+
+1. [Didier Rémy](http://cristal.inria.fr/~remy/) et ensuite [Jérôme
 Vouillon](http://www.pps.jussieu.fr/~vouillon/) ont conçu un système de
 types élégant et très expressif pour les objets et les classes. Ce
 design fut intégré à et implémenté dans Caml Special Light, donnant
@@ -181,9 +171,7 @@ pendant quelques années dans le dialecte Objective Label. Parmi ceux-ci
 se trouvaient les méthodes polymorphes, les arguments de fonctions
 étiquetés et optionnels, et les variantes polymorphes.
 
-La montée en puissance d'OCaml
-------------------------------
-
+## La montée en puissance d'OCaml
 Depuis la fin des années 1990, OCaml a régulièrement gagné en popularité
 et a attiré une communauté significative d'utilisateurs. En plus de
 programmes complets de haute technicité écrits en OCaml, cette
@@ -196,9 +184,7 @@ initiale de développement d'OCaml travaille toujours activement sur le
 système de base, améliorant sans cesse la qualité de l'implémentation et
 l'adaptant aux architectures et systèmes les plus récents.
 
-Quelques parents proches
-------------------------
-
+## Quelques parents proches
 En plus de ces versions officielles de Caml, il faut mentionner de
 nombreux compilateurs voisins. [Michel
 Mauny](http://michel.mauny.net/index.fr.php) et [Daniel de
@@ -216,11 +202,11 @@ parallèles, tandis que [Luc
 Maranget](http://cristal.inria.fr/~maranget/) a construit Gaml, un
 compilateur pour un langage de programmation fonctionnel paresseux.
 
-Citation finale
----------------
-
+## Citation finale
 En 1996, [Guy Cousineau](http://www.pps.jussieu.fr/~cousinea/) écrivait:
 « L'histoire de Caml aurait certainement pu être plus linéaire.
 Néanmoins, à travers une série de tâtonnements, une capacité à produire
 des implantations de haute performance, portables et flexibles, pour les
 langages de programmation fonctionnels a émergé en France. »
+
+

@@ -1,8 +1,10 @@
+
+
 <div class="container">
     <h1>Platform</h1>
     <div class="row">
         <div id="platform-logo" class="span2">
-            <img src="static/img/ocaml-large.png" alt="OCaml">
+            <img src="/static/img/ocaml-large.png" alt="OCaml">
         </div>
         <section id="platform-leader" class="span7">
             <h1>OCaml Platform</h1>
@@ -129,3 +131,4 @@
         </section>
     </div>
 </div>
+

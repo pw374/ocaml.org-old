@@ -1,9 +1,5 @@
-OCaml and the Web
-=================
-
-Advantages and Disadvantages
-----------------------------
-
+# OCaml and the Web
+## Advantages and Disadvantages
 Like any other language, OCaml can be used to write CGI programs. The
 advantages of using OCaml for CGI scripting are the same a using OCaml
 for programming. The disadvantages are the fact that few CGI libraries
@@ -13,9 +9,7 @@ library](http://ocamlnet.sourceforge.net/ "http://ocamlnet.sourceforge.net/").
 
 More to come...
 
-OCaml as a Scripting Language
------------------------------
-
+## OCaml as a Scripting Language
 It is almost trivial to set up OCaml scripting with Apache. The
 interactive top-level can be set up as a helper program and can
 therefore be used as an impromptu script interpreter.
@@ -35,9 +29,7 @@ Answer: It exists already, and it's called
 as-is (the text is printed when the module is evaluated) or embedded
 into a `render` function that can be called by other modules.
 
-CGI Programming
----------------
-
+## CGI Programming
 For more permanent "deep-web" content, or for actions that need to be
 executed with significant speed (i.e., performing complex calculations),
 scripting may not be the solution. Compilation of scripts into binary
@@ -55,12 +47,12 @@ script.
 [Discuss this
 page](ocaml_and_the_web/discussion.html "ocaml_and_the_web/discussion")
 
-Web Servers and Frameworks
---------------------------
-
+## Web Servers and Frameworks
 The [PPS Computer Science
 Laboratory](http://www.pps.jussieu.fr/ "http://www.pps.jussieu.fr/") has
 created [Ocsigen](http://www.ocsigen.org/ "http://www.ocsigen.org/"), a
 web server and framework written in and for OCaml. The scheme is
 functions registered to a url, with pattern matching allowed on GET
 arguments, among other neat features.
+
+

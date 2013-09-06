@@ -1,13 +1,9 @@
-Garbage Collection
-==================
-
-Garbage collection, reference counting, explicit allocation
------------------------------------------------------------
-
+# Garbage Collection
+## Garbage collection, reference counting, explicit allocation
 As with all modern languages, OCaml provides a garbage collector so that
 you don't need to explicitly allocate and free memory as in C/C++.
 
-As JWZ writes in his ["Java sucks"
+As JWZ writes in his [&quot;Java sucks&quot;
 rant](http://www.jwz.org/doc/java.html "http://www.jwz.org/doc/java.html"):
 
 *First the good stuff: Java doesn't have `free()`. I have to admit right
@@ -51,8 +47,7 @@ infrequently.
 The OCaml GC is synchronous. It doesn't run in a separate thread, and it
 can only get called during an allocation request.
 
-### GC vs. reference counting
-
+###  GC vs. reference counting
 Perl has a form of garbage collection, but it uses a simple scheme
 called **reference counting**. Simply put, each Perl object keeps a
 count of the number of other objects pointing (referencing) itself. When
@@ -64,12 +59,13 @@ computer scientists, yet it has one big practical advantage over full
 garbage collectors. With reference counting, you can avoid many explicit
 calls to `close`/`closedir` in code. For example:
 
-    foreach (@files)
-    {
-      my $io = new IO::File "< $_" or die;
-      # read from $io
-    }
-
+```ocaml
+foreach (@files)
+{
+  my $io = new IO::File "< $_" or die;
+  # read from $io
+}
+```
 This Perl code iterates over a list of `@files`, opening and reading
 each one. There is no need to close the `$io` file handle at the end of
 the loop. Because Perl uses reference counting, as soon as we reach the
@@ -79,11 +75,12 @@ closed).
 
 Consider the equivalent OCaml code:
 
-    let read_file filename =
-      let chan = open_in filename in
-      (* read from chan *) in
-    List.iter read_file files
-
+```ocaml
+let read_file filename =
+  let chan = open_in filename in
+  (* read from chan *) in
+List.iter read_file files
+```
 Calls to `read_file` open the file but don't close it. Because OCaml
 uses a full garbage collector `chan` isn't collected until some time
 later when the minor heap becomes full. In addition, **OCaml will not
@@ -96,68 +93,68 @@ directories or any other heavyweight object with complex finalisation.
 To be fair to full garbage collection, I should mention the
 disadvantages of reference counting schemes:
 
--   Each object needs to store a reference count. In other words there's
-    a word overhead for every object. Programs use more memory, and are
-    consequently slower because they are more likely to fill up the
-    cache or spill into swap.
--   Reference counting is expensive - every time you manipulate pointers
-    to an object you need to update and check the reference count.
-    Pointer manipulation is frequent, so this slows your program and
-    bloats the code size of compiled code.
--   They cannot collect so-called circular, or self-referential
-    structures. I've programmed in many languages in many years and
-    can't recall ever having created one of these.
--   Graph algorithms, of course, violate the previous assumption. Don't
-    try to implement the TSP in Perl!
+* Each object needs to store a reference count. In other words there's
+ a word overhead for every object. Programs use more memory, and are
+ consequently slower because they are more likely to fill up the
+ cache or spill into swap.
+* Reference counting is expensive - every time you manipulate pointers
+ to an object you need to update and check the reference count.
+ Pointer manipulation is frequent, so this slows your program and
+ bloats the code size of compiled code.
+* They cannot collect so-called circular, or self-referential
+ structures. I've programmed in many languages in many years and
+ can't recall ever having created one of these.
+* Graph algorithms, of course, violate the previous assumption. Don't
+ try to implement the TSP in Perl!
 
-The Gc module
--------------
-
+## The Gc module
 The `Gc` module contains some useful functions for querying and calling
 the garbage collector from OCaml programs.
 
 Here is a program which runs and then prints out GC statistics just
 before quitting:
 
-    let rec iterate r x_init i =
-      if i = 1 then x_init
-      else
-        let x = iterate r x_init (i-1) in
-        r *. x *. (1.0 -. x)
+```ocaml
+let rec iterate r x_init i =
+  if i = 1 then x_init
+  else
+    let x = iterate r x_init (i-1) in
+    r *. x *. (1.0 -. x)
 
-    let () =
-      Random.self_init ();
-      Graphics.open_graph " 640x480"
-      for x = 0 to 640 do
-        let r = 4.0 *. (float_of_int x) /. 640.0 in
-        for i = 0 to 39 do
-          let x_init = Random.float 1.0 in
-          let x_final = iterate r x_init 500 in
-          let y = int_of_float (x_final *. 480.) in
-          Graphics.plot x y
-        done
-      done;
-      read_line ();
-      Gc.print_stat stdout
-
+let () =
+  Random.self_init ();
+  Graphics.open_graph " 640x480"
+  for x = 0 to 640 do
+    let r = 4.0 *. (float_of_int x) /. 640.0 in
+    for i = 0 to 39 do
+      let x_init = Random.float 1.0 in
+      let x_final = iterate r x_init 500 in
+      let y = int_of_float (x_final *. 480.) in
+      Graphics.plot x y
+    done
+  done;
+  read_line ();
+  Gc.print_stat stdout
+```
 Here is what it printed out for me:
 
-    minor_words: 115926165          # Total number of words allocated
-    promoted_words: 31217           # Promoted from minor -> major
-    major_words: 31902              # Large objects allocated in major directly
-    minor_collections: 3538         # Number of minor heap collections
-    major_collections: 39           # Number of major heap collections
-    heap_words: 63488               # Size of the heap, in words = approx. 256K
-    heap_chunks: 1
-    top_heap_words: 63488
-    live_words: 2694
-    live_blocks: 733
-    free_words: 60794
-    free_blocks: 4
-    largest_free: 31586
-    fragments: 0
-    compactions: 0
-
+```ocaml
+minor_words: 115926165          # Total number of words allocated
+promoted_words: 31217           # Promoted from minor -> major
+major_words: 31902              # Large objects allocated in major directly
+minor_collections: 3538         # Number of minor heap collections
+major_collections: 39           # Number of major heap collections
+heap_words: 63488               # Size of the heap, in words = approx. 256K
+heap_chunks: 1
+top_heap_words: 63488
+live_words: 2694
+live_blocks: 733
+free_words: 60794
+free_blocks: 4
+largest_free: 31586
+fragments: 0
+compactions: 0
+```
 We can see that minor heap collections are approximately 100 times more
 frequent than major heap collections (in this example, not necessarily
 in general). Over the lifetime of the program, an astonishing 440 MB of
@@ -171,15 +168,14 @@ We can instruct the GC to print out debugging messages when one of
 several events happen (eg. on every major collection). Try adding the
 following code to the example above near the beginning:
 
-    Gc.set { (Gc.get ()) with Gc.verbose = 0x01 }
-
+```ocaml
+Gc.set { (Gc.get ()) with Gc.verbose = 0x01 }
+```
 (We haven't seen the `{ expression with field = value }` form before,
 but it should be mostly obvious what it does). The above code anyway
 causes the GC to print a message at the start of every major collection.
 
-Finalisation and the Weak module
---------------------------------
-
+## Finalisation and the Weak module
 We can write a function called a **finaliser** which is called when an
 object is about to be freed by the GC.
 
@@ -206,11 +202,12 @@ when we hold copies of them in memory.
 The *public* interface to our "in-memory object database cache" is going
 to be just two functions:
 
-    type record = { mutable name : string; mutable address : string }
+```ocaml
+type record = { mutable name : string; mutable address : string }
 
-    val get_record : int -> record
-    val sync_records : unit -> unit
-
+val get_record : int -> record
+val sync_records : unit -> unit
+```
 The `get_record` call is the only call that most programs will need to
 make. It gets the n<sup>th</sup> record either out of the cache or from
 disk and returns it. The program can then read and/or update the
@@ -225,8 +222,9 @@ OCaml doesn't currently run finalisers at exit. However you can easily
 force it to by adding the following command to your code. This command
 causes a full major GC cycle on exit:
 
-    at_exit Gc.full_major
-
+```ocaml
+at_exit Gc.full_major
+```
 Our code is also going to implement a cache of recently accessed records
 using the `Weak` module. The advantage of using the `Weak` module rather
 than hand-rolling our own code is two-fold: Firstly the garbage
@@ -244,60 +242,64 @@ the in-memory copy is written back out to the file, the program must
 release the lock. Here is some code to define the on-disk format and
 some low-level functions to read, write, lock and unlock records:
 
-    open Unix
+```ocaml
+open Unix
 
-    (* On-disk format. *)
-    let record_size = 256
-    let name_size = 64
-    let addr_size = 192
+(* On-disk format. *)
+let record_size = 256
+let name_size = 64
+let addr_size = 192
 
-    (* Low-level load/save records to file. *)
-    let seek_record n fd =
-      lseek fd (n * record_size) SEEK_SET
+(* Low-level load/save records to file. *)
+let seek_record n fd =
+  lseek fd (n * record_size) SEEK_SET
 
-    let write_record record n fd =
-      seek_record n fd;
-      write fd record.name 0 name_size;
-      write fd record.address 0 addr_size
+let write_record record n fd =
+  seek_record n fd;
+  write fd record.name 0 name_size;
+  write fd record.address 0 addr_size
 
-    let read_record record n fd =
-      seek_record n fd;
-      read fd record.name 0 name_size;
-      read fd record.address 0 addr_size
+let read_record record n fd =
+  seek_record n fd;
+  read fd record.name 0 name_size;
+  read fd record.address 0 addr_size
 
-    (* Lock/unlock the nth record in a file. *)
-    let lock_record n fd =
-      seek_record n fd;
-      lockf fd F_LOCK record_size
+(* Lock/unlock the nth record in a file. *)
+let lock_record n fd =
+  seek_record n fd;
+  lockf fd F_LOCK record_size
 
-    let unlock_record n fd =
-      seek_record n fd;
-      lockf fd F_ULOCK record_size
-
+let unlock_record n fd =
+  seek_record n fd;
+  lockf fd F_ULOCK record_size
+```
 We also need a function to create new, empty in-memory `record` objects:
 
-    (* Create a new, empty record. *)
-    let new_record () =
-      { name = (String.make name_size ' ');
-        address = (String.make addr_size ' ') }
-
+```ocaml
+(* Create a new, empty record. *)
+let new_record () =
+  { name = (String.make name_size ' ');
+    address = (String.make addr_size ' ') }
+```
 Because this is a really simple program, we're going to fix the number
 of records in advance:
 
-    (* Total number of records. *)
-    let nr_records = 10000
+```ocaml
+(* Total number of records. *)
+let nr_records = 10000
 
-    (* On-disk file. *)
-    let diskfile = openfile "users.bin" [ O_RDWR ] 0
-
+(* On-disk file. *)
+let diskfile = openfile "users.bin" [ O_RDWR ] 0
+```
 Download [users.bin.gz](../img/users.bin.gz) and decompress it before
 running the program.
 
 Our cache of records is very simple:
 
-    (* Cache of records. *)
-    let cache = Weak.create nr_records
-
+```ocaml
+(* Cache of records. *)
+let cache = Weak.create nr_records
+```
 The `get_record` function is very short and basically composed of two
 halves. We grab the record from the cache. If the cache gives us `None`,
 then that either means that we haven't loaded this record from the cache
@@ -306,29 +308,30 @@ from the cache. If the cache gives us `Some record` then we just return
 `record` (this promotes the weak pointer to the record to a normal
 pointer).
 
-    open Printf
+```ocaml
+open Printf
 
-    (* The finaliser function. *)
-    let finaliser n record =
-      printf "*** objcache: finalising record %d\n" n;
-      write_record record n diskfile;
-      unlock_record n diskfile
+(* The finaliser function. *)
+let finaliser n record =
+  printf "*** objcache: finalising record %d\n" n;
+  write_record record n diskfile;
+  unlock_record n diskfile
 
-    (* Get a record from the cache or off disk. *)
-    let get_record n =
-      match Weak.get cache n with
-      | Some record ->
-          printf "*** objcache: fetching record %d from memory cache\n" n;
-          record
-      | None ->
-          printf "*** objcache: loading record %d from disk\n" n;
-          let record = new_record () in
-          Gc.finalise (finaliser n) record;
-          lock_record n diskfile;
-          read_record record n diskfile;
-          Weak.set cache n (Some record);
-          record
-
+(* Get a record from the cache or off disk. *)
+let get_record n =
+  match Weak.get cache n with
+  | Some record ->
+      printf "*** objcache: fetching record %d from memory cache\n" n;
+      record
+  | None ->
+      printf "*** objcache: loading record %d from disk\n" n;
+      let record = new_record () in
+      Gc.finalise (finaliser n) record;
+      lock_record n diskfile;
+      read_record record n diskfile;
+      Weak.set cache n (Some record);
+      record
+```
 The `sync_records` function is even easier. First of all it empties the
 cache by replacing all the weak pointers with `None`. This now means
 that the garbage collector *can* collect and finalise all of those
@@ -336,36 +339,36 @@ records. But it doesn't necessarily mean that the GC *will* collect the
 records straightaway (in fact it's not likely that it will), so to force
 the GC to collect the records immediately, we also invoke a major cycle:
 
-    (* Synchronise all records. *)
-    let sync_records () =
-      Weak.fill cache 0 nr_records None;
-      Gc.full_major ()
-
+```ocaml
+(* Synchronise all records. *)
+let sync_records () =
+  Weak.fill cache 0 nr_records None;
+  Gc.full_major ()
+```
 Finally we have some test code. I won't reproduce the test code, but you
 can download the complete program and test code
 [objcache.ml](_file/objcache.ml), and compile it with:
 
-    ocamlc -w s unix.cma objcache.ml -o objcache
-
-Exercises
----------
-
+```ocaml
+ocamlc -w s unix.cma objcache.ml -o objcache
+```
+## Exercises
 Here are some ways to extend the example above, in approximately
 increasing order of difficulty:
 
-1.  Implement the record as an **object**, and allow it to transparently
-    pad/unpad strings. You will need to provide methods to set and get
-    the name and address fields (four public methods in all). Hide as
-    much of the implementation (file access, locking) code in the class
-    as possible.
-2.  Extend the program so that it acquires a **read lock** on getting
-    the record, but upgrades this to a **write lock** just before the
-    user updates any field.
-3.  Support a **variable number of records** and add a function to
-    create a new record (in the file). [Tip: OCaml has support for weak
-    hashtables.]
-4.  Add support for **variable-length records**.
-5.  Make the underlying file representation a **DBM-style hash**.
-6.  Provide a general-purpose cache fronting a "users" table in your
-    choice of **relational database** (with locking).
+1. Implement the record as an **object**, and allow it to transparently
+ pad/unpad strings. You will need to provide methods to set and get
+ the name and address fields (four public methods in all). Hide as
+ much of the implementation (file access, locking) code in the class
+ as possible.
+1. Extend the program so that it acquires a **read lock** on getting
+ the record, but upgrades this to a **write lock** just before the
+ user updates any field.
+1. Support a **variable number of records** and add a function to
+ create a new record (in the file). [Tip: OCaml has support for weak
+ hashtables.]
+1. Add support for **variable-length records**.
+1. Make the underlying file representation a **DBM-style hash**.
+1. Provide a general-purpose cache fronting a "users" table in your
+ choice of **relational database** (with locking).
 

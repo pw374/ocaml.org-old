@@ -1,18 +1,16 @@
-Companies
-=========
-
+# Companies
 [Acunu](http://www.acunu.com), United Kindgom.
 
 Acunu is writing, from the ground-up, a Storage and Analytics Platform
 for Massive Data.
 
-[Agence Nationale de la Sécurité des Systèmes d'Information
+[Agence Nationale de la Sécurité des Systèmes d&apos;Information
 (ANSSI)](http://www.ssi.gouv.fr/), France.
 
 The ANSSI core missions are: to detect and react to cyber attacks, to
 prevent threats, to provide advice and support to governmental entities
 and operators of critical infrastructure, and to keep companies and the
-general public informed about information security threats. See [ANSII's
+general public informed about information security threats. See [ANSII&apos;s
 GitHub page](https://github.com/anssi-fr) for some of its OCaml
 software.
 
@@ -79,9 +77,9 @@ niche of intrinsically complicated programs between large-scale,
 array-based programs written in languages such as HPF and small-scale,
 graphical programs written in languages such as Mathematica.
 
-[Framtidsforum I&M](http://www.exceleverywhere.com), Sweden.
+[Framtidsforum I&amp;M](http://www.exceleverywhere.com), Sweden.
 
-Framtidsforum I&M sells ExcelEverywhere, which creates web pages that
+Framtidsforum I&amp;M sells ExcelEverywhere, which creates web pages that
 look and function the same as your MS Excel spreadsheet. JavaScript is
 used for calculation. Supports 140 Excel-functions. Typically used for
 expense report, survey, order forms, reservation forms, employment
@@ -193,10 +191,10 @@ cross compiler is derived from OCaml 4.00.0.
 RunOrg provides non-profits and organizations with a private intranet
 and public website using a SaaS model. The application is written
 entirely in OCaml for two reasons : one is performance, as OCaml
-generates fast binaries and supports elegant optimization patterns.  
+generates fast binaries and supports elegant optimization patterns.<br />
  The other reason is that the flexible and powerful compile-time type
 inference allows massive changes in the code base without causing any
-bugs, effectively acting as a compiler-generated unit testing suite.  
+bugs, effectively acting as a compiler-generated unit testing suite.<br />
  The software is powered by an open source in-house web framework,
 [Ohm](https://github.com/VictorNicollet/Ohm).
 
@@ -244,10 +242,11 @@ Fabrics operates at the forefront of the next generation of embedded
 platforms for diverse markets ranging from supercomputers to automotive
 to cell phones.
 
-#### Disclaimer
-
+####  Disclaimer
 Appearance of a company's name here does not necessarily imply
 endorsement by that company of OCaml or of the descriptions provided
 here. Company representatives should [contact
 us](https://github.com/ocaml/ocaml.org) to have information about their
 company removed, modified, or added.
+
+

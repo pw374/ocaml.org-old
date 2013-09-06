@@ -1,6 +1,4 @@
-Subversion Repository
-=====================
-
+# Subversion Repository
 OCaml is developed using the Subversion (SVN) version control system.
 Public read-only access to our Subversion repository is available. It
 enables advanced users to track changes and bug-fixes in real-time,
@@ -13,20 +11,20 @@ There is also a [read-only mirror on
 GitHub](https://github.com/ocaml/ocaml), which is automatically
 synchronized with the official SVN repository on a regular basis.
 
-Accessing the repository
-------------------------
-
+## Accessing the repository
 The address of the repository is `http://caml.inria.fr/svn`. To check
 out a local, working copy of the sources:
 
-    svn checkout http://caml.inria.fr/svn/dir
-
+```ocaml
+svn checkout http://caml.inria.fr/svn/dir
+```
 where *dir* is the subdirectory of interest (see table below).
 
 To update a local working copy with our latest changes:
 
-    svn update
-
+```ocaml
+svn update
+```
 If you are not familiar with Subversion commands, see the
 [documentation.](http://svnbook.red-bean.com/)
 
@@ -34,8 +32,8 @@ If you do not need a local copy of the sources but just wish to see
 changes and their history, you can also [browse the repository via a Web
 interface.](http://caml.inria.fr/cgi-bin/viewvc.cgi)
 
-Repository structure
---------------------
+## Repository structure
+
 
 <table>
 <thead>

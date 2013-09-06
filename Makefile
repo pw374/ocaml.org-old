@@ -6,7 +6,7 @@ all:html-pages/static
 
 html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp navbar_tpl.mpp
 	if grep -q '*Table of contents*' "$<" ; then omd -otoc -ts 2 "$<" > "$@.toc" ; fi
-	sed -e 's|\*Table of contents\*||g' "$<" | omd > "$@.tmp"
+	sed -e 's|\*Table of contents\*||g' "$<" | omd -r ocaml=ocamltohtml > "$@.tmp"
 	if [ -f "$@.toc" ] ; then \
 	${MPP} -set "page=$@.tmp" -set "toc=$@.toc" < main_tpl.mpp > "$@" ; \
 	rm -f "$@.toc" ; \

@@ -1,3 +1,5 @@
+
+
 <blockquote>
 <p>“OCaml helps us to quickly adapt to changing market conditions, and a go from prototypes to production systems with less effort... Billions of dollars of transactions flow through our systems every day, so getting it right matters.”
 </p>
@@ -6,7 +8,7 @@
 
 <dl class="row">
     <dt class="span3">
-        <img src="static/img/users/monoidics.png" alt="Monoidic">
+        <img src="/static/img/users/monoidics.png" alt="Monoidic">
     </dt>
     <dd class="span5">
         <h2><a href="#">Monoidics</a>, United Kingdom</h2>
@@ -15,7 +17,7 @@
 </dl>
 <dl class="row">
     <dt class="span3">
-        <img src="static/img/users/acunu.png" alt="Acunu">
+        <img src="/static/img/users/acunu.png" alt="Acunu">
     </dt>
     <dd class="span5">
         <h2><a href="#">Acunu</a>, United Kingdom</h2>
@@ -24,7 +26,7 @@
 </dl>
 <dl class="row">
     <dt class="span3">
-        <img src="static/img/users/ashima.png" alt="Ashima Group">
+        <img src="/static/img/users/ashima.png" alt="Ashima Group">
     </dt>
     <dd class="span5">
         <h2><a href="#">Ashima Group</a>, United States</h2>
@@ -33,7 +35,7 @@
 </dl>
 <dl class="row">
     <dt class="span3">
-        <img src="static/img/users/cea.png" alt="CEA">
+        <img src="/static/img/users/cea.png" alt="CEA">
     </dt>
     <dd class="span5">
         <h2><a href="#">CEA</a>, France</h2>
@@ -42,10 +44,12 @@
 </dl>
 <dl class="row">
     <dt class="span3">
-        <img src="static/img/users/citrix.png" alt="Citrix">
+        <img src="/static/img/users/citrix.png" alt="Citrix">
     </dt>
     <dd class="span5">
         <h2><a href="#">Citrix</a>, United Kingdom</h2>
         <p>Citrix uses OCaml in XenServer, a world-class server virtualization system. We also offer a full open-source variant of XenServer called the Xen Cloud Platform, or XCP. Follow along with our OCaml development at <a href="#">github.com/xen-org</a>.</p>
     </dd>
 </dl>
+
+

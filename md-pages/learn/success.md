@@ -1,12 +1,8 @@
-Success Stories
-===============
-
+# Success Stories
 *Table of contents*
 
-Jane Street
------------
-
-[![Jane Street](img/jane-street.jpg)](img/jane-street.jpg)
+## Jane Street
+[<img src='img/jane-street.jpg' alt='Jane Street' />](img/jane-street.jpg)
 
 Jane Street is a quantitative proprietary trading firm with a unique
 focus on technology and collaborative problem solving. Our business
@@ -30,10 +26,8 @@ quality of our code, catching bugs at the earliest possible stage.
 Billions of dollars of transactions flow through our systems every day,
 so getting it right matters.
 
-The Unison File Synchronizer
-----------------------------
-
-[![Screenshot](http://caml.inria.fr/about/successes-images/unison-thumb.jpg "Screenshot of Unison's main window")](http://caml.inria.fr/about/successes-images/unison.jpg)
+## The Unison File Synchronizer
+[<img src='http://caml.inria.fr/about/successes-images/unison-thumb.jpg' alt='Screenshot'  title='Screenshot of Unison&apos;s main window' />](http://caml.inria.fr/about/successes-images/unison.jpg)
 
 [Unison](http://www.cis.upenn.edu/%7Ebcpierce/unison/) is a popular
 file-synchronization tool for Windows and most flavors of Unix. It
@@ -60,10 +54,8 @@ different programmers. In fact, Unison may be unique among large OCaml
 projects in having been *translated* from Java to OCaml midway through
 its development. Moving to OCaml was like a breath of fresh air.”
 
-The MLdonkey peer-to-peer client
---------------------------------
-
-[![Screenshot](http://caml.inria.fr/about/successes-images/mldonkey-thumb.jpg "Screenshot of one of MLdonkey's windows")](http://caml.inria.fr/about/successes-images/mldonkey.jpg)
+## The MLdonkey peer-to-peer client
+[<img src='http://caml.inria.fr/about/successes-images/mldonkey-thumb.jpg' alt='Screenshot'  title='Screenshot of one of MLdonkey&apos;s windows' />](http://caml.inria.fr/about/successes-images/mldonkey.jpg)
 
 [MLdonkey](http://mldonkey.sourceforge.net/Main_Page) is a
 multi-platform multi-networks peer-to-peer client. It was the first
@@ -84,10 +76,8 @@ a daemon, running unattended on the computer, and can be controlled
 remotely using a choice of three different kinds of interfaces: GTK, web
 and telnet.”
 
-LexiFi's Modeling Language for Finance
---------------------------------------
-
-[![Screenshot](http://caml.inria.fr/about/successes-images/lexifi-thumb.png "A report produced by LexiFi software")](http://caml.inria.fr/about/successes-images/lexifi.png)
+## LexiFi's Modeling Language for Finance
+[<img src='http://caml.inria.fr/about/successes-images/lexifi-thumb.png' alt='Screenshot'  title='A report produced by LexiFi software' />](http://caml.inria.fr/about/successes-images/lexifi.png)
 
 Developed by the company [LexiFi](http://www.lexifi.com/), the Modeling
 Language for Finance (MLFi) is the first formal language that accurately
@@ -119,10 +109,8 @@ financial trading and risk management publication. MLFi-based solutions
 are gaining growing acceptance throughout Europe and are contributing to
 spread the use of OCaml in the financial services industry.
 
-The Coq Proof Assistant
------------------------
-
-[![Screenshot](http://caml.inria.fr/about/successes-images/coq-thumb.jpg "Screenshot of Coq's integrated development environment")](http://caml.inria.fr/about/successes-images/coq.jpg)
+## The Coq Proof Assistant
+[<img src='http://caml.inria.fr/about/successes-images/coq-thumb.jpg' alt='Screenshot'  title='Screenshot of Coq&apos;s integrated development environment' />](http://caml.inria.fr/about/successes-images/coq.jpg)
 
 *[Jean-Christophe Filliâtre](http://www.lri.fr/%7Efilliatr/) (CNRS), a
 Coq developer, says:* “The [Coq](http://coq.inria.fr/) tool is a system
@@ -142,15 +130,13 @@ quality: errors such as “segmentation faults” cannot occur during
 execution, which is indispensable for a tool whose primary goal is
 precisely rigor.”
 
-The ASTRÉE Static Analyzer
---------------------------
-
-[![A340](http://caml.inria.fr/about/successes-images/astree.gif "ASTRÉE has been used to certify the Airbus A340 flight control software")](http://www.airbus.com/product/a330_a340_backgrounder.asp)
+## The ASTRÉE Static Analyzer
+[<img src='http://caml.inria.fr/about/successes-images/astree.gif' alt='A340'  title='ASTRÉE has been used to certify the Airbus A340 flight control software' />](http://www.airbus.com/product/a330_a340_backgrounder.asp)
 
 *[David Monniaux](http://www-verimag.imag.fr/~monniaux/) (CNRS), member
 of the ASTRÉE project, says:* “[ASTRÉE](http://www.astree.ens.fr/) is a
-*static analyzer* based on [*abstract
-interpretation*](http://www.di.ens.fr/%7Ecousot/aiintro.shtml) that aims
+*static analyzer* based on [<em>abstract
+interpretation</em>](http://www.di.ens.fr/%7Ecousot/aiintro.shtml) that aims
 at proving the absence of runtime errors in safety-critical software
 written in a subset of the C programming language.”
 
@@ -176,9 +162,7 @@ support for advanced data structures, and type and memory safety. OCaml
 also allows for modular, clear and compact source code and makes it easy
 to work with recursive structures such as syntax trees.”
 
-SLAM
-----
-
+## SLAM
 The [SLAM](http://research.microsoft.com/en-us/projects/slam/) project
 originated in Microsoft Research in early 2000. Its goal was to
 automatically check that a C program correctly uses the interface to an
@@ -197,9 +181,7 @@ T.Ball, B.Cook, V.Levin and S.K.Rajamani, the SLAM developers, write:*
 functional programming language. The expressiveness of this language and
 robustness of its implementation provided a great productivity boost.”
 
-FFTW
-----
-
+## FFTW
 [FFTW](http://www.fftw.org/) is a [very
 fast](http://www.fftw.org/benchfft/) C library for computing Discrete
 Fourier Transforms (DFT). It uses a powerful symbolic optimizer written
@@ -216,12 +198,12 @@ the same program will perform well on most architectures without
 modification. Hence the name, “FFTW,” which stands for the somewhat
 whimsical title of “Fastest Fourier Transform in the West.”
 
-Liquidsoap
-----------
-
+## Liquidsoap
 [Liquidsoap](http://liquidsoap.fm/) is clearly well established in the
 (internet) radio industry. Liquidsoap is well known as a tool with
 unique abilities, and has lots of users including big commercial ones.
 It is not developed as a business, but companies develop services or
 software on top of it. For example, Sourcefabric develops and sells
 Airtime on top of Liquidsoap.
+
+

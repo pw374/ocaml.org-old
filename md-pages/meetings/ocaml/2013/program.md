@@ -1,18 +1,11 @@
-OCaml 2013 - Preliminary Program
---------------------------------
+## OCaml 2013 - Preliminary Program
+###  The OCaml Users and Developers Workshop
+####  Boston (MA, USA), September 24, 2013
+####  Colocated with ICFP 2013
+[Participate](http://icfpconference.org/icfp2013/)<br />
 
-### The OCaml Users and Developers Workshop
-
-#### Boston (MA, USA), September 24, 2013
-
-#### Colocated with ICFP 2013
-
-[Participate](http://icfpconference.org/icfp2013/)  
-
-#### 09:00-09:10 - Welcome
-
-#### 09:10-10:10 - Applications
-
+####  09:00-09:10 - Welcome
+####  09:10-10:10 - Applications
 Accessing and using weather-related data in OCaml, Hezekiah Carty (MDA
 Information Systems LLC, USA)
 
@@ -22,10 +15,8 @@ Project, USA)
 
 Pfff: PHP Program analysis at Facebook, Yoann Padioleau (Facebook, USA)
 
-#### 10:10-10:30 - Break
-
-#### 10:30-11:30 - Bindings
-
+####  10:10-10:30 - Break
+####  10:30-11:30 - Bindings
 The design of the wxOCaml library, Fabrice Le Fessant (INRIA
 Paris-Rocquencourt and OCamlPro SAS, France)
 
@@ -36,10 +27,8 @@ Interfaces, Benjamin Canou (Université Pierre et Marie Curie, LIP6 UMR
 ctypes: foreign calls in your native language, Jeremy Yallop (University
 of Cambridge, UK)
 
-#### 11:30-11:50 - Break
-
-#### 11:50-12:30 - OCaml News
-
+####  11:30-11:50 - Break
+####  11:50-12:30 - OCaml News
 The State of OCaml (invited), Xavier Leroy (INRIA Paris-Rocquencourt,
 France - to be confirmed)
 
@@ -49,10 +38,8 @@ UK), Amir Chaudhry (University of Cambridge, UK), Thomas Gazagnaire
 Philippe Wang (University of Cambridge, UK), Leo White (University of
 Cambridge, UK) and Jeremy Yallop (University of Cambridge, UK)
 
-#### 12:30-14:00 - Lunch
-
-#### 14:00-15:00 - Compilation
-
+####  12:30-14:00 - Lunch
+####  14:00-15:00 - Compilation
 Putting OCaml in Prison: Compartmentalization for OCaml, Prashanth
 Mundkur (SRI International, USA) and Anil Madhavapeddy (University of
 Cambridge, UK)
@@ -66,10 +53,8 @@ France)
 Improving OCaml high level optimisations, Pierre Chambart (OCamlPro SAS,
 France)
 
-#### 15:00-15:20 - Break
-
-#### 15:20-16:20 - Types
-
+####  15:00-15:20 - Break
+####  15:20-16:20 - Types
 A new implementation of OCaml formats based on GADTs, Benoît Vaugon
 (ENSTA-ParisTech, France)
 
@@ -79,10 +64,8 @@ France) and Jacques Garrigue (Nagoya University, Japan)
 On variance, injectivity, and abstraction, Jacques Garrigue (Nagoya
 University, Japan)
 
-#### 16:20-16:40 - Break
-
-#### 16:40-17:40 - Tools
-
+####  16:20-16:40 - Break
+####  16:40-17:40 - Tools
 Ocamlot: OCaml Online Testing, David Sheets (University of Cambridge,
 UK), Anil Madhavapeddy (University of Cambridge, UK), Amir Chaudhry
 (University of Cambridge, UK) and Thomas Gazagnaire (OCamlPro SAS,
@@ -101,4 +84,4 @@ and Thomas Gazagnaire (OCamlPro SAS, France)
 Core bench: micro-benchmarking for OCaml, Christopher Hardin (Jane
 Street Capital, USA) and James Roshan (Jane Street Capital, USA)
 
-#### 17:40 - Closing
+####  17:40 - Closing

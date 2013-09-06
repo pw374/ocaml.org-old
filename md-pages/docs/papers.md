@@ -1,17 +1,12 @@
-A few papers on OCaml
-=====================
-
+# A few papers on OCaml
 *Table of contents*
 
-Language features
------------------
-
-### The core language
-
+## Language features
+###  The core language
 [1]
 
 Andrew K. Wright and Matthias Felleisen. A Syntactic Approach to Type
-Soundness. In Information & Computation, 115(1):38−94, 1994.
+Soundness. In Information &amp; Computation, 115(1):38−94, 1994.
 
 [ [Gzipped
 PostScript](http://www.cs.rice.edu/CS/PLT/Publications/Scheme/ic94-wf.ps.gz)
@@ -49,8 +44,7 @@ at a `let` binding, even when the expression that is being `let`-bound
 is not a value. This relaxed version of Wright's classic “value
 restriction” was introduced in OCaml 3.07.
 
-### Modules
-
+###  Modules
 [4]
 
 Xavier Leroy. Manifest types, modules, and separate compilation. In
@@ -120,8 +114,7 @@ PostScript](http://caml.inria.fr/pub/papers/xleroy-recursive_modules-03.ps.gz)
 This note describes the experimental recursive modules introduced in
 OCaml 3.07.
 
-### Objects
-
+###  Objects
 [8]
 
 Didier Rémy and Jérôme Vouillon. Objective ML: An effective
@@ -142,7 +135,7 @@ layer, including dynamic and static semantics.
 [9]
 
 Jacques Garrigue and Didier Rémy. Extending ML with Semi-Explicit
-Higher-Order Polymorphism. In Information & Computation,
+Higher-Order Polymorphism. In Information &amp; Computation,
 155(1/2):134−169, 1999.
 
 [ [PDF](http://caml.inria.fr/pub/papers/garrigue_remy-poly-ic99.pdf) |
@@ -155,8 +148,7 @@ This paper proposes a device for re-introducing first-class polymorphic
 values into ML while preserving its type inference mechanism. This
 technology underlies OCaml's polymorphic methods.
 
-### Polymorphic variants
-
+###  Polymorphic variants
 [10]
 
 Jacques Garrigue. Programming with polymorphic variants. In ML Workshop,
@@ -213,8 +205,7 @@ This paper provides more details about the technical machinery behind
 polymorphic variants, focusing on the rules for typechecking *deep*
 pattern matching constructs.
 
-### Labeled and optional parameters
-
+###  Labeled and optional parameters
 [14]
 
 Jacques Garrigue. Labeled and optional arguments for Objective Caml. In
@@ -229,11 +220,8 @@ DVI](http://caml.inria.fr/pub/papers/garrigue-labels-ppl01.dvi.gz) ]
 This paper offers a dynamic semantics, a static semantics, and a
 compilation scheme for OCaml's labeled and optional function parameters.
 
-Compilers and runtime system
-----------------------------
-
-### The bytecode compiler and bytecode interpreter
-
+## Compilers and runtime system
+###  The bytecode compiler and bytecode interpreter
 [15]
 
 Xavier Leroy. The ZINC experiment, an economical implementation of the
@@ -249,8 +237,7 @@ out of date, but it is still valuable as a description of the abstract
 machine used in Caml Light and (with some further simplifications and
 speed improvements) in OCaml.
 
-### The native-code compiler
-
+###  The native-code compiler
 [16]
 
 Xavier Leroy. The effectiveness of type-based unboxing. In Workshop on
@@ -263,8 +250,7 @@ PostScript](http://caml.inria.fr/pub/papers/xleroy-unboxing-tic97.ps.gz)
 This paper surveys and compares several data representation strategies,
 including the one used in the OCaml native-code compiler.
 
-### The garbage collector
-
+###  The garbage collector
 [17]
 
 Damien Doligez and Xavier Leroy. A concurrent, generational garbage
@@ -304,3 +290,5 @@ PostScript](http://caml.inria.fr/pub/papers/doligez-these.ps.gz) |
 
 All you ever wanted to know about the garbage collector found in Caml
 Light and OCaml's runtime system.
+
+

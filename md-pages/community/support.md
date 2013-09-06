@@ -1,14 +1,10 @@
-Commercial Support
-==================
-
-Getting Support
----------------
-
+# Commercial Support
+## Getting Support
 A great way to get free support is by using the active [mailing
 lists](mailing_lists.html). When you need to go beyond this and get
 professional support, you have the following options:
 
-[OCamlPro](http://www.ocamlpro.com/)  
+[OCamlPro](http://www.ocamlpro.com/)<br />
 OCamlPro is an INRIA spin-off that provides professional support on
 OCaml for companies. OCamlPro is a team of highly skilled experienced
 OCaml programmers, including members of the OCaml core development team.
@@ -20,7 +16,7 @@ any OCaml related topic, and provide strong expertise to debug and
 optimize OCaml software and support on the OCaml distribution itself.
 OCamlPro is a member of the OCaml Consortium.
 
-[Gerd Stolpmann](http://www.gerd-stolpmann.de/buero/work_ocaml_search.html.en)  
+[Gerd Stolpmann](http://www.gerd-stolpmann.de/buero/work_ocaml_search.html.en)<br />
 Gerd Stolpmann has been helping companies master OCaml since 2005. He is
 an expert of the ecosystem surrounding OCaml and developed the
 [GODI](http://godi.camlcity.org/godi/) platform. Stolpmann is a computer
@@ -31,11 +27,8 @@ programming, SQL databases, client/server, compiler development (e.g.
 for domain-specific languages), and much more. Also visit his [website
 on OCaml](http://camlcity.org).
 
-Giving Support
---------------
-
-### The OCaml Consortium at Inria
-
+## Giving Support
+###  The OCaml Consortium at Inria
 The OCaml Consortium federates the design and development of the OCaml
 language and its programming environment. The Consortium allow its
 members to demonstrate their interest in the OCaml language and express
@@ -48,7 +41,8 @@ contributions can be of 10000€ or higher. Membership is important not
 only for the development of OCaml, its promotion and its dissemination,
 but also for its continuity.
 
-#### Current Members
+####  Current Members
+
 
 <table>
 <tbody>
@@ -75,8 +69,8 @@ but also for its continuity.
 </tbody>
 </table>
 
-#### How to become a member?
 
+####  How to become a member?
 In order to fully understand the Consortium membership, it is advised to
 read the OCaml Consortium membership agreement and its appendices, which
 is online as [PDF](http://caml.inria.fr/consortium/agreement.en.pdf).
@@ -93,8 +87,7 @@ Once the agreement is signed by a representative of your
 company/institution and by a representative of Inria, an invoice will be
 sent to you.
 
-### OCaml Labs
-
+###  OCaml Labs
 The goal of [OCaml Labs](http://www.cl.cam.ac.uk/projects/ocamllabs) is
 to push OCaml and functional programming forward as a platform, making
 it a more effective tool for all users, including significant industrial
@@ -117,17 +110,18 @@ you'd like to discuss making a donation, please contact [Anil
 Madhavapeddy](mailto:anil@recoil.org?subject=Donating%A0to%A0%0AOCaml%A0Labs)
 for more information.
 
-#### Current Funding
-
+####  Current Funding
 OCaml Labs is primarily funded by [Jane Street](http://janestreet.com)
 with a platform grant for the first three years. It is also supported by
-[Citrix Systems R&D](http://www.xen.org/products/cloudxen.html). There
+[Citrix Systems R&amp;D](http://www.xen.org/products/cloudxen.html). There
 are also several research grants associated with OCamlLabs:
 
--   RCUK [Horizon Digital Economy Research](http://www.horizon.ac.uk)
-    Hub grant,
-    [EP/G065802/1](http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/G065802/1).
--   EU FP7 [Trilogy2](http://trilogy2.eu) project.
+* RCUK [Horizon Digital Economy Research](http://www.horizon.ac.uk)
+ Hub grant,
+ [EP/G065802/1](http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/G065802/1).
+* EU FP7 [Trilogy2](http://trilogy2.eu) project.
+
+
 
 <table>
 <tbody>

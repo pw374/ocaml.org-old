@@ -1,12 +1,8 @@
-Quelques succès
-===============
-
+# Quelques succès
 *Contenu*
 
-Le synchroniseur de fichiers Unison
------------------------------------
-
-[![Screenshot](http://caml.inria.fr/about/successes-images/unison-thumb.jpg "Screenshot of Unison's main window")](http://caml.inria.fr/about/successes-images/unison.jpg)
+## Le synchroniseur de fichiers Unison
+[<img src='http://caml.inria.fr/about/successes-images/unison-thumb.jpg' alt='Screenshot'  title='Screenshot of Unison&apos;s main window' />](http://caml.inria.fr/about/successes-images/unison.jpg)
 
 [Unison](http://www.cis.upenn.edu/%7Ebcpierce/unison/) est un outil de
 synchronisation de fichiers populaire, qui fonctionne sous Windows et
@@ -38,10 +34,8 @@ unique parmi les projets de grande taille écrits en OCaml, d'avoir été
 *traduit* de Java vers OCaml à mi-chemin au cours de son développement.
 L'adoption d'OCaml a été comme une bouffée d'air pur. »
 
-Le client pair-à-pair MLdonkey
-------------------------------
-
-[![Screenshot](http://caml.inria.fr/about/successes-images/mldonkey-thumb.jpg "Screenshot of one of MLdonkey's windows")](http://caml.inria.fr/about/successes-images/mldonkey.jpg)
+## Le client pair-à-pair MLdonkey
+[<img src='http://caml.inria.fr/about/successes-images/mldonkey-thumb.jpg' alt='Screenshot'  title='Screenshot of one of MLdonkey&apos;s windows' />](http://caml.inria.fr/about/successes-images/mldonkey.jpg)
 
 [MLdonkey](http://mldonkey.sourceforge.net/Main_Page) est un client
 pair-à-pair multi-plateformes et multi-réseaux. Il a été le premier
@@ -64,10 +58,8 @@ se connecter à plusieurs réseaux pair-à-pair pour télécharger et
 tâche de fond et sans surveillance humaine, et peut être contrôlé à
 l'aide d'une interface au choix parmi trois : GTK, web et telnet. »
 
-Le Langage de Modélisation Financière de LexiFi
------------------------------------------------
-
-[![Screenshot](http://caml.inria.fr/about/successes-images/lexifi-thumb.png "A report produced by LexiFi software")](http://caml.inria.fr/about/successes-images/lexifi.png)
+## Le Langage de Modélisation Financière de LexiFi
+[<img src='http://caml.inria.fr/about/successes-images/lexifi-thumb.png' alt='Screenshot'  title='A report produced by LexiFi software' />](http://caml.inria.fr/about/successes-images/lexifi.png)
 
 Développé par la société [LexiFi](http://www.lexifi.com/), le Langage de
 Modélisation Financière (MLFi) est le premier langage formel capable de
@@ -103,9 +95,7 @@ financiers et de la gestion des risques. Les solutions basées sur MLFi
 gagnent en reconnaissance à travers l'Europe et contribuent à répandre
 l'utilisation d'OCaml dans l'industrie des services financiers.
 
-Le système de communication distribuée Ensemble
------------------------------------------------
-
+## Le système de communication distribuée Ensemble
 *Ohad Rodeh (IBM Haifa), un des développeurs d'Ensemble :*
 « [Ensemble](http://dsl.cs.technion.ac.il/projects/Ensemble/) est un
 système de communication de groupe écrit en OCaml, développé à Cornell
@@ -124,10 +114,8 @@ algébriques, la récupération automatique de la mémoire et
 l'environnement d'exécution sont les principales raisons de notre
 intérêt pour OCaml. »
 
-L'assistant de preuve Coq
--------------------------
-
-[![Screenshot](http://caml.inria.fr/about/successes-images/coq-thumb.jpg "Screenshot of Coq's integrated development environment")](http://caml.inria.fr/about/successes-images/coq.jpg)
+## L'assistant de preuve Coq
+[<img src='http://caml.inria.fr/about/successes-images/coq-thumb.jpg' alt='Screenshot'  title='Screenshot of Coq&apos;s integrated development environment' />](http://caml.inria.fr/about/successes-images/coq.jpg)
 
 *[Jean-Christophe Filliâtre](http://www.lri.fr/%7Efilliatr/) (CNRS), un
 des développeurs de Coq :* « L'outil [Coq](http://coq.inria.fr/) est un
@@ -147,14 +135,12 @@ le typage fort de OCaml assure de fait une grande qualité au code de Coq
 fault »), ce qui est indispensable à un outil dont le but premier est
 justement la rigueur. »
 
-L'analyseur statique ASTRÉE
----------------------------
-
-[![A340](http://caml.inria.fr/about/successes-images/astree.gif "ASTRÉE has been used to certify the Airbus A340 flight control software")](http://www.airbus.com/product/a330_a340_backgrounder.asp)
+## L'analyseur statique ASTRÉE
+[<img src='http://caml.inria.fr/about/successes-images/astree.gif' alt='A340'  title='ASTRÉE has been used to certify the Airbus A340 flight control software' />](http://www.airbus.com/product/a330_a340_backgrounder.asp)
 
 *[David Monniaux](http://www-verimag.imag.fr/~monniaux/) (CNRS), membre
 du projet ASTRÉE :* « [ASTRÉE](http://www.astree.ens.fr/) est un
-*analyseur statique* basé sur [l'interprétation
+*analyseur statique* basé sur [l&apos;interprétation
 abstraite](http://www.di.ens.fr/%7Ecousot/aiintro.shtml) et qui vise à
 établir l'absence d'erreurs d'exécution dans des logiciels critiques
 écrits dans un sous-ensemble du langage C. »
@@ -185,9 +171,7 @@ OCaml permet également d'organiser le code source de façon modulaire,
 claire et compacte, et facilite la gestion de structures de données
 récursives comme les arbres de syntaxe abstraite. »
 
-SLAM
-----
-
+## SLAM
 Le projet [SLAM](http://research.microsoft.com/en-us/projects/slam/) a
 débuté à Microsoft Research début 2000. Son but était de vérifier
 automatiquement qu'un programme C utilise correctement l'interface d'une
@@ -209,9 +193,7 @@ OCaml functional programming language. The expressiveness of this
 language and robustness of its implementation provided a great
 productivity boost.”
 
-FFTW
-----
-
+## FFTW
 [FFTW](http://www.fftw.org/) est une librairie C [très
 rapide](http://www.fftw.org/benchfft/) permettant d'effectuer des
 Transformées de Fourier Discrètes (DFT). Elle emploie un puissant
@@ -229,3 +211,5 @@ différence de ce code propriétaire, cependant, les performances de FFTW
 sont portables : un même programme donnera de bons résultats sur la
 plupart des architectures sans modification. D'où le nom « FFTW, » qui
 signifie « Fastest Fourier Transform in the West. »
+
+

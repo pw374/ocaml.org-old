@@ -2,12 +2,8 @@ Null Pointers, Asserts and Warnings
 
 *Table of contents*
 
-Null Pointers, Asserts and Warnings
-===================================
-
-Null pointers
--------------
-
+# Null Pointers, Asserts and Warnings
+## Null pointers
 So you've got a survey on your website which asks your readers for their
 names and ages. Only problem is that for some reason a few of your
 readers don't want to give you their age - they stubbornly refuse to
@@ -27,13 +23,14 @@ the long words and use primary colours everywhere.
 The other, correct method is to store the age in a field which has type
 "int or null". Here's a SQL table for storing ages:
 
-    create table users
-    (
-      userid serial,
-      name text not null,
-      age int             -- may be null
-    );
-
+```ocaml
+create table users
+(
+  userid serial,
+  name text not null,
+  age int             -- may be null
+);
+```
 If the age data isn't collected, then it goes into the database as a
 special SQL `NULL` value. SQL ignores this automatically when you ask it
 to compute averages and so on.
@@ -52,25 +49,27 @@ be null, you'd have to first box it up into an object allocated by
 OCaml has an elegant solution to the problem of nulls, using a simple
 polymorphic variant type defined (in `Pervasives`) as:
 
-      type 'a option = None | Some of 'a
-
+```ocaml
+  type 'a option = None | Some of 'a
+```
 A "null pointer" is written `None`. The type of age in our example above
 (an `int` which can be null) is `int option` [remember: backwards like
 `int list` and `int binary_tree`].
 
-      Some 3
-
+```ocaml
+  Some 3
+```
 What about a list of optional ints?
 
-      [ None; Some 3; Some 6; None ]
-
+```ocaml
+  [ None; Some 3; Some 6; None ]
+```
 And what about an optional list of ints?
 
-      Some [1; 2; 3]
-
-Assert, warnings, fatal errors, and printing to stderr
-------------------------------------------------------
-
+```ocaml
+  Some [1; 2; 3]
+```
+## Assert, warnings, fatal errors, and printing to stderr
 One great feature of Perl is the rich set of commands for debugging
 programs and handling unexpected errors, including the ability to print
 stack traces, throw and catch exceptions and the like. OCaml doesn't
@@ -84,8 +83,9 @@ unwise to catch this exception, particularly for beginners), this
 results in the program stopping and printing out the source file and
 line number where the error occurred. An example:
 
-      assert (Sys.os_type = "Win32")
-
+```ocaml
+  assert (Sys.os_type = "Win32")
+```
 (Running this on Win32, of course, won't throw an error).
 
 You can also just call `assert false` to stop your program if things
@@ -96,12 +96,13 @@ assuming you don't try to catch it, will stop the program with the given
 error message. `failwith` is often used during pattern matching, like
 this real example:
 
-    match Sys.os_type with
-    | "Unix" | "Cygwin" ->   (* code omitted *)
-    | "Win32" ->             (* code omitted *)
-    | "MacOS" ->             (* code omitted *)
-    | _ -> failwith "this system is not supported"
-
+```ocaml
+match Sys.os_type with
+| "Unix" | "Cygwin" ->   (* code omitted *)
+| "Win32" ->             (* code omitted *)
+| "MacOS" ->             (* code omitted *)
+| _ -> failwith "this system is not supported"
+```
 Note a couple of extra pattern matching features in this example too. A
 so-called "range pattern" is used to match either `"Unix"` or
 `"Cygwin"`, and the special `_` pattern which matches "anything else".
@@ -110,30 +111,34 @@ If you want to debug your program, but, like me, you have an aversion to
 debuggers which aren't gdb, then you'll probably want to print out a
 warning some way through your function. Here's an example:
 
-    open Graphics
+```ocaml
+open Graphics
 
-    let () =
-      open_graph " 640x480";
-      for i = 12 downto 1 do
-        let radius = i * 20 in
-        prerr_endline ("radius is " ^ string_of_int radius);
-        set_color (if i mod 2 = 0 then red else yellow);
-        fill_circle 320 240 radius
-      done;
-      read_line ()
-
+let () =
+  open_graph " 640x480";
+  for i = 12 downto 1 do
+    let radius = i * 20 in
+    prerr_endline ("radius is " ^ string_of_int radius);
+    set_color (if i mod 2 = 0 then red else yellow);
+    fill_circle 320 240 radius
+  done;
+  read_line ()
+```
 If you prefer C-style `printf`'s then try using OCaml's `Printf` module
 instead:
 
-    open Graphics
-    open Printf
+```ocaml
+open Graphics
+open Printf
 
-    let () =
-      open_graph " 640x480";
-      for i = 12 downto 1 do
-        let radius = i * 20 in
-        eprintf "radius is %d\n" radius;
-        set_color (if i mod 2 = 0 then red else yellow);
-        fill_circle 320 240 radius
-      done;
-      read_line ()
+let () =
+  open_graph " 640x480";
+  for i = 12 downto 1 do
+    let radius = i * 20 in
+    eprintf "radius is %d\n" radius;
+    set_color (if i mod 2 = 0 then red else yellow);
+    fill_circle 320 240 radius
+  done;
+  read_line ()
+
+```
