@@ -43,5 +43,9 @@ done
 while read i
 do
     echo "<li><a href='$i'>$i</a></li>"
-done > list.html)
+done > ../md-pages/list.md
+cd ..
+make html-pages/list.html
+rm -f md-pages/list.md
+)
 
