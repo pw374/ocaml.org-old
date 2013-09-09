@@ -103,7 +103,7 @@
     <li><a href='#'>Types</a></li>
     <li><a href='#'>Values</a></li>
 </ul>
-{{! cat packages/core_list-doc.html !}}
+{{! cat md-pages/packages/core_list-doc.html !}}
             </div>
 
         </div>
