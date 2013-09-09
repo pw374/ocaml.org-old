@@ -39,3 +39,9 @@ do
     mpp -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -its < "$i" > "$target"
 done
 
+(cd html-pages && find . -name '*.html' | sed -e 's|./|/|' |
+while read i
+do
+    echo "<li><a href='$i'>$i</a></li>"
+done > list.html)
+
