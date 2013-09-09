@@ -2,7 +2,7 @@
 *Table of contents*
 
 ## Jane Street
-[<img src='img/jane-street.jpg' alt='Jane Street' />](img/jane-street.jpg)
+[<img src='/img/jane-street.jpg' alt='Jane Street' />](img/jane-street.jpg)
 
 Jane Street is a quantitative proprietary trading firm with a unique
 focus on technology and collaborative problem solving. Our business
