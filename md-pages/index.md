@@ -1,52 +1,4 @@
-
-<!DOCTYPE HTML>
-<html>
-    <head>
-
-        <meta charset="utf-8" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-        <title>OCaml</title>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <!-- Google Web Fonts -->
-        <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet">
-
-        <!-- Only part of Bootstrap that we don't load from a CDN is our own customized CSS build. -->
-        <link href="./static/css/bootstrap.css" rel="stylesheet" media="screen">
-        
-        <!--[if lt IE 9]>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-        <![endif]-->
-
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" href="#"><img src="./static/img/ocaml.png" alt="OCaml"></a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                          <li><a href="/learn/">Learn</a></li>
-                          <li><a href="/docs/">Documentation</a></li>
-                          <li><a href="/platform.html">Platform</a></li>
-                          <li><a href="menu.html">Packages</a></li>
-                          <li><a href="/community/">Community</a></li>
-                        </ul>
-                        <form class="navbar-search pull-right">
-                            <input class="search-query" type="text" placeholder="Search">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </nav>
+<!-- ((! set core !)) -->
 <header id="home-header">
     <div class="container">
         <div class="row">
@@ -81,8 +33,7 @@
             <div class="row">
                 <section class="span4 home-feature">
                     <a href="platform.html">
-                        <img src="/static/img/platform-large.png" alt="Platform">
-                    </a>
+                        <img src="/static/img/platform-large.png" alt="Platform">                    </a>
                     <h1><a href="#">Platform</a></h1>
                     <p>Lorem ipsum dolor sit amet, septum consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
                 </section>
@@ -239,13 +190,8 @@ let has_even_leaf tree =
                 <td><a href="#">0.0.1</a></td>
                 <td><a href="#">9:00  12 Feb 2013</a></td>
             </tr>
-
     </tbody>
 </table>
         </section>
     </div>
 </div>
-
-
-</body>
-</html>
