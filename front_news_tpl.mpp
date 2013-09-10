@@ -1,0 +1,47 @@
+            <ul class="news-feed">
+                <li class="announcement">
+                    <article>
+                        <h1><a href="#">OCaml Platform v0.1 available</a></h1>
+                        <p>13 March 2013</p>
+                        <a href="#">
+                            <img src="/static/img/announcement.png" alt="Announcement">
+                        </a>
+                    </article>
+                </li>
+                    <li>
+                        <article>
+                            <h1><a href="#">First release of PPrint</a></h1>
+                            <p>08 February 2013</p>
+                            <a href="#">
+                                <img src="/static/img/news.png" alt="News">
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <h1><a href="#">First release of PPrint</a></h1>
+                            <p>08 February 2013</p>
+                            <a href="#">
+                                <img src="/static/img/news.png" alt="News">
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <h1><a href="#">First release of PPrint</a></h1>
+                            <p>08 February 2013</p>
+                            <a href="#">
+                                <img src="/static/img/news.png" alt="News">
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <h1><a href="#">First release of PPrint</a></h1>
+                            <p>08 February 2013</p>
+                            <a href="#">
+                                <img src="/static/img/news.png" alt="News">
+                            </a>
+                        </article>
+                    </li>
+            </ul>

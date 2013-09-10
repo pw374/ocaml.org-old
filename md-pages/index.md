@@ -5,7 +5,7 @@
             <h1 class="span9">OCaml is an industrial strength programming language supporting functional, imperative and object-oriented styles</h1>
             <div class="span3">
                 <div>
-                    <a class="btn" href="#">Download OCaml</a>
+                    <a class="btn" href="/platform">Download OCaml</a>
                 </div>
             </div>
         </div>
@@ -16,33 +16,33 @@
         <div class="span8">
             <div class="row">
                 <section class="span4 home-feature">
-                    <a href="#">
+                    <a href="/learn">
                         <img src="/static/img/learn-large.png" alt="Learn">
                     </a>
-                    <h1><a href="menu.html">Learn</a></h1>
-                    <p>Lorem ipsum dolor sit amet, septum consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                    <h1><a href="/learn">Learn</a></h1>
+                    <p>Find out <a href="/learn/description.html">about OCaml</a>, read about <a href="/learn/success.html">users</a>, see <a href="learn/taste.html">code examples</a> and <a href="/learn">more</a>.</p>
                 </section>
                 <section class="span4 home-feature">
-                    <a href="documentation.html">
+                    <a href="/docs">
                         <img src="/static/img/documentation-large.png" alt="Documentation">
                     </a>
-                    <h1><a href="#">Documentation</a></h1>
-                    <p>Lorem ipsum dolor sit amet, septum consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                    <h1><a href="/docs">Documentation</a></h1>
+                    <p>Look up <a href="#">package docs</a>, access the <a href="#">Manual</a>, get the <a href="/docs/cheat-sheets.md">cheat sheets</a> and <a href="/docs">more</a>.</p>
                 </section>
             </div>
             <div class="row">
                 <section class="span4 home-feature">
-                    <a href="platform.html">
+                    <a href="/platform">
                         <img src="/static/img/platform-large.png" alt="Platform">                    </a>
-                    <h1><a href="#">Platform</a></h1>
-                    <p>Lorem ipsum dolor sit amet, septum consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                    <h1><a href="/platform">Platform</a></h1>
+                    <p>The best way to get started for newcomers and a flexible base for experienced users.</p>
                 </section>
                 <section class="span4 home-feature">
-                    <a href="menu.html">
+                    <a href="/community">
                         <img src="/static/img/community-large.png" alt="Community">
                     </a>
-                    <h1><a href="#">Community</a></h1>
-                    <p>Lorem ipsum dolor sit amet, septum consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                    <h1><a href="/community">Community</a></h1>
+                    <p>Read the <a href="/community/planet.html">news feed</a>, join the <a href="/community/mailing_lists.html">mailing lists</a>, get <a href="/community/support.html">support</a> and find OCaml <a href="/community">around the web</a>.</p>
                 </section>
             </div>
             <div id="home-learn">
@@ -54,144 +54,25 @@
         </div>
         <section id="home-news" class="span4 condensed">
             <h1 class="ruled">
-                <a href="#">
+                <a href="/community/planet.html">
                     News
                 </a>
-                <a href="#">
+                <a href="/community/planet.html">
                     <img src="/static/img/rss.png" alt="RSS">
                 </a>
             </h1>
-            <ul class="news-feed">
-                <li class="announcement">
-                    <article>
-                        <h1><a href="#">OCaml Platform v0.1 available</a></h1>
-                        <p>13 March 2013</p>
-                        <a href="#">
-                            <img src="/static/img/announcement.png" alt="Announcement">
-                        </a>
-                    </article>
-                </li>
-                    <li>
-                        <article>
-                            <h1><a href="#">First release of PPrint</a></h1>
-                            <p>08 February 2013</p>
-                            <a href="#">
-                                <img src="/static/img/news.png" alt="News">
-                            </a>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h1><a href="#">First release of PPrint</a></h1>
-                            <p>08 February 2013</p>
-                            <a href="#">
-                                <img src="/static/img/news.png" alt="News">
-                            </a>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h1><a href="#">First release of PPrint</a></h1>
-                            <p>08 February 2013</p>
-                            <a href="#">
-                                <img src="/static/img/news.png" alt="News">
-                            </a>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h1><a href="#">First release of PPrint</a></h1>
-                            <p>08 February 2013</p>
-                            <a href="#">
-                                <img src="/static/img/news.png" alt="News">
-                            </a>
-                        </article>
-                    </li>
-            </ul>
-            <p><a href="#">More...</a></p>
+            ((! input news_tpl.mpp !))
+            <p><a href="/community/planet.html">More...</a></p>
         </section>
     </div>
     <div class="row">
         <section class="span6 condensed">
             <h1>A taste of OCaml</h1>
-<pre class="listing"><code>(* Binary tree with leaves carrying an integer. *)
-type tree = Leaf of int | Node of tree * tree
-
-let rec exists_leaf test tree =
-  match tree with
-  | Leaf v -&gt; test v
-  | Node (left, right) -&gt;
-      exists_leaf test left
-      || exists_leaf test right
-
-let has_even_leaf tree =
-  exists_leaf (fun n -&gt; n mod 2 = 0) tree</code></pre>
+            ((! input front_code_snippet_tpl.mpp !))
         </section>
         <section class="span6 condensed">
             <h1>Packages</h1>
-<ul class="nav nav-tabs">
-    <li class="active">
-        <a href="#">Recent updates</a>
-    </li>
-    <li><a href="#">Most popular</a></li>
-    <li><a href="#">Statistics</a></li>
-</ul>
-<table class="table table-bordered table-condensed table-hover">
-    <thead>
-        <tr>
-            <th>Package</th>
-            <th>Author</th>
-            <th>Category</th>
-            <th>Version</th>
-            <th>Date</th>
-        </tr>
-    </thead>
-    <tbody>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-    </tbody>
-</table>
+            ((! input front_package_tpl.mpp !))
         </section>
     </div>
 </div>
