@@ -15,14 +15,14 @@ synchronized with the official SVN repository on a regular basis.
 The address of the repository is `http://caml.inria.fr/svn`. To check
 out a local, working copy of the sources:
 
-```ocaml
+```
 svn checkout http://caml.inria.fr/svn/dir
 ```
 where *dir* is the subdirectory of interest (see table below).
 
 To update a local working copy with our latest changes:
 
-```ocaml
+```
 svn update
 ```
 If you are not familiar with Subversion commands, see the
