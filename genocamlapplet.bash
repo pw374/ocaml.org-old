@@ -8,7 +8,7 @@ function hash() {
     cat | (md5 || md5sum) | sed -e 's| ./*||g'
 }
 
-echo -n "<script>val ml$(hash < $tmpfile.ml) = '$(./htmlescape < $tmpfile.ml)';</script>" > $tmpfile.html
+echo -n "<script>ml$(hash < $tmpfile.ml) = '$(./htmlescape < $tmpfile.ml)';</script>" > $tmpfile.html
 
 if which -s ocamltohtml
 then
