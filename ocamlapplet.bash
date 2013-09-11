@@ -17,7 +17,7 @@ function hash() {
     cat | (md5 || md5sum) | sed -e 's| ./*||g'
 }
 
-echo -n "<script>ml$(id "$1") = '$(./htmlescape < $tmpfile.ml)'; function copytoclipboard(s){}</script><span style='position:relative;top:-1em;'><span onclick='alert(\"not yet implemented\")'>[try]</span><span onclick='alert(\"not yet implemented\")'>[copy]</span><span onclick='alert(\"not yet implemented\")'>[github]</span></span>" > $tmpfile.html
+echo -n "<script>ml$(id "$1") = '$(./htmlescape < $tmpfile.ml)'; function copytoclipboard(s){}</script><span style='position:relative;top:-1em;' onclick='alert(\"not yet implemented\")'>[try]</span><span style='position:relative;top:-1em;' onclick='alert(\"not yet implemented\")'>[copy]</span><span style='position:relative;top:-1em;' onclick='alert(\"not yet implemented\")'>[github]</span>" > $tmpfile.html
 
 if which -s ocamltohtml
 then
