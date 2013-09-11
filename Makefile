@@ -4,9 +4,9 @@ MPP = mpp ${MPP_OPTIONS}
 all:html-pages/static
 	bash gen.bash md-pages
 
-html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp navbar_tpl.mpp htmlescape genocamlapplet.bash ocamltohtml_all.ml
+html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp navbar_tpl.mpp htmlescape ocamlapplet.bash ocamltohtml_all.ml
 	if grep -q '*Table of contents*' "$<" ; then omd -otoc -ts 2 "$<" > "$@.toc" ; fi
-	sed -e 's|\*Table of contents\*||g' "$<" | omd -r ocaml=./genocamlapplet.bash > "$@.tmp"
+	sed -e 's|\*Table of contents\*||g' "$<" | omd -r ocaml=./ocamlapplet.bash > "$@.tmp"
 	if [ -f "$@.toc" ] ; then \
 	${MPP} -set "page=$@.tmp" -set "toc=$@.toc" < main_tpl.mpp > "$@" ; \
 	rm -f "$@.toc" ; \
