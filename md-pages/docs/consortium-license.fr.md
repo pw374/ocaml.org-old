@@ -1,5 +1,5 @@
 # The OCaml License for Consortium Members
-```ocaml
+```text
 Copyright (c) 1996, 1997, 1998, 1999, 2000, 2001, 2002, INRIA
 
 Permission is hereby granted, free of charge, to the Licensee
