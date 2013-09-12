@@ -14,6 +14,29 @@
     <!--[if lt IE 9]>
         <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+      function octry(x){
+      if(document.getElementById('buttons').innerHTML=='') {
+      t = document.getElementById('tryocaml');
+      js = document.createElement("script"); js.type = "text/javascript"; js.src = "/try-ocaml.js";
+      t.appendChild(js);
+      } else {
+      t = document.getElementById('tryocaml');
+      t.style.display = 'block';
+      p=document.getElementsByTagName('pre')
+      for(i=0;p[i];i++){
+      p.onClick=function () {}
+      }
+      p=document.getElementsByTagName('code')
+      for(i=0;p[i];i++){
+      p.onClick=function () {}
+      }
+      document.getElementById('console').value = x;
+      document.getElementById('console').focus();
+      document.getElementById('console').select();
+      }
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -50,5 +73,6 @@
     <!-- Load javascript from CDN -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script>octry('')</script>
   </body>
 </html>

@@ -9,7 +9,7 @@ function id () {
     fi
 }
 
-tmpfile=$(date +tmp%Y%m%d%H%M%S%N)_$RANDOM$RANDOM$RANDOM
+tmpfile=$(date +tmp%Y%m%d%H%M%S%N)$RANDOM
 
 cat > $tmpfile.ml
 
@@ -23,7 +23,8 @@ then
 else
     ./ocamltohtml < $tmpfile.ml > $tmpfile.html
 fi
-echo -n "<script>ml$(id "$1") = '$(./htmlescape < $tmpfile.ml)';</script><span style='position:relative;bottom:-1em;font-size:80%;'><span onclick='alert(\"not yet implemented\")'>[try]</span><span onclick='alert(\"not yet implemented\")'>[copy]</span><span onclick='alert(\"not yet implemented\")'>[github]</span></span>" >> $tmpfile.html
+e="$(./htmlescape < $tmpfile.ml)"
+echo -n "<a href=\"javascript:octry('$e');\">[try]</a>" >> $tmpfile.html
 
 cat $tmpfile.html
 

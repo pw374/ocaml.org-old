@@ -4,7 +4,10 @@ MPP = mpp ${MPP_OPTIONS}
 all:html-pages/static
 	bash gen.bash md-pages
 
-html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp navbar_tpl.mpp htmlescape ocamlapplet.bash ocamltohtml_all.ml
+html-pages/try-ocaml.js:try-ocaml.js
+	cp try-ocaml.js html-pages/
+
+html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp navbar_tpl.mpp htmlescape ocamlapplet.bash ocamltohtml_all.ml html-pages/try-ocaml.js
 	if grep -q '*Table of contents*' "$<" ; then omd -otoc -ts 2 "$<" > "$@.toc" ; fi
 	sed -e 's|\*Table of contents\*||g' "$<" | omd -r ocaml=./ocamlapplet.bash > "$@.tmp"
 	if [ -f "$@.toc" ] ; then \
@@ -13,7 +16,9 @@ html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp navbar_tpl.mpp htmlescape 
 	else \
 	${MPP} -set "page=$@.tmp" < main_tpl.mpp > "$@" ; \
 	fi
-	rm "$@.tmp"
+#	temporary hack for tryocaml to work:
+	sed -e 's|<pre><code |<pre |g' -e 's|</code></pre>|</pre>|g' "$@" > "$@.tmp"
+	mv "$@.tmp" "$@"
 
 html-pages/img:skin/img
 	rm -fr "$@"
