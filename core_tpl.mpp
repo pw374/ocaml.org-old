@@ -10,6 +10,7 @@
           </nav>
         </div>
 x!}}
+{{!x ifdef tryocaml
         <div id="content-primary" class="span8">
     <div id='tryocaml' class="content" style='display:none;'>
       <div class="container">
@@ -34,6 +35,7 @@ x!}}
         </div>
       </div>
     </div>
+x!}}
 
           <div id='main-contents' class="content">
             {{! get contents !}}
