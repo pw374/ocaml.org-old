@@ -1,3 +1,4 @@
+<!-- {{! set tryocaml !}} -->
 # A Hundred Lines of OCaml
 *Table of contents*
 
