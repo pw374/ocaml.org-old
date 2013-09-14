@@ -26,13 +26,13 @@
         <section class="span4 condensed">
             <h1 class="ruled">Tutorials</h1>
             <ul>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li><a href="/learn/tutorials/basics">Basics</a></li>
+                <li><a href="/learn/tutorials/structure_of_ocaml_programs">Structure of OCaml Programs</a></li>
+                <li><a href="/learn/tutorials/map">Maps (Dictionaries)</a></li>
+                <li><a href="/learn/tutorials/set">Sets</a></li>
+                <li><a href="/learn/tutorials/hashtbl">Hash Tables</a></li>
+                <li><a href="/learn/tutorials/comparison_of_standard_containers">Comparison of Standard Containers</a></li>
+                <li><a href="/learn/tutorials/data_types_and_matching">Data Types and Matching</a></li>
             </ul>
             <footer>
                 <p><a href="/learn/tutorials">See full list</a></p>
@@ -40,20 +40,17 @@
         </section>
         <section class="span4 condensed">
             <h1 class="ruled">Books</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.</p>
+                <a href="https://realworldocaml.org"><img style="float: left;" src="/static/img/real-world-ocaml.png" alt="Real World OCaml book"></a><p>This hands-on book shows you how to take advantage of OCaml’s functional, imperative and object-oriented programming styles with recipes for many real-world tasks.</p>
         </section>
     </div>
     <div class="row">
         <section class="span4 condensed">
             <h1 class="ruled">Common Questions</h1>
             <ul>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li><a href="/learn/faq">General Questions</a></li>
+                <li><a href="/learn/faq">Core Language</a></li>
+                <li><a href="/learn/faq">Module Language</a></li>
+                <li><a href="/learn/faq">Development Tools</a></li>
             </ul>
             <footer>
                 <p><a href="/learn/faq">See full list</a></p>
@@ -63,10 +60,14 @@
             <h1 class="ruled">Industrial Users</h1>
             <div class="row">
             <section class="span4 condensed">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.</p>
+                <p><a href=""><img src="img/jane-street.jpg"></a></p>.
+
+                <p><a href="http://caml.inria.fr/about/successes-images/unison.jpg"><img src="http://caml.inria.fr/about/successes-images/unison-thumb.jpg" alt="Screenshot" title="Screenshot of Unison's main window"></a></p>
             </section>
             <section class="span4 condensed">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.</p>
+                <p><a href=""><img src="img/jane-street.jpg"></a></p>.
+
+                <p><a href="http://caml.inria.fr/about/successes-images/unison.jpg"><img src="http://caml.inria.fr/about/successes-images/unison-thumb.jpg" alt="Screenshot" title="Screenshot of Unison's main window"></a></p>
             </section>
             </div>
         </section>
