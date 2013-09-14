@@ -1,7 +1,7 @@
 
 
 <div class="container">
-    <h1>Learn OCaml</h1>
+    <h1>Learn</h1>
     <div class="row">
         <div id="platform-logo" class="span2">
             <img src="/static/img/ocaml-large.png" alt="OCaml">
@@ -61,82 +61,12 @@
         </section>
         <section class="span8 condensed">
             <h1 class="ruled">Industrial Users</h1>
-    <ul class="nav nav-tabs">
-    <li class="active">
-        <a href="#">Recent updates</a>
-    </li>
-    <li><a href="#">Most popular</a></li>
-    <li><a href="#">Statistics</a></li>
-</ul>
-<table class="table table-bordered table-condensed table-hover">
-    <thead>
-        <tr>
-            <th>Package</th>
-            <th>Author</th>
-            <th>Category</th>
-            <th>Version</th>
-            <th>Date</th>
-        </tr>
-    </thead>
-    <tbody>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-    </tbody>
-</table>
+            <section class="span4 condensed">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.</p>
+            </section>
+            <section class="span4 condensed">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.</p>
+            </section>
         </section>
     </div>
 </div>
