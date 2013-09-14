@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="span4">
-            <h1>Community Resources</h1>
+            <h1>Community<br />Resources</h1>
         </div>
         <section id="community-leader" class="span4">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
@@ -34,12 +34,8 @@
                 <p><small><em><a href="/community/mailing_lists">Browse all the lists</a>.</em></small></p>
             </section>
             <section class="span4 condensed">
-                <h2>Recent Emails</h2>
+                <h4>Recent Emails</h4>
                 <ul>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
                 <li>Lorem ipsum dolor sit amet consectetur</li>
                 <li>Lorem ipsum dolor sit amet consectetur</li>
                 <li>Lorem ipsum dolor sit amet consectetur</li>
@@ -47,7 +43,7 @@
                 <li>Lorem ipsum dolor sit amet consectetur</li>
             </ul>
             <footer>
-                <p><a href="#">See full list</a></p>
+                <p><a href="#">See archives</a></p>
             </footer>
             </section>
 
