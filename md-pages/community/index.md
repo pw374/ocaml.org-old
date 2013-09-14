@@ -1,34 +1,44 @@
 
 
 <div class="container">
-    <h1>Platform</h1>
     <div class="row">
-        <div id="platform-logo" class="span2">
-            <img src="/static/img/ocaml-large.png" alt="OCaml">
+        <div class="span4">
+            <h1>Community Resources</h1>
         </div>
-        <section id="platform-leader" class="span7">
-            <h1>OCaml Platform</h1>
+        <section id="community-leader" class="span4">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         </section>
-        <div id="platform-download" class="span3">
-            <p><a href="#" class="btn">Install on Mac OSX</a></p>
-            <p>
-                <a href="#">Other systems</a> |
-                <a href="#">What's new?</a>
-            </p>
+        <div id="platform-logo" class="span4">
+            <img src="/static/img/ocaml-large.png" alt="OCaml">
         </div>
     </div>
     <div class="row">
-        <section class="span4 condensed">
-            <h1 class="ruled">Solid foundation</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.</p>
+        <section class="span8 condensed">
+            <h1 class="ruled">Mailing Lists</h1>
+            <div class="row">
+            <section class="span4 condensed">
+                <p><strong><a href="">caml-list@inria.fr</a></strong></p>
+                <p><strong><em>Main OCaml List</em></strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p><br />
+                <p><strong><a href="">caml-announce@inria.fr</a></strong></p>
+                <p><strong><em>Low volume annoncements</em></strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+            </section>
+            <section class="span4 condensed">
+            <section class="span4 condensed">
+                <p><strong><a href="">ocaml_beginners@yahoogroups.com</a></strong></p>
+                <p><strong><em>Beginners' List</em></strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p><br />
+                <p><strong><a href="http://lists.ocaml.org">lists.ocaml.org</a></strong></p>
+                <p><strong><em>Community lists and working groups</em></strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                <p><small><em><a href="/community/mailing_lists">Browse all the lists</a>.</em></small></p>
+            </section>
+            </div>
         </section>
+
         <section class="span4 condensed">
-            <h1 class="ruled">Advanced tools</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.</p>
-        </section>
-        <section class="span4 condensed">
-            <h1 class="ruled">Essential packages</h1>
+            <h1 class="ruled">Recent Messages</h1>
             <ul>
                 <li>Lorem ipsum dolor sit amet consectetur</li>
                 <li>Lorem ipsum dolor sit amet consectetur</li>
@@ -47,88 +57,42 @@
     </div>
     <div class="row">
         <section class="span4 condensed">
-            <h1 class="ruled">Room to grow</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus.</p>
+            <h1 class="ruled">Support</h1>
+            <p>A great way to get free support is by using the active <a href="/community/mailing_lists">mailing lists</a>. When you need to go beyond this and get professional support, you have a number of options available.</p> 
+            <p>If you would like to give support to OCaml, you can join the Consortium or support the work of OCaml Labs. <a href="/community/support">Find out more</a>.</p>
         </section>
-        <section class="span8 condensed">
-            <h1>Packages</h1>
-<ul class="nav nav-tabs">
-    <li class="active">
-        <a href="#">Recent updates</a>
-    </li>
-    <li><a href="#">Most popular</a></li>
-    <li><a href="#">Statistics</a></li>
-</ul>
-<table class="table table-bordered table-condensed table-hover">
-    <thead>
-        <tr>
-            <th>Package</th>
-            <th>Author</th>
-            <th>Category</th>
-            <th>Version</th>
-            <th>Date</th>
-        </tr>
-    </thead>
-    <tbody>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">obuild</a></td>
-                <td><a href="#">foo</a></td>
-                <td><a href="#">Tools</a></td>
-                <td><a href="#">0.0.1</a></td>
-                <td><a href="#">9:00  12 Feb 2013</a></td>
-            </tr>
-    </tbody>
-</table>
+        <section class="span4 condensed">
+           <h1 class="ruled">Upcoming Events</h1>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+                <li>Lorem ipsum dolor sit amet consectetur</li>
+            </ul>
+            <footer>
+                <p><a href="#">See full list</a></p>
+            </footer>
         </section>
+        <section class="span4 condensed">
+            <h1>Upcoming events</h1>
+           <h1 class="ruled">News</h1>
+            ((! input front_news_tpl.mpp !))
+            <footer>
+                <p><a href="#">See full list</a></p>
+            </footer>
+        </section>
+    </div>
+    <div class="row">
+        <section class="span12 condensed">
+            <h1 class="ruled">OCaml around the web</h1>
+                <p>[Insert logos here]</p>
+        </section>
+
     </div>
 </div>
 
