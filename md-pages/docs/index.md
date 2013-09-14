@@ -25,7 +25,7 @@
                     <img src="/static/img/documents.png" alt="">
                     Package Documents
                 </a>
-                <a href="cheat-sheets.html" class="span3 documentation-highlight">
+                <a href="cheat_sheets.html" class="span3 documentation-highlight">
                     <img src="/static/img/cheat.png" alt="">
                     Cheat Sheets
                 </a>
