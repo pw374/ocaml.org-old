@@ -20,14 +20,14 @@
                         <img src="/static/img/learn-large.png" alt="Learn">
                     </a>
                     <h1><a href="/learn">Learn</a></h1>
-                    <p>Find out <a href="/learn/description.html">about OCaml</a>, read about <a href="/learn/success.html">users</a>, see <a href="learn/taste.html">code examples</a> and <a href="/learn">more</a>.</p>
+                    <p>Find out <a href="/learn/description.html">about OCaml</a>, read about <a href="/learn/success.html">users</a>, see <a href="learn/taste.html">code examples</a>, go through <a href="/learn/tutorials">tutorials</a> and <a href="/learn">more</a>.</p>
                 </section>
                 <section class="span4 home-feature">
                     <a href="/docs">
                         <img src="/static/img/documentation-large.png" alt="Documentation">
                     </a>
                     <h1><a href="/docs">Documentation</a></h1>
-                    <p>Look up <a href="#">package docs</a>, access the <a href="#">Manual</a>, get the <a href="/docs/cheat-sheets.md">cheat sheets</a> and <a href="/docs">more</a>.</p>
+                    <p>Look up <a href="#">package docs</a>, access the <a href="#">Manual</a>, get the <a href="/docs/cheat_sheets.md">cheat sheets</a> and <a href="/docs">more</a>.</p>
                 </section>
             </div>
             <div class="row">
