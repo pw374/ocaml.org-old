@@ -19,12 +19,11 @@
             <section class="span4 condensed">
                 <p><strong><a href="">caml-list@inria.fr</a></strong><br />
                 <strong><em>Main OCaml List</em></strong><br />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
                 <p><strong><a href="">caml-announce@inria.fr</a></strong><br />
                 <strong><em>Low volume annoncements</em></strong><br />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
             </section>
-            <section class="span4 condensed">
             <section class="span4 condensed">
                 <p><strong><a href="">ocaml_beginners@yahoogroups.com</a></strong><br />
                 <strong><em>Beginners' List</em></strong><br />
