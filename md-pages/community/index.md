@@ -13,33 +13,30 @@
         </div>
     </div>
     <div class="row">
-        <section class="span8 condensed">
+        <section class="span12 condensed">
             <h1 class="ruled">Mailing Lists</h1>
             <div class="row">
             <section class="span4 condensed">
-                <p><strong><a href="">caml-list@inria.fr</a></strong></p>
-                <p><strong><em>Main OCaml List</em></strong></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p><br />
-                <p><strong><a href="">caml-announce@inria.fr</a></strong></p>
-                <p><strong><em>Low volume annoncements</em></strong></p>
+                <p><strong><a href="">caml-list@inria.fr</a></strong><br />
+                <strong><em>Main OCaml List</em></strong><br />
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                <p><strong><a href="">caml-announce@inria.fr</a></strong><br />
+                <strong><em>Low volume annoncements</em></strong><br />
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
             </section>
             <section class="span4 condensed">
             <section class="span4 condensed">
-                <p><strong><a href="">ocaml_beginners@yahoogroups.com</a></strong></p>
-                <p><strong><em>Beginners' List</em></strong></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p><br />
-                <p><strong><a href="http://lists.ocaml.org">lists.ocaml.org</a></strong></p>
-                <p><strong><em>Community lists and working groups</em></strong></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                <p><strong><a href="">ocaml_beginners@yahoogroups.com</a></strong><br />
+                <strong><em>Beginners' List</em></strong><br />
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                <p><strong><a href="http://lists.ocaml.org">lists.ocaml.org</a></strong><br />
+                <strong><em>Community lists and working groups</em></strong><br />
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
                 <p><small><em><a href="/community/mailing_lists">Browse all the lists</a>.</em></small></p>
             </section>
-            </div>
-        </section>
-
-        <section class="span4 condensed">
-            <h1 class="ruled">Recent Messages</h1>
-            <ul>
+            <section class="span4 condensed">
+                <h2>Recent Emails</h2>
+                <ul>
                 <li>Lorem ipsum dolor sit amet consectetur</li>
                 <li>Lorem ipsum dolor sit amet consectetur</li>
                 <li>Lorem ipsum dolor sit amet consectetur</li>
@@ -53,6 +50,9 @@
             <footer>
                 <p><a href="#">See full list</a></p>
             </footer>
+            </section>
+
+            </div>
         </section>
     </div>
     <div class="row">
@@ -79,7 +79,6 @@
             </footer>
         </section>
         <section class="span4 condensed">
-            <h1>Upcoming events</h1>
            <h1 class="ruled">News</h1>
             ((! input front_news_tpl.mpp !))
             <footer>
