@@ -35,8 +35,8 @@
     <div class="row">
         <section class="span6 condensed">
             <h1 class="ruled">OPAM Docs</h1>
-            <p>OPAM is the OCaml Package Manager and TODO.</p>
-            <p>OPAM has been created and is maintained by OCamlPro. Bug reports and feature requests for the tool should be reported on OPAM's issue-tracker. Packaging issues or requests for a new package can be reported on the main repository's issue-tracker. General queries for both the tool and the packages can be addressed on the OCaml-platform mailing-list and insights and evolution of OPAM internals can discussed on the OPAM-devel mailing-list.</p>
+            <p>The OCaml Package Manager (OPAM) is a source-based package manager for OCaml. It supports multiple simultaneous compiler installations, flexible package constraints, and a Git-friendly development workflow. For documentation on installing OPAM or packaging your libraries, <a href="http://opam.ocamlpro.org/doc/Quick_Install.html">read here</a>. Packages are <a href="/docs/ocamlot">automatically tested</a> upon submission and reports sent back to maintainers. If you submit a package, you will be rewarded with regular regression tests across many diverse operating systems and platforms.</p>
+            <p>OPAM has been created and is maintained by OCamlPro and OCaml Labs. Bug reports and feature requests for the tool should be reported on <a href="https://github.com/OCamlPro/opam/issues">OPAM's issue-tracker</a>. Packaging issues or requests for a new package can be reported on the <a href="https://github.com/OCamlPro/opam-repository/issues">main repository's issue-tracker</a>. General queries for both the tool and the packages can be addressed on the <a href="http://lists.ocaml.org/listinfo/platform">OCaml-platform mailing-list</a> and insights and evolution of OPAM internals can discussed on the <a href="http://lists.ocaml.org/listinfo/opam-devel">OPAM-devel mailing-list</a>.</p>
         </section>
         <section class="span6 condensed">
             <h1 class="ruled">OCaml Book</h1>
