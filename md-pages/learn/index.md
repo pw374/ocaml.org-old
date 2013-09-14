@@ -8,7 +8,7 @@
         </div>
         <section id="learn-leader" class="span7">
             <h1>What is OCaml?</h1>
-            <p>**OCaml** is a general purpose industrial-strength programming language with an emphasis on expressiveness and safety. Developed for more than 20 years at <a href="http://www.inria.fr/en">Inria</a> by a group of leading researchers, it benefits from one of the most advanced type systems and supports functional, imperative and object-oriented styles of programming which ease the development of flexible and reliable software. Used in environments where <a href="/learn/companies">a single mistake can cost millions</a> and speed matters, it is supported by an <a href="/community">active community</a> that has developed a <a href="/packages">rich set of libraries</a> which will help you make the most of OCaml possibilities. <small><a href="/learn/description">Read more</a></small>.</p>
+            <p>OCaml is a general purpose industrial-strength programming language with an emphasis on expressiveness and safety. Used in environments where <a href="/learn/companies">a single mistake can cost millions</a> and speed matters, it is supported by an <a href="/community">active community</a> that has developed a <a href="/packages">rich set of libraries</a>. <small><em><a href="/learn/description">Read more</a></em></small>.</p>
         </section>
         <div id="platform-download" class="span3">
             <p><a href="#" class="btn">Install on Mac OSX</a></p>
@@ -35,7 +35,7 @@
                 <li>Lorem ipsum dolor sit amet consectetur</li>
             </ul>
             <footer>
-                <p><a href="#">See full list</a></p>
+                <p><a href="/learn/tutorials">See full list</a></p>
             </footer>
         </section>
         <section class="span4 condensed">
@@ -56,11 +56,11 @@
                 <li>Lorem ipsum dolor sit amet consectetur</li>
             </ul>
             <footer>
-                <p><a href="#">See full list</a></p>
+                <p><a href="/learn/faq">See full list</a></p>
             </footer>
         </section>
         <section class="span8 condensed">
-            <h1>Industrial Users</h1>
+            <h1 class="ruled">Industrial Users</h1>
     <ul class="nav nav-tabs">
     <li class="active">
         <a href="#">Recent updates</a>
