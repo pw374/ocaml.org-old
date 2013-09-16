@@ -24,7 +24,7 @@ Some common questions are answered in the [FAQ](faq.html).
 The Caml Light system is open source software, please read its
 [license](license.html) for more details. The [latest
 release](releases/) can be freely downloaded on this site, together with
-its [user&apos;s manual](http://caml.inria.fr/pub/docs/manual-caml-light/).
+its [user&#39;s manual](http://caml.inria.fr/pub/docs/manual-caml-light/).
 See also [Functional programming using Caml
 Light](http://caml.inria.fr/pub/docs/fpcl/index.html) for an
 introduction to functional programming in general and the Caml Light

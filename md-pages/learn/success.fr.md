@@ -2,7 +2,7 @@
 *Contenu*
 
 ## Le synchroniseur de fichiers Unison
-[<img src='http://caml.inria.fr/about/successes-images/unison-thumb.jpg' alt='Screenshot'  title='Screenshot of Unison&apos;s main window' />](http://caml.inria.fr/about/successes-images/unison.jpg)
+[<img src='http://caml.inria.fr/about/successes-images/unison-thumb.jpg' alt='Screenshot'  title='Screenshot of Unison&#39;s main window' />](http://caml.inria.fr/about/successes-images/unison.jpg)
 
 [Unison](http://www.cis.upenn.edu/%7Ebcpierce/unison/) est un outil de
 synchronisation de fichiers populaire, qui fonctionne sous Windows et
@@ -35,7 +35,7 @@ unique parmi les projets de grande taille écrits en OCaml, d'avoir été
 L'adoption d'OCaml a été comme une bouffée d'air pur. »
 
 ## Le client pair-à-pair MLdonkey
-[<img src='http://caml.inria.fr/about/successes-images/mldonkey-thumb.jpg' alt='Screenshot'  title='Screenshot of one of MLdonkey&apos;s windows' />](http://caml.inria.fr/about/successes-images/mldonkey.jpg)
+[<img src='http://caml.inria.fr/about/successes-images/mldonkey-thumb.jpg' alt='Screenshot'  title='Screenshot of one of MLdonkey&#39;s windows' />](http://caml.inria.fr/about/successes-images/mldonkey.jpg)
 
 [MLdonkey](http://mldonkey.sourceforge.net/Main_Page) est un client
 pair-à-pair multi-plateformes et multi-réseaux. Il a été le premier
@@ -115,7 +115,7 @@ l'environnement d'exécution sont les principales raisons de notre
 intérêt pour OCaml. »
 
 ## L'assistant de preuve Coq
-[<img src='http://caml.inria.fr/about/successes-images/coq-thumb.jpg' alt='Screenshot'  title='Screenshot of Coq&apos;s integrated development environment' />](http://caml.inria.fr/about/successes-images/coq.jpg)
+[<img src='http://caml.inria.fr/about/successes-images/coq-thumb.jpg' alt='Screenshot'  title='Screenshot of Coq&#39;s integrated development environment' />](http://caml.inria.fr/about/successes-images/coq.jpg)
 
 *[Jean-Christophe Filliâtre](http://www.lri.fr/%7Efilliatr/) (CNRS), un
 des développeurs de Coq :* « L'outil [Coq](http://coq.inria.fr/) est un
@@ -140,7 +140,7 @@ justement la rigueur. »
 
 *[David Monniaux](http://www-verimag.imag.fr/~monniaux/) (CNRS), membre
 du projet ASTRÉE :* « [ASTRÉE](http://www.astree.ens.fr/) est un
-*analyseur statique* basé sur [l&apos;interprétation
+*analyseur statique* basé sur [l&#39;interprétation
 abstraite](http://www.di.ens.fr/%7Ecousot/aiintro.shtml) et qui vise à
 établir l'absence d'erreurs d'exécution dans des logiciels critiques
 écrits dans un sous-ensemble du langage C. »

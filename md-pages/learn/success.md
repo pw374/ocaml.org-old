@@ -27,7 +27,7 @@ Billions of dollars of transactions flow through our systems every day,
 so getting it right matters.
 
 ## The Unison File Synchronizer
-[<img src='http://caml.inria.fr/about/successes-images/unison-thumb.jpg' alt='Screenshot'  title='Screenshot of Unison&apos;s main window' />](http://caml.inria.fr/about/successes-images/unison.jpg)
+[<img src='http://caml.inria.fr/about/successes-images/unison-thumb.jpg' alt='Screenshot'  title='Screenshot of Unison&#39;s main window' />](http://caml.inria.fr/about/successes-images/unison.jpg)
 
 [Unison](http://www.cis.upenn.edu/%7Ebcpierce/unison/) is a popular
 file-synchronization tool for Windows and most flavors of Unix. It
@@ -55,7 +55,7 @@ projects in having been *translated* from Java to OCaml midway through
 its development. Moving to OCaml was like a breath of fresh air.”
 
 ## The MLdonkey peer-to-peer client
-[<img src='http://caml.inria.fr/about/successes-images/mldonkey-thumb.jpg' alt='Screenshot'  title='Screenshot of one of MLdonkey&apos;s windows' />](http://caml.inria.fr/about/successes-images/mldonkey.jpg)
+[<img src='http://caml.inria.fr/about/successes-images/mldonkey-thumb.jpg' alt='Screenshot'  title='Screenshot of one of MLdonkey&#39;s windows' />](http://caml.inria.fr/about/successes-images/mldonkey.jpg)
 
 [MLdonkey](http://mldonkey.sourceforge.net/Main_Page) is a
 multi-platform multi-networks peer-to-peer client. It was the first
@@ -110,7 +110,7 @@ are gaining growing acceptance throughout Europe and are contributing to
 spread the use of OCaml in the financial services industry.
 
 ## The Coq Proof Assistant
-[<img src='http://caml.inria.fr/about/successes-images/coq-thumb.jpg' alt='Screenshot'  title='Screenshot of Coq&apos;s integrated development environment' />](http://caml.inria.fr/about/successes-images/coq.jpg)
+[<img src='http://caml.inria.fr/about/successes-images/coq-thumb.jpg' alt='Screenshot'  title='Screenshot of Coq&#39;s integrated development environment' />](http://caml.inria.fr/about/successes-images/coq.jpg)
 
 *[Jean-Christophe Filliâtre](http://www.lri.fr/%7Efilliatr/) (CNRS), a
 Coq developer, says:* “The [Coq](http://coq.inria.fr/) tool is a system

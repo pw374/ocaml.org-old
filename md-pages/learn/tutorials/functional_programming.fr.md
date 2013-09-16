@@ -165,7 +165,7 @@ val f : int -> int = <fun>
 - : int = 101
 ```
 Ceci est une [preuve par
-l&apos;exemple](http://www.princeton.edu/~sacm/humor/proof.html "http://www.princeton.edu/~sacm/humor/proof.html")
+l&#39;exemple](http://www.princeton.edu/~sacm/humor/proof.html "http://www.princeton.edu/~sacm/humor/proof.html")
 suffisante pour nous dire que `plus 2` est la fonction qu'ajoute 2 à des
 choses.
 

@@ -4,13 +4,13 @@
 Acunu is writing, from the ground-up, a Storage and Analytics Platform
 for Massive Data.
 
-[Agence Nationale de la Sécurité des Systèmes d&apos;Information
+[Agence Nationale de la Sécurité des Systèmes d&#39;Information
 (ANSSI)](http://www.ssi.gouv.fr/), France.
 
 The ANSSI core missions are: to detect and react to cyber attacks, to
 prevent threats, to provide advice and support to governmental entities
 and operators of critical infrastructure, and to keep companies and the
-general public informed about information security threats. See [ANSII&apos;s
+general public informed about information security threats. See [ANSII&#39;s
 GitHub page](https://github.com/anssi-fr) for some of its OCaml
 software.
 

@@ -18,7 +18,7 @@ but were afraid to submit in the more official caml-list AT inria.fr,
 can be asked, answered and discussed here. In early 2004, the list has
 about 300 subscribers, who exchange about 100 messages per month.
 
-[List&apos;s page at
+[List&#39;s page at
 Yahoo!](http://tech.groups.yahoo.com/group/ocaml_beginners/)
 
 ###  OCaml jobs and internships mailing list: ocaml-jobs AT inria.fr

@@ -725,7 +725,7 @@ Solution
 ```
 Calculate Euler's totient function phi(m) (improved).
 
-See problem “[Calculate Euler&apos;s totient function phi(m)](#totient)” for
+See problem “[Calculate Euler&#39;s totient function phi(m)](#totient)” for
 the definition of Euler's totient function. If the list of the prime
 factors of a number m is known in the form of the previous problem then
 the function phi(m) can be efficiently calculated as follows: Let
@@ -753,8 +753,8 @@ Solution
 ```
 Compare the two methods of calculating Euler's totient function.
 
-Use the solutions of problems “[Calculate Euler&apos;s totient function
-phi(m)](#totient)” and “[Calculate Euler&apos;s totient function phi(m)
+Use the solutions of problems “[Calculate Euler&#39;s totient function
+phi(m)](#totient)” and “[Calculate Euler&#39;s totient function phi(m)
 (improved)](#totient-improved)” to compare the algorithms. Take the
 number of logical inferences as a measure for efficiency. Try to
 calculate φ(10090) as an example.
@@ -1379,7 +1379,7 @@ lower-case letters, as in the example of the previous problem.
  unambiguously. Write a function `pre_in_tree` that does the job.
 1. Solve problems 1. to 3. using difference lists. Cool! Use the
  function `timeit` (defined in problem “[Compare the two methods of
- calculating Euler&apos;s totient function.](#timeit)”) to compare the
+ calculating Euler&#39;s totient function.](#timeit)”) to compare the
  solutions.
 
 What happens if the same character appears in more than one node. Try
@@ -1741,7 +1741,7 @@ Node degree and graph coloration
  given node.
 * Write a function that generates a list of all nodes of a graph
  sorted according to decreasing degree.
-* Use [Welsh-Powell&apos;s
+* Use [Welsh-Powell&#39;s
  algorithm](http://en.wikipedia.org/wiki/Graph_coloring#Greedy_coloring)
  to paint the nodes of a graph in such a way that adjacent nodes have
  different colors.

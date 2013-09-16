@@ -64,7 +64,7 @@ an executable named either myprog.run (bytecode) or myprog.opt (native
 code), or whatever you chose to call it. The omake clean command removes
 files that were produced by the compilation.
 
-Go to [OMake&apos;s official
+Go to [OMake&#39;s official
 site](http://omake.metaprl.org/ "OMake's official site") for more
 information.
 

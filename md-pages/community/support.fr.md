@@ -57,7 +57,7 @@ TVA](http://caml.inria.fr/consortium/vat.fr.html).
 
 Si les clauses du Consortium vous agréent, vous pourrez alors compléter
 et envoyer le [formulaire
-d&apos;adhésion](http://caml.inria.fr/consortium/form.fr.html) disponible en
+d&#39;adhésion](http://caml.inria.fr/consortium/form.fr.html) disponible en
 ligne. Cette demande sera examinée par un représentant habilité de
 l'Inria qui vous recontactera ensuite pour organiser la signature de
 l'accord en deux exemplaires.

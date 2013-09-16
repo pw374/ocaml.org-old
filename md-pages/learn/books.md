@@ -19,7 +19,7 @@ and libraries included in the official distribution.
 OCaml](https://realworldocaml.org/media/img/oreilly-cover.gif "")
 
 ###  Real World OCaml
-[Book Website](https://realworldocaml.org/) | [O&apos;Reilly Early
+[Book Website](https://realworldocaml.org/) | [O&#39;Reilly Early
 Release](http://shop.oreilly.com/product/0636920024743.do?code=WKERRLS)
 
 *Jason Hickey, Anil Madhavapeddy, and Yaron Minsky*
@@ -222,7 +222,7 @@ synthesis.
 ![](http://caml.inria.fr/about/books-images/petazzoni.jpg "")
 
 ###  Seize problèmes d'informatique
-[Springer&apos;s Catalog
+[Springer&#39;s Catalog
 Page](http://www.springeronline.com/sgw/cda/frontpage/0,10735,5-102-22-2042496-0,00.html)
 
 *Bruno Petazzoni<br />
