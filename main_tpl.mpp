@@ -16,25 +16,17 @@
     <![endif]-->
     <script type="text/javascript">
       function octry(x){
-      if(document.getElementById('buttons').innerHTML=='') {
-      t = document.getElementById('tryocaml');
-      js = document.createElement("script"); js.type = "text/javascript"; js.src = "/try-ocaml.js";
-      t.appendChild(js);
-      } else {
-      t = document.getElementById('tryocaml');
-      t.style.display = 'block';
-      p=document.getElementsByTagName('pre')
-      for(i=0;p[i];i++){
-      p.onClick=function () {}
-      }
-      p=document.getElementsByTagName('code')
-      for(i=0;p[i];i++){
-      p.onClick=function () {}
-      }
-      document.getElementById('console').value = x;
-      document.getElementById('console').focus();
-      document.getElementById('console').select();
-      }
+        if(document.getElementById('buttons').innerHTML=='') {
+          t = document.getElementById('tryocaml');
+          js = document.createElement("script"); js.type = "text/javascript"; js.src = "/try-ocaml.js";
+          t.appendChild(js);
+        } else {
+          t = document.getElementById('tryocaml');
+          t.style.display = 'block';
+          document.getElementById('console').value = x;
+          document.getElementById('console').focus();
+          document.getElementById('console').select();
+        }
       }
     </script>
   </head>
