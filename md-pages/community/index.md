@@ -29,45 +29,45 @@
             <section class="span4 condensed">
                 <p><strong><a href="">ocaml_beginners@yahoogroups.com</a></strong><br />
                 <strong><em>Beginners' List</em></strong><br />
-                A place for the mutual aid of those who recognize that they're not OCaml gurus (yet). Everything you wanted to ask about OCaml, but were afraid to submit in the main list can be asked, answered and discussed here.</p>
+                Everything you wanted to ask about OCaml, but were afraid to submit in the main list can be asked, answered and discussed here.</p>
                 <p><strong><a href="http://lists.ocaml.org">lists.ocaml.org</a></strong><br />
                 <strong><em>Community lists and working groups</em></strong><br />
-                Other user-interest list ranging from OpenGL to parallelism and working groups convened with specific aims.</p>
+                User-interest lists and working groups convened with specific goals.</p>
                 <p><small><em><a href="/community/mailing_lists">Browse all the lists</a>.</em></small></p>
             </section>
             <section class="span4 condensed">
                 <h4>Recent email threads</h4>
             <ul class="news-feed">
-                    <li>
-                        <article>
-                            <h1><a href="#">Expanding the Float Array tag</a></h1>
-                            <p>16 September 2013</p>
-                            <a href="#">
-                                <img src="/static/img/news.png" alt="News">
-                            </a>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h1><a href="#">[ANN] Ocamlnet-3.7.3</a></h1>
-                            <p>30 August 2013</p>
-                            <a href="#">
-                                <img src="/static/img/news.png" alt="News">
-                            </a>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h1><a href="#">How to explain static typing to other people?</a></h1>
-                            <p>28 August 2013</p>
-                            <a href="#">
-                                <img src="/static/img/news.png" alt="News">
-                            </a>
-                        </article>
-                    </li>
+                <li>
+                    <article>
+                        <h1><a href="#">Expanding the Float Array tag</a></h1>
+                        <p>16 September 2013</p>
+                        <a href="https://sympa.inria.fr/sympa/arc/caml-list/">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h1><a href="https://sympa.inria.fr/sympa/arc/caml-list/">[ANN] Ocamlnet-3.7.3</a></h1>
+                        <p>30 August 2013</p>
+                        <a href="#">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h1><a href="#">How to explain static typing to other people?</a></h1>
+                        <p>28 August 2013</p>
+                        <a href="https://sympa.inria.fr/sympa/arc/caml-list/">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
             </ul>
             <footer>
-                <p><a href="#">See archives</a></p>
+                <p><a href="https://sympa.inria.fr/sympa/arc/caml-list/">See archives</a></p>
             </footer>
             </section>
 
@@ -82,19 +82,45 @@
         </section>
         <section class="span4 condensed">
            <h1 class="ruled">Upcoming Events</h1>
-            <ul>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
+            <ul class="news-feed">
+                <li class="announcement">
+                    <article>
+                        <h1><a href="#">OCaml 2013</a></h1>
+                        <p>24 September 2013</p>
+                        <a href="/meetings/ocaml/2013/">
+                            <img src="/static/img/announcement.png" alt="Announcement">
+                        </a>
+                    </article>
+                <li>
+                    <article>
+                        <h1><a href="#">Cambridge NonDysFunctional Programmers</a></h1>
+                        <p>18 September 2013</p>
+                        <a href="http://www.meetup.com/Cambridge-NonDysFunctional-Programmers/events/138406202/">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h1><a href="http://www.meetup.com/ocaml-paris/events/128514752/">OCaml Users in Paris</a></h1>
+                        <p>XX October 2013</p>
+                        <a href="#">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h1><a href="#">Consortium Meeting</a></h1>
+                        <p>XX November 2013</p>
+                        <a href="/meetings/consortium">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
             </ul>
             <footer>
-                <p><a href="#">See full list</a></p>
+                <p><a href="/meetings">See full calendar</a></p>
             </footer>
         </section>
         <section class="span4 condensed">
