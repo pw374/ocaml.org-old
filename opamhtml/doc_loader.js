@@ -1,3 +1,4 @@
+ocontents = document.getElementById('main-contents');
 
 // utility - Parse query string
 (function($) {
@@ -49,9 +50,9 @@ function create_menu(){
 
 //load package only
 function load_package_index(package_name){
-    $("body").load(package_name+"/index.html",
+    $(ocontents).load(package_name+"/index.html",
 		   function(response, status, xhr){
-		       $("body")
+		       $(ocontents)
 			   .prepend("<h1>Package "+package_name+"</h1>")
 			   .prepend('<a href="?">Package list</a>');
 		   });
@@ -223,7 +224,7 @@ function expand_sub_nodes(){
 	b = shrink_classes() || b; // inherits could contains inherits as well
     } while (b); // modules aliases may contain includes as well
        
-    // $("body").append("<br/><button onclick='expand_all()'>Expand all</button>");
+    // $(ocontents).append("<br/><button onclick='expand_all()'>Expand all</button>");
 }
 
 function replace_with_constraints($module_content, $constraints){
@@ -249,12 +250,12 @@ function replace_with_constraints($module_content, $constraints){
 */
 function write_content($module_content, page_title, signature, $constraints){
     //Clear the page
-    $('body').empty();
+    $(ocontents).empty();
 
     //Replace the constraints
     replace_with_constraints($module_content, $constraints)
 
-    $('body')
+    $(ocontents)
 	.append(create_menu())
 	.append('<h1>'+page_title+'</h1>')
 	.append(signature.html())

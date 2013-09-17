@@ -65,6 +65,7 @@ pkg:
 # include .opamdoc
 
 opamdoc:
+	rsync opamhtml/doc_loader.js html-pages/docs/opam/
 	rm -fr html-pages/docs/opam
 	cp -r opamhtml html-pages/docs/opam
 	rm -f html-pages/docs/opam/index.html
