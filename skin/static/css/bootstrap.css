@@ -7029,5 +7029,17 @@ body {
 .ocaml_toplevel_module .type {
   font-weight: bold;
 }
+.ocaml_toplevel_module h6 {
+  font-size: 160%;
+  font-weight: bold;
+  background-color: lightgray;
+  border-color:black;
+  margin: 0;
+  padding:0.5ex;
+  text-align:center;
+  border: solid;
+  border-width: 0.1ex;
+  width: 100%;
+}
 /* end of section for opam-doc */
 /***************************************************/
