@@ -1,7 +1,7 @@
 MPP_OPTIONS = -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -sos '{{<' -scs '>}}' -its 
 MPP = mpp ${MPP_OPTIONS}
 
-all:html-pages/static pkg
+all:html-pages/static pkg opamdoc
 	bash gen.bash md-pages
 
 html-pages/try-ocaml.js:try-ocaml.js
@@ -59,4 +59,22 @@ pkg:
 	done | xargs make -j 2
 
 .PHONY:pkg clean
+
+
+
+include .opamdoc
+
+.opamdoc:opamhtml/*/*.html Makefile
+	for i in opamhtml/*/*.html ; do echo "$$(sed -e 's+opamhtml+html-pages/docs/opam+' <<< $$i):$$i" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+opamhtml+html-pages/docs/opam+ <<< $$i))"; printf '\t%s\n' "${MPP} -set opamdoc -set page=$$i < main_tpl.mpp > $$(sed -e s+opamhtml+html-pages/docs/opam+ <<< $$i)" ; done > $@
+
+opamdoc:
+	make .opamdoc
+	mkdir -p html-pages/docs/opam
+	cp opamhtml/doc_loader.js html-pages/docs/opam/doc_loader.js
+	echo opamhtml/*/*.html | sed -e s+opamhtml+html-pages/docs/opam+g | xargs make -j 2
+# 	for i in opamhtml/*/*.html ; do \
+# 	sed -e s+opamhtml+html-pages/docs/opam+ <<< $$i ; \
+# 	done | xargs make -j 2
+
+.PHONY:pkg clean opamdoc
 
