@@ -858,6 +858,7 @@ pre {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
+
 pre.prettyprint {
   margin-bottom: 24px;
 }
@@ -7017,4 +7018,9 @@ body {
       declarations are stripped out by most compressors.
   */
 
+}
+
+.ocaml_toplevel_module > pre, .ocaml_toplevel_module > pre > code {
+  background-color: transparent;
+  border: 0;
 }
