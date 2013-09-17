@@ -56,7 +56,7 @@ pkg:
 	make .pkg
 	for i in pkg-pages/*.html pkg-pages/*/*/index.html ; do \
 	sed -e 's|pkg-pages|html-pages/pkg|' <<< $$i ; \
-	done | xargs make -j 2
+	done | xargs make
 
 .PHONY:pkg clean
 
@@ -72,7 +72,7 @@ opamdoc:main_tpl.mpp
 	make .opamdoc
 	mkdir -p html-pages/docs/opam
 	cp opamhtml/doc_loader.js html-pages/docs/opam/doc_loader.js
-	echo opamhtml/*/*.html | sed -e s+opamhtml+html-pages/docs/opam+g | xargs make -j 2
+	echo opamhtml/*/*.html | sed -e s+opamhtml+html-pages/docs/opam+g | xargs make
 # 	for i in opamhtml/*/*.html ; do \
 # 	sed -e s+opamhtml+html-pages/docs/opam+ <<< $$i ; \
 # 	done | xargs make -j 2
