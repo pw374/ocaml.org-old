@@ -65,9 +65,9 @@ pkg:
 include .opamdoc
 
 .opamdoc:opamhtml/*/*.html Makefile
-	for i in opamhtml/*/*.html ; do echo "$$(sed -e 's+opamhtml+html-pages/docs/opam+' <<< $$i):$$i" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+opamhtml+html-pages/docs/opam+ <<< $$i))"; printf '\t%s\n' "${MPP} -set opamdoc -set page=$$i < main_tpl.mpp > $$(sed -e s+opamhtml+html-pages/docs/opam+ <<< $$i)" ; done > $@
+	for i in opamhtml/*/*.html ; do echo "$$(sed -e 's+opamhtml+html-pages/docs/opam+' <<< $$i):$$i main_tpl.mpp" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+opamhtml+html-pages/docs/opam+ <<< $$i))"; printf '\t%s\n' "${MPP} -set opamdoc -set page=$$i < main_tpl.mpp > $$(sed -e s+opamhtml+html-pages/docs/opam+ <<< $$i)" ; done > $@
 
-opamdoc:
+opamdoc:main_tpl.mpp
 	make .opamdoc
 	mkdir -p html-pages/docs/opam
 	cp opamhtml/doc_loader.js html-pages/docs/opam/doc_loader.js
