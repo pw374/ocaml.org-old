@@ -32,6 +32,7 @@
           document.getElementById('console').select();
         }
       }
+      if(!(document.getElementById('buttons'))) octry = function() {}
     </script>
   </head>
   <body>
