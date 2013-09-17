@@ -135,6 +135,13 @@
         <section class="span12 condensed">
             <h1 class="ruled">OCaml around the web</h1>
                 <p>[Insert logos here]</p>
+                <p><a href=""></a></p>
+                <p><a href=""></a></p>
+                <p><a href=""></a></p>
+                <p><a href=""></a></p>
+                <p><a href=""></a></p>
+                <p><a href=""></a></p>
+
         </section>
 
     </div>
