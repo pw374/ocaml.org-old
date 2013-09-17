@@ -5671,7 +5671,7 @@ body {
   border: 1px solid #ff0000;
 }
 /* Error */
-.k {
+.k, .keyword {
   color: #008000;
   font-weight: bold;
 }
