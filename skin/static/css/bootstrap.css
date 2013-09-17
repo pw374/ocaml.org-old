@@ -7020,7 +7020,7 @@ body {
 
 }
 
-.ocaml_toplevel_module > pre, .ocaml_toplevel_module > pre > code {
+.ocaml_toplevel_module pre, .ocaml_toplevel_module code .code, .ocaml_toplevel_module pre code, .ocaml_toplevel_module code {
   background-color: transparent;
   border: 0;
 }
