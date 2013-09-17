@@ -5676,6 +5676,10 @@ body {
   font-weight: bold;
 }
 /* Keyword */
+.type {
+  font-weight: bold;
+}
+/* Keyword */
 .o {
   color: #666666;
 }
