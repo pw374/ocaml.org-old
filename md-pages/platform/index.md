@@ -65,7 +65,7 @@
                             <img src="/static/img/news.png" alt="News">
                         </a>
                     </article>
-                </li>                
+                </li>
             </ul>
             <footer>
                 <p><a href="#">See full list</a></p>
