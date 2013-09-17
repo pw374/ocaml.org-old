@@ -25,10 +25,10 @@ html-pages/img:skin/img
 	mkdir -p html-pages
 	cp -a "$<" "$@"
 
-html-pages/static:skin/static
+html-pages/static:skin/static skin/static/css skin/static/img
 	rm -fr "$@"
-	mkdir -p html-pages
-	cp -a "$<" "$@"
+	mkdir -p $@
+	cp -a "$<"/* "$@"/
 
 html-pages/static/css:skin/static/css
 	rm -fr html-pages/static
