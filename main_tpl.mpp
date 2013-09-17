@@ -14,6 +14,10 @@
     <!--[if lt IE 9]>
         <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
     <![endif]-->
+{{! ifdef opamdoc
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+ <script type="text/javascript" src="/docs/opam/doc_loader.js"></script>
+!}}
     <script type="text/javascript">
       function octry(x){
         if(document.getElementById('buttons').innerHTML=='') {
@@ -29,9 +33,6 @@
         }
       }
     </script>
-{{! ifdef opamdoc
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
- <script type="text/javascript" src="/docs/opam/doc_loader.js"></script> !}}
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
