@@ -1,4 +1,3 @@
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"> </script>
 <script type="text/javascript" src="doc_loader.js"> </script>
 <h1>Opam Packages list</h1>
 <table class="indextable">
