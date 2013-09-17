@@ -10,8 +10,8 @@
             <p>OCaml has a diverse, worldwide community and one of the main benefits is the ability to easily reach each other.  Mailing lists are the most common way people interact although you will always find users on IRC and around the web.</p>
         </section>
         <div class="span4">
-            <img src="/static/img/ocaml-large.png" alt="OCaml"><br />
-            <a href="/docs/logos">More logos</a>
+            <img src="/static/img/ocaml-large.png" alt="OCaml">
+            <p><a href="/docs/logos">More logos</a></p>
         </div>
     </div>
     <div class="row">
