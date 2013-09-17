@@ -5672,12 +5672,8 @@ body {
   border: 1px solid #ff0000;
 }
 /* Error */
-.k, .keyword {
+.k {
   color: #008000;
-  font-weight: bold;
-}
-/* Keyword */
-.type {
   font-weight: bold;
 }
 /* Keyword */
@@ -7023,4 +7019,11 @@ body {
 .ocaml_toplevel_module pre, .ocaml_toplevel_module code .code, .ocaml_toplevel_module pre code, .ocaml_toplevel_module code {
   background-color: transparent;
   border: 0;
+}
+.ocaml_toplevel_module .keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.ocaml_toplevel_module .type {
+  font-weight: bold;
 }
