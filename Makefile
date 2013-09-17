@@ -50,7 +50,7 @@ ocamltohtml:ocamltohtml_all.ml
 include .pkg
 
 .pkg:pkg-pages/*/*/index.html Makefile
-	for i in pkg-pages/*/*/index.html ; do echo "$$(sed -e 's+pkg-pages+html-pages/pkg+' <<< $$i):$$i" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i))"; printf '\t%s\n' "${MPP} -set page=$< < main_tpl.mpp > $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i)" ; done > $@
+	for i in pkg-pages/*/*/index.html ; do echo "$$(sed -e 's+pkg-pages+html-pages/pkg+' <<< $$i):$$i" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i))"; printf '\t%s\n' "${MPP} -set page=$$i < main_tpl.mpp > $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i)" ; done > $@
 
 pkg:
 	make .pkg
