@@ -1,7 +1,7 @@
 MPP_OPTIONS = -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -sos '{{<' -scs '>}}' -its 
 MPP = mpp ${MPP_OPTIONS}
 
-all:html-pages/static
+all:html-pages/static pkg
 	bash gen.bash md-pages
 
 html-pages/try-ocaml.js:try-ocaml.js
@@ -45,3 +45,18 @@ htmlescape:htmlescape.ml
 
 ocamltohtml:ocamltohtml_all.ml
 	ocamlopt $< -o $@
+
+
+include .pkg
+
+.pkg:pkg-pages/*/*/index.html Makefile
+	for i in pkg-pages/*/*/index.html ; do echo "$$(sed -e 's+pkg-pages+html-pages/pkg+' <<< $$i):$$i" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i))"; printf '\t%s\n' "${MPP} -set page=$< < main_tpl.mpp > $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i)" ; done > $@
+
+pkg:
+	make .pkg
+	for i in pkg-pages/*/*/index.html ; do \
+	sed -e 's|pkg-pages|html-pages/pkg|' <<< $$i ; \
+	done | xargs make -j 2
+
+.PHONY:pkg clean
+
