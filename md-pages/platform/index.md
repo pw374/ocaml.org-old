@@ -29,16 +29,43 @@
         </section>
         <section class="span4 condensed">
             <h1 class="ruled">Essential packages</h1>
-            <ul>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
-                <li>Lorem ipsum dolor sit amet consectetur</li>
+    <ul class="news-feed">
+                <li>
+                    <article>
+                        <h1><a href="/pkg/TBD">TBD</a></h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <a href="/pkg/TBD">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h1><a href="/pkg/TBD">TBD</a></h1>
+                        <p>Sed ut perspiciatis unde omnis iste natus</p>
+                        <a href="/pkg/TBD">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h1><a href="/pkg/TBD">TBD</a></h1>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation</p>
+                        <a href="/pkg/TBD">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h1><a href="/pkg/TBD">TBD</a></h1>
+                        <p>Laboris nisi ut aliquip ex ea commodo consequat</p>
+                        <a href="/pkg/TBD">
+                            <img src="/static/img/news.png" alt="News">
+                        </a>
+                    </article>
+                </li>                
             </ul>
             <footer>
                 <p><a href="#">See full list</a></p>
