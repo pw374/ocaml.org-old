@@ -52,7 +52,7 @@ include .pkg
 
 # TODO : move pkg to md-pages
 .pkg:pkg-pages/*.html pkg-pages/*/*/index.html Makefile main_tpl.mpp core_tpl.mpp navbar_tpl.mpp 
-	for i in pkg-pages/*.html pkg-pages/*/*/index.html ; do echo "$$(sed -e 's+pkg-pages+html-pages/pkg+' <<< $$i):$$i" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i))"; printf '\t%s\n' "${MPP} -set page=$$i < main_tpl.mpp > $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i)" ; done > $@
+	for i in pkg-pages/*.html pkg-pages/*/*/index.html ; do echo "$$(sed -e 's+pkg-pages+html-pages/pkg+' <<< $$i):$$i  main_tpl.mpp core_tpl.mpp navbar_tpl.mpp" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i))"; printf '\t%s\n' "${MPP} -set page=$$i < main_tpl.mpp > $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i)" ; done > $@
 
 pkg:
 	make .pkg
