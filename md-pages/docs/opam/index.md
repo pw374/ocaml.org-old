@@ -1,7 +1,6 @@
 {{! set title opam packages doc !}}
 
-<script type="text/javascript" src="doc_loader.js"></script>
-<script type="text/javascript">opamdoc_contents = document.getElementById('main-contents');</script>
+<div id='opamdoc-contents'>
 <h1>Opam Packages list</h1>
 <table class="indextable">
 <tr><td class="module"><a href="?package=cstruct">Cstruct</a></td><td/></tr>
@@ -51,3 +50,7 @@
 <tr><td class="module"><a href="?package=weberizer">Weberizer</a></td><td/></tr>
 <tr><td class="module"><a href="?package=utop">Utop</a></td><td/></tr>
 </table>
+</div>
+
+<script type="text/javascript" src="doc_loader.js"></script>
+<script type="text/javascript">opamdoc_contents = document.getElementById('opamdoc-contents');</script>
