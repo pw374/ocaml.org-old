@@ -11,14 +11,15 @@ html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp core_tpl.mpp navbar_tpl.mp
 	if grep -q '*Table of contents*' "$<" ; then omd -otoc -ts 2 "$<" > "$@.toc" ; fi
 	sed -e 's|\*Table of contents\*||g' "$<" | omd -r ocaml=./ocamlapplet.bash > "$@.tmp"
 	if [ -f "$@.toc" ] ; then \
-	${MPP} -set "page=$@.tmp" -set "toc=$@.toc" < main_tpl.mpp > "$@" ; \
+	${MPP} -set "filename=$<" -set "page=$@.tmp" -set "toc=$@.toc" < main_tpl.mpp > "$@" ; \
 	rm -f "$@.toc" ; \
 	else \
-	${MPP} -set "page=$@.tmp" < main_tpl.mpp > "$@" ; \
+	${MPP} -set "filename=$<" -set "page=$@.tmp" < main_tpl.mpp > "$@" ; \
 	fi
 #	temporary hack for tryocaml to work:
-	sed -e 's|<pre><code |<pre |g' -e 's|</code></pre>|</pre>|g' "$@" > "$@.tmp"
-	mv "$@.tmp" "$@"
+#	sed -e 's|<pre><code |<pre |g' -e 's|</code></pre>|</pre>|g' "$@" > "$@.tmp"
+#	mv "$@.tmp" "$@"
+	rm -f "$@.tmp"
 
 html-pages/img:skin/img
 	rm -fr "$@"
@@ -49,7 +50,8 @@ ocamltohtml:ocamltohtml_all.ml
 
 include .pkg
 
-.pkg:pkg-pages/*.html pkg-pages/*/*/index.html Makefile
+# TODO : move pkg to md-pages
+.pkg:pkg-pages/*.html pkg-pages/*/*/index.html Makefile main_tpl.mpp core_tpl.mpp navbar_tpl.mpp 
 	for i in pkg-pages/*.html pkg-pages/*/*/index.html ; do echo "$$(sed -e 's+pkg-pages+html-pages/pkg+' <<< $$i):$$i" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i))"; printf '\t%s\n' "${MPP} -set page=$$i < main_tpl.mpp > $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i)" ; done > $@
 
 pkg:
@@ -63,7 +65,7 @@ pkg:
 
 
 # include .opamdoc
-
+# TODO : move opamhtml to md-pages
 opamdoc:
 	rsync opamhtml/doc_loader.js html-pages/docs/opam/
 	rm -fr html-pages/docs/opam
