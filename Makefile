@@ -67,6 +67,7 @@ pkg:
 # include .opamdoc
 # TODO : move opamhtml to md-pages
 opamdoc:
+	mkdir -p html-pages/docs/opam/
 	rsync opamhtml/doc_loader.js html-pages/docs/opam/
 	rm -fr html-pages/docs/opam
 	cp -r opamhtml html-pages/docs/opam
