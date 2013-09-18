@@ -56,6 +56,7 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <ul class="nav pull-right">
+            <li><a href="https://github.com/ocamllabs/sandbox-ocaml.org/tree/master/{{! tryget filename !}}">Edit</a></li>
             <li><a href="#">Feedback</a></li>
             <li><a href="#">Contact us</a></li>
             <li><a href="#">Find us on GitHub</a></li>
