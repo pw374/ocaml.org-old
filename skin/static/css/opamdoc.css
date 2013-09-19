@@ -39,5 +39,8 @@
     margin:0 0 1.5em 0;
     padding:0;
 }
+#opamdoc-contents ul {
+    margin-top: 0pt;
+}
 /* end of section for opam-doc */
 /***************************************************/
