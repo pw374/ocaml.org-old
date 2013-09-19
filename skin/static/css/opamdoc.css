@@ -30,5 +30,14 @@
     border-color:lightgray;
     background-color:transparent;
 }
+#opamdoc-contents table, #opamdoc-contents td, #opamdoc-contents tr,
+#opamdoc-contents pre,  #opamdoc-contents code {
+    margin:0;
+    padding:0;
+}
+#opamdoc-contents div.info {
+    margin:0 0 1.5em 0;
+    padding:0;
+}
 /* end of section for opam-doc */
 /***************************************************/
