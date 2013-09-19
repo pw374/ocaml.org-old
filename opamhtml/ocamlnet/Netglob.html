@@ -29,8 +29,7 @@
 <pre><span class="TYPEglob_set"><span class="keyword">type</span> glob_set</span> = <code class="type">&lt; set : (int * int) list &gt;</code></pre><div class="info"><div class="info">A set of code points is given as a list of ranges <code class="code">(from,to)</code>, with
       <code class="code">from &lt;= to</code>. It is allowed that ranges overlap.</div></div>
 <pre><span class="TYPEvalid_glob_expr"><span class="keyword">type</span> valid_glob_expr</span> </pre><div class="info"><div class="info">A validated <code class="code">glob_expr</code></div></div>
-<div class="ocaml_class sig" name="user_info"><pre><span class="TYPEuser_info"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netglob&amp;class=user_info">user_info</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Access to the user database</div></div><div class="ocaml_class_content">
-<pre><span class="METHODpath_encoding"><span class="keyword">method</span> path_encoding</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> option</code></pre>
+<div class="ocaml_class sig" name="user_info"><pre><span class="TYPEuser_info"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netglob&amp;class=user_info">user_info</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Access to the user database</div></div><div class="ocaml_class_content"><pre><span class="METHODpath_encoding"><span class="keyword">method</span> path_encoding</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> option</code></pre>
 <div class="info"><div class="info">Paths of filesystems may be encoded</div></div>
 <pre><span class="METHODhome_directory"><span class="keyword">method</span> home_directory</span> : <code class="code">string -&gt; string</code></pre>
 <div class="info"><div class="info">Returns the home directory of the passed user, or the home
@@ -41,8 +40,7 @@
     here, and because the functions here should also be capable of accessing
     relative paths (not starting with /). It is possible to turn a
     TODO reference : Netfs.stream_fs into TODO reference : Netglob.glob_fs by calling 
-    TODO reference : Netglob.of_stream_fs.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODpath_encoding"><span class="keyword">method</span> path_encoding</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> option</code></pre>
+    TODO reference : Netglob.of_stream_fs.</div></div><div class="ocaml_class_content"><pre><span class="METHODpath_encoding"><span class="keyword">method</span> path_encoding</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> option</code></pre>
 <div class="info"><div class="info">Paths of filesystems may be encoded</div></div>
 <pre><span class="METHODread_dir"><span class="keyword">method</span> read_dir</span> : <code class="code">string -&gt; string list</code></pre>
 <div class="info"><div class="info">Returns the file names contained in the directory, without

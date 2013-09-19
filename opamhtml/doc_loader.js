@@ -1,5 +1,6 @@
-
-opamdoc_contents = document.getElementsByTagName('body')[0];
+// var opamdoc_contents = document.getElementsByTagName('body')[0];
+// line above doesn't work well if script loaded before body is created.
+var opamdoc_contents = 'body';
 
 // utility - Parse query string
 (function($) {

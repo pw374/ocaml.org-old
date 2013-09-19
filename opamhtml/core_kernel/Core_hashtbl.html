@@ -32,5 +32,5 @@
       <pre class="codepre"><code class="code">
         let equal (x, y) (x', y') = String.(=) x x' &amp;&amp; Int63.(=) y y'
         let hash (x, y) = String.hash x + Int63.hash y * 65599 </code></pre></div></div>
-<div class="ocaml_include ident" items="[]"><pre id="28"><span class="keyword">include</span> <code class="type"><code class="code">Core_hashtbl_intf.Hashtbl</code></code></pre></div>
+<div class="ocaml_include ident" items="[]"><pre><span class="keyword">include</span> <code class="type"><code class="code">Core_hashtbl_intf.Hashtbl</code></code></pre></div>
 </div>

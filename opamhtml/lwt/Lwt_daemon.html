@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Daemon helpers</div>
-<pre id="19"><span class="VALdaemonize"><span class="keyword">val</span> daemonize</span> : <code class="type">?syslog:bool -&gt;
+<pre><span class="VALdaemonize"><span class="keyword">val</span> daemonize</span> : <code class="type">?syslog:bool -&gt;
 ?stdin:[ `Close | `Dev_null | `Keep ] -&gt;
 ?stdout:[ `Close | `Dev_null | `Keep | `Log of <a href="?package=lwt&amp;module=Lwt_log&amp;type=logger">Lwt_log.logger</a> | `Log_default ] -&gt;
 ?stderr:[ `Close | `Dev_null | `Keep | `Log of <a href="?package=lwt&amp;module=Lwt_log&amp;type=logger">Lwt_log.logger</a> | `Log_default ] -&gt;

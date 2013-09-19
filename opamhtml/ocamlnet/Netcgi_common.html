@@ -25,8 +25,7 @@
 <pre><span class="TYPEstore"><span class="keyword">type</span> store</span> = <code class="type">[ `File of string | `Memory ]</code></pre>
 <pre><span class="EXCEPTIONOversized"><span class="keyword">exception</span> Oversized</span></pre><div class="info"><div class="info">See TODO reference : Netcgi.Argument.Oversized.</div></div>
 <pre><span class="EXCEPTIONToo_many_arguments"><span class="keyword">exception</span> Too_many_arguments</span></pre><div class="info"><div class="info">Hit the limit <code class="code">max_arguments</code></div></div>
-<div class="ocaml_class sig" name="cgi_argument"><pre><span class="TYPEcgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument">cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.cgi_argument.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
+<div class="ocaml_class sig" name="cgi_argument"><pre><span class="TYPEcgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument">cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.cgi_argument.</div></div><div class="ocaml_class_content"><pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
 
 <pre><span class="METHODvalue"><span class="keyword">method</span> value</span> : <code class="code">string</code></pre>
 
@@ -44,8 +43,7 @@
 
 <pre><span class="METHODfinalize"><span class="keyword">method</span> finalize</span> : <code class="code">unit -&gt; unit</code></pre>
 </div></div>
-<div class="ocaml_class sig" name="rw_cgi_argument"><pre><span class="TYPErw_cgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument">rw_cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.rw_cgi_argument.<span class="warning">Deprecated.</span> Arguments are read-only.<br/></div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument">cgi_argument</a></pre></div>
+<div class="ocaml_class sig" name="rw_cgi_argument"><pre><span class="TYPErw_cgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument">rw_cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.rw_cgi_argument.<span class="warning">Deprecated.</span> Arguments are read-only.<br/></div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument">cgi_argument</a></pre></div>
 
 <pre><span class="METHODro"><span class="keyword">method</span> ro</span> : <code class="code">bool</code></pre>
 
@@ -143,8 +141,7 @@
     header in non-standard ways.  Example: Assume that the
     environment is the web server process (e.g. we are an Apache
     module).  Typically the header must be stored in different
-    structures than the body of the message.</div></div></div></div><div class="ocaml_class_content">
-<pre><span class="VALheader_not_sent"><span class="keyword">val</span> <span class="keyword">mutable</span> header_not_sent</span> : <code class="code">bool</code></pre>
+    structures than the body of the message.</div></div></div></div><div class="ocaml_class_content"><pre><span class="VALheader_not_sent"><span class="keyword">val</span> <span class="keyword">mutable</span> header_not_sent</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info"><code class="code">true</code> iff the output headers have not been sent.
 	<code class="code">#send_output_header</code> must set it to false once it did its
 	job.</div></div>
@@ -261,8 +258,7 @@
     for <code class="code">`DELETE</code>, <code class="code">`GET</code>, <code class="code">`HEAD</code> and <code class="code">`POST</code>, the <code class="code">`PUT</code> takes a
     TODO reference : Netcgi_common.cgi_argument parameter.  Setting correctly this
     parameter and decoding <code class="code">env#cgi_request_method</code> is done for you by
-    TODO reference : Netcgi_common.cgi_with_args.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODargument"><span class="keyword">method</span> argument</span> : <code class="code">string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a></code></pre>
+    TODO reference : Netcgi_common.cgi_with_args.</div></div><div class="ocaml_class_content"><pre><span class="METHODargument"><span class="keyword">method</span> argument</span> : <code class="code">string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a></code></pre>
 
 <pre><span class="METHODargument_value"><span class="keyword">method</span> argument_value</span> : <code class="code">?default:string -&gt; string -&gt; string</code></pre>
 

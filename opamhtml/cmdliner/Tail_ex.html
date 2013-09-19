@@ -1,8 +1,8 @@
 <div class="ocaml_toplevel_module"><pre><span class="TYPEloc"><span class="keyword">type</span> loc</span> = <code class="type">bool * int</code></pre>
 <pre><code><span class="TYPEverb"><span class="keyword">type</span> verb</span> = </code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code/></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code/></td></tr></table>
+		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTverb.Verbose"><span class="constructor">Verbose</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTverb.Quiet"><span class="constructor">Quiet</span></span></code></td></tr></table>
 <pre><code><span class="TYPEfollow"><span class="keyword">type</span> follow</span> = </code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code/></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code/></td></tr></table>
+		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTfollow.Name"><span class="constructor">Name</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTfollow.Descriptor"><span class="constructor">Descriptor</span></span></code></td></tr></table>
 <pre><span class="VALstr"><span class="keyword">val</span> str</span> : <code class="type">('a, unit, string) Pervasives.format -&gt; 'a</code></pre>
 <pre><span class="VALopt_str"><span class="keyword">val</span> opt_str</span> : <code class="type">('a -&gt; string) -&gt; 'a option -&gt; string</code></pre>
 <pre><span class="VALloc_str"><span class="keyword">val</span> loc_str</span> : <code class="type">bool * int -&gt; string</code></pre>
@@ -15,5 +15,5 @@
 <pre><span class="VALpid"><span class="keyword">val</span> pid</span> : <code class="type">int option <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">Cmdliner.Term.t</a></code></pre>
 <pre><span class="VALfiles"><span class="keyword">val</span> files</span> : <code class="type">string list <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">Cmdliner.Term.t</a></code></pre>
 <pre><span class="VALcmd"><span class="keyword">val</span> cmd</span> : <code class="type">unit <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">Cmdliner.Term.t</a> * <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=info">Cmdliner.Term.info</a></code></pre>
-<pre><span class="VALUnknown name -- to fix"><span class="keyword">val</span> Unknown name -- to fix</span> : <code class="type">unit</code></pre>
+
 </div>

@@ -30,8 +30,7 @@
  classes.</div></div>
 <pre><span class="EXCEPTIONCommand_failure"><span class="keyword">exception</span> Command_failure</span> <span class="keyword">of</span> <code class="type">Unix.process_status</code></pre><div class="info"><div class="info">Raised by <code class="code">close_in</code> or <code class="code">close_out</code> if the channel is connected with
  another process, and the execution of that process fails.</div></div>
-<div class="ocaml_class sig" name="rec_in_channel"><pre><span class="TYPErec_in_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel">rec_in_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Recommended input class type for library interoperability.</div></div><div class="ocaml_class_content">
-<div class="info"><div class="info">Description<br/> This class type is defined in 
+<div class="ocaml_class sig" name="rec_in_channel"><pre><span class="TYPErec_in_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel">rec_in_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Recommended input class type for library interoperability.</div></div><div class="ocaml_class_content"><div class="info"><div class="info">Description<br/> This class type is defined in 
  &quot;TODO reference : http://www.ocaml-programming.de/rec/IO-Classes.html&quot;
  as collaborative effort of several library creators.</div></div>
 <pre><span class="METHODinput"><span class="keyword">method</span> input</span> : <code class="code">string -&gt; int -&gt; int -&gt; int</code></pre>
@@ -52,16 +51,14 @@
 <div class="info"><div class="info">Closes the channel for input.<br/> When the channel is already closed, this is a no-op.<br/> Error policy: Exceptions are only raised in cases of serious
  corruption, e.g. if the underlying descriptor is invalid.</div></div></div></div>
 <div class="ocaml_class sig" name="raw_in_channel"><pre><span class="TYPEraw_in_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel">raw_in_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Basic Unix-level class type for input channels as used by ocamlnet. In addition
- to the recommended standard, ocamlnet always support a position counter</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel">rec_in_channel</a></pre></div>
+ to the recommended standard, ocamlnet always support a position counter</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel">rec_in_channel</a></pre></div>
 
 <pre><span class="METHODpos_in"><span class="keyword">method</span> pos_in</span> : <code class="code">int</code></pre>
 <div class="info"><div class="info">Returns the current channel position. This position can be expected
  to be consistent with the returned number of bytes of <code class="code">input</code>, i.e.
  when <code class="code">input</code> returns <code class="code">n</code>, the position is advanced by <code class="code">n</code>.<br/> As seek operations are outside the scope of <code class="code">Netchannels</code>, 
  implementations may or may not take seek operations into account.</div></div></div></div>
-<div class="ocaml_class sig" name="rec_out_channel"><pre><span class="TYPErec_out_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_out_channel">rec_out_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Recommended output class type for library interoperability.</div></div><div class="ocaml_class_content">
-<div class="info"><div class="info">Description<br/> This class type is defined in 
+<div class="ocaml_class sig" name="rec_out_channel"><pre><span class="TYPErec_out_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_out_channel">rec_out_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Recommended output class type for library interoperability.</div></div><div class="ocaml_class_content"><div class="info"><div class="info">Description<br/> This class type is defined in 
  &quot;TODO reference : http://www.ocaml-programming.de/rec/IO-Classes.html&quot;
  as collaborative effort of several library creators.</div></div>
 <pre><span class="METHODoutput"><span class="keyword">method</span> output</span> : <code class="code">string -&gt; int -&gt; int -&gt; int</code></pre>
@@ -116,8 +113,7 @@
      (like invalid file descriptors) should always be immediately
      reported.</div></div></div></div>
 <div class="ocaml_class sig" name="raw_out_channel"><pre><span class="TYPEraw_out_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_out_channel">raw_out_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Basic Unix-level class type for output channels as used by ocamlnet. In addition
- to the recommended standard, ocamlnet always support a position counter</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_out_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_out_channel">rec_out_channel</a></pre></div>
+ to the recommended standard, ocamlnet always support a position counter</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_out_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_out_channel">rec_out_channel</a></pre></div>
 
 <pre><span class="METHODpos_out"><span class="keyword">method</span> pos_out</span> : <code class="code">int</code></pre>
 <div class="info"><div class="info">Returns the current channel position. This position can be expected
@@ -125,8 +121,7 @@
  when <code class="code">output</code> returns <code class="code">n</code>, the position is advanced by <code class="code">n</code>.<br/> As seek operations are outside the scope of <code class="code">Netchannels</code>, 
  implementations may or may not take seek operations into account.</div></div></div></div>
 <div class="ocaml_class sig" name="raw_io_channel"><pre><span class="TYPEraw_io_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_io_channel">raw_io_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">A channel supporting both input and output. The input and output
- aspects are strictly separated</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel">raw_in_channel</a></pre></div>
+ aspects are strictly separated</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel">raw_in_channel</a></pre></div>
 
 <div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_out_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_out_channel">raw_out_channel</a></pre></div>
 </div></div>
@@ -134,8 +129,7 @@
  These methods are only reasonable when the channel is of blocking type,
  i.e. waits for input when not enough data are available to perform an
  operation. Implementations may choose to fail when they detect the
- channel is non-blocking.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODreally_input"><span class="keyword">method</span> really_input</span> : <code class="code">string -&gt; int -&gt; int -&gt; unit</code></pre>
+ channel is non-blocking.</div></div><div class="ocaml_class_content"><pre><span class="METHODreally_input"><span class="keyword">method</span> really_input</span> : <code class="code">string -&gt; int -&gt; int -&gt; unit</code></pre>
 <div class="info"><div class="info">Reads exactly as many octets from the channel as the second <code class="code">int</code>
  argument specifies. The octets are placed at the position denoted
  by the first <code class="code">int</code> argument into the string.<br/> When the end of the channel is reached before the passed number of
@@ -149,8 +143,7 @@
 <pre><span class="METHODinput_byte"><span class="keyword">method</span> input_byte</span> : <code class="code">unit -&gt; int</code></pre>
 <div class="info"><div class="info">Reads exactly one octet from the channel and returns its code, 
  or raises <code class="code">End_of_file</code></div></div></div></div>
-<div class="ocaml_class sig" name="in_obj_channel"><pre><span class="TYPEin_obj_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=in_obj_channel">in_obj_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The application-level input channel supports raw and complemented methods</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel">raw_in_channel</a></pre></div>
+<div class="ocaml_class sig" name="in_obj_channel"><pre><span class="TYPEin_obj_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=in_obj_channel">in_obj_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The application-level input channel supports raw and complemented methods</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel">raw_in_channel</a></pre></div>
 
 <div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_in_channel">compl_in_channel</a></pre></div>
 </div></div>
@@ -158,8 +151,7 @@
  These methods are only reasonable when the channel is of blocking type,
  i.e. waits for output readiness when the underlying resource currently
  cannot process enough data. Implementations may choose to fail when they
- detect the channel is non-blocking.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODreally_output"><span class="keyword">method</span> really_output</span> : <code class="code">string -&gt; int -&gt; int -&gt; unit</code></pre>
+ detect the channel is non-blocking.</div></div><div class="ocaml_class_content"><pre><span class="METHODreally_output"><span class="keyword">method</span> really_output</span> : <code class="code">string -&gt; int -&gt; int -&gt; unit</code></pre>
 <div class="info"><div class="info">Writes exactly as many octets to the channel as the second <code class="code">int</code>
  argument specifies. The octets are taken from the string position 
  denoted by the first <code class="code">int</code> argument.</div></div>
@@ -175,14 +167,12 @@
 <div class="info"><div class="info">Writes the contents of an <code class="code">in_obj_channel</code> until the end of the
  input channel is reached.<div class="parameters"><div class="param_info"><code class="code">len</code> : If passed, at most this number of octets are read from
  the input channel and written to this channel.</div></div></div></div></div></div>
-<div class="ocaml_class sig" name="out_obj_channel"><pre><span class="TYPEout_obj_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel">out_obj_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The application-level output channel supports raw and complemented methods</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_out_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_out_channel">raw_out_channel</a></pre></div>
+<div class="ocaml_class sig" name="out_obj_channel"><pre><span class="TYPEout_obj_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel">out_obj_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The application-level output channel supports raw and complemented methods</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_out_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_out_channel">raw_out_channel</a></pre></div>
 
 <div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_out_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_out_channel">compl_out_channel</a></pre></div>
 </div></div>
 <div class="ocaml_class sig" name="io_obj_channel"><pre><span class="TYPEio_obj_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=io_obj_channel">io_obj_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">A channel supporting both input and output. The input and output
- aspects are strictly separated</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=in_obj_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=in_obj_channel">in_obj_channel</a></pre></div>
+ aspects are strictly separated</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=in_obj_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=in_obj_channel">in_obj_channel</a></pre></div>
 
 <div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel">out_obj_channel</a></pre></div>
 </div></div>
@@ -190,8 +180,7 @@
  This means that all data written to this channel is collected in the
  buffer until either <code class="code">commit_work</code> or <code class="code">rollback_work</code> is called.<br/> When the channel is closed, the buffer may optionally be committed.
  This is implementation-defined.<br/> The method <code class="code">flush</code> does not have any effect on the transaction
- buffer.</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel">out_obj_channel</a></pre></div>
+ buffer.</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel">out_obj_channel</a></pre></div>
 
 <pre><span class="METHODcommit_work"><span class="keyword">method</span> commit_work</span> : <code class="code">unit -&gt; unit</code></pre>
 <div class="info"><div class="info">Flushes the transaction buffer, and writes its contents to the
@@ -319,8 +308,7 @@
 <div class="ocaml_class sig" name="augment_raw_in_channel"><pre><span class="TYPEaugment_raw_in_channel"><span class="keyword">class</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=augment_raw_in_channel">augment_raw_in_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">This class implements the methods from <code class="code">compl_in_channel</code> by calling
  the methods of <code class="code">raw_in_channel</code>. There is no additional buffering.
  The performance of the method <code class="code">input_line</code> is very bad (consider
- to override it, e.g. by <code class="code">enhanced_input_line</code> as defined below).</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_in_channel">compl_in_channel</a></pre></div>
+ to override it, e.g. by <code class="code">enhanced_input_line</code> as defined below).</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_in_channel">compl_in_channel</a></pre></div>
 
 <pre><span class="METHODinput"><span class="keyword">method</span> <span class="keyword">virtual</span> input</span> : <code class="code">string -&gt; int -&gt; int -&gt; int</code></pre>
 <div class="info"><div class="info">As in <code class="code">raw_in_channel</code></div></div>
@@ -335,8 +323,7 @@
  read by the <code class="code">input</code> method.<div class="parameters"><div class="param_info"><code class="code">start_pos_in</code> : The initial value of the counter for <code class="code">pos_in</code>.
    Defaults to 0.</div></div></div></div></div>
 <div class="ocaml_class sig" name="augment_raw_out_channel"><pre><span class="TYPEaugment_raw_out_channel"><span class="keyword">class</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=augment_raw_out_channel">augment_raw_out_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">This class implements the methods from <code class="code">compl_out_channel</code> by calling
- the methods of <code class="code">raw_out_channel</code>. There is no additional buffering.</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_out_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_out_channel">compl_out_channel</a></pre></div>
+ the methods of <code class="code">raw_out_channel</code>. There is no additional buffering.</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_out_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=compl_out_channel">compl_out_channel</a></pre></div>
 
 <pre><span class="METHODoutput"><span class="keyword">method</span> <span class="keyword">virtual</span> output</span> : <code class="code">string -&gt; int -&gt; int -&gt; int</code></pre>
 <div class="info"><div class="info">As in <code class="code">raw_out_channel</code></div></div>
@@ -356,8 +343,7 @@
 <pre><span class="TYPEinput_result"><span class="keyword">type</span> input_result</span> = <code class="type">[ `Data of int | `Separator of string ]</code></pre><div class="info"><div class="info">This type is for the method <code class="code">enhanced_input</code> of <code class="code">enhanced_raw_in_channel</code>.<ul><li><code class="code">`Data n</code> means that <code class="code">n</code> bytes have been copied to the target string</li><li><code class="code">`Separator s</code> means that no bytes have been copied, but that an
    end-of-line separator <code class="code">s</code> has been found
  </li></ul></div></div>
-<div class="ocaml_class sig" name="enhanced_raw_in_channel"><pre><span class="TYPEenhanced_raw_in_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=enhanced_raw_in_channel">enhanced_raw_in_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Defines private methods reading text line by line</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel">raw_in_channel</a></pre></div>
+<div class="ocaml_class sig" name="enhanced_raw_in_channel"><pre><span class="TYPEenhanced_raw_in_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=enhanced_raw_in_channel">enhanced_raw_in_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Defines private methods reading text line by line</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=raw_in_channel">raw_in_channel</a></pre></div>
 
 <pre><span class="METHODenhanced_input_line"><span class="keyword">method</span> <span class="keyword">private</span> enhanced_input_line</span> : <code class="code">unit -&gt; string</code></pre>
 <div class="info"><div class="info">An improved implementation of <code class="code">input_line</code> that uses the buffer</div></div>

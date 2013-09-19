@@ -13,8 +13,7 @@
     If there are several <code class="code">logging</code> sections, the messages are sent to
     all configured loggers.<br/>    Instead of configuring loggers in the config file, one can also
     create loggers from config objects like <code class="code">generic_config</code>.<br/>    See also TODO reference : Netplex_intro.logging for more documentation.</div></div>
-<div class="ocaml_class sig" name="generic_config"><pre><span class="TYPEgeneric_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config">generic_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content">
-<pre><span class="METHODlog_format"><span class="keyword">method</span> log_format</span> : <code class="code">string</code></pre>
+<div class="ocaml_class sig" name="generic_config"><pre><span class="TYPEgeneric_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config">generic_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODlog_format"><span class="keyword">method</span> log_format</span> : <code class="code">string</code></pre>
 
 <pre><span class="METHODlog_component"><span class="keyword">method</span> log_component</span> : <code class="code">string</code></pre>
 
@@ -45,8 +44,7 @@
     }
  </code></pre><br/> - <code class="code">file</code>: Log messages are appended to this file.<ul><li><code class="code">format</code>: Optional format string. See below.</li><li><code class="code">component</code>: Optional component selector. See below.</li><li><code class="code">subchannel</code>: Optional subchannel selector. See below.</li><li><code class="code">max_level</code>: Optional maximum log level. See below.
    </li></ul></div></div>
-<div class="ocaml_class sig" name="multi_file_config"><pre><span class="TYPEmulti_file_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=multi_file_config">multi_file_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config">generic_config</a></pre></div>
+<div class="ocaml_class sig" name="multi_file_config"><pre><span class="TYPEmulti_file_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=multi_file_config">multi_file_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config">generic_config</a></pre></div>
 
 <pre><span class="METHODlog_directory"><span class="keyword">method</span> log_directory</span> : <code class="code">string</code></pre>
 
@@ -79,8 +77,7 @@ list</code></pre>
     }
  </code></pre><br/> - <code class="code">format</code>: Optional format string. See below.<ul><li><code class="code">component</code>: Optional component selector. See below.</li><li><code class="code">subchannel</code>: Optional subchannel selector. See below.</li><li><code class="code">max_level</code>: Optional maximum log level. See below.
    </li></ul></div></div>
-<div class="ocaml_class sig" name="syslog_config"><pre><span class="TYPEsyslog_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=syslog_config">syslog_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config">generic_config</a></pre></div>
+<div class="ocaml_class sig" name="syslog_config"><pre><span class="TYPEsyslog_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=syslog_config">syslog_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netplex_log&amp;class=generic_config">generic_config</a></pre></div>
 
 <pre><span class="METHODlog_identifier"><span class="keyword">method</span> log_identifier</span> : <code class="code">string</code></pre>
 

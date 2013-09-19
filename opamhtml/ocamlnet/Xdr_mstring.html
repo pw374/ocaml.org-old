@@ -64,8 +64,7 @@
     that is only possible when the data is <code class="code">memory</code>-typed.<br/>    The possible optimizations for the decoding side of the problem
     are slightly less impressive, but still worth doing it.</div></div>
 <div class="info"><div class="info"><br/><h2 id="2_TITLE">Interface</h2><br/></div></div>
-<div class="ocaml_class sig" name="mstring"><pre><span class="TYPEmstring"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;class=mstring">mstring</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The object holding the string value</div></div><div class="ocaml_class_content">
-<pre><span class="METHODlength"><span class="keyword">method</span> length</span> : <code class="code">int</code></pre>
+<div class="ocaml_class sig" name="mstring"><pre><span class="TYPEmstring"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;class=mstring">mstring</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The object holding the string value</div></div><div class="ocaml_class_content"><pre><span class="METHODlength"><span class="keyword">method</span> length</span> : <code class="code">int</code></pre>
 <div class="info"><div class="info">The length of the managed string</div></div>
 <pre><span class="METHODblit_to_string"><span class="keyword">method</span> blit_to_string</span> : <code class="code">int -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre>
 <div class="info"><div class="info"><code class="code">blit_to_string mpos s spos len</code>: Copies the substring of the
@@ -85,8 +84,7 @@
 	where the contents start</div></div>
 <pre><span class="METHODpreferred"><span class="keyword">method</span> preferred</span> : <code class="code">[ `Memory | `String ]</code></pre>
 <div class="info"><div class="info">Whether <code class="code">as_memory</code> or <code class="code">as_string</code> is cheaper</div></div></div></div>
-<div class="ocaml_class sig" name="mstring_factory"><pre><span class="TYPEmstring_factory"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;class=mstring_factory">mstring_factory</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The object creating new <code class="code">mstring</code> objects</div></div><div class="ocaml_class_content">
-<pre><span class="METHODcreate_from_string"><span class="keyword">method</span> create_from_string</span> : <code class="code">string -&gt; int -&gt; int -&gt; bool -&gt; <a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;type=mstring">mstring</a></code></pre>
+<div class="ocaml_class sig" name="mstring_factory"><pre><span class="TYPEmstring_factory"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;class=mstring_factory">mstring_factory</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The object creating new <code class="code">mstring</code> objects</div></div><div class="ocaml_class_content"><pre><span class="METHODcreate_from_string"><span class="keyword">method</span> create_from_string</span> : <code class="code">string -&gt; int -&gt; int -&gt; bool -&gt; <a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;type=mstring">mstring</a></code></pre>
 <div class="info"><div class="info"><code class="code">create_from_string s pos len must_copy</code>: Creates the <code class="code">mstring</code> from the
 	sub string of s starting at <code class="code">pos</code> with length <code class="code">len</code><br/>	If <code class="code">must_copy</code> the mstring object must create a copy. Otherwise
 	it can just keep the string passed in.</div></div>

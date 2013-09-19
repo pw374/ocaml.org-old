@@ -1,16 +1,14 @@
 <div class="ocaml_toplevel_module"><div class="info">Netplex toolkit</div>
 <div class="ocaml_class sig" name="v_processor"><pre><span class="TYPEv_processor"><span class="keyword">class type</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=v_processor">v_processor</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Same as <code class="code">processor</code>, but the methods <code class="code">process</code> and <code class="code">supported_ptypes</code>
- are flagged as <code class="code">virtual</code></div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field"><pre><span class="keyword">inherit</span> <code class="type"/>Netplex_types.processor_hooks</pre></div>
+ are flagged as <code class="code">virtual</code></div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field"><pre><span class="keyword">inherit</span> <code class="type"/>Netplex_types.processor_hooks</pre></div>
 
 <pre><span class="METHODprocess"><span class="keyword">method</span> <span class="keyword">virtual</span> process</span> : <code class="code">when_done:(unit -&gt; unit) -&gt;
 Netplex_types.container -&gt; Unix.file_descr -&gt; string -&gt; unit</code></pre>
 
 <pre><span class="METHODsupported_ptypes"><span class="keyword">method</span> <span class="keyword">virtual</span> supported_ptypes</span> : <code class="code">Netplex_types.parallelization_type list</code></pre>
 </div></div>
-<div class="ocaml_class ident" name="empty_processor_hooks"><pre><span class="TYPEempty_processor_hooks"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=empty_processor_hooks">empty_processor_hooks</a></span> : <code class="type">unit -&gt; </code>Netplex_types.processor_hooks</pre><div class="info"><div class="info">This is an empty set of processor hooks, i.e. all methods are empty</div></div></div>
-<div class="ocaml_class ident" name="processor_hooks_delegation"><pre><span class="TYPEprocessor_hooks_delegation"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=processor_hooks_delegation">processor_hooks_delegation</a></span> : <code class="type">Netplex_types.processor_hooks -&gt; </code>Netplex_types.processor_hooks</pre><div class="info"><div class="info">Takes a hooks object, and makes a class of it. Useful for overriding
-      methods in an object.</div></div></div>
+<div class="ocaml_class ident" name="empty_processor_hooks"><pre><span class="TYPEempty_processor_hooks"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=empty_processor_hooks">empty_processor_hooks</a></span> : <code class="type">unit -&gt; </code>Netplex_types.processor_hooks</pre></div>
+<div class="ocaml_class ident" name="processor_hooks_delegation"><pre><span class="TYPEprocessor_hooks_delegation"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=processor_hooks_delegation">processor_hooks_delegation</a></span> : <code class="type">Netplex_types.processor_hooks -&gt; </code>Netplex_types.processor_hooks</pre></div>
 <div class="ocaml_class ident" name="processor_base" path="?package=ocamlnet&amp;module=Netplex_kit&amp;class=v_processor"><pre><span class="TYPEprocessor_base"><span class="keyword">class</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=processor_base">processor_base</a></span> : <code class="type">Netplex_types.processor_hooks -&gt; </code><a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=v_processor">v_processor</a></pre><div class="info"><div class="info">A virtual (incomplete) base class for processors. As argument the
  user-supplied hooks are passed in. Use this class as in:<br/> <pre class="codepre"><code class="code">
     class my_processor hooks =
@@ -30,39 +28,8 @@ Netplex_types.container -&gt; Unix.file_descr -&gt; string -&gt; unit</code></pr
         super # post_start_hook container
     end
  </code></pre></div></div></div>
-<div class="ocaml_class ident" name="protocol_switch_processor"><pre><span class="TYPEprotocol_switch_processor"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=protocol_switch_processor">protocol_switch_processor</a></span> : <code class="type">(string * Netplex_types.processor) list -&gt; </code>Netplex_types.processor</pre><div class="info"><div class="info">The arg is a list of pairs <code class="code">(proto_name, proto_proc)</code>. All mentioned
-      processors are merged into a single processor. When a TCP connection
-      arrives, it depends on the protocol which processor is actually
-      activated. (Every socket is bound to a protocol, so this can be derived
-      from the socket.)<br/>      It is up to the user whether the merge makes sense.</div></div></div>
-<div class="ocaml_class ident" name="protocol_switch_factory"><pre><span class="TYPEprotocol_switch_factory"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=protocol_switch_factory">protocol_switch_factory</a></span> : <code class="type">string -&gt; (string * Netplex_types.processor_factory) list -&gt; </code>Netplex_types.processor_factory</pre><div class="info"><div class="info"><code class="code">protocol_switch_factory name merge_list</code>: Merges the factories
-      in <code class="code">merge_list</code> to a single factory. Which factory is selected
-      depends on the protocol.<br/>      For example:<br/>      <pre class="codepre"><code class="code">
-          service {
-            name = &quot;...&quot;;
-            protocol {
-               name = &quot;A&quot;; ...;
-            }
-            protocol {
-               name = &quot;B&quot;; ...;
-            }
-            processor {
-               type = &quot;merged&quot;;
-               A {
-                  ...
-               }
-               B {
-                  ...
-               }
-            }
-          }
-      </code></pre><br/>      Here, two protocols <code class="code">A</code> and <code class="code">B</code> are defined, and there is a
-      subsection in <code class="code">processor</code> for each of the protocols configuring
-      the used service. &quot;merged&quot; is the <code class="code">name</code> of the merged factories.<br/>      For example, <code class="code">A</code> could be an RPC interface, and <code class="code">B</code> could be
-      an HTTP interface providing the same service.<br/>      For every protocol in <code class="code">merge_list</code> there must be a subsection in
-      <code class="code">processor</code> for the protocol. This subsection configures then
-      the processor. It is not an error not to create sockets for
-      a protocol in <code class="code">merge_list</code>.</div></div></div>
+<div class="ocaml_class ident" name="protocol_switch_processor"><pre><span class="TYPEprotocol_switch_processor"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=protocol_switch_processor">protocol_switch_processor</a></span> : <code class="type">(string * Netplex_types.processor) list -&gt; </code>Netplex_types.processor</pre></div>
+<div class="ocaml_class ident" name="protocol_switch_factory"><pre><span class="TYPEprotocol_switch_factory"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=protocol_switch_factory">protocol_switch_factory</a></span> : <code class="type">string -&gt; (string * Netplex_types.processor_factory) list -&gt; </code>Netplex_types.processor_factory</pre></div>
 <pre><span class="VALadd_helper_service"><span class="keyword">val</span> add_helper_service</span> : <code class="type">Netplex_types.controller -&gt; string -&gt; Netplex_types.processor_hooks -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add_helper_service ctrl name hooks</code>: Adds a helper service <code class="code">name</code> to
       the controller
       <code class="code">ctrl</code>. The helper service does not have any externally

@@ -15,8 +15,7 @@
       greedy_accepts = &lt;bool&gt;;
     }
  </code></pre></div></div>
-<div class="ocaml_class sig" name="dynamic_workload_config"><pre><span class="TYPEdynamic_workload_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netplex_workload&amp;class=dynamic_workload_config">dynamic_workload_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content">
-<pre><span class="METHODmax_jobs_per_thread"><span class="keyword">method</span> max_jobs_per_thread</span> : <code class="code">int</code></pre>
+<div class="ocaml_class sig" name="dynamic_workload_config"><pre><span class="TYPEdynamic_workload_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netplex_workload&amp;class=dynamic_workload_config">dynamic_workload_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODmax_jobs_per_thread"><span class="keyword">method</span> max_jobs_per_thread</span> : <code class="code">int</code></pre>
 <div class="info"><div class="info">How many jobs every thread can execute concurrently until it is
  considered as fully loaded. For configurations where the threads
  can only handle one connection at a time this number must be 1.</div></div>

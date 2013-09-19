@@ -1,10 +1,10 @@
-<div class="ocaml_toplevel_module"><pre id="19"><span class="VALstop_upon_sigbus"><span class="keyword">val</span> stop_upon_sigbus</span> : <code class="type">unit -&gt; unit</code></pre>
-<pre id="19"><span class="VALstop_upon_sigsegv"><span class="keyword">val</span> stop_upon_sigsegv</span> : <code class="type">unit -&gt; unit</code></pre>
-<pre id="19"><span class="VALstop_upon_sigpipe"><span class="keyword">val</span> stop_upon_sigpipe</span> : <code class="type">unit -&gt; unit</code></pre>
-<pre id="19"><span class="VALstop_upon_exit"><span class="keyword">val</span> stop_upon_exit</span> : <code class="type">unit -&gt; unit</code></pre>
-<pre id="19"><span class="VALstop_me_now"><span class="keyword">val</span> stop_me_now</span> : <code class="type">unit -&gt; unit</code></pre>
-<pre id="19"><span class="VALsegfault_me_now"><span class="keyword">val</span> segfault_me_now</span> : <code class="type">unit -&gt; unit</code></pre>
-<pre id="19"><span class="VALstart_canary_thread"><span class="keyword">val</span> start_canary_thread</span> : <code class="type">max_wait:Core.Std.Time.Span.t -&gt; check_interval:Core.Std.Time.Span.t -&gt; unit</code></pre><div class="info"><div class="info">A canary thread starts two threads, one in caml and one in C.  The caml
+<div class="ocaml_toplevel_module"><pre><span class="VALstop_upon_sigbus"><span class="keyword">val</span> stop_upon_sigbus</span> : <code class="type">unit -&gt; unit</code></pre>
+<pre><span class="VALstop_upon_sigsegv"><span class="keyword">val</span> stop_upon_sigsegv</span> : <code class="type">unit -&gt; unit</code></pre>
+<pre><span class="VALstop_upon_sigpipe"><span class="keyword">val</span> stop_upon_sigpipe</span> : <code class="type">unit -&gt; unit</code></pre>
+<pre><span class="VALstop_upon_exit"><span class="keyword">val</span> stop_upon_exit</span> : <code class="type">unit -&gt; unit</code></pre>
+<pre><span class="VALstop_me_now"><span class="keyword">val</span> stop_me_now</span> : <code class="type">unit -&gt; unit</code></pre>
+<pre><span class="VALsegfault_me_now"><span class="keyword">val</span> segfault_me_now</span> : <code class="type">unit -&gt; unit</code></pre>
+<pre><span class="VALstart_canary_thread"><span class="keyword">val</span> start_canary_thread</span> : <code class="type">max_wait:Core.Std.Time.Span.t -&gt; check_interval:Core.Std.Time.Span.t -&gt; unit</code></pre><div class="info"><div class="info">A canary thread starts two threads, one in caml and one in C.  The caml
     thread tries to take the caml lock every <code class="code">check_interval</code>, and immediately
     releases it once it succeeds. The C thread checks that your thread is
     getting the caml lock within <code class="code">max_wait</code>, and if it isn't it stops the

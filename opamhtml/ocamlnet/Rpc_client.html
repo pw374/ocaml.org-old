@@ -58,8 +58,7 @@
  At this time, the callback function is invoked.<br/> For <code class="code">Descriptor</code> connector the socket is shut down but not closed.
  For the other connector types the socket is also closed. 
  Win32 named pipes are shut down.</div></div>
-<div class="ocaml_class sig" name="socket_config"><pre><span class="TYPEsocket_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Rpc_client&amp;class=socket_config">socket_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Configuration for <code class="code">`Socket</code> (see below).</div></div><div class="ocaml_class_content">
-<pre><span class="METHODnon_blocking_connect"><span class="keyword">method</span> non_blocking_connect</span> : <code class="code">bool</code></pre>
+<div class="ocaml_class sig" name="socket_config"><pre><span class="TYPEsocket_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Rpc_client&amp;class=socket_config">socket_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Configuration for <code class="code">`Socket</code> (see below).</div></div><div class="ocaml_class_content"><pre><span class="METHODnon_blocking_connect"><span class="keyword">method</span> non_blocking_connect</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info"><code class="code">non_blocking_connect</code>: Whether the remote service is connected
    in the background. In this case, <code class="code">create2</code> immediately returns,
    and it is already possible to add procedure calls. However, these
@@ -250,8 +249,7 @@ string -&gt; <a href="?package=ocamlnet&amp;module=Xdr&amp;type=xdr_value">Xdr.x
 <div class="ocaml_class sig" name="auth_session"><pre><span class="TYPEauth_session"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Rpc_client&amp;class=auth_session">auth_session</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">An <code class="code">auth_session</code> object is normally created for every client instance.
  It contains the current state of authentication. The methods are only
  interesting for implementors of authentication methods.<br/> This class type might be revised in the future to allow asynchronous
- authentication (authentication often uses some network service).</div></div><div class="ocaml_class_content">
-<pre><span class="METHODnext_credentials"><span class="keyword">method</span> next_credentials</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=t">t</a> -&gt;
+ authentication (authentication often uses some network service).</div></div><div class="ocaml_class_content"><pre><span class="METHODnext_credentials"><span class="keyword">method</span> next_credentials</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=t">t</a> -&gt;
 <a href="?package=ocamlnet&amp;module=Rpc_program&amp;type=t">Rpc_program.t</a> -&gt;
 string -&gt;
 <a href="?package=ocamlnet&amp;module=Rtypes&amp;type=uint4">Rtypes.uint4</a> -&gt;
@@ -271,8 +269,7 @@ string * string * string * string * <a href="?package=ocamlnet&amp;module=Xdr&am
 <pre><span class="METHODauth_protocol"><span class="keyword">method</span> auth_protocol</span> : <code class="code">auth_protocol</code></pre>
 <div class="info"><div class="info">Return the corresponding protocol</div></div></div></div>
 <div class="ocaml_class sig" name="auth_protocol"><pre><span class="TYPEauth_protocol"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Rpc_client&amp;class=auth_protocol">auth_protocol</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">An authentication protocol is used for creating an authentication
-      session.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODstate"><span class="keyword">method</span> state</span> : <code class="code">[ `Done of <a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=auth_session">auth_session</a> | `Emit | `Error | `Receive of <a href="?package=ocamlnet&amp;module=Rtypes&amp;type=uint4">Rtypes.uint4</a> ]</code></pre>
+      session.</div></div><div class="ocaml_class_content"><pre><span class="METHODstate"><span class="keyword">method</span> state</span> : <code class="code">[ `Done of <a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=auth_session">auth_session</a> | `Emit | `Error | `Receive of <a href="?package=ocamlnet&amp;module=Rtypes&amp;type=uint4">Rtypes.uint4</a> ]</code></pre>
 <div class="info"><div class="info">The state of the authentication protocol:<ul><li><code class="code">`Emit</code>: The client needs to emit another token</li><li><code class="code">`Receive xid</code>: The client waits for another token (with
 	  session identifier <code class="code">xid</code>)</li><li><code class="code">`Done session</code>: The protocol is finished and <code class="code">session</code> can
 	  be used for authenticating</li><li><code class="code">`Error</code>: Something went wrong.
@@ -297,8 +294,7 @@ string * string * string * string * <a href="?package=ocamlnet&amp;module=Xdr&am
 <pre><span class="METHODauth_method"><span class="keyword">method</span> auth_method</span> : <code class="code">auth_method</code></pre>
 </div></div>
 <div class="ocaml_class sig" name="auth_method"><pre><span class="TYPEauth_method"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Rpc_client&amp;class=auth_method">auth_method</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">An <code class="code">auth_method</code> object represents a method of authentication. Such an
- object can be shared by several clients.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
+ object can be shared by several clients.</div></div><div class="ocaml_class_content"><pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
 <div class="info"><div class="info">The name of this method, used for errors etc.</div></div>
 <pre><span class="METHODnew_session"><span class="keyword">method</span> new_session</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=t">t</a> -&gt; string option -&gt; <a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=auth_protocol">auth_protocol</a></code></pre>
 <div class="info"><div class="info">Request a new session. The 2nd argument is the user name, or <code class="code">None</code>
@@ -314,8 +310,8 @@ string * string * string * string * <a href="?package=ocamlnet&amp;module=Xdr&am
  The default is <code class="code"> auth_none </code><br/> When the methods are set for an active client, the ongoing calls
  are continued with the old method. First new calls are ensured to
  use the new list.</div></div>
-<div class="ocaml_module sig" name="USE_CLIENT"><pre><span class="keyword">module type</span> <a href="?package=ocamlnet&amp;module=Rpc_client.USE_CLIENT">USE_CLIENT</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code><div class="info"><div class="info">This module type is what the generated &quot;clnt&quot; module assumes about the
-    client interface</div></div></pre><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="USE_CLIENT"><pre><span class="keyword">module type</span> <a href="?package=ocamlnet&amp;module=Rpc_client.USE_CLIENT">USE_CLIENT</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">This module type is what the generated &quot;clnt&quot; module assumes about the
+    client interface</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The client type</div></div>
 <pre><span class="VALuse"><span class="keyword">val</span> use</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_client.USE_CLIENT&amp;type=t">t</a> -&gt; <a href="?package=ocamlnet&amp;module=Rpc_program&amp;type=t">Rpc_program.t</a> -&gt; unit</code></pre><div class="info"><div class="info">Announcement that this program will be used. The client may
         reject this by raising an exception.</div></div>

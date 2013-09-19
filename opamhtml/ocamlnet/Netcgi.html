@@ -7,8 +7,7 @@
  TODO reference : http://pauillac.inria.fr/~xleroy/software.html#cryptokit.</div>
 <div class="info"><div class="info"><br/><h2 id="2_TITLE">Arguments</h2><br/></div></div>
 <div class="ocaml_class sig" name="cgi_argument"><pre><span class="TYPEcgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_argument">cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Represent a key-value pair of data passed to the script (including
-    file uploads).</div></div><div class="ocaml_class_content">
-<pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
+    file uploads).</div></div><div class="ocaml_class_content"><pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
 <div class="info"><div class="info">The name of the argument.</div></div>
 <pre><span class="METHODvalue"><span class="keyword">method</span> value</span> : <code class="code">string</code></pre>
 <div class="info"><div class="info">The value of the argument, after all transfer encodings have
@@ -48,7 +47,7 @@
         ignored.<br/>        The <code class="code">finalize</code> method is not registered in the garbage
         collector.  You can do that, but it is usually better to call
         this method manually.</div></div></div></div>
-<div class="ocaml_module sig" name="Argument"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netcgi.Argument">Argument</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code><div class="info"><div class="info">Operations on arguments and lists of thereof.</div></div></pre><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="Argument"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netcgi.Argument">Argument</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Operations on arguments and lists of thereof.</div></div><div class="ocaml_module_content">
 <pre><span class="EXCEPTIONOversized"><span class="keyword">exception</span> Oversized</span></pre>
 <pre><span class="VALsimple"><span class="keyword">val</span> simple</span> : <code class="type">string -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_argument">cgi_argument</a></code></pre><div class="info"><div class="info"><code class="code">simple_arg name value</code> creates an unstructured CGI argument
 	called <code class="code">name</code> with contents <code class="code">value</code>.</div></div>
@@ -73,8 +72,7 @@
 <pre><span class="VALset"><span class="keyword">val</span> set</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_argument">cgi_argument</a> list -&gt; <a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_argument">cgi_argument</a> list -&gt; <a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_argument">cgi_argument</a> list</code></pre><div class="info"><div class="info"><code class="code">set new_args args</code> creates a list of argument from <code class="code">args</code>
 	deleting the arguments whose name appears in <code class="code">new_args</code> and
 	adding the <code class="code">new_args</code> arguments.</div></div></div></div>
-<div class="ocaml_class sig" name="rw_cgi_argument"><pre><span class="TYPErw_cgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument">rw_cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Old deprecated writable argument type.<span class="warning">Deprecated.</span> Arguments are read-only.<br/></div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_argument"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_argument">cgi_argument</a></pre></div>
+<div class="ocaml_class sig" name="rw_cgi_argument"><pre><span class="TYPErw_cgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument">rw_cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Old deprecated writable argument type.<span class="warning">Deprecated.</span> Arguments are read-only.<br/></div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_argument"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_argument">cgi_argument</a></pre></div>
 
 <pre><span class="METHODro"><span class="keyword">method</span> ro</span> : <code class="code">bool</code></pre>
 
@@ -85,7 +83,7 @@
 <div class="ocaml_class ident" name="simple_argument" path="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument"><pre><span class="TYPEsimple_argument"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=simple_argument">simple_argument</a></span> : <code class="type">bool option -&gt; string -&gt; string -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">Old deprecated simple argument class.<span class="warning">Deprecated.</span> Use TODO reference : Netcgi.Argument.simple instead.<br/></div></div></div>
 <div class="ocaml_class ident" name="mime_argument" path="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument"><pre><span class="TYPEmime_argument"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=mime_argument">mime_argument</a></span> : <code class="type">bool option -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_message">Netmime.mime_message</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">Old deprecated MIME argument class.<span class="warning">Deprecated.</span> Use TODO reference : Netcgi.Argument.mime instead.<br/></div></div></div>
 <div class="info"><div class="info"><br/><h2 id="2_TITLE">Cookies</h2><br/></div></div>
-<div class="ocaml_module sig" name="Cookie"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netcgi.Cookie">Cookie</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code><div class="info"><div class="info">Functions to manipulate cookies.<br/>    You should know that besides the <code class="code">name</code> and <code class="code">value</code> attribute,
+<div class="ocaml_module sig" name="Cookie"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netcgi.Cookie">Cookie</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Functions to manipulate cookies.<br/>    You should know that besides the <code class="code">name</code> and <code class="code">value</code> attribute,
     user agents will send at most the <code class="code">path</code>, <code class="code">domain</code> and <code class="code">port</code> and
     usually will not send them at all.<br/>    For interoperability, cookies are set using version 0 (by
     Netscape) unless version 1 (RFC 2965 and the older RFC 2109)
@@ -94,7 +92,7 @@
     supported.  You do not have to worry however, cookies are always
     sent in such a way older browsers understand them -- albeit not
     all attributes of course -- so your application can be ready for
-    the time RFC 2965 will be the norm.<br/>    N.B. This module appears also as TODO reference : Nethttp.Cookie.</div></div></pre><div class="ocaml_module_content">
+    the time RFC 2965 will be the norm.<br/>    N.B. This module appears also as TODO reference : Nethttp.Cookie.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">Nethttp.Cookie.t</a></code></pre><div class="info"><div class="info">Mutable cookie type.</div></div>
 <pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">?max_age:int -&gt;
 ?domain:string -&gt;
@@ -186,8 +184,7 @@
       (This syntax is also robust w.r.t. the possible addition of new
       config flields.)</div></div>
 <div class="ocaml_class sig" name="cgi_environment"><pre><span class="TYPEcgi_environment"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_environment">cgi_environment</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The environment of a request consists of the information available
-    besides the data sent by the user (as key-value pairs).</div></div><div class="ocaml_class_content">
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">CGI properties</h3><br/><br/>      The following properties are standardised by CGI.  The methods
+    besides the data sent by the user (as key-value pairs).</div></div><div class="ocaml_class_content"><div class="info"><div class="info"><br/><h3 id="3_TITLE">CGI properties</h3><br/><br/>      The following properties are standardised by CGI.  The methods
       return <code class="code">&quot;&quot;</code> (or <code class="code">None</code> in the case of the port number) when the
       property is not available.</div></div>
 <pre><span class="METHODcgi_gateway_interface"><span class="keyword">method</span> cgi_gateway_interface</span> : <code class="code">string</code></pre>
@@ -357,8 +354,7 @@
       HTTP/1.1 clients because <code class="code">Cache-control</code> has higher precedence.
   </li></ul></div></div>
 <div class="ocaml_class sig" name="cgi"><pre><span class="TYPEcgi"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi">cgi</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Object symbolizing a CGI-like request/response cycle.<br/>    This is the minimal set of services a connector must provide.
-    Additional methods may be defined for specific connectors.</div></div><div class="ocaml_class_content">
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Arguments -- data sent to the script</h3><br/></div></div>
+    Additional methods may be defined for specific connectors.</div></div><div class="ocaml_class_content"><div class="info"><div class="info"><br/><h3 id="3_TITLE">Arguments -- data sent to the script</h3><br/></div></div>
 <pre><span class="METHODargument"><span class="keyword">method</span> argument</span> : <code class="code">string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_argument">cgi_argument</a></code></pre>
 <div class="info"><div class="info"><code class="code">#argument name</code> returns the value of the argument named <code class="code">name</code>.
         If the argument appears several times, only one of its

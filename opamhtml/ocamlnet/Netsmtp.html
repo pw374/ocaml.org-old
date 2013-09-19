@@ -10,8 +10,7 @@
  where <code class="code">in_ch</code> is an input channel representing the input direction of the
  TCP stream, and where <code class="code">out_ch</code> is an output channel representing the output
  direction of the TCP stream.</div></div>
-<div class="ocaml_class sig" name="client"><pre><span class="TYPEclient"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netsmtp&amp;class=client">client</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=in_obj_channel">Netchannels.in_obj_channel</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content">
-<pre><span class="METHODhelo"><span class="keyword">method</span> helo</span> : <code class="code">?host:string -&gt; unit -&gt; string list</code></pre>
+<div class="ocaml_class sig" name="client"><pre><span class="TYPEclient"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netsmtp&amp;class=client">client</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=in_obj_channel">Netchannels.in_obj_channel</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODhelo"><span class="keyword">method</span> helo</span> : <code class="code">?host:string -&gt; unit -&gt; string list</code></pre>
 <div class="info"><div class="info">Sends an HELLO command to the server.  the optionnal argument <code class="code">?host</code>
  defaults to the default hostname of the machine.  This function returns
  the ESMTP lines returned by the server.</div></div>

@@ -84,7 +84,7 @@
 <pre><span class="VALget_enc_lazily"><span class="keyword">val</span> get_enc_lazily</span> : <code class="type">string -&gt; (unit -&gt; Netplex_types.encap) -&gt; Netplex_types.encap option</code></pre><div class="info"><div class="info">Same for encapsulated values</div></div>
 <pre><span class="VALdump"><span class="keyword">val</span> dump</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netlog&amp;type=level">Netlog.level</a> -&gt; unit</code></pre><div class="info"><div class="info">Dumps the access counter of this variable to TODO reference : Netlog. The
       string argument &quot;*&quot; dumps all variables.</div></div>
-<div class="ocaml_module ident" name="Make_var_type" path="?package=ocamlnet&amp;module=Netplex_cenv.VAR_TYPE"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netplex_sharedvar.Make_var_type">Make_var_type</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">T</code><code class="code"> : </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.TYPE">Netplex_cenv.TYPE</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.VAR_TYPE">Netplex_cenv.VAR_TYPE</a></code> with type t = T.t</div></code><div class="info"><div class="info">Creates a module with <code class="code">get</code> and <code class="code">set</code> functions to access variables
+<div class="ocaml_module ident" name="Make_var_type" path="?package=ocamlnet&amp;module=Netplex_cenv.VAR_TYPE"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netplex_sharedvar.Make_var_type">Make_var_type</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">T</code><code class="code"> : </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.TYPE">Netplex_cenv.TYPE</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.VAR_TYPE">Netplex_cenv.VAR_TYPE</a></code> with type t = T.t</div></code></pre><div class="info"><div class="info">Creates a module with <code class="code">get</code> and <code class="code">set</code> functions to access variables
       of type <code class="code">T.t</code>. Call it like<br/>      <pre class="codepre"><code class="code">
          module Foo_var = 
            Make_var_type(struct type t = foo end)
@@ -92,7 +92,7 @@
       variables of type <code class="code">foo</code>. These functions can also raise the exception
       <code class="code">Sharedvar_not_found</code> (unlike the primitive accessors above).<br/>      The variable must have been created with <code class="code">enc:true</code>, e.g.<br/>      <pre class="codepre"><code class="code">
           let ok = create_var ~enc:true &quot;name&quot;
-      </code></pre></div></div></pre></div>
+      </code></pre></div></div></div>
 <div class="info"><div class="info">Example code:<br/>    Here, one randomly chosen container computes <code class="code">precious_value</code>, and
     makes it available to all others, so the other container can simply
     grab the value. This is similar to what <code class="code">get_lazily</code> does internally:<br/>    <pre class="codepre"><code class="code">

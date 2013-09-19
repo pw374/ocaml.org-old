@@ -22,8 +22,7 @@
  condition is never true. Furthermore, typing is much simpler (getting
  subtyping correct can be annoying).</div></div>
 <div class="ocaml_class sig" name="mime_header_ro"><pre><span class="TYPEmime_header_ro"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header_ro">mime_header_ro</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">This is the read-only version of a MIME header. There are only methods
- to read the header fields.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODfields"><span class="keyword">method</span> fields</span> : <code class="code">(string * string) list</code></pre>
+ to read the header fields.</div></div><div class="ocaml_class_content"><pre><span class="METHODfields"><span class="keyword">method</span> fields</span> : <code class="code">(string * string) list</code></pre>
 
 <pre><span class="METHODfield"><span class="keyword">method</span> field</span> : <code class="code">string -&gt; string</code></pre>
 
@@ -57,8 +56,7 @@
 <div class="info"><div class="info">Returns the Content-transfer-encoding as string</div></div></div></div>
 <div class="ocaml_class sig" name="mime_header"><pre><span class="TYPEmime_header"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header">mime_header</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">A MIME header with both read and write method. It is still possible,
  however, to set the read-only flag to make this kind of header
- immutable, too.</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header_ro"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header_ro">mime_header_ro</a></pre></div>
+ immutable, too.</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header_ro"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header_ro">mime_header_ro</a></pre></div>
 <div class="info"><div class="info">Supports all these read access method, too</div></div>
 <pre><span class="METHODro"><span class="keyword">method</span> ro</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info">whether the header is read-only or not</div></div>
@@ -84,8 +82,7 @@
 <div class="ocaml_class sig" name="mime_body_ro"><pre><span class="TYPEmime_body_ro"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_body_ro">mime_body_ro</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">This is the read-only version of a MIME body. There are only methods
  to read the body contents.<br/> The value of the body can be returned either as <code class="code">string</code>, or as
  object channel. Both ways are possible independently of where
- the value is stored, in-memory, or as external file.</div></div><div class="ocaml_class_content">
-<pre><span class="METHODvalue"><span class="keyword">method</span> value</span> : <code class="code">string</code></pre>
+ the value is stored, in-memory, or as external file.</div></div><div class="ocaml_class_content"><pre><span class="METHODvalue"><span class="keyword">method</span> value</span> : <code class="code">string</code></pre>
 <div class="info"><div class="info">The <code class="code">value</code> method returns the _decoded_ body,
  i.e. transfer encodings are removed before the value is passed
  back.<br/> When the body is stored in an external file, this method
@@ -117,8 +114,7 @@
  however, to set the read-only flag to make this kind of body
  immutable, too.<br/> The value of the body can be set either by a <code class="code">string</code>, or by writing
  to an object channel. Both ways are possible independently of where
- the value is stored, in-memory, or as external file.</div></div><div class="ocaml_class_content">
-<div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netmime&amp;class=mime_body_ro"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_body_ro">mime_body_ro</a></pre></div>
+ the value is stored, in-memory, or as external file.</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netmime&amp;class=mime_body_ro"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_body_ro">mime_body_ro</a></pre></div>
 <div class="info"><div class="info">Supports all these read access method, too</div></div>
 <pre><span class="METHODro"><span class="keyword">method</span> ro</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info">whether this body is read-only or not</div></div>

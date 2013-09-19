@@ -12,8 +12,7 @@
 | `Drop
 | `Reject of <a href="?package=ocamlnet&amp;module=Rpc_packer&amp;type=packed_value">Rpc_packer.packed_value</a>
 | `Reject_with of <a href="?package=ocamlnet&amp;module=Rpc_packer&amp;type=packed_value">Rpc_packer.packed_value</a> * <a href="?package=ocamlnet&amp;module=Rpc&amp;type=server_error">Rpc.server_error</a> ]</code></pre>
-<div class="ocaml_class sig" name="rpc_multiplex_controller"><pre><span class="TYPErpc_multiplex_controller"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Rpc_transport&amp;class=rpc_multiplex_controller">rpc_multiplex_controller</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content">
-<pre><span class="METHODalive"><span class="keyword">method</span> alive</span> : <code class="code">bool</code></pre>
+<div class="ocaml_class sig" name="rpc_multiplex_controller"><pre><span class="TYPErpc_multiplex_controller"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Rpc_transport&amp;class=rpc_multiplex_controller">rpc_multiplex_controller</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODalive"><span class="keyword">method</span> alive</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info">If the controller is alive, the socket is not yet completely down.</div></div>
 <pre><span class="METHODevent_system"><span class="keyword">method</span> event_system</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a></code></pre>
 <div class="info"><div class="info">Returns the event system</div></div>
