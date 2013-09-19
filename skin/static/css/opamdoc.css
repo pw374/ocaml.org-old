@@ -40,7 +40,13 @@
     padding:0;
 }
 #opamdoc-contents ul {
-    margin-top: 0pt;
+    margin: 0 0 0 4ex;
+    padding: 0;
 }
+#opamdoc-contents li {
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
 /* end of section for opam-doc */
 /***************************************************/
