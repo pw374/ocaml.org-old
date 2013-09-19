@@ -1,3 +1,6 @@
+
+opamdoc_contents = document.getElementsByTagName('body')[0];
+
 // utility - Parse query string
 (function($) {
     var re = /([^&=]+)=?([^&]*)/g;

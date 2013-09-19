@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">TODO reference : Core_kernel.Core_gc, plus finalizers.</div>
-<div class="ocaml_include ident" items="[&quot;Control&quot;,&quot;Stat&quot;]"><pre><span class="keyword">include</span> <code class="type">module type of <code class="code">Core_kernel.Std.Gc</code> with module Stat = Core_kernel.Std.Gc.Stat with module Control = Core_kernel.Std.Gc.Control with type alarm = Core_kernel.Std.Gc.alarm</code></pre></div>
-<div class="ocaml_module sig" name="Expert"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Core_gc.Expert">Expert</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code><div class="info"><div class="info">The <code class="code">Expert</code> module contains functions that novice users should not use due to their
+<div class="ocaml_include ident" items="[&quot;Control&quot;,&quot;Stat&quot;]"><pre id="28"><span class="keyword">include</span> <code class="type">module type of <code class="code">Core_kernel.Std.Gc</code> with module Stat = Core_kernel.Std.Gc.Stat with module Control = Core_kernel.Std.Gc.Control with type alarm = Core_kernel.Std.Gc.alarm</code></pre></div>
+<div class="ocaml_module sig" name="Expert"><pre id="23"><span class="keyword">module</span> <a href="?package=core&amp;module=Core_gc.Expert">Expert</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The <code class="code">Expert</code> module contains functions that novice users should not use due to their
     complexity.<br/>    In particular, finalizers are difficult to use correctly, because they can run at any
     time, even in the middle of other code, and because unhandled exceptions in a
     finalizer can be raised at any point in other code.  This is introduces all the
@@ -8,8 +8,8 @@
     easier to use async finalizers, see TODO reference : Async_core.Async_gc.add_finalizer, which do
     not involve multithreading, and runs user code as ordinary async jobs.<br/>    If you do use <code class="code">Core</code> finalizers, you should strive to make the finalization function
     perform a simple idempotent action, like setting a ref.  The same rules as for
-    signal handlers apply to finalizers.</div></div></pre><div class="ocaml_module_content">
-<pre><span class="VALadd_finalizer"><span class="keyword">val</span> add_finalizer</span> : <code class="type">'a Core_kernel.Std.Heap_block.t -&gt;
+    signal handlers apply to finalizers.</div></div><div class="ocaml_module_content">
+<pre id="19"><span class="VALadd_finalizer"><span class="keyword">val</span> add_finalizer</span> : <code class="type">'a Core_kernel.Std.Heap_block.t -&gt;
 ('a Core_kernel.Std.Heap_block.t -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add_finalizer b f</code> ensures that <code class="code">f</code> runs after <code class="code">b</code> becomes unreachable.  The OCaml
       runtime only supports finalizers on heap blocks, hence <code class="code">add_finalizer</code> requires <code class="code">b :
       _ Heap_block.t</code>.  The runtime essentially maintains a set of finalizer pairs:<br/>      <span class="verbatim">        'a Heap_block.t * ('a Heap_block.t -&gt; unit)
@@ -36,8 +36,8 @@
       program was doing when the function was called.  This is very hard to think about,
       so one should take care to make <code class="code">f</code> not raise.<br/>      <code class="code">add_finalizer_exn b f</code> is like <code class="code">add_finalizer</code>, but will raise if <code class="code">b</code> is not a heap
       block.</div></div>
-<pre><span class="VALadd_finalizer_exn"><span class="keyword">val</span> add_finalizer_exn</span> : <code class="type">'a -&gt; ('a -&gt; unit) -&gt; unit</code></pre>
-<pre><span class="VALfinalize_release"><span class="keyword">val</span> finalize_release</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">The runtime essentially maintains a bool ref:<br/>      <pre class="codepre"><code class="code">
+<pre id="19"><span class="VALadd_finalizer_exn"><span class="keyword">val</span> add_finalizer_exn</span> : <code class="type">'a -&gt; ('a -&gt; unit) -&gt; unit</code></pre>
+<pre id="19"><span class="VALfinalize_release"><span class="keyword">val</span> finalize_release</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">The runtime essentially maintains a bool ref:<br/>      <pre class="codepre"><code class="code">
         val finalizer_is_running : bool ref
       </code></pre><br/>      The runtime uses this bool ref to ensure that only one finalizer is running at a
       time, by setting it to <code class="code">true</code> when a finalizer starts and setting it to <code class="code">false</code> when

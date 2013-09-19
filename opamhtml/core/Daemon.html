@@ -1,14 +1,14 @@
-<div class="ocaml_toplevel_module"><div class="ocaml_module sig" name="Fd_redirection"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Daemon.Fd_redirection">Fd_redirection</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">[ `Dev_null
+<div class="ocaml_toplevel_module"><div class="ocaml_module sig" name="Fd_redirection"><pre id="23"><span class="keyword">module</span> <a href="?package=core&amp;module=Daemon.Fd_redirection">Fd_redirection</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
+<pre id="18"><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">[ `Dev_null
 | `Do_not_redirect
 | `File_append of string
 | `File_truncate of string ]</code></pre></div></div>
-<pre><span class="VALdaemonize"><span class="keyword">val</span> daemonize</span> : <code class="type">?redirect_stdout:<a href="?package=core&amp;module=Daemon.Fd_redirection&amp;type=t">Fd_redirection.t</a> -&gt;
+<pre id="19"><span class="VALdaemonize"><span class="keyword">val</span> daemonize</span> : <code class="type">?redirect_stdout:<a href="?package=core&amp;module=Daemon.Fd_redirection&amp;type=t">Fd_redirection.t</a> -&gt;
 ?redirect_stderr:<a href="?package=core&amp;module=Daemon.Fd_redirection&amp;type=t">Fd_redirection.t</a> -&gt; ?cd:string -&gt; ?umask:int -&gt; unit -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">daemonize</code> makes the executing process a daemon.<br/>    See Chapter 13 of Advanced Programming in the UNIX Environment Second Edition by
     Stephens and Rago for more details.<br/>    The optional arguments have defaults as per <code class="code">daemonize_wait</code>, below.<br/>    By default, output sent to stdout and stderr after daemonization will be silently
     eaten.  This behaviour may be adjusted by using <code class="code">redirect_stdout</code> and
     <code class="code">redirect_stderr</code>.  See the documentation for <code class="code">daemonize_wait</code> below.<b>Raises</b> <code>Failure</code> if fork was unsuccessful.<br/></div></div>
-<pre><span class="VALdaemonize_wait"><span class="keyword">val</span> daemonize_wait</span> : <code class="type">?redirect_stdout:<a href="?package=core&amp;module=Daemon.Fd_redirection&amp;type=t">Fd_redirection.t</a> -&gt;
+<pre id="19"><span class="VALdaemonize_wait"><span class="keyword">val</span> daemonize_wait</span> : <code class="type">?redirect_stdout:<a href="?package=core&amp;module=Daemon.Fd_redirection&amp;type=t">Fd_redirection.t</a> -&gt;
 ?redirect_stderr:<a href="?package=core&amp;module=Daemon.Fd_redirection&amp;type=t">Fd_redirection.t</a> -&gt;
 ?cd:string -&gt; ?umask:int -&gt; unit -&gt; (unit -&gt; unit) <a href="?package=core&amp;module=Staged&amp;type=t">Staged.t</a></code></pre><div class="info"><div class="info"><code class="code">daemonize_wait</code> makes the executing process a daemon, but delays full detachment
     from the calling shell/process until the returned &quot;release&quot; closure is called.<br/>    Any output to stdout/stderr before the &quot;release&quot; closure is called will get

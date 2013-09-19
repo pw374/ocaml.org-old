@@ -19,11 +19,11 @@
         t.bar
     </code></pre><br/>    At this point, the value associated with <code class="code">key</code> is unreachable (since all we did with it
     was project out field bar), so it may disappear from the table at any time.</div>
-<pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">('a, 'b) </code>t</span> </pre>
-<pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">'a Core.Std.Hashtbl.Hashable.t -&gt; ('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a></code></pre>
-<pre><span class="VALfind"><span class="keyword">val</span> find</span> : <code class="type">('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a> -&gt; 'a -&gt; 'b Core.Std.Heap_block.t option</code></pre>
-<pre><span class="VALfind_or_add"><span class="keyword">val</span> find_or_add</span> : <code class="type">('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a> -&gt;
+<pre id="18"><span class="TYPEt"><span class="keyword">type</span> <code class="type">('a, 'b) </code>t</span> </pre>
+<pre id="19"><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">'a Core.Std.Hashtbl.Hashable.t -&gt; ('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a></code></pre>
+<pre id="19"><span class="VALfind"><span class="keyword">val</span> find</span> : <code class="type">('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a> -&gt; 'a -&gt; 'b Core.Std.Heap_block.t option</code></pre>
+<pre id="19"><span class="VALfind_or_add"><span class="keyword">val</span> find_or_add</span> : <code class="type">('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a> -&gt;
 'a -&gt; default:(unit -&gt; 'b Core.Std.Heap_block.t) -&gt; 'b Core.Std.Heap_block.t</code></pre>
-<pre><span class="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a> -&gt; 'a -&gt; unit</code></pre>
-<pre><span class="VALreplace"><span class="keyword">val</span> replace</span> : <code class="type">('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a> -&gt; key:'a -&gt; data:'b Core.Std.Heap_block.t -&gt; unit</code></pre>
+<pre id="19"><span class="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a> -&gt; 'a -&gt; unit</code></pre>
+<pre id="19"><span class="VALreplace"><span class="keyword">val</span> replace</span> : <code class="type">('a, 'b) <a href="?package=async_extra&amp;module=Weak_hashtbl&amp;type=t">t</a> -&gt; key:'a -&gt; data:'b Core.Std.Heap_block.t -&gt; unit</code></pre>
 </div>

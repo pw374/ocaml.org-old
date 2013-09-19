@@ -1,5 +1,5 @@
-<div class="ocaml_toplevel_module"><pre><span class="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span></pre><div class="info"><div class="info">Functions with timeouts<br/>   This module is here to add timeouts to any functions.</div></div>
-<pre><span class="VALrun"><span class="keyword">val</span> run</span> : <code class="type">timeout:float -&gt;
+<div class="ocaml_toplevel_module"><pre id="20"><span class="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span></pre><div class="info"><div class="info">Functions with timeouts<br/>   This module is here to add timeouts to any functions.</div></div>
+<pre id="19"><span class="VALrun"><span class="keyword">val</span> run</span> : <code class="type">timeout:float -&gt;
 f:('a -&gt; 'b) -&gt;
 sexp_of:('b -&gt; Core.Std.Sexp.t) -&gt;
 of_sexp:(Core.Std.Sexp.t -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info">Runs a function in a fork process to ensure a timeout.
