@@ -1,7 +1,7 @@
 MPP_OPTIONS = -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -sos '{{<' -scs '>}}' -its 
 MPP = mpp ${MPP_OPTIONS}
 
-all:html-pages/static pkg opamdoc
+all:html-pages/static pkg
 	bash gen.bash md-pages
 
 html-pages/try-ocaml.js:try-ocaml.js
@@ -47,31 +47,20 @@ htmlescape:htmlescape.ml
 ocamltohtml:ocamltohtml_all.ml
 	ocamlopt $< -o $@
 
-
-include .pkg
-
-# TODO : move pkg to md-pages
-.pkg:pkg-pages/*.html pkg-pages/*/*/index.html Makefile main_tpl.mpp core_tpl.mpp navbar_tpl.mpp 
-	for i in pkg-pages/*.html pkg-pages/*/*/index.html ; do echo "$$(sed -e 's+pkg-pages+html-pages/pkg+' <<< $$i):$$i  main_tpl.mpp core_tpl.mpp navbar_tpl.mpp" ; printf '\tmkdir -p %s\n' "$$(dirname $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i))"; printf '\t%s\n' "${MPP} -set page=$$i < main_tpl.mpp > $$(sed -e s+pkg-pages+html-pages/pkg+ <<< $$i)" ; done > $@
-
 pkg:
-	make .pkg
-	for i in pkg-pages/*.html pkg-pages/*/*/index.html ; do \
-	sed -e 's|pkg-pages|html-pages/pkg|' <<< $$i ; \
-	done | xargs make
+	rm -fr md-pages/pkg/
+	mkdir -p md-pages/pkg/docs/
+	rsync --exclude index.html -r pkg-pages/* md-pages/pkg/
+	find md-pages/pkg -iname '*.html' -type f -exec mv {} {}.mpp ';'
+	rsync -r opamhtml/* md-pages/pkg/docs/
+	rm -f md-pages/pkg/docs/index.html
+	echo '<!-- Unfortunately, this file is generated, so do not edit manually. {{! set title opam packages documentation !}} -->' > md-pages/pkg/docs/index.md
+	echo '<div id="opamdoc-contents">' >> md-pages/pkg/docs/index.md
+	frag -fr '.*<body.*' -tr '.*</body>.*' < opamhtml/index.html >> md-pages/pkg/docs/index.md
+	echo '</div>' >> md-pages/pkg/docs/index.md
+	echo '<script type="text/javascript" src="opam_doc_loader.js"></script>' >> md-pages/pkg/docs/index.md
+	echo '<script type="text/javascript">opamdoc_contents = document.getElementById("opamdoc-contents");</script>' >> md-pages/pkg/docs/index.md
 
-.PHONY:pkg clean
 
-
-
-# include .opamdoc
-# TODO : move opamhtml to md-pages
-opamdoc:
-	mkdir -p html-pages/docs/opam/
-	rsync opamhtml/doc_loader.js html-pages/docs/opam/
-	rm -fr html-pages/docs/opam
-	cp -r opamhtml html-pages/docs/opam
-	rm -f html-pages/docs/opam/index.html
-
-.PHONY:pkg clean opamdoc
+.PHONY: opamdoc pkg clean
 
