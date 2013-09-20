@@ -61,10 +61,10 @@ pkg:
 	rm -f md-pages/pkg/docs/index.html
 
 	find md-pages/pkg -iname '*.html.mpp'|while read l ; do \
-		if [[ -d "$$(basename $$(dirname $$(dirname "$$l")))" ]] ; then \
+		if [[ -d md-pages/pkg/docs/"$$(basename $$(dirname $$(dirname "$$l")))" ]] ; then \
 			frag -tr '</tbody>' < "$$l" > "$$l".p1 ;\
 			frag -fr '</tbody>' < "$$l" > "$$l".p3 ;\
-			printf '<tr><th>Documentation??</th><td><a href="docs/?package=%s"></a></td></tr>' \
+			printf '<tr><th>Documentation??</th><td><a href="docs/?package=%s"></a></td></tr></tbody>' \
 					"$$(basename $$(dirname $$(dirname "$$l")))" > "$$l".p2 ;\
 			cat "$$l".p{1..3} > "$$l" ;\
 		fi; \
