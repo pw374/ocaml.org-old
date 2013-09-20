@@ -35,6 +35,9 @@
     margin:0;
     padding:0;
 }
+#opamdoc-contents table.typetable td {
+    padding-right:0.75ex;
+}
 #opamdoc-contents div.info {
     margin:2pt 0 1.5em 1em;
     padding:0;
@@ -65,6 +68,8 @@
 #opamdoc-contents .code { color : #465F91 ; }
 #opamdoc-contents .typetable { border-style : hidden }
 #opamdoc-contents .paramstable { border-style : hidden ; padding: 5pt 5pt}
+
+
 
 
 /* end of section for opam-doc */
