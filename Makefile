@@ -60,7 +60,7 @@ pkg:Makefile
 	rsync -r opamhtml/* md-pages/pkg/docs/
 	rm -f md-pages/pkg/docs/index.html
 
-	find md-pages/pkg/* -iname '*.html.mpp'|while read l ; do \
+	find md-pages/pkg/* -iname '*.md'|while read l ; do \
 		if [[ -d md-pages/pkg/docs/"$$(basename $$(dirname $$(dirname "$$l")))" ]] ; then \
 			frag -tr '.*</tbody>' < "$$l" > "$$l".p1 ;\
 			frag -fr '.*</tbody>' < "$$l" > "$$l".p3 ;\
