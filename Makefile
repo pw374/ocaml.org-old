@@ -47,13 +47,29 @@ htmlescape:htmlescape.ml
 ocamltohtml:ocamltohtml_all.ml
 	ocamlopt $< -o $@
 
+md-pages/pkg:pkg-pages
+	make pkg
+md-pages/pkg/docs:opamhtml
+	make pkg
+
 pkg:
 	rm -fr md-pages/pkg/
 	mkdir -p md-pages/pkg/docs/
-	rsync --exclude index.html -r pkg-pages/* md-pages/pkg/
+	rsync -r pkg-pages/* md-pages/pkg/
 	find md-pages/pkg -iname '*.html' -type f -exec mv {} {}.mpp ';'
 	rsync -r opamhtml/* md-pages/pkg/docs/
 	rm -f md-pages/pkg/docs/index.html
+
+	find md-pages/pkg -iname '*.html.mpp'|while read l ; do \
+		if [[ -d "$$(basename $$(dirname $$(dirname "$$l")))" ]] ; then \
+			frag -tr '</tbody>' < "$$l" > "$$l".p1 ;\
+			frag -fr '</tbody>' < "$$l" > "$$l".p3 ;\
+			printf '<tr><th>Documentation??</th><td><a href="docs/?package=%s"></a></td></tr>' \
+					"$$(basename $$(dirname $$(dirname "$$l")))" > "$$l".p2 ;\
+			cat "$$l".p{1..3} > "$$l" ;\
+		fi; \
+	done
+
 	echo '<!-- Unfortunately, this file is generated, so do not edit manually. {{! set title opam packages documentation !}} -->' > md-pages/pkg/docs/index.md
 	echo '<div id="opamdoc-contents">' >> md-pages/pkg/docs/index.md
 	frag -fr '.*<body.*' -tr '.*</body>.*' < opamhtml/index.html >> md-pages/pkg/docs/index.md
