@@ -38,10 +38,14 @@
 <tr><td class="module"><a href="?package=lwt&amp;module=Lwt_util">Lwt_util</a></td><td><div class="info">Note: This lodule is deprecated. Use TODO reference : Lwt_list and TODO reference : Lwt_pool
     instead.</div></td></tr>
 <tr><td class="module"><a href="?package=lwt&amp;module=Pa_lwt">Pa_lwt</a></td><td><div class="info">Syntactic sugars for lwt</div></td></tr>
-<tr><td class="module"><a href="?package=lwt&amp;module=Pa_lwt_log">Pa_lwt_log</a></td><td><div class="info">Logging facility<br/>    It replaces expression of the form:<br/>    <pre class="codepre"><code class="code">Lwt_log.info_f ~section &quot;x = %d&quot; x</code></pre><br/>    by<br/>    <pre class="codepre"><code class="code">if Lwt_log.Section.level section &lt;= Lwt_log.Info then
+<tr><td class="module"><a href="?package=lwt&amp;module=Pa_lwt_log">Pa_lwt_log</a></td><td><div class="info">Logging facility<br/>    It replaces expression of the form:<br/>    <pre class="codepre"><code class="code">
+      Lwt_log.info_f ~section &quot;x = %d&quot; x
+    </code></pre><br/>    by<br/>    <pre class="codepre"><code class="code">
+      if Lwt_log.Section.level section &lt;= Lwt_log.Info then
         Lwt_log.info_f ~section &quot;x = %d&quot; x
       else
-        return ()</code></pre><br/>    Note:<br/>    - the application must be complete. For example: <code class="code">Log.info &quot;%d&quot;</code>
+        return ()
+    </code></pre><br/>    Note:<br/>    - the application must be complete. For example: <code class="code">Log.info &quot;%d&quot;</code>
       will make compilation to fail<br/>    - it also add the command line flags &quot;-lwt-debug&quot; to keep all debug
       messages. By default debug messages are removed.</div></td></tr>
 <tr><td class="module"><a href="?package=lwt&amp;module=Pa_lwt_options">Pa_lwt_options</a></td><td/></tr>

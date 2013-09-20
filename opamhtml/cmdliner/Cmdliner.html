@@ -236,7 +236,8 @@
     TODO reference : http://dx.doi.org/10.1017/S0956796807006326). For example for the function:
 <pre class="codepre"><code class="code">let revolt () = print_endline &quot;Revolt!&quot;</code></pre>
     the term :
-<pre class="codepre"><code class="code">open Cmdliner;;
+<pre class="codepre"><code class="code">
+open Cmdliner;;
 
 let revolt_t = Term.(pure revolt $ pure ())</code></pre>
     is a term that evaluates to the result (and effect) of the <code class="code">revolt</code> 
@@ -262,30 +263,38 @@ Revolt!</code></pre>
     where <code class="code">COUNT</code> defaults to <code class="code">10</code> and <code class="code">MSG</code> defaults to <code class="code">&quot;Revolt!&quot;</code>. 
     We first define a term corresponding to the <code class="code">--count</code>
     option:
-<pre class="codepre"><code class="code">let count = 
+<pre class="codepre"><code class="code">
+let count = 
   let doc = &quot;Repeat the message $(docv) times.&quot; in
-  Arg.(value &amp; opt int 10 &amp; info [&quot;c&quot;; &quot;count&quot;] ~docv:&quot;COUNT&quot; ~doc)</code></pre>
+  Arg.(value &amp; opt int 10 &amp; info [&quot;c&quot;; &quot;count&quot;] ~docv:&quot;COUNT&quot; ~doc)
+</code></pre>
     This says that <code class="code">count</code> is a term that evaluates to the 
     value of an optional argument of type <code class="code">int</code> that 
     defaults to <code class="code">10</code> if unspecified and whose option name is
     either <code class="code">-c</code> or <code class="code">--count</code>. The arguments <code class="code">doc</code> and <code class="code">docv</code> are used to 
     generate the option's man page information. <br/>    The term for the positional argument <code class="code">MSG</code> is:
-<pre class="codepre"><code class="code">let msg = 
+<pre class="codepre"><code class="code">
+let msg = 
   let doc = &quot;The message to print.&quot; in
-  Arg.(value &amp; pos 0 string &quot;Revolt!&quot; &amp; info [] ~docv:&quot;MSG&quot; ~doc)</code></pre>
+  Arg.(value &amp; pos 0 string &quot;Revolt!&quot; &amp; info [] ~docv:&quot;MSG&quot; ~doc)
+</code></pre>
     which says that <code class="code">msg</code> is a term whose value is 
     the positional argument at index <code class="code">0</code> of type <code class="code">string</code> and
     defaults to <code class="code">&quot;Revolt!&quot;</code> if unspecified. Here again
     <code class="code">doc</code> and <code class="code">docv</code> are used for the man page information.<br/>    The term for executing <code class="code">chorus</code> with these command line arguments
     is : 
-<pre class="codepre"><code class="code">let chorus_t = Term.(pure chorus $ count $ msg)</code></pre>
+<pre class="codepre"><code class="code">
+let chorus_t = Term.(pure chorus $ count $ msg)
+</code></pre>
     and we are now ready to define our program:
-<pre class="codepre"><code class="code">let info = 
+<pre class="codepre"><code class="code">
+let info = 
   let doc = &quot;print a customizable message repeatedly&quot; in
   let man = [ `S &quot;BUGS&quot;; `P &quot;Email bug reports to &lt;hehey at example.org&gt;.&quot;;] in
   Term.info &quot;chorus&quot; ~version:&quot;1.6.1&quot; ~doc ~man
 
-let () = match Term.eval (chorus_t, info) with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre>
+let () = match Term.eval (chorus_t, info) with `Error _ -&gt; exit 1 | _ -&gt; exit 0
+</code></pre>
     The <code class="code">info</code> value created with TODO reference : Term.info gives more information
     about the term we execute and is used to generate the program's
     man page. Since we provided a <code class="code">~version</code> string, the program will
@@ -384,7 +393,9 @@ BUGS
     names, anything that follows the special token <code class="code">&quot;--&quot;</code> on the command
     line is considered to be a positional argument.<br/>    <h1 id="examples">Examples</h1><br/>    These examples are in the <code class="code">test</code> directory of the distribution.<br/> <h2 id="exrm">A <code class="code">rm</code> command</h2> <br/>    We define the command line interface of a
     <code class="code">rm</code> command with the synopsis:
-<pre class="codepre"><code class="code">rm [OPTION]... FILE...</code></pre>
+<pre class="codepre"><code class="code">
+rm [OPTION]... FILE...
+</code></pre>
     The <code class="code">-f</code>, <code class="code">-i</code> and <code class="code">-I</code> flags define the prompt behaviour of <code class="code">rm</code>,
     represented in our program by the <code class="code">prompt</code> type. If more than one
     of these flags is present on the command line the last one takes
@@ -394,7 +405,8 @@ BUGS
     line and we just take the TODO reference : Arg.last one to define our term value
     (if there's no occurence the last value of the default list <code class="code">[Always]</code> is
     taken, i.e. the default is <code class="code">Always</code>).
-<pre class="codepre"><code class="code">(* Implementation of the command, we just print the args. *)
+<pre class="codepre"><code class="code">
+(* Implementation of the command, we just print the args. *)
 
 type prompt = Always | Once | Never
 let prompt_str = function 
@@ -444,10 +456,11 @@ let cmd =
   Term.(pure rm $ prompt $ recursive $ files),
   Term.info &quot;rm&quot; ~version:&quot;1.6.1&quot; ~doc ~man
 
-let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre>
+let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0
+</code></pre>
     <h2 id="excp">A <code class="code">cp</code> command</h2> <br/>    We define the command line interface of a
     <code class="code">cp</code> command with the synopsis:
-<pre class="codepre"><code class="code">cp [OPTION]... SOURCE... DEST</code></pre>
+<pre class="codepre"><code class="code">cp [OPTION]... SOURCE... DEST </code></pre>
     The <code class="code">DEST</code> argument must be a directory if there is more than 
     one <code class="code">SOURCE</code>. This constraint is too complex to be expressed by the
     combinators of TODO reference : Arg. Hence we just give it the TODO reference : Arg.string type
@@ -455,7 +468,8 @@ let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code><
     implementation. If unsatisfied we return an <code class="code">`Error</code> and
     by using TODO reference : Term.ret on the lifted result <code class="code">cp_t</code> of <code class="code">cp</code>, 
     <code class="code">Cmdliner</code> handles the error reporting.
-<pre class="codepre"><code class="code">(* Implementation, we check the dest argument and print the args *)
+<pre class="codepre"><code class="code">
+(* Implementation, we check the dest argument and print the args *)
 
 let cp verbose recurse force srcs dest =
   if List.length srcs &gt; 1 &amp;&amp; 
@@ -504,7 +518,8 @@ let cmd =
   Term.(ret (pure cp $ verbose $ recurse $ force $ srcs $ dest)), 
   Term.info &quot;cp&quot; ~version:&quot;1.6.1&quot; ~doc ~man
 
-let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre><br/><h2 id="extail">A <code class="code">tail</code> command</h2><br/>We define the command line interface of a <code class="code">tail</code> command with the 
+let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0
+</code></pre><br/><h2 id="extail">A <code class="code">tail</code> command</h2><br/>We define the command line interface of a <code class="code">tail</code> command with the 
 synopsis:
 <pre class="codepre"><code class="code">tail [OPTION]... [FILE]...</code></pre><br/>The <code class="code">--lines</code> option whose value specifies the number of last lines to
 print has a special syntax where a <code class="code">+</code> prefix indicates to start
@@ -516,7 +531,8 @@ into the enumeration. By using TODO reference : Arg.some and the <code class="co
 TODO reference : Arg.opt, the term corresponding to the option <code class="code">--follow</code> evaluates to
 <code class="code">None</code> if <code class="code">--follow</code> is absent from the command line, to <code class="code">Some Descriptor</code>
 if present but without a value and to <code class="code">Some v</code> if present with a value
-<code class="code">v</code> specified.<br/><pre class="codepre"><code class="code">(* Implementation of the command, we just print the args. *)
+<code class="code">v</code> specified.<br/><pre class="codepre"><code class="code">
+(* Implementation of the command, we just print the args. *)
 
 type loc = bool * int
 type verb = Verbose | Quiet 
@@ -584,7 +600,8 @@ let cmd =
   Term.(pure tail $ lines $ follow $ verb $ pid $ files),
   Term.info &quot;tail&quot; ~version:&quot;1.6.1&quot; ~doc ~man
 
-let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre><br/><h2 id="exdarcs">A <code class="code">darcs</code> command</h2><br/>We define the command line interface of a <code class="code">darcs</code> command with the synopsis:
+let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0
+</code></pre><br/><h2 id="exdarcs">A <code class="code">darcs</code> command</h2><br/>We define the command line interface of a <code class="code">darcs</code> command with the synopsis:
 <pre class="codepre"><code class="code">darcs [COMMAND] ...</code></pre><br/>The <code class="code">--debug</code>, <code class="code">-q</code>, <code class="code">-v</code> and <code class="code">--prehook</code> options are available in
 each command.  To avoid having to pass them individually to each
 command we gather them in a record of type <code class="code">copts</code>. By lifting the
@@ -597,7 +614,8 @@ section, the term information of commands makes a judicious use of the
 shown for commands is generated by <code class="code">Cmdliner</code> by making an approriate
 use of TODO reference : Term.ret on the lifted <code class="code">help</code> function.<br/>If the program is invoked without a command we just want to show the
 help of the program as printed by <code class="code">Cmdliner</code> with <code class="code">--help</code>. This is
-done by the <code class="code">no_cmd</code> term.<br/><pre class="codepre"><code class="code">(* Implementations, just print the args. *)
+done by the <code class="code">no_cmd</code> term.<br/><pre class="codepre"><code class="code">
+(* Implementations, just print the args. *)
 
 type verb = Normal | Quiet | Verbose
 type copts = { debug : bool; verb : verb; prehook : string option }
@@ -737,5 +755,6 @@ let default_cmd =
 let cmds = [initialize_cmd; record_cmd; help_cmd]
 
 let () = match Term.eval_choice default_cmd cmds with 
-| `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre></div></div>
+| `Error _ -&gt; exit 1 | _ -&gt; exit 0
+</code></pre></div></div>
 </div>

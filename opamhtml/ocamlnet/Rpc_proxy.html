@@ -40,10 +40,10 @@
         policy; this hook is called anyway. The policy only determines
         how the internal error counter is interpreted.</div></div>
 <pre><code><span class="TYPErcache_config"><span class="keyword">type</span> rcache_config</span> = {</code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_policy">rcache_policy</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache_policy">rcache_policy</a></code></code></td><td class="typefieldcomment" align="left"><div class="info">The policy, see above</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_disable_timeout_min">rcache_disable_timeout_min</span> : <code class="type">float</code></code></td><td class="typefieldcomment" align="left"><div class="info">For how long ports and hosts 
-                                             are disabled</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_disable_timeout_max">rcache_disable_timeout_max</span> : <code class="type">float</code></code></td><td class="typefieldcomment" align="left"><div class="info">For how long ports and hosts 
-                                             are disabled at most</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_threshold">rcache_threshold</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">How many errors are required 
-                                      for disabling a port</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_availability">rcache_availability</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache">rcache</a> -&gt; Unix.sockaddr -&gt; bool</code></code></td><td class="typefieldcomment" align="left"><div class="info">External
+		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_policy">rcache_policy</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache_policy">rcache_policy</a></code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The policy, see above</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_disable_timeout_min">rcache_disable_timeout_min</span> : <code class="type">float</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">For how long ports and hosts 
+                                             are disabled</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_disable_timeout_max">rcache_disable_timeout_max</span> : <code class="type">float</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">For how long ports and hosts 
+                                             are disabled at most</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_threshold">rcache_threshold</span> : <code class="type">int</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">How many errors are required 
+                                      for disabling a port</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTrcache_config.rcache_availability">rcache_availability</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache">rcache</a> -&gt; Unix.sockaddr -&gt; bool</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">External
             availability checker. Called  by <code class="code">sockaddr_is_enabled</code> before
             the result is calculated</div></td></tr><tr><td>}</td></tr></table>
 <pre><span class="VALcreate_rcache_config"><span class="keyword">val</span> create_rcache_config</span> : <code class="type">?policy:<a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache_policy">rcache_policy</a> -&gt;
@@ -98,19 +98,23 @@
       is configured with at least one program, and this program must
       have a procedure number 0 of type <code class="code">void -&gt; void</code>.<br/>      In multi-threaded programs, threads must not share managed clients.<br/>      Managed clients can be used together with ocamlrpcgen-generated
       modules. Provided the generated module <code class="code">M_clnt</code> contains the
-      client code for program <code class="code">P</code> and version <code class="code">V</code>, one can do<br/>      <pre class="codepre"><code class="code">module MC = M_clnt.Make'P(Rpc_proxy.ManagedClient)</code></pre><br/>      and call RPCs <code class="code">f</code> as in<br/>      <pre class="codepre"><code class="code">let res = MC.V.f mc arg</code></pre><br/>      (if <code class="code">mc</code> is the managed client, and <code class="code">arg</code> the argument).</div></div>
+      client code for program <code class="code">P</code> and version <code class="code">V</code>, one can do<br/>      <pre class="codepre"><code class="code">
+         module MC = M_clnt.Make'P(Rpc_proxy.ManagedClient)
+      </code></pre><br/>      and call RPCs <code class="code">f</code> as in<br/>      <pre class="codepre"><code class="code">
+         let res = MC.V.f mc arg
+      </code></pre><br/>      (if <code class="code">mc</code> is the managed client, and <code class="code">arg</code> the argument).</div></div>
 <pre><span class="TYPEmclient"><span class="keyword">type</span> mclient</span> </pre><div class="info"><div class="info">A managed client</div></div>
 <pre><code><span class="TYPEmclient_config"><span class="keyword">type</span> mclient_config</span> = {</code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_rcache">mclient_rcache</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache">ReliabilityCache.rcache</a></code></code></td><td class="typefieldcomment" align="left"><div class="info">The rcache</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_socket_config">mclient_socket_config</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=socket_config">Rpc_client.socket_config</a></code></code></td><td class="typefieldcomment" align="left"><div class="info">The socket configuration</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_idle_timeout">mclient_idle_timeout</span> : <code class="type">float</code></code></td><td class="typefieldcomment" align="left"><div class="info">After how many seconds unused connections are closed.
+		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_rcache">mclient_rcache</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache">ReliabilityCache.rcache</a></code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The rcache</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_socket_config">mclient_socket_config</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=socket_config">Rpc_client.socket_config</a></code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The socket configuration</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_idle_timeout">mclient_idle_timeout</span> : <code class="type">float</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">After how many seconds unused connections are closed.
               A negative value means never. 0 means immediately. A positive
-              value is a point in time in the future.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_programs">mclient_programs</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_program&amp;type=t">Rpc_program.t</a> list</code></code></td><td class="typefieldcomment" align="left"><div class="info">The programs to bind</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_msg_timeout">mclient_msg_timeout</span> : <code class="type">float</code></code></td><td class="typefieldcomment" align="left"><div class="info">After how many seconds the reply must have been arrived.
+              value is a point in time in the future.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_programs">mclient_programs</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_program&amp;type=t">Rpc_program.t</a> list</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The programs to bind</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_msg_timeout">mclient_msg_timeout</span> : <code class="type">float</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">After how many seconds the reply must have been arrived.
               A negative value means there is no timeout. 0 means immediately. 
               A positive
-              value is a point in time in the future.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_msg_timeout_is_fatal">mclient_msg_timeout_is_fatal</span> : <code class="type">bool</code></code></td><td class="typefieldcomment" align="left"><div class="info">Whether a message timeout is to be considered as fatal error
+              value is a point in time in the future.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_msg_timeout_is_fatal">mclient_msg_timeout_is_fatal</span> : <code class="type">bool</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Whether a message timeout is to be considered as fatal error
               (the client is shut down, and the error counter for the endpoint
-              is increased)</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_exception_handler">mclient_exception_handler</span> : <code class="type">(exn -&gt; unit) option</code></code></td><td class="typefieldcomment" align="left"><div class="info">Whether to call TODO reference : Rpc_client.set_exception_handler</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_auth_methods">mclient_auth_methods</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=auth_method">Rpc_client.auth_method</a> list</code></code></td><td class="typefieldcomment" align="left"><div class="info">Set these authentication methods in the client</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_user_name">mclient_user_name</span> : <code class="type">string option</code></code></td><td class="typefieldcomment" align="left"><div class="info">The user name for authentication, None = default user</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_initial_ping">mclient_initial_ping</span> : <code class="type">bool</code></code></td><td class="typefieldcomment" align="left"><div class="info">Whether to call procedure 0 of the first program after
-              connection establishment (see comments above)</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_max_response_length">mclient_max_response_length</span> : <code class="type">int option</code></code></td><td class="typefieldcomment" align="left"><div class="info">The maximum response length. See 
-              TODO reference : Rpc_client.set_max_response_length.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_mstring_factories">mclient_mstring_factories</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;type=named_mstring_factories">Xdr_mstring.named_mstring_factories</a> option</code></code></td><td class="typefieldcomment" align="left"><div class="info">The factories to use for decoding managed strings</div></td></tr><tr><td>}</td></tr></table>
+              is increased)</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_exception_handler">mclient_exception_handler</span> : <code class="type">(exn -&gt; unit) option</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Whether to call TODO reference : Rpc_client.set_exception_handler</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_auth_methods">mclient_auth_methods</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=auth_method">Rpc_client.auth_method</a> list</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Set these authentication methods in the client</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_user_name">mclient_user_name</span> : <code class="type">string option</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The user name for authentication, None = default user</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_initial_ping">mclient_initial_ping</span> : <code class="type">bool</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Whether to call procedure 0 of the first program after
+              connection establishment (see comments above)</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_max_response_length">mclient_max_response_length</span> : <code class="type">int option</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The maximum response length. See 
+              TODO reference : Rpc_client.set_max_response_length.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_mstring_factories">mclient_mstring_factories</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;type=named_mstring_factories">Xdr_mstring.named_mstring_factories</a> option</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The factories to use for decoding managed strings</div></td></tr><tr><td>}</td></tr></table>
 <pre><span class="EXCEPTIONService_unavailable"><span class="keyword">exception</span> Service_unavailable</span></pre><div class="info"><div class="info">Procedure calls may end with this exception when the reliability
         cache disables the service</div></div>
 <pre><span class="VALcreate_mclient_config"><span class="keyword">val</span> create_mclient_config</span> : <code class="type">?rcache:<a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache">ReliabilityCache.rcache</a> -&gt;
@@ -172,7 +176,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
 <pre><span class="VALset_batch_call"><span class="keyword">val</span> set_batch_call</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt; unit</code></pre><div class="info"><div class="info">The next call is a batch call. See TODO reference : Rpc_client.set_batch_call</div></div>
 <pre><span class="VALrpc_engine"><span class="keyword">val</span> rpc_engine</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt;
 (<a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt; 'a -&gt; ((unit -&gt; 'b) -&gt; unit) -&gt; unit) -&gt;
-'a -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info">Call an RPC function in engine style:<br/>        <pre class="codepre"><code class="code">let e = rpc_engine mc f_rpc</code></pre><br/>        where <code class="code">f_rpc</code> is one of the generated client functions (async
+'a -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info">Call an RPC function in engine style:<br/>        <pre class="codepre"><code class="code"> let e = rpc_engine mc f_rpc </code></pre><br/>        where <code class="code">f_rpc</code> is one of the generated client functions (async
 	signature). The engine reaches <code class="code">`Done r</code> when the result <code class="code">r</code>
 	has arrived.<br/>	The engine is not abortable (shut the client down instead).</div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">ManagedClient</code> can be used with <code class="code">Set.Make</code> and <code class="code">Map.Make</code></div></div>
@@ -189,11 +193,11 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
                <code class="code">services</code> that is enabled and has the lowest load.
 	 </li></ul></div></div>
 <pre><code><span class="TYPEmset_config"><span class="keyword">type</span> mset_config</span> = {</code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_mclient_config">mset_mclient_config</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient_config">ManagedClient.mclient_config</a></code></code></td><td class="typefieldcomment" align="left"><div class="info">The mclient config</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_policy">mset_policy</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedSet&amp;type=mset_policy">mset_policy</a></code></code></td><td class="typefieldcomment" align="left"><div class="info">The policy</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_pending_calls_max">mset_pending_calls_max</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">When an mclient processes this number of calls at the same time,
-              it is considered as fully busy. (Value must by &gt; 0).</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_pending_calls_norm">mset_pending_calls_norm</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">When an mclient processes less than this number of calls,
+		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_mclient_config">mset_mclient_config</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient_config">ManagedClient.mclient_config</a></code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The mclient config</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_policy">mset_policy</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedSet&amp;type=mset_policy">mset_policy</a></code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The policy</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_pending_calls_max">mset_pending_calls_max</span> : <code class="type">int</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">When an mclient processes this number of calls at the same time,
+              it is considered as fully busy. (Value must by &gt; 0).</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_pending_calls_norm">mset_pending_calls_norm</span> : <code class="type">int</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">When an mclient processes less than this number of calls,
               its load is considered as too light, and it is tried to put
-              more load on this client before opening another one</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_idempotent_max">mset_idempotent_max</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">How often idempotent procedures may be tried to be called.
-              A negative value means infinite.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_idempotent_wait">mset_idempotent_wait</span> : <code class="type">float</code></code></td><td class="typefieldcomment" align="left"><div class="info">Wait this number of seconds before trying again</div></td></tr><tr><td>}</td></tr></table>
+              more load on this client before opening another one</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_idempotent_max">mset_idempotent_max</span> : <code class="type">int</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">How often idempotent procedures may be tried to be called.
+              A negative value means infinite.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmset_config.mset_idempotent_wait">mset_idempotent_wait</span> : <code class="type">float</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Wait this number of seconds before trying again</div></td></tr><tr><td>}</td></tr></table>
 <pre><span class="EXCEPTIONCluster_service_unavailable"><span class="keyword">exception</span> Cluster_service_unavailable</span></pre><div class="info"><div class="info">Raised by <code class="code">mset_pick</code> when no available endpoint can be found,
         or all available endpoints have reached their maximum load.</div></div>
 <pre><span class="VALcreate_mset_config"><span class="keyword">val</span> create_mset_config</span> : <code class="type">?mclient_config:<a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient_config">ManagedClient.mclient_config</a> -&gt;
@@ -249,14 +253,17 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
    connection terminations triggered by the RPC server.<br/>   <b>How to use managed clients:</b> For a <i>normal</i> RPC client the
    generator <code class="code">ocamlrpcgen</code> creates all required glue code to easily
    start RPC calls. For example, if a file <code class="code">proto.x</code> is taken as input
-   for <code class="code">ocamlrpcgen</code>, a piece of code doing a call could look like:<br/>   <pre class="codepre"><code class="code">let client =
+   for <code class="code">ocamlrpcgen</code>, a piece of code doing a call could look like:<br/>   <pre class="codepre"><code class="code"> 
+      let client =
         Proto_clnt.PROG.VERS.create_client connector protocol
       let result =
-        Proto_clnt.PROG.VERS.procedure client argument</code></pre><br/>   (Here, <code class="code">PROG</code>, <code class="code">VERS</code>, <code class="code">procedure</code> are just placeholders for the
+        Proto_clnt.PROG.VERS.procedure client argument
+   </code></pre><br/>   (Here, <code class="code">PROG</code>, <code class="code">VERS</code>, <code class="code">procedure</code> are just placeholders for the
    name of the program, the version identifier, and the procedure name.)<br/>   For RPC proxies, however, this is slightly more complicated. <code class="code">ocamlrpcgen</code>
    does not produce a managed client that is ready for use. Instead,
    only a functor is provided that can take the
-   TODO reference : Rpc_proxy.ManagedlClient module as input:<br/>   <pre class="codepre"><code class="code">module M = Proto_clnt.Make'PROG(Rpc_proxy.ManagedClient)
+   TODO reference : Rpc_proxy.ManagedlClient module as input:<br/>   <pre class="codepre"><code class="code">
+      module M = Proto_clnt.Make'PROG(Rpc_proxy.ManagedClient)
 
       let esys =
         Unixqueue.create_unix_event_system()
@@ -267,7 +274,8 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
       let mclient =
         Rpc_proxy.ManagedClient.create_mclient mclient_config connector esys
       let result =
-        M.VERS.procedure mclient argument</code></pre><br/>   (The functor approach has been chosen, because it gives the
+        M.VERS.procedure mclient argument
+   </code></pre><br/>   (The functor approach has been chosen, because it gives the
    user more flexibility - it is possible to apply the functor
    on other implementations of improved clients than 
    TODO reference : Rpc_proxy.ManagedClient.)<br/>   Note that <code class="code">esys</code> is always explicit, even in the case the
@@ -318,7 +326,8 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
     client side, or to several server endpoints that provide the same
     service.  The latter can be used for client-driven load balancing,
     and for client-driven failover management of HA setups (HA = high
-    availability).<br/>    For creating a managed set, the code looks like<br/>    <pre class="codepre"><code class="code">module M = Proto_clnt.Make'PROG(Rpc_proxy.ManagedClient)
+    availability).<br/>    For creating a managed set, the code looks like<br/>    <pre class="codepre"><code class="code">
+      module M = Proto_clnt.Make'PROG(Rpc_proxy.ManagedClient)
 
       let esys =
         Unixqueue.create_unix_event_system()
@@ -340,12 +349,15 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
       let mclient, idx =
         Rpc_proxy.ManagedSet.mset_pick mset in
       let result =
-        M.VERS.procedure mclient argument</code></pre><br/>    The managed clients are internally created by the set - one
+        M.VERS.procedure mclient argument
+    </code></pre><br/>    The managed clients are internally created by the set - one
     only should pass in <code class="code">mclient_config</code> so the set knows what kind of
     client is preferred. For the simple application of maintaining
     several connections to the same server, one would create the <code class="code">mset</code>
-    with a one-element service array:<br/>    <pre class="codepre"><code class="code">let services =
-          [| connector, n_connections |]</code></pre><br/>    where <code class="code">connector</code> describes the server port, and <code class="code">n_connections</code> is
+    with a one-element service array:<br/>    <pre class="codepre"><code class="code">
+       let services =
+          [| connector, n_connections |]
+    </code></pre><br/>    where <code class="code">connector</code> describes the server port, and <code class="code">n_connections</code> is
     the maximum number of connections to create and maintain. 
     The TODO reference : Rpc_proxy.ManagedSet.mset_pick
     function creates internally up to <code class="code">n_connections</code> managed clients,
@@ -379,12 +391,14 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
    can create your own, and configure it in <code class="code">mclient_config</code>.<br/>   The global cache object is automatically used when nothing else
    is specified. The global cache object is by default configured in
    a way so it does not have any effect, though. So we have to
-   change this in order to enable the cache:<br/>   <pre class="codepre"><code class="code">let rcache_config =
+   change this in order to enable the cache:<br/>   <pre class="codepre"><code class="code">
+     let rcache_config =
        Rpc_proxy.ReliabilityCache.create_rcache_config
         ~policy:`Independent
         ~threshold:3
         () in
-     Rpc_proxy.ReliabilityCache.set_global_rcache_config rcache_config</code></pre><br/>   This means that 3 errors in sequence disable a service port. <code class="code">`Independent</code>
+     Rpc_proxy.ReliabilityCache.set_global_rcache_config rcache_config
+   </code></pre><br/>   This means that 3 errors in sequence disable a service port. <code class="code">`Independent</code>
    means that each port is handled independently in this respect.<br/>    At the first time, the port is only disabled for one second. The
     duration of the time span is increased by each additional error
     until it reaches 64 seconds. These durations can be changed, of
@@ -393,7 +407,8 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
     (TODO reference : Rpc_proxy.ReliabilityCache.create_rcache). Another way is
     to derive a semi-private object from the global one. This means
     that the error counters are global, but the interpretation can
-    be set individually in each use. This would look like:<br/>    <pre class="codepre"><code class="code">let rcache_config =
+    be set individually in each use. This would look like:<br/>    <pre class="codepre"><code class="code">
+    let rcache_config =
       Rpc_proxy.ReliabilityCache.create_rcache_config
         ~policy:`Independent
         ~threshold:3
@@ -408,15 +423,20 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
         ...
         ~rcache
         ...
-        ()</code></pre><br/>  <h2 id="2_TITLE">Idempotent calls</h2><br/>    In the layer of managed sets there is some limited support for
-    automatically repeating failing idempotent RPC calls.<br/>    Instead of calling the RPC with<br/>    <pre class="codepre"><code class="code">let mclient, idx =
+        ()
+    </code></pre><br/>  <h2 id="2_TITLE">Idempotent calls</h2><br/>    In the layer of managed sets there is some limited support for
+    automatically repeating failing idempotent RPC calls.<br/>    Instead of calling the RPC with<br/>    <pre class="codepre"><code class="code">
+      let mclient, idx =
         Rpc_proxy.ManagedSet.mset_pick mset in
       let result =
-        M.VERS.procedure mclient argument</code></pre><br/>    one uses<br/>    <pre class="codepre"><code class="code">let result =
+        M.VERS.procedure mclient argument
+    </code></pre><br/>    one uses<br/>    <pre class="codepre"><code class="code">
+      let result =
         Rpc_proxy.ManagedSet.idempotent_sync_call
           mset
           M.VERS.procedure'async
-          argument</code></pre><br/>    The effet is that TODO reference : Rpc_proxy.ManagedSet.idempotent_sync_call
+          argument
+    </code></pre><br/>    The effet is that TODO reference : Rpc_proxy.ManagedSet.idempotent_sync_call
     repeats automatically the call when an error occurs. It is
     assumed that the call is idempotent so it can be repeated
     without changing the meaning.<br/>    The call may be repeated several times. This is configured in

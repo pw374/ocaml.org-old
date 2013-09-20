@@ -4,7 +4,7 @@
  structure. This is purely abstract, as Unix does not support such
  files natively, so this kind of channel is usually mapped to a flat
  representation when stored in a real file, e.g. record boundaries 
- become newline characters.</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field"><pre><span class="keyword">inherit</span> <code class="type"/>Netchannels.out_obj_channel</pre></div>
+ become newline characters.</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=out_obj_channel">Netchannels.out_obj_channel</a></pre></div>
 
 <pre><span class="METHODoutput_eor"><span class="keyword">method</span> output_eor</span> : <code class="code">unit -&gt; unit</code></pre>
 <div class="info"><div class="info">Finishes the current record. <br/> The record model is as follows: At the beginning of the channel,

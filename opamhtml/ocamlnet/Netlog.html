@@ -29,7 +29,9 @@
    </li></ul></div></div>
 <pre><span class="VALcurrent_formatter"><span class="keyword">val</span> current_formatter</span> : <code class="type">(float * int -&gt; string) Pervasives.ref</code></pre><div class="info"><div class="info">The current timestamp formatter<br/>      Example: Change the format of timestamps to ISO with a precision
       of milliseconds:
-      <pre class="codepre"><code class="code">Netlog.current_formatter := Netlog.format_timestamp `ISO 3</code></pre></div></div>
+      <pre class="codepre"><code class="code">
+        Netlog.current_formatter := Netlog.format_timestamp `ISO 3
+      </code></pre></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netlog.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">Controlling messages for debugging Ocamlnet</div></div>
 <div class="info"><div class="info">Many Ocamlnet modules can emit debug messages. For a module

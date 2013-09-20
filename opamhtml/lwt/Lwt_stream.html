@@ -17,8 +17,10 @@
 <pre><span class="VALcreate_with_reference"><span class="keyword">val</span> create_with_reference</span> : <code class="type">unit -&gt; 'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> * ('a option -&gt; unit) * ('b -&gt; unit)</code></pre><div class="info"><div class="info"><code class="code">create_with_reference ()</code> returns a new stream and a push
       function. The last function allows to set a reference to an
       external source. This prevent the external source from being
-      garbage collected.<br/>      For example, to convert a reactive event to a stream:<br/>      <pre class="codepre"><code class="code">let stream, push, set_ref = Lwt_stream.create_with_reference () in
-        set_ref (map_event push event)</code></pre></div></div>
+      garbage collected.<br/>      For example, to convert a reactive event to a stream:<br/>      <pre class="codepre"><code class="code">
+        let stream, push, set_ref = Lwt_stream.create_with_reference () in
+        set_ref (map_event push event)
+      </code></pre></div></div>
 <pre><span class="EXCEPTIONFull"><span class="keyword">exception</span> Full</span></pre><div class="info"><div class="info">Exception raised by the push function of a bounded push-stream
       when the stream queue is full and a thread is already waiting to
       push an element.</div></div>
@@ -53,14 +55,16 @@
 <pre><span class="VALof_string"><span class="keyword">val</span> of_string</span> : <code class="type">string -&gt; char <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">of_string str</code> creates a stream returning all characters of
       <code class="code">str</code></div></div>
 <pre><span class="VALclone"><span class="keyword">val</span> clone</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; 'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">clone st</code> clone the given stream. Operations on each stream
-      will not affect the other.<br/>      For example:<br/>      <pre class="codepre"><code class="code"># let st1 = Lwt_stream.of_list [1; 2; 3];;
+      will not affect the other.<br/>      For example:<br/>      <pre class="codepre"><code class="code">
+        # let st1 = Lwt_stream.of_list [1; 2; 3];;
         val st1 : int Lwt_stream.t = &lt;abstr&gt;
         # let st2 = Lwt_stream.clone st1;;
         val st2 : int Lwt_stream.t = &lt;abstr&gt;
         # lwt x = Lwt_stream.next st1;;
         val x : int = 1
         # lwt y = Lwt_stream.next st2;;
-        val y : int = 1</code></pre><br/>      It raises <code class="code">Invalid_argument</code> if <code class="code">st</code> is a bounded
+        val y : int = 1
+      </code></pre><br/>      It raises <code class="code">Invalid_argument</code> if <code class="code">st</code> is a bounded
       push-stream.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Destruction</h6></div></div>
 <pre><span class="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; 'a list <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Returns the list of elements of the given stream</div></div>
@@ -103,14 +107,16 @@
       is reached. Note that the stream may still contains elements if
       TODO reference : peek or similar was used.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Stream transversal</h6></div></div>
-<div class="info"><div class="info">Note: all the following functions are destructive.<br/>    For example:<br/>    <pre class="codepre"><code class="code"># let st1 = Lwt_stream.of_list [1; 2; 3];;
+<div class="info"><div class="info">Note: all the following functions are destructive.<br/>    For example:<br/>    <pre class="codepre"><code class="code">
+      # let st1 = Lwt_stream.of_list [1; 2; 3];;
       val st1 : int Lwt_stream.t = &lt;abstr&gt;
       # let st2 = Lwt_stream.map string_of_int st1;;
       val st2 : string Lwt_stream.t = &lt;abstr&gt;
       # lwt x = Lwt_stream.next st1;;
       val x : int = 1
       # lwt y = Lwt_stream.next st2;;
-      val y : string = &quot;2&quot;</code></pre></div></div>
+      val y : string = &quot;2&quot;
+    </code></pre></div></div>
 <pre><span class="VALchoose"><span class="keyword">val</span> choose</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> list -&gt; 'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">choose l</code> creates an stream from a list of streams. The
       resulting stream will returns elements returned by any stream of
       <code class="code">l</code> in an unspecified order.</div></div>
@@ -149,5 +155,7 @@
       push-stream.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Misc</h6></div></div>
 <pre><span class="VALhexdump"><span class="keyword">val</span> hexdump</span> : <code class="type">char <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; string <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">hexdump byte_stream</code> returns a stream which is the same as the
-      output of <code class="code">hexdump -C</code>.<br/>      Basically, here is a simple implementation of <code class="code">hexdump -C</code>:<br/>      <pre class="codepre"><code class="code">let () = Lwt_main.run (Lwt_io.write_lines Lwt_io.stdout (Lwt_stream.hexdump (Lwt_io.read_lines Lwt_io.stdin)))</code></pre></div></div>
+      output of <code class="code">hexdump -C</code>.<br/>      Basically, here is a simple implementation of <code class="code">hexdump -C</code>:<br/>      <pre class="codepre"><code class="code">
+        let () = Lwt_main.run (Lwt_io.write_lines Lwt_io.stdout (Lwt_stream.hexdump (Lwt_io.read_lines Lwt_io.stdin)))
+      </code></pre></div></div>
 </div>

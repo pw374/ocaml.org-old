@@ -57,7 +57,9 @@
     completes.<br/>    If the file descriptor underlying a reader is closed, the reader will return EOF
     (after all the buffered bytes have been read).<br/>    Any <code class="code">Reader.read*</code> call could, rather than determine its result, send an exception to
     the monitor in effect when <code class="code">read</code> was called.  Such exceptions can be handled in the
-    usual way by using <code class="code">try_with</code>, e.g.:<br/>    <pre class="codepre"><code class="code">try_with (fun () -&gt; Reader.read reader ...)</code></pre></div></td></tr>
+    usual way by using <code class="code">try_with</code>, e.g.:<br/>    <pre class="codepre"><code class="code">
+      try_with (fun () -&gt; Reader.read reader ...)
+    </code></pre></div></td></tr>
 <tr><td class="module"><a href="?package=async_unix&amp;module=Reader0">Reader0</a></td><td/></tr>
 <tr><td class="module"><a href="?package=async_unix&amp;module=Scheduler">Scheduler</a></td><td><div class="info">Threading model:<br/>    Only one thread is running Async code at a time.  This is enforced by a single lock in
     Async's scheduler data structure.  There are any number of threads running code

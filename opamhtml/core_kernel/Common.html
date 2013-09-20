@@ -44,16 +44,20 @@
 <pre><span class="VALok_exn"><span class="keyword">val</span> ok_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Or_error&amp;type=t">Or_error.t</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">Or_error.ok_exn</code></div></div>
 <pre><span class="VALerror"><span class="keyword">val</span> error</span> : <code class="type">string -&gt; 'a -&gt; ('a -&gt; Sexplib.Sexp.t) -&gt; 'b <a href="?package=core_kernel&amp;module=Or_error&amp;type=t">Or_error.t</a></code></pre><div class="info"><div class="info"><code class="code">Or_error.error</code></div></div>
 <pre><code><span class="TYPEreturn"><span class="keyword">type</span> <code class="type">'a </code>return</span> = {<span class="keyword">private</span></code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTreturn.return">return</span> : <code class="type">'b. 'a -&gt; 'b</code></code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info"><code class="code">with_return f</code> allows for something like the return statement in C within <code class="code">f</code>.  There
+		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTreturn.return">return</span> : <code class="type">'b. 'a -&gt; 'b</code>;</code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info"><code class="code">with_return f</code> allows for something like the return statement in C within <code class="code">f</code>.  There
    are three ways <code class="code">f</code> can terminate:<br/>   1. If <code class="code">f</code> calls <code class="code">r.return x</code>, then <code class="code">x</code> is returned by <code class="code">with_return</code>.
    2. If <code class="code">f</code> evaluates to a value <code class="code">x</code>, then <code class="code">x</code> is returned by <code class="code">with_return</code>.
-   3. If <code class="code">f</code> raises an exception, it escapes <code class="code">with_return</code>.<br/>   Here is a typical example:<br/>   <pre class="codepre"><code class="code">let find l ~f =
+   3. If <code class="code">f</code> raises an exception, it escapes <code class="code">with_return</code>.<br/>   Here is a typical example:<br/>   <pre class="codepre"><code class="code">
+   let find l ~f =
      with_return (fun r -&gt;
         List.iter l ~f:(fun x -&gt; if f x then r.return (Some x));
         None
-      )</code></pre><br/>   It is only because of a deficiency of ML types that <code class="code">with_return</code> doesn't have type:<br/>   <pre class="codepre"><code class="code">val with_return : 'a. (('a -&gt; ('b. 'b)) -&gt; 'a) -&gt; 'a</code></pre><br/>   but we can slightly increase the scope of 'b, without changing the meaning of the type
-   and then we get<br/>   <pre class="codepre"><code class="code">type 'a return = { return : 'b . 'a -&gt; 'b }
-   val with_return : ('a return -&gt; 'a) -&gt; 'a</code></pre><br/>   But the actual reason we chose to use a record type with polymorphic field is that
+      )
+   </code></pre><br/>   It is only because of a deficiency of ML types that <code class="code">with_return</code> doesn't have type:<br/>   <pre class="codepre"><code class="code"> val with_return : 'a. (('a -&gt; ('b. 'b)) -&gt; 'a) -&gt; 'a </code></pre><br/>   but we can slightly increase the scope of 'b, without changing the meaning of the type
+   and then we get<br/>   <pre class="codepre"><code class="code">
+   type 'a return = { return : 'b . 'a -&gt; 'b }
+   val with_return : ('a return -&gt; 'a) -&gt; 'a
+   </code></pre><br/>   But the actual reason we chose to use a record type with polymorphic field is that
    otherwise we would have to clobber the namespace of functions with <code class="code">return</code> and that is
    undesirable because <code class="code">return</code> would get hidden as soon as we open any monad. We
    considered names different than <code class="code">return</code> but everything seemed worse than just having
@@ -167,13 +171,17 @@
 <div class="info"><div class="info"><code class="code">with_return f</code> allows for something like the return statement in C within <code class="code">f</code>.  There
    are three ways <code class="code">f</code> can terminate:<br/>   1. If <code class="code">f</code> calls <code class="code">r.return x</code>, then <code class="code">x</code> is returned by <code class="code">with_return</code>.
    2. If <code class="code">f</code> evaluates to a value <code class="code">x</code>, then <code class="code">x</code> is returned by <code class="code">with_return</code>.
-   3. If <code class="code">f</code> raises an exception, it escapes <code class="code">with_return</code>.<br/>   Here is a typical example:<br/>   <pre class="codepre"><code class="code">let find l ~f =
+   3. If <code class="code">f</code> raises an exception, it escapes <code class="code">with_return</code>.<br/>   Here is a typical example:<br/>   <pre class="codepre"><code class="code">
+   let find l ~f =
      with_return (fun r -&gt;
         List.iter l ~f:(fun x -&gt; if f x then r.return (Some x));
         None
-      )</code></pre><br/>   It is only because of a deficiency of ML types that <code class="code">with_return</code> doesn't have type:<br/>   <pre class="codepre"><code class="code">val with_return : 'a. (('a -&gt; ('b. 'b)) -&gt; 'a) -&gt; 'a</code></pre><br/>   but we can slightly increase the scope of 'b, without changing the meaning of the type
-   and then we get<br/>   <pre class="codepre"><code class="code">type 'a return = { return : 'b . 'a -&gt; 'b }
-   val with_return : ('a return -&gt; 'a) -&gt; 'a</code></pre><br/>   But the actual reason we chose to use a record type with polymorphic field is that
+      )
+   </code></pre><br/>   It is only because of a deficiency of ML types that <code class="code">with_return</code> doesn't have type:<br/>   <pre class="codepre"><code class="code"> val with_return : 'a. (('a -&gt; ('b. 'b)) -&gt; 'a) -&gt; 'a </code></pre><br/>   but we can slightly increase the scope of 'b, without changing the meaning of the type
+   and then we get<br/>   <pre class="codepre"><code class="code">
+   type 'a return = { return : 'b . 'a -&gt; 'b }
+   val with_return : ('a return -&gt; 'a) -&gt; 'a
+   </code></pre><br/>   But the actual reason we chose to use a record type with polymorphic field is that
    otherwise we would have to clobber the namespace of functions with <code class="code">return</code> and that is
    undesirable because <code class="code">return</code> would get hidden as soon as we open any monad. We
    considered names different than <code class="code">return</code> but everything seemed worse than just having

@@ -111,14 +111,16 @@ downstream_flushed:(unit -&gt; <a href="?package=async_core&amp;module=Pipe.Flus
     who read from the pipe can close the pipe early -- that is, before the producer has
     finished doing all of its writes.  If this happens, further writes will raise an
     exception.  To avoid these errors, all writes must be atomically guarded by
-    <code class="code">is_closed</code> tests.  Thus, a typical writer loop should look like this:<br/>    <pre class="codepre"><code class="code">fun countup hi w = (* Send the ints in range [0,hi) to writer W. *)
+    <code class="code">is_closed</code> tests.  Thus, a typical writer loop should look like this:<br/>    <pre class="codepre"><code class="code">
+    fun countup hi w = (* Send the ints in range [0,hi) to writer W. *)
       let rec loop i =
         if i &lt; hi and not (is_closed w) then (* Guard write w/closed test. *)
           write i w &gt;&gt;&gt;            (* Do the write then block until datum     *)
           fun () -&gt; loop (i+1)     (*   fits or the pipe is closed.           *)
         else close w (* No harm done if reader has already closed the pipe.*)
       in
-      loop 0</code></pre><br/>    If the pipe's consumer stops reading early and closes the pipe, <code class="code">countup</code> won't error
+      loop 0
+    </code></pre><br/>    If the pipe's consumer stops reading early and closes the pipe, <code class="code">countup</code> won't error
     out trying to write further values down the pipe: it will immediately wake up and
     exit.</div></div>
 <pre><span class="VALpushback"><span class="keyword">val</span> pushback</span> : <code class="type">'a <a href="?package=async_core&amp;module=Pipe.Writer&amp;type=t">Writer.t</a> -&gt; unit <a href="?package=async_core&amp;module=Deferred&amp;type=t">Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">pushback writer</code> becomes determined when either <code class="code">writer</code> has been closed or
@@ -386,14 +388,16 @@ f:('a Core.Std.Queue.t -&gt; 'b Core.Std.Queue.t <a href="?package=async_core&am
     who read from the pipe can close the pipe early -- that is, before the producer has
     finished doing all of its writes.  If this happens, further writes will raise an
     exception.  To avoid these errors, all writes must be atomically guarded by
-    <code class="code">is_closed</code> tests.  Thus, a typical writer loop should look like this:<br/>    <pre class="codepre"><code class="code">fun countup hi w = (* Send the ints in range [0,hi) to writer W. *)
+    <code class="code">is_closed</code> tests.  Thus, a typical writer loop should look like this:<br/>    <pre class="codepre"><code class="code">
+    fun countup hi w = (* Send the ints in range [0,hi) to writer W. *)
       let rec loop i =
         if i &lt; hi and not (is_closed w) then (* Guard write w/closed test. *)
           write i w &gt;&gt;&gt;            (* Do the write then block until datum     *)
           fun () -&gt; loop (i+1)     (*   fits or the pipe is closed.           *)
         else close w (* No harm done if reader has already closed the pipe.*)
       in
-      loop 0</code></pre><br/>    If the pipe's consumer stops reading early and closes the pipe, <code class="code">countup</code> won't error
+      loop 0
+    </code></pre><br/>    If the pipe's consumer stops reading early and closes the pipe, <code class="code">countup</code> won't error
     out trying to write further values down the pipe: it will immediately wake up and
     exit.</div></div>
 <div class="info"><div class="info"><code class="code">pushback writer</code> becomes determined when either <code class="code">writer</code> has been closed or

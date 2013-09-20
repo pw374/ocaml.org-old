@@ -5,10 +5,12 @@
 ?supported_ptypes:Netplex_types.parallelization_type list -&gt;
 name:string -&gt;
 setup:(<a href="?package=ocamlnet&amp;module=Rpc_server&amp;type=t">Rpc_server.t</a> -&gt; 'a -&gt; unit) -&gt; unit -&gt; Netplex_types.processor_factory</code></pre><div class="info"><div class="info">A factory for TCP-based RPC servers. In <code class="code">name</code> the name of the processor
- is defined. This name can be referenced from the config file like:<br/> <pre class="codepre"><code class="code">processor {
+ is defined. This name can be referenced from the config file like:<br/> <pre class="codepre"><code class="code">
+    processor {
         type = &quot;the passed [name]&quot;;
         ...
-    }</code></pre><br/> Parameters may be included in the <code class="code">processor</code> section:<ul><li><code class="code">portmapper</code>: This is a boolean parameter. If set to true,
+    }
+ </code></pre><br/> Parameters may be included in the <code class="code">processor</code> section:<ul><li><code class="code">portmapper</code>: This is a boolean parameter. If set to true,
    the Internet port is registered with the portmapper program.
    This will fail if there are several Internet bindings with distinct
    port numbers!</li><li><code class="code">timeout</code>: This is a float parameter. It sets the transport
@@ -28,7 +30,8 @@ setup:(<a href="?package=ocamlnet&amp;module=Rpc_server&amp;type=t">Rpc_server.t
  The <code class="code">Rpc_server.t</code> is created without any binding; the user must
  bind procedures in the <code class="code">setup</code> function. This can be done by calling
  <code class="code">Rpc_server.bind</code> or the ocamlrpcgen-generated function (by the
- <code class="code">-srv2</code> switch of ocamlrpcgen).<br/> For example, a minimal factory for an RPC service may look like:<br/> <pre class="codepre"><code class="code">let proc_ping () = ()     (* Trivial RPC procedure *)
+ <code class="code">-srv2</code> switch of ocamlrpcgen).<br/> For example, a minimal factory for an RPC service may look like:<br/> <pre class="codepre"><code class="code">
+   let proc_ping () = ()     (* Trivial RPC procedure *)
 
    let my_factory() =
      Rpc_netplex.rpc_factory
@@ -37,7 +40,8 @@ setup:(<a href="?package=ocamlnet&amp;module=Rpc_server&amp;type=t">Rpc_server.t
        ~setup:(fun rpc () -&gt;
                  My_rpc_srv.bind ~proc_ping rpc
               )
-       ()</code></pre><br/> The <code class="code">setup</code> function is also called once before a new connection is
+       ()
+ </code></pre><br/> The <code class="code">setup</code> function is also called once before a new connection is
  accepted to get a list of programs and procedures. The <code class="code">Rpc_server.t</code>
  is a special one in this case, and one can test for it with the
  TODO reference : Rpc_server.is_dummy function.<div class="parameters"><div class="param_info"><code class="code">socket_config</code> : An optional function computing the socket

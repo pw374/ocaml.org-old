@@ -26,7 +26,9 @@
       <code class="code">No_such_encoding</code>.<br/>      Note about terminal resize: in the windows console resizes are
       not automatically detected. Lambda-term will only check for
       resize only when something happens. If you want it to poll just
-      write somewhere in your program:<br/>      <pre class="codepre"><code class="code">Lwt_engine.on_timer 1.0 true ignore</code></pre></div></div>
+      write somewhere in your program:<br/>      <pre class="codepre"><code class="code">
+      Lwt_engine.on_timer 1.0 true ignore
+      </code></pre></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Informations</h6></div></div>
 <pre><span class="VALmodel"><span class="keyword">val</span> model</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info">Returns the model of the terminal.</div></div>
 <pre><span class="VALcolors"><span class="keyword">val</span> colors</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Number of colors of the terminal.</div></div>

@@ -84,7 +84,7 @@ list</code></pre><div class="info"><div class="info">The default services</div><
 <pre><code><span class="TYPEhttpd_factory"><span class="keyword">type</span> httpd_factory</span> = {</code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELThttpd_factory.httpd_factory">httpd_factory</span> : <code class="type">'a.
   (Netplex_types.container -&gt; <a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;type=http_reactor_config">Nethttpd_reactor.http_reactor_config</a>) -&gt;
-  'a <a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=http_service">Nethttpd_types.http_service</a> -&gt; Netplex_types.processor</code></code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">The type of the <code class="code">nethttpd_processor</code> function</div></div>
+  'a <a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=http_service">Nethttpd_types.http_service</a> -&gt; Netplex_types.processor</code>;</code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">The type of the <code class="code">nethttpd_processor</code> function</div></div>
 <pre><span class="VALnethttpd_factory"><span class="keyword">val</span> nethttpd_factory</span> : <code class="type">?name:string -&gt;
 ?hooks:Netplex_types.processor_hooks -&gt;
 ?encap:<a href="?package=ocamlnet&amp;module=Nethttpd_plex&amp;type=encap">encap</a> -&gt;
@@ -102,7 +102,8 @@ list</code></pre><div class="info"><div class="info">The default services</div><
 ?log_access:(?debug:bool -&gt; Netplex_types.container -&gt; <a href="?package=ocamlnet&amp;module=Nethttpd_plex&amp;type=config_log_access">config_log_access</a>) -&gt;
 ?error_response:<a href="?package=ocamlnet&amp;module=Nethttpd_plex&amp;type=config_error_response">config_error_response</a> -&gt;
 ?processor_factory:<a href="?package=ocamlnet&amp;module=Nethttpd_plex&amp;type=httpd_factory">httpd_factory</a> -&gt; unit -&gt; Netplex_types.processor_factory</code></pre><div class="info"><div class="info">Factory for a web server component.<br/> <b>Configuration file.</b> Reads a configuration section like
- <pre class="codepre"><code class="code">processor {
+ <pre class="codepre"><code class="code">
+    processor {
       type = &quot;nethttpd&quot;;          (* or what is passed as &quot;name&quot; arg *)
       timeout = 300.0;
       timeout_next_request = 15.0;
@@ -130,7 +131,8 @@ list</code></pre><div class="info"><div class="info">The default services</div><
       host {
         ...
       }
-    }</code></pre><br/> The <code class="code">access_log</code> parameter can be set to <code class="code">off</code>, <code class="code">enabled</code>, or <code class="code">debug</code>.
+    }
+ </code></pre><br/> The <code class="code">access_log</code> parameter can be set to <code class="code">off</code>, <code class="code">enabled</code>, or <code class="code">debug</code>.
  The default is <code class="code">off</code>. Access messages go to the &quot;access&quot; subchannel
  of the component logger. If <code class="code">enabled</code>, one line is printed with the
  most important data. If <code class="code">debug</code> is set, all access data are printed.<br/> If <code class="code">suppress_broken_pipe</code> the error &quot;Broken pipe&quot; is not logged
@@ -140,7 +142,8 @@ list</code></pre><div class="info"><div class="info">The default services</div><
  used. For example, if a <code class="code">host</code> section already contains <code class="code">uri</code>
  subsections, it is not allowed to add <code class="code">method</code> subsections.
  Furthermore, the outermost section must be <code class="code">host</code>.<br/> The <code class="code">service</code> section may be one of (at least if the <code class="code">services</code>
- parameter is not overridden):<br/> <pre class="codepre"><code class="code">service {
+ parameter is not overridden):<br/> <pre class="codepre"><code class="code">
+    service {
       type = &quot;file&quot;;
       docroot = &quot;/a/path/in/the/filesystem&quot;;
       uri = &quot;/the/uri/prefix/corresponding/to/docroot&quot;;
@@ -154,16 +157,21 @@ list</code></pre><div class="info"><div class="info">The default services</div><
       index_files = &quot;index.html&quot;;
       enable_listings = true;
       hide_from_listings = &quot;README&quot;;   (* list of PCRE regexps *)
-    }</code></pre><br/> Note that <code class="code">uri</code> is taken from the surrounding <code class="code">uri</code> section (or
- assumed to be &quot;/&quot; if there is none) if omitted.<br/> <pre class="codepre"><code class="code">service {
+    }
+ </code></pre><br/> Note that <code class="code">uri</code> is taken from the surrounding <code class="code">uri</code> section (or
+ assumed to be &quot;/&quot; if there is none) if omitted.<br/> <pre class="codepre"><code class="code">
+    service {
       type = &quot;dynamic&quot;;
       handler = &quot;name_of_handler&quot;;
-    }</code></pre><br/> Binds the passed handler here.<br/> Any of <code class="code">host</code>, <code class="code">uri</code>, and <code class="code">method</code> sections may contain one or several
- <code class="code">access</code> sections (which are AND-connected):<br/> <pre class="codepre"><code class="code">access {
+    }
+ </code></pre><br/> Binds the passed handler here.<br/> Any of <code class="code">host</code>, <code class="code">uri</code>, and <code class="code">method</code> sections may contain one or several
+ <code class="code">access</code> sections (which are AND-connected):<br/> <pre class="codepre"><code class="code">
+    access {
       type = &quot;host&quot;;
       allow = &quot;host1 host2 ...&quot;;
       (* or deny = &quot;host1 host2 ...&quot;; *)
-    }</code></pre><br/> Other access control methods are not yet available.<br/> The <code class="code">services</code> optional argument can be used to change the service
+    }
+ </code></pre><br/> Other access control methods are not yet available.<br/> The <code class="code">services</code> optional argument can be used to change the service
  types understood. If not passed, it defaults to <code class="code">default_services</code>.
  The default includes &quot;file&quot; and &quot;dynamic&quot;.<br/> <b>Arguments.</b><br/> - <code class="code">name</code>: The processor name. Defaults to &quot;nethttpd&quot;. This name can
    be referenced by the &quot;type&quot; parameters in the <code class="code">processor</code> section

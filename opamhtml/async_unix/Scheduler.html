@@ -76,7 +76,7 @@
     exception that reaches the main monitor.  This can have a substantial performance
     impact, both in running time and space usage.</div></div>
 <pre><code><span class="TYPEfolder"><span class="keyword">type</span> <code class="type">'b </code>folder</span> = {</code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTfolder.folder">folder</span> : <code class="type">'a. 'b -&gt; <a href="?package=async_unix&amp;module=Scheduler&amp;type=t">t</a> -&gt; (<a href="?package=async_unix&amp;module=Scheduler&amp;type=t">t</a>, 'a) Core.Std.Field.t -&gt; 'b</code></code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info"><code class="code">fold_fields ~init folder</code> folds <code class="code">folder</code> over each field in the scheduler.  The
+		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTfolder.folder">folder</span> : <code class="type">'a. 'b -&gt; <a href="?package=async_unix&amp;module=Scheduler&amp;type=t">t</a> -&gt; (<a href="?package=async_unix&amp;module=Scheduler&amp;type=t">t</a>, 'a) Core.Std.Field.t -&gt; 'b</code>;</code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info"><code class="code">fold_fields ~init folder</code> folds <code class="code">folder</code> over each field in the scheduler.  The
     fields themselves are not exposed -- <code class="code">folder</code> must be a polymorphic function that
     can work on any field.  So, it's only useful for generic operations, e.g. getting
     the size of each field.</div></div>

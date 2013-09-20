@@ -8,7 +8,7 @@
  requests coming on a given connection.  If the need is felt (speak
  out!), a multithreaded connector can be built on the side of this
  one.</div>
-<div class="ocaml_class sig" name="cgi"><pre><span class="TYPEcgi"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_fcgi&amp;class=cgi">cgi</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The usual TODO reference : Netcgi.cgi class with FCGI specific methods.</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field"><pre><span class="keyword">inherit</span> <code class="type"/>Netcgi.cgi</pre></div>
+<div class="ocaml_class sig" name="cgi"><pre><span class="TYPEcgi"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_fcgi&amp;class=cgi">cgi</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The usual TODO reference : Netcgi.cgi class with FCGI specific methods.</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi">Netcgi.cgi</a></pre></div>
 
 <pre><span class="METHODrole"><span class="keyword">method</span> role</span> : <code class="code">[ `Authorizer | `Filter | `Responder ]</code></pre>
 <div class="info"><div class="info">A FastCGI application can fulfill each of the following three

@@ -71,9 +71,9 @@ bool</code></pre><div class="info"><div class="info">Returns whether <code class
       (including LF). If exceeded, the engine transitions to
       <code class="code">`Error Line_too_long</code>.</div></div>
 <pre><span class="VALeof_as_none"><span class="keyword">val</span> eof_as_none</span> : <code class="type">'a <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=final_state">Uq_engines.final_state</a> -&gt; 'a option <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=final_state">Uq_engines.final_state</a></code></pre><div class="info"><div class="info">Represents EOF as <code class="code">None</code>. Useful in the combination
-      <pre class="codepre"><code class="code">input_e d s p l &gt;&gt; eof_as_none</code></pre>
+      <pre class="codepre"><code class="code"> input_e d s p l &gt;&gt; eof_as_none </code></pre>
       and 
-      <pre class="codepre"><code class="code">input_line_e d &gt;&gt; eof_as_none</code></pre>
+      <pre class="codepre"><code class="code"> input_line_e d &gt;&gt; eof_as_none </code></pre>
       where <code class="code">&gt;&gt;</code> is from TODO reference : Uq_engines.Operators</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Output</h2></div></div>
 <pre><span class="VALoutput_e"><span class="keyword">val</span> output_e</span> : <code class="type">[&lt; <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=out_device">out_device</a> ] -&gt; <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=string_like">string_like</a> -&gt; int -&gt; int -&gt; int <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info"><code class="code">let e = output_e d s pos len</code>: Outputs data to <code class="code">d</code> and takes it

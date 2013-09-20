@@ -97,7 +97,8 @@
       of <code class="code">join</code>). The same happens for any unplanned termination of the
       process.<br/>      It is allowed to immediately release the <code class="code">join_point</code> if there is
       no interest in catching the termination of started processes.<br/>      Here is an example how to define a process that takes a <code class="code">string</code>
-      argument and returns an <code class="code">int</code>:<br/>      <pre class="codepre"><code class="code">module String_encap = Netplex_encap.Make_encap(struct type t=string end)
+      argument and returns an <code class="code">int</code>:<br/>      <pre class="codepre"><code class="code">
+      module String_encap = Netplex_encap.Make_encap(struct type t=string end)
       module Int_encap = Netplex_encap.Make_encap(struct type t=int end)
 
       let my_process_fork, my_process_join =
@@ -106,12 +107,15 @@
             let (s:string) = String_encap.unwrap s_encap in
             let (r:int) = ... in
             Int_encap.wrap r
-          )</code></pre><br/>      The wrapping and unwrapping is required for ensuring type-safety
-      (see TODO reference : Netplex_encap for the details of the idea).<br/>      Calling this process is done with (also see below):<br/>      <pre class="codepre"><code class="code">let pid = Netmcore.start my_process_fork (String_encap.wrap s) in
+          )
+      </code></pre><br/>      The wrapping and unwrapping is required for ensuring type-safety
+      (see TODO reference : Netplex_encap for the details of the idea).<br/>      Calling this process is done with (also see below):<br/>      <pre class="codepre"><code class="code">
+      let pid = Netmcore.start my_process_fork (String_encap.wrap s) in
       let r_encap_opt = Netmcore.join my_process_join pid in
       match r_encap_opt with
         | None -&gt; failwith &quot;Something went wrong&quot;
-        | Some r_encap -&gt; Int_encap.unwrap r_encap</code></pre></div></div>
+        | Some r_encap -&gt; Int_encap.unwrap r_encap
+      </code></pre></div></div>
 <div class="info"><div class="info">The following functions can also be called from worker processes
     (i.e. Netplex containers)</div></div>
 <pre><span class="VALstart"><span class="keyword">val</span> start</span> : <code class="type">?inherit_resources:<a href="?package=ocamlnet&amp;module=Netmcore&amp;type=inherit_request">inherit_request</a> -&gt;

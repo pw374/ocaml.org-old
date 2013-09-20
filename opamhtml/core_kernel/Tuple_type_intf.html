@@ -7,13 +7,17 @@
       in the form: <code class="code">[ `S0 of `a0 | `S1 of `a1 | ... | `S&lt;N-1&gt; of `a&lt;N-1&gt; ]</code>.<br/>      The encoding of the slots using a polymorphic variant allows one to write functions
       that are polymorphic in the tuple type, and require that a tuple have a certain
       slot, but allow more slots.<br/>      We make <code class="code">t</code> itself a polymorphic variant type so that one can easily encode cyclic
-      types, e.g. lists, like:<br/>      <pre class="codepre"><code class="code">type 'a slots = ('a, 'a slots Pointer.t) Slots.t2</code></pre><br/>      Observe that <code class="code">slots</code> in the above is cyclic, but that OCaml allows it because the
-      definition expands to:<br/>      <pre class="codepre"><code class="code">type 'a slots = [ `Slots of ('a * 'a slots Pointer.t,
+      types, e.g. lists, like:<br/>      <pre class="codepre"><code class="code">
+        type 'a slots = ('a, 'a slots Pointer.t) Slots.t2
+      </code></pre><br/>      Observe that <code class="code">slots</code> in the above is cyclic, but that OCaml allows it because the
+      definition expands to:<br/>      <pre class="codepre"><code class="code">
+        type 'a slots = [ `Slots of ('a * 'a slots Pointer.t,
                                      [ `S0 of 'a
                                      | `S1 of 'a slots Pointer.t
                                      ]
                                     ) u
-                        ]</code></pre><br/>      Ultimately, a <code class="code">Slots.t</code> is used as a phantom type that ensures consistent usage of
+                        ]
+      </code></pre><br/>      Ultimately, a <code class="code">Slots.t</code> is used as a phantom type that ensures consistent usage of
       the tuples in the data structure containing them.</div></div>
 <pre><span class="TYPEu"><span class="keyword">type</span> <code class="type">('tuple, 'variant) </code>u</span> </pre>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">('tuple, 'variant) </code>t</span> = <code class="type">[ `Slots of ('tuple, 'variant) <a href="?package=core_kernel&amp;module=Tuple_type_intf.Slots&amp;type=u">u</a> ]</code></pre>
@@ -149,13 +153,17 @@
       in the form: <code class="code">[ `S0 of `a0 | `S1 of `a1 | ... | `S&lt;N-1&gt; of `a&lt;N-1&gt; ]</code>.<br/>      The encoding of the slots using a polymorphic variant allows one to write functions
       that are polymorphic in the tuple type, and require that a tuple have a certain
       slot, but allow more slots.<br/>      We make <code class="code">t</code> itself a polymorphic variant type so that one can easily encode cyclic
-      types, e.g. lists, like:<br/>      <pre class="codepre"><code class="code">type 'a slots = ('a, 'a slots Pointer.t) Slots.t2</code></pre><br/>      Observe that <code class="code">slots</code> in the above is cyclic, but that OCaml allows it because the
-      definition expands to:<br/>      <pre class="codepre"><code class="code">type 'a slots = [ `Slots of ('a * 'a slots Pointer.t,
+      types, e.g. lists, like:<br/>      <pre class="codepre"><code class="code">
+        type 'a slots = ('a, 'a slots Pointer.t) Slots.t2
+      </code></pre><br/>      Observe that <code class="code">slots</code> in the above is cyclic, but that OCaml allows it because the
+      definition expands to:<br/>      <pre class="codepre"><code class="code">
+        type 'a slots = [ `Slots of ('a * 'a slots Pointer.t,
                                      [ `S0 of 'a
                                      | `S1 of 'a slots Pointer.t
                                      ]
                                     ) u
-                        ]</code></pre><br/>      Ultimately, a <code class="code">Slots.t</code> is used as a phantom type that ensures consistent usage of
+                        ]
+      </code></pre><br/>      Ultimately, a <code class="code">Slots.t</code> is used as a phantom type that ensures consistent usage of
       the tuples in the data structure containing them.</div></div>
 <div class="info"><div class="info">A <code class="code">Slot.t</code> represents a slot in a tuple type.</div></div>
 </div>

@@ -66,7 +66,9 @@
       process, and must not be directly accessed by other processes.
       Other processes can only send using a <code class="code">camlbox_sender</code>.<br/>      It is an error if the camlbox already exists.<br/>      It is suggested that the result of <code class="code">create_camlbox</code> is immediately
       coerced to the right type <code class="code">t</code>, e.g.
-      <pre class="codepre"><code class="code">let box = (create_camlbox addr n size : t camlbox)</code></pre>
+      <pre class="codepre"><code class="code">
+        let box = (create_camlbox addr n size : t camlbox)
+      </code></pre>
       as this ensures type safety for all following operations.<br/>      <b>Note that camlboxes have kernel persistence! They are not
       automatically deleted when the process finishes. Call <code class="code">unlink_camlbox</code>
       to delete camlboxes.</b></div></div>
@@ -114,7 +116,9 @@
 <pre><span class="VALcamlbox_cancel_wait"><span class="keyword">val</span> camlbox_cancel_wait</span> : <code class="type">'a <a href="?package=ocamlnet&amp;module=Netcamlbox&amp;type=camlbox">camlbox</a> -&gt; unit</code></pre><div class="info"><div class="info">Cancels a <code class="code">camlbox_wait</code> operation called by a different thread</div></div>
 <pre><span class="VALcamlbox_sender"><span class="keyword">val</span> camlbox_sender</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcamlbox&amp;type=camlbox_address">camlbox_address</a> -&gt; 'a <a href="?package=ocamlnet&amp;module=Netcamlbox&amp;type=camlbox_sender">camlbox_sender</a></code></pre><div class="info"><div class="info">Prepares for sending.<br/>      It is suggested that the result of <code class="code">camlbox_sender</code> is immediately
       coerced to the right type <code class="code">t</code>, e.g.
-      <pre class="codepre"><code class="code">let box = (camlbox_sender addr : t camlbox_sender)</code></pre>
+      <pre class="codepre"><code class="code">
+        let box = (camlbox_sender addr : t camlbox_sender)
+      </code></pre>
       as this ensures type safety for all following operations.</div></div>
 <pre><span class="VALcamlbox_sender_of_fd"><span class="keyword">val</span> camlbox_sender_of_fd</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcamlbox&amp;type=camlbox_address">camlbox_address</a> -&gt; Unix.file_descr -&gt; 'a <a href="?package=ocamlnet&amp;module=Netcamlbox&amp;type=camlbox_sender">camlbox_sender</a></code></pre><div class="info"><div class="info">Gets a sender for a file descriptor from <code class="code">camlbox_fd</code>.<br/>      Ocamlnet-3.6: new arg <code class="code">camlbox_address</code></div></div>
 <pre><span class="VALcamlbox_send"><span class="keyword">val</span> camlbox_send</span> : <code class="type">?prefer:int -&gt; ?slot:int Pervasives.ref -&gt; 'a <a href="?package=ocamlnet&amp;module=Netcamlbox&amp;type=camlbox_sender">camlbox_sender</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Sends a message to a camlbox. The value must be boxed (neither <code class="code">char</code>,

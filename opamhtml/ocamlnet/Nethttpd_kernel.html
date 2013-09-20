@@ -196,7 +196,8 @@
  One can take values from the front of this queue by calling <code class="code">receive</code>.<br/> The response queue stores <code class="code">http_response</code> objects. Each of the objects
  corresponds to a request that was received before. This queue is handled
  fully automatically, but one can watch its length to see whether all responses
- are actually transmitted over the wire.<br/> The basic algorithm to process messages is:<br/> <pre class="codepre"><code class="code">let rec next_token () =
+ are actually transmitted over the wire.<br/> The basic algorithm to process messages is:<br/> <pre class="codepre"><code class="code">
+ let rec next_token () =
    if proto # recv_queue_len = 0 then (
      proto # cycle ();
      next_token()
@@ -225,7 +226,8 @@
  while proto # resp_queue_len &gt; 0 do
    proto # cycle ();
  done;
- proto # shutdown()</code></pre><br/> See the file <code class="code">tests/easy_daemon.ml</code> for a complete implementation of this.<br/> As one can see, it is essential to watch the lengths of the queues in order
+ proto # shutdown()
+ </code></pre><br/> See the file <code class="code">tests/easy_daemon.ml</code> for a complete implementation of this.<br/> As one can see, it is essential to watch the lengths of the queues in order
  to figure out what has happened during <code class="code">cycle</code>.<br/> When the body of the request is empty, <code class="code">`Req_body</code> tokens are omitted.
  Note that for requests like <code class="code">GET</code> that always have an empty body, it is
  still possible that an errorneous client sends a body, and that <code class="code">`Req_body</code>
@@ -303,7 +305,7 @@
  ran.</div></div></div></div>
 <div class="ocaml_class sig" name="lingering_close"><pre><span class="TYPElingering_close"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=lingering_close">lingering_close</a></span> : <code class="type">Unix.file_descr -&gt; (unit -&gt; unit) option -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Closes a file descriptor using the &quot;lingering close&quot; algorithm.
     The optional <code class="code">preclose</code> function is called just before <code class="code">Unix.close</code>.</div></div><div class="ocaml_class_content"><div class="info"><div class="info">Closes a file descriptor using the &quot;lingering close&quot; algorithm<br/> Usage:
- <pre class="codepre"><code class="code">while lc # lingering do lc # cycle ~block:true () done</code></pre></div></div>
+ <pre class="codepre"><code class="code"> while lc # lingering do lc # cycle ~block:true () done </code></pre></div></div>
 <pre><span class="METHODcycle"><span class="keyword">method</span> cycle</span> : <code class="code">?block:bool -&gt; unit -&gt; unit</code></pre>
 <div class="info"><div class="info">Reads data from the file descriptor until EOF or until a fixed timeout
  is over. Finally, the descriptor is closed. If <code class="code">block</code> is set, the method

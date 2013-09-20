@@ -41,11 +41,13 @@ cmp3:('c -&gt; 'c -&gt; int) -&gt; ('a, 'b, 'c) <a href="?package=core_kernel&am
 ('b -&gt; Sexplib.Sexp.t) -&gt;
 ('c -&gt; Sexplib.Sexp.t) -&gt; ('a, 'b, 'c) <a href="?package=core_kernel&amp;module=Tuple.T3&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre></div></div>
 <div class="info"><div class="info">These functors allow users to write:
-  <pre class="codepre"><code class="code">module Foo = struct
+  <pre class="codepre"><code class="code">
+   module Foo = struct
      include Tuple.Make       (String) (Int)
      include Tuple.Comparable (String) (Int)
      include Tuple.Hashable   (String) (Int)
-   end</code></pre></div></div>
+   end
+  </code></pre></div></div>
 <div class="ocaml_module sig" name="Make"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Tuple.Make">Make</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">T1</code><code class="code"> : </code><code class="code">sig</code> .. <code class="code">end</code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">T2</code><code class="code"> : </code><code class="code">sig</code> .. <code class="code">end</code><code class="code">) -&gt; </code><code class="code">sig</code> .. <code class="code">end</code></div></div></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">T1.t * T2.t</code></pre></div></div>
 <div class="ocaml_module sig" name="Comparable_sexpable"><pre><span class="keyword">module type</span> <a href="?package=core_kernel&amp;module=Tuple.Comparable_sexpable">Comparable_sexpable</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">

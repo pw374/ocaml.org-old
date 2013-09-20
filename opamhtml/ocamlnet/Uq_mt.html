@@ -14,7 +14,7 @@
       the monitor will use this event system.</div></div>
 <pre><span class="VALmonitor_run"><span class="keyword">val</span> monitor_run</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Uq_mt&amp;type=monitor">monitor</a> -&gt; (<a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; 'a -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a>) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">let result = monitor_run mon f outer_esys arg</code>: 
       Runs another engine within the
-      monitor. The engine <code class="code">inner_e</code> is created as<br/>      <pre class="codepre"><code class="code">let inner_e = f inner_esys arg</code></pre><br/>      where <code class="code">inner_esys</code> is the event system of the monitor. It is
+      monitor. The engine <code class="code">inner_e</code> is created as<br/>      <pre class="codepre"><code class="code"> let inner_e = f inner_esys arg </code></pre><br/>      where <code class="code">inner_esys</code> is the event system of the monitor. It is
       obligatory that <code class="code">inner_e</code> uses this event system.<br/>      When <code class="code">inner_e</code> reaches a final state, the thread leaves the
       monitor, and the result of <code class="code">inner_e</code> is returned (or the
       recorded exception is thrown).<br/>      The &quot;special effect&quot; of the monitor is that several threads can
@@ -46,14 +46,20 @@
     able to run asynchronously. Because of this, the requests coming from
     several threads can be concurrently handled.<br/>    Prepare the RPC client and the monitor: We assume that <code class="code">M_clnt</code> is
     the generated RPC module with the client, and that we access program
-    <code class="code">P</code> at version <code class="code">V</code>.<br/>    <pre class="codepre"><code class="code">let esys = Unixqueue.create_unix_event_system
+    <code class="code">P</code> at version <code class="code">V</code>.<br/>    <pre class="codepre"><code class="code">
+      let esys = Unixqueue.create_unix_event_system
       let rpc = M_clnt.P.V.create_client ~esys connector protocol
-      let mon = Uq_mt.create_monitor esys</code></pre><br/>    It is essential that the RPC client and the monitor use the same
+      let mon = Uq_mt.create_monitor esys
+    </code></pre><br/>    It is essential that the RPC client and the monitor use the same
     <code class="code">esys</code>.<br/>    Next, let's assume we are in a spawned thread, and we want to
     call an RPC procedure <code class="code">M_clnt.P.V.proc</code>. The trick here is to
     use the asynchronous variant <code class="code">M_clnt.P.V.proc'async</code>, and to
-    call it via the monitor:<br/>    <pre class="codepre"><code class="code">let result = Uq_mt.monitor_async mon (M_clnt.P.V.proc'async rpc) arg</code></pre><br/>    The procedure is called with argument <code class="code">arg</code> and returns the <code class="code">result</code>.
+    call it via the monitor:<br/>    <pre class="codepre"><code class="code">
+      let result = Uq_mt.monitor_async mon (M_clnt.P.V.proc'async rpc) arg
+    </code></pre><br/>    The procedure is called with argument <code class="code">arg</code> and returns the <code class="code">result</code>.
     The monitor waits until the asynchronous call is done, so this appears
     as a synchronous call to the user.<br/>    If you need to call functions to configure and control the RPC
-    client, use <code class="code">monitor_do</code>:<br/>    <pre class="codepre"><code class="code">let sockaddr = Uq_mt.monitor_do mon Rpc_client.get_peer_name rpc</code></pre></div></div>
+    client, use <code class="code">monitor_do</code>:<br/>    <pre class="codepre"><code class="code">
+      let sockaddr = Uq_mt.monitor_do mon Rpc_client.get_peer_name rpc
+    </code></pre></div></div>
 </div>

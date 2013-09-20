@@ -7,8 +7,14 @@
     half-open intervals of size <code class="code">alarm_precision</code>, with the bottom half of each interval
     closed, and the top half open.  Alarms in the same interval fire in the same call to
     <code class="code">advance_clock</code>, as soon as <code class="code">now t</code> is greater than all the times in the interval.
-    When an alarm <code class="code">a</code> fires on a timing wheel <code class="code">t</code>, the implementation guarantees that:<br/>    <pre class="codepre"><code class="code">Alarm.at a &lt; now t</code></pre><br/>    That is, alarms never fire early.  Furthermore, the implementation guarantees that
-    alarms don't go off too late.  More precisely, for all alarms <code class="code">a</code> in <code class="code">t</code>:<br/>    <pre class="codepre"><code class="code">interval_start t (Alarm.at a) &gt;= interval_start t (now t)</code></pre><br/>    This implies that for all alarms <code class="code">a</code> in <code class="code">t</code>:<br/>    <pre class="codepre"><code class="code">Alarm.at a &gt;= now t - alarm_precision t</code></pre><br/>    One would like to have the strict inequality, <code class="code">Alarm.at a &gt; now t - alarm_precision
+    When an alarm <code class="code">a</code> fires on a timing wheel <code class="code">t</code>, the implementation guarantees that:<br/>    <pre class="codepre"><code class="code">
+      Alarm.at a &lt; now t
+    </code></pre><br/>    That is, alarms never fire early.  Furthermore, the implementation guarantees that
+    alarms don't go off too late.  More precisely, for all alarms <code class="code">a</code> in <code class="code">t</code>:<br/>    <pre class="codepre"><code class="code">
+      interval_start t (Alarm.at a) &gt;= interval_start t (now t)
+    </code></pre><br/>    This implies that for all alarms <code class="code">a</code> in <code class="code">t</code>:<br/>    <pre class="codepre"><code class="code">
+      Alarm.at a &gt;= now t - alarm_precision t
+    </code></pre><br/>    One would like to have the strict inequality, <code class="code">Alarm.at a &gt; now t - alarm_precision
     t</code>, but that does not hold due to floating-point imprecision.<br/>    Of course, an <code class="code">advance_clock</code> call can advance the clock to an arbitrary time in the
     future, and thus alarms may fire at a clock time arbitrarily far beyond the time for
     which they were set.  But the implementation has no control over the times supplied to
@@ -41,10 +47,10 @@
       |        64 |        2^61 | nanosecond      | 73 years |
     </span></div></div>
 <div class="ocaml_module sig" name="Time"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Timing_wheel_intf.Time">Time</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<div class="ocaml_include ident" items="[&quot;Stable&quot;,&quot;Set&quot;,&quot;Map&quot;,&quot;Replace_polymorphic_compare&quot;,&quot;Hash_queue&quot;,&quot;Hash_set&quot;,&quot;Pooled_hashtbl&quot;,&quot;Table&quot;,&quot;Hashable&quot;]"><pre><span class="keyword">include</span> <code class="type"><code class="code">Time</code></code></pre></div>
-<div class="ocaml_module ident" name="Ofday"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Timing_wheel_intf.Time.Ofday">Ofday</a> : <code class="type"><code class="code">Ofday</code></code></pre></div>
+<div class="ocaml_include ident" path="?package=core&amp;module=Time" items="[&quot;Stable&quot;,&quot;Set&quot;,&quot;Map&quot;,&quot;Replace_polymorphic_compare&quot;,&quot;Hash_queue&quot;,&quot;Hash_set&quot;,&quot;Pooled_hashtbl&quot;,&quot;Table&quot;,&quot;Hashable&quot;]"><pre><span class="keyword">include</span> <code class="type"><code class="code"><a href="?package=core&amp;module=Time">Time</a></code></code></pre></div>
+<div class="ocaml_module ident" name="Ofday" path="?package=core&amp;module=Ofday"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Timing_wheel_intf.Time.Ofday">Ofday</a> : <code class="type"><code class="code"><a href="?package=core&amp;module=Ofday">Ofday</a></code></code></pre></div>
 <div class="ocaml_module ident" name="Span" path="?package=core&amp;module=Span"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Timing_wheel_intf.Time.Span">Span</a> : <code class="type"><code class="code"><a href="?package=core&amp;module=Span">Span</a></code></code></pre></div>
-<div class="ocaml_module ident" name="Zone"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Timing_wheel_intf.Time.Zone">Zone</a> : <code class="type"><code class="code">Zone</code></code></pre></div></div></div>
+<div class="ocaml_module ident" name="Zone" path="?package=core&amp;module=Zone"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Timing_wheel_intf.Time.Zone">Zone</a> : <code class="type"><code class="code"><a href="?package=core&amp;module=Zone">Zone</a></code></code></pre></div></div></div>
 <div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=core&amp;module=Timing_wheel_intf.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre>
 <pre><span class="TYPEtiming_wheel"><span class="keyword">type</span> <code class="type">'a </code>timing_wheel</span> = <code class="type">'a <a href="?package=core&amp;module=Timing_wheel_intf.S&amp;type=t">t</a></code></pre>
@@ -162,7 +168,9 @@ start:<a href="?package=core&amp;module=Timing_wheel_intf.Time&amp;type=t">Time.
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="?package=core&amp;module=Timing_wheel_intf.S.Priority_queue&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">length t</code> returns the number of elements in the timing wheel.</div></div>
 <pre><span class="VALis_empty"><span class="keyword">val</span> is_empty</span> : <code class="type">'a <a href="?package=core&amp;module=Timing_wheel_intf.S.Priority_queue&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">is_empty t</code> is <code class="code">length t = 0</code></div></div>
 <pre><span class="VALmax_representable_key"><span class="keyword">val</span> max_representable_key</span> : <code class="type">int</code></pre><div class="info"><div class="info">To avoid issues with arithmetic overflow, the implementation restricts keys to
-        being between <code class="code">0</code> and <code class="code">max_representable_key</code>, where:<br/>        <pre class="codepre"><code class="code">max_representable_key = 1 lsl Level_bits.max_num_bits - 1</code></pre><br/>        This is different from <code class="code">max_allowed_key t</code>, which gives the maximum key that can
+        being between <code class="code">0</code> and <code class="code">max_representable_key</code>, where:<br/>        <pre class="codepre"><code class="code">
+          max_representable_key = 1 lsl Level_bits.max_num_bits - 1
+        </code></pre><br/>        This is different from <code class="code">max_allowed_key t</code>, which gives the maximum key that can
         currently be stored in <code class="code">t</code>.  The maximum allowed key is never larger than the
         maximum representable key, but may be smaller.</div></div>
 <pre><span class="VALmin_allowed_key"><span class="keyword">val</span> min_allowed_key</span> : <code class="type">'a <a href="?package=core&amp;module=Timing_wheel_intf.S.Priority_queue&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">min_allowed_key t</code> is the minimum key that can be stored in <code class="code">t</code>.  This only
@@ -202,7 +210,9 @@ start:<a href="?package=core&amp;module=Timing_wheel_intf.Time&amp;type=t">Time.
 <div class="info"><div class="info"><code class="code">length t</code> returns the number of elements in the timing wheel.</div></div>
 <div class="info"><div class="info"><code class="code">is_empty t</code> is <code class="code">length t = 0</code></div></div>
 <div class="info"><div class="info">To avoid issues with arithmetic overflow, the implementation restricts keys to
-        being between <code class="code">0</code> and <code class="code">max_representable_key</code>, where:<br/>        <pre class="codepre"><code class="code">max_representable_key = 1 lsl Level_bits.max_num_bits - 1</code></pre><br/>        This is different from <code class="code">max_allowed_key t</code>, which gives the maximum key that can
+        being between <code class="code">0</code> and <code class="code">max_representable_key</code>, where:<br/>        <pre class="codepre"><code class="code">
+          max_representable_key = 1 lsl Level_bits.max_num_bits - 1
+        </code></pre><br/>        This is different from <code class="code">max_allowed_key t</code>, which gives the maximum key that can
         currently be stored in <code class="code">t</code>.  The maximum allowed key is never larger than the
         maximum representable key, but may be smaller.</div></div>
 <div class="info"><div class="info"><code class="code">min_allowed_key t</code> is the minimum key that can be stored in <code class="code">t</code>.  This only
@@ -310,7 +320,9 @@ start:<a href="?package=core&amp;module=Timing_wheel_intf.Time&amp;type=t">Time.
 <div class="info"><div class="info"><code class="code">length t</code> returns the number of elements in the timing wheel.</div></div>
 <div class="info"><div class="info"><code class="code">is_empty t</code> is <code class="code">length t = 0</code></div></div>
 <div class="info"><div class="info">To avoid issues with arithmetic overflow, the implementation restricts keys to
-        being between <code class="code">0</code> and <code class="code">max_representable_key</code>, where:<br/>        <pre class="codepre"><code class="code">max_representable_key = 1 lsl Level_bits.max_num_bits - 1</code></pre><br/>        This is different from <code class="code">max_allowed_key t</code>, which gives the maximum key that can
+        being between <code class="code">0</code> and <code class="code">max_representable_key</code>, where:<br/>        <pre class="codepre"><code class="code">
+          max_representable_key = 1 lsl Level_bits.max_num_bits - 1
+        </code></pre><br/>        This is different from <code class="code">max_allowed_key t</code>, which gives the maximum key that can
         currently be stored in <code class="code">t</code>.  The maximum allowed key is never larger than the
         maximum representable key, but may be smaller.</div></div>
 <div class="info"><div class="info"><code class="code">min_allowed_key t</code> is the minimum key that can be stored in <code class="code">t</code>.  This only
@@ -357,8 +369,14 @@ start:<a href="?package=core&amp;module=Timing_wheel_intf.Time&amp;type=t">Time.
     half-open intervals of size <code class="code">alarm_precision</code>, with the bottom half of each interval
     closed, and the top half open.  Alarms in the same interval fire in the same call to
     <code class="code">advance_clock</code>, as soon as <code class="code">now t</code> is greater than all the times in the interval.
-    When an alarm <code class="code">a</code> fires on a timing wheel <code class="code">t</code>, the implementation guarantees that:<br/>    <pre class="codepre"><code class="code">Alarm.at a &lt; now t</code></pre><br/>    That is, alarms never fire early.  Furthermore, the implementation guarantees that
-    alarms don't go off too late.  More precisely, for all alarms <code class="code">a</code> in <code class="code">t</code>:<br/>    <pre class="codepre"><code class="code">interval_start t (Alarm.at a) &gt;= interval_start t (now t)</code></pre><br/>    This implies that for all alarms <code class="code">a</code> in <code class="code">t</code>:<br/>    <pre class="codepre"><code class="code">Alarm.at a &gt;= now t - alarm_precision t</code></pre><br/>    One would like to have the strict inequality, <code class="code">Alarm.at a &gt; now t - alarm_precision
+    When an alarm <code class="code">a</code> fires on a timing wheel <code class="code">t</code>, the implementation guarantees that:<br/>    <pre class="codepre"><code class="code">
+      Alarm.at a &lt; now t
+    </code></pre><br/>    That is, alarms never fire early.  Furthermore, the implementation guarantees that
+    alarms don't go off too late.  More precisely, for all alarms <code class="code">a</code> in <code class="code">t</code>:<br/>    <pre class="codepre"><code class="code">
+      interval_start t (Alarm.at a) &gt;= interval_start t (now t)
+    </code></pre><br/>    This implies that for all alarms <code class="code">a</code> in <code class="code">t</code>:<br/>    <pre class="codepre"><code class="code">
+      Alarm.at a &gt;= now t - alarm_precision t
+    </code></pre><br/>    One would like to have the strict inequality, <code class="code">Alarm.at a &gt; now t - alarm_precision
     t</code>, but that does not hold due to floating-point imprecision.<br/>    Of course, an <code class="code">advance_clock</code> call can advance the clock to an arbitrary time in the
     future, and thus alarms may fire at a clock time arbitrarily far beyond the time for
     which they were set.  But the implementation has no control over the times supplied to
@@ -467,7 +485,9 @@ start:<a href="?package=core&amp;module=Timing_wheel_intf.Time&amp;type=t">Time.
 <div class="info"><div class="info"><code class="code">length t</code> returns the number of elements in the timing wheel.</div></div>
 <div class="info"><div class="info"><code class="code">is_empty t</code> is <code class="code">length t = 0</code></div></div>
 <div class="info"><div class="info">To avoid issues with arithmetic overflow, the implementation restricts keys to
-        being between <code class="code">0</code> and <code class="code">max_representable_key</code>, where:<br/>        <pre class="codepre"><code class="code">max_representable_key = 1 lsl Level_bits.max_num_bits - 1</code></pre><br/>        This is different from <code class="code">max_allowed_key t</code>, which gives the maximum key that can
+        being between <code class="code">0</code> and <code class="code">max_representable_key</code>, where:<br/>        <pre class="codepre"><code class="code">
+          max_representable_key = 1 lsl Level_bits.max_num_bits - 1
+        </code></pre><br/>        This is different from <code class="code">max_allowed_key t</code>, which gives the maximum key that can
         currently be stored in <code class="code">t</code>.  The maximum allowed key is never larger than the
         maximum representable key, but may be smaller.</div></div>
 <div class="info"><div class="info"><code class="code">min_allowed_key t</code> is the minimum key that can be stored in <code class="code">t</code>.  This only

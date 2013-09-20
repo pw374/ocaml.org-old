@@ -7,7 +7,9 @@
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTui.Console"><span class="constructor">Console</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTui.Emacs"><span class="constructor">Emacs</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">The user interface in use.</div></td></tr></table>
 <pre><span class="VALget_ui"><span class="keyword">val</span> get_ui</span> : <code class="type">unit -&gt; <a href="?package=utop&amp;module=UTop&amp;type=ui">ui</a></code></pre><div class="info"><div class="info">Returns the user interface in use.</div></div>
 <pre><span class="VALhide_reserved"><span class="keyword">val</span> hide_reserved</span> : <code class="type">bool <a href="?package=react&amp;module=React&amp;type=signal">React.signal</a></code></pre><div class="info"><div class="info">If <code class="code">true</code> (the default) identifiers starting with a '_' will be hidden from the
-      output. i.e. the following phrase won't produces any output:<br/>      <pre class="codepre"><code class="code">let _x = 1</code></pre><br/>      This is for hidding variables created by code generators for internal use. It can
+      output. i.e. the following phrase won't produces any output:<br/>      <pre class="codepre"><code class="code">
+        let _x = 1
+      </code></pre><br/>      This is for hidding variables created by code generators for internal use. It can
       also be set/unset by the command line options <code class="code">-hide-reserved</code> and <code class="code">-show-reserved</code>.</div></div>
 <pre><span class="VALget_hide_reserved"><span class="keyword">val</span> get_hide_reserved</span> : <code class="type">unit -&gt; bool</code></pre><div class="info"><div class="info">Returns the value of TODO reference : hide_reserved.</div></div>
 <pre><span class="VALset_hide_reserved"><span class="keyword">val</span> set_hide_reserved</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Modifies TODO reference : hide_reserved.</div></div>
@@ -35,19 +37,29 @@
 <pre><span class="VALget_phrase_terminator"><span class="keyword">val</span> get_phrase_terminator</span> : <code class="type">unit -&gt; string</code></pre><div class="info"><div class="info">Returns the value of TODO reference : phrase_terminator.</div></div>
 <pre><span class="VALset_phrase_terminator"><span class="keyword">val</span> set_phrase_terminator</span> : <code class="type">string -&gt; unit</code></pre><div class="info"><div class="info">Modifies TODO reference : phrase_terminator.</div></div>
 <pre><span class="VALauto_run_lwt"><span class="keyword">val</span> auto_run_lwt</span> : <code class="type">bool <a href="?package=react&amp;module=React&amp;type=signal">React.signal</a></code></pre><div class="info"><div class="info">If <code class="code">true</code> (the default) toplevel lwt expressions are
-      automatically run with <code class="code">Lwt_main.run</code>. i.e. if you type:<br/>      <pre class="codepre"><code class="code">Lwt_io.printl &quot;Hello, world&quot;</code></pre><br/>      this will be replaced by:<br/>      <pre class="codepre"><code class="code">Lwt_main.run (Lwt_io.printl &quot;Hello, world&quot;)</code></pre></div></div>
+      automatically run with <code class="code">Lwt_main.run</code>. i.e. if you type:<br/>      <pre class="codepre"><code class="code">
+        Lwt_io.printl &quot;Hello, world&quot;
+      </code></pre><br/>      this will be replaced by:<br/>      <pre class="codepre"><code class="code">
+        Lwt_main.run (Lwt_io.printl &quot;Hello, world&quot;)
+      </code></pre></div></div>
 <pre><span class="VALget_auto_run_lwt"><span class="keyword">val</span> get_auto_run_lwt</span> : <code class="type">unit -&gt; bool</code></pre><div class="info"><div class="info">Returns the value of TODO reference : auto_run_lwt.</div></div>
 <pre><span class="VALset_auto_run_lwt"><span class="keyword">val</span> set_auto_run_lwt</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Modifies TODO reference : auto_run_lwt.</div></div>
 <pre><span class="VALauto_run_async"><span class="keyword">val</span> auto_run_async</span> : <code class="type">bool <a href="?package=react&amp;module=React&amp;type=signal">React.signal</a></code></pre><div class="info"><div class="info">If <code class="code">true</code> (the default) toplevel Async expressions are
       automatically run with in a separate thread with
-      <code class="code">Thread_safe.block_on_async_exn</code>. i.e. if you type:<br/>      <pre class="codepre"><code class="code">after (Time.Span.of_s 1.0)</code></pre><br/>      this will be replaced by:<br/>      <pre class="codepre"><code class="code">Thread_safe.block_on_async_exn (fun () -&gt; after (Time.Span.of_s 1.0))</code></pre></div></div>
+      <code class="code">Thread_safe.block_on_async_exn</code>. i.e. if you type:<br/>      <pre class="codepre"><code class="code">
+        after (Time.Span.of_s 1.0)
+      </code></pre><br/>      this will be replaced by:<br/>      <pre class="codepre"><code class="code">
+        Thread_safe.block_on_async_exn (fun () -&gt; after (Time.Span.of_s 1.0))
+      </code></pre></div></div>
 <pre><span class="VALget_auto_run_async"><span class="keyword">val</span> get_auto_run_async</span> : <code class="type">unit -&gt; bool</code></pre><div class="info"><div class="info">Returns the value of TODO reference : auto_run_async.</div></div>
 <pre><span class="VALset_auto_run_async"><span class="keyword">val</span> set_auto_run_async</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Modifies TODO reference : auto_run_async.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">History</h6></div></div>
 <pre><span class="VALhistory"><span class="keyword">val</span> history</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_history&amp;type=t">LTerm_history.t</a></code></pre><div class="info"><div class="info">The history used by utop. You can configure limits using the
       <code class="code">LTerm_history</code> module.<br/>      For example if you want to limit the history to 1000 line, add
-      these lines to your ~/.ocamlinit file:<br/>      <pre class="codepre"><code class="code">#require &quot;lambda-term&quot;;;
-        LTerm_history.set_max_entries UTop.history 1000;;</code></pre></div></div>
+      these lines to your ~/.ocamlinit file:<br/>      <pre class="codepre"><code class="code">
+        #require &quot;lambda-term&quot;;;
+        LTerm_history.set_max_entries UTop.history 1000;;
+      </code></pre></div></div>
 <pre><span class="VALhistory_file_name"><span class="keyword">val</span> history_file_name</span> : <code class="type">string option Pervasives.ref</code></pre><div class="info"><div class="info">Name of the history file. If <code class="code">None</code>, no history will be loaded
       or saved.</div></div>
 <pre><span class="VALhistory_file_max_size"><span class="keyword">val</span> history_file_max_size</span> : <code class="type">int option Pervasives.ref</code></pre><div class="info"><div class="info">Maximum size of the history file. If <code class="code">None</code> (the default) the

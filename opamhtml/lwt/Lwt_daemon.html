@@ -13,8 +13,10 @@
       descriptors are redirected:<ul><li><code class="code">`Dev_null</code> means that the output is redirected to <code class="code">/dev/null</code></li><li><code class="code">`Close</code> means that the file descriptor is closed</li><li><code class="code">`Keep</code> means that it is left unchanged</li><li><code class="code">`Log logger</code> means that the output is redirected to this
         logger</li><li><code class="code">`Log_default</code> means that the output is redirected to the
         default logger</li></ul>      Both <code class="code">stdout</code> and <code class="code">stderr</code> defaults to <code class="code">`Log_default</code>.<br/>      Warning: do not redirect an output to a logger logging into this
-      outpout, for example this code will create an infinite loop:<br/>      <pre class="codepre"><code class="code">let logger = Lwt_log.channel ~close_mode:`Keep ~channel:Lwt_io.stderr () in
+      outpout, for example this code will create an infinite loop:<br/>      <pre class="codepre"><code class="code">
+        let logger = Lwt_log.channel ~close_mode:`Keep ~channel:Lwt_io.stderr () in
         Lwt_daemon.daemonize ~syslog:false ~stderr:(`Log logger) ();
-        prerr_endline &quot;foo&quot;</code></pre><br/>      The current working directory is set to <code class="code">directory</code>, which
+        prerr_endline &quot;foo&quot;
+      </code></pre><br/>      The current working directory is set to <code class="code">directory</code>, which
       defaults to <code class="code">&quot;/&quot;</code>.<br/>      <code class="code">umask</code> may be one of:<ul><li><code class="code">`Keep</code> which means that the umask is left unchanged</li><li><code class="code">`Set n</code> which means that the umash is set to <code class="code">n</code></li></ul>      It defaults to <code class="code">`Set 0o022</code>.</div></div>
 </div>

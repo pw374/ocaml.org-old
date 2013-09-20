@@ -59,10 +59,12 @@
 <pre><span class="VALstring_of_http_status"><span class="keyword">val</span> string_of_http_status</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_status">http_status</a> -&gt; string</code></pre><div class="info"><div class="info">Returns the informational text for a status value</div></div>
 <pre><span class="VALbase_code"><span class="keyword">val</span> base_code</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info">Allows to handle unknown status codes that are untranslatable by
       <code class="code">http_status_of_int</code>:<ul><li>for a code 100 to 199 the value 100 is returned</li><li>for a code 200 to 299 the value 200 is returned</li><li>for a code 300 to 399 the value 300 is returned</li><li>for a code 400 to 499 the value 400 is returned</li><li>for all other codes 500 is returned</li></ul>      E.g.
-      <pre class="codepre"><code class="code">let st =
+      <pre class="codepre"><code class="code">
+  let st =
     try Nethttp.http_status_of_int code
     with Not_found -&gt;
-      Nethttp.http_status_of_int (Nethttp.base_code code)</code></pre></div></div>
+      Nethttp.http_status_of_int (Nethttp.base_code code)
+      </code></pre></div></div>
 <pre><span class="TYPEhttp_method"><span class="keyword">type</span> http_method</span> = <code class="type">string * string</code></pre><div class="info"><div class="info">Method name, URI</div></div>
 <pre><span class="TYPEcache_control_token"><span class="keyword">type</span> cache_control_token</span> = <code class="type">[ `Extension of string * string option
 | `Max_age of int
@@ -89,15 +91,15 @@
 <pre><span class="VALstatus_of_cgi_header"><span class="keyword">val</span> status_of_cgi_header</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_header">http_header</a> -&gt; int * string</code></pre><div class="info"><div class="info">Returns the status code and the status text corresponding to the
  <code class="code">Status</code> header</div></div>
 <pre><code><span class="TYPEnetscape_cookie"><span class="keyword">type</span> netscape_cookie</span> = {</code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_name">cookie_name</span> : <code class="type">string</code></code></td><td class="typefieldcomment" align="left"><div class="info">The name of the cookie</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_value">cookie_value</span> : <code class="type">string</code></code></td><td class="typefieldcomment" align="left"><div class="info">The value of the cookie. There are no restrictions on the
- value of the cookie</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_expires">cookie_expires</span> : <code class="type">float option</code></code></td><td class="typefieldcomment" align="left"><div class="info">Expiration:<ul><li><code class="code">None</code>: the cookie expires when the browser session ends.</li><li><code class="code">Some t</code>: the cookie expires at the time <code class="code">t</code> (seconds since
+		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_name">cookie_name</span> : <code class="type">string</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The name of the cookie</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_value">cookie_value</span> : <code class="type">string</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The value of the cookie. There are no restrictions on the
+ value of the cookie</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_expires">cookie_expires</span> : <code class="type">float option</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Expiration:<ul><li><code class="code">None</code>: the cookie expires when the browser session ends.</li><li><code class="code">Some t</code>: the cookie expires at the time <code class="code">t</code> (seconds since
     the epoch)
-         </li></ul></div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_domain">cookie_domain</span> : <code class="type">string option</code></code></td><td class="typefieldcomment" align="left"><div class="info">Cookies are bound to a certain domain, i.e. the browser sends
+         </li></ul></div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_domain">cookie_domain</span> : <code class="type">string option</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Cookies are bound to a certain domain, i.e. the browser sends
  them only when web pages of the domain are requested:<br/>  - <code class="code">None</code>: the domain is the hostname of the server<ul><li><code class="code">Some domain</code>: the domain is <code class="code">domain</code>
-         </li></ul></div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_path">cookie_path</span> : <code class="type">string option</code></code></td><td class="typefieldcomment" align="left"><div class="info">Cookies are also bound to certain path prefixes, i.e. the browser
+         </li></ul></div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_path">cookie_path</span> : <code class="type">string option</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Cookies are also bound to certain path prefixes, i.e. the browser
  sends them only when web pages at the path or below are requested.<br/> - <code class="code">None</code>: the path is script name + path_info<ul><li><code class="code">Some p</code>: the path is <code class="code">p</code>. With <code class="code">Some &quot;/&quot;</code> you can disable the
    path restriction completely.
-         </li></ul></div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_secure">cookie_secure</span> : <code class="type">bool</code></code></td><td class="typefieldcomment" align="left"><div class="info">Cookies are also bound to the type of the web server:
+         </li></ul></div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_secure">cookie_secure</span> : <code class="type">bool</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Cookies are also bound to the type of the web server:
  <code class="code">false</code> means servers without SSL, <code class="code">true</code> means servers with
  activated SSL (&quot;https&quot;).</div></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">These are old-style cookies, as introduced by Netscape. For
         a better representation of cookies see the TODO reference : Nethttp.Cookie
@@ -191,8 +193,10 @@
  is not present. If the syntax of the field is a comma-separated list of
  multiple values, the <code class="code">get_*</code> functions generally merge all headers of
  the same type. The order is preserved in this case. The list <code class="code">[]</code> means
- that the header exists, but only with empty value. For example,<br/> <pre class="codepre"><code class="code">Accept: text/html
- Accept: text/plain</code></pre><br/> would be returned as <code class="code">[&quot;text/html&quot;,[],[]; &quot;text/plain&quot;, [],[]]</code>
+ that the header exists, but only with empty value. For example,<br/> <pre class="codepre"><code class="code">
+ Accept: text/html
+ Accept: text/plain
+ </code></pre><br/> would be returned as <code class="code">[&quot;text/html&quot;,[],[]; &quot;text/plain&quot;, [],[]]</code>
  by <code class="code">get_accept</code>.  The header<br/> <pre class="codepre"><code class="code">Accept:</code></pre><br/> would be returned as <code class="code">[]</code>.<br/> The <code class="code">set_*</code> functions generally produce only a single header with comma-
  separated values. Existing header are overwritten/removed.<br/> To remove a header, simply use the <code class="code">delete_field</code> method of <code class="code">http_header</code>.<br/> Error behaviour: The <code class="code">get_*</code> functions raise <code class="code">Bad_header_field</code>
  when they cannot parse a header field. The <code class="code">set_*</code> functions

@@ -37,7 +37,9 @@
       so one should take care to make <code class="code">f</code> not raise.<br/>      <code class="code">add_finalizer_exn b f</code> is like <code class="code">add_finalizer</code>, but will raise if <code class="code">b</code> is not a heap
       block.</div></div>
 <pre><span class="VALadd_finalizer_exn"><span class="keyword">val</span> add_finalizer_exn</span> : <code class="type">'a -&gt; ('a -&gt; unit) -&gt; unit</code></pre>
-<pre><span class="VALfinalize_release"><span class="keyword">val</span> finalize_release</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">The runtime essentially maintains a bool ref:<br/>      <pre class="codepre"><code class="code">val finalizer_is_running : bool ref</code></pre><br/>      The runtime uses this bool ref to ensure that only one finalizer is running at a
+<pre><span class="VALfinalize_release"><span class="keyword">val</span> finalize_release</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">The runtime essentially maintains a bool ref:<br/>      <pre class="codepre"><code class="code">
+        val finalizer_is_running : bool ref
+      </code></pre><br/>      The runtime uses this bool ref to ensure that only one finalizer is running at a
       time, by setting it to <code class="code">true</code> when a finalizer starts and setting it to <code class="code">false</code> when
       a finalizer finishes.  The runtime will not start running a finalizer if
       <code class="code">!finalizer_is_running = true</code>.  Calling <code class="code">finalize_release</code> essentially does

@@ -43,16 +43,22 @@
 <pre><span class="VALsarray_of_descr"><span class="keyword">val</span> sarray_of_descr</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">Netmcore.res_id</a> -&gt; ('e, 'h) <a href="?package=ocamlnet&amp;module=Netmcore_array&amp;type=sarray_descr">sarray_descr</a> -&gt; ('e, 'h) <a href="?package=ocamlnet&amp;module=Netmcore_array&amp;type=sarray">sarray</a></code></pre><div class="info"><div class="info">Look up the buffer for this descriptor</div></div>
 <div class="info"><div class="info"><h3 id="3_TITLE">Mutating header fields</h3><br/>    Special care has to be taken when mutating header fields. The header
     must completely live in the same heap. For adding new values, one
-    has to use TODO reference : Netmcore_heap.modify. Example for a header of type:<br/>    <pre class="codepre"><code class="code">type header =
+    has to use TODO reference : Netmcore_heap.modify. Example for a header of type:<br/>    <pre class="codepre"><code class="code">
+    type header =
       { mutable n : int;
         mutable name : string
-      }</code></pre><br/>    Here, the field <code class="code">n</code> can be directly assigned because an <code class="code">int</code>
-    is always an unboxed value. So,<br/>    <pre class="codepre"><code class="code">h.n &lt;- new_value</code></pre><br/>    is legal. However, strings are heap-allocated. For an assignment
-    to <code class="code">name</code> we need to use TODO reference : Netmcore_heap.modify, as in<br/>    <pre class="codepre"><code class="code">Netmcore_heap.modify
+      }
+    </code></pre><br/>    Here, the field <code class="code">n</code> can be directly assigned because an <code class="code">int</code>
+    is always an unboxed value. So,<br/>    <pre class="codepre"><code class="code">
+    h.n &lt;- new_value
+    </code></pre><br/>    is legal. However, strings are heap-allocated. For an assignment
+    to <code class="code">name</code> we need to use TODO reference : Netmcore_heap.modify, as in<br/>    <pre class="codepre"><code class="code">
+    Netmcore_heap.modify
       (Netmcore_array.heap sa)
       (fun mutator -&gt;
         h.name &lt;- Netmcore_heap.add mutator new_value
-      )</code></pre><br/>    The function TODO reference : Netmcore_heap.add pushes a copy of the <code class="code">new_value</code>
+      )
+    </code></pre><br/>    The function TODO reference : Netmcore_heap.add pushes a copy of the <code class="code">new_value</code>
     to the heap, and this allows us to do the assignment.<br/>    During TODO reference : Netcore_heap.modify certain operations are prohibited
     because they would cause a deadlock:<ul><li><code class="code">grow</code></li><li><code class="code">set</code></li><li><code class="code">get_p</code></li><li><code class="code">get_c</code></li></ul>    (This may be relaxed in a future version.)</div></div>
 </div>

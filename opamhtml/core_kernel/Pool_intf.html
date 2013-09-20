@@ -11,8 +11,8 @@
     the tuple slots, and only exposing mutation where desired.<br/>    All the usual problems with manual memory allocation are present with pools:<br/>    - one can mistakenly use a pointer after it is freed<ul><li>one can mistakenly free a pointer multiple times</li><li>one can forget to free a pointer</li></ul>    There are debugging functors, <code class="code">Pool.Debug</code> and <code class="code">Pool.Error_check</code>, that are useful for
     building pools to help debug incorrect pointer usage.</div></div>
 <div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=core_kernel&amp;module=Pool_intf.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info"><code class="code">S</code> is the module type for a pool.</div></div><div class="ocaml_module_content">
-<div class="ocaml_module ident" name="Slots"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Pool_intf.S.Slots">Slots</a> : <code class="type"><code class="code">Tuple_type.Slots</code></code></pre></div>
-<div class="ocaml_module ident" name="Slot"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Pool_intf.S.Slot">Slot</a> : <code class="type"><code class="code">Tuple_type.Slot</code></code></pre></div>
+<div class="ocaml_module ident" name="Slots" path="?package=core_kernel&amp;module=Tuple_type.Slots"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Pool_intf.S.Slots">Slots</a> : <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Tuple_type.Slots">Tuple_type.Slots</a></code></code></pre></div>
+<div class="ocaml_module ident" name="Slot" path="?package=core_kernel&amp;module=Tuple_type.Slot"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Pool_intf.S.Slot">Slot</a> : <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Tuple_type.Slot">Tuple_type.Slot</a></code></code></pre></div>
 <div class="ocaml_module sig" name="Pointer"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Pool_intf.S.Pointer">Pointer</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'slots </code>t</span> </pre><div class="info"><div class="info">A pointer to a tuple in a pool.  <code class="code">'slots</code> will look like <code class="code">('a1, ..., 'an)
         Slots.tn</code>, and the tuples have type <code class="code">'a1 * ... * 'an</code>.</div></div>
@@ -58,7 +58,9 @@ capacity:int -&gt; dummy:'tuple -&gt; ('tuple, 'a) <a href="?package=core_kernel
       N-tuples.  The slots of <code class="code">dummy</code> are stored in free tuples.  <code class="code">create</code> raises if
       <code class="code">capacity &lt; 0</code>.</div></div>
 <pre><span class="VALcapacity"><span class="keyword">val</span> capacity</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Pool_intf.S&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">capacity</code> returns the maximum number of tuples that the pool can hold.</div></div>
-<pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Pool_intf.S&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">length</code> returns the number of tuples currently in the pool.<br/>      <pre class="codepre"><code class="code">0 &lt;= length t &lt;= capacity t</code></pre></div></div>
+<pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Pool_intf.S&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">length</code> returns the number of tuples currently in the pool.<br/>      <pre class="codepre"><code class="code">
+        0 &lt;= length t &lt;= capacity t
+      </code></pre></div></div>
 <pre><span class="VALgrow"><span class="keyword">val</span> grow</span> : <code class="type">?capacity:int -&gt; 'a <a href="?package=core_kernel&amp;module=Pool_intf.S&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Pool_intf.S&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">grow t ~capacity</code> returns a new pool <code class="code">t'</code> with the supplied capacity.  The new pool
       is to be used as a replacement for <code class="code">t</code>.  All live tuples in <code class="code">t</code> are now live in
       <code class="code">t'</code>, and valid pointers to tuples in <code class="code">t</code> are now valid pointers to the identical
@@ -136,7 +138,9 @@ capacity:int -&gt; dummy:'tuple -&gt; ('tuple, 'a) <a href="?package=core_kernel
       N-tuples.  The slots of <code class="code">dummy</code> are stored in free tuples.  <code class="code">create</code> raises if
       <code class="code">capacity &lt; 0</code>.</div></div>
 <div class="info"><div class="info"><code class="code">capacity</code> returns the maximum number of tuples that the pool can hold.</div></div>
-<div class="info"><div class="info"><code class="code">length</code> returns the number of tuples currently in the pool.<br/>      <pre class="codepre"><code class="code">0 &lt;= length t &lt;= capacity t</code></pre></div></div>
+<div class="info"><div class="info"><code class="code">length</code> returns the number of tuples currently in the pool.<br/>      <pre class="codepre"><code class="code">
+        0 &lt;= length t &lt;= capacity t
+      </code></pre></div></div>
 <div class="info"><div class="info"><code class="code">grow t ~capacity</code> returns a new pool <code class="code">t'</code> with the supplied capacity.  The new pool
       is to be used as a replacement for <code class="code">t</code>.  All live tuples in <code class="code">t</code> are now live in
       <code class="code">t'</code>, and valid pointers to tuples in <code class="code">t</code> are now valid pointers to the identical
@@ -180,7 +184,9 @@ capacity:int -&gt; dummy:'tuple -&gt; ('tuple, 'a) <a href="?package=core_kernel
 <pre><span class="VALcheck_invariant"><span class="keyword">val</span> check_invariant</span> : <code class="type">bool Pervasives.ref</code></pre>
 <pre><span class="VALshow_messages"><span class="keyword">val</span> show_messages</span> : <code class="type">bool Pervasives.ref</code></pre></div></div>
 <div class="ocaml_module ident" name="Error_check" path="?package=core_kernel&amp;module=Pool_intf.Pool.S"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Pool_intf.Pool.Error_check">Error_check</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">Pool</code><code class="code"> : </code><code class="code"><a href="?package=core_kernel&amp;module=Pool_intf.Pool.S">S</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=core_kernel&amp;module=Pool_intf.Pool.S">S</a></code></div></code></pre><div class="info"><div class="info"><code class="code">Error_check</code> builds a pool that has additional error checking for pointers, in
-      particular to detect using a <code class="code">free</code>d pointer or multiply <code class="code">free</code>ing a pointer.<br/>      <code class="code">Error_check</code> has a significant performance cost, but less than that of <code class="code">Debug</code>.<br/>      One can compose <code class="code">Debug</code> and <code class="code">Error_check</code>, e.g:<br/>      <pre class="codepre"><code class="code">module M = Debug (Error_check (Obj_array))</code></pre></div></div></div></div></div>
+      particular to detect using a <code class="code">free</code>d pointer or multiply <code class="code">free</code>ing a pointer.<br/>      <code class="code">Error_check</code> has a significant performance cost, but less than that of <code class="code">Debug</code>.<br/>      One can compose <code class="code">Debug</code> and <code class="code">Error_check</code>, e.g:<br/>      <pre class="codepre"><code class="code">
+        module M = Debug (Error_check (Obj_array))
+      </code></pre></div></div></div></div></div>
 
 <div class="info"><div class="info">A manual memory manager for a set of mutable tuples.<br/>    A pool stores a bounded-size set of tuples, where client code is responsible for
     explicitly controlling when the pool allocates and frees tuples.  One <code class="code">create</code>s a pool
@@ -217,7 +223,9 @@ capacity:int -&gt; dummy:'tuple -&gt; ('tuple, 'a) <a href="?package=core_kernel
       N-tuples.  The slots of <code class="code">dummy</code> are stored in free tuples.  <code class="code">create</code> raises if
       <code class="code">capacity &lt; 0</code>.</div></div>
 <div class="info"><div class="info"><code class="code">capacity</code> returns the maximum number of tuples that the pool can hold.</div></div>
-<div class="info"><div class="info"><code class="code">length</code> returns the number of tuples currently in the pool.<br/>      <pre class="codepre"><code class="code">0 &lt;= length t &lt;= capacity t</code></pre></div></div>
+<div class="info"><div class="info"><code class="code">length</code> returns the number of tuples currently in the pool.<br/>      <pre class="codepre"><code class="code">
+        0 &lt;= length t &lt;= capacity t
+      </code></pre></div></div>
 <div class="info"><div class="info"><code class="code">grow t ~capacity</code> returns a new pool <code class="code">t'</code> with the supplied capacity.  The new pool
       is to be used as a replacement for <code class="code">t</code>.  All live tuples in <code class="code">t</code> are now live in
       <code class="code">t'</code>, and valid pointers to tuples in <code class="code">t</code> are now valid pointers to the identical
@@ -254,5 +262,7 @@ capacity:int -&gt; dummy:'tuple -&gt; ('tuple, 'a) <a href="?package=core_kernel
       <code class="code">!check_invariant</code> and <code class="code">!show_messages</code>, which are initially both <code class="code">true</code>.<br/>      The performance of the pool resulting from <code class="code">Debug</code> is much worse than that of the
       input <code class="code">Pool</code>, even with all the controls set to <code class="code">false</code>.</div></div>
 <div class="info"><div class="info"><code class="code">Error_check</code> builds a pool that has additional error checking for pointers, in
-      particular to detect using a <code class="code">free</code>d pointer or multiply <code class="code">free</code>ing a pointer.<br/>      <code class="code">Error_check</code> has a significant performance cost, but less than that of <code class="code">Debug</code>.<br/>      One can compose <code class="code">Debug</code> and <code class="code">Error_check</code>, e.g:<br/>      <pre class="codepre"><code class="code">module M = Debug (Error_check (Obj_array))</code></pre></div></div>
+      particular to detect using a <code class="code">free</code>d pointer or multiply <code class="code">free</code>ing a pointer.<br/>      <code class="code">Error_check</code> has a significant performance cost, but less than that of <code class="code">Debug</code>.<br/>      One can compose <code class="code">Debug</code> and <code class="code">Error_check</code>, e.g:<br/>      <pre class="codepre"><code class="code">
+        module M = Debug (Error_check (Obj_array))
+      </code></pre></div></div>
 </div>

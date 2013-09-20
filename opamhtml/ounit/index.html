@@ -6,7 +6,8 @@
     interested by what are the missing/extra elements. This module provides
     a <code class="code">diff</code> operation to spot the difference quickly between two sets of
     elements.<br/>    Example:
-<pre class="codepre"><code class="code">open OUnit;;
+<pre class="codepre"><code class="code">
+open OUnit;;
 
 module EInt = 
 struct 
@@ -26,8 +27,11 @@ let test_diff () =
 
 let _ = 
   run_test_tt_main (&quot;test_diff&quot; &gt;:: test_diff)
-;;</code></pre><br/>when run this test outputs:
-<pre class="codepre"><code class="code">OUnit: expected: 1, 2, 3, 4, 5 but got: 1, 2, 5, 4
-differences: element number 2 differ (3 &lt;&gt; 5)</code></pre><div class="authors"><b>Author(s): </b><span class="author">Sylvain Le Gall</span></div><b>Since</b> 1.1.0</div></td></tr>
+;;
+</code></pre><br/>when run this test outputs:
+<pre class="codepre"><code class="code">
+OUnit: expected: 1, 2, 3, 4, 5 but got: 1, 2, 5, 4
+differences: element number 2 differ (3 &lt;&gt; 5)
+</code></pre><div class="authors"><b>Author(s): </b><span class="author">Sylvain Le Gall</span></div><b>Since</b> 1.1.0</div></td></tr>
 <tr><td class="module"><a href="?package=ounit&amp;module=Test">Test</a></td><td/></tr>
 </table>

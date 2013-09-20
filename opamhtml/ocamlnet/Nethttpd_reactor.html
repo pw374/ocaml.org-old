@@ -4,7 +4,7 @@
  the input and output facilities. Input and output are realised by
  <code class="code">Netchannels</code>, and the implementation details are completely hidden.<br/> This encapsulation can be easily used in a multi-threaded environment
  when for every arriving HTTP connection a separate thread is used.</div>
-<div class="ocaml_class sig" name="http_processor_config"><pre><span class="TYPEhttp_processor_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=http_processor_config">http_processor_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field"><pre><span class="keyword">inherit</span> <code class="type"/>Nethttpd_kernel.http_protocol_config</pre></div>
+<div class="ocaml_class sig" name="http_processor_config"><pre><span class="TYPEhttp_processor_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=http_processor_config">http_processor_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=http_protocol_config"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=http_protocol_config">Nethttpd_kernel.http_protocol_config</a></pre></div>
 
 <pre><span class="METHODconfig_timeout_next_request"><span class="keyword">method</span> config_timeout_next_request</span> : <code class="code">float</code></pre>
 <div class="info"><div class="info">Timeout in seconds to wait for the next request after the previous one
@@ -36,13 +36,15 @@
 option -&gt; float option -&gt; float option -&gt; <a href="?package=ocamlnet&amp;module=Netcgi&amp;type=config">Netcgi.config</a> option -&gt; (<a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=error_response_params">Nethttpd_types.error_response_params</a> -&gt; string) option -&gt; (<a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=request_info">Nethttpd_types.request_info</a> -&gt; string -&gt; unit) option -&gt; (<a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=full_info">Nethttpd_types.full_info</a> -&gt; unit) option -&gt; <a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;type=http_processor_config">http_processor_config</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=http_processor_config">http_processor_config</a></pre><div class="info"><div class="info">Modifies the passed config object as specified by the optional
       arguments.<br/>      <code class="code">modify_http_protocol_config</code>: This function can be used to modify the
       parts of the config object that are inherited from <code class="code">http_protocol_config</code>.
-      For example:<br/>      <pre class="codepre"><code class="code">let new_cfg =
+      For example:<br/>      <pre class="codepre"><code class="code">
+        let new_cfg =
           new modify_http_processor_config
             ~modify_http_protocol_config:
                (new Nethttpd_kernel.modify_http_protocol_config
                   ~config_suppress_broken_pipe:true)
             ~config_timeout:15.0
-            old_cfg</code></pre></div></div></div>
+            old_cfg
+      </code></pre></div></div></div>
 <div class="ocaml_class sig" name="http_reactor_config"><pre><span class="TYPEhttp_reactor_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=http_reactor_config">http_reactor_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=http_processor_config"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=http_processor_config">http_processor_config</a></pre></div>
 
 <pre><span class="METHODconfig_reactor_synch"><span class="keyword">method</span> config_reactor_synch</span> : <code class="code">[ `Close | `Connection | `Flush | `Write ]</code></pre>
@@ -63,7 +65,8 @@ option -&gt; (<a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;type=ht
       These functions can be used to modify the
       parts of the config object that are inherited from <code class="code">http_protocol_config</code>
       and <code class="code">http_processor_config</code>, respectively:
-      For example:<br/>      <pre class="codepre"><code class="code">let new_cfg =
+      For example:<br/>      <pre class="codepre"><code class="code">
+        let new_cfg =
           new modify_http_reactor_config
             ~modify_http_protocol_config:
                (new Nethttpd_kernel.modify_http_protocol_config
@@ -71,7 +74,8 @@ option -&gt; (<a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;type=ht
             ~modify_http_processor_config:
                (new Nethttpd_reactor.modify_http_processor_config
                   ~config_timeout:15.0)
-            old_cfg</code></pre></div></div></div>
+            old_cfg
+      </code></pre></div></div></div>
 <div class="ocaml_class sig" name="internal_environment"><pre><span class="TYPEinternal_environment"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=internal_environment">internal_environment</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">For private use only</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Nethttpd_types&amp;class=extended_environment"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;class=extended_environment">Nethttpd_types.extended_environment</a></pre></div>
 
 <pre><span class="METHODunlock"><span class="keyword">method</span> unlock</span> : <code class="code">unit -&gt; unit</code></pre>

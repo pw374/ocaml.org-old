@@ -1,10 +1,12 @@
 <div class="ocaml_toplevel_module"><div class="info">A netstream is an input channel that is read block by block. The 
  fragment of the channel currently loaded into memory is called the
  current window of the netstream. The window can be thought as
- look-ahead buffer.<br/> <b>Picture:</b><br/> <pre class="codepre"><code class="code">0                pos_in        pos_in + window_length            EOF
+ look-ahead buffer.<br/> <b>Picture:</b><br/> <pre class="codepre"><code class="code">
+ 0                pos_in        pos_in + window_length            EOF
  +------------------+-------------------+--------------------------+
                     ====================
-                     The current window</code></pre><br/> You can use a netstream like an <code class="code">in_obj_channel</code>, and read characters
+                     The current window
+ </code></pre><br/> You can use a netstream like an <code class="code">in_obj_channel</code>, and read characters
  and strings from the stream. The bytes come first from the look-ahead
  buffer, and if there are not enough bytes, they are loaded from the
  underlying channel. After every read operation it is tried to enlarge
@@ -18,7 +20,7 @@
  next call of an input method. Furthermore, there is a problem in the <code class="code">skip</code>
  method which may only be partially executed, i.e. the method skips some
  bytes and then raises <code class="code">Buffer_underrun</code>.</div>
-<div class="ocaml_class sig" name="in_obj_stream"><pre><span class="TYPEin_obj_stream"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netstream&amp;class=in_obj_stream">in_obj_stream</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">An <code class="code">in_obj_stream</code> extends <code class="code">in_obj_channel</code> by look-ahead methods</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field"><pre><span class="keyword">inherit</span> <code class="type"/>Netchannels.in_obj_channel</pre></div>
+<div class="ocaml_class sig" name="in_obj_stream"><pre><span class="TYPEin_obj_stream"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netstream&amp;class=in_obj_stream">in_obj_stream</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">An <code class="code">in_obj_stream</code> extends <code class="code">in_obj_channel</code> by look-ahead methods</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netchannels&amp;class=in_obj_channel"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=in_obj_channel">Netchannels.in_obj_channel</a></pre></div>
 <div class="info"><div class="info">The normal input operations work as usual. The window is moved after
  every read sequence of bytes by exactly the number of bytes, and 
  if the window length becomes smaller than the block size, it will

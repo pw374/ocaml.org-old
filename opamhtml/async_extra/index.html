@@ -6,7 +6,8 @@
     parent process once the child process is listening on the port.<br/>    Here is the intended usage:<br/>    1. The parent <code class="code">create</code>s a <code class="code">Dynamic_port_writer.t</code> value together with a deferred that
     will eventually be determined with the port assigned to the child process by the OS.<br/>    2. The parent communicates the <code class="code">Dynamic_port_writer.t</code> value to a child it has
     spawned.  This can happen in a number of ways,<br/>    - via the child's command line using <code class="code">to_string</code> and either <code class="code">arg</code> or <code class="code">of_string</code>.<ul><li>via a config file using &quot;with sexp&quot;</li><li>over the wire using &quot;with bin_io&quot;</li></ul>    3. The child calls <code class="code">Tcp.Server.create</code> with the value returned by <code class="code">where_to_listen</code>.<br/>    Once the server created in step (3) is listening on its OS-assigned port, the parent's
-    deferred obtained in step (1) will soon become determined with the value of the port.<br/>    Code for the parent process would look something like:<br/>    <pre class="codepre"><code class="code">Dynamic_port_writer.create ()
+    deferred obtained in step (1) will soon become determined with the value of the port.<br/>    Code for the parent process would look something like:<br/>    <pre class="codepre"><code class="code">
+      Dynamic_port_writer.create ()
       &gt;&gt;= fun (dynamic_port_writer, port_d) -&gt;
       Unix.fork_exec ~prog
         ~args:([ prog ]
@@ -19,14 +20,17 @@
       let `Port port = ok_exn r in
       Tcp.connect (Tcp.to_host_and_port &quot;localhost&quot; port)
       &gt;&gt;= fun (_, reader, writer) -&gt;
-      ...</code></pre><br/>    Code for the <code class="code">Command.t</code> for the child process would look something like:<br/>    <pre class="codepre"><code class="code">Command.basic
+      ...
+    </code></pre><br/>    Code for the <code class="code">Command.t</code> for the child process would look something like:<br/>    <pre class="codepre"><code class="code">
+      Command.basic
         ~summary:&quot;child&quot;
         (Command.Spec.(empty +&gt; Dynamic_port_writer.flag))
         (fun dynamic_port_writer () -&gt;
            ...
            Tcp.Server.create
                (Dynamic_port_writer.where_to_listen dynamic_port_writer)
-               (fun _ reader writer -&gt; ...))</code></pre></div></td></tr>
+               (fun _ reader writer -&gt; ...))
+    </code></pre></div></td></tr>
 <tr><td class="module"><a href="?package=async_extra&amp;module=File_tail">File_tail</a></td><td/></tr>
 <tr><td class="module"><a href="?package=async_extra&amp;module=File_writer">File_writer</a></td><td><div class="info"><code class="code">File_writer</code> is a thin wrapper around <code class="code">Writer</code> with a couple of extra features:<br/>   - It keeps track of all the file writers that have been created so that it can
      iterate over them to find out how many bytes in total they have to write.<ul><li>It keeps track of whether the underlying writer has failed, and if so silently
@@ -44,16 +48,20 @@
 <tr><td class="module"><a href="?package=async_extra&amp;module=Rpc">Rpc</a></td><td/></tr>
 <tr><td class="module"><a href="?package=async_extra&amp;module=Rpc_intf">Rpc_intf</a></td><td/></tr>
 <tr><td class="module"><a href="?package=async_extra&amp;module=Sequencer_table">Sequencer_table</a></td><td><div class="info">A table of sequencers indexed by key, so that at any moment for each key there is at
-    most one job running.<br/>    An <code class="code">'a Sequencer_table.Make(Key).t</code> is similar in concept to:<br/>    <pre class="codepre"><code class="code">{ mutable state : 'a option;
+    most one job running.<br/>    An <code class="code">'a Sequencer_table.Make(Key).t</code> is similar in concept to:<br/>    <pre class="codepre"><code class="code">
+      { mutable state : 'a option;
         jobs  : 'a option Throttle.Sequencer.t;
-      } Key.Table.t</code></pre><br/>    It allows one to run jobs that are indexed by a key, while allowing jobs with distinct
+      } Key.Table.t
+    </code></pre><br/>    It allows one to run jobs that are indexed by a key, while allowing jobs with distinct
     keys to run simultaneously, and ensuring that for any given key, at most one job with
     that key is running at a time.  A sequencer table maintains optional state for each
     key, and supplies that state to each running job indexed by that key.<br/>    The implementation of a sequencer table is optimized for having a large number of keys
     with state, while only a few keys with active jobs at any given time.  So, it is
-    implemented with two tables, one of states and one of sequencers:<br/>    <pre class="codepre"><code class="code">{ states : 'a Key.Table.t;
+    implemented with two tables, one of states and one of sequencers:<br/>    <pre class="codepre"><code class="code">
+      { states : 'a Key.Table.t;
         jobs   : ('a option -&gt; unit Deferred.t) Sequencer.t Key.Table.t;
-      }</code></pre><br/>    The implementation automatically adds a sequencer to the <code class="code">jobs</code> table, if necessary,
+      }
+    </code></pre><br/>    The implementation automatically adds a sequencer to the <code class="code">jobs</code> table, if necessary,
     when one adds a job, and automatically removes a sequencer from the <code class="code">jobs</code> table
     whenever the sequencer has no jobs to run.<br/>    The implementation does not automatically release state; one must call <code class="code">set_state t
     ~key None</code>.</div></td></tr>
@@ -82,7 +90,8 @@
     <code class="code">Weak_hashtbl</code> in Async prevents users from making this mistake.  Unlike (OCaml's)
     <code class="code">Weak.Make</code>, which also describes itself as a &quot;weak hashtable,&quot; <code class="code">Weak_hashtbl</code> gives a
     dictionary style structure.  In fact, OCaml's Weak.Make may better be described as a
-    weak set.<br/>    There's a tricky type of bug one can write with this module, e.g.:<br/>    <pre class="codepre"><code class="code">type t =
+    weak set.<br/>    There's a tricky type of bug one can write with this module, e.g.:<br/>    <pre class="codepre"><code class="code">
+      type t =
         { foo : string
         ; bar : float Incr.t
         }
@@ -92,6 +101,7 @@
         let t = Weak_hashtbl.find_or_add tbl key ~default:(fun () -&gt;
           (... some function that computes a t...))
         in
-        t.bar</code></pre><br/>    At this point, the value associated with <code class="code">key</code> is unreachable (since all we did with it
+        t.bar
+    </code></pre><br/>    At this point, the value associated with <code class="code">key</code> is unreachable (since all we did with it
     was project out field bar), so it may disappear from the table at any time.</div></td></tr>
 </table>
