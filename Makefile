@@ -71,7 +71,7 @@ pkg:Makefile
 	done
 
 	echo '<!-- Unfortunately, this file is generated, so do not edit manually. {{! set title opam packages documentation !}} -->' > md-pages/pkg/docs/index.md
-	echo '<div id="opamdoc-contents"><h1>Packages list</h1><table class="indextable">' >> md-pages/pkg/docs/index.md
+	echo '<div id="opamdoc-contents" class="span8 offset2"><h1>Packages list</h1><table class="indextable">' >> md-pages/pkg/docs/index.md
 	frag -fr '.*<table.*' -tr '.*</table>.*' < opamhtml/index.html | sort >> md-pages/pkg/docs/index.md
 	echo '</table></div>' >> md-pages/pkg/docs/index.md
 	echo '<script type="text/javascript" src="opam_doc_loader.js"></script>' >> md-pages/pkg/docs/index.md
