@@ -1,7 +1,7 @@
 MPP_OPTIONS = -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -sos '{{<' -scs '>}}' -its 
 MPP = mpp ${MPP_OPTIONS}
 
-all:html-pages/static pkg
+all:html-pages/static md-pages/pkg md-pages/pkg/docs
 	bash gen.bash md-pages
 
 html-pages/try-ocaml.js:try-ocaml.js
