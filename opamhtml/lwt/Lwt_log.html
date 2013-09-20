@@ -2,7 +2,7 @@
 <div class="info"><div class="info">This module provides functions to deal with logging.
     It support:<br/>    - logging to the syslog daemon<ul><li>logging to a channel (stderr, stdout, ...)</li><li>logging to a file</li><li>logging to multiple destination at the same time
 </li></ul></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Types</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Types</h6></div></div>
 <pre><code><span class="TYPElevel"><span class="keyword">type</span> level</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTlevel.Debug"><span class="constructor">Debug</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">Debugging message. They can be automatically removed by the
           syntax extension.</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTlevel.Info"><span class="constructor">Info</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">Informational message. Suitable to be displayed when the
@@ -40,7 +40,7 @@
       rules. For example to set the default fallback rule:<br/>      <pre class="codepre"><code class="code">
         Lwt_log.append_rule &quot;*&quot; Lwt_log.Info
       </code></pre></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Logging functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Logging functions</h6></div></div>
 <pre><span class="VALlog"><span class="keyword">val</span> log</span> : <code class="type">?exn:exn -&gt;
 ?section:<a href="?package=lwt&amp;module=Lwt_log&amp;type=section">section</a> -&gt;
 ?location:string * int * int -&gt;
@@ -166,7 +166,7 @@ level:<a href="?package=lwt&amp;module=Lwt_log&amp;type=level">level</a> -&gt; (
 <pre><span class="VALreset_level"><span class="keyword">val</span> reset_level</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_log&amp;type=section">section</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">reset_level section</code> resets the level of <code class="code">section</code> to its
         default value, i.e. to the value obtained by applying
         rules.</div></div></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Log templates</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Log templates</h6></div></div>
 <pre><span class="TYPEtemplate"><span class="keyword">type</span> template</span> = <code class="type">string</code></pre><div class="info"><div class="info">A template is for generating log messages.<br/>        It is a string which may contains variables of the form
         <code class="code">$(var)</code>, where <code class="code">var</code> is one of:<br/>        - <code class="code">date</code> which will be replaced with the current date<ul><li><code class="code">milliseconds</code> which will be replaced by the fractionnal part
           of the current unix time</li><li><code class="code">name</code> which will be replaced by the program name</li><li><code class="code">pid</code> which will be replaced by the pid of the program</li><li><code class="code">message</code> which will be replaced by the message emited</li><li><code class="code">level</code> which will be replaced by a string representation of
@@ -182,7 +182,7 @@ template:<a href="?package=lwt&amp;module=Lwt_log&amp;type=template">template</a
       <code class="code">buffer</code>. The location is obtained from threads local
       storage.</div></div>
 <pre><span class="VALlocation_key"><span class="keyword">val</span> location_key</span> : <code class="type">(string * int * int) <a href="?package=lwt&amp;module=Lwt&amp;type=key">Lwt.key</a></code></pre><div class="info"><div class="info">The key for storing current location.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Loggers</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Loggers</h6></div></div>
 <pre><span class="EXCEPTIONLogger_closed"><span class="keyword">exception</span> Logger_closed</span></pre><div class="info"><div class="info">Exception raised when trying to use a closed logger</div></div>
 <pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">output:(<a href="?package=lwt&amp;module=Lwt_log&amp;type=section">section</a> -&gt; <a href="?package=lwt&amp;module=Lwt_log&amp;type=level">level</a> -&gt; string list -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt;
 close:(unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; <a href="?package=lwt&amp;module=Lwt_log&amp;type=logger">logger</a></code></pre><div class="info"><div class="info"><code class="code">make ~output ~close</code> creates a new logger.<div class="parameters"><div class="param_info"><code class="code">output</code> : is used to write logs. It is a function which
@@ -206,7 +206,7 @@ close:(unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a
               | &quot;access&quot;, _ -&gt; access_logger
               | _, Lwt_log.Error -&gt; error_logger)
       </code></pre></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Predefined loggers</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Predefined loggers</h6></div></div>
 <pre><span class="VALnull"><span class="keyword">val</span> null</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_log&amp;type=logger">logger</a></code></pre><div class="info"><div class="info">Logger which drops everything</div></div>
 <pre><span class="TYPEsyslog_facility"><span class="keyword">type</span> syslog_facility</span> = <code class="type">[ `Auth
 | `Authpriv

@@ -1,10 +1,10 @@
 <div class="ocaml_toplevel_module"><div class="info"><div class="info">Extensions to <code class="code">Sexplib.Sexp</code>.</div></div>
 <pre><span class="VALis_atom"><span class="keyword">val</span> is_atom</span> : <code class="type">Core.Std.Sexp.t -&gt; bool</code></pre>
 <pre><span class="VALis_list"><span class="keyword">val</span> is_list</span> : <code class="type">Core.Std.Sexp.t -&gt; bool</code></pre>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Constructors </h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Constructors </h3></div></div>
 <pre><span class="VALatom"><span class="keyword">val</span> atom</span> : <code class="type">string -&gt; Core.Std.Sexp.t</code></pre>
 <pre><span class="VALlist"><span class="keyword">val</span> list</span> : <code class="type">Core.Std.Sexp.t list -&gt; Core.Std.Sexp.t</code></pre>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Printing </h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Printing </h3></div></div>
 <pre><span class="VALto_string_hum'"><span class="keyword">val</span> to_string_hum'</span> : <code class="type">Core.Std.Sexp.t -&gt; string</code></pre><div class="info"><div class="info">The ocaml pretty printer (used by sexplib) is a speed daemon  but is,
    sadly enough, produces wrong output (e.g it overflows in places where this
    could have avoided). This uses a printer from wadler's a prettier printer to
@@ -16,7 +16,7 @@
    fast and broken.</div></div>
 <pre><span class="VALcomment"><span class="keyword">val</span> comment</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">Takes a string and returns the same string but commented according to
     sexp's syntax</div></div>
-<div class="ocaml_module sig" name="Diff"><pre><span class="keyword">module</span> <a href="?package=core_extended&amp;module=Extended_sexp.Diff">Diff</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info"><br/><h3 id="3_TITLE">Various</h3><br/></div></div><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="Diff"><pre><span class="keyword">module</span> <a href="?package=core_extended&amp;module=Extended_sexp.Diff">Diff</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info"><h3 id="3_TITLE">Various</h3></div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre>
 <pre><span class="VALprint"><span class="keyword">val</span> print</span> : <code class="type">?oc:Pervasives.out_channel -&gt; <a href="?package=core_extended&amp;module=Extended_sexp.Diff&amp;type=t">t</a> -&gt; unit</code></pre>
 <pre><span class="VALto_buffer"><span class="keyword">val</span> to_buffer</span> : <code class="type"><a href="?package=core_extended&amp;module=Extended_sexp.Diff&amp;type=t">t</a> -&gt; Buffer.t</code></pre>
@@ -32,7 +32,7 @@ size:[ `depth of int | `string of int ] -&gt; Core.Std.Sexp.t</code></pre><div c
    100 or so.</div></div>
 <pre><span class="VALof_sexp_allow_extra_fields"><span class="keyword">val</span> of_sexp_allow_extra_fields</span> : <code class="type">(Core.Std.Sexp.t -&gt; 'a) -&gt; Core.Std.Sexp.t -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">of_sexp_allow_extra_fields of_sexp sexp</code> uses <code class="code">of_sexp</code> to convert <code class="code">sexp</code> to a
     value, but will not fail if there any extra fields in a record.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Transforming sexp parsers</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Transforming sexp parsers</h3></div></div>
 <pre><span class="VALfilter_record"><span class="keyword">val</span> filter_record</span> : <code class="type">(Core.Std.Sexp.t -&gt; 'a) -&gt; string list -&gt; Core.Std.Sexp.t -&gt; 'a</code></pre>
 <div class="ocaml_module sig" name="Records_table"><pre><span class="keyword">module</span> <a href="?package=core_extended&amp;module=Extended_sexp.Records_table">Records_table</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> = <code class="type">'a list</code></pre>

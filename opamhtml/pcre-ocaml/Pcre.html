@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Perl Compatibility Regular Expressions</div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Exceptions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Exceptions</h6></div></div>
 <pre><code><span class="TYPEerror"><span class="keyword">type</span> error</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTerror.Partial"><span class="constructor">Partial</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">String only matched the pattern partially</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTerror.BadPartial"><span class="constructor">BadPartial</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">Pattern contains items that cannot be used together
                     with partial matching.</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTerror.BadPattern"><span class="constructor">BadPattern</span></span> <span class="keyword">of</span> <code class="type">string * int</code></code></td><td class="typefieldcomment" align="left"><div class="info"><code class="code">BadPattern (msg, pos)</code> regular
@@ -15,7 +15,7 @@
 <pre><span class="EXCEPTIONBacktrack"><span class="keyword">exception</span> Backtrack</span></pre><div class="info"><div class="info"><code class="code">Backtrack</code> used in callout functions to force backtracking.</div></div>
 <pre><span class="EXCEPTIONRegexp_or"><span class="keyword">exception</span> Regexp_or</span> <span class="keyword">of</span> <code class="type">string * <a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=error">error</a></code></pre><div class="info"><div class="info"><code class="code">Regexp_or (pat, error)</code> gets raised for sub-pattern <code class="code">pat</code> by <code class="code">regexp_or</code>
     if it failed to compile.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Compilation and runtime flags and their conversion functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Compilation and runtime flags and their conversion functions</h6></div></div>
 <pre><span class="TYPEicflag"><span class="keyword">type</span> icflag</span> </pre><div class="info"><div class="info">Internal representation of compilation flags</div></div>
 <pre><span class="TYPEirflag"><span class="keyword">type</span> irflag</span> </pre><div class="info"><div class="info">Internal representation of runtime flags</div></div>
 <pre><span class="TYPEcflag"><span class="keyword">type</span> cflag</span> = <code class="type">[ `ANCHORED
@@ -40,7 +40,7 @@
     their internal representation.</div></div>
 <pre><span class="VALrflag_list"><span class="keyword">val</span> rflag_list</span> : <code class="type"><a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=irflag">irflag</a> -&gt; <a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=rflag">rflag</a> list</code></pre><div class="info"><div class="info"><code class="code">rflag_list rflags</code> converts internal representation of
     runtime flags to a list.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Information on the PCRE-configuration (build-time options)</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Information on the PCRE-configuration (build-time options)</h6></div></div>
 <pre><span class="VALversion"><span class="keyword">val</span> version</span> : <code class="type">string</code></pre><div class="info"><div class="info">Version information</div><div class="info">Version of the PCRE-C-library</div></div>
 <pre><span class="VALconfig_utf8"><span class="keyword">val</span> config_utf8</span> : <code class="type">bool</code></pre><div class="info"><div class="info">Indicates whether UTF8-support is enabled</div></div>
 <pre><span class="VALconfig_newline"><span class="keyword">val</span> config_newline</span> : <code class="type">char</code></pre><div class="info"><div class="info">Character used as newline</div></div>
@@ -48,7 +48,7 @@
 <pre><span class="VALconfig_match_limit"><span class="keyword">val</span> config_match_limit</span> : <code class="type">int</code></pre><div class="info"><div class="info">Default limit for calls to internal matching function</div></div>
 <pre><span class="VALconfig_match_limit_recursion"><span class="keyword">val</span> config_match_limit_recursion</span> : <code class="type">int</code></pre><div class="info"><div class="info">Default limit recursion for calls to internal matching function</div></div>
 <pre><span class="VALconfig_stackrecurse"><span class="keyword">val</span> config_stackrecurse</span> : <code class="type">bool</code></pre><div class="info"><div class="info">Indicates use of stack recursion in matching function</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Information on patterns</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Information on patterns</h6></div></div>
 <pre><span class="TYPEfirstbyte_info"><span class="keyword">type</span> firstbyte_info</span> = <code class="type">[ `ANCHORED | `Char of char | `Start_only ]</code></pre><div class="info"><div class="info">Information on matching of &quot;first chars&quot; in patterns</div></div>
 <pre><span class="TYPEstudy_stat"><span class="keyword">type</span> study_stat</span> = <code class="type">[ `Not_studied | `Optimal | `Studied ]</code></pre><div class="info"><div class="info">Information on the study status of patterns</div></div>
 <pre><span class="TYPEregexp"><span class="keyword">type</span> regexp</span> </pre><div class="info"><div class="info">Compiled regular expressions</div></div>
@@ -75,7 +75,7 @@
     <code class="code">rex</code> or <code class="code">None</code>.</div></div>
 <pre><span class="VALget_match_limit_recursion"><span class="keyword">val</span> get_match_limit_recursion</span> : <code class="type"><a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=regexp">regexp</a> -&gt; int option</code></pre><div class="info"><div class="info"><code class="code">get_match_limit_recursion rex</code><b>Returns</b> some recursion match limit
     of regular expression <code class="code">rex</code> or <code class="code">None</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Compilation of patterns</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Compilation of patterns</h6></div></div>
 <pre><span class="TYPEchtables"><span class="keyword">type</span> chtables</span> </pre><div class="info"><div class="info">Alternative set of char tables for pattern matching</div></div>
 <pre><span class="VALmaketables"><span class="keyword">val</span> maketables</span> : <code class="type">unit -&gt; <a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=chtables">chtables</a></code></pre><div class="info"><div class="info">Generates new set of char tables for the current locale.</div></div>
 <pre><span class="VALregexp"><span class="keyword">val</span> regexp</span> : <code class="type">?study:bool -&gt;
@@ -98,7 +98,7 @@
     like TODO reference : regexp, but combines <code class="code">patterns</code> as alternatives (or-patterns) into
     one regular expression.</div></div>
 <pre><span class="VALquote"><span class="keyword">val</span> quote</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">quote str</code><b>Returns</b> the quoted string of <code class="code">str</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Subpattern extraction</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Subpattern extraction</h6></div></div>
 <pre><span class="TYPEsubstrings"><span class="keyword">type</span> substrings</span> </pre><div class="info"><div class="info">Information on substrings after pattern matching</div></div>
 <pre><span class="VALget_subject"><span class="keyword">val</span> get_subject</span> : <code class="type"><a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=substrings">substrings</a> -&gt; string</code></pre><div class="info"><div class="info"><code class="code">get_subject substrings</code><b>Returns</b> the subject string of <code class="code">substrings</code>.</div></div>
 <pre><span class="VALnum_of_subs"><span class="keyword">val</span> num_of_subs</span> : <code class="type"><a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=substrings">substrings</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">num_of_subs substrings</code><b>Returns</b> number of strings in <code class="code">substrings</code>
@@ -128,7 +128,7 @@
            a substring.<br/><b>Returns</b> the offset
     tuple of the named substring <code class="code">name</code> in regular expression <code class="code">rex</code> and
     <code class="code">substrings</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Callouts</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Callouts</h6></div></div>
 <pre><code><span class="TYPEcallout_data"><span class="keyword">type</span> callout_data</span> = {</code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTcallout_data.callout_number">callout_number</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Callout number</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTcallout_data.substrings">substrings</span> : <code class="type"><a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=substrings">substrings</a></code></code></td><td class="typefieldcomment" align="left"><div class="info">Substrings matched so far</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTcallout_data.start_match">start_match</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Subject start offset of current match attempt</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTcallout_data.current_position">current_position</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Subject offset of current match pointer</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTcallout_data.capture_top">capture_top</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Number of the highest captured substring so far</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTcallout_data.capture_last">capture_last</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Number of the most recently captured substring</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTcallout_data.pattern_position">pattern_position</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Offset of next match item in pattern string</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTcallout_data.next_item_length">next_item_length</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Length of next match item in pattern string</div></td></tr><tr><td>}</td></tr></table>
 <pre><span class="TYPEcallout"><span class="keyword">type</span> callout</span> = <code class="type"><a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=callout_data">callout_data</a> -&gt; unit</code></pre><div class="info"><div class="info">Type of callout functions</div><div class="info">Callouts are referred to in patterns as &quot;(?Cn)&quot; where &quot;n&quot; is a
@@ -139,7 +139,7 @@
     can force the pattern matching engine to backtrack to other possible
     solutions.  Other exceptions will terminate matching immediately
     and return control to OCaml.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Matching of patterns and subpattern extraction</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Matching of patterns and subpattern extraction</h6></div></div>
 <pre><span class="VALpcre_exec"><span class="keyword">val</span> pcre_exec</span> : <code class="type">?iflags:<a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=irflag">irflag</a> -&gt;
 ?flags:<a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=rflag">rflag</a> list -&gt;
 ?rex:<a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=regexp">regexp</a> -&gt;
@@ -230,7 +230,7 @@
     if <code class="code">subj</code> is matched by pattern <code class="code">pat</code> when given, regular expression
     <code class="code">rex</code> otherwise, starting at position <code class="code">pos</code>. Uses <code class="code">flags</code> when given,
     the precompiled <code class="code">iflags</code> otherwise. Callouts are handled by <code class="code">callout</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">String substitution</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">String substitution</h6></div></div>
 <pre><span class="TYPEsubstitution"><span class="keyword">type</span> substitution</span> </pre><div class="info"><div class="info">Information on substitution patterns</div></div>
 <pre><span class="VALsubst"><span class="keyword">val</span> subst</span> : <code class="type">string -&gt; <a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=substitution">substitution</a></code></pre><div class="info"><div class="info"><code class="code">subst str</code> converts the string <code class="code">str</code> representing a
     substitution pattern to the internal representation<br/>    The contents of the substitution string <code class="code">str</code> can be normal text
@@ -322,7 +322,7 @@
     <code class="code">pos</code> with the result of function <code class="code">subst</code> applied to the match. Uses
     <code class="code">flags</code> when given, the precompiled <code class="code">iflags</code> otherwise. Callouts
     are handled by <code class="code">callout</code>.<div class="parameters"><div class="param_info"><code class="code">iflags</code> : default = no extra flags</div><div class="param_info"><code class="code">flags</code> : default = ignored</div><div class="param_info"><code class="code">rex</code> : default = matches whitespace</div><div class="param_info"><code class="code">pat</code> : default = ignored</div><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">callout</code> : default = ignore callouts</div></div></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Splitting</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Splitting</h6></div></div>
 <pre><span class="VALsplit"><span class="keyword">val</span> split</span> : <code class="type">?iflags:<a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=irflag">irflag</a> -&gt;
 ?flags:<a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=rflag">rflag</a> list -&gt;
 ?rex:<a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=regexp">regexp</a> -&gt;
@@ -357,14 +357,14 @@
     fields are stripped. If it is negative, it is treated as arbitrarily
     large. Should behave exactly as in PERL. Callouts are handled by
     <code class="code">callout</code>.<div class="parameters"><div class="param_info"><code class="code">iflags</code> : default = no extra flags</div><div class="param_info"><code class="code">flags</code> : default = ignored</div><div class="param_info"><code class="code">rex</code> : default = matches whitespace</div><div class="param_info"><code class="code">pat</code> : default = ignored</div><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">max</code> : default = 0</div><div class="param_info"><code class="code">callout</code> : default = ignore callouts</div></div></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Additional convenience functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Additional convenience functions</h6></div></div>
 <pre><span class="VALforeach_line"><span class="keyword">val</span> foreach_line</span> : <code class="type">?ic:Pervasives.in_channel -&gt; (string -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">foreach_line ?ic f</code> applies <code class="code">f</code> to each line in inchannel <code class="code">ic</code> until
     the end-of-file is reached.<div class="parameters"><div class="param_info"><code class="code">ic</code> : default = stdin</div></div></div></div>
 <pre><span class="VALforeach_file"><span class="keyword">val</span> foreach_file</span> : <code class="type">string list -&gt; (string -&gt; Pervasives.in_channel -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">foreach_file filenames f</code> opens each file in the list <code class="code">filenames</code>
     for input and applies <code class="code">f</code> to each filename and the corresponding
     channel. Channels are closed after each operation (even when
     exceptions occur - they get reraised afterwards!).</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE"><b>UNSAFE STUFF - USE WITH CAUTION!</b></h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE"><b>UNSAFE STUFF - USE WITH CAUTION!</b></h6></div></div>
 <pre><span class="VALunsafe_pcre_exec"><span class="keyword">val</span> unsafe_pcre_exec</span> : <code class="type"><a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=irflag">irflag</a> -&gt;
 <a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=regexp">regexp</a> -&gt; int -&gt; string -&gt; int -&gt; int array -&gt; <a href="?package=pcre-ocaml&amp;module=Pcre&amp;type=callout">callout</a> option -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">unsafe_pcre_exec flags rex pos subject subgroup_offsets offset_vector</code>.
     You should read the C-source to know what happens.

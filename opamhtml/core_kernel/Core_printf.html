@@ -11,7 +11,7 @@ Pervasives.out_channel -&gt;
 <pre><span class="VALksprintf"><span class="keyword">val</span> ksprintf</span> : <code class="type">(string -&gt; 'a) -&gt; ('r, unit, string, 'a) Pervasives.format4 -&gt; 'r</code></pre>
 <pre><span class="VALkbprintf"><span class="keyword">val</span> kbprintf</span> : <code class="type">(Buffer.t -&gt; 'a) -&gt;
 Buffer.t -&gt; ('r, Buffer.t, unit, 'a) Pervasives.format4 -&gt; 'r</code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Formatting error and exit functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Formatting error and exit functions</h6></div></div>
 <pre><span class="VALfailwithf"><span class="keyword">val</span> failwithf</span> : <code class="type">('r, unit, string, unit -&gt; 'a) Pervasives.format4 -&gt; 'r</code></pre><div class="info"><div class="info">raises Failure</div></div>
 <pre><span class="VALinvalid_argf"><span class="keyword">val</span> invalid_argf</span> : <code class="type">('r, unit, string, unit -&gt; 'a) Pervasives.format4 -&gt; 'r</code></pre><div class="info"><div class="info">raises Invalid_arg</div></div>
 <pre><span class="VALexitf"><span class="keyword">val</span> exitf</span> : <code class="type">('r, unit, string, unit -&gt; 'a) Pervasives.format4 -&gt; 'r</code></pre><div class="info"><div class="info">print to stderr; exit 1</div></div>

@@ -42,7 +42,7 @@
     thread-safe, and operations can be called from different threads.
     For other implementations, please look at the modules implementing
     them.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Types and exceptions</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Types and exceptions</h1></div></div>
 <pre><span class="TYPEgroup"><span class="keyword">type</span> group</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Unixqueue_util&amp;type=group">Unixqueue_util.group</a></code></pre><div class="info"><div class="info">A group is an abstract tag for a set of events, resources, and
  event handlers. Usually every event handler creates a new group,
  and all events and resources processed by the handler are 
@@ -146,7 +146,7 @@
 
 <pre><span class="METHODwhen_blocking"><span class="keyword">method</span> when_blocking</span> : <code class="code">(unit -&gt; unit) -&gt; unit</code></pre>
 </div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Creating event systems</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Creating event systems</h1></div></div>
 <div class="ocaml_class ident" name="standard_event_system" path="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system"><pre><span class="TYPEstandard_event_system"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=standard_event_system">standard_event_system</a></span> : <code class="type">unit -&gt; </code><a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system">event_system</a></pre><div class="info"><div class="info">The standard implementation of an event system. It uses 
       TODO reference : Unixqueue_pollset.pollset_event_system on top of
       TODO reference : Netsys_pollset_generic.standard_pollset.</div></div></div>
@@ -157,7 +157,7 @@
       backward compatibility.</div></div>
 <div class="ocaml_class ident" name="performance_event_system" path="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system"><pre><span class="TYPEperformance_event_system"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=performance_event_system">performance_event_system</a></span> : <code class="type">unit -&gt; </code><a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system">event_system</a></pre><div class="info"><div class="info">The implementation using TODO reference : Netsys_pollset_generic.performance_pollset.</div></div></div>
 <pre><span class="VALperformance_event_system"><span class="keyword">val</span> performance_event_system</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">event_system</a></code></pre><div class="info"><div class="info">Same as function</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Using event systems</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Using event systems</h1></div></div>
 <div class="info"><div class="info">The following functions work for all kinds of event systems, not
     only for the ones returned by <code class="code">standard_event_system</code>.</div></div>
 <pre><span class="VALnew_group"><span class="keyword">val</span> new_group</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">event_system</a> -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=group">group</a></code></pre><div class="info"><div class="info">Create a new, empty group for the event system</div></div>
@@ -230,7 +230,7 @@
       if it is the only remaining resource.</div></div>
 <pre><span class="VALepsilon"><span class="keyword">val</span> epsilon</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">event_system</a> -&gt; (unit -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info">The execution of the function is pushed onto the event queue
       (minimal delay)</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Debugging</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Unixqueue.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">This module controls debugging of all <code class="code">Unixqueue_*</code> modules</div></div>
 <pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enable TODO reference : Netlog debugging</div></div>

@@ -48,10 +48,10 @@
 <pre><span class="VALset_uint16"><span class="keyword">val</span> set_uint16</span> : <code class="type"><a href="?package=cstruct&amp;module=Cstruct&amp;type=t">t</a> -&gt; int -&gt; <a href="?package=cstruct&amp;module=Cstruct&amp;type=uint16">uint16</a> -&gt; unit</code></pre>
 <pre><span class="VALset_uint32"><span class="keyword">val</span> set_uint32</span> : <code class="type"><a href="?package=cstruct&amp;module=Cstruct&amp;type=t">t</a> -&gt; int -&gt; <a href="?package=cstruct&amp;module=Cstruct&amp;type=uint32">uint32</a> -&gt; unit</code></pre>
 <pre><span class="VALset_uint64"><span class="keyword">val</span> set_uint64</span> : <code class="type"><a href="?package=cstruct&amp;module=Cstruct&amp;type=t">t</a> -&gt; int -&gt; <a href="?package=cstruct&amp;module=Cstruct&amp;type=uint64">uint64</a> -&gt; unit</code></pre></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">List of buffers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">List of buffers</h2></div></div>
 <pre><span class="VALlenv"><span class="keyword">val</span> lenv</span> : <code class="type"><a href="?package=cstruct&amp;module=Cstruct&amp;type=t">t</a> list -&gt; int</code></pre>
 <pre><span class="VALcopyv"><span class="keyword">val</span> copyv</span> : <code class="type"><a href="?package=cstruct&amp;module=Cstruct&amp;type=t">t</a> list -&gt; string</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Iterations</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Iterations</h2></div></div>
 <pre><span class="TYPEiter"><span class="keyword">type</span> <code class="type">'a </code>iter</span> = <code class="type">unit -&gt; 'a option</code></pre>
 <pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">(<a href="?package=cstruct&amp;module=Cstruct&amp;type=t">t</a> -&gt; int option) -&gt; (<a href="?package=cstruct&amp;module=Cstruct&amp;type=t">t</a> -&gt; 'a) -&gt; <a href="?package=cstruct&amp;module=Cstruct&amp;type=t">t</a> -&gt; 'a <a href="?package=cstruct&amp;module=Cstruct&amp;type=iter">iter</a></code></pre>
 <pre><span class="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">('b -&gt; 'a -&gt; 'b) -&gt; 'a <a href="?package=cstruct&amp;module=Cstruct&amp;type=iter">iter</a> -&gt; 'b -&gt; 'b</code></pre>

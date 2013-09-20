@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Time-zone handling.</div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">User-friendly interface</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">User-friendly interface</h1></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of a time-zone.<br/>    bin_io and sexp representations of Zone.t are the name of the zone, and not the full
     data that is read from disk when Zone.find is called.  The full Zone.t is
     reconstructed on the receiving/reading side by reloading the zone file from disk.  Any
@@ -57,9 +57,9 @@
 <pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type"><a href="?package=core&amp;module=Zone.Stable.V1&amp;type=t">t</a> Core_kernel.Std.Bin_prot.Type_class.writer</code></pre>
 <pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">Sexplib.Sexp.t -&gt; <a href="?package=core&amp;module=Zone.Stable.V1&amp;type=t">t</a></code></pre>
 <pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core&amp;module=Zone.Stable.V1&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre></div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Notes on time</h1><br/><br/>  This library replicates and extends the functionality of the standard Unix time handling
+<div class="info"><div class="info"><h1 id="1_TITLE">Notes on time</h1><br/>  This library replicates and extends the functionality of the standard Unix time handling
   functions (currently exposed in the Unix module, and indirectly through the Time
-  module).<br/>  Things you should know before delving into the mess of time...<br/>  <br/><h2 id="2_TITLE">Some general resources (summarized information also appears below) </h2><br/><br/>  <span class="verbatim">    general overview   - http://www.twinsun.com/tz/tz-link.htm
+  module).<br/>  Things you should know before delving into the mess of time...<br/>  <h2 id="2_TITLE">Some general resources (summarized information also appears below) </h2><br/>  <span class="verbatim">    general overview   - http://www.twinsun.com/tz/tz-link.htm
     zone abbreviations - http://blogs.msdn.com/oldnewthing/archive/2008/03/07/8080060.aspx
     leap seconds       - http://en.wikipedia.org/wiki/Leap_second
     epoch time         - http://en.wikipedia.org/wiki/Unix_time
@@ -67,7 +67,7 @@
     TAI time           - http://en.wikipedia.org/wiki/International_Atomic_Time
     Almost every possible time measurement -
       http://www.ucolick.org/~sla/leapsecs/timescales.html
-  </span><br/>  <br/><h2 id="2_TITLE">Standards for measuring time </h2><br/><br/>  - Epoch time/Unix time/Posix time: Defined as the number of seconds that have passed
+  </span><br/>  <h2 id="2_TITLE">Standards for measuring time </h2><br/>  - Epoch time/Unix time/Posix time: Defined as the number of seconds that have passed
     since midnight, January 1st, 1970 GMT.  However, under epoch time, a day is always
     86,400 seconds long, and a minute never contains more than 60 total seconds.  In other
     words, epoch time does not take leap seconds into account properly.  What a POSIX
@@ -113,7 +113,7 @@
   partly because different parts of the world didn't actually have well defined time zones
   for a long time.  If you go back far enough, you run into the switch between the Julian
   (old) and the Gregorian calendar, which happened at different times in history in
-  different places in the world.<br/>  <br/><h2 id="2_TITLE">How does a system determine what time zone it is in? </h2><br/><br/>  + Check to see if the TZ environment variable is set.  If it is, it can be set to one
+  different places in the world.<br/>  <h2 id="2_TITLE">How does a system determine what time zone it is in? </h2><br/>  + Check to see if the TZ environment variable is set.  If it is, it can be set to one
     of three forms, two of which are rarely, if ever used see:<br/>      http://www.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap08.html<br/>    for more information on the obscure forms.  The common form represents a relative path
     from the base /usr/share/zoneinfo/posix, and is generally in the form of a continent
     or country name paired with a city name (Europe/London, America/New_York).  This is
@@ -140,7 +140,7 @@
   against all of the possible candidates in the system database.  It additionally makes
   some adjustments to return the more common timezone names since some files in the
   database are duplicated under several names.  It returns an option because of the
-  problems mentioned above.<br/>  <br/><h2 id="2_TITLE">The problems with string time conversions </h2><br/><br/>  There are two cases where string time conversions are problematic, both related to
+  problems mentioned above.<br/>  <h2 id="2_TITLE">The problems with string time conversions </h2><br/>  There are two cases where string time conversions are problematic, both related to
   daylight savings time.<br/>  In the case where time jumps forward one hour, there are possible representations of
   times that never happened 2006-04-02T02:30:00 in the eastern U.S. never happened for
   instance, because the clock jumped forward one hour directly from 2 to 3.  Unix time

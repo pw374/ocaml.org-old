@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">Lightweight threads.</div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of thread handles.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Thread creation and termination</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Thread creation and termination</h6></div></div>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; <a href="?package=core&amp;module=Core_thread&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">Thread.create funct arg</code> creates a new thread of control,
    in which the function application <code class="code">funct arg</code>
    is executed concurrently with the other threads of the program.
@@ -19,7 +19,7 @@
 <pre><span class="VALexit"><span class="keyword">val</span> exit</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Terminate prematurely the currently executing thread.</div></div>
 <div class="info"><div class="info">Terminate prematurely the thread whose handle is given.
    This functionality is available only with bytecode-level threads.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Suspending threads</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Suspending threads</h6></div></div>
 <pre><span class="VALdelay"><span class="keyword">val</span> delay</span> : <code class="type">float -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">delay d</code> suspends the execution of the calling thread for
    <code class="code">d</code> seconds. The other program threads continue to run during
    this time.</div></div>
@@ -39,7 +39,7 @@
    This function can be used to give scheduling hints,
    telling the scheduler that now is a good time to
    switch to other threads.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Management of signals</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Management of signals</h6></div></div>
 <div class="info"><div class="info">Signal handling follows the POSIX thread model: signals generated
   by a thread are delivered to that thread; signals generated externally
   are delivered to one of the threads that does not block it.

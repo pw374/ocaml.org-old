@@ -134,7 +134,7 @@
 <pre><span class="VALcamlbox_wake"><span class="keyword">val</span> camlbox_wake</span> : <code class="type">'a <a href="?package=ocamlnet&amp;module=Netcamlbox&amp;type=camlbox_sender">camlbox_sender</a> -&gt; unit</code></pre><div class="info"><div class="info">Sends an &quot;empty message&quot; - this only means that if the receiving
       thread is waiting for new messages it is interrupted and 
       <code class="code">camlbox_wait</code> will return the empty list.<br/>      This function is non-blocking.</div></div>
-<div class="info"><div class="info"><br/><h2 id="events">Integration into event-based programs</h2><br/><br/>   The functions <code class="code">camlbox_wait</code> and <code class="code">camlbox_send</code> may both block the
+<div class="info"><div class="info"><h2 id="events">Integration into event-based programs</h2><br/>   The functions <code class="code">camlbox_wait</code> and <code class="code">camlbox_send</code> may both block the
    execution of the program when no message has arrived, and no space
    is available, respectively. This is a challenge for event-based
    programs where all waiting is bound to events on file descriptors.<br/>   Generally, Camlboxes use semaphores for speed. The results are good,

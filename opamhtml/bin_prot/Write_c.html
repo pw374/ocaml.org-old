@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Wrapping unsafe C-style writers to safe ML-style ones.</div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Generic functions for easy creation of wrappers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Generic functions for easy creation of wrappers</h2></div></div>
 <pre><span class="VALunsafe_get_init"><span class="keyword">val</span> unsafe_get_init</span> : <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt;
 pos:<a href="?package=bin_prot&amp;module=Common&amp;type=pos">Common.pos</a> -&gt;
 <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr">Unsafe_common.sptr</a> * <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr">Unsafe_common.sptr</a> * <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=eptr">Unsafe_common.eptr</a></code></pre><div class="info"><div class="info"><code class="code">unsafe_get_init buf ~pos</code><b>Returns</b> the triple <code class="code">(start, sptr, eptr)</code>
@@ -25,7 +25,7 @@ pos:<a href="?package=bin_prot&amp;module=Common&amp;type=pos">Common.pos</a> -&
     and, together with TODO reference : unsafe_get_init, is used in e.g. TODO reference : make1,
     TODO reference : make2 and TODO reference : make3 for that purpose.<b>Returns</b> an unsafe C-style
     writer.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Unsafe C-style writers for basic types wrapped as ML-style writers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Unsafe C-style writers for basic types wrapped as ML-style writers</h2></div></div>
 <pre><span class="VALbin_write_unit"><span class="keyword">val</span> bin_write_unit</span> : <code class="type">unit <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Write_ml.writer</a></code></pre>
 <pre><span class="VALbin_write_bool"><span class="keyword">val</span> bin_write_bool</span> : <code class="type">bool <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Write_ml.writer</a></code></pre>
 <pre><span class="VALbin_write_string"><span class="keyword">val</span> bin_write_string</span> : <code class="type">string <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Write_ml.writer</a></code></pre>

@@ -2,12 +2,12 @@
  </li></ul></div>
 <div class="info"><div class="info">Many types can also be found in the <code class="code">Nethttp</code> module (part of netstring).
  Furthermore, <code class="code">Netcgi_env</code> and <code class="code">Netcgi_types</code> are of interest (part of cgi).</div></div>
-<div class="info"><div class="info"><br/><h1 id="exceptions">Exceptions</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="exceptions">Exceptions</h1></div></div>
 <pre><span class="EXCEPTIONStandard_response"><span class="keyword">exception</span> Standard_response</span> <span class="keyword">of</span> <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_status">Nethttp.http_status</a> * <a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_header">Nethttp.http_header</a> option * string option</code></pre><div class="info"><div class="info">Some HTTP containers allow you to raise this exception. The standard
  response corresponding to <code class="code">http_status</code> is sent back to the client.
  If the third argument exists, an entry into the error log
  is written.</div></div>
-<div class="info"><div class="info"><br/><h1 id="environment">Environment</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="environment">Environment</h1></div></div>
 <pre><span class="TYPEoutput_state"><span class="keyword">type</span> output_state</span> = <code class="type">[ `End | `Sending | `Start ]</code></pre>
 <pre><span class="VALstring_of_output_state"><span class="keyword">val</span> string_of_output_state</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=output_state">output_state</a> -&gt; string</code></pre><div class="info"><div class="info">Debugging</div></div>
 <div class="ocaml_class sig" name="v_extended_environment"><pre><span class="TYPEv_extended_environment"><span class="keyword">class type</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;class=v_extended_environment">v_extended_environment</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">An extension of <code class="code">cgi_environment</code> for use with the daemon. The methods
@@ -48,7 +48,7 @@
 
 <pre><span class="METHODoutput_state"><span class="keyword">method</span> output_state</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=output_state">output_state</a> Pervasives.ref</code></pre>
 </div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Construction of environments</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Construction of environments</h2></div></div>
 <div class="ocaml_class sig" name="empty_environment"><pre><span class="TYPEempty_environment"><span class="keyword">class</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;class=empty_environment">empty_environment</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">This class implements an environment with defined internal containers.
  These containers are empty, but fully functional.
  The following methods are empty and should be redefined:<ul><li><code class="code">send_output_header</code></li><li><code class="code">send_file</code></li><li><code class="code">log_error</code></li><li><code class="code">log_props</code></li></ul> The virtual methods, of course, must be defined!</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Nethttpd_types&amp;class=v_extended_environment"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;class=v_extended_environment">v_extended_environment</a></pre></div>
@@ -73,7 +73,7 @@
  overlay container is initialized with the current value of the passed
  environment. As exception of this rule, the input channel is initialized with
  an empty input channel.</div></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Auxiliary Functions for Environments</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Auxiliary Functions for Environments</h2></div></div>
 <pre><span class="VALoutput_static_response"><span class="keyword">val</span> output_static_response</span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;class=extended_environment">extended_environment</a> -&gt;
 <a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_status">Nethttp.http_status</a> -&gt; <a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_header">Nethttp.http_header</a> option -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Outputs the string argument as response body, together with the given status and
  the header (optional). Response header fields are set as follows:<ul><li>The <code class="code">Content-Length</code> is set to the length of the string.</li><li>The <code class="code">Content-Type</code> is set to &quot;text/html&quot; unless given by the header.</li></ul> If the header is not passed, the header of the environment is taken. If the header
@@ -86,7 +86,7 @@
  of the body.  Response header fields are set as follows:<ul><li>The <code class="code">Content-Length</code> is set to the length of the string.</li><li>The <code class="code">Content-Type</code> is set to &quot;text/html&quot; unless given by the header.</li></ul> Note that <code class="code">Content-Range</code> is not set automatically, even if the file is only
  partially transferred.<br/> If the header is not passed, the header of the environment is taken. If the header
  argument exists, however, it overrides the header of the environment.<br/> The function raises <code class="code">Sys_error</code> when the file cannot be read.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Generating error responses, logging</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Generating error responses, logging</h1></div></div>
 <div class="ocaml_class sig" name="request_info"><pre><span class="TYPErequest_info"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;class=request_info">request_info</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODserver_socket_addr"><span class="keyword">method</span> server_socket_addr</span> : <code class="code">Unix.sockaddr</code></pre>
 <div class="info"><div class="info">The socket address of this server. May raise <code class="code">Not_found</code> if
         there is no such address</div></div>
@@ -131,7 +131,7 @@
 <a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_status">Nethttp.http_status</a> -&gt; <a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_header">Nethttp.http_header</a> option -&gt; string option -&gt; unit</code></pre><div class="info"><div class="info">Outputs a &quot;standard response&quot; for the <code class="code">http_status</code>. The string argument
  is an optional entry into the error log.<br/> If the header is not passed, an empty header is taken. If the header argument
  exists, this header is taken. The header of the environment is never taken.</div></div>
-<div class="info"><div class="info"><br/><h1 id="service">Service Providers</h1><br/><br/> Service providers are defined using the three class types:<ul><li><code class="code">http_service</code>: The service provider as such. When a HTTP header has been
+<div class="info"><div class="info"><h1 id="service">Service Providers</h1><br/> Service providers are defined using the three class types:<ul><li><code class="code">http_service</code>: The service provider as such. When a HTTP header has been
    received, and the service provider is invoked, it returns an object
    fitting to the next class type, <code class="code">http_service_receiver</code>. This object
    is tagged with <code class="code">`Accept_body</code>; at this point there are also alternate ways
@@ -222,7 +222,7 @@
    go through the second stage, and drop any unexpected body.</li></ul> The argument of this function is the Netcgi environment. The header is
  complete, including the request method. One cannot access the input and
  output channels at this stage of processing.</div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="helpers">Helpers</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="helpers">Helpers</h1></div></div>
 <pre><span class="VALupdate_alist"><span class="keyword">val</span> update_alist</span> : <code class="type">('a * 'b) list -&gt; ('a * 'b) list -&gt; ('a * 'b) list</code></pre><div class="info"><div class="info"><code class="code">update_alist updl l</code>: Returns the alist with all elements of <code class="code">updl</code>
  and all elements of <code class="code">l</code> that are not member of <code class="code">updl</code>.</div></div>
 </div>

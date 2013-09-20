@@ -1,4 +1,4 @@
-<div class="ocaml_toplevel_module"><div class="info"><br/><h1 id="1_TITLE">The protocol kernel of the HTTP daemon</h1><br/><br/> This module mainly defines the <code class="code">http_protocol</code> class which implements the
+<div class="ocaml_toplevel_module"><div class="info"><h1 id="1_TITLE">The protocol kernel of the HTTP daemon</h1><br/> This module mainly defines the <code class="code">http_protocol</code> class which implements the
  exchange of messages with a HTTP client. The request messages are represented
  as sequence of <code class="code">req_token</code> values. The response is encapsulated in a separate
  <code class="code">http_response</code> class. The contents of the response are represented as sequence
@@ -314,7 +314,7 @@
 <div class="info"><div class="info">Whether the socket is still lingering</div></div>
 <pre><span class="METHODfd"><span class="keyword">method</span> fd</span> : <code class="code">Unix.file_descr</code></pre>
 <div class="info"><div class="info">The file descriptor</div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Debugging</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Nethttpd_kernel.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div></div></div>
 </div>

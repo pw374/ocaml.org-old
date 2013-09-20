@@ -5,13 +5,13 @@
     from a data source and output pushes a well-formed sequence of
     signals to a data destination. Functions are provided to easily 
     transform sequences of signals to/from arborescent data structures.<br/>    Consult the TODO reference : #io and TODO reference : #ex 
-    of use.<br/>    <em>Release 1.1.1 - Daniel Bünzli &lt;daniel.buenzli at erratique.ch&gt; </em><br/>    <br/><h3 id="3_TITLE">References</h3><br/>
+    of use.<br/>    <em>Release 1.1.1 - Daniel Bünzli &lt;daniel.buenzli at erratique.ch&gt; </em><br/>    <h3 id="3_TITLE">References</h3>
     <ul><li>Tim Bray et al. 
     <em>TODO reference : http://www.w3.org/TR/xml-names11</em>,
     2006.</li><li>Tim Bray. 
     <em>TODO reference : http://www.xml.com/axml/axml.html</em>, 
     1998.</li></ul></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Basic types and values</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Basic types and values</h1></div></div>
 <pre><span class="TYPEencoding"><span class="keyword">type</span> encoding</span> = <code class="type">[ `ISO_8859_1 | `US_ASCII | `UTF_16 | `UTF_16BE | `UTF_16LE | `UTF_8 ]</code></pre><div class="info"><div class="info">The type for character encodings. For <code class="code">`UTF_16</code>, endianness is
     determined from the 
     TODO reference : http://www.unicode.org/unicode/faq/utf_bom.html#BOM.</div></div>
@@ -35,7 +35,7 @@ child ::= `Data | tree | epsilon </code></pre>
     reserved <code class="code">&quot;xml&quot;</code> prefix.</div></div>
 <pre><span class="VALns_xmlns"><span class="keyword">val</span> ns_xmlns</span> : <code class="type">string</code></pre><div class="info"><div class="info">Namespace name TODO reference : http://www.w3.org/2000/xmlns/ bound to the 
     reserved <code class="code">&quot;xmlns&quot;</code> prefix.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Input</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Input</h1></div></div>
 <pre><span class="TYPEpos"><span class="keyword">type</span> pos</span> = <code class="type">int * int</code></pre><div class="info"><div class="info">The type for input positions. Line and column number, both start
     with 1.</div></div>
 <pre><span class="TYPEerror"><span class="keyword">type</span> error</span> = <code class="type">[ `Expected_char_seqs of string list * string
@@ -87,7 +87,7 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="VALpeek"><span class="keyword">val</span> peek</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=signal">signal</a></code></pre><div class="info"><div class="info">Same as TODO reference : input but doesn't remove the signal from the sequence. <br/>    <b>Raises</b> TODO reference : Error on input errors.</div></div>
 <pre><span class="VALeoi"><span class="keyword">val</span> eoi</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; bool</code></pre><div class="info"><div class="info">Returns <code class="code">true</code> if the end of input is reached. See TODO reference : #iseq.<br/>    <b>Raises</b> TODO reference : Error on input errors.</div></div>
 <pre><span class="VALpos"><span class="keyword">val</span> pos</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=pos">pos</a></code></pre><div class="info"><div class="info">Current position in the input abstraction.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Output</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Output</h1></div></div>
 <pre><span class="TYPEfrag"><span class="keyword">type</span> <code class="type">'a </code>frag</span> = <code class="type">[ `Data of string | `El of <a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> * 'a list ]</code></pre><div class="info"><div class="info">The type for deconstructing data structures of type <code class="code">'a</code>.</div></div>
 <pre><span class="TYPEdest"><span class="keyword">type</span> dest</span> = <code class="type">[ `Buffer of Buffer.t
 | `Channel of Pervasives.out_channel
@@ -112,7 +112,7 @@ child ::= `Data | tree | epsilon </code></pre>
     applying the given value deconstructor.<br/>    <b>Raises</b> see TODO reference : output.</div></div>
 <pre><span class="VALoutput_doc_tree"><span class="keyword">val</span> output_doc_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a -&gt; unit</code></pre><div class="info"><div class="info">Same as TODO reference : output_tree but outputs a complete TODO reference : #TYPEsignal 
     sequence of signals.<br/>    <b>Raises</b> see TODO reference : output.</div></div>
-<div class="info"><div class="info"><br/><h1 id="sto">Functorial interface</h1><br/> <br/>    TODO reference : Make allows client to specify types for strings and internal
+<div class="info"><div class="info"><h1 id="sto">Functorial interface</h1> <br/>    TODO reference : Make allows client to specify types for strings and internal
     buffers. Among other things this can be used to perform
     hash-consing or to process the character stream, e.g. to normalize
     unicode characters or to convert to a custom encoding.</div></div>
@@ -145,7 +145,7 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="VALcontents"><span class="keyword">val</span> contents</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=string">string</a></code></pre><div class="info"><div class="info">Returns the buffer contents.</div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Returns the number of characters contained in the buffer.</div></div></div></div>
 <div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=xmlm&amp;module=Xmlm.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of TODO reference : Make.</div></div><div class="ocaml_module_content">
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Basic types and values</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Basic types and values</h1></div></div>
 <pre><span class="TYPEstring"><span class="keyword">type</span> string</span> </pre>
 <pre><span class="TYPEencoding"><span class="keyword">type</span> encoding</span> = <code class="type">[ `ISO_8859_1 | `US_ASCII | `UTF_16 | `UTF_16BE | `UTF_16LE | `UTF_8 ]</code></pre>
 <pre><span class="TYPEdtd"><span class="keyword">type</span> dtd</span> = <code class="type"><a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a> option</code></pre>
@@ -155,7 +155,7 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="TYPEsignal"><span class="keyword">type</span> signal</span> = <code class="type">[ `Data of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a> | `Dtd of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=dtd">dtd</a> | `El_end | `El_start of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=tag">tag</a> ]</code></pre>
 <pre><span class="VALns_xml"><span class="keyword">val</span> ns_xml</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a></code></pre>
 <pre><span class="VALns_xmlns"><span class="keyword">val</span> ns_xmlns</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a></code></pre>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Input</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Input</h1></div></div>
 <pre><span class="TYPEpos"><span class="keyword">type</span> pos</span> = <code class="type">int * int</code></pre>
 <pre><span class="TYPEerror"><span class="keyword">type</span> error</span> = <code class="type">[ `Expected_char_seqs of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a> list * <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a>
 | `Expected_root_element
@@ -183,7 +183,7 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="VALpeek"><span class="keyword">val</span> peek</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.S&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=signal">signal</a></code></pre>
 <pre><span class="VALeoi"><span class="keyword">val</span> eoi</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.S&amp;type=input">input</a> -&gt; bool</code></pre>
 <pre><span class="VALpos"><span class="keyword">val</span> pos</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.S&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=pos">pos</a></code></pre>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Output</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Output</h1></div></div>
 <pre><span class="TYPEfrag"><span class="keyword">type</span> <code class="type">'a </code>frag</span> = <code class="type">[ `Data of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a> | `El of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=tag">tag</a> * 'a list ]</code></pre>
 <pre><span class="TYPEdest"><span class="keyword">type</span> dest</span> = <code class="type">[ `Buffer of <a href="?package=xmlm&amp;module=Xmlm&amp;type=std_buffer">std_buffer</a>
 | `Channel of Pervasives.out_channel
@@ -197,11 +197,11 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="VALoutput_tree"><span class="keyword">val</span> output_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=output">output</a> -&gt; 'a -&gt; unit</code></pre>
 <pre><span class="VALoutput_doc_tree"><span class="keyword">val</span> output_doc_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=output">output</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=dtd">dtd</a> * 'a -&gt; unit</code></pre></div></div>
 <div class="ocaml_module ident" name="Make" path="?package=xmlm&amp;module=Xmlm.S"><pre><span class="keyword">module</span> <a href="?package=xmlm&amp;module=Xmlm.Make">Make</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">String</code><code class="code"> : </code><code class="code"><a href="?package=xmlm&amp;module=Xmlm.String">String</a></code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">Buffer</code><code class="code"> : </code><code class="code"><a href="?package=xmlm&amp;module=Xmlm.Buffer">Buffer</a></code> with type <a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=string">string</a> = String.t<code class="code">) -&gt; </code><code class="code"><a href="?package=xmlm&amp;module=Xmlm.S">S</a></code> with type <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a> = String.t</div></div></code></pre><div class="info"><div class="info">Functor building streaming XML IO with the given strings and buffers.</div></div></div>
-<div class="info"><div class="info"><br/><h1 id="io">Features and limitations</h1><br/><br/>    The module assumes strings are immutable, thus strings
+<div class="info"><div class="info"><h1 id="io">Features and limitations</h1><br/>    The module assumes strings are immutable, thus strings
     the client gives or receives <em>during</em> the input and output process 
     must not be modified.
-    <br/><h2 id="input">Input</h2><br/>
-    <br/><h3 id="inenc">Encoding</h3><br/>    <br/>    The parser supports ASCII, US-ASCII, 
+    <h2 id="input">Input</h2>
+    <h3 id="inenc">Encoding</h3>    <br/>    The parser supports ASCII, US-ASCII, 
     TODO reference : http://www.faqs.org/rfcs/rfc3629.html,
     TODO reference : http://www.faqs.org/rfcs/rfc2781.html,
     TODO reference : http://www.faqs.org/rfcs/rfc2781.html,
@@ -213,7 +213,7 @@ child ::= `Data | tree | epsilon </code></pre>
     TODO reference : http://www.unicode.org/unicode/faq/utf_bom.html#BOM at the
     beginning of the document. If there is no BOM it uses the encoding
     specified in the TODO reference : http://www.w3.org/TR/REC-xml/#NT-XMLDecl. Finally, if there is no XML declaration UTF-8 is assumed.
-    <br/><h3 id="inwspace">White space handling</h3><br/><br/>    The parser performs
+    <h3 id="inwspace">White space handling</h3><br/>    The parser performs
     TODO reference : http://www.w3.org/TR/REC-xml/#AVNormalize on <em>every</em> attribute data.  This means that
     attribute data does not have leading and trailling white space and that 
     any white space is collapsed and transformed to a single space 
@@ -225,7 +225,7 @@ child ::= `Data | tree | epsilon </code></pre>
     <code class="code">false</code> all white space data is preserved as present in the
     document (however all kinds of
     TODO reference : http://www.w3.org/TR/REC-xml/#sec-line-ends are
-    translated to the newline character (<code class="code">U+000A</code>).  <br/><h3 id="inns">Namespaces</h3><br/><br/>    Xmlm's TODO reference : #TYPEname are
+    translated to the newline character (<code class="code">U+000A</code>).  <h3 id="inns">Namespaces</h3><br/>    Xmlm's TODO reference : #TYPEname are
     TODO reference : http://www.w3.org/TR/xml-names11/#dt-expname.
     The parser automatically handles the document's namespace
     declarations.  Undeclared namespace prefixes can be bound via the
@@ -239,7 +239,7 @@ child ::= `Data | tree | epsilon </code></pre>
     prefixes by documents, the parser does not report errors on violations 
     of the <i>must</i> constraints listed in
     TODO reference : http://www.w3.org/TR/xml-names11/#xmlReserved. 
-    <br/><h3 id="inentity">Character and entity references</h3><br/><br/>    TODO reference : http://www.w3.org/TR/REC-xml/#dt-charref
+    <h3 id="inentity">Character and entity references</h3><br/>    TODO reference : http://www.w3.org/TR/REC-xml/#dt-charref
     and TODO reference : http://www.w3.org/TR/REC-xml/#sec-predefined-ent are automatically resolved. Other entity references can
     be resolved by the callback <code class="code">entity</code>, which must return an UTF-8
     (unless you use the functor) string corresponding to the
@@ -247,7 +247,7 @@ child ::= `Data | tree | epsilon </code></pre>
     analysed for further references, it is added to the data as such
     modulo white space stripping. If <code class="code">entity</code> returns <code class="code">None</code> the error
     <code class="code">`Unknown_entity_ref</code> is returned.    
-    <br/><h3 id="iseq">Sequences of documents</h3><br/><br/>    When a well-formed sequence of signals is input, no data is consumed beyond
+    <h3 id="iseq">Sequences of documents</h3><br/>    When a well-formed sequence of signals is input, no data is consumed beyond
     the closing <code class="code">'&gt;'</code> of the document's root element. <br/>    If you want to parse a document as
     TODO reference : http://www.w3.org/TR/REC-xml/#NT-document in the XML
     specification, call TODO reference : eoi after a well-formed sequence of
@@ -260,7 +260,7 @@ child ::= `Data | tree | epsilon </code></pre>
     or the start of a new element or the end of input (in which case
     TODO reference : eoi returns <code class="code">true</code>).  If there is a new document but there is no
     XML declaration or the declaration specifies UTF-16, the same
-    encoding as for the previous document is used.<br/>    <br/><h3 id="inmisc">Miscellaneous</h3><br/>
+    encoding as for the previous document is used.<br/>    <h3 id="inmisc">Miscellaneous</h3>
     <ul><li>Non validating.</li><li>Tail recursive.</li><li>Attribute and character data chunks are limited by 
        <code class="code">Sys.max_string_length</code> (unless you use the functor). 
        The error <code class="code">`Max_buffer_size</code> is raised if the limit is hit.</li><li>Element attributes are not checked for uniqueness.</li><li>The parser drops 
@@ -269,12 +269,12 @@ child ::= `Data | tree | epsilon </code></pre>
     TODO reference : http://www.w3.org/TR/REC-xml/#sec-rmd.</li><li>The TODO reference : http://www.w3.org/TR/REC-xml/#dt-doctype is parsed
       roughly (no guarantee it is well formed) and its information is ignored.</li><li>Parses the more liberal and simpler XML 1.1 
     TODO reference : http://www.w3.org/TR/xml11/#NT-Name definition (minus <code class="code">':'</code> because
-    of namespaces).</li></ul><br/>    <br/><h2 id="output">Output</h2><br/> 
-    <br/><h3 id="outenc">Encoding</h3><br/> <br/>    Outputs only TODO reference : http://www.faqs.org/rfcs/rfc3629.html
+    of namespaces).</li></ul><br/>    <h2 id="output">Output</h2> 
+    <h3 id="outenc">Encoding</h3> <br/>    Outputs only TODO reference : http://www.faqs.org/rfcs/rfc3629.html
     encoded documents (even if you use the functor).  Strings given to
     output functions <b>must be</b> UTF-8 encoded (unless you use the
     functor, but you need to provide a translation), no checks are
-    performed.  <br/><h3 id="outns">Namespaces</h3><br/><br/>    Xmlm's TODO reference : #TYPEname are
+    performed.  <h3 id="outns">Namespaces</h3><br/>    Xmlm's TODO reference : #TYPEname are
     TODO reference : http://www.w3.org/TR/xml-names11/#dt-expname.
     Expanded names are automatically converted to
     TODO reference : http://www.w3.org/TR/xml-names11/#dt-qualname by the output abstraction. There is no particular api to specify 
@@ -299,16 +299,16 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
     will <b>not</b> add any namespace declaration attribute to the
     output.  If the function returns <code class="code">None</code>, TODO reference : output will raise
     <code class="code">Invalid_argument</code>.  The default function returns always <code class="code">None</code>.
-    <br/><h3 id="outindent">Indentation</h3><br/><br/>    Output can be indented by specifying the <code class="code">indent</code> argument when an
+    <h3 id="outindent">Indentation</h3><br/>    Output can be indented by specifying the <code class="code">indent</code> argument when an
        output abstraction is created. If <code class="code">indent</code> is <code class="code">None</code> (default)
        signal output does not introduce any extra white space.  If
        <code class="code">ident</code> is <code class="code">Some c</code>, each TODO reference : signal is output on its own line
        (for empty elements <code class="code">`El_start</code> and <code class="code">`El_end</code> are collapsed on a single
        line) and nested elements are indented with <code class="code">c</code> space
        characters.
-    <br/><h3 id="oseq">Sequences of documents</h3><br/> <br/>    After a well-formed sequence of signals was output, the output
+    <h3 id="oseq">Sequences of documents</h3> <br/>    After a well-formed sequence of signals was output, the output
     abstraction can be reused to output a new well-formed sequence of
-    signals.<br/>    <br/><h3 id="outmisc">Miscellaneous</h3><br/>
+    signals.<br/>    <h3 id="outmisc">Miscellaneous</h3>
     <ul><li>Tail recursive.</li><li>No checks are peformed on the prefix and local part of output
       names to verify they are
       TODO reference : http://www.w3.org/TR/xml-names11/#NT-NCNames.
@@ -316,11 +316,11 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
       a non well-formed document because of the space character.</li><li>In attribute and character data you provide, markup 
        delimiters <code class="code">'&lt;'</code>,<code class="code">'&gt;'</code>,<code class="code">'&amp;'</code>, and <code class="code">'\&quot;'</code> are 
         automatically escaped to 
-        TODO reference : http://www.w3.org/TR/REC-xml/#sec-predefined-ent.</li><li>Output on a channel does not flush it.</li></ul><br/>    <br/><h2 id="2_TITLE">Tips</h2><br/> 
+        TODO reference : http://www.w3.org/TR/REC-xml/#sec-predefined-ent.</li><li>Output on a channel does not flush it.</li></ul><br/>    <h2 id="2_TITLE">Tips</h2> 
     <ul><li>Complete whitespace control on output is achieved 
        with <code class="code">indent = None</code> and suitable <code class="code">`Data</code> signals</li><li>The best options to do an input/output round trip
        and preserve as much information as possible is to 
-       input with <code class="code">strip = false</code> and output with <code class="code">indent = None</code>.</li></ul><br/>    <br/><h1 id="ex">Examples</h1><br/> <br/>    <br/><h2 id="exseq">Sequential processing</h2><br/>    <br/>    Sequential processing has the advantage that you don't need to get
+       input with <code class="code">strip = false</code> and output with <code class="code">indent = None</code>.</li></ul><br/>    <h1 id="ex">Examples</h1> <br/>    <h2 id="exseq">Sequential processing</h2>    <br/>    Sequential processing has the advantage that you don't need to get
     the whole document tree in memory to process it.<br/>    The following function reads a <em>single</em> document on an
     input channel and outputs it.
 <pre class="codepre"><code class="code">let id ic oc = 
@@ -369,7 +369,7 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
     process i o 0;
     if Xmlm.eoi i then () else docs i o
   in
-  docs i o</code></pre><br/>    <br/><h2 id="extree">Tree processing</h2><br/> <br/>    A document's sequence of signals can be easily converted
+  docs i o</code></pre><br/>    <h2 id="extree">Tree processing</h2> <br/>    A document's sequence of signals can be easily converted
     to an arborescent data structure. Assume your trees are defined by :
     <pre class="codepre"><code class="code">type tree = E of Xmlm.tag * tree list | D of string</code></pre>
     The following functions input/output xml documents from/to abstractions 
@@ -384,7 +384,7 @@ let out_tree o t =
   | E (tag, childs) -&gt; `El (tag, childs) 
   | D d -&gt; `Data d 
   in
-  Xmlm.output_doc_tree frag o t</code></pre> <br/>    <br/><h2 id="exrow">Tabular data processing</h2><br/><br/>    We show how to process XML data that represents tabular data (some
+  Xmlm.output_doc_tree frag o t</code></pre> <br/>    <h2 id="exrow">Tabular data processing</h2><br/>    We show how to process XML data that represents tabular data (some
     people like do that).<br/>    The file we need to deal with represents nominal data about
     TODO reference : http://www.w3.org/. There are no namespaces
     and attributes are ignored. The element structure of the document

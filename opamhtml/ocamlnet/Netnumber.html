@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">Binary encodings of numbers</div>
 <div class="info"><div class="info">This is the successor of the TODO reference : Rtypes module</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Numeric types</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Numeric types</h2></div></div>
 <pre><span class="TYPEint4"><span class="keyword">type</span> int4</span> </pre><div class="info"><div class="info">32 bit signed integer</div></div>
 <pre><span class="TYPEint8"><span class="keyword">type</span> int8</span> </pre><div class="info"><div class="info">64 bit signed integer</div></div>
 <pre><span class="TYPEuint4"><span class="keyword">type</span> uint4</span> </pre><div class="info"><div class="info">32 bit unsigned integer</div></div>
@@ -9,7 +9,7 @@
 <pre><span class="TYPEfp8"><span class="keyword">type</span> fp8</span> </pre><div class="info"><div class="info">double precision float (IEEE &quot;double&quot;)</div></div>
 <pre><span class="EXCEPTIONCannot_represent"><span class="keyword">exception</span> Cannot_represent</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">raised if a conversion can't be done</div></div>
 <pre><span class="EXCEPTIONOut_of_range"><span class="keyword">exception</span> Out_of_range</span></pre><div class="info"><div class="info">raised if string position out of range</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Basic encoding/decoding functions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Basic encoding/decoding functions</h2></div></div>
 <pre><span class="VALmk_int4"><span class="keyword">val</span> mk_int4</span> : <code class="type">char * char * char * char -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=int4">int4</a></code></pre>
 <pre><span class="VALmk_int8"><span class="keyword">val</span> mk_int8</span> : <code class="type">char * char * char * char * char * char * char * char -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=int8">int8</a></code></pre>
 <pre><span class="VALmk_uint4"><span class="keyword">val</span> mk_uint4</span> : <code class="type">char * char * char * char -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint4">uint4</a></code></pre>
@@ -24,7 +24,7 @@
 <pre><span class="VALmk_fp8"><span class="keyword">val</span> mk_fp8</span> : <code class="type">char * char * char * char * char * char * char * char -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=fp8">fp8</a></code></pre>
 <pre><span class="VALdest_fp4"><span class="keyword">val</span> dest_fp4</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=fp4">fp4</a> -&gt; char * char * char * char</code></pre>
 <pre><span class="VALdest_fp8"><span class="keyword">val</span> dest_fp8</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=fp8">fp8</a> -&gt; char * char * char * char * char * char * char * char</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Conversions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Conversions</h2></div></div>
 <div class="info"><div class="info">Conversions from int to (u)int and vice versa.
  On 32-bit computers, the type <code class="code">int</code> can hold 31-bit signed integers
  (including the sign, i.e. one bit cannot be used).
@@ -71,7 +71,7 @@
 <pre><span class="VALfloat_of_fp8"><span class="keyword">val</span> float_of_fp8</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=fp8">fp8</a> -&gt; float</code></pre>
 <pre><span class="VALfp4_of_float"><span class="keyword">val</span> fp4_of_float</span> : <code class="type">float -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=fp4">fp4</a></code></pre>
 <pre><span class="VALfp8_of_float"><span class="keyword">val</span> fp8_of_float</span> : <code class="type">float -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=fp8">fp8</a></code></pre><div class="info"><div class="info">Note fp4_of_float: The same problems as in fp4_of_fp8 may arise</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Comparisons</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Comparisons</h2></div></div>
 <div class="info"><div class="info">The comparisons &quot;=&quot; and &quot;&lt;&gt;&quot; work for all numbers.<br/>    For signed integers, the operators &quot;&lt;&quot;, &quot;&lt;=&quot;, &quot;&gt;&quot;, and &quot;&gt;=&quot; work, too.
     The unsigned integer type use representation that are not compatible
     with these operators, and the following functions need to be called.<br/>    For <code class="code">fp4</code> and <code class="code">fp8</code> there are no comparison functions - convert to
@@ -86,7 +86,7 @@
 <pre><span class="VALle_uint8"><span class="keyword">val</span> le_uint8</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint8">uint8</a> -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint8">uint8</a> -&gt; bool</code></pre>
 <pre><span class="VALgt_uint8"><span class="keyword">val</span> gt_uint8</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint8">uint8</a> -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint8">uint8</a> -&gt; bool</code></pre>
 <pre><span class="VALge_uint8"><span class="keyword">val</span> ge_uint8</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint8">uint8</a> -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint8">uint8</a> -&gt; bool</code></pre><div class="info"><div class="info">Other comparisons</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Minimum/maximum values</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Minimum/maximum values</h2></div></div>
 <pre><span class="VALmin_int4"><span class="keyword">val</span> min_int4</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=int4">int4</a></code></pre>
 <pre><span class="VALmin_uint4"><span class="keyword">val</span> min_uint4</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint4">uint4</a></code></pre>
 <pre><span class="VALmin_int8"><span class="keyword">val</span> min_int8</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=int8">int8</a></code></pre>

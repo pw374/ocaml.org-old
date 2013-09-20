@@ -321,7 +321,7 @@ store:(<a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_state">ftp_
 
 <pre><span class="METHODreset"><span class="keyword">method</span> reset</span> : <code class="code">unit -&gt; unit</code></pre>
 <div class="info"><div class="info">Aborts all current activities if any, and re-initializes the client</div></div></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Examples and Discussion</h2><br/><br/> To download a single flat file from a server:<br/> <pre class="codepre"><code class="code"> 
+<div class="info"><div class="info"><h2 id="2_TITLE">Examples and Discussion</h2><br/> To download a single flat file from a server:<br/> <pre class="codepre"><code class="code"> 
    let buffer = Buffer.create 1000 in
    let ch = new Netchannels.output_buffer buffer in
    let client = new ftp_client() in
@@ -355,7 +355,7 @@ store:(<a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_state">ftp_
  </code></pre><br/> The class <code class="code">data_converter</code> also performs the transformation of the 
  end-of-line convention, unlike the similar class
  <code class="code">Netconversion.conversion_pipe</code>.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Debugging</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Ftp_client.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div></div></div>
 </div>

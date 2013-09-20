@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">Functions for making encrypted communications using the Secure Socket Layer
     (SSL). These are mostly bindings to the openssl library.<div class="authors"><b>Author(s): </b><span class="author">Samuel Mimram</span></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Exceptions and errors</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Exceptions and errors</h1></div></div>
 <pre><code><span class="TYPEssl_error"><span class="keyword">type</span> ssl_error</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTssl_error.Error_none"><span class="constructor">Error_none</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">No error happened. This is never raised and should disappear in future
       versions.</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTssl_error.Error_ssl"><span class="constructor">Error_ssl</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTssl_error.Error_want_read"><span class="constructor">Error_want_read</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">The operation did not complete; the same TLS/SSL I/O function should be
@@ -50,7 +50,7 @@
       identifier of the current certificate.</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTverify_error.Error_v_keyusage_no_certsign"><span class="constructor">Error_v_keyusage_no_certsign</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">The current candidate issuer certificate was rejected because its keyUsage
       extension does not permit certificate signing.</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTverify_error.Error_v_application_verification"><span class="constructor">Error_v_application_verification</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">An application specific error. Unused.</div></td></tr></table><div class="info"><div class="info">Why did the certificate verification fail?</div></div>
 <pre><span class="EXCEPTIONVerify_error"><span class="keyword">exception</span> Verify_error</span> <span class="keyword">of</span> <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=verify_error">verify_error</a></code></pre><div class="info"><div class="info">An error occured while verifying the certificate.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Communication</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Communication</h1></div></div>
 <pre><span class="VALinit"><span class="keyword">val</span> init</span> : <code class="type">?thread_safe:bool -&gt; unit -&gt; unit</code></pre><div class="info"><div class="info">Initialize SSL functions. Should be called before calling any other
     function. The parameter <code class="code">thread_safe</code> should be set to true if you use
     threads in you application (the same effect can achived by calling
@@ -60,12 +60,12 @@
 <pre><code><span class="TYPEprotocol"><span class="keyword">type</span> protocol</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTprotocol.SSLv23"><span class="constructor">SSLv23</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">SSL v3 protocol but can rollback to v2</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTprotocol.SSLv3"><span class="constructor">SSLv3</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">SSL v3 protocol</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTprotocol.TLSv1"><span class="constructor">TLSv1</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">TLS v1 protocol</div></td></tr></table><div class="info"><div class="info">Protocol used by SSL.</div></div>
 <pre><span class="TYPEsocket"><span class="keyword">type</span> socket</span> </pre><div class="info"><div class="info">An SSL abstract socket.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Threads</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Threads</h2></div></div>
 <div class="info"><div class="info">You should not have to use those functions. They are only here for internal
     use (they are needed to make the openssl library thread-safe, see the
     <code class="code">Ssl_threads</code> module).</div></div>
 <pre><span class="VALthread_safe"><span class="keyword">val</span> thread_safe</span> : <code class="type">bool Pervasives.ref</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Contexts</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Contexts</h2></div></div>
 <pre><span class="TYPEcontext"><span class="keyword">type</span> context</span> </pre><div class="info"><div class="info">A context. A context should be created by a server or client once per
     program life-time and holds mainly default values for the SSL structures
     which are later created for the connections.</div></div>
@@ -86,7 +86,7 @@
 <pre><span class="VALset_verify"><span class="keyword">val</span> set_verify</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=context">context</a> -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=verify_mode">verify_mode</a> list -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=verify_callback">verify_callback</a> option -&gt; unit</code></pre><div class="info"><div class="info">Set the verify mode and callback, see SSL_CTX_set_verify(3).
  Warning: this might change in the future.</div></div>
 <pre><span class="VALset_verify_depth"><span class="keyword">val</span> set_verify_depth</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=context">context</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Set the maximum depth for the certificate chain verification that shall be allowed.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Ciphers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Ciphers</h2></div></div>
 <pre><span class="TYPEcipher"><span class="keyword">type</span> cipher</span> </pre><div class="info"><div class="info">A cipher. It holds the algorithm information for a particular cipher which
  are a core part of the SSL/TLS protocol.</div></div>
 <pre><span class="VALset_cipher_list"><span class="keyword">val</span> set_cipher_list</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=context">context</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Set the list of available ciphers for a context. See man ciphers(1) for the format of the string.</div></div>
@@ -94,7 +94,7 @@
 <pre><span class="VALget_cipher_description"><span class="keyword">val</span> get_cipher_description</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=cipher">cipher</a> -&gt; string</code></pre><div class="info"><div class="info">Get a description of a cipher.</div></div>
 <pre><span class="VALget_cipher_name"><span class="keyword">val</span> get_cipher_name</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=cipher">cipher</a> -&gt; string</code></pre><div class="info"><div class="info">Get the name of a cipher.</div></div>
 <pre><span class="VALget_cipher_version"><span class="keyword">val</span> get_cipher_version</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=cipher">cipher</a> -&gt; string</code></pre><div class="info"><div class="info">Get the version of a cipher.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Certificates</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Certificates</h2></div></div>
 <pre><span class="TYPEcertificate"><span class="keyword">type</span> certificate</span> </pre><div class="info"><div class="info">A certificate.</div></div>
 <pre><span class="VALread_certificate"><span class="keyword">val</span> read_certificate</span> : <code class="type">string -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=certificate">certificate</a></code></pre><div class="info"><div class="info"><code class="code">read_certificate fname</code> reads the certificate in the file <code class="code">fname</code>.</div></div>
 <pre><span class="VALwrite_certificate"><span class="keyword">val</span> write_certificate</span> : <code class="type">string -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=certificate">certificate</a> -&gt; unit</code></pre>
@@ -109,7 +109,7 @@
     parameters (but not both).<b>Raises</b> <code>Invalid_argument</code> if both strings are empty or if one of the files
     given in arguments could not be found.<br/></div></div>
 <pre><span class="VALget_verify_result"><span class="keyword">val</span> get_verify_result</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; int</code></pre><div class="info"><div class="info">Get the verification result.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Creating, connecting and closing sockets</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Creating, connecting and closing sockets</h2></div></div>
 <pre><span class="VALembed_socket"><span class="keyword">val</span> embed_socket</span> : <code class="type">Unix.file_descr -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=context">context</a> -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a></code></pre><div class="info"><div class="info">Embed a Unix socket into an SSL socket.</div></div>
 <pre><span class="VALopen_connection"><span class="keyword">val</span> open_connection</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=protocol">protocol</a> -&gt; Unix.sockaddr -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a></code></pre><div class="info"><div class="info">Open an SSL connection.</div></div>
 <pre><span class="VALopen_connection_with_context"><span class="keyword">val</span> open_connection_with_context</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=context">context</a> -&gt; Unix.sockaddr -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a></code></pre><div class="info"><div class="info">Open an SSL connection with the specified context.</div></div>
@@ -118,14 +118,14 @@
 <pre><span class="VALaccept"><span class="keyword">val</span> accept</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; unit</code></pre><div class="info"><div class="info">Accept an SSL connection.</div></div>
 <pre><span class="VALflush"><span class="keyword">val</span> flush</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; unit</code></pre><div class="info"><div class="info">Flush an SSL connection.</div></div>
 <pre><span class="VALshutdown"><span class="keyword">val</span> shutdown</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; unit</code></pre><div class="info"><div class="info">Close an SSL connection.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">I/O on SSL sockets</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">I/O on SSL sockets</h2></div></div>
 <pre><span class="VALverify"><span class="keyword">val</span> verify</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; unit</code></pre><div class="info"><div class="info">Check the result of the verification of the X509 certificate presented by
     the peer, if any. Raises a <code class="code">verify_error</code> on failure.</div></div>
 <pre><span class="VALfile_descr_of_socket"><span class="keyword">val</span> file_descr_of_socket</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; Unix.file_descr</code></pre><div class="info"><div class="info">Get the file descriptor associated with a socket. It is primarly useful for
     <code class="code">select</code>ing on it; you should not write or read on it.</div></div>
 <pre><span class="VALread"><span class="keyword">val</span> read</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">read sock buf off len</code> receives data from a connected SSL socket.</div></div>
 <pre><span class="VALwrite"><span class="keyword">val</span> write</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">write sock buf off len</code> sends data over a connected SSL socket.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">High-level communication functions</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">High-level communication functions</h3></div></div>
 <pre><span class="VALinput_string"><span class="keyword">val</span> input_string</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; string</code></pre><div class="info"><div class="info">Input a string on an SSL socket.</div></div>
 <pre><span class="VALoutput_string"><span class="keyword">val</span> output_string</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Write a string on an SSL socket.</div></div>
 <pre><span class="VALinput_char"><span class="keyword">val</span> input_char</span> : <code class="type"><a href="?package=ssl&amp;module=Ssl&amp;type=socket">socket</a> -&gt; char</code></pre><div class="info"><div class="info">Input a character on an SSL socket.</div></div>

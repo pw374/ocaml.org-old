@@ -10,7 +10,7 @@
    but are undocumented and meant to be used by generated OCaml code.</li><li>Distinguishing between ints and floats.</li><li>Providing optional extensions of the JSON syntax.
    These extensions include comments, arbitrary strings,
    optional quotes around field names, tuples and variants.</li></ul><div class="authors"><b>Author(s): </b><span class="author">Martin Jambon</span></div><div class="see"><b>See also</b> <ul>  <li> <a href="http://json.org">JSON specification</a></li></ul></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Shared types and functions</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Shared types and functions</h1></div></div>
 <pre><span class="VALversion"><span class="keyword">val</span> version</span> : <code class="type">string</code></pre>
 <pre><span class="EXCEPTIONJson_error"><span class="keyword">exception</span> Json_error</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 <pre><span class="VALjson_error"><span class="keyword">val</span> json_error</span> : <code class="type">string -&gt; 'a</code></pre>
@@ -25,13 +25,13 @@
 <pre><span class="EXCEPTIONEnd_of_object"><span class="keyword">exception</span> End_of_object</span></pre>
 <pre><span class="EXCEPTIONEnd_of_tuple"><span class="keyword">exception</span> End_of_tuple</span></pre>
 <pre><span class="EXCEPTIONEnd_of_input"><span class="keyword">exception</span> End_of_input</span></pre>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Basic JSON tree type</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Basic JSON tree type</h1></div></div>
 <div class="ocaml_module sig" name="Basic"><pre><span class="keyword">module</span> <a href="?package=yojson&amp;module=Yojson.Basic">Basic</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">This module supports standard JSON nodes only, i.e. no special syntax
    for variants or tuples as supported by TODO reference : Yojson.Safe.
    Arbitrary integers are not supported as they must all fit within the
    standard OCaml int type (31 or 63 bits depending on the platform).<br/>   The main advantage of this module is its simplicity.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Type of the JSON tree</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Type of the JSON tree</h3></div></div>
 <pre><span class="TYPEjson"><span class="keyword">type</span> json</span> = <code class="type">[ `Assoc of (string * <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a>) list
 | `Bool of bool
 | `Float of float
@@ -46,7 +46,7 @@
 	    Syntax: <code class="code">(&quot;abc&quot;, 123)</code>.</li><li>`Variant of (string * json option): Variant (non-standard extension of JSON).
 	    Syntax: <code class="code">&lt;&quot;Foo&quot;&gt;</code> or <code class="code">&lt;&quot;Bar&quot;:123&gt;</code>.
 </li></ul></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON writers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON writers</h2></div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">?buf:<a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; ?len:int -&gt; ?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; string</code></pre><div class="info"><div class="info">Write a compact JSON value to a string.<div class="parameters"><div class="param_info"><code class="code">buf</code> : allows to reuse an existing buffer created with 
       <code class="code">Bi_outbuf.create</code>. The buffer is cleared of all contents
       before starting and right before returning.</div><div class="param_info"><code class="code">len</code> : initial length of the output buffer.</div><div class="param_info"><code class="code">std</code> : use only standard JSON syntax,
@@ -84,7 +84,7 @@
 <pre><span class="VALstream_to_outbuf"><span class="keyword">val</span> stream_to_outbuf</span> : <code class="type">?std:bool -&gt; <a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> Stream.t -&gt; unit</code></pre><div class="info"><div class="info">Write a newline-separated sequence of compact one-line JSON values to
       an existing buffer.
       See <code class="code">to_string</code> for the role of the optional arguments.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Miscellaneous</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Miscellaneous</h2></div></div>
 <pre><span class="VALsort"><span class="keyword">val</span> sort</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a></code></pre><div class="info"><div class="info">Sort object fields (stable sort, comparing field names
       and treating them as byte sequences)</div></div>
 <pre><span class="VALwrite_null"><span class="keyword">val</span> write_null</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; unit -&gt; unit</code></pre>
@@ -101,7 +101,7 @@
 <pre><span class="VALwrite_list"><span class="keyword">val</span> write_list</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> list -&gt; unit</code></pre>
 <pre><span class="VALwrite_json"><span class="keyword">val</span> write_json</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; unit</code></pre>
 <pre><span class="VALwrite_std_json"><span class="keyword">val</span> write_std_json</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; unit</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON pretty-printing</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON pretty-printing</h2></div></div>
 <pre><span class="VALpretty_format"><span class="keyword">val</span> pretty_format</span> : <code class="type">?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; <a href="?package=easy-format&amp;module=Easy_format&amp;type=t">Easy_format.t</a></code></pre><div class="info"><div class="info">Convert into a pretty-printable tree.
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.<div class="see"><b>See also</b> <ul>  <li> <a href="http://martin.jambon.free.fr/easy-format.html">Easy-format</a></li></ul></div></div></div>
 <pre><span class="VALpretty_to_string"><span class="keyword">val</span> pretty_to_string</span> : <code class="type">?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; string</code></pre><div class="info"><div class="info">Pretty-print into a string.
@@ -112,7 +112,7 @@
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.</div></div>
 <pre><span class="VALcompact"><span class="keyword">val</span> compact</span> : <code class="type">?std:bool -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Combined parser and printer.
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON readers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON readers</h2></div></div>
 <pre><span class="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">?buf:<a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; ?fname:string -&gt; ?lnum:int -&gt; string -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a></code></pre><div class="info"><div class="info">Read a JSON value from a string.<div class="parameters"><div class="param_info"><code class="code">buf</code> : use this buffer at will during parsing instead of creating
       a new one.</div><div class="param_info"><code class="code">fname</code> : data file name to be used in error messages. It does
       not have to be a real file.</div><div class="param_info"><code class="code">lnum</code> : number of the first line of input. Default is 1.</div></div></div></div>
@@ -307,7 +307,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALconvert_each"><span class="keyword">val</span> convert_each</span> : <code class="type">(<a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; 'a) -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; 'a list</code></pre><div class="info"><div class="info">The conversion functions above cannot be used with <code class="code">map</code>, because they do
       not return JSON values. This convenience function <code class="code">convert_each to_f arr</code>
       is equivalent to <code class="code">List.map to_f (to_list arr)</code>.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Exception-free filters</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Exception-free filters</h3></div></div>
 <div class="info"><div class="info">The following functions operate on lists of JSON nodes.
    None of them raises an exception when a certain kind of node is expected
    but no node or the wrong kind of node is found.
@@ -329,14 +329,14 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALfilter_number"><span class="keyword">val</span> filter_number</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> list -&gt; float list</code></pre><div class="info"><div class="info">Expects JSON numbers (<code class="code">`Int</code> or <code class="code">`Float</code>) and unwraps them.
       Ints are converted to floats.</div></div>
 <pre><span class="VALfilter_string"><span class="keyword">val</span> filter_string</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> list -&gt; string list</code></pre><div class="info"><div class="info">Expects JSON strings and unwraps them.</div></div></div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Multipurpose JSON tree type</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Multipurpose JSON tree type</h1></div></div>
 <div class="ocaml_module sig" name="Safe"><pre><span class="keyword">module</span> <a href="?package=yojson&amp;module=Yojson.Safe">Safe</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">This module supports a specific syntax for variants and tuples
    in addition to the standard JSON nodes.
    Arbitrary integers are supported and represented as a decimal string 
    using <code class="code">`Intlit</code> when they cannot be represented using OCaml's int type.<br/>   This module is recommended for intensive use 
    or OCaml-friendly use of JSON.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Type of the JSON tree</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Type of the JSON tree</h3></div></div>
 <pre><span class="TYPEjson"><span class="keyword">type</span> json</span> = <code class="type">[ `Assoc of (string * <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a>) list
 | `Bool of bool
 | `Float of float
@@ -362,7 +362,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 `Variant (&quot;A&quot;, None)            -&gt;    `String &quot;A&quot;
 `Variant (&quot;B&quot;, Some x)          -&gt;    `List [ `String &quot;B&quot;, x ]
 `Intlit &quot;12345678901234567890&quot;  -&gt;    `String &quot;12345678901234567890&quot;</span></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON writers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON writers</h2></div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">?buf:<a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; ?len:int -&gt; ?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a> -&gt; string</code></pre><div class="info"><div class="info">Write a compact JSON value to a string.<div class="parameters"><div class="param_info"><code class="code">buf</code> : allows to reuse an existing buffer created with 
       <code class="code">Bi_outbuf.create</code>. The buffer is cleared of all contents
       before starting and right before returning.</div><div class="param_info"><code class="code">len</code> : initial length of the output buffer.</div><div class="param_info"><code class="code">std</code> : use only standard JSON syntax,
@@ -400,7 +400,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALstream_to_outbuf"><span class="keyword">val</span> stream_to_outbuf</span> : <code class="type">?std:bool -&gt; <a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a> Stream.t -&gt; unit</code></pre><div class="info"><div class="info">Write a newline-separated sequence of compact one-line JSON values to
       an existing buffer.
       See <code class="code">to_string</code> for the role of the optional arguments.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Miscellaneous</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Miscellaneous</h2></div></div>
 <pre><span class="VALsort"><span class="keyword">val</span> sort</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a></code></pre><div class="info"><div class="info">Sort object fields (stable sort, comparing field names
       and treating them as byte sequences)</div></div>
 <pre><span class="VALwrite_null"><span class="keyword">val</span> write_null</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; unit -&gt; unit</code></pre>
@@ -422,7 +422,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALwrite_std_variant"><span class="keyword">val</span> write_std_variant</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; string -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a> option -&gt; unit</code></pre>
 <pre><span class="VALwrite_json"><span class="keyword">val</span> write_json</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a> -&gt; unit</code></pre>
 <pre><span class="VALwrite_std_json"><span class="keyword">val</span> write_std_json</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a> -&gt; unit</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON pretty-printing</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON pretty-printing</h2></div></div>
 <pre><span class="VALpretty_format"><span class="keyword">val</span> pretty_format</span> : <code class="type">?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a> -&gt; <a href="?package=easy-format&amp;module=Easy_format&amp;type=t">Easy_format.t</a></code></pre><div class="info"><div class="info">Convert into a pretty-printable tree.
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.<div class="see"><b>See also</b> <ul>  <li> <a href="http://martin.jambon.free.fr/easy-format.html">Easy-format</a></li></ul></div></div></div>
 <pre><span class="VALpretty_to_string"><span class="keyword">val</span> pretty_to_string</span> : <code class="type">?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a> -&gt; string</code></pre><div class="info"><div class="info">Pretty-print into a string.
@@ -433,7 +433,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.</div></div>
 <pre><span class="VALcompact"><span class="keyword">val</span> compact</span> : <code class="type">?std:bool -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Combined parser and printer.
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON readers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON readers</h2></div></div>
 <pre><span class="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">?buf:<a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; ?fname:string -&gt; ?lnum:int -&gt; string -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a></code></pre><div class="info"><div class="info">Read a JSON value from a string.<div class="parameters"><div class="param_info"><code class="code">buf</code> : use this buffer at will during parsing instead of creating
       a new one.</div><div class="param_info"><code class="code">fname</code> : data file name to be used in error messages. It does
       not have to be a real file.</div><div class="param_info"><code class="code">lnum</code> : number of the first line of input. Default is 1.</div></div></div></div>
@@ -537,13 +537,13 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALread_colon"><span class="keyword">val</span> read_colon</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Safe&amp;type=lexer_state">lexer_state</a> -&gt; Lexing.lexbuf -&gt; unit</code></pre>
 <pre><span class="VALread_json"><span class="keyword">val</span> read_json</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Safe&amp;type=lexer_state">lexer_state</a> -&gt; Lexing.lexbuf -&gt; <a href="?package=yojson&amp;module=Yojson.Safe&amp;type=json">json</a></code></pre>
 <pre><span class="VALskip_json"><span class="keyword">val</span> skip_json</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Safe&amp;type=lexer_state">lexer_state</a> -&gt; Lexing.lexbuf -&gt; unit</code></pre></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">JSON tree type with literal int/float/string leaves</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">JSON tree type with literal int/float/string leaves</h1></div></div>
 <div class="ocaml_module sig" name="Raw"><pre><span class="keyword">module</span> <a href="?package=yojson&amp;module=Yojson.Raw">Raw</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">Ints, floats and strings literals are systematically preserved using
    <code class="code">`Intlit</code>, <code class="code">`Floatlit</code> and <code class="code">`Stringlit</code>.
    This module also supports the specific syntax for variants and tuples
    supported by TODO reference : Yojson.Safe.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Type of the JSON tree</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Type of the JSON tree</h3></div></div>
 <pre><span class="TYPEjson"><span class="keyword">type</span> json</span> = <code class="type">[ `Assoc of (string * <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a>) list
 | `Bool of bool
 | `Floatlit of string
@@ -560,7 +560,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 	    Syntax: <code class="code">(&quot;abc&quot;, 123)</code>.</li><li>`Variant of (string * json option): Variant (non-standard extension of JSON).
 	    Syntax: <code class="code">&lt;&quot;Foo&quot;&gt;</code> or <code class="code">&lt;&quot;Bar&quot;:123&gt;</code>.
 </li></ul></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON writers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON writers</h2></div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">?buf:<a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; ?len:int -&gt; ?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a> -&gt; string</code></pre><div class="info"><div class="info">Write a compact JSON value to a string.<div class="parameters"><div class="param_info"><code class="code">buf</code> : allows to reuse an existing buffer created with 
       <code class="code">Bi_outbuf.create</code>. The buffer is cleared of all contents
       before starting and right before returning.</div><div class="param_info"><code class="code">len</code> : initial length of the output buffer.</div><div class="param_info"><code class="code">std</code> : use only standard JSON syntax,
@@ -598,7 +598,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALstream_to_outbuf"><span class="keyword">val</span> stream_to_outbuf</span> : <code class="type">?std:bool -&gt; <a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a> Stream.t -&gt; unit</code></pre><div class="info"><div class="info">Write a newline-separated sequence of compact one-line JSON values to
       an existing buffer.
       See <code class="code">to_string</code> for the role of the optional arguments.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Miscellaneous</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Miscellaneous</h2></div></div>
 <pre><span class="VALsort"><span class="keyword">val</span> sort</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a></code></pre><div class="info"><div class="info">Sort object fields (stable sort, comparing field names
       and treating them as byte sequences)</div></div>
 <pre><span class="VALwrite_null"><span class="keyword">val</span> write_null</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; unit -&gt; unit</code></pre>
@@ -614,7 +614,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALwrite_std_variant"><span class="keyword">val</span> write_std_variant</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; string -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a> option -&gt; unit</code></pre>
 <pre><span class="VALwrite_json"><span class="keyword">val</span> write_json</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a> -&gt; unit</code></pre>
 <pre><span class="VALwrite_std_json"><span class="keyword">val</span> write_std_json</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a> -&gt; unit</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON pretty-printing</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON pretty-printing</h2></div></div>
 <pre><span class="VALpretty_format"><span class="keyword">val</span> pretty_format</span> : <code class="type">?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a> -&gt; <a href="?package=easy-format&amp;module=Easy_format&amp;type=t">Easy_format.t</a></code></pre><div class="info"><div class="info">Convert into a pretty-printable tree.
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.<div class="see"><b>See also</b> <ul>  <li> <a href="http://martin.jambon.free.fr/easy-format.html">Easy-format</a></li></ul></div></div></div>
 <pre><span class="VALpretty_to_string"><span class="keyword">val</span> pretty_to_string</span> : <code class="type">?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a> -&gt; string</code></pre><div class="info"><div class="info">Pretty-print into a string.
@@ -625,7 +625,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.</div></div>
 <pre><span class="VALcompact"><span class="keyword">val</span> compact</span> : <code class="type">?std:bool -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Combined parser and printer.
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON readers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON readers</h2></div></div>
 <pre><span class="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">?buf:<a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; ?fname:string -&gt; ?lnum:int -&gt; string -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a></code></pre><div class="info"><div class="info">Read a JSON value from a string.<div class="parameters"><div class="param_info"><code class="code">buf</code> : use this buffer at will during parsing instead of creating
       a new one.</div><div class="param_info"><code class="code">fname</code> : data file name to be used in error messages. It does
       not have to be a real file.</div><div class="param_info"><code class="code">lnum</code> : number of the first line of input. Default is 1.</div></div></div></div>
@@ -729,8 +729,8 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALread_colon"><span class="keyword">val</span> read_colon</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Raw&amp;type=lexer_state">lexer_state</a> -&gt; Lexing.lexbuf -&gt; unit</code></pre>
 <pre><span class="VALread_json"><span class="keyword">val</span> read_json</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Raw&amp;type=lexer_state">lexer_state</a> -&gt; Lexing.lexbuf -&gt; <a href="?package=yojson&amp;module=Yojson.Raw&amp;type=json">json</a></code></pre>
 <pre><span class="VALskip_json"><span class="keyword">val</span> skip_json</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson.Raw&amp;type=lexer_state">lexer_state</a> -&gt; Lexing.lexbuf -&gt; unit</code></pre></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Supertype of all JSON tree types</h1><br/></div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Type of the JSON tree</h3><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Supertype of all JSON tree types</h1></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Type of the JSON tree</h3></div></div>
 <pre><span class="TYPEjson"><span class="keyword">type</span> json</span> = <code class="type">[ `Assoc of (string * <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a>) list
 | `Bool of bool
 | `Float of float
@@ -750,7 +750,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 	    Syntax: <code class="code">(&quot;abc&quot;, 123)</code>.</li><li>`Variant of (string * json option): Variant (non-standard extension of JSON).
 	    Syntax: <code class="code">&lt;&quot;Foo&quot;&gt;</code> or <code class="code">&lt;&quot;Bar&quot;:123&gt;</code>.
 </li></ul></div></div>
-<pre><span class="TYPEjson_max"><span class="keyword">type</span> json_max</span> = <code class="type"><a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a></code></pre><div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON writers</h2><br/></div></div>
+<pre><span class="TYPEjson_max"><span class="keyword">type</span> json_max</span> = <code class="type"><a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a></code></pre><div class="info"><div class="info"><h2 id="2_TITLE">JSON writers</h2></div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">?buf:<a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; ?len:int -&gt; ?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a> -&gt; string</code></pre><div class="info"><div class="info">Write a compact JSON value to a string.<div class="parameters"><div class="param_info"><code class="code">buf</code> : allows to reuse an existing buffer created with 
       <code class="code">Bi_outbuf.create</code>. The buffer is cleared of all contents
       before starting and right before returning.</div><div class="param_info"><code class="code">len</code> : initial length of the output buffer.</div><div class="param_info"><code class="code">std</code> : use only standard JSON syntax,
@@ -788,7 +788,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALstream_to_outbuf"><span class="keyword">val</span> stream_to_outbuf</span> : <code class="type">?std:bool -&gt; <a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a> Stream.t -&gt; unit</code></pre><div class="info"><div class="info">Write a newline-separated sequence of compact one-line JSON values to
       an existing buffer.
       See <code class="code">to_string</code> for the role of the optional arguments.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Miscellaneous</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Miscellaneous</h2></div></div>
 <pre><span class="VALsort"><span class="keyword">val</span> sort</span> : <code class="type"><a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a> -&gt; <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a></code></pre><div class="info"><div class="info">Sort object fields (stable sort, comparing field names
       and treating them as byte sequences)</div></div>
 <pre><span class="VALwrite_null"><span class="keyword">val</span> write_null</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; unit -&gt; unit</code></pre>
@@ -812,7 +812,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="VALwrite_std_variant"><span class="keyword">val</span> write_std_variant</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; string -&gt; <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a> option -&gt; unit</code></pre>
 <pre><span class="VALwrite_json"><span class="keyword">val</span> write_json</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a> -&gt; unit</code></pre>
 <pre><span class="VALwrite_std_json"><span class="keyword">val</span> write_std_json</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a> -&gt; unit</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">JSON pretty-printing</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">JSON pretty-printing</h2></div></div>
 <pre><span class="VALpretty_format"><span class="keyword">val</span> pretty_format</span> : <code class="type">?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a> -&gt; <a href="?package=easy-format&amp;module=Easy_format&amp;type=t">Easy_format.t</a></code></pre><div class="info"><div class="info">Convert into a pretty-printable tree.
       See <code class="code">to_string</code> for the role of the optional <code class="code">std</code> argument.<div class="see"><b>See also</b> <ul>  <li> <a href="http://martin.jambon.free.fr/easy-format.html">Easy-format</a></li></ul></div></div></div>
 <pre><span class="VALpretty_to_string"><span class="keyword">val</span> pretty_to_string</span> : <code class="type">?std:bool -&gt; <a href="?package=yojson&amp;module=Yojson&amp;type=json">json</a> -&gt; string</code></pre><div class="info"><div class="info">Pretty-print into a string.

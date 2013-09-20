@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">Terminal definitions</div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">Type of terminals.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Creation</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Creation</h6></div></div>
 <pre><span class="EXCEPTIONNo_such_encoding"><span class="keyword">exception</span> No_such_encoding</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">Exception raised when an encoding does not exist.</div></div>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?windows:bool -&gt;
 ?model:string -&gt;
@@ -29,7 +29,7 @@
       write somewhere in your program:<br/>      <pre class="codepre"><code class="code">
       Lwt_engine.on_timer 1.0 true ignore
       </code></pre></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Informations</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Informations</h6></div></div>
 <pre><span class="VALmodel"><span class="keyword">val</span> model</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info">Returns the model of the terminal.</div></div>
 <pre><span class="VALcolors"><span class="keyword">val</span> colors</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Number of colors of the terminal.</div></div>
 <pre><span class="VALwindows"><span class="keyword">val</span> windows</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info">Whether the terminal is a windows console or not.</div></div>
@@ -46,7 +46,7 @@
       used on terminals.</div></div>
 <pre><span class="VALsize"><span class="keyword">val</span> size</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_geom&amp;type=size">LTerm_geom.size</a></code></pre><div class="info"><div class="info">Returns the curent size of the terminal.<br/>      It raises TODO reference : Not_a_tty if the output of the given terminal is
       not a tty.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Modes</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Modes</h6></div></div>
 <pre><span class="TYPEmode"><span class="keyword">type</span> mode</span> </pre><div class="info"><div class="info">Type of terminal modes.</div></div>
 <pre><span class="VALenter_raw_mode"><span class="keyword">val</span> enter_raw_mode</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm&amp;type=mode">mode</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">enter_raw_mode term</code> puts the terminal in ``raw mode''. In this
       mode keyboard events are returned as they happen. In normal mode
@@ -60,7 +60,7 @@
       not a tty.</div></div>
 <pre><span class="VALdisable_mouse"><span class="keyword">val</span> disable_mouse</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Disable mouse events reporting.<br/>      It raises TODO reference : Not_a_tty if the output of the given terminal is
       not a tty.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Cursor</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Cursor</h6></div></div>
 <pre><span class="VALshow_cursor"><span class="keyword">val</span> show_cursor</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Make the cursor visible.<br/>      It raises TODO reference : Not_a_tty if the output of the given terminal is
       not a tty.</div></div>
 <pre><span class="VALhide_cursor"><span class="keyword">val</span> hide_cursor</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Make the cursor invisible.<br/>      It raises TODO reference : Not_a_tty if the output of the given terminal is
@@ -70,7 +70,7 @@
 <pre><span class="VALmove"><span class="keyword">val</span> move</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; int -&gt; int -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">move term rows columns</code> moves the cursor by the given number of
       lines and columns. Both <code class="code">rows</code> and <code class="code">columns</code> may be negavite.<br/>      It raises TODO reference : Not_a_tty if the output of the given terminal is
       not a tty.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Erasing text</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Erasing text</h6></div></div>
 <pre><span class="VALclear_screen"><span class="keyword">val</span> clear_screen</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">clear_screen term</code> clears the entire screen.</div></div>
 <pre><span class="VALclear_screen_next"><span class="keyword">val</span> clear_screen_next</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">clear_screen_next term</code> clears the screen from the cursor to
       the bottom of the screen.</div></div>
@@ -81,19 +81,19 @@
       to the end of the line.</div></div>
 <pre><span class="VALclear_line_prev"><span class="keyword">val</span> clear_line_prev</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">clear_line_prev term</code> erases the current line from the cursor
       to the beginning of the line.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">State</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">State</h6></div></div>
 <pre><span class="VALsave_state"><span class="keyword">val</span> save_state</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Save the current state of the terminal so it can be restored
       latter.<br/>      It raises TODO reference : Not_a_tty if the output of the given terminal is
       not a tty.</div></div>
 <pre><span class="VALload_state"><span class="keyword">val</span> load_state</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Load the previously saved state of the terminal.<br/>      It raises TODO reference : Not_a_tty if the output of the given terminal is
       not a tty.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Events</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Events</h6></div></div>
 <pre><span class="VALread_event"><span class="keyword">val</span> read_event</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_event&amp;type=t">LTerm_event.t</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Reads and returns one event. The terminal should be in raw mode
       before calling this function, otherwise event will not be
       reported as they happen. It does not fail if the terminal is not
       a tty.<br/>      Note: you must not call TODO reference : read_event from multiple thread at
       the same time, it will raise TODO reference : Failure if you try to do so.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Printing</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Printing</h6></div></div>
 <div class="info"><div class="info">All these functions accept only valid UTF-8 strings (or unicode
     styled text). Strings are recoded on the fly using the terminal
     output encoding (except if the terminal output encoding is already
@@ -118,7 +118,7 @@
 <pre><span class="VALeprints"><span class="keyword">val</span> eprints</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_text&amp;type=t">LTerm_text.t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre>
 <pre><span class="VALeprintlf"><span class="keyword">val</span> eprintlf</span> : <code class="type">('a, unit, <a href="?package=zed&amp;module=Zed_utf8&amp;type=t">Zed_utf8.t</a>, unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) Pervasives.format4 -&gt; 'a</code></pre>
 <pre><span class="VALeprintls"><span class="keyword">val</span> eprintls</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_text&amp;type=t">LTerm_text.t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre>
-<div class="info"><div class="info"><br/><div class="h8">Printing contexts</div><br/></div></div>
+<div class="info"><div class="info"><div class="h8">Printing contexts</div></div></div>
 <div class="info"><div class="info">You shoud use these functions when you to print a lot of styled
     text that does not entirely fit in a single TODO reference : LTerm_text.t
     value.<br/>    This is more efficient than calling manually TODO reference : set_style since
@@ -136,10 +136,10 @@
       terminal encoding.</div></div>
 <pre><span class="VALencode_char"><span class="keyword">val</span> encode_char</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; <a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a> -&gt; string</code></pre><div class="info"><div class="info"><code class="code">encode_char term ch</code> encodes an unicode character using the
       terminal encoding.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Styles</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Styles</h6></div></div>
 <pre><span class="VALset_style"><span class="keyword">val</span> set_style</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_style&amp;type=t">LTerm_style.t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Change the style of the termina for subsequent unstyled
       output. It does nothing if the output is not a tty.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Rendering</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Rendering</h6></div></div>
 <pre><span class="VALrender"><span class="keyword">val</span> render</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_draw&amp;type=matrix">LTerm_draw.matrix</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Render an offscreen array to the given terminal.<br/>      It raises TODO reference : Not_a_tty if the output of the given terminal is
       not a tty.</div></div>
 <pre><span class="VALrender_update"><span class="keyword">val</span> render_update</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_draw&amp;type=matrix">LTerm_draw.matrix</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_draw&amp;type=matrix">LTerm_draw.matrix</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">render_update displayed to_display</code> does the same as <code class="code">render
@@ -163,19 +163,19 @@
       contains lines longer than the width of the terminal.<br/>      The contents of a line after the first newline character (if
       any) in a row of <code class="code">matrix</code> is ignored. The rest of the line get
       the style of the newline character.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Misc</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Misc</h6></div></div>
 <pre><span class="VALflush"><span class="keyword">val</span> flush</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Flushes the underlying output channel used by the terminal.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Well known instances</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Well known instances</h6></div></div>
 <pre><span class="VALstdout"><span class="keyword">val</span> stdout</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a> Lazy.t</code></pre><div class="info"><div class="info">Terminal using TODO reference : Lwt_unix.stdin as input and TODO reference : Lwt_unix.stdout
       as output.</div></div>
 <pre><span class="VALstderr"><span class="keyword">val</span> stderr</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm&amp;type=t">t</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a> Lazy.t</code></pre><div class="info"><div class="info">Terminal using TODO reference : Lwt_unix.stdin as input and TODO reference : Lwt_unix.stderr
       as output.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Low-level functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Low-level functions</h6></div></div>
 <pre><span class="VALget_size_from_fd"><span class="keyword">val</span> get_size_from_fd</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_unix&amp;type=file_descr">Lwt_unix.file_descr</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_geom&amp;type=size">LTerm_geom.size</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">get_size_from_fd fd</code> returns the size of the terminal accessible via
       the given file descriptor.</div></div>
 <pre><span class="VALset_size_from_fd"><span class="keyword">val</span> set_size_from_fd</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_unix&amp;type=file_descr">Lwt_unix.file_descr</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_geom&amp;type=size">LTerm_geom.size</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">set_size_from_fd fd size</code> tries to set the size of the terminal
       accessible via the given file descriptor.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Modification</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Modification</h6></div></div>
 <pre><span class="VALset_io"><span class="keyword">val</span> set_io</span> : <code class="type">?incoming_fd:<a href="?package=lwt&amp;module=Lwt_unix&amp;type=file_descr">Lwt_unix.file_descr</a> -&gt;
 ?incoming_channel:<a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">Lwt_io.input_channel</a> -&gt;
 ?outgoing_fd:<a href="?package=lwt&amp;module=Lwt_unix&amp;type=file_descr">Lwt_unix.file_descr</a> -&gt;

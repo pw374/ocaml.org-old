@@ -113,7 +113,7 @@ f:(key:'k -&gt; data:'v1 -&gt; 'v2 option) -&gt; ('k, 'v2, 'cmp) <a href="?packa
 <pre><span class="VALdata"><span class="keyword">val</span> data</span> : <code class="type">('a, 'v, 'b) <a href="?package=core_kernel&amp;module=Core_map&amp;type=t">t</a> -&gt; 'v list</code></pre><div class="info"><div class="info">returns list of data in map</div></div>
 <pre><span class="VALto_alist"><span class="keyword">val</span> to_alist</span> : <code class="type">('k, 'v, 'a) <a href="?package=core_kernel&amp;module=Core_map&amp;type=t">t</a> -&gt; ('k * 'v) list</code></pre><div class="info"><div class="info">creates association list from map.  No guarantee about order.</div></div>
 <pre><span class="VALvalidate"><span class="keyword">val</span> validate</span> : <code class="type">name:('k -&gt; string) -&gt; 'v <a href="?package=core_kernel&amp;module=Validate&amp;type=check">Validate.check</a> -&gt; ('k, 'v, 'a) <a href="?package=core_kernel&amp;module=Core_map&amp;type=t">t</a> <a href="?package=core_kernel&amp;module=Validate&amp;type=check">Validate.check</a></code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Additional operations on maps</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Additional operations on maps</h6></div></div>
 <pre><span class="VALmerge"><span class="keyword">val</span> merge</span> : <code class="type">('k, 'v1, 'cmp) <a href="?package=core_kernel&amp;module=Core_map&amp;type=t">t</a> -&gt;
 ('k, 'v2, 'cmp) <a href="?package=core_kernel&amp;module=Core_map&amp;type=t">t</a> -&gt;
 f:(key:'k -&gt;

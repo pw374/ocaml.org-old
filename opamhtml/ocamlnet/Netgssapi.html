@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">GSS-API Definition</div>
 <div class="info"><div class="info">This is mainly a translation of RFC 2743/2744 to Ocaml.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Types</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Types</h2></div></div>
 <pre><span class="TYPEoid"><span class="keyword">type</span> oid</span> = <code class="type">int array</code></pre><div class="info"><div class="info">OIDs like &quot;1.3.6.1.5.6.2&quot; as array of int's. The empty array
 	means <code class="code">GSS_C_NO_OID</code>.</div></div>
 <pre><span class="TYPEoid_set"><span class="keyword">type</span> oid_set</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=oid">oid</a> list</code></pre><div class="info"><div class="info">A set of OID's. These lists should not contain OID's twice.
@@ -77,12 +77,12 @@
 | `Mutual_flag
 | `Replay_flag
 | `Sequence_flag ]</code></pre><div class="info"><div class="info">Flags for the <code class="code">init_sec_context</code> method</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Exceptions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Exceptions</h2></div></div>
 <div class="info"><div class="info">There are no defined exceptions.<br/>    Errors should be reported using the <code class="code">major_status</code> and <code class="code">minor_status</code>
     codes as much as possible.<br/>    <code class="code">Invalid_argument</code> may be raised for clear violations of calling
     requirements, e.g. when an opaque object is passed to this interface
     that was not returned by it before.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">The API</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">The API</h2></div></div>
 <div class="info"><div class="info">The methods have generally a type of the form<br/>    <pre class="codepre"><code class="code"> 
        m : 't . arg1 -&gt; ... -&gt; argN -&gt; out:( ret1 -&gt; ... -&gt; retM -&gt; 't ) -&gt; 't 
     </code></pre><br/>    where <code class="code">arg</code>s are input arguments (with the exception of <code class="code">context</code> 
@@ -345,14 +345,14 @@
        minor_status:<a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=minor_status">minor_status</a> -&gt; major_status:<a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=major_status">major_status</a> -&gt; unit -&gt; 't) -&gt;
   unit -&gt; 't</code></pre>
 </div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Utility functions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Utility functions</h2></div></div>
 <div class="info"><div class="info">These functions convert values to strings. Useful for generating
     log messages.</div></div>
 <pre><span class="VALstring_of_calling_error"><span class="keyword">val</span> string_of_calling_error</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=calling_error">calling_error</a> -&gt; string</code></pre>
 <pre><span class="VALstring_of_routine_error"><span class="keyword">val</span> string_of_routine_error</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=routine_error">routine_error</a> -&gt; string</code></pre>
 <pre><span class="VALstring_of_suppl_status"><span class="keyword">val</span> string_of_suppl_status</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=suppl_status">suppl_status</a> -&gt; string</code></pre>
 <pre><span class="VALstring_of_major_status"><span class="keyword">val</span> string_of_major_status</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=major_status">major_status</a> -&gt; string</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Common OID's for name types</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Common OID's for name types</h2></div></div>
 <div class="info"><div class="info">See RFC 2078, section 4</div></div>
 <pre><span class="VALnt_hostbased_service"><span class="keyword">val</span> nt_hostbased_service</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=oid">oid</a></code></pre><div class="info"><div class="info">names like &quot;service</div></div>
 <pre><span class="VALnt_user_name"><span class="keyword">val</span> nt_user_name</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=oid">oid</a></code></pre><div class="info"><div class="info">names like &quot;username&quot;</div></div>
@@ -361,7 +361,7 @@
 <pre><span class="VALnt_anonymous"><span class="keyword">val</span> nt_anonymous</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=oid">oid</a></code></pre><div class="info"><div class="info">anonymous name</div></div>
 <pre><span class="VALnt_export_name"><span class="keyword">val</span> nt_export_name</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=oid">oid</a></code></pre><div class="info"><div class="info">an export name</div></div>
 <pre><span class="VALparse_hostbased_service"><span class="keyword">val</span> parse_hostbased_service</span> : <code class="type">string -&gt; string * string</code></pre><div class="info"><div class="info">Returns (<code class="code">service,host</code>) for &quot;service</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Encodings</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Encodings</h2></div></div>
 <div class="info"><div class="info">There is some chance that some of these routines will finally be moved to
     netstring</div></div>
 <pre><span class="VALoid_to_string"><span class="keyword">val</span> oid_to_string</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=oid">oid</a> -&gt; string</code></pre>
@@ -373,7 +373,7 @@
       only done for the initiating token.</div></div>
 <pre><span class="VALencode_exported_name"><span class="keyword">val</span> encode_exported_name</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=oid">oid</a> -&gt; string -&gt; string</code></pre>
 <pre><span class="VALdecode_exported_name"><span class="keyword">val</span> decode_exported_name</span> : <code class="type">string -&gt; int Pervasives.ref -&gt; <a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=oid">oid</a> * string</code></pre><div class="info"><div class="info">Encode names as described in section 3.2 of RFC 2078</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Create tokens</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Create tokens</h2></div></div>
 <div class="info"><div class="info">Format of the tokens: see RFC 4121</div></div>
 <pre><span class="VALcreate_mic_token"><span class="keyword">val</span> create_mic_token</span> : <code class="type">sent_by_acceptor:bool -&gt;
 acceptor_subkey:bool -&gt;

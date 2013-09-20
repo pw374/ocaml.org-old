@@ -35,7 +35,7 @@
       the number of used bytes on the page in <code class="code">len</code>.</div></div>
 <pre><span class="VALdelete_hd"><span class="keyword">val</span> delete_hd</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netpagebuffer&amp;type=t">t</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">delete_hd b n</code>: Deletes <code class="code">n</code> bytes from the beginning of the buffer</div></div>
 <pre><span class="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netpagebuffer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Deletes all contents of the buffer</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Searching</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Searching</h2></div></div>
 <pre><span class="VALindex_from"><span class="keyword">val</span> index_from</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netpagebuffer&amp;type=t">t</a> -&gt; int -&gt; char -&gt; int</code></pre><div class="info"><div class="info"><code class="code">index_from nb k c</code>: Searches the character <code class="code">c</code> in the buffer beginning
  at position <code class="code">k</code>. If found, the position of the left-most occurence is
  returned. Otherwise, <code class="code">Not_found</code> is raised.</div></div>

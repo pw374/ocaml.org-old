@@ -5,14 +5,14 @@
  functions that can be called from controller context for convenience.<br/> <b>Thread safety:</b> Full. The functions in this module can be called from any
  thread.</div>
 <pre><span class="EXCEPTIONNot_in_container_thread"><span class="keyword">exception</span> Not_in_container_thread</span></pre><div class="info"><div class="info">Raised when the caller's thread is not a container thread</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Logging</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Logging</h2></div></div>
 <div class="info"><div class="info">Logging functions can be invoked from both container and controller 
     contexts.</div></div>
 <pre><span class="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Netplex_types.level -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Writes a log message</div></div>
 <pre><span class="VALlogf"><span class="keyword">val</span> logf</span> : <code class="type">Netplex_types.level -&gt; ('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info">Writes a log message like <code class="code">printf</code></div></div>
 <pre><span class="VALreport_connection_string"><span class="keyword">val</span> report_connection_string</span> : <code class="type">Unix.file_descr -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Output a log line for the <code class="code">netplex.connections</code> admin message.
       The string is the detail to report.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Timer</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Timer</h2></div></div>
 <div class="info"><div class="info">Timer functions can only be invoked from container contexts. 
     More documentation is available in TODO reference : Netplex_advanced.timers.</div></div>
 <pre><span class="TYPEtimer"><span class="keyword">type</span> timer</span> </pre><div class="info"><div class="info">A timer</div></div>
@@ -26,7 +26,7 @@
 <pre><span class="VALcancel_timer"><span class="keyword">val</span> cancel_timer</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netplex_cenv&amp;type=timer">timer</a> -&gt; unit</code></pre><div class="info"><div class="info">Cancels the timer: The callback function is not called any longer</div></div>
 <pre><span class="VALcancel_all_timers"><span class="keyword">val</span> cancel_all_timers</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Cancels all active timers</div></div>
 <pre><span class="VALtimer_id"><span class="keyword">val</span> timer_id</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netplex_cenv&amp;type=timer">timer</a> -&gt; int</code></pre><div class="info"><div class="info">Returns an ID, e.g. useful for debugging</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Container variables</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Container variables</h2></div></div>
 <div class="info"><div class="info">Container variables exist once per container. Primary access is
     done via the <code class="code">var</code> and <code class="code">set_var</code> methods of the container class.
     The following functions are often more convenient, however.<br/>    These functions can only be invoked from container contexts. <br/>    More documentation: TODO reference : Netplex_advanced.contvars</div></div>
@@ -60,14 +60,14 @@
            Make_var_type(struct t = foo end)
       </code></pre><br/>      and use <code class="code">Foo_var.get</code> and <code class="code">Foo_var.set</code> to access the container
       variables of type <code class="code">foo</code>.</div></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">System control</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">System control</h2></div></div>
 <div class="info"><div class="info">System control functions can be invoked from both container and controller 
     contexts.</div></div>
 <pre><span class="VALsystem_shutdown"><span class="keyword">val</span> system_shutdown</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Initiates a system shutdown (like the <code class="code">shutdown</code> method of the
       controller)</div></div>
 <pre><span class="VALsystem_restart"><span class="keyword">val</span> system_restart</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Initiates a system restart (like the <code class="code">restart</code> method of the
       controller)</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Inter-Container Communication</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Inter-Container Communication</h2></div></div>
 <div class="info"><div class="info">These functions can only be invoked from container contexts, 
     except <code class="code">send_message</code>.</div></div>
 <pre><span class="VALsend_message"><span class="keyword">val</span> send_message</span> : <code class="type">string -&gt; string -&gt; string array -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">send_message service_pattern msg_name msg_arguments</code>: Sends
@@ -86,7 +86,7 @@
       IPC mechanism. Use TODO reference : Netplex_sockserv.any_file_client_connector
       to convert the paths into RPC connectors.<br/>      Container sockets are explained here:
       TODO reference : Netplex_advanced.contsocks</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Direct container and admin interface access</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Direct container and admin interface access</h2></div></div>
 <pre><span class="VALself_cont"><span class="keyword">val</span> self_cont</span> : <code class="type">unit -&gt; Netplex_types.container</code></pre><div class="info"><div class="info">Returns the container running the code of the caller,
       or raise <code class="code">Not_in_container_thread</code> if called from outside a 
       container context.</div></div>
@@ -148,13 +148,13 @@
         in the <code class="code">pre_start_hook</code> of a container.<br/>        From the running container, one can now call:<br/>        <pre class="codepre"><code class="code"> get_num_services() </code></pre><br/>        to get the current length of the <code class="code">ctrl#services</code> list.</div></div></div></div>
 <div class="ocaml_module ident" name="Make_lever" path="?package=ocamlnet&amp;module=Netplex_cenv.LEVER"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netplex_cenv.Make_lever">Make_lever</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">T</code><code class="code"> : </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.FUN_TYPE">FUN_TYPE</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.LEVER">LEVER</a></code> with type <a href="?package=ocamlnet&amp;module=Netplex_cenv.LEVER&amp;type=r">r</a> = T.r and type <a href="?package=ocamlnet&amp;module=Netplex_cenv.LEVER&amp;type=s">s</a> = T.s</div></code></pre><div class="info"><div class="info">Creates a <code class="code">LEVER</code> module from a function type as specified in
       <code class="code">FUN_TYPE</code></div></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Persistent kernel objects</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Persistent kernel objects</h2></div></div>
 <pre><span class="VALpmanage"><span class="keyword">val</span> pmanage</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Netsys_pmanage&amp;type=pmanage">Netsys_pmanage.pmanage</a></code></pre><div class="info"><div class="info">Access the manager for persistent kernel objects with limited
       lifetime. Among these objects there are shared memory objects,
       and named semaphores. These objects can usually be deleted when
       the program finishes (or crashes), but this is not done automatically
       because of kernel persistency.<br/>      See TODO reference : Netplex_admin.unlink for more information.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Debugging</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netplex_cenv.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging</div></div></div></div>
 <pre><span class="VALregister_par"><span class="keyword">val</span> register_par</span> : <code class="type">Netplex_types.parallelizer -&gt; unit</code></pre>

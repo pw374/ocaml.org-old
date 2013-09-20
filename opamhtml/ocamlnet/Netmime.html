@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">Netmime contains high-level classes and functions to process
  mail and MIME messages.<br/> <b>Contents</b><br/> - TODO reference : Netmime.types<ul><li>TODO reference : Netmime.classes</li><li>TODO reference : Netmime.parsing</li><li>TODO reference : Netmime.printing</li></ul> The tutorial has been moved to TODO reference : Netmime_tut.</div>
-<div class="info"><div class="info"><br/><h1 id="types">Types</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="types">Types</h1></div></div>
 <pre><span class="TYPEstore"><span class="keyword">type</span> store</span> = <code class="type">[ `File of string | `Memory ]</code></pre><div class="info"><div class="info">Specifies where to store the body of a mail message. <code class="code">`Memory</code>
  means in-memory, <code class="code">`File name</code> means in the file <code class="code">name</code>. The body
  is stored in decoded form (i.e. without transfer encoding).</div></div>
@@ -158,7 +158,7 @@
 <pre><span class="TYPEmime_message"><span class="keyword">type</span> mime_message</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_header">mime_header</a> * [ `Body of <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_body">mime_body</a> ]</code></pre><div class="info"><div class="info">Simple MIME message, in a form that is compatible with complex
  ones.</div></div>
 <pre><span class="TYPEmime_message_ro"><span class="keyword">type</span> mime_message_ro</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_header_ro">mime_header_ro</a> * [ `Body of <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_body_ro">mime_body_ro</a> ]</code></pre><div class="info"><div class="info">Read-only variant of simple messages</div></div>
-<div class="info"><div class="info"><br/><h1 id="classes">Classes</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="classes">Classes</h1></div></div>
 <div class="ocaml_class ident" name="basic_mime_header" path="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header"><pre><span class="TYPEbasic_mime_header"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netmime&amp;class=basic_mime_header">basic_mime_header</a></span> : <code class="type">bool option -&gt; (string * string) list -&gt; </code><a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header">mime_header</a></pre><div class="info"><div class="info">An implementation of <code class="code">mime_header</code>.<br/> The argument is the list of (name,value) pairs of the header. <br/> Example: Create a MIME header with only the field &quot;Content-type&quot;:
  <pre class="codepre"><code class="code"> let h = new basic_mime_header [&quot;content-type&quot;, &quot;text/plain&quot;] </code></pre><br/> Example: Set the field &quot;Subject&quot;:
  <pre class="codepre"><code class="code"> h # update_field &quot;subject&quot; &quot;The value of this field&quot; </code></pre><br/> This <code class="code">mime_header</code> implementation bases on a mixture of a <code class="code">Map</code> data
@@ -177,7 +177,7 @@
  as string.<br/> Example: To create a body from the file &quot;f&quot;, call
  <pre class="codepre"><code class="code"> new file_mime_body &quot;f&quot; </code></pre><div class="parameters"><div class="param_info"><code class="code">ro</code> : whether the body is read-only (default: false)</div><div class="param_info"><code class="code">fin</code> : whether to delete the file when the <code class="code">finalize</code> method is called
    (default: false)</div></div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="parsing">Parsing MIME messages</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="parsing">Parsing MIME messages</h1></div></div>
 <pre><span class="VALread_mime_header"><span class="keyword">val</span> read_mime_header</span> : <code class="type">?unfold:bool -&gt;
 ?strip:bool -&gt; ?ro:bool -&gt; <a href="?package=ocamlnet&amp;module=Netstream&amp;type=in_obj_stream">Netstream.in_obj_stream</a> -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_header">mime_header</a></code></pre><div class="info"><div class="info">Decodes the MIME header that begins at the current position of the
  netstream, and returns the header as class <code class="code">basic_mime_header</code>.
@@ -269,7 +269,7 @@
    header fields is stripped</div><div class="param_info"><code class="code">ro</code> : Whether the created MIME headers are read-only or not. Furthermore,
    the default <code class="code">storage_style</code> uses this parameter for the MIME bodies, too.
    However, the MIME bodies may have a different read-only flag in general.</div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="printing">Printing MIME Messages</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="printing">Printing MIME Messages</h1></div></div>
 <pre><span class="VALencode_mime_body"><span class="keyword">val</span> encode_mime_body</span> : <code class="type">?crlf:bool -&gt;
 #<a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header_ro">mime_header_ro</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a></code></pre><div class="info"><div class="info"><code class="code">let ch' = encode_mime_body hdr ch</code>:
  According to the value of the Content-transfer-encoding header field

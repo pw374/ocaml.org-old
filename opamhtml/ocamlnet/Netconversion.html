@@ -4,7 +4,7 @@
            <ul><li>TODO reference : Netconversion.bom</li></ul></li><li>TODO reference : Netconversion.direct_conv</li></ul>
    </li><li>TODO reference : Netconversion.preliminaries
      <ul><li>TODO reference : Netconversion.problems</li><li>TODO reference : Netconversion.domain</li><li>TODO reference : Netconversion.linking</li><li>TODO reference : Netconversion.subsets</li><li>TODO reference : Netconversion.unicode</li></ul></li></ul></div>
-<div class="info"><div class="info"><br/><h1 id="preliminaries">Preliminaries</h1><br/><br/> A <b>character set</b> is a set of characters where every character is
+<div class="info"><div class="info"><h1 id="preliminaries">Preliminaries</h1><br/> A <b>character set</b> is a set of characters where every character is
  identified by a <b>code point</b>. An <b>encoding</b> is a way of 
  representing characters from a set in byte strings. For example,
  the Unicode character set has more than 96000 characters, and
@@ -84,7 +84,7 @@
  that only interpret bytes from 0 to 127, and treat the bytes from
  128 to 255 as data. These programs can process texts as long as
  the bytes from 0 to 127 are used as in ASCII. Fortunately, many
- encodings are ASCII-compatible, including UTF-8.<br/> <br/><h2 id="unicode">Unicode</h2><br/><br/> <code class="code">Netconversion</code> is centred around Unicode.
+ encodings are ASCII-compatible, including UTF-8.<br/> <h2 id="unicode">Unicode</h2><br/> <code class="code">Netconversion</code> is centred around Unicode.
  The conversion from one encoding to another works by finding the
  Unicode code point of the character
  to convert, and by representing the code point in the target encoding,
@@ -108,7 +108,7 @@
    module cannot cope with <code class="code">`Enc_utf16</code> (i.e. UTF-16 without endianess
    annotation), and will fail.<br/>   Once the endianess is determined, the code point 0xfeff is no longer
    interpreted as byte order mark, but as &quot;zero-width non-breakable space&quot;.<br/>   Some code points are represented by pairs of 16 bit values, these
-   are the so-called &quot;surrogate pairs&quot;. They can only occur in UTF-16.<br/> <br/><h2 id="subsets">Subsets of Unicode</h2><br/><br/> The non-Unicode character sets are subsets of Unicode. Here, it may
+   are the so-called &quot;surrogate pairs&quot;. They can only occur in UTF-16.<br/> <h2 id="subsets">Subsets of Unicode</h2><br/> The non-Unicode character sets are subsets of Unicode. Here, it may
  happen that a Unicode code point does not have a corresponding 
  code point. In this case, certain rules are applied to handle
  this (see below). It is, however, ensured that every non-Unicode
@@ -131,21 +131,21 @@
  allows it to insert a substitution text for undefined code points.
  Note, however, that the substitution text is restricted to at most
  50 characters (because unlimited length would lead to difficult
- problems we would like to avoid).<br/> <br/><h2 id="linking">Linking this module</h2><br/><br/> Many encodings require lookup tables. The following encodings
+ problems we would like to avoid).<br/> <h2 id="linking">Linking this module</h2><br/> Many encodings require lookup tables. The following encodings
  are built-in and always supported:<br/> - Unicode: <code class="code">`Enc_utf8</code>, <code class="code">`Enc_java</code>, <code class="code">`Enc_utf16</code>, <code class="code">`Enc_utf16_le</code>, 
      <code class="code">`Enc_utf16_be</code><ul><li>Other: <code class="code">`Enc_usascii</code>, <code class="code">`Enc_iso88591</code>, <code class="code">`Enc_empty</code></li></ul> The lookup tables for the other encodings are usually loaded at
  runtime, but it is also possible to embed them in the generated
  binary executable. See the file <code class="code">INSTALL</code> for details. The functions
  <code class="code">available_input_encodings</code> and <code class="code">available_output_encodings</code> can
  be invoked to find out which encodings can be loaded, or are available
- otherwise.<br/> <br/><h2 id="domain">Supported Encodings, Restrictions</h2><br/><br/> I took the mappings from <code class="code">www.unicode.org</code>, and the standard names of
+ otherwise.<br/> <h2 id="domain">Supported Encodings, Restrictions</h2><br/> I took the mappings from <code class="code">www.unicode.org</code>, and the standard names of
  the character sets from IANA. Obviously, many character sets are missing
  that can be supported; especially ISO646 character sets, and many EBCDIC 
  code pages. Stateful encodings like generic ISO-2022 have been omitted
  (stateless subsets of ISO-2022 like EUC can be supported, however;
  currently we support EUC-JP and EUC-KR).<br/> Because of the copyright statement from Unicode, I cannot put the
  source tables that describe the mappings into the distribution. They
- are publicly available from <code class="code">www.unicode.org</code>.<br/> <br/><h2 id="problems">Known Problems</h2><br/><br/> - The following charsets do not have a bijective mapping to Unicode:
+ are publicly available from <code class="code">www.unicode.org</code>.<br/> <h2 id="problems">Known Problems</h2><br/> - The following charsets do not have a bijective mapping to Unicode:
    adobe_standard_encoding, adobe_symbol_encoding, 
    adobe_zapf_dingbats_encoding, cp1002 (0xFEBE). The current implementation
    simply removes one of the conflicting code point pairs - this might
@@ -153,7 +153,7 @@
    JIS X 0208: The character 1/32 is mapped to 0xFF3C, and not
    to 0x005C.
  </li></ul></div></div>
-<div class="info"><div class="info"><br/><h1 id="interface">Interface</h1><br/><br/> <b>Naming conventions:</b><br/> As it is possible to refer to substrings by either giving a byte
+<div class="info"><div class="info"><h1 id="interface">Interface</h1><br/> <b>Naming conventions:</b><br/> As it is possible to refer to substrings by either giving a byte
  offset or by counting whole characters, these naming conventions
  are helpful:<br/> - Labels called <code class="code">range_pos</code> and <code class="code">range_len</code> refer to byte positions of
    characters, or substrings<ul><li>Labels called <code class="code">count</code> refer to positions given as the number of characters
@@ -365,7 +365,7 @@
 <pre><span class="VALwin32_code_pages"><span class="keyword">val</span> win32_code_pages</span> : <code class="type">(int * <a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">encoding</a>) list</code></pre><div class="info"><div class="info">Mapping between Win32 code page numbers and Ocamlnet encodings.
       This is incomplete. The official list:
       http://msdn.microsoft.com/en-us/library/dd317756%28v=VS.85%29.aspx</div></div>
-<div class="info"><div class="info"><br/><h2 id="direct_conv">Direct Conversion</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="direct_conv">Direct Conversion</h2></div></div>
 <div class="info"><div class="info">In order to convert a string from one encoding to another, call
  <code class="code">convert</code> like in<br/> <pre class="codepre"><code class="code"> let s_utf8 = 
     convert ~in_enc:`Enc_iso88591 ~out_enc:`Enc_utf8 s_latin1 </code></pre><br/> which converts the ISO-8859-1 string <code class="code">s_latin1</code> to the UTF-8 string
@@ -467,7 +467,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
 <div class="ocaml_class ident" name="recoding_pipe" path="?package=ocamlnet&amp;module=Netchannels&amp;class=io_obj_channel"><pre><span class="TYPErecoding_pipe"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netconversion&amp;class=recoding_pipe">recoding_pipe</a></span> : <code class="type">(int -&gt; string) option -&gt; <a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">encoding</a> -&gt; <a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">encoding</a> -&gt; unit -&gt; </code><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=io_obj_channel">Netchannels.io_obj_channel</a></pre><div class="info"><div class="info">Recodes a channel like <code class="code">conversion_pipe</code>. The difference is that
  <code class="code">subst</code> raises <code class="code">Not_found</code> by default, and not <code class="code">Cannot_represent</code>.<span class="warning">Deprecated.</span> This class is deprecated since ocamlnet-0.96. Use
    <code class="code">conversion_pipe</code> instead.<br/></div></div></div>
-<div class="info"><div class="info"><br/><h2 id="cursors">Reading Text Using Cursors</h2><br/><br/> A cursor is a reference to a character in an encoded string. The
+<div class="info"><div class="info"><h2 id="cursors">Reading Text Using Cursors</h2><br/> A cursor is a reference to a character in an encoded string. The
  properties of the current character can be obtained, and the cursor
  can be moved relative to its current position.<br/> For example, the following loop outputs the Unicode code points
  of all characters of the UTF-8 input string <code class="code">s</code>:<br/> <pre class="codepre"><code class="code">
@@ -613,7 +613,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
  and thus returns the same number:<br/> <pre class="codepre"><code class="code">let n1 = cursor_blit     cs ua ua_pos len in
  let n2 = cursor_blit_pos cs pa pa_pos len in
  assert (n1 = n2)</code></pre></div></div>
-<div class="info"><div class="info"><br/><h3 id="bom">Byte Order Marks</h3><br/><br/> Because UTF-16 allows both little and big endian, files and other
+<div class="info"><div class="info"><h3 id="bom">Byte Order Marks</h3><br/> Because UTF-16 allows both little and big endian, files and other
  permanent representations of UTF-16 text are usually prepended by
  a byte order mark (BOM). There is confusion about the BOM among
  Unicode users, so the following explanations may be helpful.<br/> Of course, the BOM is only used for external representations like
@@ -641,7 +641,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
  characters outside of the code set (exception <code class="code">Byte_order_mark</code> is
  raised). The writing functions of this module do not generate BOMs,
  however, as there is no way to tell them that a BOM is needed. The
- function <code class="code">byte_order_mark</code> can be used to output the BOM manually.<br/> <br/><h3 id="3_TITLE">Examples for Cursors</h3><br/><br/> Create the cursor:<br/> <code class="code"> let cs = create_cursor `Enc_utf8 &quot;B\195\164r&quot;;; </code><br/> The cursor is now positioned at the 'B':<br/> <code class="code"> uchar_at cs </code> <i>returns</i> <code class="code">66</code> (i.e. B)<br/> Move the cursor one character to the right. In UTF-8, this is a
+ function <code class="code">byte_order_mark</code> can be used to output the BOM manually.<br/> <h3 id="3_TITLE">Examples for Cursors</h3><br/> Create the cursor:<br/> <code class="code"> let cs = create_cursor `Enc_utf8 &quot;B\195\164r&quot;;; </code><br/> The cursor is now positioned at the 'B':<br/> <code class="code"> uchar_at cs </code> <i>returns</i> <code class="code">66</code> (i.e. B)<br/> Move the cursor one character to the right. In UTF-8, this is a
  two-byte character consisting of the bytes 195 and 164:<br/> <code class="code"> move cs ;; </code><br/> <code class="code"> uchar_at cs </code> <i>returns</i> <code class="code">228</code> (i.e. a-Umlaut)<br/> One can easily move the cursor to the end of the string:<br/> <code class="code"> move ~num:max_int cs ;; </code><br/> This raises <code class="code">Cursor_out_of_range</code>, but places the cursor at the end.
  This is the position past the last letter 'r':<br/> <code class="code"> uchar_at cs </code> <i>raises</i> <code class="code">End_of_string</code><br/> Go one character to the left:<br/> <code class="code"> move ~num:(-1) cs ;; </code><br/> <code class="code"> uchar_at cs </code> <i>returns</i> <code class="code">114</code> (i.e. r)<br/> Cursors can only move relative to their current position. Of course,
  one can easily write a function that moves to an absolute position,
@@ -651,7 +651,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
  be avoided for efficient algorithms. Cursors are not arrays, and an
  algorithm should only be based on cursors when it is possible to
  iterate over the characters of the string one after another.</div></div>
-<div class="info"><div class="info"><br/><h2 id="unicode_functions">Unicode String Functions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="unicode_functions">Unicode String Functions</h2></div></div>
 <pre><span class="VALustring_length"><span class="keyword">val</span> ustring_length</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">encoding</a> -&gt; ?range_pos:int -&gt; ?range_len:int -&gt; string -&gt; int</code></pre><div class="info"><div class="info">Returns the length of the string in characters. The function fails
  when illegal byte sequences or incomplete characters are found in the
  string with <code class="code">Malformed_code</code>.<br/> Evaluation hints:<ul><li>PRE_EVAL(encoding)</li></ul><div class="parameters"><div class="param_info"><code class="code">range_pos</code> : The byte position of the substring to measure

@@ -2,14 +2,14 @@
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTuids.ruid">ruid</span> : <code class="type">int</code></code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTuids.euid">euid</span> : <code class="type">int</code></code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTuids.suid">suid</span> : <code class="type">int</code></code></td></tr><tr><td>}</td></tr></table>
 <pre><span class="VALsetresuid"><span class="keyword">val</span> setresuid</span> : <code class="type">(?ruid:int -&gt; ?euid:int -&gt; ?suid:int -&gt; unit -&gt; unit) Core.Std.Or_error.t</code></pre>
 <pre><span class="VALgetresuid"><span class="keyword">val</span> getresuid</span> : <code class="type">(unit -&gt; <a href="?package=core_extended&amp;module=Extended_linux&amp;type=uids">uids</a>) Core.Std.Or_error.t</code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Splicing - zero-copies between kernel buffers</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Splicing - zero-copies between kernel buffers</h6></div></div>
 <div class="ocaml_module sig" name="Splice"><pre><span class="keyword">module</span> <a href="?package=core_extended&amp;module=Extended_linux.Splice">Splice</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Splice flags</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Splice flags</h6></div></div>
 <pre><code><span class="TYPEflag"><span class="keyword">type</span> flag</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTflag.MOVE"><span class="constructor">MOVE</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTflag.NONBLOCK"><span class="constructor">NONBLOCK</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTflag.MORE"><span class="constructor">MORE</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTflag.GIFT"><span class="constructor">GIFT</span></span></code></td></tr></table><div class="info"><div class="info">Type of Splice event flag</div><div class="info">Type of Splice event flags</div></div>
 <pre><span class="TYPEflags"><span class="keyword">type</span> flags</span> </pre>
 <pre><span class="VALmake_flags"><span class="keyword">val</span> make_flags</span> : <code class="type"><a href="?package=core_extended&amp;module=Extended_linux.Splice&amp;type=flag">flag</a> array -&gt; <a href="?package=core_extended&amp;module=Extended_linux.Splice&amp;type=flags">flags</a></code></pre><div class="info"><div class="info"><code class="code">make_flags ar</code><b>Returns</b> flags constructed from the array of flags <code class="code">ar</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Splice functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Splice functions</h6></div></div>
 <pre><span class="VALsplice"><span class="keyword">val</span> splice</span> : <code class="type">(?assume_fd_is_nonblocking:bool -&gt;
  fd_in:Core.Std.Unix.File_descr.t -&gt;
  ?off_in:int -&gt;
@@ -43,7 +43,7 @@ Core.Std.Or_error.t</code></pre>
 <pre><span class="VALsexp_of_flag"><span class="keyword">val</span> sexp_of_flag</span> : <code class="type"><a href="?package=core_extended&amp;module=Extended_linux.Splice&amp;type=flag">flag</a> -&gt; Sexplib.Sexp.t</code></pre>
 <div class="info"><div class="info">Type of Splice event flags</div></div>
 <div class="info"><div class="info"><code class="code">make_flags ar</code><b>Returns</b> flags constructed from the array of flags <code class="code">ar</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Splice functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Splice functions</h6></div></div>
 <div class="info"><div class="info"><code class="code">splice ?assume_fd_is_nonblocking ~fd_in ?off_in ~fd_out ?off_out
       ~len flags</code> see man-page for details.<div class="parameters"><div class="param_info"><code class="code">assume_fd_is_nonblocking</code> : default = false</div><div class="param_info"><code class="code">off_in</code> : default = 0</div><div class="param_info"><code class="code">off_out</code> : default = 0</div></div><b>Raises</b> <code>Unix_error</code> on Unix-errors.<br/><code>Invalid_argument</code> if the offsets or length are invalid<br/><b>Returns</b> the triple <code class="code">(ret,
       ret_off_in, ret_off_out)</code>, where <code class="code">ret</code> corresponds to the return
@@ -70,12 +70,12 @@ Core.Std.Or_error.t</code></pre>
 <pre><span class="VALbin_writer_uids"><span class="keyword">val</span> bin_writer_uids</span> : <code class="type"><a href="?package=core_extended&amp;module=Extended_linux&amp;type=uids">uids</a> Core.Std.Bin_prot.Type_class.writer</code></pre>
 <pre><span class="VALuids_of_sexp"><span class="keyword">val</span> uids_of_sexp</span> : <code class="type">Sexplib.Sexp.t -&gt; <a href="?package=core_extended&amp;module=Extended_linux&amp;type=uids">uids</a></code></pre>
 <pre><span class="VALsexp_of_uids"><span class="keyword">val</span> sexp_of_uids</span> : <code class="type"><a href="?package=core_extended&amp;module=Extended_linux&amp;type=uids">uids</a> -&gt; Sexplib.Sexp.t</code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Splicing - zero-copies between kernel buffers</h6><br/></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Splice flags</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Splicing - zero-copies between kernel buffers</h6></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Splice flags</h6></div></div>
 <div class="info"><div class="info">Type of Splice event flag</div></div>
 <div class="info"><div class="info">Type of Splice event flags</div></div>
 <div class="info"><div class="info"><code class="code">make_flags ar</code><b>Returns</b> flags constructed from the array of flags <code class="code">ar</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Splice functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Splice functions</h6></div></div>
 <div class="info"><div class="info"><code class="code">splice ?assume_fd_is_nonblocking ~fd_in ?off_in ~fd_out ?off_out
       ~len flags</code> see man-page for details.<div class="parameters"><div class="param_info"><code class="code">assume_fd_is_nonblocking</code> : default = false</div><div class="param_info"><code class="code">off_in</code> : default = 0</div><div class="param_info"><code class="code">off_out</code> : default = 0</div></div><b>Raises</b> <code>Unix_error</code> on Unix-errors.<br/><code>Invalid_argument</code> if the offsets or length are invalid<br/><b>Returns</b> the triple <code class="code">(ret,
       ret_off_in, ret_off_out)</code>, where <code class="code">ret</code> corresponds to the return

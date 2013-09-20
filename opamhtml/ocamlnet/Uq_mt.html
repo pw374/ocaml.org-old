@@ -1,4 +1,4 @@
-<div class="ocaml_toplevel_module"><div class="info"><br/><h1 id="1_TITLE">Using engines in multi-threaded programs</h1><br/></div>
+<div class="ocaml_toplevel_module"><div class="info"><h1 id="1_TITLE">Using engines in multi-threaded programs</h1></div>
 <div class="info"><div class="info">Monitors can be used to coordinate access to a resource from several
     threads so that only one thread comes into contact with the resource.
     Of course, the resources we talk about must have an engine interface.
@@ -41,7 +41,7 @@
 <pre><span class="VALmonitor_async"><span class="keyword">val</span> monitor_async</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Uq_mt&amp;type=monitor">monitor</a> -&gt; ('a -&gt; ((unit -&gt; 'b) -&gt; unit) -&gt; unit) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">let result = monitor_async f arg</code>: For calling RPC-style 
       asynchronous clients. If <code class="code">f</code> is called like <code class="code">f arg emit</code>, 
       the result is passed back by calling <code class="code">emit (fun () -&gt; result)</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="rpc_client">Example: Threads sharing an RPC client</h2><br/><br/>    In this example we want to achieve that several threads can use the
+<div class="info"><div class="info"><h2 id="rpc_client">Example: Threads sharing an RPC client</h2><br/>    In this example we want to achieve that several threads can use the
     same RPC client. This type of client is not thread-safe, but it is
     able to run asynchronously. Because of this, the requests coming from
     several threads can be concurrently handled.<br/>    Prepare the RPC client and the monitor: We assume that <code class="code">M_clnt</code> is

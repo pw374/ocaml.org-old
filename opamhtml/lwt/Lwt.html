@@ -11,7 +11,7 @@
     instead. You can also use TODO reference : wrap for functions that may raise
     normal exception.<br/>    Lwt also provides the syntax extension TODO reference : Pa_lwt to make code
     using Lwt more readable.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Definitions and basics</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Definitions and basics</h6></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">+'a </code>t</span> </pre><div class="info"><div class="info">The type of threads returning a result of type <code class="code">'a</code>.</div></div>
 <pre><span class="VALreturn"><span class="keyword">val</span> return</span> : <code class="type">'a -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">return e</code> is a thread whose return value is the value of the
       expression <code class="code">e</code>.</div></div>
@@ -30,13 +30,13 @@
       m (fun x -&gt; return (f x))</code></div></div>
 <pre><span class="VAL&gt;|="><span class="keyword">val</span> &gt;|=</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> -&gt; ('a -&gt; 'b) -&gt; 'b <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">m &gt;|= f</code> is <code class="code">map f m</code></div></div>
 <pre><span class="VAL=|&lt;"><span class="keyword">val</span> =|&lt;</span> : <code class="type">('a -&gt; 'b) -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> -&gt; 'b <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">f =|&lt; m</code> is <code class="code">map f m</code></div></div>
-<div class="info"><div class="info"><br/><div class="h8">Pre-allocated threads</div><br/></div></div>
+<div class="info"><div class="info"><div class="h8">Pre-allocated threads</div></div></div>
 <pre><span class="VALreturn_unit"><span class="keyword">val</span> return_unit</span> : <code class="type">unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">return_unit = return ()</code></div></div>
 <pre><span class="VALreturn_none"><span class="keyword">val</span> return_none</span> : <code class="type">'a option <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">return_none = return None</code></div></div>
 <pre><span class="VALreturn_nil"><span class="keyword">val</span> return_nil</span> : <code class="type">'a list <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">return_nil = return []</code></div></div>
 <pre><span class="VALreturn_true"><span class="keyword">val</span> return_true</span> : <code class="type">bool <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">return_true = return true</code></div></div>
 <pre><span class="VALreturn_false"><span class="keyword">val</span> return_false</span> : <code class="type">bool <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">return_false = return false</code></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Thread storage</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Thread storage</h6></div></div>
 <pre><span class="TYPEkey"><span class="keyword">type</span> <code class="type">'a </code>key</span> </pre><div class="info"><div class="info">Type of a key. Keys are used to store local values into
       threads</div></div>
 <pre><span class="VALnew_key"><span class="keyword">val</span> new_key</span> : <code class="type">unit -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=key">key</a></code></pre><div class="info"><div class="info"><code class="code">new_key ()</code> creates a new key.</div></div>
@@ -45,7 +45,7 @@
 <pre><span class="VALwith_value"><span class="keyword">val</span> with_value</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=key">key</a> -&gt; 'a option -&gt; (unit -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">with_value key value f</code> executes <code class="code">f</code> with <code class="code">value</code> associated to
       <code class="code">key</code>. The previous value associated to <code class="code">key</code> is restored after
       <code class="code">f</code> terminates.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Exceptions handling</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Exceptions handling</h6></div></div>
 <pre><span class="VALcatch"><span class="keyword">val</span> catch</span> : <code class="type">(unit -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a>) -&gt; (exn -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a>) -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">catch t f</code> is a thread that behaves as the thread <code class="code">t ()</code> if
       this thread succeeds.  If the thread <code class="code">t ()</code> fails with some
       exception, <code class="code">catch t f</code> behaves as the application of <code class="code">f</code> to this
@@ -78,7 +78,7 @@
 'a -&gt; 'b -&gt; 'c -&gt; 'd -&gt; 'e -&gt; 'f -&gt; 'g <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre>
 <pre><span class="VALwrap7"><span class="keyword">val</span> wrap7</span> : <code class="type">('a -&gt; 'b -&gt; 'c -&gt; 'd -&gt; 'e -&gt; 'f -&gt; 'g -&gt; 'h) -&gt;
 'a -&gt; 'b -&gt; 'c -&gt; 'd -&gt; 'e -&gt; 'f -&gt; 'g -&gt; 'h <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Multi-threads composition</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Multi-threads composition</h6></div></div>
 <pre><span class="VALchoose"><span class="keyword">val</span> choose</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> list -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">choose l</code> behaves as the first thread in <code class="code">l</code> to terminate.  If
       several threads are already terminated, one is choosen at
       random.<br/>      Note: TODO reference : choose leaves the local values of the current thread
@@ -106,7 +106,7 @@
 <pre><span class="VALasync_exception_hook"><span class="keyword">val</span> async_exception_hook</span> : <code class="type">(exn -&gt; unit) Pervasives.ref</code></pre><div class="info"><div class="info">Function called when a asynchronous exception is thrown.<br/>      The default behavior is to print an error message with a
       backtrace if available and to exit the program.<br/>      The behavior is undefined if this function raise an
       exception.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Sleeping and resuming</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Sleeping and resuming</h6></div></div>
 <pre><span class="TYPEu"><span class="keyword">type</span> <code class="type">'a </code>u</span> </pre><div class="info"><div class="info">The type of thread wakeners.</div></div>
 <pre><span class="VALwait"><span class="keyword">val</span> wait</span> : <code class="type">unit -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> * 'a <a href="?package=lwt&amp;module=Lwt&amp;type=u">u</a></code></pre><div class="info"><div class="info"><code class="code">wait ()</code> is a pair of a thread which sleeps forever (unless it
       is resumed by one of the functions <code class="code">wakeup</code>, <code class="code">wakeup_exn</code> below)
@@ -130,12 +130,12 @@
       the result <code class="code">r</code>.</div></div>
 <pre><span class="VALwakeup_later_result"><span class="keyword">val</span> wakeup_later_result</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=u">u</a> -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=result">result</a> -&gt; unit</code></pre><div class="info"><div class="info">Same as TODO reference : wakeup_result but it is not guaranteed that the
       thread will be woken up immediately.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Threads state</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Threads state</h6></div></div>
 <pre><code><span class="TYPEstate"><span class="keyword">type</span> <code class="type">'a </code>state</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTstate.Return"><span class="constructor">Return</span></span> <span class="keyword">of</span> <code class="type">'a</code></code></td><td class="typefieldcomment" align="left"><div class="info">The thread which has successfully terminated</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTstate.Fail"><span class="constructor">Fail</span></span> <span class="keyword">of</span> <code class="type">exn</code></code></td><td class="typefieldcomment" align="left"><div class="info">The thread raised an exception</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTstate.Sleep"><span class="constructor">Sleep</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">The thread is sleeping</div></td></tr></table><div class="info"><div class="info">State of a thread</div></div>
 <pre><span class="VALstate"><span class="keyword">val</span> state</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=state">state</a></code></pre><div class="info"><div class="info"><code class="code">state t</code> returns the state of a thread</div></div>
 <pre><span class="VALis_sleeping"><span class="keyword">val</span> is_sleeping</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">is_sleeping t</code> returns <code class="code">true</code> iff <code class="code">t</code> is sleeping.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Cancelable threads</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Cancelable threads</h6></div></div>
 <div class="info"><div class="info">Cancelable threads are the same as regular threads except that
     they can be canceled.</div></div>
 <pre><span class="EXCEPTIONCanceled"><span class="keyword">exception</span> Canceled</span></pre><div class="info"><div class="info">Canceled threads fails with this exception</div></div>
@@ -167,7 +167,7 @@
       <code class="code">thread</code>.</div></div>
 <pre><span class="VALno_cancel"><span class="keyword">val</span> no_cancel</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">no_cancel thread</code> creates a thread which behave as <code class="code">thread</code>
       except that it cannot be canceled.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Pause</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Pause</h6></div></div>
 <pre><span class="VALpause"><span class="keyword">val</span> pause</span> : <code class="type">unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">pause ()</code> is a sleeping thread which is wake up on the next
       call to TODO reference : wakeup_paused. A thread created with <code class="code">pause</code> can be
       canceled.</div></div>
@@ -182,7 +182,7 @@
       called each time pause is called. The parameter passed to <code class="code">f</code> is
       the new number of threads paused. It is usefull to be able to
       call TODO reference : wakeup_paused when there is no scheduler</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Misc</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Misc</h6></div></div>
 <pre><span class="VALon_success"><span class="keyword">val</span> on_success</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> -&gt; ('a -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">on_success t f</code> executes <code class="code">f</code> when <code class="code">t</code> terminates without
       failing. If <code class="code">f</code> raises an exception it is given to
       TODO reference : async_exception_hook.</div></div>

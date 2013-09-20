@@ -6,7 +6,7 @@
     local filesystem by default, but one can also run the globbing
     algorithm on any other filesystem, provided the access primitives
     of TODO reference : Netglob.glob_fsys are available.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Types and exceptions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Types and exceptions</h2></div></div>
 <pre><span class="TYPEglob_expr"><span class="keyword">type</span> glob_expr</span> = <code class="type">glob_expr_atom list</code></pre>
 <pre><span class="TYPEglob_expr_atom"><span class="keyword">type</span> glob_expr_atom</span> = <code class="type">[ `Brace of <a href="?package=ocamlnet&amp;module=Netglob&amp;type=glob_expr">glob_expr</a> list
 | `Bracket of bool * glob_set
@@ -65,7 +65,7 @@
 <pre><span class="EXCEPTIONUnsupported_expr"><span class="keyword">exception</span> Unsupported_expr</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">The notations <code class="code">:class:</code>, <code class="code">.symbol.</code>, <code class="code">=eqclass=</code> inside <code class="code">...</code> are
  not supported by this implementation. If they are found, this exception
  will be raised, and the argument is the whole glob expression</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Parsing and printing</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Parsing and printing</h2></div></div>
 <pre><span class="VALparse_glob_expr"><span class="keyword">val</span> parse_glob_expr</span> : <code class="type">?encoding:<a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> -&gt;
 ?enable_star:bool -&gt;
 ?enable_qmark:bool -&gt;
@@ -94,7 +94,7 @@
  escaped by a backslash when possible. Meta characters are:
  <code class="code">&quot;*&quot;</code>, <code class="code">&quot;?&quot;</code>, <code class="code">&quot;[&quot;], [&quot;]&quot;</code>, <code class="code">&quot;{&quot;</code>, <code class="code">&quot;}&quot;</code>, <code class="code">&quot;,&quot;</code>, <code class="code">&quot;~&quot;</code> and <code class="code">&quot;\\&quot;</code> <br/> - <code class="code">escape_in_literals</code>: Whether meta characters in <code class="code">`Literal</code>
    subexpressions are escaped. This is true by default.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Operations on <code class="code">valid_glob_expr</code></h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Operations on <code class="code">valid_glob_expr</code></h2></div></div>
 <pre><span class="VALexpand_glob_expr"><span class="keyword">val</span> expand_glob_expr</span> : <code class="type">?user_info:<a href="?package=ocamlnet&amp;module=Netglob&amp;type=user_info">user_info</a> -&gt;
 ?expand_brace:bool -&gt;
 ?expand_tilde:bool -&gt; <a href="?package=ocamlnet&amp;module=Netglob&amp;type=valid_glob_expr">valid_glob_expr</a> -&gt; <a href="?package=ocamlnet&amp;module=Netglob&amp;type=valid_glob_expr">valid_glob_expr</a> list</code></pre><div class="info"><div class="info">Resolve generative sub expressions by expanding them. The returned
@@ -131,7 +131,7 @@
  returned where <code class="code">expr'</code> matches the same path without the trailing <code class="code">/</code>.<br/> Otherwise, <code class="code">None</code> is returned.<br/> Example: For <code class="code">&quot;a/b*/&quot;</code>, the expression <code class="code">&quot;a/b*&quot;</code> is returned.<br/> Special case: for <code class="code">&quot;/&quot;</code>, the expression <code class="code">&quot;&quot;</code> (only matching the empty
  string) is returned.<br/> The glob expression passed to this function must not contain brace
  or tilde expressions.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Globbing</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Globbing</h2></div></div>
 <pre><span class="VALglob"><span class="keyword">val</span> glob</span> : <code class="type">?encoding:<a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> -&gt;
 ?base_dir:string -&gt;
 ?protect_period:bool -&gt;
@@ -184,7 +184,7 @@
  if the filesystem provides an encoding. (If you want to check this
  encoding, pass <code class="code">fsys</code>, e.g. as <code class="code">local_fsys()</code>, and call the
  <code class="code">path_encoding</code> method of <code class="code">fsys</code>.)</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Remarks</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Remarks</h2></div></div>
 <div class="info"><div class="info"><b>Examples demonstrating the effect of encodings:</b> (Linux)<br/>    <pre class="codepre"><code class="code">
        let fsys = local_fsys ~encoding:`Enc_utf8()
        let l = glob ~fsys (`String &quot;\214*&quot;)
@@ -210,14 +210,14 @@
     context.</li><li>The usually case-insensitive file system is not taken into account.
     (To be fixed.)
  </li></ul></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Default access objects</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Default access objects</h2></div></div>
 <div class="ocaml_class ident" name="local_user_info" path="?package=ocamlnet&amp;module=Netglob&amp;class=user_info"><pre><span class="TYPElocal_user_info"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netglob&amp;class=local_user_info">local_user_info</a></span> : <code class="type">unit -&gt; </code><a href="?package=ocamlnet&amp;module=Netglob&amp;class=user_info">user_info</a></pre></div>
 <pre><span class="VALlocal_user_info"><span class="keyword">val</span> local_user_info</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Netglob&amp;type=user_info">user_info</a></code></pre><div class="info"><div class="info">Get the home directory of a user from the local user database.</div></div>
 <div class="ocaml_class ident" name="local_fsys" path="?package=ocamlnet&amp;module=Netglob&amp;class=glob_fsys"><pre><span class="TYPElocal_fsys"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netglob&amp;class=local_fsys">local_fsys</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> option -&gt; unit -&gt; </code><a href="?package=ocamlnet&amp;module=Netglob&amp;class=glob_fsys">glob_fsys</a></pre></div>
 <pre><span class="VALlocal_fsys"><span class="keyword">val</span> local_fsys</span> : <code class="type">?encoding:<a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Netglob&amp;type=glob_fsys">glob_fsys</a></code></pre><div class="info"><div class="info">Accesses the local filesystem</div></div>
 <div class="ocaml_class ident" name="of_stream_fs" path="?package=ocamlnet&amp;module=Netglob&amp;class=glob_fsys"><pre><span class="TYPEof_stream_fs"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netglob&amp;class=of_stream_fs">of_stream_fs</a></span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Netfs&amp;class=stream_fs">Netfs.stream_fs</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Netglob&amp;class=glob_fsys">glob_fsys</a></pre></div>
 <pre><span class="VALof_stream_fs"><span class="keyword">val</span> of_stream_fs</span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Netfs&amp;class=stream_fs">Netfs.stream_fs</a> -&gt; <a href="?package=ocamlnet&amp;module=Netglob&amp;type=glob_fsys">glob_fsys</a></code></pre><div class="info"><div class="info">Use an arbitrary network filesystem for globbing</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Compatibility</h2><br/><br/>    This implementation is not fully compatible with the POSIX specs.
+<div class="info"><div class="info"><h2 id="2_TITLE">Compatibility</h2><br/>    This implementation is not fully compatible with the POSIX specs.
     The differences:<ul><li>Missing support for character classes, equivalence classes and
       collating symbols.</li><li>Ranges in brackets are restricted to ASCII.</li><li>Unparseable patterns are indicated by exceptions. POSIX, however,
       requires that such patterns are taken literally. E.g. a pattern &quot;[&quot;

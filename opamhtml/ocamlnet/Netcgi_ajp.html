@@ -40,7 +40,7 @@ log:(string -&gt; unit) option -&gt; Unix.file_descr -&gt; <a href="?package=oca
       arriving on the existing connection <code class="code">fd</code>.<br/>      <code class="code">log</code> is the error logger function or <code class="code">None</code>, in which case
       errors are passed through to the FCGI client.<br/>      The other arguments are just like for <code class="code">run</code>.<br/>      The return value indicates whether the connection can be kept
       open or must be closed.</div></div>
-<div class="info"><div class="info"><br/><h2 id="setup">Setup</h2><br/><br/>    <br/><h3 id="3_TITLE">Apache</h3><br/><br/>    You need to use mod_jk to have support for AJP/1.3.  To install
+<div class="info"><div class="info"><h2 id="setup">Setup</h2><br/>    <h3 id="3_TITLE">Apache</h3><br/>    You need to use mod_jk to have support for AJP/1.3.  To install
     it, please see
     TODO reference : http://tomcat.apache.org/tomcat-3.3-doc/mod_jk-howto.html.<br/>    In httpd.conf or in a file, say mod_jk.conf, in
     /etc/apache2/conf.d/ (or /etc/apache2/conf.d/ for Apache 1.x), add
@@ -65,9 +65,9 @@ log:(string -&gt; unit) option -&gt; Unix.file_descr -&gt; <a href="?package=oca
       JkMount /*.jsp ajp13_worker
       JkMount /servlet/* ajp13_worker
     &lt;/IfModule&gt;
-    </span><br/>    <br/><h3 id="3_TITLE">Other web severs</h3><br/><br/>    Please go to this
+    </span><br/>    <h3 id="3_TITLE">Other web severs</h3><br/>    Please go to this
     TODO reference : http://tomcat.apache.org/connectors-doc/index.html.  Mail us specific instructions or tips for other web
-    servers so we can include them here.<br/>    <br/><h3 id="3_TITLE">Workers.properties</h3><br/><br/>    Here is an example of workers.properties:
+    servers so we can include them here.<br/>    <h3 id="3_TITLE">Workers.properties</h3><br/>    Here is an example of workers.properties:
     <span class="verbatim">    # Comma separated list of worker names:
     worker.list=ajp13_worker
     # Set properties for ajp13_worker

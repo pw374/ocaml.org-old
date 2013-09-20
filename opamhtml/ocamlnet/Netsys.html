@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">System calls missing in the <code class="code">Unix</code> module</div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Generic file descriptors</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Generic file descriptors</h1></div></div>
 <div class="info"><div class="info">Not all OS provide generic read/write functions, or some emulation
     layer does not allow to use a descriptor with read/write. In the
     following functions, the style of the descriptor can be passed along
@@ -159,7 +159,7 @@
       data loss), one should first try to finish the communication,
       either by protocol means (e.g. wait for ACK messages), or by
       calling <code class="code">gshutdown</code> first (see above).</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Functions for sockets</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Functions for sockets</h1></div></div>
 <pre><span class="VALwait_until_connected"><span class="keyword">val</span> wait_until_connected</span> : <code class="type">Unix.file_descr -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">After a non-blocking connect has been initiated, this function can be
       used to wait until (1) the connect is successful, or (2) the connect
       fails, or (3) the operation times out. The <code class="code">float</code> argument is the
@@ -185,7 +185,7 @@
       representation in network byte order, and vice-versa</div></div>
 <pre><span class="VALgetpeername"><span class="keyword">val</span> getpeername</span> : <code class="type">Unix.file_descr -&gt; Unix.sockaddr</code></pre><div class="info"><div class="info">like <code class="code">Unix.getpeername</code>, but errors are fixed up. <code class="code">ENOTCONN</code> is
       ensured when the socked is unconnected or shut down.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Helper functions</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Helper functions</h1></div></div>
 <pre><span class="VALis_absolute"><span class="keyword">val</span> is_absolute</span> : <code class="type">string -&gt; bool</code></pre><div class="info"><div class="info">Whether this file path is absolute. Works for Unix and Win32.</div></div>
 <pre><span class="VALrestart"><span class="keyword">val</span> restart</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">restart f arg</code> calls <code class="code">f arg</code>, and restarts this call if the
  exception <code class="code">Unix_error(EINTR,_,_)</code> is caught.<br/> Note that there are some cases where this handling of <code class="code">EINTR</code> is
@@ -224,7 +224,7 @@ float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</
 <pre><span class="VALclear_close_on_exec"><span class="keyword">val</span> clear_close_on_exec</span> : <code class="type">Unix.file_descr -&gt; unit</code></pre><div class="info"><div class="info">Working versions of the functions with the same name in <code class="code">Unix</code></div></div>
 <pre><span class="VAL_exit"><span class="keyword">val</span> _exit</span> : <code class="type">int -&gt; unit</code></pre><div class="info"><div class="info">Exit the program immediately without running the atexit handlers.
  The argument is the exit code, just as for <code class="code">exit</code>.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">IP addresses</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">IP addresses</h1></div></div>
 <pre><span class="VALlogand_inet_addr"><span class="keyword">val</span> logand_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; Unix.inet_addr -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">Returns the bitwise AND of the two argument addresses</div></div>
 <pre><span class="VALlogor_inet_addr"><span class="keyword">val</span> logor_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; Unix.inet_addr -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">Returns the bitwise OR of the two argument addresses</div></div>
 <pre><span class="VALlogxor_inet_addr"><span class="keyword">val</span> logxor_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; Unix.inet_addr -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">Returns the bitwise XOR of the two argument addresses</div></div>
@@ -232,18 +232,18 @@ float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</
 <pre><span class="VALis_ipv4_inet_addr"><span class="keyword">val</span> is_ipv4_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is an IPv4 address</div></div>
 <pre><span class="VALis_ipv6_inet_addr"><span class="keyword">val</span> is_ipv6_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is an IPv6 address</div></div>
 <pre><span class="VALis_multicast_inet_addr"><span class="keyword">val</span> is_multicast_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is a multicast address (either IPv4 or IPv6)</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Multicast Functions</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Multicast Functions</h1></div></div>
 <pre><span class="VALmcast_set_loop"><span class="keyword">val</span> mcast_set_loop</span> : <code class="type">Unix.file_descr -&gt; bool -&gt; unit</code></pre><div class="info"><div class="info">Whether sent multicast messages are received by the sending host</div></div>
 <pre><span class="VALmcast_set_ttl"><span class="keyword">val</span> mcast_set_ttl</span> : <code class="type">Unix.file_descr -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Set TTL/hops value</div></div>
 <pre><span class="VALmcast_add_membership"><span class="keyword">val</span> mcast_add_membership</span> : <code class="type">Unix.file_descr -&gt; Unix.inet_addr -&gt; Unix.inet_addr -&gt; unit</code></pre><div class="info"><div class="info">Join a multicast group.<br/>      First inet addr is the group to join. Second inet addr selects the
       network interface (or <code class="code">Unix.inet_addr_any</code>).</div></div>
 <pre><span class="VALmcast_drop_membership"><span class="keyword">val</span> mcast_drop_membership</span> : <code class="type">Unix.file_descr -&gt; Unix.inet_addr -&gt; Unix.inet_addr -&gt; unit</code></pre><div class="info"><div class="info">Leave a multicast group.<br/>     First inet addr is the group to leave. Second inet addr selects the
      network interface (or <code class="code">Unix.inet_addr_any</code>).</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Profiling</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Profiling</h1></div></div>
 <pre><span class="VALmoncontrol"><span class="keyword">val</span> moncontrol</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Interface to the <code class="code">moncontrol</code> routine of the GPROF profiler. 
       <code class="code">moncontrol false</code> stops profiling; <code class="code">moncontrol true</code> starts
       profiling again.<br/>      This is a no-op if the program is not compiler for profiling.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Deprecated</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Deprecated</h1></div></div>
 <div class="info"><div class="info">The following interfaces have been replaced by more generic implementations
     that work on more platforms.</div></div>
 <pre><span class="VALblocking_read"><span class="keyword">val</span> blocking_read</span> : <code class="type">Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Same as <code class="code">blocking_gread `Read_write</code></div></div>
@@ -255,8 +255,8 @@ float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</
 <pre><span class="VALhave_posix_shm"><span class="keyword">val</span> have_posix_shm</span> : <code class="type">unit -&gt; bool</code></pre>
 <pre><span class="VALshm_open"><span class="keyword">val</span> shm_open</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netsys&amp;type=shm_open_flag">shm_open_flag</a> list -&gt; int -&gt; Unix.file_descr</code></pre>
 <pre><span class="VALshm_unlink"><span class="keyword">val</span> shm_unlink</span> : <code class="type">string -&gt; unit</code></pre>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Further Documentation</h1><br/></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">How to orderly close I/O channels</h2><br/> <br/>    After reading from uni-directional descriptors, and seeing the
+<div class="info"><div class="info"><h1 id="1_TITLE">Further Documentation</h1></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">How to orderly close I/O channels</h2> <br/>    After reading from uni-directional descriptors, and seeing the
     EOF, it is usually sufficient to call <code class="code">gclose</code> to free OS resources.<br/>    After writing to uni-directional descriptors one should call
     <code class="code">gshutdown</code> to send an EOF (<code class="code">SHUTDOWN_SEND</code>). For some descriptors
     one will get the exception <code class="code">Shutdown_not_supported</code> which can be
@@ -300,7 +300,7 @@ float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</
       seen one can <code class="code">gclose</code>.</li><li>Server sends EOF, and client replies with data, followed by EOF:
       I admit I don't know whether TCP can handle this somehow.
  </li></ul></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Debugging</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netsys.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging</div></div></div></div>
 <pre><span class="VALset_moncontrol"><span class="keyword">val</span> set_moncontrol</span> : <code class="type">(bool -&gt; unit) -&gt; unit</code></pre>

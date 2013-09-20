@@ -1,7 +1,7 @@
 <div class="ocaml_toplevel_module"><div class="info">Warning! this library assumes we are in a POSIX compliant OS. It will not work
     properly under windows.</div>
 <pre><span class="VALroot"><span class="keyword">val</span> root</span> : <code class="type">string</code></pre><div class="info"><div class="info">The path of the root.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Pathname resolution</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Pathname resolution</h2></div></div>
 <pre><span class="VALrealpath"><span class="keyword">val</span> realpath</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">realpath path</code><b>Raises</b> <code>Unix_error</code> on errors.<br/><b>Returns</b> the canonicalized absolute pathname of <code class="code">path</code>.</div></div>
 <pre><span class="VALis_posix_pathname_component"><span class="keyword">val</span> is_posix_pathname_component</span> : <code class="type">string -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">is_posix_pathname_component f</code><b>Returns</b> true if <code class="code">f</code> is a valid filename in a POSIX compliant OS (a path
    component and not a full path).<br/>   http://www.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap03.html#tag_03_169</div></div>

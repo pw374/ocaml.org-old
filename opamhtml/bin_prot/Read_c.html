@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Wrapping unsafe C-style readers to safe ML-style ones.</div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Generic functions for easy creation of wrappers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Generic functions for easy creation of wrappers</h2></div></div>
 <pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Unsafe_read_c.reader</a> -&gt; 'a Read_ml.reader</code></pre><div class="info"><div class="info"><code class="code">make c_reader</code> takes an unsafe C-style reader <code class="code">c_reader</code>.<b>Returns</b> a safe ML-style reader.</div></div>
 <pre><span class="VALmake1"><span class="keyword">val</span> make1</span> : <code class="type">('a, 'b) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader1">Unsafe_read_c.reader1</a> -&gt; ('a, 'b) Read_ml.reader1</code></pre><div class="info"><div class="info"><code class="code">make1 mk_c_reader ml_el_reader</code> takes a higher-order C-style reader
     <code class="code">mk_c_reader</code> and an ML-reader <code class="code">ml_el_reader</code> that operates on the
@@ -24,7 +24,7 @@
     <code class="code">buf</code>.  raise exc then.</div></div>
 <pre><span class="VALat_end"><span class="keyword">val</span> at_end</span> : <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt; <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr_ptr">Unsafe_common.sptr_ptr</a> -&gt; <a href="?package=bin_prot&amp;module=Common&amp;type=pos_ref">Common.pos_ref</a> -&gt; 'a -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">at_end buf sptr_ptr pos_ref el</code> deallocates <code class="code">sptr_ptr</code> for buffer
     <code class="code">buf</code>, sets <code class="code">pos_ref</code> to the new position, then returns <code class="code">el</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Unsafe C-style readers for basic types wrapped as ML-style readers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Unsafe C-style readers for basic types wrapped as ML-style readers</h2></div></div>
 <pre><span class="VALbin_read_unit"><span class="keyword">val</span> bin_read_unit</span> : <code class="type">unit Read_ml.reader</code></pre>
 <pre><span class="VALbin_read_bool"><span class="keyword">val</span> bin_read_bool</span> : <code class="type">bool Read_ml.reader</code></pre>
 <pre><span class="VALbin_read_string"><span class="keyword">val</span> bin_read_string</span> : <code class="type">string Read_ml.reader</code></pre>

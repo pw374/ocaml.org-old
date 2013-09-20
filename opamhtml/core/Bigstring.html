@@ -1,7 +1,7 @@
 <div class="ocaml_toplevel_module"><div class="info">String type based on <code class="code">Bigarray</code>, for use in I/O and C-bindings</div>
 <div class="ocaml_include ident" items="[&quot;From_string&quot;,&quot;To_string&quot;]"><pre><span class="keyword">include</span> <code class="type">module type of <code class="code">Core_kernel.Std.Bigstring</code> with type t = Core_kernel.Std.Bigstring.t</code></pre></div>
 <pre><span class="EXCEPTIONIOError"><span class="keyword">exception</span> IOError</span> <span class="keyword">of</span> <code class="type">int * exn</code></pre><div class="info"><div class="info">Type of I/O errors</div><div class="info">The occurred exception (e.g. Unix_error, End_of_file)</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Input functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Input functions</h6></div></div>
 <pre><span class="VALread"><span class="keyword">val</span> read</span> : <code class="type">?min_len:int -&gt; Unix.file_descr -&gt; ?pos:int -&gt; ?len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">read ?min_len fd ?pos ?len bstr</code> reads at least <code class="code">min_len</code> (must be
     greater than or equal zero) and at most <code class="code">len</code> (must be greater than
     or equal to <code class="code">min_len</code>) bytes from file descriptor <code class="code">fd</code>, and writes
@@ -41,7 +41,7 @@
 <pre><span class="VALreally_input"><span class="keyword">val</span> really_input</span> : <code class="type">Pervasives.in_channel -&gt; ?pos:int -&gt; ?len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">really_input ic ?pos ?len bstr</code> reads exactly <code class="code">len</code> bytes from
     input channel <code class="code">ic</code>, and writes them to bigstring <code class="code">bstr</code> starting at
     position <code class="code">pos</code>.<div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">length bstr - pos</code></div></div><b>Raises</b> <code>Invalid_argument</code> if the designated range is out of bounds.<br/><code>IOError</code> in the case of input errors, or on premature EOF.<br/></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Output functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Output functions</h6></div></div>
 <pre><span class="VALreally_write"><span class="keyword">val</span> really_write</span> : <code class="type">Unix.file_descr -&gt; ?pos:int -&gt; ?len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">really_write fd ?pos ?len bstr</code> writes <code class="code">len</code> bytes in bigstring
     <code class="code">bstr</code> starting at position <code class="code">pos</code> to file descriptor <code class="code">fd</code>.<div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">length bstr - pos</code></div></div><b>Raises</b> <code>Invalid_argument</code> if the designated range is out of bounds.<br/><code>IOError</code> in the case of output errors.<br/></div></div>
 <pre><span class="VALreally_send_no_sigpipe"><span class="keyword">val</span> really_send_no_sigpipe</span> : <code class="type">(Unix.file_descr -&gt; ?pos:int -&gt; ?len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; unit)
@@ -111,7 +111,7 @@ Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code
     channel <code class="code">oc</code>.<div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">length bstr - pos</code></div></div><b>Raises</b> <code>Invalid_argument</code> if the designated range is out of bounds.<br/><code>IOError</code> in the case of output errors.  The <code class="code">IOError</code>-argument
     counting the number of successful bytes includes those that have
     been transferred to the channel buffer before the error.<br/></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Unsafe functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Unsafe functions</h6></div></div>
 <pre><span class="VALunsafe_read_assume_fd_is_nonblocking"><span class="keyword">val</span> unsafe_read_assume_fd_is_nonblocking</span> : <code class="type">Unix.file_descr -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">unsafe_read_assume_fd_is_nonblocking fd ~pos ~len bstr</code>
     similar to TODO reference : Bigstring.read_assume_fd_is_nonblocking, but does
     not perform any bounds checks.  Will crash on bounds errors!</div></div>

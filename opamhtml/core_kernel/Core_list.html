@@ -68,7 +68,7 @@
 <pre><span class="VALfindi"><span class="keyword">val</span> findi</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:(int -&gt; 'a -&gt; bool) -&gt; (int * 'a) option</code></pre>
 <pre><span class="VALfind_exn"><span class="keyword">val</span> find_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; bool) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">find_exn t ~f</code> returns the first element of <code class="code">t</code> that satisfies <code class="code">f</code>.  It raises
     <code class="code">Not_found</code> if there is no such element.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Tail-recursive implementations of standard List operations</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Tail-recursive implementations of standard List operations</h6></div></div>
 <pre><span class="VALappend"><span class="keyword">val</span> append</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info">E.g. <code class="code">append [1; 2] [3; 4; 5]</code> is <code class="code">[1; 2; 3; 4; 5]</code></div></div>
 <pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; 'b) -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">List.map f [a1; ...; an]</code> applies function <code class="code">f</code> to <code class="code">a1, ..., an</code>, and builds the list
     <code class="code">[f a1; ...; f an]</code> with the results returned by <code class="code">f</code>.</div></div>
@@ -257,7 +257,7 @@
     empty.</div></div>
 <div class="info"><div class="info"><code class="code">find_exn t ~f</code> returns the first element of <code class="code">t</code> that satisfies <code class="code">f</code>.  It raises
     <code class="code">Not_found</code> if there is no such element.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Tail-recursive implementations of standard List operations</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Tail-recursive implementations of standard List operations</h6></div></div>
 <div class="info"><div class="info">E.g. <code class="code">append [1; 2] [3; 4; 5]</code> is <code class="code">[1; 2; 3; 4; 5]</code></div></div>
 <div class="info"><div class="info"><code class="code">List.map f [a1; ...; an]</code> applies function <code class="code">f</code> to <code class="code">a1, ..., an</code>, and builds the list
     <code class="code">[f a1; ...; f an]</code> with the results returned by <code class="code">f</code>.</div></div>

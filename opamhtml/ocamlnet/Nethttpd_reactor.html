@@ -1,4 +1,4 @@
-<div class="ocaml_toplevel_module"><div class="info"><br/><h1 id="1_TITLE">The reactive encapsulation of the HTTP daemon</h1><br/><br/> This is a user-friendlier encapsulation of the HTTP daemon. It uses a
+<div class="ocaml_toplevel_module"><div class="info"><h1 id="1_TITLE">The reactive encapsulation of the HTTP daemon</h1><br/> This is a user-friendlier encapsulation of the HTTP daemon. It uses a
  &quot;pull model&quot;: One pulls HTTP requests from the &quot;reactor&quot; one after the
  other. Request/response pairs have a common environment that represents
  the input and output facilities. Input and output are realised by
@@ -144,7 +144,7 @@ Unix.file_descr -&gt; 'a <a href="?package=ocamlnet&amp;module=Nethttpd_types&am
  closed.<br/> All stages of HTTP processing, as defined by the service provider, are
  executed in the current thread.<br/> Any exceptions are caught and logged. The connection is immediately closed
  in this case.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Debugging</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Nethttpd_reactor.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div></div></div>
 <pre><span class="VALlogged_error_response"><span class="keyword">val</span> logged_error_response</span> : <code class="type">Unix.sockaddr -&gt;

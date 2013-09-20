@@ -31,7 +31,7 @@
     can be disabled by setting the<ul><li><code class="code">disable_pmanage</code> parameter for the TODO reference : Netmcore.startup call, or by
       setting the</li><li><code class="code">unlink</code> parameter in the same call. This second option only disables
       the deletion, but the management file is updated.</li></ul></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Types and exceptions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Types and exceptions</h2></div></div>
 <pre><span class="TYPEres_id"><span class="keyword">type</span> res_id</span> = <code class="type">[ `Resource of int ]</code></pre><div class="info"><div class="info">This tagged integer identifies resources. This variant type will never
       be extended.</div></div>
 <pre><span class="TYPEprocess_id"><span class="keyword">type</span> process_id</span> = <code class="type">[ `Process of int ]</code></pre><div class="info"><div class="info">This tagged integer identifies processes. This variant type will never
@@ -78,7 +78,7 @@
 <div class="info"><div class="info">Notify the manager that the resource is not used any longer by this
 	process. If all processes release the resource it will be finally
 	destroyed.</div></div></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Defining processes</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Defining processes</h2></div></div>
 <div class="info"><div class="info">This is the lower-level version of the process API where arguments
     and results of processes are dynamically typed. It may have some
     uses when writing generic process managers, but for the
@@ -137,7 +137,7 @@
       TODO reference : Netmcore.run returned.</div></div>
 <pre><span class="VALjoin_nowait"><span class="keyword">val</span> join_nowait</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a> -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=process_id">process_id</a> -&gt; <a href="?package=ocamlnet&amp;module=Netplex_encap&amp;type=encap">Netplex_encap.encap</a> option</code></pre><div class="info"><div class="info"><code class="code">let res_opt = join_nowait join_point pid</code>: Checks if the process <code class="code">pid</code>
       is done, and returns the result value if so. Otherwise return <code class="code">None</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Managing resources from worker processes</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Managing resources from worker processes</h2></div></div>
 <div class="info"><div class="info">The following functions can also be called from worker processes
     (i.e. Netplex containers)</div></div>
 <pre><span class="VALget_resource"><span class="keyword">val</span> get_resource</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a> -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=compute_resource">compute_resource</a></code></pre><div class="info"><div class="info">Retrieves the resource by ID. This implicitly also marks this resource
@@ -176,7 +176,7 @@
 <div class="info"><div class="info">Semaphores can be opened with TODO reference : Netsys_posix.sem_open, and
     created with TODO reference : Netsys_posix.sem_create.</div></div>
 <pre><span class="VALself_process_id"><span class="keyword">val</span> self_process_id</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=process_id">process_id</a></code></pre><div class="info"><div class="info">Returns the process ID of a worker</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Initialization and system start</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Initialization and system start</h2></div></div>
 <div class="info"><div class="info">This module can either be used as Netplex plugin and integrated into
     any existing Netplex program, or it can be started in stand-alone mode</div></div>
 <pre><span class="VALadd_plugins"><span class="keyword">val</span> add_plugins</span> : <code class="type">Netplex_types.controller -&gt; unit</code></pre><div class="info"><div class="info">To enable compute processes for any Netplex program, call this

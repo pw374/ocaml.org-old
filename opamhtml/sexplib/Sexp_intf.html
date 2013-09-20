@@ -3,14 +3,14 @@
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type"><a href="?package=sexplib&amp;module=Type&amp;type=t">Type.t</a></code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTt.Atom"><span class="constructor">Atom</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTt.List"><span class="constructor">List</span></span> <span class="keyword">of</span> <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> list</code></code></td></tr></table><div class="info"><div class="info">Type of S-expressions</div><div class="info">Type of bigstrings</div></div>
 <pre><span class="TYPEbigstring"><span class="keyword">type</span> bigstring</span> = <code class="type">(char, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t</code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Defaults</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Defaults</h6></div></div>
 <pre><span class="VALdefault_indent"><span class="keyword">val</span> default_indent</span> : <code class="type">int Pervasives.ref</code></pre><div class="info"><div class="info"><code class="code">default_indent</code> reference to default indentation level for
       human-readable conversions.  Initialisation value: 2.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">S-expression size</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">S-expression size</h6></div></div>
 <pre><span class="VALsize"><span class="keyword">val</span> size</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; int * int</code></pre><div class="info"><div class="info"><code class="code">size sexp</code><b>Returns</b> <code class="code">(n_atoms, n_chars)</code>, where <code class="code">n_atoms</code> is
       the number of atoms in S-expression <code class="code">sexp</code>, and <code class="code">n_chars</code> is the
       number of characters in the atoms of the S-expression.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Scan functions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Scan functions</h6></div></div>
 <pre><span class="VALscan_sexp"><span class="keyword">val</span> scan_sexp</span> : <code class="type">?buf:Buffer.t -&gt; Lexing.lexbuf -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">scan_sexp ?buf lexbuf</code> scans an S-expression from lex buffer
       <code class="code">lexbuf</code> using the optional string buffer <code class="code">buf</code> for storing
       intermediate strings.</div></div>
@@ -33,7 +33,7 @@
       S-expressions scanned from lex buffer <code class="code">lexbuf</code> to some list using
       function <code class="code">f</code>, and the optional string buffer <code class="code">buf</code> for storing
       intermediate strings.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Type and exception definitions for (partial) parsing</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Type and exception definitions for (partial) parsing</h6></div></div>
 <div class="ocaml_module sig" name="Parse_pos"><pre><span class="keyword">module</span> <a href="?package=sexplib&amp;module=Sexp_intf.S.Parse_pos">Parse_pos</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = {<code class="type">Pre_sexp.Parse_pos.t</code>}<span class="keyword">private</span></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="keyword">mutable</span> <span class="TYPEELTt.text_line">text_line</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Line position in parsed text</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="keyword">mutable</span> <span class="TYPEELTt.text_char">text_char</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Character position in parsed text</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="keyword">mutable</span> <span class="TYPEELTt.global_offset">global_offset</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Global/logical offset</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="keyword">mutable</span> <span class="TYPEELTt.buf_pos">buf_pos</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Read position in string buffer</div></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">Position information after complete parse</div></div>
@@ -75,7 +75,7 @@
 <pre><span class="VALfind_sexp"><span class="keyword">val</span> find_sexp</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Type&amp;type=t">Type.t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=t">t</a> option</code></pre><div class="info"><div class="info"><code class="code">find_sexp annot_sexp sexp</code><b>Returns</b> <code class="code">Some res</code> where <code class="code">res</code> is the
         annotated S-expression that is physically equivalent to <code class="code">sexp</code> in
         <code class="code">annot_sexp</code>, or <code class="code">None</code> if there is no such S-expression.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Annotated (partial) parsing</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Annotated (partial) parsing</h6></div></div>
 <pre><span class="VALparse"><span class="keyword">val</span> parse</span> : <code class="type">?parse_pos:<a href="?package=sexplib&amp;module=Sexp_intf.S.Parse_pos&amp;type=t">Parse_pos.t</a> -&gt; ?len:int -&gt; string -&gt; (string, <a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=t">t</a>) <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=parse_result">parse_result</a></code></pre><div class="info"><div class="info"><code class="code">parse ?parse_pos ?len str</code> same as TODO reference : parse, but returns an
         S-expression annotated with location information.</div></div>
 <pre><span class="VALparse_bigstring"><span class="keyword">val</span> parse_bigstring</span> : <code class="type">?parse_pos:<a href="?package=sexplib&amp;module=Sexp_intf.S.Parse_pos&amp;type=t">Parse_pos.t</a> -&gt;
@@ -87,7 +87,7 @@
         a list of annotated S-expressions.</div></div>
 <pre><span class="VALinput_rev_sexps"><span class="keyword">val</span> input_rev_sexps</span> : <code class="type">?parse_pos:<a href="?package=sexplib&amp;module=Sexp_intf.S.Parse_pos&amp;type=t">Parse_pos.t</a> -&gt; ?buf:string -&gt; Pervasives.in_channel -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=t">t</a> list</code></pre><div class="info"><div class="info"><code class="code">input_sexps ?parse_pos ?buf ic</code> like TODO reference : input_rev_sexps, but
         returns a list of annotated S-expressions.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Loading of annotated S-expressions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Loading of annotated S-expressions</h6></div></div>
 <div class="info"><div class="info">NOTE: these functions should only be used if an annotated S-expression
         is required.</div></div>
 <pre><span class="VALload_sexp"><span class="keyword">val</span> load_sexp</span> : <code class="type">?strict:bool -&gt; ?buf:string -&gt; string -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">load_sexp ?strict ?buf file</code> like TODO reference : load_sexp, but returns an
@@ -96,7 +96,7 @@
         annotated S-expressions.</div></div>
 <pre><span class="VALload_rev_sexps"><span class="keyword">val</span> load_rev_sexps</span> : <code class="type">?buf:string -&gt; string -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=t">t</a> list</code></pre><div class="info"><div class="info"><code class="code">load_rev_sexps ?buf file</code> like TODO reference : load_rev_sexps, but returns a
         list of annotated S-expressions.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">String and bigstring conversions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">String and bigstring conversions</h6></div></div>
 <pre><span class="VALof_string"><span class="keyword">val</span> of_string</span> : <code class="type">string -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">of_string str</code> same as TODO reference : of_string, but returns an annotated
         S-expression.</div></div>
 <pre><span class="VALof_bigstring"><span class="keyword">val</span> of_bigstring</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=bigstring">bigstring</a> -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">of_bigstring bstr</code> same as TODO reference : of_string, but operates on bigstrings.</div></div>
@@ -116,7 +116,7 @@
 <pre><span class="TYPEparse_error"><span class="keyword">type</span> parse_error</span> = {<code class="type">Pre_sexp.parse_error</code>}</pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTparse_error.location">location</span> : <code class="type">string</code></code></td><td class="typefieldcomment" align="left"><div class="info">Function in which the parse failed</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTparse_error.err_msg">err_msg</span> : <code class="type">string</code></code></td><td class="typefieldcomment" align="left"><div class="info">Reason why parsing failed</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTparse_error.parse_state">parse_state</span> : <code class="type">[ `Annot of <a href="?package=sexplib&amp;module=Sexp_intf.S.Annotated&amp;type=stack">Annotated.stack</a> <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=parse_state">parse_state</a> | `Sexp of <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> list list <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=parse_state">parse_state</a> ]</code></code></td><td class="typefieldcomment" align="left"><div class="info">State of parser</div></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">Type of parse errors</div></div>
 <pre><span class="EXCEPTIONParse_error"><span class="keyword">exception</span> Parse_error</span> <span class="keyword">of</span> <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=parse_error">parse_error</a></code></pre><div class="info"><div class="info">Exception raised during partial parsing</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Unannotated (partial) parsing</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Unannotated (partial) parsing</h6></div></div>
 <pre><span class="VALparse"><span class="keyword">val</span> parse</span> : <code class="type">?parse_pos:<a href="?package=sexplib&amp;module=Sexp_intf.S.Parse_pos&amp;type=t">Parse_pos.t</a> -&gt; ?len:int -&gt; string -&gt; (string, <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a>) <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=parse_result">parse_result</a></code></pre><div class="info"><div class="info"><code class="code">parse ?parse_pos ?len str</code> (partially) parses an S-expression in string buffer
       <code class="code">str</code> starting out with position information provided in <code class="code">parse_pos</code> and reading at
       most <code class="code">len</code> characters.  To parse a single atom that is not delimited by whitespace
@@ -141,7 +141,7 @@
 <pre><span class="VALinput_rev_sexps"><span class="keyword">val</span> input_rev_sexps</span> : <code class="type">?parse_pos:<a href="?package=sexplib&amp;module=Sexp_intf.S.Parse_pos&amp;type=t">Parse_pos.t</a> -&gt; ?buf:string -&gt; Pervasives.in_channel -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> list</code></pre><div class="info"><div class="info"><code class="code">input_rev_sexps ?parse_pos ?buf ic</code> same as TODO reference : Sexp.input_sexps,
       but returns a reversed list of S-expressions, which is slightly more
       efficient.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Loading of (converted) S-expressions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Loading of (converted) S-expressions</h6></div></div>
 <pre><span class="VALload_sexp"><span class="keyword">val</span> load_sexp</span> : <code class="type">?strict:bool -&gt; ?buf:string -&gt; string -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">load_sexp ?strict ?buf file</code> reads one S-expression from <code class="code">file</code> using
       buffer <code class="code">buf</code> for storing intermediate data.  Faster than the
       scan-functions.<div class="parameters"><div class="param_info"><code class="code">strict</code> : default = <code class="code">true</code></div></div><b>Raises</b> <code>Parse_error</code> if the S-expression is unparseable.<br/><code>Failure</code> if parsing reached the end of file before one S-expression
@@ -173,7 +173,7 @@
 <pre><span class="VALload_sexps_conv_exn"><span class="keyword">val</span> load_sexps_conv_exn</span> : <code class="type">?buf:string -&gt; string -&gt; (<a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; 'a) -&gt; 'a list</code></pre><div class="info"><div class="info"><code class="code">load_sexps_conv_exn ?buf file f</code> like TODO reference : load_sexps_conv, but returns
       the converted value or raises <code class="code">Of_sexp_error</code> with exact location
       information in the case of a conversion error.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Output of S-expressions to I/O-channels</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Output of S-expressions to I/O-channels</h6></div></div>
 <div class="info"><div class="info">NOTE: for performance reasons these output functions may need to
       allocate large strings to write out huge S-expressions.  This may
       cause problems on 32-bit platforms.  If you think that you may need to
@@ -187,7 +187,7 @@
 <pre><span class="VALoutput_mach"><span class="keyword">val</span> output_mach</span> : <code class="type">Pervasives.out_channel -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">output_mach oc sexp</code> outputs S-expression <code class="code">sexp</code> to output channel
       <code class="code">oc</code> in machine readable (i.e. most compact) form.</div></div>
 <pre><span class="VALoutput"><span class="keyword">val</span> output</span> : <code class="type">Pervasives.out_channel -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">output oc sexp</code> same as <code class="code">output_mach</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Output of S-expressions to file</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Output of S-expressions to file</h6></div></div>
 <div class="info"><div class="info">All save-functions write to a temporary file before moving it into
       place to avoid intermittent garbling of existing files, which may
       cause problems for other processes that try to read.</div></div>
@@ -202,7 +202,7 @@
       <code class="code">file</code> in machine readable form, each sexp being followed by a
       newline.<div class="parameters"><div class="param_info"><code class="code">perm</code> : default = umask</div></div></div></div>
 <pre><span class="VALsave_sexps"><span class="keyword">val</span> save_sexps</span> : <code class="type">?perm:int -&gt; string -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> list -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">save_sexps ?perm file sexp</code> same as TODO reference : save_sexps_mach.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Output of S-expressions to formatters</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Output of S-expressions to formatters</h6></div></div>
 <pre><span class="VALpp_hum"><span class="keyword">val</span> pp_hum</span> : <code class="type">Format.formatter -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">pp_hum ppf sexp</code> outputs S-expression <code class="code">sexp</code> to formatter <code class="code">ppf</code>
       in human readable form.</div></div>
 <pre><span class="VALpp_hum_indent"><span class="keyword">val</span> pp_hum_indent</span> : <code class="type">int -&gt; Format.formatter -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">pp_hum_indent n ppf sexp</code> outputs S-expression <code class="code">sexp</code> to formatter
@@ -210,7 +210,7 @@
 <pre><span class="VALpp_mach"><span class="keyword">val</span> pp_mach</span> : <code class="type">Format.formatter -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">pp_mach ppf sexp</code> outputs S-expression <code class="code">sexp</code> to formatter <code class="code">ppf</code>
       in machine readable (i.e. most compact) form.</div></div>
 <pre><span class="VALpp"><span class="keyword">val</span> pp</span> : <code class="type">Format.formatter -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">pp ppf sexp</code> same as <code class="code">pp_mach</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">String and bigstring conversions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">String and bigstring conversions</h6></div></div>
 <div class="ocaml_module sig" name="Of_string_conv_exn"><pre><span class="keyword">module</span> <a href="?package=sexplib&amp;module=Sexp_intf.S.Of_string_conv_exn">Of_string_conv_exn</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Module encapsulating the exception raised by string converters when
       type conversions fail.</div></div><div class="ocaml_module_content">
 <pre><code><span class="TYPEt"><span class="keyword">type</span> t</span> = {</code></pre><table class="typetable">
@@ -236,7 +236,7 @@
 <pre><span class="VALto_string_mach"><span class="keyword">val</span> to_string_mach</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info"><code class="code">to_string_mach sexp</code> converts S-expression <code class="code">sexp</code> to a string in
       machine readable (i.e. most compact) form.</div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info"><code class="code">to_string sexp</code> same as <code class="code">to_string_mach</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Buffer conversions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Buffer conversions</h6></div></div>
 <pre><span class="VALto_buffer_hum"><span class="keyword">val</span> to_buffer_hum</span> : <code class="type">buf:Buffer.t -&gt; ?indent:int -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">to_buffer_hum ~buf ?indent sexp</code> outputs the S-expression <code class="code">sexp</code>
       converted to a string in human readable form to buffer <code class="code">buf</code>.<div class="parameters"><div class="param_info"><code class="code">indent</code> : default = <code class="code">!default_indent</code></div></div></div></div>
 <pre><span class="VALto_buffer_mach"><span class="keyword">val</span> to_buffer_mach</span> : <code class="type">buf:Buffer.t -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">to_buffer_mach ~buf sexp</code> outputs the S-expression <code class="code">sexp</code> converted
@@ -247,13 +247,13 @@ add_char:('buffer -&gt; char -&gt; unit) -&gt;
 add_string:('buffer -&gt; string -&gt; unit) -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">to_buffer_gen ~buf ~add_char ~add_string sexp</code> outputs the S-expression
       <code class="code">sexp</code> converted to a string to buffer <code class="code">buf</code> using the output functions
       <code class="code">add_char</code> and <code class="code">add_string</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Utilities for automated type conversions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Utilities for automated type conversions</h6></div></div>
 <pre><span class="VALunit"><span class="keyword">val</span> unit</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">unit</code> the unit-value as expressed by an S-expression.</div></div>
 <pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">sexp_of_t sexp</code> maps S-expressions which are part of a type with
       automated S-expression conversion to themselves.</div></div>
 <pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">t_of_sexp sexp</code> maps S-expressions which are part of a type with
       automated S-expression conversion to themselves.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Utilities for conversion error handling</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Utilities for conversion error handling</h6></div></div>
 <pre><span class="TYPEfound"><span class="keyword">type</span> found</span> = <code class="type">[ `Found | `Pos of int * <a href="?package=sexplib&amp;module=Sexp_intf.S&amp;type=found">found</a> ]</code></pre><div class="info"><div class="info">Type of successful search results.  <code class="code">`Found</code> means that an
       S-expression was found at the immediate position, and <code class="code">`Pos (pos,
       found)</code> indicates that it was found at position <code class="code">pos</code> within a

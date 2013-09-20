@@ -18,7 +18,7 @@
     Using <code class="code">_</code> allows the function to be directly applied to either permission.  Using
     a specific permission would require code to use coercion <code class="code">:&gt;</code>.</div></div>
 <div class="ocaml_include ident" path="?package=core&amp;module=Invariant.S2" items="[]"><pre><span class="keyword">include</span> <code class="type"><code class="code"><a href="?package=core&amp;module=Invariant.S2">Invariant.S2</a></code> with type t := ('a, 'b) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a></code></pre></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Creation</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Creation</h1></div></div>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">len:int -&gt; ('a, 'b) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create ~len</code> creates a new iobuf, backed by a bigstring of length <code class="code">len</code>,
     with the limits and window set to the entire bigstring.</div></div>
 <pre><span class="VALof_bigstring"><span class="keyword">val</span> of_bigstring</span> : <code class="type">?pos:int -&gt; ?len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">Bigstring.t</a> -&gt; ('a, 'b) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">of_bigstring bigstring ~pos ~len</code> returns an iobuf backed by <code class="code">bigstring</code>, with the
@@ -27,14 +27,14 @@
 <pre><span class="VALsub"><span class="keyword">val</span> sub</span> : <code class="type">?pos:int -&gt; ?len:int -&gt; ('d, 'a) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; ('d, 'b) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">sub t ~pos ~len</code> returns a new iobuf with limits and window set to the subrange of
     <code class="code">t</code> specified by <code class="code">pos</code> and <code class="code">len</code>.  <code class="code">sub</code> preserves data permissions, but allows
     arbitrary seek permissions on the resulting iobuf.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Accessors</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Accessors</h1></div></div>
 <pre><span class="VALcapacity"><span class="keyword">val</span> capacity</span> : <code class="type">('a, 'b) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">capacity t</code> returns the size of <code class="code">t</code>'s limits subrange.  The capacity of an iobuf can
     be reduced via <code class="code">narrow</code>.</div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type">('a, 'b) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">length t</code> returns the size of <code class="code">t</code>'s window.</div></div>
 <pre><span class="VALis_empty"><span class="keyword">val</span> is_empty</span> : <code class="type">('a, 'b) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">is_empty t</code> is <code class="code">length t = 0</code>.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Changing the limits</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Changing the limits</h1></div></div>
 <pre><span class="VALnarrow"><span class="keyword">val</span> narrow</span> : <code class="type">('a, <a href="?package=core&amp;module=Iobuf&amp;type=seek">seek</a>) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">narrow t</code> sets <code class="code">t</code>'s limits to the current window.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Changing the window</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Changing the window</h1></div></div>
 <div class="info"><div class="info">One can call <code class="code">Lo_bound.window t</code> to get a snapshot of the lower bound of the
     window, and then later restore that snapshot with <code class="code">Lo_bound.restore</code>.  This is
     useful for speculatively parsing, and then rewinding when there isn't enough data to
@@ -71,7 +71,7 @@
       Iobuf.flip_hi buf;
     </code></pre><br/>    Now the window of <code class="code">buf</code> ranges over the remainder of the data.</div></div>
 <pre><span class="VALbounded_flip_hi"><span class="keyword">val</span> bounded_flip_hi</span> : <code class="type">('a, <a href="?package=core&amp;module=Iobuf&amp;type=seek">seek</a>) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Iobuf.Hi_bound&amp;type=t">Hi_bound.t</a> -&gt; unit</code></pre>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Getting and setting data</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Getting and setting data</h1></div></div>
 <div class="info"><div class="info">&quot;consume&quot; and &quot;fill&quot; functions access data at the lower bound of the window and
     advance lower bound of the window.  &quot;peek&quot; and &quot;poke&quot; functions access data but do not
     advance the window.</div></div>
@@ -106,7 +106,7 @@
     dst</code>.</div></div>
 <pre><span class="VALmemmove"><span class="keyword">val</span> memmove</span> : <code class="type">(<a href="?package=core&amp;module=Common&amp;type=read_write">Common.read_write</a>, 'a) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; src_pos:int -&gt; dst_pos:int -&gt; len:int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">memmove</code> blits <code class="code">len</code> bytes from <code class="code">src_pos</code> to <code class="code">dst_pos</code> in an iobuf, both relative to
     the lower bound of the window.  The window is not advanced.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">I/O</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">I/O</h1></div></div>
 <pre><span class="VALread_assume_fd_is_nonblocking"><span class="keyword">val</span> read_assume_fd_is_nonblocking</span> : <code class="type">(<a href="?package=core&amp;module=Common&amp;type=read_write">Common.read_write</a>, <a href="?package=core&amp;module=Iobuf&amp;type=seek">seek</a>) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Iobuf_intf.Unix.File_descr&amp;type=t">Iobuf_intf.Unix.File_descr.t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">Iobuf</code> has analogs of various <code class="code">Bigstring</code> functions.  These analogs advance by the
     amount written/read.</div></div>
 <pre><span class="VALpread_assume_fd_is_nonblocking"><span class="keyword">val</span> pread_assume_fd_is_nonblocking</span> : <code class="type">(<a href="?package=core&amp;module=Common&amp;type=read_write">Common.read_write</a>, <a href="?package=core&amp;module=Iobuf&amp;type=seek">seek</a>) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt;
@@ -136,7 +136,7 @@
     access, a function's type uses <code class="code">_</code> rather than <code class="code">no_seek</code> as the type argument to <code class="code">t</code>.
     Using <code class="code">_</code> allows the function to be directly applied to either permission.  Using
     a specific permission would require code to use coercion <code class="code">:&gt;</code>.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Creation</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Creation</h1></div></div>
 <div class="info"><div class="info"><code class="code">create ~len</code> creates a new iobuf, backed by a bigstring of length <code class="code">len</code>,
     with the limits and window set to the entire bigstring.</div></div>
 <div class="info"><div class="info"><code class="code">of_bigstring bigstring ~pos ~len</code> returns an iobuf backed by <code class="code">bigstring</code>, with the
@@ -147,14 +147,14 @@
 <div class="info"><div class="info"><code class="code">sub t ~pos ~len</code> returns a new iobuf with limits and window set to the subrange of
     <code class="code">t</code> specified by <code class="code">pos</code> and <code class="code">len</code>.  <code class="code">sub</code> preserves data permissions, but allows
     arbitrary seek permissions on the resulting iobuf.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Accessors</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Accessors</h1></div></div>
 <div class="info"><div class="info"><code class="code">capacity t</code> returns the size of <code class="code">t</code>'s limits subrange.  The capacity of an iobuf can
     be reduced via <code class="code">narrow</code>.</div></div>
 <div class="info"><div class="info"><code class="code">length t</code> returns the size of <code class="code">t</code>'s window.</div></div>
 <div class="info"><div class="info"><code class="code">is_empty t</code> is <code class="code">length t = 0</code>.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Changing the limits</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Changing the limits</h1></div></div>
 <div class="info"><div class="info"><code class="code">narrow t</code> sets <code class="code">t</code>'s limits to the current window.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Changing the window</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Changing the window</h1></div></div>
 <div class="info"><div class="info">One can call <code class="code">Lo_bound.window t</code> to get a snapshot of the lower bound of the
     window, and then later restore that snapshot with <code class="code">Lo_bound.restore</code>.  This is
     useful for speculatively parsing, and then rewinding when there isn't enough data to
@@ -185,7 +185,7 @@
       (* ... and process initial data ... *)
       Iobuf.flip_hi buf;
     </code></pre><br/>    Now the window of <code class="code">buf</code> ranges over the remainder of the data.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Getting and setting data</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Getting and setting data</h1></div></div>
 <div class="info"><div class="info">&quot;consume&quot; and &quot;fill&quot; functions access data at the lower bound of the window and
     advance lower bound of the window.  &quot;peek&quot; and &quot;poke&quot; functions access data but do not
     advance the window.</div></div>
@@ -212,7 +212,7 @@
 <div class="info"><div class="info">default is <code class="code">min (length src) (length dst)</code></div></div>
 <div class="info"><div class="info"><code class="code">memmove</code> blits <code class="code">len</code> bytes from <code class="code">src_pos</code> to <code class="code">dst_pos</code> in an iobuf, both relative to
     the lower bound of the window.  The window is not advanced.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">I/O</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">I/O</h1></div></div>
 <div class="info"><div class="info"><code class="code">Iobuf</code> has analogs of various <code class="code">Bigstring</code> functions.  These analogs advance by the
     amount written/read.</div></div>
 </div>

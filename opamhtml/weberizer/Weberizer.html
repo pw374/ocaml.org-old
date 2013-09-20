@@ -79,7 +79,7 @@ string -&gt; (&lt; content : <a href="?package=weberizer&amp;module=Weberizer&am
     of <code class="code">fname</code>.</div><div class="param_info"><code class="code">bindings</code> : if provided, perform the substitutions it
     mandates.  Otherwise, the &quot;raw&quot; HTML is returned (this is the
     default).</div></div><b>Raises</b> <code>Sys_error</code> if the file cannot be read.<br/></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Utilities</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Utilities</h1></div></div>
 <pre><span class="VALwrite_html"><span class="keyword">val</span> write_html</span> : <code class="type">?doctype:bool -&gt; ?perm:int -&gt; <a href="?package=weberizer&amp;module=Weberizer&amp;type=html">html</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">write_html html fname</code> writes the textual representation of the
     <code class="code">html</code> to the file <code class="code">fname</code>.<div class="parameters"><div class="param_info"><code class="code">doctype</code> : whether to output a doctype (default: <code class="code">true</code>).</div><div class="param_info"><code class="code">perm</code> : the permissions of the created file (default: <code class="code">0o644</code>).
                 Whatever permissions you specify, the executable bits are

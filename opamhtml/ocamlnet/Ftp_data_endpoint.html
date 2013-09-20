@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Senders and receivers for the FTP data connection</div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Types and Exceptions</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Types and Exceptions</h1></div></div>
 <div class="ocaml_class sig" name="out_record_channel"><pre><span class="TYPEout_record_channel"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;class=out_record_channel">out_record_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">An <code class="code">out_record_channel</code> can be used to output files with record
  structure. This is purely abstract, as Unix does not support such
  files natively, so this kind of channel is usually mapped to a flat
@@ -62,7 +62,7 @@
  incompatible encoding, as well as combining  <code class="code">`EBCDIC</code> with a
  non-EBCDIC encoding. Wrong conversions would be the result of
  this.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Data Stream Converters</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Data Stream Converters</h1></div></div>
 <div class="ocaml_class ident" name="write_out_record_channel" path="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;class=out_record_channel"><pre><span class="TYPEwrite_out_record_channel"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;class=write_out_record_channel">write_out_record_channel</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;type=text_data_repr">text_data_repr</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;class=out_record_channel">out_record_channel</a></pre><div class="info"><div class="info">Provides an <code class="code">out_record_channel</code> that represents EOR as 
  newline character.<div class="parameters"><div class="param_info"><code class="code">repr</code> : Determines the newline character to use</div></div></div></div></div>
 <div class="ocaml_class ident" name="read_in_record_channel" path="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;class=in_record_channel"><pre><span class="TYPEread_in_record_channel"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;class=read_in_record_channel">read_in_record_channel</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;type=text_data_repr">text_data_repr</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=in_obj_channel">Netchannels.in_obj_channel</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;class=in_record_channel">in_record_channel</a></pre><div class="info"><div class="info">Provides an <code class="code">in_record_channel</code> that takes newline characters as
@@ -74,7 +74,7 @@
  discarded, and the LF characters are taken as newline characters.
  In an output <code class="code">`ASCII</code> stream, the CR/LF sequence is correctly
  created for newline characters.</div></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Engines</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Engines</h1></div></div>
 <div class="ocaml_class sig" name="ftp_data_engine"><pre><span class="TYPEftp_data_engine"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Ftp_data_endpoint&amp;class=ftp_data_engine">ftp_data_engine</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The common type of FTP data engines</div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine"> <pre><span class="keyword">inherit</span> <code class="type"/><code class="type">[unit] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">Uq_engines.engine</a></pre></div>
 
 <pre><span class="METHODdescr"><span class="keyword">method</span> descr</span> : <code class="code">Unix.file_descr</code></pre>

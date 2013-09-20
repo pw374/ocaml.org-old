@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Common definitions used by binary protocol converters</div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Buffers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Buffers</h2></div></div>
 <pre><span class="TYPEpos"><span class="keyword">type</span> pos</span> = <code class="type">int</code></pre><div class="info"><div class="info">Position within buffers</div></div>
 <pre><span class="TYPEpos_ref"><span class="keyword">type</span> pos_ref</span> = <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=pos">pos</a> Pervasives.ref</code></pre><div class="info"><div class="info">Reference to a position within buffers</div></div>
 <pre><span class="TYPEbuf"><span class="keyword">type</span> buf</span> = <code class="type">(char, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t</code></pre><div class="info"><div class="info">Buffers</div></div>
@@ -20,7 +20,7 @@
 <pre><span class="VALblit_buf"><span class="keyword">val</span> blit_buf</span> : <code class="type">?src_pos:int -&gt; src:<a href="?package=bin_prot&amp;module=Common&amp;type=buf">buf</a> -&gt; ?dst_pos:int -&gt; dst:<a href="?package=bin_prot&amp;module=Common&amp;type=buf">buf</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">blit_buf ?src_pos ~src ?dst_pos ~dst len</code> blits <code class="code">len</code> bytes of the
     source buffer <code class="code">src</code> starting at position <code class="code">src_pos</code> to destination
     buffer <code class="code">dst</code> starting at position <code class="code">dst_pos</code>.<b>Raises</b> <code>Invalid_argument</code> if the designated ranges are invalid.<br/></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Errors and exceptions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Errors and exceptions</h2></div></div>
 <pre><span class="EXCEPTIONBuffer_short"><span class="keyword">exception</span> Buffer_short</span></pre><div class="info"><div class="info">Buffer too short for read/write operation</div></div>
 <pre><span class="EXCEPTIONNo_variant_match"><span class="keyword">exception</span> No_variant_match</span></pre><div class="info"><div class="info">Used internally for backtracking</div></div>
 <div class="ocaml_module sig" name="ReadError"><pre><span class="keyword">module</span> <a href="?package=bin_prot&amp;module=Common.ReadError">ReadError</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
@@ -42,18 +42,18 @@
 <pre><span class="VALraise_concurrent_modification"><span class="keyword">val</span> raise_concurrent_modification</span> : <code class="type">string -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">raise_concurrent_modification loc</code><b>Raises</b> <code>Failure</code> if a binary writer
     detects a concurrent change to the underlying data structure.<br/></div></div>
 <pre><span class="VALarray_bound_error"><span class="keyword">val</span> array_bound_error</span> : <code class="type">unit -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">array_bound_error ()</code></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Bigarrays</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Bigarrays</h2></div></div>
 <pre><span class="TYPEvec32"><span class="keyword">type</span> vec32</span> = <code class="type">(float, Bigarray.float32_elt, Bigarray.fortran_layout) Bigarray.Array1.t</code></pre>
 <pre><span class="TYPEvec64"><span class="keyword">type</span> vec64</span> = <code class="type">(float, Bigarray.float64_elt, Bigarray.fortran_layout) Bigarray.Array1.t</code></pre>
 <pre><span class="TYPEvec"><span class="keyword">type</span> vec</span> = <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=vec64">vec64</a></code></pre>
 <pre><span class="TYPEmat32"><span class="keyword">type</span> mat32</span> = <code class="type">(float, Bigarray.float32_elt, Bigarray.fortran_layout) Bigarray.Array2.t</code></pre>
 <pre><span class="TYPEmat64"><span class="keyword">type</span> mat64</span> = <code class="type">(float, Bigarray.float64_elt, Bigarray.fortran_layout) Bigarray.Array2.t</code></pre>
 <pre><span class="TYPEmat"><span class="keyword">type</span> mat</span> = <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=mat64">mat64</a></code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Miscellaneous</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Miscellaneous</h2></div></div>
 <pre><span class="VALcopy_htbl_list"><span class="keyword">val</span> copy_htbl_list</span> : <code class="type">('a, 'b) Hashtbl.t -&gt; ('a * 'b) list -&gt; ('a, 'b) Hashtbl.t</code></pre><div class="info"><div class="info"><code class="code">copy_htbl_list htbl lst</code> adds all <code class="code">(key, value)</code> pairs in <code class="code">lst</code>
     to hash table <code class="code">htbl</code>.</div></div>
 <pre><span class="VALvariant_of_int"><span class="keyword">val</span> variant_of_int</span> : <code class="type">int -&gt; [&gt;  ]</code></pre>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">NOTE: unsafe functions!!!</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">NOTE: unsafe functions!!!</h2></div></div>
 <pre><span class="VALunsafe_blit_buf"><span class="keyword">val</span> unsafe_blit_buf</span> : <code class="type">src_pos:int -&gt; src:<a href="?package=bin_prot&amp;module=Common&amp;type=buf">buf</a> -&gt; dst_pos:int -&gt; dst:<a href="?package=bin_prot&amp;module=Common&amp;type=buf">buf</a> -&gt; len:int -&gt; unit</code></pre>
 <pre><span class="VALunsafe_blit_string_buf"><span class="keyword">val</span> unsafe_blit_string_buf</span> : <code class="type">src_pos:int -&gt; string -&gt; dst_pos:int -&gt; <a href="?package=bin_prot&amp;module=Common&amp;type=buf">buf</a> -&gt; len:int -&gt; unit</code></pre>
 <pre><span class="VALunsafe_blit_buf_string"><span class="keyword">val</span> unsafe_blit_buf_string</span> : <code class="type">src_pos:int -&gt; <a href="?package=bin_prot&amp;module=Common&amp;type=buf">buf</a> -&gt; dst_pos:int -&gt; string -&gt; len:int -&gt; unit</code></pre>

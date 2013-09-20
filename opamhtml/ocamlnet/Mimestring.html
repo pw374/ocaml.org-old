@@ -1,7 +1,7 @@
 <div class="ocaml_toplevel_module"><div class="info">Low-level functions to parse and print mail and MIME messages <br/> <code class="code">Mimestring</code> contains a lot of functions to scan and print strings
  formatted as MIME messages. For a higher-level view on this topic,
  see the <code class="code">Netmime</code> module.<br/> <b>Contents</b><ul><li>TODO reference : Mimestring.lines</li><li>TODO reference : Mimestring.headers</li><li>TODO reference : Mimestring.structured_values</li><li>TODO reference : Mimestring.parsers_for_structured_values</li><li>TODO reference : Mimestring.printers_for_structured_values</li><li>TODO reference : Mimestring.scanning_mime</li><li>TODO reference : Mimestring.helpers_mime</li></ul></div>
-<div class="info"><div class="info"><br/><h1 id="lines">Splitting a string into lines</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="lines">Splitting a string into lines</h1></div></div>
 <div class="info"><div class="info">These functions are all CR/LF-aware, i.e. lines can be terminated
     by either LF or CR/LF.</div></div>
 <pre><span class="VALfind_line_end"><span class="keyword">val</span> find_line_end</span> : <code class="type">string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">find_line_end s pos len</code>: Searches the next line end (CR/LF or
@@ -54,7 +54,7 @@
       a whitesapce character (space, TAB, CR, LF), and
       <code class="code">s.[q]</code> is a whitespace character for all <code class="code">q&gt;p</code>.
       If this is not possible <code class="code">Not_found</code> will be raised.</div></div>
-<div class="info"><div class="info"><br/><h1 id="headers">Parsing and Printing Mail Headers</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="headers">Parsing and Printing Mail Headers</h1></div></div>
 <div class="info"><div class="info"><b>The Format of Mail Messages</b><br/>  Messages
   consist of a header and a body; the first empty line separates both
   parts. The header contains lines &quot;<i>param-name</i><code class="code">:</code> <i>param-value</i>&quot; where
@@ -167,7 +167,7 @@ string -&gt; start_pos:int -&gt; end_pos:int -&gt; (string * string) list * int<
  two exceptions:<ul><li>Long lines (&gt; 72 characters) are neither folded nor rejected</li><li>True 8 bit characters are neither properly encoded nor rejected</li></ul> These two problems cannot be addressed without taking the syntax
  of the header fields into account. See below how to create
  proper header fields from <code class="code">s_token</code> lists.</div></div>
-<div class="info"><div class="info"><br/><h1 id="structured_values">Parsing Structured Values</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="structured_values">Parsing Structured Values</h1></div></div>
 <div class="info"><div class="info">The following types and functions allow it to build scanners for
  structured mail and MIME values in a highly configurable way.<br/> <b>Structured Values</b><br/> RFC 822 (together with some other RFCs) defines lexical rules
  how formal mail header values should be divided up into tokens. Formal
@@ -386,7 +386,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
  and the list of options, and returns the list of all tokens.</div></div>
 <pre><span class="VALspecials_rfc822"><span class="keyword">val</span> specials_rfc822</span> : <code class="type">char list</code></pre>
 <pre><span class="VALspecials_rfc2045"><span class="keyword">val</span> specials_rfc2045</span> : <code class="type">char list</code></pre><div class="info"><div class="info">The sets of special characters defined by the RFCs 822 and 2045.</div></div>
-<div class="info"><div class="info"><br/><h1 id="parsers_for_structured_values">Parsing Certain Forms of Structured Values</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="parsers_for_structured_values">Parsing Certain Forms of Structured Values</h1></div></div>
 <pre><span class="VALscan_encoded_text_value"><span class="keyword">val</span> scan_encoded_text_value</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_extended_token">s_extended_token</a> list</code></pre><div class="info"><div class="info">Scans a &quot;text&quot; value. The returned token list contains only
  <code class="code">Special</code>, <code class="code">Atom</code> and <code class="code">EncodedWord</code> tokens. 
  Spaces, TABs, CRs, LFs are returned (as <code class="code">Special</code>) unless
@@ -440,7 +440,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
  Splits the MIME type into main and sub type, for example
  <code class="code"> split_mime_type &quot;text/plain&quot; = (&quot;text&quot;, &quot;plain&quot;) </code>.
  The returned strings are always lowercase.<br/> Raises <code class="code">Failure</code> on syntax errors.</div></div>
-<div class="info"><div class="info"><br/><h1 id="printers_for_structured_values">Printing Structured Values</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="printers_for_structured_values">Printing Structured Values</h1></div></div>
 <pre><span class="EXCEPTIONLine_too_long"><span class="keyword">exception</span> Line_too_long</span></pre><div class="info"><div class="info">Raised when the hard limit of the line length is exceeded</div></div>
 <pre><span class="VALwrite_value"><span class="keyword">val</span> write_value</span> : <code class="type">?maxlen1:int -&gt;
 ?maxlen:int -&gt;
@@ -461,8 +461,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
  <code class="code">maxlen1</code> and <code class="code">maxlen</code>. The value is split into lines by inserting
  &quot;folding space&quot; at certain locations (which is usually a linefeed
  followed by a space character, see below). The following
- table specifies between which tokens folding may happen:<br/> <pre class="codepre"><code class="code">
-               +=========================================================+
+ table specifies between which tokens folding may happen:<br/> <pre class="codepre"><code class="code">               +=========================================================+
  1st   \   2nd | Atom | QString | DLiteral | EncWord | Special | Spec ' '|
  ==============+======+=========+==========+=========+=========+=========+
           Atom | FS   |  FS     |   FS     |   FS    |    -    |    F    |
@@ -471,8 +470,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
    EncodedWord | FS   |  FS     |   FS     |   FS    |    -    |    F    |
        Special | -    |  -      |   -      |   -     |    -    |    F    |
    Special ' ' | -    |  -      |   -      |   -     |    -    |    -    |
- ==============+======+=========+==========+=========+=========+=========+
-</code></pre><br/> The table shows between which two types of tokens a space or a folding
+ ==============+======+=========+==========+=========+=========+=========+</code></pre><br/> The table shows between which two types of tokens a space or a folding
  space is inserted:<ul><li><code class="code">FS</code>: folding space</li><li><code class="code">F</code>:  linefeed without extra space</li><li><code class="code">-</code>:  nothing can be inserted here</li></ul> Folding space is <code class="code">&quot;\n &quot;</code>, i.e. only LF, not CRLF is used as end-of-line
  character. The function <code class="code">write_header</code> will convert these LF to CRLF
  if needed.<br/> <code class="code">Special '\t'</code> is handled like <code class="code">Special ' '</code>. Control characters are just
@@ -538,7 +536,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
 <pre><span class="VALsplit_uri"><span class="keyword">val</span> split_uri</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_token">s_token</a> list</code></pre><div class="info"><div class="info">Splits a long URI according to the algorithm of RFC 2017.
  The input string must only contain 7 bit characters, and
  must be, if necessary, already be URL-encoded.</div></div>
-<div class="info"><div class="info"><br/><h1 id="scanning_mime">Scanning MIME Messages</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="scanning_mime">Scanning MIME Messages</h1></div></div>
 <pre><span class="VALscan_multipart_body"><span class="keyword">val</span> scan_multipart_body</span> : <code class="type">string -&gt;
 start_pos:int -&gt;
 end_pos:int -&gt; boundary:string -&gt; ((string * string) list * string) list</code></pre><div class="info"><div class="info"><code class="code">let [params1, value1; params2, value2; ...]
@@ -627,7 +625,7 @@ string -&gt; <a href="?package=ocamlnet&amp;module=Netstream&amp;type=in_obj_str
  read the data of the substream from the beginning to the end. It is
  not necessary that <code class="code">f</code> reads the substream until EOF, however.<br/> After all parts have been read, the trailing material of stream <code class="code">s</code> 
  is skipped until EOF of <code class="code">s</code> is reached.</div></div>
-<div class="info"><div class="info"><br/><h1 id="helpers_mime">Helpers for MIME Messages</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="helpers_mime">Helpers for MIME Messages</h1></div></div>
 <pre><span class="VALcreate_boundary"><span class="keyword">val</span> create_boundary</span> : <code class="type">?random:string list -&gt; ?nr:int -&gt; unit -&gt; string</code></pre><div class="info"><div class="info">Creates a boundary string that can be used to separate multipart
  messages.
  The string is 63 characters long and has the following &quot;features&quot;:<ul><li>Most of the string consists of the minus character yielding

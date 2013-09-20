@@ -98,19 +98,19 @@ list</code></pre>
 <pre><span class="VALlogger_factories"><span class="keyword">val</span> logger_factories</span> : <code class="type">Netplex_types.logger_factory list</code></pre><div class="info"><div class="info">All built-in logger factories</div></div>
 <pre><span class="VALlevel_weight"><span class="keyword">val</span> level_weight</span> : <code class="type">Netplex_types.level -&gt; int</code></pre><div class="info"><div class="info">An integer corresponding to the level</div></div>
 <pre><span class="VALlevel_of_string"><span class="keyword">val</span> level_of_string</span> : <code class="type">string -&gt; Netplex_types.level</code></pre><div class="info"><div class="info">Convert a string to a level</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Common parameters</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Common parameters</h2></div></div>
 <div class="info"><div class="info">Logging parameters that can occur in all logging configurations:</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">format</h3><br/><br/> The format string may include variable
+<div class="info"><div class="info"><h3 id="3_TITLE">format</h3><br/> The format string may include variable
  parts in the syntax <code class="code">$name</code> or <code class="code">${name}</code>. The following variable
  specifications are defined:<ul><li><code class="code">timestamp</code>: the time in standard format (as set in
       TODO reference : Netlog.current_formatter)</li><li><code class="code">timestamp:&lt;format&gt;</code> the time in custom format where <code class="code">&lt;format&gt;</code> is a
    TODO reference : Netdate format string</li><li><code class="code">timestamp:unix</code>: the time in seconds since the epoch</li><li><code class="code">component</code>: the name of the component emitting the log message</li><li><code class="code">subchannel</code>: the name of the subchannel</li><li><code class="code">level</code>: the log level</li><li><code class="code">message</code>: the log message
  </li></ul></div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">component</h3><br/> <br/> The <code class="code">component</code> name restricts logging to the given Netplex component.
+<div class="info"><div class="info"><h3 id="3_TITLE">component</h3> <br/> The <code class="code">component</code> name restricts logging to the given Netplex component.
  One can use the wildcard &quot;*&quot;.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">subchannel</h3><br/> <br/> The <code class="code">subchannel</code> name restricts logging to this subchannel.
+<div class="info"><div class="info"><h3 id="3_TITLE">subchannel</h3> <br/> The <code class="code">subchannel</code> name restricts logging to this subchannel.
  One can use the wildcard &quot;*&quot;.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">max_level</h3><br/><br/> The <code class="code">max_level</code> specifier restricts logging to messages with at most
+<div class="info"><div class="info"><h3 id="3_TITLE">max_level</h3><br/> The <code class="code">max_level</code> specifier restricts logging to messages with at most
  this level. Levels are &quot;emerg&quot;, &quot;alert&quot;, &quot;crit&quot;, &quot;err&quot;, &quot;warning&quot;,
  &quot;notice&quot;, &quot;info&quot;, &quot;debug&quot; (in order of increasing level).</div></div>
 </div>

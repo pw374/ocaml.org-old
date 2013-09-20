@@ -9,11 +9,11 @@
     TODO reference : cmdline and TODO reference : examples of
     use. Open the module to use it, it defines only three modules in
     your scope.<br/>    <em>Release 0.9.2 - Daniel Bünzli &lt;daniel.buenzli at erratique.ch&gt; </em></div>
-<div class="info"><div class="info"><br/><h1 id="top">Interface</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="top">Interface</h1></div></div>
 <div class="ocaml_module sig" name="Manpage"><pre><span class="keyword">module</span> <a href="?package=cmdliner&amp;module=Cmdliner.Manpage">Manpage</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Man page specification. <br/>    Man page generation is automatically handled by <code class="code">Cmdliner</code>. The
     TODO reference : block type is used to define a man page's content.<br/>    The TODO reference : print function can be useful if the client wants to define
     other man pages (e.g. to implement a help command).</div></div><div class="ocaml_module_content">
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Man pages</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Man pages</h1></div></div>
 <pre><span class="TYPEblock"><span class="keyword">type</span> block</span> = <code class="type">[ `I of string * string | `Noblank | `P of string | `S of string ]</code></pre><div class="info"><div class="info">The type for a block of man page text. <br/>      <ul><li><code class="code">`Noblank</code> suppresses the blank line introduced between two blocks.</li><li><code class="code">`I (l,t)</code> is an indented paragraph with label
       <code class="code">l</code> and text <code class="code">t</code>.</li><li><code class="code">`P t</code> is a new paragraph with text <code class="code">t</code>.</li><li><code class="code">`S s</code> introduces a new section <code class="code">s</code>.</li></ul><br/>      In text strings <code class="code">t</code>, whitespace and newlines are not significant
       and are all collapsed to a single space. In labels <code class="code">l</code> and text
@@ -32,7 +32,7 @@
 <div class="ocaml_module sig" name="Term"><pre><span class="keyword">module</span> <a href="?package=cmdliner&amp;module=Cmdliner.Term">Term</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Terms. <br/>    A term is evaluated by a program to produce a TODO reference : result.
     A term made of terms referring to TODO reference : Arg
     implicitly defines a command line syntax.</div></div><div class="ocaml_module_content">
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Terms</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Terms</h1></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre><div class="info"><div class="info">The type for terms evaluating to values of type 'a.</div></div>
 <pre><span class="VALpure"><span class="keyword">val</span> pure</span> : <code class="type">'a -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">pure v</code> is a term that evaluates to <code class="code">v</code>.</div></div>
 <pre><span class="VAL$"><span class="keyword">val</span> $</span> : <code class="type">('a -&gt; 'b) <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'b <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">f $ v</code> is a term that evaluates to the result of applying
@@ -51,7 +51,7 @@
       to choose from.</div></div>
 <pre><span class="VALman_format"><span class="keyword">val</span> man_format</span> : <code class="type">[ `Groff | `Pager | `Plain ] <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">man_format</code> is a term that defines a <code class="code">--man-format</code> option and 
       evaluates to a value that can be used with TODO reference : Manpage.print.</div></div>
-<div class="info"><div class="info"><br/><h1 id="tinfo">Term information</h1><br/> <br/>      Term information defines the name and man page of a term.
+<div class="info"><div class="info"><h1 id="tinfo">Term information</h1> <br/>      Term information defines the name and man page of a term.
       For simple evaluation this is the name of the program and its
       man page. For multiple term evaluation, this is 
       the name of a command and its man page.</div></div>
@@ -71,7 +71,7 @@
          term's man page.</li><li><code class="code">version</code> is the version string of the program, ignored
          for commands.</li><li><code class="code">name</code> is the name of the program or the command.</li></ul></div></div>
 <pre><span class="VALname"><span class="keyword">val</span> name</span> : <code class="type"><a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=info">info</a> -&gt; string</code></pre><div class="info"><div class="info"><code class="code">name ti</code> is the name of the term information.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Evaluation</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Evaluation</h1></div></div>
 <pre><span class="TYPEresult"><span class="keyword">type</span> <code class="type">'a </code>result</span> = <code class="type">[ `Error of [ `Exn | `Parse | `Term ] | `Help | `Ok of 'a | `Version ]</code></pre><div class="info"><div class="info">The type for evaluation results.
       <ul><li><code class="code">`Error `Exn</code>, an exception <code class="code">e</code> was caught and reported
          on the error formatter (see the <code class="code">~catch</code> parameter of TODO reference : eval).</li><li><code class="code">`Error `Term</code>, a term evaluation error occured and was reported
@@ -99,7 +99,7 @@
     to the arguments provided on the command line. <br/>    Basic constraints, like the argument type or repeatability, are
     specified by defining a value of type TODO reference : t. Further contraints can
     be specified during the TODO reference : argterms to a term.</div></div><div class="ocaml_module_content">
-<div class="info"><div class="info"><br/><h1 id="argconv">Argument converters</h1><br/>  <br/>    An argument converter transforms a string argument of the command
+<div class="info"><div class="info"><h1 id="argconv">Argument converters</h1>  <br/>    An argument converter transforms a string argument of the command
     line to an OCaml value. TODO reference : converters
     are provided for many types of the standard library.</div></div>
 <pre><span class="TYPEparser"><span class="keyword">type</span> <code class="type">'a </code>parser</span> = <code class="type">string -&gt; [ `Error of string | `Ok of 'a ]</code></pre><div class="info"><div class="info">The type for argument parsers.</div></div>
@@ -109,7 +109,7 @@
       <code class="code">Some</code> value. It is used for command line arguments 
       that default to <code class="code">None</code> when absent. <code class="code">none</code> is what to print to
       document the absence (defaults to <code class="code">&quot;&quot;</code>).</div></div>
-<div class="info"><div class="info"><br/><h1 id="arginfo">Arguments and their information</h1><br/> <br/>    Argument information defines the man page information of an argument and, 
+<div class="info"><div class="info"><h1 id="arginfo">Arguments and their information</h1> <br/>    Argument information defines the man page information of an argument and, 
     for optional arguments, its names.</div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre><div class="info"><div class="info">The type for arguments holding data of type <code class="code">'a</code>.</div></div>
 <pre><span class="TYPEinfo"><span class="keyword">type</span> info</span> </pre><div class="info"><div class="info">The type for information about command line arguments.</div></div>
@@ -128,7 +128,7 @@
          of <code class="code">docv</code> (see below).</li></ul></div></div>
 <pre><span class="VAL&amp;"><span class="keyword">val</span> &amp;</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">f &amp; v</code> is <code class="code">f v</code>, a right associative composition operator for
       specifying argument terms.</div></div>
-<div class="info"><div class="info"><br/><h1 id="optargs">Optional arguments</h1><br/> <br/>    The information of an optional argument must have at least
+<div class="info"><div class="info"><h1 id="optargs">Optional arguments</h1> <br/>    The information of an optional argument must have at least
     one name or <code class="code">Invalid_argument</code> is raised.</div></div>
 <pre><span class="VALflag"><span class="keyword">val</span> flag</span> : <code class="type"><a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; bool <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">flag i</code> is a <code class="code">bool</code> argument defined by an optional flag 
       that may appear <em>at most</em> once on the command line under one of 
@@ -159,7 +159,7 @@
       appear more than once. The argument holds a list that contains one value
       per occurence of the flag in the order found on the command line. 
       It holds the list <code class="code">v</code> if the flag is absent from the command line.</div></div>
-<div class="info"><div class="info"><br/><h1 id="posargs">Positional arguments</h1><br/> <br/>      The information of a positional argument must have no name
+<div class="info"><div class="info"><h1 id="posargs">Positional arguments</h1> <br/>      The information of a positional argument must have no name
       or <code class="code">Invalid_argument</code> is raised. Positional arguments indexing
       is zero-based.</div></div>
 <pre><span class="VALpos"><span class="keyword">val</span> pos</span> : <code class="type">?rev:bool -&gt; int -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'a -&gt; <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">pos rev n c v i</code> is an <code class="code">'a</code> argument defined by the <code class="code">n</code>th
@@ -178,7 +178,7 @@
       the last positional argument present on the command line.</div></div>
 <pre><span class="VALpos_right"><span class="keyword">val</span> pos_right</span> : <code class="type">?rev:bool -&gt; int -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'a list -&gt; <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; 'a list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">pos_right</code> is like TODO reference : pos_left except it holds all the positional
       arguments found on the right of the specified positional argument.</div></div>
-<div class="info"><div class="info"><br/><h1 id="argterms">Arguments as terms</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="argterms">Arguments as terms</h1></div></div>
 <pre><span class="VALvalue"><span class="keyword">val</span> value</span> : <code class="type">'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">Term.t</a></code></pre><div class="info"><div class="info"><code class="code">value a</code> is a term that evaluates to <code class="code">a</code>'s value.</div></div>
 <pre><span class="VALrequired"><span class="keyword">val</span> required</span> : <code class="type">'a option <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">Term.t</a></code></pre><div class="info"><div class="info"><code class="code">required a</code> is a term that fails if <code class="code">a</code>'s value is <code class="code">None</code> and
       evaluates to the value of <code class="code">Some</code> otherwise. Use this for required 
@@ -192,7 +192,7 @@
       to the value of the last element of the list otherwise. Use this
       for lists of flags or options where the last occurence takes precedence
       over the others.</div></div>
-<div class="info"><div class="info"><br/><h1 id="converters">Predefined converters</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="converters">Predefined converters</h1></div></div>
 <pre><span class="VALbool"><span class="keyword">val</span> bool</span> : <code class="type">bool <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">bool</code> converts values with TODO reference : bool_of_string.</div></div>
 <pre><span class="VALchar"><span class="keyword">val</span> char</span> : <code class="type">char <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">char</code> converts values by ensuring the argument has a single char.</div></div>
 <pre><span class="VALint"><span class="keyword">val</span> int</span> : <code class="type">int <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">int</code> converts values with TODO reference : int_of_string.</div></div>
@@ -228,7 +228,7 @@
 'b <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'c <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'd <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; ('a * 'b * 'c * 'd) <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">t4 sep c0 c1 c2 c3</code> splits the argument at the <em>first</em> three <code class="code">sep</code> 
       characters (defaults to <code class="code">','</code>) respectively converts the substrings 
       with <code class="code">c0</code>, <code class="code">c1</code>, <code class="code">c2</code> and <code class="code">c3</code>.</div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="basics">Basics</h1><br/><br/>    With <code class="code">Cmdliner</code> your program evaluates a term. A <em>term</em>
+<div class="info"><div class="info"><h1 id="basics">Basics</h1><br/>    With <code class="code">Cmdliner</code> your program evaluates a term. A <em>term</em>
     is a value of type TODO reference : Term.t. The type parameter indicates
     the type of the result of the evaluation.<br/>    One way to create terms is by lifting regular OCaml values with
     TODO reference : Term.pure. Terms can be applied to terms evaluating to
@@ -263,38 +263,30 @@ Revolt!</code></pre>
     where <code class="code">COUNT</code> defaults to <code class="code">10</code> and <code class="code">MSG</code> defaults to <code class="code">&quot;Revolt!&quot;</code>. 
     We first define a term corresponding to the <code class="code">--count</code>
     option:
-<pre class="codepre"><code class="code">
-let count = 
+<pre class="codepre"><code class="code">let count = 
   let doc = &quot;Repeat the message $(docv) times.&quot; in
-  Arg.(value &amp; opt int 10 &amp; info [&quot;c&quot;; &quot;count&quot;] ~docv:&quot;COUNT&quot; ~doc)
-</code></pre>
+  Arg.(value &amp; opt int 10 &amp; info [&quot;c&quot;; &quot;count&quot;] ~docv:&quot;COUNT&quot; ~doc)</code></pre>
     This says that <code class="code">count</code> is a term that evaluates to the 
     value of an optional argument of type <code class="code">int</code> that 
     defaults to <code class="code">10</code> if unspecified and whose option name is
     either <code class="code">-c</code> or <code class="code">--count</code>. The arguments <code class="code">doc</code> and <code class="code">docv</code> are used to 
     generate the option's man page information. <br/>    The term for the positional argument <code class="code">MSG</code> is:
-<pre class="codepre"><code class="code">
-let msg = 
+<pre class="codepre"><code class="code">let msg = 
   let doc = &quot;The message to print.&quot; in
-  Arg.(value &amp; pos 0 string &quot;Revolt!&quot; &amp; info [] ~docv:&quot;MSG&quot; ~doc)
-</code></pre>
+  Arg.(value &amp; pos 0 string &quot;Revolt!&quot; &amp; info [] ~docv:&quot;MSG&quot; ~doc)</code></pre>
     which says that <code class="code">msg</code> is a term whose value is 
     the positional argument at index <code class="code">0</code> of type <code class="code">string</code> and
     defaults to <code class="code">&quot;Revolt!&quot;</code> if unspecified. Here again
     <code class="code">doc</code> and <code class="code">docv</code> are used for the man page information.<br/>    The term for executing <code class="code">chorus</code> with these command line arguments
     is : 
-<pre class="codepre"><code class="code">
-let chorus_t = Term.(pure chorus $ count $ msg)
-</code></pre>
+<pre class="codepre"><code class="code">let chorus_t = Term.(pure chorus $ count $ msg)</code></pre>
     and we are now ready to define our program:
-<pre class="codepre"><code class="code">
-let info = 
+<pre class="codepre"><code class="code">let info = 
   let doc = &quot;print a customizable message repeatedly&quot; in
   let man = [ `S &quot;BUGS&quot;; `P &quot;Email bug reports to &lt;hehey at example.org&gt;.&quot;;] in
   Term.info &quot;chorus&quot; ~version:&quot;1.6.1&quot; ~doc ~man
 
-let () = match Term.eval (chorus_t, info) with `Error _ -&gt; exit 1 | _ -&gt; exit 0
-</code></pre>
+let () = match Term.eval (chorus_t, info) with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre>
     The <code class="code">info</code> value created with TODO reference : Term.info gives more information
     about the term we execute and is used to generate the program's
     man page. Since we provided a <code class="code">~version</code> string, the program will
@@ -329,7 +321,7 @@ BUGS
     This help is also available in plain text or in the 
     TODO reference : http://www.gnu.org/software/groff/groff.html man page format by 
     invoking the program with the option <code class="code">--help=plain</code> or <code class="code">--help=groff</code>. <br/>    For examples of more complex command line definitions look and 
-    run the TODO reference : examples.<br/>    <br/><h2 id="2_TITLE">Multiple terms</h2><br/> <br/>    <code class="code">Cmdliner</code> also provides support for programs like <code class="code">darcs</code> or
+    run the TODO reference : examples.<br/>    <h2 id="2_TITLE">Multiple terms</h2> <br/>    <code class="code">Cmdliner</code> also provides support for programs like <code class="code">darcs</code> or
     <code class="code">git</code> that have multiple commands each with their own syntax:
     <pre class="codepre"><code class="code">prog COMMAND [OPTION]... ARG...</code></pre>
     A command is defined by coupling a term with 
@@ -337,7 +329,7 @@ BUGS
     command name and its man page. Given a list of commands the function
     TODO reference : Term.eval_choice will execute the term corresponding to the
     <code class="code">COMMAND</code> argument or or a specific &quot;main&quot; term if there is
-    no <code class="code">COMMAND</code> argument.<br/>    <br/><h2 id="2_TITLE">Manual</h2><br/><br/>    Man page sections are printed in the order specified by
+    no <code class="code">COMMAND</code> argument.<br/>    <h2 id="2_TITLE">Manual</h2><br/>    Man page sections are printed in the order specified by
     TODO reference : Term.info. The man page information of an argument is listed in
     alphabetical order at the end of the text of the section specified
     by its TODO reference : Arg.info. Positional arguments are
@@ -353,10 +345,10 @@ BUGS
     difficult to search it in the pager, so <code class="code">-Tascii</code> is used for now. 
     Conclusion is that it may be better to stick to the ASCII set for now. 
     Please contact the author if something seems wrong in this reasoning 
-    or if you know a work around this.<br/>    <br/><h2 id="2_TITLE">Miscellaneous</h2><br/><br/>    <ul><li>The evaluation of a term in which the same option name is defined
+    or if you know a work around this.<br/>    <h2 id="2_TITLE">Miscellaneous</h2><br/>    <ul><li>The evaluation of a term in which the same option name is defined
        by more than one argument is undefined.</li><li>The option name <code class="code">--help</code>, (and <code class="code">--version</code> if you specify a 
        version string) is reserved by the module. Using it as a term or 
-       option name may result in undefined behaviour.</li></ul><br/>    <br/><h1 id="cmdline">Command line syntax</h1><br/><br/>    For programs evaluating a single term the most general form of invocation 
+       option name may result in undefined behaviour.</li></ul><br/>    <h1 id="cmdline">Command line syntax</h1><br/>    For programs evaluating a single term the most general form of invocation 
     is:
     <ul><li><code class="code">prog [OPTION]... [ARG]...</code></li></ul>
     The program automatically reponds to the <code class="code">--help</code> option by 
@@ -371,7 +363,7 @@ BUGS
     Commands automatically respond to the <code class="code">--help</code> option
     by printing their help. The <code class="code">COMMAND</code> string must
     be the first string following the program name and may be specified
-    by a prefix as long as it is not ambiguous. <br/>    <br/><h2 id="optargs">Optional arguments</h2><br/> <br/>    An optional argument is specified on the command line by a <em>    name</em> possibly followed by a <em>value</em>.<br/>    The name of an option can be short or long.
+    by a prefix as long as it is not ambiguous. <br/>    <h2 id="optargs">Optional arguments</h2> <br/>    An optional argument is specified on the command line by a <em>    name</em> possibly followed by a <em>value</em>.<br/>    The name of an option can be short or long.
     <ul><li>A <em>long</em> name is two dashes followed by alphanumeric 
        characters and dashes: <code class="code">&quot;--help&quot;</code>, <code class="code">&quot;--silent&quot;</code>, <code class="code">&quot;--ignore-case&quot;</code>.</li><li>A <em>short</em> name is a dash followed by a single alphanumeric 
        character: <code class="code">&quot;-h&quot;</code>, <code class="code">&quot;-q&quot;</code>, <code class="code">&quot;-I&quot;</code>.</li></ul><br/>    More than one name may refer to the same optional argument.  For
@@ -386,16 +378,14 @@ BUGS
     the value itself starts with a dash as is the case for negative numbers,
     <code class="code">&quot;--min=-10&quot;</code>.<br/>    An optional argument without a value is either a <em>flag</em> 
     (see TODO reference : Arg.flag, TODO reference : Arg.vflag) or an optional argument with an optional 
-    value (see the <code class="code">~vopt</code> argument of TODO reference : Arg.opt). <br/>    <br/><h2 id="posargs">Positional arguments</h2><br/><br/>    Positional arguments are tokens on the command line that are not
+    value (see the <code class="code">~vopt</code> argument of TODO reference : Arg.opt). <br/>    <h2 id="posargs">Positional arguments</h2><br/>    Positional arguments are tokens on the command line that are not
     option names and are not the value of an optional argument. They
     are numbered from left to right starting with zero.<br/>    Since positional arguments may be mistaken as the optional value
     of an optional argument or they may need to look like option
     names, anything that follows the special token <code class="code">&quot;--&quot;</code> on the command
-    line is considered to be a positional argument.<br/>    <br/><h1 id="examples">Examples</h1><br/><br/>    These examples are in the <code class="code">test</code> directory of the distribution.<br/> <br/><h2 id="exrm">A <code class="code">rm</code> command</h2><br/> <br/>    We define the command line interface of a
+    line is considered to be a positional argument.<br/>    <h1 id="examples">Examples</h1><br/>    These examples are in the <code class="code">test</code> directory of the distribution.<br/> <h2 id="exrm">A <code class="code">rm</code> command</h2> <br/>    We define the command line interface of a
     <code class="code">rm</code> command with the synopsis:
-<pre class="codepre"><code class="code">
-rm [OPTION]... FILE...
-</code></pre>
+<pre class="codepre"><code class="code">rm [OPTION]... FILE...</code></pre>
     The <code class="code">-f</code>, <code class="code">-i</code> and <code class="code">-I</code> flags define the prompt behaviour of <code class="code">rm</code>,
     represented in our program by the <code class="code">prompt</code> type. If more than one
     of these flags is present on the command line the last one takes
@@ -405,8 +395,7 @@ rm [OPTION]... FILE...
     line and we just take the TODO reference : Arg.last one to define our term value
     (if there's no occurence the last value of the default list <code class="code">[Always]</code> is
     taken, i.e. the default is <code class="code">Always</code>).
-<pre class="codepre"><code class="code">
-(* Implementation of the command, we just print the args. *)
+<pre class="codepre"><code class="code">(* Implementation of the command, we just print the args. *)
 
 type prompt = Always | Once | Never
 let prompt_str = function 
@@ -456,9 +445,8 @@ let cmd =
   Term.(pure rm $ prompt $ recursive $ files),
   Term.info &quot;rm&quot; ~version:&quot;1.6.1&quot; ~doc ~man
 
-let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0
-</code></pre>
-    <br/><h2 id="excp">A <code class="code">cp</code> command</h2><br/> <br/>    We define the command line interface of a
+let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre>
+    <h2 id="excp">A <code class="code">cp</code> command</h2> <br/>    We define the command line interface of a
     <code class="code">cp</code> command with the synopsis:
 <pre class="codepre"><code class="code">cp [OPTION]... SOURCE... DEST </code></pre>
     The <code class="code">DEST</code> argument must be a directory if there is more than 
@@ -468,8 +456,7 @@ let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0
     implementation. If unsatisfied we return an <code class="code">`Error</code> and
     by using TODO reference : Term.ret on the lifted result <code class="code">cp_t</code> of <code class="code">cp</code>, 
     <code class="code">Cmdliner</code> handles the error reporting.
-<pre class="codepre"><code class="code">
-(* Implementation, we check the dest argument and print the args *)
+<pre class="codepre"><code class="code">(* Implementation, we check the dest argument and print the args *)
 
 let cp verbose recurse force srcs dest =
   if List.length srcs &gt; 1 &amp;&amp; 
@@ -518,8 +505,7 @@ let cmd =
   Term.(ret (pure cp $ verbose $ recurse $ force $ srcs $ dest)), 
   Term.info &quot;cp&quot; ~version:&quot;1.6.1&quot; ~doc ~man
 
-let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0
-</code></pre><br/><br/><h2 id="extail">A <code class="code">tail</code> command</h2><br/><br/>We define the command line interface of a <code class="code">tail</code> command with the 
+let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre><br/><h2 id="extail">A <code class="code">tail</code> command</h2><br/>We define the command line interface of a <code class="code">tail</code> command with the 
 synopsis:
 <pre class="codepre"><code class="code">tail [OPTION]... [FILE]...</code></pre><br/>The <code class="code">--lines</code> option whose value specifies the number of last lines to
 print has a special syntax where a <code class="code">+</code> prefix indicates to start
@@ -531,8 +517,7 @@ into the enumeration. By using TODO reference : Arg.some and the <code class="co
 TODO reference : Arg.opt, the term corresponding to the option <code class="code">--follow</code> evaluates to
 <code class="code">None</code> if <code class="code">--follow</code> is absent from the command line, to <code class="code">Some Descriptor</code>
 if present but without a value and to <code class="code">Some v</code> if present with a value
-<code class="code">v</code> specified.<br/><pre class="codepre"><code class="code">
-(* Implementation of the command, we just print the args. *)
+<code class="code">v</code> specified.<br/><pre class="codepre"><code class="code">(* Implementation of the command, we just print the args. *)
 
 type loc = bool * int
 type verb = Verbose | Quiet 
@@ -600,8 +585,7 @@ let cmd =
   Term.(pure tail $ lines $ follow $ verb $ pid $ files),
   Term.info &quot;tail&quot; ~version:&quot;1.6.1&quot; ~doc ~man
 
-let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0
-</code></pre><br/><br/><h2 id="exdarcs">A <code class="code">darcs</code> command</h2><br/><br/>We define the command line interface of a <code class="code">darcs</code> command with the synopsis:
+let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre><br/><h2 id="exdarcs">A <code class="code">darcs</code> command</h2><br/>We define the command line interface of a <code class="code">darcs</code> command with the synopsis:
 <pre class="codepre"><code class="code">darcs [COMMAND] ...</code></pre><br/>The <code class="code">--debug</code>, <code class="code">-q</code>, <code class="code">-v</code> and <code class="code">--prehook</code> options are available in
 each command.  To avoid having to pass them individually to each
 command we gather them in a record of type <code class="code">copts</code>. By lifting the
@@ -614,8 +598,7 @@ section, the term information of commands makes a judicious use of the
 shown for commands is generated by <code class="code">Cmdliner</code> by making an approriate
 use of TODO reference : Term.ret on the lifted <code class="code">help</code> function.<br/>If the program is invoked without a command we just want to show the
 help of the program as printed by <code class="code">Cmdliner</code> with <code class="code">--help</code>. This is
-done by the <code class="code">no_cmd</code> term.<br/><pre class="codepre"><code class="code">
-(* Implementations, just print the args. *)
+done by the <code class="code">no_cmd</code> term.<br/><pre class="codepre"><code class="code">(* Implementations, just print the args. *)
 
 type verb = Normal | Quiet | Verbose
 type copts = { debug : bool; verb : verb; prehook : string option }
@@ -755,6 +738,5 @@ let default_cmd =
 let cmds = [initialize_cmd; record_cmd; help_cmd]
 
 let () = match Term.eval_choice default_cmd cmds with 
-| `Error _ -&gt; exit 1 | _ -&gt; exit 0
-</code></pre></div></div>
+| `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre></div></div>
 </div>

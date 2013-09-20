@@ -1,4 +1,4 @@
-<div class="ocaml_toplevel_module"><div class="info"><br/><h1 id="1_TITLE">The event-based encapsulation of the HTTP daemon</h1><br/><br/> This is a user-friendlier encapsulation of the HTTP daemon. It uses
+<div class="ocaml_toplevel_module"><div class="info"><h1 id="1_TITLE">The event-based encapsulation of the HTTP daemon</h1><br/> This is a user-friendlier encapsulation of the HTTP daemon. It uses
  the engine module defined in <code class="code">Uq_engines</code>.</div>
 <pre><span class="TYPEengine_req_state"><span class="keyword">type</span> engine_req_state</span> = <code class="type">[ `Finishing | `Received_header | `Received_request | `Receiving_body ]</code></pre>
 <div class="ocaml_class sig" name="http_engine_config"><pre><span class="TYPEhttp_engine_config"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Nethttpd_engine&amp;class=http_engine_config">http_engine_config</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=http_processor_config"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Nethttpd_reactor&amp;class=http_processor_config">Nethttpd_reactor.http_processor_config</a></pre></div>
@@ -169,7 +169,7 @@ Unix.file_descr -&gt;
  This function returns immediately, one needs to <code class="code">Unixqueue.run</code> the event
  system to start the engine.<br/> The passed <code class="code">http_engine_processing_config</code> is crucial for good performance.
  XXX</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Debugging</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Nethttpd_engine.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div></div></div>
 </div>

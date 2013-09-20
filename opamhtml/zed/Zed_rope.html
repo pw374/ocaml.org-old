@@ -3,7 +3,7 @@
 <pre><span class="TYPErope"><span class="keyword">type</span> rope</span> = <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info">Alias.</div></div>
 <pre><span class="EXCEPTIONOut_of_bounds"><span class="keyword">exception</span> Out_of_bounds</span></pre><div class="info"><div class="info">Exception raised when trying to access a character which is
       outside the bounds of a rope.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Construction</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Construction</h6></div></div>
 <pre><span class="VALempty"><span class="keyword">val</span> empty</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info">The empty rope.</div></div>
 <pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">int -&gt; <a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">make length char</code> creates a rope of length <code class="code">length</code> containing
       only <code class="code">char</code>.</div></div>
@@ -13,23 +13,23 @@
       1))</code>, ..., <code class="code">singleton (f 1)</code>, <code class="code">singleton (f 0)</code>.</div></div>
 <pre><span class="VALsingleton"><span class="keyword">val</span> singleton</span> : <code class="type"><a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">singleton ch</code> creates a rope of length 1 containing only
       <code class="code">ch</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Informations</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Informations</h6></div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Returns the length of the given rope.</div></div>
 <pre><span class="VALis_empty"><span class="keyword">val</span> is_empty</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">is_empty rope</code> returns whether <code class="code">str</code> is the empty rope or
       not.</div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Compares two ropes (in code point order).</div></div>
 <pre><span class="VALequal"><span class="keyword">val</span> equal</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">equal r1 r2</code> retuns <code class="code">true</code> iff <code class="code">r1</code> is equal to <code class="code">r2</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">To/from strings</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">To/from strings</h6></div></div>
 <pre><span class="VALof_string"><span class="keyword">val</span> of_string</span> : <code class="type">string -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">of_string str</code> creates a rope from a string. The string must be
       UTF-8 encoded and is validated. Note that <code class="code">str</code> must not be
       modified after this operation, if you intend to do so you must
       copy it before passing it to <code class="code">of_string</code>.</div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info"><code class="code">to_string rope</code> flatten a rope into a string encoded in
       UTF-8.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Random access</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Random access</h6></div></div>
 <pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; int -&gt; <a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a></code></pre><div class="info"><div class="info"><code class="code">get str rope</code> returns the character at index <code class="code">idx</code> in
       <code class="code">rope</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Rope manipulation</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Rope manipulation</h6></div></div>
 <pre><span class="VALappend"><span class="keyword">val</span> append</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info">Concatenates the two given ropes.</div></div>
 <pre><span class="VALconcat"><span class="keyword">val</span> concat</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> list -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">concat sep l</code> concatenates all strings of <code class="code">l</code> separating them
       by <code class="code">sep</code>.</div></div>
@@ -50,7 +50,7 @@
       TODO reference : empty if <code class="code">rope</code> is empty.</div></div>
 <pre><span class="VALrchop"><span class="keyword">val</span> rchop</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">rchop rope</code> returns <code class="code">rope</code> without is last character. Returns
       TODO reference : empty if <code class="code">rope</code> is empty.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Iteration, folding and mapping</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Iteration, folding and mapping</h6></div></div>
 <pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">(<a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a> -&gt; unit) -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">iter f rope</code> applies <code class="code">f</code> on all characters of <code class="code">rope</code> starting
       from the left.</div></div>
 <pre><span class="VALrev_iter"><span class="keyword">val</span> rev_iter</span> : <code class="type">(<a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a> -&gt; unit) -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">rev_iter f rope</code> applies <code class="code">f</code> an all characters of <code class="code">rope</code>
@@ -62,7 +62,7 @@
 <pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">(<a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a> -&gt; <a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a>) -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">map f rope</code> maps all characters of <code class="code">rope</code> with <code class="code">f</code>.</div></div>
 <pre><span class="VALrev_map"><span class="keyword">val</span> rev_map</span> : <code class="type">(<a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a> -&gt; <a href="?package=camomile&amp;module=CamomileLibrary.UChar&amp;type=t">CamomileLibrary.UChar.t</a>) -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">rev_map f str</code> maps all characters of <code class="code">rope</code> with <code class="code">f</code> in
       reverse order.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Iteration and folding on leafs</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Iteration and folding on leafs</h6></div></div>
 <div class="info"><div class="info">Note: for all of the following functions, the leaves must
     absolutely not be modified.</div></div>
 <pre><span class="VALiter_leaf"><span class="keyword">val</span> iter_leaf</span> : <code class="type">(<a href="?package=zed&amp;module=Zed_utf8&amp;type=t">Zed_utf8.t</a> -&gt; unit) -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">iter_leaf f rope</code> applies <code class="code">f</code> on all leaves of <code class="code">rope</code> starting
@@ -73,7 +73,7 @@
       from the left, accumulating a value.</div></div>
 <pre><span class="VALrev_fold_leaf"><span class="keyword">val</span> rev_fold_leaf</span> : <code class="type">(<a href="?package=zed&amp;module=Zed_utf8&amp;type=t">Zed_utf8.t</a> -&gt; 'a -&gt; 'a) -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">t</a> -&gt; 'a -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">rev_fold f rope acc</code> applies <code class="code">f</code> on all leaves of <code class="code">rope</code>
       starting from the right, accumulating a value.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Zippers</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Zippers</h6></div></div>
 <div class="ocaml_module sig" name="Zip"><pre><span class="keyword">module</span> <a href="?package=zed&amp;module=Zed_rope.Zip">Zip</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">Type of zippers. A zipper allow to naviguate in a rope in a
         convenient and efficient manner. Note that a zipper points to
@@ -114,7 +114,7 @@
         and <code class="code">zipper2</code>. If <code class="code">zipper1 &gt; zipper2</code> then this is the same as
         <code class="code">slice zipper2 zipper1</code>.<br/>        The result is unspecified if the two zippers do not points to
         the same rope.</div></div></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Buffers</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Buffers</h6></div></div>
 <div class="ocaml_module sig" name="Buffer"><pre><span class="keyword">module</span> <a href="?package=zed&amp;module=Zed_rope.Buffer">Buffer</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">This module is similar of the <code class="code">Buffer</code> module of the standard
       library except that it works with rope.</div></div>
@@ -124,5 +124,5 @@
 <pre><span class="VALcontents"><span class="keyword">val</span> contents</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope.Buffer&amp;type=t">t</a> -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=rope">rope</a></code></pre><div class="info"><div class="info"><code class="code">contents buffer</code> returns the contents of <code class="code">buffer</code> as a
         rope.</div></div>
 <pre><span class="VALreset"><span class="keyword">val</span> reset</span> : <code class="type"><a href="?package=zed&amp;module=Zed_rope.Buffer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">reset buffer</code> resets <code class="code">buffer</code> to its initial state.</div></div></div></div>
-<div class="ocaml_module ident" name="Text" path="?package=camomile&amp;module=CamomileLibrary.UnicodeString.Type"><pre><span class="keyword">module</span> <a href="?package=zed&amp;module=Zed_rope.Text">Text</a> : <code class="type"><code class="code"><a href="?package=camomile&amp;module=CamomileLibrary.UnicodeString.Type">CamomileLibrary.UnicodeString.Type</a></code> with type index = <a href="?package=zed&amp;module=Zed_rope.Zip&amp;type=t">Zip.t</a> and type t = <a href="?package=zed&amp;module=Zed_rope&amp;type=rope">rope</a></code></pre><div class="info"><div class="info"><br/><h6 id="6_TITLE">Camomile compatible interface</h6><br/></div></div></div>
+<div class="ocaml_module ident" name="Text" path="?package=camomile&amp;module=CamomileLibrary.UnicodeString.Type"><pre><span class="keyword">module</span> <a href="?package=zed&amp;module=Zed_rope.Text">Text</a> : <code class="type"><code class="code"><a href="?package=camomile&amp;module=CamomileLibrary.UnicodeString.Type">CamomileLibrary.UnicodeString.Type</a></code> with type index = <a href="?package=zed&amp;module=Zed_rope.Zip&amp;type=t">Zip.t</a> and type t = <a href="?package=zed&amp;module=Zed_rope&amp;type=rope">rope</a></code></pre><div class="info"><div class="info"><h6 id="6_TITLE">Camomile compatible interface</h6></div></div></div>
 </div>

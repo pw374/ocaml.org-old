@@ -17,7 +17,7 @@ block_size:int -&gt; k:int -&gt; usage:int -&gt; key_type:<a href="?package=ocam
         by 8.</li><li><code class="code">usage</code>: The usage number (here restricted to 0-255, although the
         RFC would allow 32 bits). Examples for usage numbers can be found
         in RFC 4121 section 2.</li><li><code class="code">key_type</code>: Which key type to derive</li></ul>      The output is a key as produced by <code class="code">random_to_key</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Bitstring operations</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Bitstring operations</h2></div></div>
 <pre><span class="VALxor_s"><span class="keyword">val</span> xor_s</span> : <code class="type">string -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Performs the bitwise XOR of these strings (which must have the same
       length)</div></div>
 <pre><span class="VALadd_1_complement"><span class="keyword">val</span> add_1_complement</span> : <code class="type">string -&gt; string -&gt; string</code></pre><div class="info"><div class="info">The addition algorithm for 1's-complement numbers. The two numbers to

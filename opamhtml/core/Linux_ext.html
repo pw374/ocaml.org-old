@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info"><div class="info">Interface to Linux-specific system calls</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">sysinfo</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">sysinfo</h2></div></div>
 <div class="ocaml_module sig" name="Sysinfo"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Linux_ext.Sysinfo">Sysinfo</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><code><span class="TYPEt"><span class="keyword">type</span> t</span> = {</code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.uptime">uptime</span> : <code class="type"><a href="?package=core&amp;module=Span&amp;type=t">Span.t</a></code></code></td><td class="typefieldcomment" align="left"><div class="info">time since boot</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.load1">load1</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">load average over the last minute</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.load5">load5</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">load average over the last 5 minutes</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.load15">load15</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">load average over the last 15 minutes</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.total_ram">total_ram</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">total usable main memory</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.free_ram">free_ram</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">available memory size</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.shared_ram">shared_ram</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">amount of shared memory</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.buffer_ram">buffer_ram</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">memory used by buffers</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.total_swap">total_swap</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">total swap page size</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.free_swap">free_swap</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">available swap space</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.procs">procs</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">number of current processes</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.totalhigh">totalhigh</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Total high memory size</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.freehigh">freehigh</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Available high memory size</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTt.mem_unit">mem_unit</span> : <code class="type">int</code></code></td><td class="typefieldcomment" align="left"><div class="info">Memory unit size in bytes</div></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">Result of sysinfo syscall (man 2 sysinfo)</div></div>
@@ -15,7 +15,7 @@
 <pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type"><a href="?package=core&amp;module=Linux_ext.Sysinfo&amp;type=t">t</a> Core_kernel.Std.Bin_prot.Type_class.writer</code></pre>
 <pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">Sexplib.Sexp.t -&gt; <a href="?package=core&amp;module=Linux_ext.Sysinfo&amp;type=t">t</a></code></pre>
 <pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core&amp;module=Linux_ext.Sysinfo&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Filesystem functions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Filesystem functions</h2></div></div>
 <pre><span class="VALsendfile"><span class="keyword">val</span> sendfile</span> : <code class="type">(?pos:int -&gt;
  ?len:int -&gt; fd:<a href="?package=core&amp;module=Core_unix.File_descr&amp;type=t">Core_unix.File_descr.t</a> -&gt; <a href="?package=core&amp;module=Core_unix.File_descr&amp;type=t">Core_unix.File_descr.t</a> -&gt; int)
 Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">sendfile ?pos ?len ~fd sock</code> sends mmap-able data from file
@@ -27,7 +27,7 @@ Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code
     happened.  Calling TODO reference : sendfile several times on the same descriptor
     that only partially accepted data due to a timeout will eventually
     lead to the unix error <code class="code">EAGAIN</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Non-portable TCP-functionality</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Non-portable TCP-functionality</h2></div></div>
 <pre><code><span class="TYPEtcp_bool_option"><span class="keyword">type</span> tcp_bool_option</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTtcp_bool_option.TCP_CORK"><span class="constructor">TCP_CORK</span></span></code></td></tr></table><div class="info"><div class="info"><code class="code">gettcpopt_bool sock opt</code><b>Returns</b> the current value of the boolean
     TCP socket option <code class="code">opt</code> for socket <code class="code">sock</code>.</div></div>
@@ -54,7 +54,7 @@ Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code
     <code class="code">iovecs</code>.  Prevents <code class="code">SIGPIPE</code>, i.e. raises a Unix-error in that
     case immediately.<b>Raises</b> <code>Invalid_argument</code> if the designated ranges are invalid.<br/><code>Unix_error</code> on Unix-errors.<br/><b>Returns</b> <code class="code">Some bytes_written</code> or <code class="code">None</code> if the
     operation would have blocked.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Clock functions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Clock functions</h2></div></div>
 <div class="ocaml_module sig" name="Clock"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Linux_ext.Clock">Clock</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre>
 <pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type">(Thread.t -&gt; <a href="?package=core&amp;module=Linux_ext.Clock&amp;type=t">t</a>) Core_kernel.Std.Or_error.t</code></pre>
@@ -63,7 +63,7 @@ Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code
 <pre><span class="VALget_resolution"><span class="keyword">val</span> get_resolution</span> : <code class="type">(<a href="?package=core&amp;module=Linux_ext.Clock&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Span&amp;type=t">Span.t</a>) Core_kernel.Std.Or_error.t</code></pre>
 <pre><span class="VALget_process_clock"><span class="keyword">val</span> get_process_clock</span> : <code class="type">(unit -&gt; <a href="?package=core&amp;module=Linux_ext.Clock&amp;type=t">t</a>) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">get_process_clock</code> the clock measuring the CPU-time of a process.</div></div>
 <pre><span class="VALget_thread_clock"><span class="keyword">val</span> get_thread_clock</span> : <code class="type">(unit -&gt; <a href="?package=core&amp;module=Linux_ext.Clock&amp;type=t">t</a>) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">get_thread_clock</code> the clock measuring the CPU-time of the current thread.</div></div></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Timerfd functions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Timerfd functions</h2></div></div>
 <div class="ocaml_module sig" name="Timerfd"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Linux_ext.Timerfd">Timerfd</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="ocaml_module sig" name="Clock"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Linux_ext.Timerfd.Clock">Clock</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Clock used to mark the progress of a timer.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre>
@@ -121,7 +121,7 @@ Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code
 <div class="info"><div class="info">default is <code class="code">`After interval</code></div></div>
 <div class="info"><div class="info"><code class="code">clear t</code> causes <code class="code">t</code> to not fire any more.</div></div>
 <div class="info"><div class="info"><code class="code">get t</code> returns the current state of the timer <code class="code">t</code>.</div></div></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Parent death notifications</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Parent death notifications</h2></div></div>
 <pre><span class="VALpr_set_pdeathsig"><span class="keyword">val</span> pr_set_pdeathsig</span> : <code class="type">(<a href="?package=core&amp;module=Signal&amp;type=t">Signal.t</a> -&gt; unit) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">pr_set_pdeathsig s</code> sets the signal <code class="code">s</code> to be sent to the executing
     process when its parent dies.  NOTE: the parent may have died
     before or while executing this system call.  To make sure that you
@@ -132,19 +132,19 @@ Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code
     yourself using Unix.kill, or execute an appropriate handler.</div></div>
 <pre><span class="VALpr_get_pdeathsig"><span class="keyword">val</span> pr_get_pdeathsig</span> : <code class="type">(unit -&gt; <a href="?package=core&amp;module=Signal&amp;type=t">Signal.t</a>) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">pr_get_pdeathsig ()</code> get the signal that will be sent to the
     currently executing process when its parent dies.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Task name</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Task name</h2></div></div>
 <pre><span class="VALpr_set_name_first16"><span class="keyword">val</span> pr_set_name_first16</span> : <code class="type">(string -&gt; unit) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">pr_set_name_first16 name</code> sets the name of the executing thread to <code class="code">name</code>.  Only
     the first 16 bytes in <code class="code">name</code> will be used, the rest is ignored.</div></div>
 <pre><span class="VALpr_get_name"><span class="keyword">val</span> pr_get_name</span> : <code class="type">(unit -&gt; string) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">pr_get_name ()</code> gets the name of the executing thread.  The name is
     at most 16 bytes long.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Pathname resolution</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Pathname resolution</h2></div></div>
 <pre><span class="VALfile_descr_realpath"><span class="keyword">val</span> file_descr_realpath</span> : <code class="type">(<a href="?package=core&amp;module=Core_unix.File_descr&amp;type=t">Core_unix.File_descr.t</a> -&gt; string) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">file_descr_realpath fd</code><b>Raises</b> <code>Unix_error</code> on errors.<br/><b>Returns</b> the canonicalized absolute
     pathname of the file associated with file descriptor <code class="code">fd</code>.</div></div>
 <pre><span class="VALout_channel_realpath"><span class="keyword">val</span> out_channel_realpath</span> : <code class="type">(Pervasives.out_channel -&gt; string) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">out_channel_realpath oc</code><b>Raises</b> <code>Unix_error</code> on errors.<br/><b>Returns</b> the canonicalized absolute
     pathname of the file associated with output channel <code class="code">oc</code>.</div></div>
 <pre><span class="VALin_channel_realpath"><span class="keyword">val</span> in_channel_realpath</span> : <code class="type">(Pervasives.in_channel -&gt; string) Core_kernel.Std.Or_error.t</code></pre><div class="info"><div class="info"><code class="code">in_channel_realpath ic</code><b>Raises</b> <code>Unix_error</code> on errors.<br/><b>Returns</b> the canonicalized absolute
     pathname of the file associated with input channel <code class="code">ic</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Affinity</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Affinity</h2></div></div>
 <pre><span class="VALsched_setaffinity"><span class="keyword">val</span> sched_setaffinity</span> : <code class="type">(?pid:Core_kernel.Std.Pid.t -&gt; cpuset:int list -&gt; unit -&gt; unit)
 Core_kernel.Std.Or_error.t</code></pre>
 <pre><span class="VALsched_setaffinity_this_thread"><span class="keyword">val</span> sched_setaffinity_this_thread</span> : <code class="type">(cpuset:int list -&gt; unit) Core_kernel.Std.Or_error.t</code></pre>
@@ -259,10 +259,10 @@ timeout:[ `After of <a href="?package=core&amp;module=Span&amp;type=t">Span.t</a
     <code class="code">iovecs</code>.  Prevents <code class="code">SIGPIPE</code>, i.e. raises a Unix-error in that
     case immediately.<b>Raises</b> <code>Invalid_argument</code> if the designated ranges are invalid.<br/><code>Unix_error</code> on Unix-errors.<br/><b>Returns</b> <code class="code">Some bytes_written</code> or <code class="code">None</code> if the
     operation would have blocked.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Clock functions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Clock functions</h2></div></div>
 <div class="info"><div class="info"><code class="code">get_process_clock</code> the clock measuring the CPU-time of a process.</div></div>
 <div class="info"><div class="info"><code class="code">get_thread_clock</code> the clock measuring the CPU-time of the current thread.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Timerfd functions</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Timerfd functions</h2></div></div>
 <div class="info"><div class="info">Clock used to mark the progress of a timer.</div></div>
 <div class="info"><div class="info">Settable system-wide clock.</div></div>
 <div class="info"><div class="info">Nonsettable clock.  It is not affected by manual changes to the system time.</div></div>
@@ -276,7 +276,7 @@ timeout:[ `After of <a href="?package=core&amp;module=Span&amp;type=t">Span.t</a
 <div class="info"><div class="info">default is <code class="code">`After interval</code></div></div>
 <div class="info"><div class="info"><code class="code">clear t</code> causes <code class="code">t</code> to not fire any more.</div></div>
 <div class="info"><div class="info"><code class="code">get t</code> returns the current state of the timer <code class="code">t</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Parent death notifications</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Parent death notifications</h2></div></div>
 <div class="info"><div class="info"><code class="code">pr_set_pdeathsig s</code> sets the signal <code class="code">s</code> to be sent to the executing
     process when its parent dies.  NOTE: the parent may have died
     before or while executing this system call.  To make sure that you
@@ -287,19 +287,19 @@ timeout:[ `After of <a href="?package=core&amp;module=Span&amp;type=t">Span.t</a
     yourself using Unix.kill, or execute an appropriate handler.</div></div>
 <div class="info"><div class="info"><code class="code">pr_get_pdeathsig ()</code> get the signal that will be sent to the
     currently executing process when its parent dies.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Task name</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Task name</h2></div></div>
 <div class="info"><div class="info"><code class="code">pr_set_name_first16 name</code> sets the name of the executing thread to <code class="code">name</code>.  Only
     the first 16 bytes in <code class="code">name</code> will be used, the rest is ignored.</div></div>
 <div class="info"><div class="info"><code class="code">pr_get_name ()</code> gets the name of the executing thread.  The name is
     at most 16 bytes long.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Pathname resolution</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Pathname resolution</h2></div></div>
 <div class="info"><div class="info"><code class="code">file_descr_realpath fd</code><b>Raises</b> <code>Unix_error</code> on errors.<br/><b>Returns</b> the canonicalized absolute
     pathname of the file associated with file descriptor <code class="code">fd</code>.</div></div>
 <div class="info"><div class="info"><code class="code">out_channel_realpath oc</code><b>Raises</b> <code>Unix_error</code> on errors.<br/><b>Returns</b> the canonicalized absolute
     pathname of the file associated with output channel <code class="code">oc</code>.</div></div>
 <div class="info"><div class="info"><code class="code">in_channel_realpath ic</code><b>Raises</b> <code>Unix_error</code> on errors.<br/><b>Returns</b> the canonicalized absolute
     pathname of the file associated with input channel <code class="code">ic</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Affinity</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Affinity</h2></div></div>
 <div class="info"><div class="info"><code class="code">cores ()</code><b>Returns</b> the number of cores on the machine</div></div>
 <div class="info"><div class="info"><code class="code">get_terminal_size ()</code><b>Returns</b> <code class="code">(rows, cols)</code>, the number of rows and
     columns of the terminal.</div></div>

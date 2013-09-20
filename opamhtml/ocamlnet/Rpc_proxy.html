@@ -245,7 +245,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
 <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedSet&amp;type=mset">mset</a> -&gt;
 (<a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">ManagedClient.mclient</a> -&gt; 'a -&gt; ((unit -&gt; 'b) -&gt; unit) -&gt; unit) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info">Synchronized version. Note that you have to pass an asynchronous
         function as second argument. The result is synchronous, however.</div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="tut">The <code class="code">Rpc_proxy</code> tutorial</h1><br/><br/>    <br/><h2 id="mclient">Managed clients</h2><br/><br/>    A normal RPC client has a very limited lifecylce: It is created,
+<div class="info"><div class="info"><h1 id="tut">The <code class="code">Rpc_proxy</code> tutorial</h1><br/>    <h2 id="mclient">Managed clients</h2><br/>    A normal RPC client has a very limited lifecylce: It is created,
    then a connection is made to an RPC service, messages are exchanged,
    and finally the connection is terminated. After that the client
    becomes unusable. In short, it is &quot;use once&quot; client.<br/>   In contrast to this, managed clients can be recycled. This is
@@ -319,7 +319,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
       This mostly makes sense when there are alternative endpoints,
       i.e. in the context of a managed set (see below).
  </li></ul></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Managed Sets</h2><br/><br/>    Managed sets are another layer on top of the managed
+<div class="info"><div class="info"><h2 id="2_TITLE">Managed Sets</h2><br/>    Managed sets are another layer on top of the managed
     clients. These sets are able to manage several connections where
     each is implemented as managed client. The connections can go to
     the same server endpoint in order to parallelize RPCs at the
@@ -379,7 +379,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
        then the second service is used, etc.). The <code class="code">policy</code> argument
        is again to be passed to TODO reference : Rpc_proxy.ManagedSet.create_mset_config.</li></ul>   Of course, managed sets must be shut down after use, because
    there is no other (automatic) way of recognizing that they are no
-   longer used. Call TODO reference : Rpc_proxy.ManagedSet.shut_down for this.<br/>   <br/><h2 id="2_TITLE">Caching reliability data</h2><br/><br/>   The cache allows to disable certain hosts or ports when the error
+   longer used. Call TODO reference : Rpc_proxy.ManagedSet.shut_down for this.<br/>   <h2 id="2_TITLE">Caching reliability data</h2><br/>   The cache allows to disable certain hosts or ports when the error
    counter reaches a limit. The service is disabled for a limited time span.
    This is especially useful when there is an alternate port that can
    jump in for the failing one, i.e. when the <code class="code">services</code> array of a
@@ -424,7 +424,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
         ~rcache
         ...
         ()
-    </code></pre><br/>  <br/><h2 id="2_TITLE">Idempotent calls</h2><br/><br/>    In the layer of managed sets there is some limited support for
+    </code></pre><br/>  <h2 id="2_TITLE">Idempotent calls</h2><br/>    In the layer of managed sets there is some limited support for
     automatically repeating failing idempotent RPC calls.<br/>    Instead of calling the RPC with<br/>    <pre class="codepre"><code class="code">
       let mclient, idx =
         Rpc_proxy.ManagedSet.mset_pick mset in

@@ -3,7 +3,7 @@
 <div class="info"><div class="info">Naming convention: in this module all function taking a function
     which is applied to all element of the streams are suffixed by:<br/>    - <code class="code">_s</code> when the function returns a thread and calls are serialised<ul><li><code class="code">_p</code> when the function returns a thread and calls are parallelised
 </li></ul></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Construction</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Construction</h6></div></div>
 <pre><span class="VALfrom"><span class="keyword">val</span> from</span> : <code class="type">(unit -&gt; 'a option <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; 'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">from f</code> creates an stream from the given input function. <code class="code">f</code> is
       called each time more input is needed, and the stream ends when
       <code class="code">f</code> returns <code class="code">None</code>.</div></div>
@@ -66,11 +66,11 @@
         val y : int = 1
       </code></pre><br/>      It raises <code class="code">Invalid_argument</code> if <code class="code">st</code> is a bounded
       push-stream.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Destruction</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Destruction</h6></div></div>
 <pre><span class="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; 'a list <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Returns the list of elements of the given stream</div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">char <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; string <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Returns the word composed of all characters of the given
       stream</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Data retreival</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Data retreival</h6></div></div>
 <pre><span class="EXCEPTIONEmpty"><span class="keyword">exception</span> Empty</span></pre><div class="info"><div class="info">Exception raised when trying to retreive data from an empty
       stream.</div></div>
 <pre><span class="VALpeek"><span class="keyword">val</span> peek</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; 'a option <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">peek st</code> returns the first element of the stream, if any,
@@ -106,7 +106,7 @@
 <pre><span class="VALon_terminate"><span class="keyword">val</span> on_terminate</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; (unit -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">on_terminate st f</code> executes <code class="code">f</code> when the end of the stream <code class="code">st</code>
       is reached. Note that the stream may still contains elements if
       TODO reference : peek or similar was used.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Stream transversal</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Stream transversal</h6></div></div>
 <div class="info"><div class="info">Note: all the following functions are destructive.<br/>    For example:<br/>    <pre class="codepre"><code class="code">
       # let st1 = Lwt_stream.of_list [1; 2; 3];;
       val st1 : int Lwt_stream.t = &lt;abstr&gt;
@@ -149,11 +149,11 @@
 <pre><span class="VALmap_exn"><span class="keyword">val</span> map_exn</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; 'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=result">result</a> <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">map_exn s</code> returns a stream that captures all exceptions raised
       by the source of the stream (the function passed to TODO reference : from).<br/>      Note that for push-streams (as returned by TODO reference : create) all
       elements of the mapped streams are values.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Parsing</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Parsing</h6></div></div>
 <pre><span class="VALparse"><span class="keyword">val</span> parse</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; ('a <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; 'b <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; 'b <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">parse st f</code> parses <code class="code">st</code> with <code class="code">f</code>. If <code class="code">f</code> raise an exception,
       <code class="code">st</code> is restored to its previous state.<br/>      It raises <code class="code">Invalid_argument</code> if <code class="code">st</code> is a bounded
       push-stream.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Misc</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Misc</h6></div></div>
 <pre><span class="VALhexdump"><span class="keyword">val</span> hexdump</span> : <code class="type">char <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a> -&gt; string <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">hexdump byte_stream</code> returns a stream which is the same as the
       output of <code class="code">hexdump -C</code>.<br/>      Basically, here is a simple implementation of <code class="code">hexdump -C</code>:<br/>      <pre class="codepre"><code class="code">
         let () = Lwt_main.run (Lwt_io.write_lines Lwt_io.stdout (Lwt_stream.hexdump (Lwt_io.read_lines Lwt_io.stdin)))

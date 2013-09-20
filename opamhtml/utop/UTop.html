@@ -53,7 +53,7 @@
       </code></pre></div></div>
 <pre><span class="VALget_auto_run_async"><span class="keyword">val</span> get_auto_run_async</span> : <code class="type">unit -&gt; bool</code></pre><div class="info"><div class="info">Returns the value of TODO reference : auto_run_async.</div></div>
 <pre><span class="VALset_auto_run_async"><span class="keyword">val</span> set_auto_run_async</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Modifies TODO reference : auto_run_async.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">History</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">History</h6></div></div>
 <pre><span class="VALhistory"><span class="keyword">val</span> history</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_history&amp;type=t">LTerm_history.t</a></code></pre><div class="info"><div class="info">The history used by utop. You can configure limits using the
       <code class="code">LTerm_history</code> module.<br/>      For example if you want to limit the history to 1000 line, add
       these lines to your ~/.ocamlinit file:<br/>      <pre class="codepre"><code class="code">
@@ -67,7 +67,7 @@
 <pre><span class="VALhistory_file_max_entries"><span class="keyword">val</span> history_file_max_entries</span> : <code class="type">int option Pervasives.ref</code></pre><div class="info"><div class="info">Maximum entries to store in the history file. If <code class="code">None</code> (the
       default) the maximum number of entries if <code class="code">history</code> will be
       used.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Console specific configuration</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Console specific configuration</h6></div></div>
 <pre><code><span class="TYPEprofile"><span class="keyword">type</span> profile</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTprofile.Dark"><span class="constructor">Dark</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTprofile.Light"><span class="constructor">Light</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">Profile for colors.</div></td></tr></table>
 <pre><span class="VALprofile"><span class="keyword">val</span> profile</span> : <code class="type"><a href="?package=utop&amp;module=UTop&amp;type=profile">profile</a> <a href="?package=react&amp;module=React&amp;type=signal">React.signal</a></code></pre><div class="info"><div class="info">The color profile. It defaults to TODO reference : Dark. This is used by the
@@ -79,11 +79,11 @@
       in the console UI.</div></div>
 <pre><span class="VALtime"><span class="keyword">val</span> time</span> : <code class="type">float Pervasives.ref</code></pre><div class="info"><div class="info">The time of the beginning of the current command.</div></div>
 <pre><span class="VALprompt"><span class="keyword">val</span> prompt</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_text&amp;type=t">LTerm_text.t</a> <a href="?package=react&amp;module=React&amp;type=signal">React.signal</a> Pervasives.ref</code></pre><div class="info"><div class="info">The prompt.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Hooks</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Hooks</h6></div></div>
 <pre><span class="VALnew_command_hooks"><span class="keyword">val</span> new_command_hooks</span> : <code class="type">(unit -&gt; unit) <a href="?package=lwt&amp;module=Lwt_sequence&amp;type=t">Lwt_sequence.t</a></code></pre><div class="info"><div class="info">Functions called before each new command.</div></div>
 <pre><span class="VALat_new_command"><span class="keyword">val</span> at_new_command</span> : <code class="type">(unit -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">at_new_command f</code> adds <code class="code">f</code> to the hooks executed before each
       new commands.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Parsing</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Parsing</h6></div></div>
 <pre><span class="TYPElocation"><span class="keyword">type</span> location</span> = <code class="type">int * int</code></pre><div class="info"><div class="info">Type of a string-location. It is composed of a start and stop
         offsets (in bytes).</div></div>
 <pre><code><span class="TYPEresult"><span class="keyword">type</span> <code class="type">'a </code>result</span> = </code></pre><table class="typetable">
@@ -106,7 +106,7 @@
 <pre><span class="VALlexbuf_of_string"><span class="keyword">val</span> lexbuf_of_string</span> : <code class="type">bool Pervasives.ref -&gt; string -&gt; Lexing.lexbuf</code></pre><div class="info"><div class="info"><code class="code">lexbuf_of_string eof str</code> is the same as <code class="code">Lexing.from_string
       str</code> except that if the lexer reach the end of <code class="code">str</code> then <code class="code">eof</code> is
       set to <code class="code">true</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Helpers</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Helpers</h6></div></div>
 <pre><span class="VALget_message"><span class="keyword">val</span> get_message</span> : <code class="type">(Format.formatter -&gt; 'a -&gt; unit) -&gt; 'a -&gt; string</code></pre><div class="info"><div class="info"><code class="code">get_message printer x</code> applies <code class="code">printer</code> on <code class="code">x</code> and
       returns everything it prints as a string.</div></div>
 <pre><span class="VALget_ocaml_error_message"><span class="keyword">val</span> get_ocaml_error_message</span> : <code class="type">exn -&gt; <a href="?package=utop&amp;module=UTop&amp;type=location">location</a> * string</code></pre><div class="info"><div class="info"><code class="code">get_ocaml_error_message exn</code> returns the location and error

@@ -1,10 +1,10 @@
 <div class="ocaml_toplevel_module"><div class="info">Utility functions to generate html tags and html pages (+ quick hacks to be removed)</div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Utility functions</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Utility functions</h3></div></div>
 <pre><span class="VALfold_html"><span class="keyword">val</span> fold_html</span> : <code class="type">Cow.Html.t list -&gt; Cow.Html.t</code></pre><div class="info"><div class="info">Html folding</div></div>
 <pre><span class="VALinsert_between"><span class="keyword">val</span> insert_between</span> : <code class="type">sep:string -&gt; Cow.Html.t list -&gt; Cow.Html.t</code></pre><div class="info"><div class="info">Html folding with a seperator</div></div>
 <pre><span class="VALhtml_of_string"><span class="keyword">val</span> html_of_string</span> : <code class="type">string -&gt; Cow.Html.t</code></pre><div class="info"><div class="info">Conversion from string to html</div></div>
 <pre><span class="VALstring_of_html"><span class="keyword">val</span> string_of_html</span> : <code class="type">Cow.Html.t -&gt; string</code></pre><div class="info"><div class="info">Conversion from html to string</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Html tags generators</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Html tags generators</h3></div></div>
 <pre><span class="VALmake_info"><span class="keyword">val</span> make_info</span> : <code class="type">Cow.Html.t option -&gt; Cow.Html.t</code></pre><div class="info"><div class="info">Generate a &lt;div class=&quot;info&quot;&gt;xxx&lt;/div&gt; tag or Html.nil if None</div></div>
 <pre><span class="VALmake_pre"><span class="keyword">val</span> make_pre</span> : <code class="type">Cow.Html.t -&gt; Cow.Html.t</code></pre><div class="info"><div class="info">Wrap the content into a &lt;pre&gt; html tag</div></div>
 <pre><span class="VALmake_span"><span class="keyword">val</span> make_span</span> : <code class="type">?css_class:string -&gt; Cow.Html.t -&gt; Cow.Html.t</code></pre><div class="info"><div class="info">Wrap the content into a &lt;span&gt; html tag with a class label option</div></div>
@@ -23,7 +23,7 @@
 <pre><span class="VALhtml_of_type_class_param_list"><span class="keyword">val</span> html_of_type_class_param_list</span> : <code class="type">Cow.Html.t list -&gt; [&lt; `Negative | `None | `Positive ] list -&gt; Cow.Html.t</code></pre><div class="info"><div class="info">Generate the class parameters for a class signature.
     e.g: (+'a,-'b) for the type (+'a,-'b) t</div></div>
 <pre><span class="VALjs_array_of_include_items"><span class="keyword">val</span> js_array_of_include_items</span> : <code class="type">Types.module_type -&gt; string</code></pre><div class="info"><div class="info">Parse the include's module_type to retrieve the contained elements and return it as a json array</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Html page generation</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Html page generation</h3></div></div>
 <pre><span class="VALoutput_style_file"><span class="keyword">val</span> output_style_file</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Writes the style file if non-existent</div></div>
 <pre><span class="VALoutput_script_file"><span class="keyword">val</span> output_script_file</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Writes the script file if non-existent</div></div>
 <pre><span class="VALgenerate_package_index"><span class="keyword">val</span> generate_package_index</span> : <code class="type">(string * Cow.Html.t) list -&gt; unit</code></pre><div class="info"><div class="info">Generate the current package module index. Elements should be of the form : 

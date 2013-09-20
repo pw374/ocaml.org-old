@@ -8,7 +8,7 @@
       such brackets. If such an IP address is passed to the resolver, the
       string address is just converted to a <code class="code">Unix.inet_addr</code>.
  </li></ul></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Asynchronous Interface</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Asynchronous Interface</h1></div></div>
 <div class="info"><div class="info">The following types are the same as in TODO reference : Uq_engines, here only 
     redefined for systematic reasons</div></div>
 <pre><span class="TYPEengine_state"><span class="keyword">type</span> <code class="type">'t </code>engine_state</span> = <code class="type">[ `Aborted | `Done of 't | `Error of exn | `Working of int ]</code></pre>
@@ -31,7 +31,7 @@
         case the passed event system is ignored. If the implementation is
         asynchronous, the caller must run the event system until the 
         state of the engine transitions to <code class="code">`Done he</code> or <code class="code">`Error e</code>.</div></div></div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Synchronous Interface</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Synchronous Interface</h1></div></div>
 <pre><span class="VALget_host_by_name"><span class="keyword">val</span> get_host_by_name</span> : <code class="type">?resolver:<a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=resolver">resolver</a> -&gt; string -&gt; Unix.host_entry</code></pre><div class="info"><div class="info">Look up the host, and return the host entry
       or raise the exception <code class="code">Host_not_found</code>.<br/>      If a <code class="code">resolver</code> is passed, this resolver is used, otherwise the
       pluggable resolver is used.</div></div>
@@ -39,14 +39,14 @@
       and convert the symbol to a <code class="code">Unix.sockaddr</code> only containing IP
       addresses.<br/>      If a <code class="code">resolver</code> is passed, this resolver is used, otherwise the
       pluggable resolver is used.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Resolvers</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Resolvers</h1></div></div>
 <pre><span class="VALdefault_resolver"><span class="keyword">val</span> default_resolver</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=resolver">resolver</a></code></pre><div class="info"><div class="info">The default resolver uses <code class="code">Unix.gethostbyname</code> to look up names.
       Note that this usually means that no IPv6 addresses are returned.</div></div>
 <pre><span class="VALgai_resolver"><span class="keyword">val</span> gai_resolver</span> : <code class="type">?ipv4:bool -&gt; ?ipv6:bool -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=resolver">resolver</a></code></pre><div class="info"><div class="info">This resolver uses <code class="code">Unix.getaddrinfo</code>. One can set whether IPv4
       or IPv6 addresses may be returned (only one type is returned).
       The order of addresses cannot
       be set, but there is a global config file <code class="code">/etc/gai.info</code>.<br/>      The <code class="code">h_aliases</code> field of the result is not set.<br/>      By default, both <code class="code">ipv4</code> and <code class="code">ipv6</code> are enabled.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Plugins</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Plugins</h1></div></div>
 <pre><span class="VALcurrent_resolver"><span class="keyword">val</span> current_resolver</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=resolver">resolver</a></code></pre><div class="info"><div class="info">Returns the pluggable resolver</div></div>
 <pre><span class="VALset_current_resolver"><span class="keyword">val</span> set_current_resolver</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=resolver">resolver</a> -&gt; unit</code></pre><div class="info"><div class="info">Set the pluggable resolver</div></div>
 </div>

@@ -4,7 +4,7 @@
 <pre><span class="TYPEsexp_list"><span class="keyword">type</span> <code class="type">'a </code>sexp_list</span> = <code class="type">'a list</code></pre>
 <pre><span class="TYPEsexp_array"><span class="keyword">type</span> <code class="type">'a </code>sexp_array</span> = <code class="type">'a array</code></pre>
 <pre><span class="TYPEsexp_opaque"><span class="keyword">type</span> <code class="type">'a </code>sexp_opaque</span> = <code class="type">'a</code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Type aliases</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Type aliases</h6></div></div>
 <pre><span class="TYPEbigstring"><span class="keyword">type</span> bigstring</span> = <code class="type"><a href="?package=sexplib&amp;module=Sexp&amp;type=bigstring">Sexp.bigstring</a></code></pre>
 <pre><span class="TYPEfloat32_vec"><span class="keyword">type</span> float32_vec</span> = <code class="type">(float, Bigarray.float32_elt, Bigarray.fortran_layout) Bigarray.Array1.t</code></pre>
 <pre><span class="TYPEfloat64_vec"><span class="keyword">type</span> float64_vec</span> = <code class="type">(float, Bigarray.float64_elt, Bigarray.fortran_layout) Bigarray.Array1.t</code></pre>
@@ -12,7 +12,7 @@
 <pre><span class="TYPEfloat32_mat"><span class="keyword">type</span> float32_mat</span> = <code class="type">(float, Bigarray.float32_elt, Bigarray.fortran_layout) Bigarray.Array2.t</code></pre>
 <pre><span class="TYPEfloat64_mat"><span class="keyword">type</span> float64_mat</span> = <code class="type">(float, Bigarray.float64_elt, Bigarray.fortran_layout) Bigarray.Array2.t</code></pre>
 <pre><span class="TYPEmat"><span class="keyword">type</span> mat</span> = <code class="type"><a href="?package=sexplib&amp;module=Conv&amp;type=float64_mat">float64_mat</a></code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Conversion of OCaml-values to S-expressions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Conversion of OCaml-values to S-expressions</h6></div></div>
 <pre><span class="VALdefault_string_of_float"><span class="keyword">val</span> default_string_of_float</span> : <code class="type">(float -&gt; string) Pervasives.ref</code></pre><div class="info"><div class="info"><code class="code">default_string_of_float</code> reference to the default function used
     to convert floats to strings.<br/>    Initially set to <code class="code">fun n -&gt; sprintf &quot;%.20G&quot; n</code>.</div></div>
 <pre><span class="VALwrite_old_option_format"><span class="keyword">val</span> write_old_option_format</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info"><code class="code">write_old_option_format</code> reference for the default option format
@@ -98,7 +98,7 @@
 <pre><span class="VALstring_of__of__sexp_of"><span class="keyword">val</span> string_of__of__sexp_of</span> : <code class="type">('a -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexp.t</a>) -&gt; 'a -&gt; string</code></pre><div class="info"><div class="info"><code class="code">string_of__of__sexp_of conv x</code> converts the OCaml-value <code class="code">x</code> to
     an S-expression represented as a string by using conversion function
     <code class="code">conv</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Conversion of S-expressions to OCaml-values</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Conversion of S-expressions to OCaml-values</h6></div></div>
 <pre><span class="EXCEPTIONOf_sexp_error"><span class="keyword">exception</span> Of_sexp_error</span> <span class="keyword">of</span> <code class="type">exn * <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexp.t</a></code></pre><div class="info"><div class="info"><code class="code">Of_sexp_error (exn, sexp)</code> the exception raised when an S-expression
     could not be successfully converted to an OCaml-value.</div></div>
 <pre><span class="VALrecord_check_extra_fields"><span class="keyword">val</span> record_check_extra_fields</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info"><code class="code">record_check_extra_fields</code> checks for extra (= unknown) fields

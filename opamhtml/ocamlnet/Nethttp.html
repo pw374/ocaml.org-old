@@ -1,4 +1,4 @@
-<div class="ocaml_toplevel_module"><div class="info"><br/><h1 id="1_TITLE">Basic definitions for the HTTP protocol</h1><br/></div>
+<div class="ocaml_toplevel_module"><div class="info"><h1 id="1_TITLE">Basic definitions for the HTTP protocol</h1></div>
 <div class="info"><div class="info">These definitions can be used by both HTTP clients and servers, and by
   protocols in the middle, e.g. CGI.</div></div>
 <pre><span class="TYPEprotocol_version"><span class="keyword">type</span> protocol_version</span> = <code class="type">int * int</code></pre>
@@ -114,7 +114,7 @@
  This function should only be applied to the part before '?'.</div></div>
 <pre><span class="VALuripath_decode"><span class="keyword">val</span> uripath_decode</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">Decodes %XX sequences in URI paths. %2F is forbidden (failure).
  This function should only be applied to the part before '?'.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Parsing and Printing of Headers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Parsing and Printing of Headers</h2></div></div>
 <div class="ocaml_module sig" name="Cookie"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Nethttp.Cookie">Cookie</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">Functions to manipulate cookies.<br/>      You should know that besides the <code class="code">name</code> and <code class="code">value</code> attribute,
       user agents will send at most the <code class="code">path</code>, <code class="code">domain</code> and <code class="code">port</code> and

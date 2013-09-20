@@ -121,7 +121,7 @@
  requests coming on a given connection.  If the need is felt (speak
  out!), a multithreaded connector can be built on the side of this
  one.</div></td></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Netcgi_plex">Netcgi_plex</a></td><td><div class="info"><br/><h1 id="1_TITLE">Netplex support for FastCGI, SCGI and AJP connectors</h1><br/></div></td></tr>
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Netcgi_plex">Netcgi_plex</a></td><td><div class="info"><h1 id="1_TITLE">Netplex support for FastCGI, SCGI and AJP connectors</h1></div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Netcgi_scgi">Netcgi_scgi</a></td><td><div class="info">SCGI connector.<br/>    The TODO reference : http://www.mems-exchange.org/software/scgi/ connects
     your web applications through a TCP/IP socket (thus the application
     can run on a machine different from the web server).<br/>    See the TODO reference : Netcgi_scgi.setup section at the end of this file to know
@@ -164,22 +164,22 @@
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Netgssapi">Netgssapi</a></td><td><div class="info">GSS-API Definition</div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethtml">Nethtml</a></td><td><div class="info">Parsing of HTML</div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethtml_scanner">Nethtml_scanner</a></td><td/></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttp">Nethttp</a></td><td><div class="info"><br/><h1 id="1_TITLE">Basic definitions for the HTTP protocol</h1><br/></div></td></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_engine">Nethttpd_engine</a></td><td><div class="info"><br/><h1 id="1_TITLE">The event-based encapsulation of the HTTP daemon</h1><br/><br/> This is a user-friendlier encapsulation of the HTTP daemon. It uses
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttp">Nethttp</a></td><td><div class="info"><h1 id="1_TITLE">Basic definitions for the HTTP protocol</h1></div></td></tr>
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_engine">Nethttpd_engine</a></td><td><div class="info"><h1 id="1_TITLE">The event-based encapsulation of the HTTP daemon</h1><br/> This is a user-friendlier encapsulation of the HTTP daemon. It uses
  the engine module defined in <code class="code">Uq_engines</code>.</div></td></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_kernel">Nethttpd_kernel</a></td><td><div class="info"><br/><h1 id="1_TITLE">The protocol kernel of the HTTP daemon</h1><br/><br/> This module mainly defines the <code class="code">http_protocol</code> class which implements the
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_kernel">Nethttpd_kernel</a></td><td><div class="info"><h1 id="1_TITLE">The protocol kernel of the HTTP daemon</h1><br/> This module mainly defines the <code class="code">http_protocol</code> class which implements the
  exchange of messages with a HTTP client. The request messages are represented
  as sequence of <code class="code">req_token</code> values. The response is encapsulated in a separate
  <code class="code">http_response</code> class. The contents of the response are represented as sequence
  of <code class="code">resp_token</code> values.</div></td></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_plex">Nethttpd_plex</a></td><td><div class="info"><br/><h1 id="1_TITLE">Netplex support</h1><br/></div></td></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_reactor">Nethttpd_reactor</a></td><td><div class="info"><br/><h1 id="1_TITLE">The reactive encapsulation of the HTTP daemon</h1><br/><br/> This is a user-friendlier encapsulation of the HTTP daemon. It uses a
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_plex">Nethttpd_plex</a></td><td><div class="info"><h1 id="1_TITLE">Netplex support</h1></div></td></tr>
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_reactor">Nethttpd_reactor</a></td><td><div class="info"><h1 id="1_TITLE">The reactive encapsulation of the HTTP daemon</h1><br/> This is a user-friendlier encapsulation of the HTTP daemon. It uses a
  &quot;pull model&quot;: One pulls HTTP requests from the &quot;reactor&quot; one after the
  other. Request/response pairs have a common environment that represents
  the input and output facilities. Input and output are realised by
  <code class="code">Netchannels</code>, and the implementation details are completely hidden.<br/> This encapsulation can be easily used in a multi-threaded environment
  when for every arriving HTTP connection a separate thread is used.</div></td></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_services">Nethttpd_services</a></td><td><div class="info"><br/><h1 id="1_TITLE">Service Providers for HTTP daemon</h1><br/><br/> This module defines the basic service providers that handle requests and
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_services">Nethttpd_services</a></td><td><div class="info"><h1 id="1_TITLE">Service Providers for HTTP daemon</h1><br/> This module defines the basic service providers that handle requests and
  generate responses. The service providers can be used with both the
  reactive and the event-based daemon encapsulations.</div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Nethttpd_types">Nethttpd_types</a></td><td><div class="info">Type definitions for the HTTP daemon<br/> <b>Contents</b><br/> - TODO reference : Nethttpd_types.exceptions<ul><li>TODO reference : Nethttpd_types.environment</li><li>TODO reference : Nethttpd_types.service</li><li>TODO reference : Nethttpd_types.helpers
@@ -396,7 +396,7 @@
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Netsys_posix">Netsys_posix</a></td><td><div class="info">POSIX-specific system calls missing in the <code class="code">Unix</code> module, and
     further API's from POSIX-style operating systems.</div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Netsys_rng">Netsys_rng</a></td><td><div class="info">Random-number generator</div></td></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Netsys_sem">Netsys_sem</a></td><td><div class="info"><br/><h1 id="1_TITLE">Generic anonymous semaphores</h1><br/></div></td></tr>
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Netsys_sem">Netsys_sem</a></td><td><div class="info"><h1 id="1_TITLE">Generic anonymous semaphores</h1></div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Netsys_signal">Netsys_signal</a></td><td><div class="info">Signal handler framework<br/>    This module defines a simple framework for setting signal handlers.
     When two modules want to set the handler for the same signal, the framework
     decides in which order the handlers are executed.<br/>    The module also defines an empty handler list for <code class="code">Sys.sigpipe</code>, so these
@@ -479,7 +479,7 @@
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Uq_io">Uq_io</a></td><td><div class="info">Unified engines for stream I/O</div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Uq_libevent">Uq_libevent</a></td><td><div class="info">Use Libevent as event loop</div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Uq_lwt">Uq_lwt</a></td><td><div class="info">Compatibility with <code class="code">Lwt</code></div></td></tr>
-<tr><td class="module"><a href="?package=ocamlnet&amp;module=Uq_mt">Uq_mt</a></td><td><div class="info"><br/><h1 id="1_TITLE">Using engines in multi-threaded programs</h1><br/></div></td></tr>
+<tr><td class="module"><a href="?package=ocamlnet&amp;module=Uq_mt">Uq_mt</a></td><td><div class="info"><h1 id="1_TITLE">Using engines in multi-threaded programs</h1></div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Uq_resolver">Uq_resolver</a></td><td><div class="info">Support for pluggable resolvers</div></td></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Uq_socks5">Uq_socks5</a></td><td/></tr>
 <tr><td class="module"><a href="?package=ocamlnet&amp;module=Uq_ssl">Uq_ssl</a></td><td><div class="info">Asynchronous SSL connections</div></td></tr>

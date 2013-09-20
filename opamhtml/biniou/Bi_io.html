@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Input and output functions for the Biniou serialization format</div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Node tags</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Node tags</h1></div></div>
 <pre><span class="TYPEnode_tag"><span class="keyword">type</span> node_tag</span> = <code class="type">int</code></pre>
 <pre><span class="VALbool_tag"><span class="keyword">val</span> bool_tag</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_io&amp;type=node_tag">node_tag</a></code></pre><div class="info"><div class="info">Tag indicating a bool node.</div></div>
 <pre><span class="VALint8_tag"><span class="keyword">val</span> int8_tag</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_io&amp;type=node_tag">node_tag</a></code></pre><div class="info"><div class="info">Tag indicating an int8 node.</div></div>
@@ -21,7 +21,7 @@
 <pre><span class="VALshared_tag"><span class="keyword">val</span> shared_tag</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_io&amp;type=node_tag">node_tag</a></code></pre><div class="info"><div class="info">Tag indicating a shared node.</div></div>
 <pre><span class="VALwrite_tag"><span class="keyword">val</span> write_tag</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=node_tag">node_tag</a> -&gt; unit</code></pre><div class="info"><div class="info">Write one-byte tag to a buffer.</div></div>
 <pre><span class="VALread_tag"><span class="keyword">val</span> read_tag</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_inbuf&amp;type=t">Bi_inbuf.t</a> -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=node_tag">node_tag</a></code></pre><div class="info"><div class="info">Read one-byte tag from a buffer.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Tags of variants and record fields</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Tags of variants and record fields</h1></div></div>
 <pre><span class="TYPEhash"><span class="keyword">type</span> hash</span> = <code class="type">int</code></pre><div class="info"><div class="info">31-bit hash</div></div>
 <pre><span class="VALhash_name"><span class="keyword">val</span> hash_name</span> : <code class="type">string -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=hash">hash</a></code></pre><div class="info"><div class="info">Hash function used to compute field name tags and variant tags from
       their full name.</div></div>
@@ -44,7 +44,7 @@
 <pre><span class="VALread_numtag"><span class="keyword">val</span> read_numtag</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_inbuf&amp;type=t">Bi_inbuf.t</a> -&gt; (<a href="?package=biniou&amp;module=Bi_inbuf&amp;type=t">Bi_inbuf.t</a> -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=int7">int7</a> -&gt; bool -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">read_numtag ib f</code> reads a num_variant tag
       and processes the tag name <code class="code">i</code> and flag <code class="code">has_arg</code>
       using <code class="code">f</code>.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Atom writers</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Atom writers</h1></div></div>
 <div class="info"><div class="info">The <code class="code">write_untagged_</code> functions write an untagged value (VAL)
     to an output buffer
     while the other <code class="code">write_</code> functions write a tagged value (TAGVAL).</div></div>
@@ -72,7 +72,7 @@
 <pre><span class="VALwrite_string"><span class="keyword">val</span> write_string</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; string -&gt; unit</code></pre>
 <pre><span class="VALwrite_uvint"><span class="keyword">val</span> write_uvint</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; int -&gt; unit</code></pre>
 <pre><span class="VALwrite_svint"><span class="keyword">val</span> write_svint</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; int -&gt; unit</code></pre>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Atom readers</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Atom readers</h1></div></div>
 <div class="info"><div class="info">The <code class="code">read_untagged_</code> functions read an untagged value (VAL)
     from an input buffer.</div></div>
 <pre><span class="VALread_untagged_unit"><span class="keyword">val</span> read_untagged_unit</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_inbuf&amp;type=t">Bi_inbuf.t</a> -&gt; unit</code></pre>
@@ -88,7 +88,7 @@
 <pre><span class="VALread_untagged_uvint"><span class="keyword">val</span> read_untagged_uvint</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_inbuf&amp;type=t">Bi_inbuf.t</a> -&gt; int</code></pre>
 <pre><span class="VALread_untagged_svint"><span class="keyword">val</span> read_untagged_svint</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_inbuf&amp;type=t">Bi_inbuf.t</a> -&gt; int</code></pre>
 <pre><span class="VALskip"><span class="keyword">val</span> skip</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_inbuf&amp;type=t">Bi_inbuf.t</a> -&gt; unit</code></pre><div class="info"><div class="info">Read and discard a value. Useful for skipping unknown record fields.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Generic tree</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Generic tree</h1></div></div>
 <pre><span class="TYPEtree"><span class="keyword">type</span> tree</span> = <code class="type">[ `Array of (<a href="?package=biniou&amp;module=Bi_io&amp;type=node_tag">node_tag</a> * <a href="?package=biniou&amp;module=Bi_io&amp;type=tree">tree</a> array) option
 | `Bool of bool
 | `Float32 of float

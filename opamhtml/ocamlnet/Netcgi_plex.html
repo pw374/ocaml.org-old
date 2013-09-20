@@ -1,5 +1,5 @@
-<div class="ocaml_toplevel_module"><div class="info"><br/><h1 id="1_TITLE">Netplex support for FastCGI, SCGI and AJP connectors</h1><br/></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Factory</h2><br/></div></div>
+<div class="ocaml_toplevel_module"><div class="info"><h1 id="1_TITLE">Netplex support for FastCGI, SCGI and AJP connectors</h1></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Factory</h2></div></div>
 <pre><span class="VALfactory"><span class="keyword">val</span> factory</span> : <code class="type">?config:<a href="?package=ocamlnet&amp;module=Netcgi&amp;type=config">Netcgi.config</a> -&gt;
 ?enable:[ `AJP | `FCGI | `SCGI ] list -&gt;
 ?name:string -&gt;
@@ -65,7 +65,7 @@ Netplex_types.processor_factory</code></pre><div class="info"><div class="info">
      and the address of the <code class="code">processor</code> section. The configure
      function can look for additional parameters. It returns
      service hooks that are added to the resulting processor.</div></div></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Processors</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Processors</h2></div></div>
 <div class="info"><div class="info">The following functions create the processors directly</div></div>
 <pre><span class="TYPEmountpoint"><span class="keyword">type</span> mountpoint</span> = <code class="type">[ `Mount_at of string | `Mount_dir of string ]</code></pre>
 <pre><span class="VALfcgi_processor"><span class="keyword">val</span> fcgi_processor</span> : <code class="type">?config:<a href="?package=ocamlnet&amp;module=Netcgi&amp;type=config">Netcgi.config</a> -&gt;

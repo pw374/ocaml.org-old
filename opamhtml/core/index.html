@@ -124,7 +124,7 @@
 <tr><td class="module"><a href="?package=core&amp;module=Month">Month</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core&amp;module=Mutex0">Mutex0</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core&amp;module=Nano_mutex">Nano_mutex</a></td><td><div class="info">A nano-mutex is a lightweight mutex that can be used only within a single OCaml
-    runtime.<br/>    <br/><h1 id="1_TITLE">Performance</h1><br/>
+    runtime.<br/>    <h1 id="1_TITLE">Performance</h1>
     ===============
     Nano-mutexes are intended to be significantly cheaper than OS-level mutexes.  Creating
     a nano-mutex allocates a single OCaml record.  Locking and unlocking an uncontested
@@ -144,7 +144,7 @@
       |          Nano_mutex create |    10 ns |    0 ns |         4 |
       |     Nano_mutex lock/unlock |    28 ns |    0 ns |         0 |
       |-------------------------------------------------------------|
-    </span><br/>    The benchmark code is in core/extended/lib_test/bench_nano_mutex.ml.<br/>    <br/><h1 id="1_TITLE">Error handling</h1><br/>
+    </span><br/>    The benchmark code is in core/extended/lib_test/bench_nano_mutex.ml.<br/>    <h1 id="1_TITLE">Error handling</h1>
     ==================
     For any mutex, there are design choices as to how to behave in certain situations:<br/>    - recursive locking (when a thread locks a mutex it already has)<ul><li>unlocking an unlocked mutex</li><li>unlocking a mutex held by another thread</li></ul>    Here is a table comparing how the various mutexes behave:<br/>    <span class="verbatim">      |--------------------+------------+------------+------------+
       |                    | Caml.Mutex | Core.Mutex | Nano_mutex |

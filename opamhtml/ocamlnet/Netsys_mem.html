@@ -3,7 +3,7 @@
       They have the useful property that the garbage collector cannot
       relocate them, i.e. the address is fixed. Also, one can mmap
       a file, and connect the bigarray with shared memory.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">General</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">General</h2></div></div>
 <pre><span class="VALblit_memory_to_string"><span class="keyword">val</span> blit_memory_to_string</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a> -&gt; int -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">blit_memory_to_string src srcoff dst dstoff len</code> copies <code class="code">len</code> characters
       from buffer <code class="code">src</code>, starting at character number <code class="code">srcoff</code>, to
       string <code class="code">dst</code>, starting at character number <code class="code">dstoff</code><br/>      Raise <code class="code">Invalid_argument</code> if <code class="code">srcoff</code> and <code class="code">len</code> do not
@@ -23,7 +23,7 @@
 <pre><span class="VALmemory_of_bigarray_3"><span class="keyword">val</span> memory_of_bigarray_3</span> : <code class="type">('a, 'b, 'c) Bigarray.Array3.t -&gt; <a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a></code></pre><div class="info"><div class="info">These functions return an arbitrary bigarray as <code class="code">memory</code>.<br/>      Due to a bug in the OCaml runtime, this is for now limited to
       arrays of up to 2G size (in bytes). (The bug exists at least
       up to OCaml-3.12.1.)</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Allocation and memory-mapping</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Allocation and memory-mapping</h2></div></div>
 <pre><span class="VALgetpagesize"><span class="keyword">val</span> getpagesize</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info">Returns the size of a page as reported by <code class="code">sysconf</code>.<br/>      On many systems, a page has 4096 bytes, but this cannot be relied
       upon.<br/>      This function is only available if the system has <code class="code">sysconf</code>.</div></div>
 <pre><span class="VALpagesize"><span class="keyword">val</span> pagesize</span> : <code class="type">int</code></pre><div class="info"><div class="info">The best guess at the page size</div></div>
@@ -64,7 +64,7 @@
 <pre><span class="VALgrab"><span class="keyword">val</span> grab</span> : <code class="type">nativeint -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a></code></pre><div class="info"><div class="info"><code class="code">grab addr len</code>: Interprets the address range from <code class="code">addr</code> to
       <code class="code">addr+len-1</code> as <code class="code">memory</code> bigarray.<br/>      This function does not allocate! It assumes that the given
       address range points to valid memory.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Interpreting memory as values</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Interpreting memory as values</h2></div></div>
 <pre><span class="VALas_value"><span class="keyword">val</span> as_value</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a> -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">as_value mem offset</code>: Returns a pointer to <code class="code">mem+offset</code>. There
       must be a valid boxed value at this address (i.e. at 
       the word preceding <code class="code">mem+offset</code> there must be a valid block
@@ -178,7 +178,7 @@
 <pre><span class="VALcolor"><span class="keyword">val</span> color</span> : <code class="type">Obj.t -&gt; <a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=color">color</a></code></pre><div class="info"><div class="info">Return the GC color</div></div>
 <pre><span class="VALset_color"><span class="keyword">val</span> set_color</span> : <code class="type">Obj.t -&gt; <a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=color">color</a> -&gt; unit</code></pre><div class="info"><div class="info">Set the GC color</div></div>
 <pre><span class="VALis_bigarray"><span class="keyword">val</span> is_bigarray</span> : <code class="type">Obj.t -&gt; bool</code></pre><div class="info"><div class="info">Checks whether the objects ia actually a bigarray</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">I/O using <code class="code">memory</code> as buffers</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">I/O using <code class="code">memory</code> as buffers</h2></div></div>
 <pre><span class="VALmem_read"><span class="keyword">val</span> mem_read</span> : <code class="type">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a> -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">A version of <code class="code">Unix.read</code> that uses a <code class="code">memory</code> buffer.
      Some OS allow faster I/O when <code class="code">memory</code> is page-aligned
      (see <code class="code">alloc_memory_pages</code>). Also, a copy in the stub function
@@ -187,7 +187,7 @@
 <pre><span class="VALmem_recv"><span class="keyword">val</span> mem_recv</span> : <code class="type">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a> -&gt; int -&gt; int -&gt; Unix.msg_flag list -&gt; int</code></pre>
 <pre><span class="VALmem_send"><span class="keyword">val</span> mem_send</span> : <code class="type">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a> -&gt; int -&gt; int -&gt; Unix.msg_flag list -&gt; int</code></pre><div class="info"><div class="info">Versions of <code class="code">Unix.recv</code>, and <code class="code">Unix.send</code>
       using <code class="code">memory</code> buffers.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Buffer pools</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Buffer pools</h2></div></div>
 <pre><span class="TYPEmemory_pool"><span class="keyword">type</span> memory_pool</span> </pre><div class="info"><div class="info">A pool of <code class="code">memory</code> blocks that are all the same size and page-aligned
       (if the OS supports this). The pool tries to bundle memory allocations
       so that not for every block a system call is required. This reduces

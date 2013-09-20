@@ -71,11 +71,11 @@
 <pre><span class="VALdisable_all"><span class="keyword">val</span> disable_all</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Disable all modules (the default)</div></div>
 <pre><span class="VALnames"><span class="keyword">val</span> names</span> : <code class="type">unit -&gt; string list</code></pre><div class="info"><div class="info">Return the possible module names for <code class="code">enable_module</code> and
         <code class="code">disable_module</code></div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">For debugged Ocamlnet modules</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">For debugged Ocamlnet modules</h2></div></div>
 <pre><span class="VALregister_module"><span class="keyword">val</span> register_module</span> : <code class="type">string -&gt; bool Pervasives.ref -&gt; unit</code></pre><div class="info"><div class="info">Registers the <code class="code">enable</code> variable of the named module</div></div>
 <pre><span class="VALmk_dlog"><span class="keyword">val</span> mk_dlog</span> : <code class="type">string -&gt; bool Pervasives.ref -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">let dlog = mk_dlog &quot;M&quot; enable</code>: The conditional debug function</div></div>
 <pre><span class="VALmk_dlogr"><span class="keyword">val</span> mk_dlogr</span> : <code class="type">string -&gt; bool Pervasives.ref -&gt; (unit -&gt; string) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">let dlogr = mk_dlog &quot;M&quot; enable</code>: The conditional debug function</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">File descriptor tracking</h2><br/></div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">File descriptor tracking</h2></div></div>
 <div class="info"><div class="info"><code class="code">Netlog.Debug</code> also has a little hash table that maps file descriptors
       to an info record. This allows it to track file descriptors more
       easily, and to find file descriptor leaks, and &quot;double close&quot; bugs.

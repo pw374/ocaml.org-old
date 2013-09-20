@@ -31,7 +31,7 @@ newline is inserted.</div></div>
 <pre><span class="VALbreak_with"><span class="keyword">val</span> break_with</span> : <code class="type">string -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a></code></pre><div class="info"><div class="info">The space character used by <code class="code">break</code> my be not always appropriate. The
 function <code class="code">break_with s</code> behaves like <code class="code">break</code> except that it uses a user supplied
 string <code class="code">s</code> instead of the space.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Grouping and nesting</h3><br/>
+<div class="info"><div class="info"><h3 id="3_TITLE">Grouping and nesting</h3>
 The pretty printer considers the representation of <code class="code">break</code>s not one by one but
 looks at all <code class="code">break</code>s of a sub-document. Documents are structured into
 sub-documents by group-operators. Different group operators exist to control the
@@ -59,10 +59,10 @@ Subgroups are, of course, not affected but considered individually.</div></div>
 Inside a <i>flexible</i> group <code class="code">fgrp</code> each <code class="code">break</code> is considered individually: when
 the document up to the next <code class="code">break</code> fits into the current line the <code class="code">break</code> comes
 out as space. Otherwise it comes out as newline followed by spaces.</div></div>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Pretty Printing</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Pretty Printing</h3></div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">?width:int -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a> -&gt; string</code></pre>
 <pre><span class="VALto_file"><span class="keyword">val</span> to_file</span> : <code class="type">?width:int -&gt; Pervasives.out_channel -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a> -&gt; unit</code></pre>
-<div class="info"><div class="info"><br/><h3 id="3_TITLE">Auxiliaries</h3><br/></div></div>
+<div class="info"><div class="info"><h3 id="3_TITLE">Auxiliaries</h3></div></div>
 <pre><span class="VALlist"><span class="keyword">val</span> list</span> : <code class="type">sep:<a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a> -&gt; f:('a -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a>) -&gt; 'a list -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a></code></pre><div class="info"><div class="info">A list of objects which are seperated by some seperator is very common. The
 <code class="code">list sep f</code> function takes care to insert the separator only between objects
 but not at the end of the list. It creates a <code class="code">sep</code> separated list.  Individual

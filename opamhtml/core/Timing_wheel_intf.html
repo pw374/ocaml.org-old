@@ -19,7 +19,7 @@
     future, and thus alarms may fire at a clock time arbitrarily far beyond the time for
     which they were set.  But the implementation has no control over the times supplied to
     <code class="code">advance_clock</code>; it can only guarantee that alarms will fire when <code class="code">advance_clock</code> is
-    called with a time at least <code class="code">alarm_precision</code> greater than their scheduled time.<br/>    <br/><h1 id="1_TITLE">Implementation</h1><br/>
+    called with a time at least <code class="code">alarm_precision</code> greater than their scheduled time.<br/>    <h1 id="1_TITLE">Implementation</h1>
     ==================
     A timing wheel is implemented using a specialized priority queue in which the
     half-open intervals from <code class="code">start</code> onwards are numbered 0, 1, 2, etc.  Each time is
@@ -33,7 +33,7 @@
     alarm keys.<br/>    This implementation makes <code class="code">add_alarm</code> and <code class="code">remove_alarm</code> constant time, while
     <code class="code">advance_clock</code> takes time proportional to the amount of time the clock is advanced.
     With a sufficient number of alarms, this is more efficient than a log(N) heap
-    implementation of a priority queue.<br/>    <br/><h1 id="1_TITLE">Representable times</h1><br/>
+    implementation of a priority queue.<br/>    <h1 id="1_TITLE">Representable times</h1>
     =======================
     A timing wheel <code class="code">t</code> can only handle a (typically large) bounded range of times as
     determined by the current time, <code class="code">now t</code>, and the <code class="code">level_bits</code> and <code class="code">alarm_precision</code>
@@ -381,7 +381,7 @@ start:<a href="?package=core&amp;module=Timing_wheel_intf.Time&amp;type=t">Time.
     future, and thus alarms may fire at a clock time arbitrarily far beyond the time for
     which they were set.  But the implementation has no control over the times supplied to
     <code class="code">advance_clock</code>; it can only guarantee that alarms will fire when <code class="code">advance_clock</code> is
-    called with a time at least <code class="code">alarm_precision</code> greater than their scheduled time.<br/>    <br/><h1 id="1_TITLE">Implementation</h1><br/>
+    called with a time at least <code class="code">alarm_precision</code> greater than their scheduled time.<br/>    <h1 id="1_TITLE">Implementation</h1>
     ==================
     A timing wheel is implemented using a specialized priority queue in which the
     half-open intervals from <code class="code">start</code> onwards are numbered 0, 1, 2, etc.  Each time is
@@ -395,7 +395,7 @@ start:<a href="?package=core&amp;module=Timing_wheel_intf.Time&amp;type=t">Time.
     alarm keys.<br/>    This implementation makes <code class="code">add_alarm</code> and <code class="code">remove_alarm</code> constant time, while
     <code class="code">advance_clock</code> takes time proportional to the amount of time the clock is advanced.
     With a sufficient number of alarms, this is more efficient than a log(N) heap
-    implementation of a priority queue.<br/>    <br/><h1 id="1_TITLE">Representable times</h1><br/>
+    implementation of a priority queue.<br/>    <h1 id="1_TITLE">Representable times</h1>
     =======================
     A timing wheel <code class="code">t</code> can only handle a (typically large) bounded range of times as
     determined by the current time, <code class="code">now t</code>, and the <code class="code">level_bits</code> and <code class="code">alarm_precision</code>

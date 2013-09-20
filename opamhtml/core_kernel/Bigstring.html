@@ -1,7 +1,7 @@
 <div class="ocaml_toplevel_module"><div class="info">String type based on <code class="code">Bigarray</code>, for use in I/O and C-bindings</div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Types and exceptions</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Types and exceptions</h6></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">(char, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t</code></pre><div class="info"><div class="info">Type of bigstrings</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Creation and string conversion</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Creation and string conversion</h6></div></div>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?max_mem_waiting_gc:<a href="?package=core_kernel&amp;module=Byte_units&amp;type=t">Byte_units.t</a> -&gt; int -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create length</code><div class="parameters"><div class="param_info"><code class="code">max_mem_waiting_gc</code> : default = 256 M in OCaml &lt;= 3.12, 1 G otherwise. As
     the total allocation of calls to <code class="code">create</code> approach <code class="code">max_mem_waiting_gc</code>,
     the pressure in the garbage collector to be more agressive will increase.</div></div><b>Returns</b> a new bigstring having <code class="code">length</code>.
@@ -11,7 +11,7 @@
     to the substring of length <code class="code">len</code> in <code class="code">str</code> starting at position <code class="code">pos</code>.</div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">?pos:int -&gt; ?len:int -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info"><code class="code">to_string ?pos ?len bstr</code><div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">length bstr - pos</code></div></div><b>Raises</b> <code>Invalid_argument</code> if the string would exceed runtime limits.<br/><b>Returns</b> a new string that is equivalent
     to the substring of length <code class="code">len</code> in <code class="code">bstr</code> starting at position <code class="code">pos</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Checking</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Checking</h6></div></div>
 <pre><span class="VALcheck_args"><span class="keyword">val</span> check_args</span> : <code class="type">loc:string -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">check_args ~loc ~pos ~len bstr</code> checks the position and length
     arguments <code class="code">pos</code> and <code class="code">len</code> for bigstrings <code class="code">bstr</code>.<b>Raises</b> <code>Invalid_argument</code> if these arguments are illegal for the given
     bigstring using <code class="code">loc</code> to indicate the calling context.<br/></div></div>
@@ -19,7 +19,7 @@
     in <code class="code">bstr</code> starting at position <code class="code">pos</code> and given optional length
     <code class="code">opt_len</code>.  This function does not check the validity of its
     arguments.  Use TODO reference : check_args for that purpose.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Accessors</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Accessors</h6></div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">length bstr</code><b>Returns</b> the length of bigstring <code class="code">bstr</code>.</div></div>
 <pre><span class="VALsub"><span class="keyword">val</span> sub</span> : <code class="type">?pos:int -&gt; ?len:int -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">sub ?pos ?len bstr</code><div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">Bigstring.length bstr - pos</code></div></div><b>Returns</b> the sub-bigstring in <code class="code">bstr</code> that starts at
     position <code class="code">pos</code> and has length <code class="code">len</code>.  The sub-bigstring is a unique copy
@@ -35,20 +35,20 @@
 <pre><span class="VALset"><span class="keyword">val</span> set</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; int -&gt; char -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">set t pos</code> sets the character at <code class="code">pos</code></div></div>
 <pre><span class="VALis_mmapped"><span class="keyword">val</span> is_mmapped</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">is_mmapped bstr</code><b>Returns</b> whether the bigstring <code class="code">bstr</code> is
     memory-mapped.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Blitting</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Blitting</h6></div></div>
 <div class="info"><div class="info"><code class="code">blit ~src ?src_pos ?src_len ~dst ?dst_pos ()</code> blits <code class="code">src_len</code> characters
     from <code class="code">src</code> starting at position <code class="code">src_pos</code> to <code class="code">dst</code> at position <code class="code">dst_pos</code>.<b>Raises</b> <code>Invalid_argument</code> if the designated ranges are out of bounds.<br/></div></div>
 <div class="ocaml_include ident" path="?package=core_kernel&amp;module=Blit.S" items="[]"><pre><span class="keyword">include</span> <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Blit.S">Blit.S</a></code> with type t := <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a></code></pre></div>
 <div class="ocaml_module ident" name="To_string" path="?package=core_kernel&amp;module=Blit.S_distinct"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Bigstring.To_string">To_string</a> : <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Blit.S_distinct">Blit.S_distinct</a></code> with type src := <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> with type dst := string</code></pre></div>
 <div class="ocaml_module ident" name="From_string" path="?package=core_kernel&amp;module=Blit.S_distinct"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Bigstring.From_string">From_string</a> : <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Blit.S_distinct">Blit.S_distinct</a></code> with type src := string with type dst := <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a></code></pre></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Memory mapping</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Memory mapping</h6></div></div>
 <pre><span class="VALmap_file"><span class="keyword">val</span> map_file</span> : <code class="type">shared:bool -&gt; Unix.file_descr -&gt; int -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">map_file shared fd n</code> memory-maps <code class="code">n</code> characters of the data
     associated with descriptor <code class="code">fd</code> to a bigstring.  Iff <code class="code">shared</code> is
     <code class="code">true</code>, all changes to the bigstring will be reflected in the file.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Search</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Search</h6></div></div>
 <pre><span class="VALfind"><span class="keyword">val</span> find</span> : <code class="type">?pos:int -&gt; ?len:int -&gt; char -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; int option</code></pre><div class="info"><div class="info"><code class="code">find ?pos ?len char t</code> returns <code class="code">Some i</code> for the smallest <code class="code">i &gt;= pos</code> such that
     <code class="code">t.{i} = char</code>, or <code class="code">None</code> if there is no such <code class="code">i</code>.<div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">length bstr - pos</code></div></div></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Destruction</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Destruction</h6></div></div>
 <pre><span class="VALunsafe_destroy"><span class="keyword">val</span> unsafe_destroy</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">unsafe_destroy bstr</code> destroys the bigstring by deallocating its associated data or,
     if memory-mapped, unmapping the corresponding file, and setting all dimensions to
     zero.  This effectively frees the associated memory or address-space resources
@@ -103,7 +103,7 @@
 <pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> Bin_prot.Write_ml.writer</code></pre>
 <pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> Bin_prot.Unsafe_write_c.writer</code></pre>
 <pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> Bin_prot.Type_class.writer</code></pre>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Creation and string conversion</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Creation and string conversion</h6></div></div>
 <div class="info"><div class="info"><code class="code">create length</code><div class="parameters"><div class="param_info"><code class="code">max_mem_waiting_gc</code> : default = 256 M in OCaml &lt;= 3.12, 1 G otherwise. As
     the total allocation of calls to <code class="code">create</code> approach <code class="code">max_mem_waiting_gc</code>,
     the pressure in the garbage collector to be more agressive will increase.</div></div><b>Returns</b> a new bigstring having <code class="code">length</code>.
@@ -113,7 +113,7 @@
     to the substring of length <code class="code">len</code> in <code class="code">str</code> starting at position <code class="code">pos</code>.</div></div>
 <div class="info"><div class="info"><code class="code">to_string ?pos ?len bstr</code><div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">length bstr - pos</code></div></div><b>Raises</b> <code>Invalid_argument</code> if the string would exceed runtime limits.<br/><b>Returns</b> a new string that is equivalent
     to the substring of length <code class="code">len</code> in <code class="code">bstr</code> starting at position <code class="code">pos</code>.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Checking</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Checking</h6></div></div>
 <div class="info"><div class="info"><code class="code">check_args ~loc ~pos ~len bstr</code> checks the position and length
     arguments <code class="code">pos</code> and <code class="code">len</code> for bigstrings <code class="code">bstr</code>.<b>Raises</b> <code>Invalid_argument</code> if these arguments are illegal for the given
     bigstring using <code class="code">loc</code> to indicate the calling context.<br/></div></div>
@@ -121,7 +121,7 @@
     in <code class="code">bstr</code> starting at position <code class="code">pos</code> and given optional length
     <code class="code">opt_len</code>.  This function does not check the validity of its
     arguments.  Use TODO reference : check_args for that purpose.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Accessors</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Accessors</h6></div></div>
 <div class="info"><div class="info"><code class="code">length bstr</code><b>Returns</b> the length of bigstring <code class="code">bstr</code>.</div></div>
 <div class="info"><div class="info"><code class="code">sub ?pos ?len bstr</code><div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">Bigstring.length bstr - pos</code></div></div><b>Returns</b> the sub-bigstring in <code class="code">bstr</code> that starts at
     position <code class="code">pos</code> and has length <code class="code">len</code>.  The sub-bigstring is a unique copy
@@ -137,17 +137,17 @@
 <div class="info"><div class="info"><code class="code">set t pos</code> sets the character at <code class="code">pos</code></div></div>
 <div class="info"><div class="info"><code class="code">is_mmapped bstr</code><b>Returns</b> whether the bigstring <code class="code">bstr</code> is
     memory-mapped.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Blitting</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Blitting</h6></div></div>
 <div class="info"><div class="info"><code class="code">blit ~src ?src_pos ?src_len ~dst ?dst_pos ()</code> blits <code class="code">src_len</code> characters
     from <code class="code">src</code> starting at position <code class="code">src_pos</code> to <code class="code">dst</code> at position <code class="code">dst_pos</code>.<b>Raises</b> <code>Invalid_argument</code> if the designated ranges are out of bounds.<br/></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Memory mapping</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Memory mapping</h6></div></div>
 <div class="info"><div class="info"><code class="code">map_file shared fd n</code> memory-maps <code class="code">n</code> characters of the data
     associated with descriptor <code class="code">fd</code> to a bigstring.  Iff <code class="code">shared</code> is
     <code class="code">true</code>, all changes to the bigstring will be reflected in the file.</div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Search</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Search</h6></div></div>
 <div class="info"><div class="info"><code class="code">find ?pos ?len char t</code> returns <code class="code">Some i</code> for the smallest <code class="code">i &gt;= pos</code> such that
     <code class="code">t.{i} = char</code>, or <code class="code">None</code> if there is no such <code class="code">i</code>.<div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">length bstr - pos</code></div></div></div></div>
-<div class="info"><div class="info"><br/><h6 id="6_TITLE">Destruction</h6><br/></div></div>
+<div class="info"><div class="info"><h6 id="6_TITLE">Destruction</h6></div></div>
 <div class="info"><div class="info"><code class="code">unsafe_destroy bstr</code> destroys the bigstring by deallocating its associated data or,
     if memory-mapped, unmapping the corresponding file, and setting all dimensions to
     zero.  This effectively frees the associated memory or address-space resources

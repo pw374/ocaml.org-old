@@ -5,7 +5,7 @@
  handlers by TODO reference : Shell_sys.configure_job_handlers. The handlers remain
  in effect even after <code class="code">call</code> returns.<br/> Note that this has a global side effect on the whole process, because
  there is only one set of signal handlers.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Calling commands and pipelines</h1><br/></div></div>
+<div class="info"><div class="info"><h1 id="1_TITLE">Calling commands and pipelines</h1></div></div>
 <div class="info"><div class="info">The following functions are simplified versions of the
  <code class="code">Shell_sys.job</code> abstraction.</div></div>
 <pre><span class="EXCEPTIONSubprocess_error"><span class="keyword">exception</span> Subprocess_error</span> <span class="keyword">of</span> <code class="type">(string * Unix.process_status) list</code></pre><div class="info"><div class="info">The string contains the called commands in a readable representation.
@@ -131,8 +131,8 @@
  appended to the file. By default, <code class="code">append</code> is <code class="code">false</code>.</div></div>
 <pre><span class="VALto_fd"><span class="keyword">val</span> to_fd</span> : <code class="type">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer redirecting the data to the file descriptor</div></div>
 <pre><span class="VALto_dev_null"><span class="keyword">val</span> to_dev_null</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">A consumer redirecting the data to <code class="code">/dev/null</code>.</div></div>
-<div class="info"><div class="info"><br/><h1 id="1_TITLE">Examples</h1><br/> <br/> The following examples show toploop sessions using <code class="code">Shell</code>.</div></div>
-<div class="info"><div class="info"><br/><h2 id="2_TITLE">Invoking simple commands</h2><br/><br/> Call the command &quot;ls&quot; without redirection:
+<div class="info"><div class="info"><h1 id="1_TITLE">Examples</h1> <br/> The following examples show toploop sessions using <code class="code">Shell</code>.</div></div>
+<div class="info"><div class="info"><h2 id="2_TITLE">Invoking simple commands</h2><br/> Call the command &quot;ls&quot; without redirection:
  <pre class="codepre"><code class="code">
  # call [ command &quot;ls&quot; ];;
  IDEAS       s1.ml~      shell.mli~      shell_sys.ml~  unix_exts.ml
@@ -144,7 +144,7 @@
  log         shell.ml    shell_sys.mli   unix_exts.cmo  unix_exts_c.c~
  s1.ml       shell.mli   shell_sys.mli~  unix_exts.cmx  unix_exts_c.o
  \- : unit = ()
- </code></pre><br/> <br/><h2 id="2_TITLE">Redirecting stdout to a buffer</h2><br/><br/> The output of &quot;ls&quot; is collected in the buffer <code class="code">b</code>:
+ </code></pre><br/> <h2 id="2_TITLE">Redirecting stdout to a buffer</h2><br/> The output of &quot;ls&quot; is collected in the buffer <code class="code">b</code>:
  <pre class="codepre"><code class="code">
  # let b = Buffer.create 10;;
  val b : Buffer.t = &lt;abstr&gt;
@@ -153,14 +153,14 @@
  # Buffer.contents b;;
  \- : string =
  &quot;IDEAS\nMETA\nMakefile\nMakefile~\ndepend\n...&quot;
- </code></pre><br/> <br/><h2 id="2_TITLE">Subprocess errors are caught and propagated to the caller</h2><br/><br/> Because &quot;/a&quot; does not exist, &quot;ls&quot; will fail. The command writes the
+ </code></pre><br/> <h2 id="2_TITLE">Subprocess errors are caught and propagated to the caller</h2><br/> Because &quot;/a&quot; does not exist, &quot;ls&quot; will fail. The command writes the
  message to stderr (not redirected here), and returns with an exit
  code of 1, triggering an exception:
  <pre class="codepre"><code class="code">
  # call [ command ~arguments:[| &quot;/a&quot; |] &quot;ls&quot; ];;
  /bin/ls: /a: No such file or directory
  Uncaught exception: Shell.Subprocess_error [&quot;/bin/ls&quot;, Unix.WEXITED 1].
- </code></pre><br/> <br/><h2 id="2_TITLE">Redirecting stderr, too</h2><br/><br/> Here, the message written to stderr is collected in <code class="code">b</code>:
+ </code></pre><br/> <h2 id="2_TITLE">Redirecting stderr, too</h2><br/> Here, the message written to stderr is collected in <code class="code">b</code>:
  <pre class="codepre"><code class="code">
  # Buffer.clear b;;
  \- : unit = ()
@@ -168,7 +168,7 @@
  Uncaught exception: Shell.Subprocess_error [&quot;/bin/ls&quot;, Unix.WEXITED 1].
  # Buffer.contents b;;
  \- : string = &quot;/bin/ls: /a: No such file or directory\n&quot;
- </code></pre><br/> <br/><h2 id="2_TITLE">Pipelines</h2><br/><br/> Here, the output of &quot;cat&quot; becomes the input of &quot;sort&quot;:
+ </code></pre><br/> <h2 id="2_TITLE">Pipelines</h2><br/> Here, the output of &quot;cat&quot; becomes the input of &quot;sort&quot;:
  <pre class="codepre"><code class="code">
  # call [ command ~arguments:[|&quot;META&quot;|] &quot;cat&quot;; command &quot;sort&quot; ];;
  archive(byte) = &quot;shell.cma&quot;
@@ -178,7 +178,7 @@
  requires = &quot;unix str&quot;
  version = &quot;0.0&quot;
  \- : unit = ()
- </code></pre><br/> <br/><h2 id="2_TITLE">Combining pipelines and redirections</h2><br/><br/> The same, but the output of &quot;sort&quot; is collected in the buffer <code class="code">b</code>:
+ </code></pre><br/> <h2 id="2_TITLE">Combining pipelines and redirections</h2><br/> The same, but the output of &quot;sort&quot; is collected in the buffer <code class="code">b</code>:
  <pre class="codepre"><code class="code">
  # Buffer.clear b;;
  \- : unit = ()
@@ -187,7 +187,7 @@
  # Buffer.contents b;;
  \- : string =
  &quot;archive(byte) = \&quot;shell.cma\&quot;\narchive(native) = \&quot;shell.cmxa\&quot;\ndescription = \&quot;Unix shell functions\&quot;\nlinkopts = \&quot;-cclib -lshell\&quot;\nrequires = \&quot;unix str\&quot;\nversion = \&quot;0.0\&quot;\n&quot;
- </code></pre><br/> <br/><h2 id="2_TITLE">Redirection from a string</h2><br/><br/> The contents of the string <code class="code">s</code> are written to the input of &quot;sort&quot;:
+ </code></pre><br/> <h2 id="2_TITLE">Redirection from a string</h2><br/> The contents of the string <code class="code">s</code> are written to the input of &quot;sort&quot;:
  <pre class="codepre"><code class="code">
  # let s = &quot;f\na\nd\nc\n&quot;;;
  val s : string = &quot;f\na\nd\nc\n&quot;
@@ -197,7 +197,7 @@
  d
  f
  \- : unit = ()
- </code></pre><br/> <br/><h2 id="2_TITLE">Combined redirections</h2><br/><br/> It is possible to have several redirections. Here, the string <code class="code">s</code> is
+ </code></pre><br/> <h2 id="2_TITLE">Combined redirections</h2><br/> It is possible to have several redirections. Here, the string <code class="code">s</code> is
  sorted by &quot;sort&quot;, and the output is collected in the buffer <code class="code">b</code>:
  <pre class="codepre"><code class="code">
  # Buffer.clear b;;
@@ -206,7 +206,7 @@
  \- : unit = ()
  # Buffer.contents b;;
  \- : string = &quot;a\nc\nd\nf\n&quot;
- </code></pre><br/> <br/><h2 id="2_TITLE">Redirections combined with assignments</h2><br/><br/> Here, the output and errors of &quot;ls&quot; are both collected in the buffer
+ </code></pre><br/> <h2 id="2_TITLE">Redirections combined with assignments</h2><br/> Here, the output and errors of &quot;ls&quot; are both collected in the buffer
  <code class="code">b</code>:
  <pre class="codepre"><code class="code">
  # Buffer.clear b;;
@@ -219,7 +219,7 @@
  Uncaught exception: Shell.Subprocess_error [&quot;/bin/ls&quot;, Unix.WEXITED 1].
  # Buffer.contents b;;
  \- : string = &quot;/bin/ls: /a: No such file or directory\n&quot;
- </code></pre><br/> <br/><h2 id="2_TITLE">Final notes</h2><br/><br/> Of course, all features can be combined arbitrarily. <br/> Note that error reporting is better than in a traditional shell, because
+ </code></pre><br/> <h2 id="2_TITLE">Final notes</h2><br/> Of course, all features can be combined arbitrarily. <br/> Note that error reporting is better than in a traditional shell, because
  the exit codes of all started commands are returned. (Shells usually only
  return the exit code of the last command of a pipeline.)<br/> For non-standard pipelines, you can also use the functions in
  Shell_sys. &quot;call&quot; is a simple concatenation of Shell_sys invocations.</div></div>
