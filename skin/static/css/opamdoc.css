@@ -51,5 +51,21 @@
     background-color:lightgray;
 }
 
+#opamdoc-contents .keyword { color: #f47421; font-weight: bold }
+#opamdoc-contents .keywordsign { color: #f47421 }
+#opamdoc-contents .superscript { font-size : 4 }
+#opamdoc-contents .subscript { font-size : 4 }
+#opamdoc-contents .comment { color: #747474; font-style: italic }
+#opamdoc-contents .constructor { color: #15c17a }
+#opamdoc-contents .type { color: #c746cc }
+#opamdoc-contents .string { color: #09a7e2 }
+#opamdoc-contents .warning { color : Red ; font-weight : bold }
+#opamdoc-contents .info { margin-left : 3em; margin-right: 3em }
+#opamdoc-contents .param_info { margin-top: 4px; margin-left : 3em; margin-right : 3em }
+#opamdoc-contents .code { color : #465F91 ; }
+#opamdoc-contents .typetable { border-style : hidden }
+#opamdoc-contents .paramstable { border-style : hidden ; padding: 5pt 5pt}
+
+
 /* end of section for opam-doc */
 /***************************************************/
