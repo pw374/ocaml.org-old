@@ -1,12 +1,10 @@
 <div class="ocaml_toplevel_module"><div class="info">A netstream is an input channel that is read block by block. The 
  fragment of the channel currently loaded into memory is called the
  current window of the netstream. The window can be thought as
- look-ahead buffer.<br/> <b>Picture:</b><br/> <pre class="codepre"><code class="code">
- 0                pos_in        pos_in + window_length            EOF
+ look-ahead buffer.<br/> <b>Picture:</b><br/> <pre class="codepre"><code class="code">0                pos_in        pos_in + window_length            EOF
  +------------------+-------------------+--------------------------+
                     ====================
-                     The current window
- </code></pre><br/> You can use a netstream like an <code class="code">in_obj_channel</code>, and read characters
+                     The current window</code></pre><br/> You can use a netstream like an <code class="code">in_obj_channel</code>, and read characters
  and strings from the stream. The bytes come first from the look-ahead
  buffer, and if there are not enough bytes, they are loaded from the
  underlying channel. After every read operation it is tried to enlarge

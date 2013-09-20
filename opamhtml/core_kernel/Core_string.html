@@ -110,19 +110,15 @@ escape_char:char -&gt; (string -&gt; string) <a href="?package=core_kernel&amp;m
 <pre><span class="VALescape_gen"><span class="keyword">val</span> escape_gen</span> : <code class="type">escapeworthy_map:(char * char) list -&gt;
 escape_char:char -&gt; (string -&gt; string) <a href="?package=core_kernel&amp;module=Or_error&amp;type=t">Or_error.t</a></code></pre>
 <pre><span class="VALescape"><span class="keyword">val</span> escape</span> : <code class="type">escapeworthy:char list -&gt; escape_char:char -&gt; (string -&gt; string) <a href="?package=core_kernel&amp;module=Staged&amp;type=t">Staged.t</a></code></pre><div class="info"><div class="info"><code class="code">escape ~escapeworthy ~escape_char s</code> is
-      <pre class="codepre"><code class="code">
-        escape_gen_exn ~escapeworthy_map:(List.zip_exn escapeworthy escapeworthy)
-          ~escape_char
-      </code></pre>.
+      <pre class="codepre"><code class="code">escape_gen_exn ~escapeworthy_map:(List.zip_exn escapeworthy escapeworthy)
+          ~escape_char</code></pre>.
       Duplicates and <code class="code">escape_char</code> will be removed from <code class="code">escapeworthy</code>.  So, no
       exception will be raised</div></div>
 <pre><span class="VALunescape_gen_exn"><span class="keyword">val</span> unescape_gen_exn</span> : <code class="type">escapeworthy_map:(char * char) list -&gt;
 escape_char:char -&gt; (string -&gt; string) <a href="?package=core_kernel&amp;module=Staged&amp;type=t">Staged.t</a></code></pre><div class="info"><div class="info"><code class="code">unescape_gen_exn</code> is the inverse operation of <code class="code">escape_gen_exn</code>. That is,
-      <pre class="codepre"><code class="code">
-      let escape = Staged.unstage (escape_gen_exn ~escapeworthy_map ~escape_char) in
+      <pre class="codepre"><code class="code">let escape = Staged.unstage (escape_gen_exn ~escapeworthy_map ~escape_char) in
       let unescape = Staged.unstage (unescape_gen_exn ~escapeworthy_map ~escape_char) in
-      assert (s = unescape (escape s))
-      </code></pre>
+      assert (s = unescape (escape s))</code></pre>
       always succeed when ~escapeworthy_map is not causing exceptions.</div></div>
 <pre><span class="VALunescape_gen"><span class="keyword">val</span> unescape_gen</span> : <code class="type">escapeworthy_map:(char * char) list -&gt;
 escape_char:char -&gt; (string -&gt; string) <a href="?package=core_kernel&amp;module=Or_error&amp;type=t">Or_error.t</a></code></pre>
@@ -248,18 +244,14 @@ escape_char:char -&gt; (string -&gt; string) <a href="?package=core_kernel&amp;m
       <code class="code">c1</code> are replaced by <code class="code">escape_char</code> concatenated to <code class="code">c2</code>.<br/>      Raises an exception if <code class="code">escapeworthy_map</code> is not one-to-one.  If <code class="code">escape_char</code> is
       not in <code class="code">escapeworthy_map</code>, then it will be escaped to itself.</div></div>
 <div class="info"><div class="info"><code class="code">escape ~escapeworthy ~escape_char s</code> is
-      <pre class="codepre"><code class="code">
-        escape_gen_exn ~escapeworthy_map:(List.zip_exn escapeworthy escapeworthy)
-          ~escape_char
-      </code></pre>.
+      <pre class="codepre"><code class="code">escape_gen_exn ~escapeworthy_map:(List.zip_exn escapeworthy escapeworthy)
+          ~escape_char</code></pre>.
       Duplicates and <code class="code">escape_char</code> will be removed from <code class="code">escapeworthy</code>.  So, no
       exception will be raised</div></div>
 <div class="info"><div class="info"><code class="code">unescape_gen_exn</code> is the inverse operation of <code class="code">escape_gen_exn</code>. That is,
-      <pre class="codepre"><code class="code">
-      let escape = Staged.unstage (escape_gen_exn ~escapeworthy_map ~escape_char) in
+      <pre class="codepre"><code class="code">let escape = Staged.unstage (escape_gen_exn ~escapeworthy_map ~escape_char) in
       let unescape = Staged.unstage (unescape_gen_exn ~escapeworthy_map ~escape_char) in
-      assert (s = unescape (escape s))
-      </code></pre>
+      assert (s = unescape (escape s))</code></pre>
       always succeed when ~escapeworthy_map is not causing exceptions.</div></div>
 <div class="info"><div class="info"><code class="code">unescape ~escape_char</code> is defined as <code class="code">unescape_gen_exn ~map:[] ~escape_char</code></div></div>
 <div class="info"><div class="info">Any char in an escaped string is either escaping, escaped or literal. For example,

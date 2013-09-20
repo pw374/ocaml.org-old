@@ -83,22 +83,18 @@
     requirements, e.g. when an opaque object is passed to this interface
     that was not returned by it before.</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">The API</h2></div></div>
-<div class="info"><div class="info">The methods have generally a type of the form<br/>    <pre class="codepre"><code class="code"> 
-       m : 't . arg1 -&gt; ... -&gt; argN -&gt; out:( ret1 -&gt; ... -&gt; retM -&gt; 't ) -&gt; 't 
-    </code></pre><br/>    where <code class="code">arg</code>s are input arguments (with the exception of <code class="code">context</code> 
+<div class="info"><div class="info">The methods have generally a type of the form<br/>    <pre class="codepre"><code class="code">m : 't . arg1 -&gt; ... -&gt; argN -&gt; out:( ret1 -&gt; ... -&gt; retM -&gt; 't ) -&gt; 't</code></pre><br/>    where <code class="code">arg</code>s are input arguments (with the exception of <code class="code">context</code> 
     which is in/out), and where outputs are passed back by calling the <code class="code">out</code>
     functions with the outputs. The return value of <code class="code">out</code> is the return
     value of the method call.<br/>    For example, if only <code class="code">output_token</code> of the <code class="code">accept_sec_context</code> method
-    is needed, one could call this method as in<br/>    <pre class="codepre"><code class="code">
-      let output_token =
+    is needed, one could call this method as in<br/>    <pre class="codepre"><code class="code">let output_token =
 	gss_api # accept_sec_context 
 	   ... 
 	   ~out:(fun ~src_name ~mech_type ~output_token ~ret_flags
 		     ~time_rec ~delegated_cred_handle ~minor_status
 		     ~major_status -&gt;
 		  output_token
-		)
-    </code></pre><br/>    Output values may not be defined when <code class="code">major_status</code> indicates
+		)</code></pre><br/>    Output values may not be defined when <code class="code">major_status</code> indicates
     an error. (But see the RFC for details; especially <code class="code">init_sec_contect</code>
     and <code class="code">accept_sec_context</code> may emit tokens even when <code class="code">major_status</code>
     indicates an error.)<br/>    The names of the parameters are taken from RFC 2744, only

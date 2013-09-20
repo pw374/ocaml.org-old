@@ -189,7 +189,7 @@
  is running, so a watched descriptor might be closed. This has undesired
  effects. What you should better do is to delay the closure of the
  descriptor to a sane moment, e.g. by calling
-   <pre class="codepre"><code class="code"> Unixqueue.once esys g 0.0 (fun () -&gt; Unix.close fd) </code></pre>
+   <pre class="codepre"><code class="code">Unixqueue.once esys g 0.0 (fun () -&gt; Unix.close fd)</code></pre>
  from the close action.</div></div>
 <pre><span class="VALadd_abort_action"><span class="keyword">val</span> add_abort_action</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">event_system</a> -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=group">group</a> -&gt; (<a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=group">group</a> -&gt; exn -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info">An abort action is added to the group. The action callback is
  called when an arbitrary handler raises <code class="code">Abort(g,exn)</code> where

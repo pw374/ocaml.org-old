@@ -94,13 +94,11 @@
        The OS resource is released in any case. As before, this
        behavior is not obligatory, but considered as good practice,
        and subject to discussion.</li></ul>     This ensures that the following code snippet reports all errors, but also
-     releases OS resources:<br/>     <pre class="codepre"><code class="code">
-       try 
+     releases OS resources:<br/>     <pre class="codepre"><code class="code">try 
          ch # flush();
          ch # close_out();
        with error -&gt; 
-          ch # close_out(); raise error
-     </code></pre><br/>     There are some cases where data can be first written when it is
+          ch # close_out(); raise error</code></pre><br/>     There are some cases where data can be first written when it is
      known that the channel is closed. These data would not be written
      by a preceding <code class="code">flush</code>. In such cases:<br/>     - The best way to deal with it is to define another method,
        e.g. called <code class="code">write_eof</code>, that marks the data as logically 
@@ -248,18 +246,14 @@
  name <code class="code">m</code> of the parameter object. This is very useful in order
  to redefine methods individually.<br/> For example, to redefine the method <code class="code">pos_in</code> of an <code class="code">in_obj_channel</code>,
  use
- <pre class="codepre"><code class="code">
- class my_channel = object(self)
+ <pre class="codepre"><code class="code">class my_channel = object(self)
    inherit in_obj_channel_delegation ...
    method pos_in = ...
- end
- </code></pre><br/> As a special feature, the following delegation classes can suppress
+ end</code></pre><br/> As a special feature, the following delegation classes can suppress
  the delegation of <code class="code">close_in</code> or <code class="code">close_out</code>, whatever applies.
  Just pass <code class="code">close:false</code> to get this effect, e.g.
- <pre class="codepre"><code class="code">
- class input_channel_don't_close c =
-   in_obj_channel_delegation ~close:false (new input_channel c)
- </code></pre>
+ <pre class="codepre"><code class="code">class input_channel_don't_close c =
+   in_obj_channel_delegation ~close:false (new input_channel c)</code></pre>
  This class does not close <code class="code">c : in_channel</code> when the <code class="code">close_in</code>
  method is called.</div></div>
 <div class="ocaml_class ident" name="rec_in_channel_delegation" path="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel"><pre><span class="TYPErec_in_channel_delegation"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel_delegation">rec_in_channel_delegation</a></span> : <code class="type">bool option -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=rec_in_channel">rec_in_channel</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel">rec_in_channel</a></pre></div>
@@ -280,10 +274,8 @@
  variant, into a full <code class="code">in_obj_channel</code> object. (This is a convenience
  function, you can also use the classes below directly.) If you
  want to define a class for the lifted object, use
- <pre class="codepre"><code class="code">
- class lifted_ch ... =
-   in_obj_channel_delegation (lift_in ...)
- </code></pre><div class="parameters"><div class="param_info"><code class="code">eol</code> : The accepted end-of-line delimiters. The method 
+ <pre class="codepre"><code class="code">class lifted_ch ... =
+   in_obj_channel_delegation (lift_in ...)</code></pre><div class="parameters"><div class="param_info"><code class="code">eol</code> : The accepted end-of-line delimiters. The method 
    <code class="code">input_line</code> recognizes any of the passed strings as EOL
    delimiters. When more than one delimiter matches, the longest
    is taken. Defaults to <code class="code"> [&quot;\n&quot;] </code>. The default cannot be
@@ -299,10 +291,8 @@
  variant, into a full <code class="code">out_obj_channel</code> object. (This is a convenience
  function, you can also use the classes below directly.) If you
  want to define a class for the lifted object, use
- <pre class="codepre"><code class="code">
- class lifted_ch ... =
-   out_obj_channel_delegation (lift_out ...)
- </code></pre><div class="parameters"><div class="param_info"><code class="code">buffered</code> : Whether a buffer is added, by default <b>true</b></div><div class="param_info"><code class="code">buffer_size</code> : The size of the buffer, if any, by default 4096</div><div class="param_info"><code class="code">pass_through</code> : If the write request has at least this size,
+ <pre class="codepre"><code class="code">class lifted_ch ... =
+   out_obj_channel_delegation (lift_out ...)</code></pre><div class="parameters"><div class="param_info"><code class="code">buffered</code> : Whether a buffer is added, by default <b>true</b></div><div class="param_info"><code class="code">buffer_size</code> : The size of the buffer, if any, by default 4096</div><div class="param_info"><code class="code">pass_through</code> : If the write request has at least this size,
    and the buffer is currently empty, the buffer will be bypassed.
    Defaults to <code class="code">max_int</code>, i.e. it is off.</div></div></div></div>
 <div class="ocaml_class sig" name="augment_raw_in_channel"><pre><span class="TYPEaugment_raw_in_channel"><span class="keyword">class</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=augment_raw_in_channel">augment_raw_in_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">This class implements the methods from <code class="code">compl_in_channel</code> by calling
@@ -452,8 +442,7 @@ unit -&gt; string * Pervasives.in_channel * Pervasives.out_channel</code></pre><
  let ch' = new output_filter encoder ch in
  ... (* write to ch' *)
  ch' # close_out();
- ch  # close_out();  (* you must close both channels! *)
- </code></pre><br/> All bytes written to <code class="code">ch'</code> are BASE64-encoded and the encoded bytes are
+ ch  # close_out();  (* you must close both channels! *)</code></pre><br/> All bytes written to <code class="code">ch'</code> are BASE64-encoded and the encoded bytes are
  written to <code class="code">ch</code>.<br/> There are also pipes to decode BASE64, and to encode and decode the
  &quot;Quoted printable&quot; format. Encoding and decoding work even if the
  data is delivered in disadvantageous chunks, because the data is

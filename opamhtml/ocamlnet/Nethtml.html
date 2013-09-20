@@ -67,18 +67,18 @@
 <pre><span class="VALrelaxed_html40_dtd"><span class="keyword">val</span> relaxed_html40_dtd</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethtml&amp;type=simplified_dtd">simplified_dtd</a></code></pre><div class="info"><div class="info">A relaxed version of the HTML 4.0 DTD that matches better common
  practice. In particular, this DTD additionally allows that inline
  elements may span blocks. For example, 
- <pre class="codepre"><code class="code"> &lt;B&gt;text1 &lt;P&gt;text2 </code></pre>
+ <pre class="codepre"><code class="code">&lt;B&gt;text1 &lt;P&gt;text2</code></pre>
  is parsed as
- <pre class="codepre"><code class="code"> &lt;B&gt;text1 &lt;P&gt;text2&lt;/P&gt;&lt;/B&gt; </code></pre>
+ <pre class="codepre"><code class="code">&lt;B&gt;text1 &lt;P&gt;text2&lt;/P&gt;&lt;/B&gt;</code></pre>
  and not as
- <pre class="codepre"><code class="code"> &lt;B&gt;text1 &lt;/B&gt;&lt;P&gt;text2&lt;/P&gt; </code></pre>
+ <pre class="codepre"><code class="code">&lt;B&gt;text1 &lt;/B&gt;&lt;P&gt;text2&lt;/P&gt;</code></pre>
  \- the latter is more correct (and parsed by <code class="code">html40_dtd</code>), but is not what
  users expect.<br/> Note that this is still not what many browsers implement. For example,
  Netscape treats most inline tags specially: <code class="code">&lt;B&gt;</code> switches bold on,
  <code class="code">&lt;/B&gt;</code> switches bold off. For example,
- <pre class="codepre"><code class="code"> &lt;A href='a'&gt;text1&lt;B&gt;text2&lt;A href='b'&gt;text3 </code></pre>
+ <pre class="codepre"><code class="code">&lt;A href='a'&gt;text1&lt;B&gt;text2&lt;A href='b'&gt;text3</code></pre>
  is parsed as
- <pre class="codepre"><code class="code"> &lt;A href='a'&gt;text1&lt;B&gt;text2&lt;/B&gt;&lt;/A&gt;&lt;B&gt;&lt;A href='b'&gt;text3&lt;/A&gt;&lt;/B&gt; </code></pre>
+ <pre class="codepre"><code class="code">&lt;A href='a'&gt;text1&lt;B&gt;text2&lt;/B&gt;&lt;/A&gt;&lt;B&gt;&lt;A href='b'&gt;text3&lt;/A&gt;&lt;/B&gt;</code></pre>
  \- there is an extra <code class="code">B</code> element around the second anchor! (You can
  see what Netscape parses by loading a page into the &quot;Composer&quot;.)
  IMHO it is questionable to consider inline tags as switches because
@@ -86,7 +86,7 @@
  differ in that point.<br/> Furthermore, several elements are turned into essential blocks:
  <code class="code">TABLE</code>, <code class="code">UL</code>, <code class="code">OL</code>, and <code class="code">DL</code>. David Fox reported a problem with structures
  like:
- <pre class="codepre"><code class="code"> &lt;TABLE&gt;&lt;TR&gt;&lt;TD&gt;&lt;TABLE&gt;&lt;TR&gt;&lt;TD&gt;x&lt;/TD&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;y&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt; </code></pre>
+ <pre class="codepre"><code class="code">&lt;TABLE&gt;&lt;TR&gt;&lt;TD&gt;&lt;TABLE&gt;&lt;TR&gt;&lt;TD&gt;x&lt;/TD&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;y&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;</code></pre>
  i.e. the <code class="code">TD</code> of the inner table has two end tags. Without additional
  help, the second <code class="code">&lt;/TD&gt;</code> would close the outer table cell. Because of
  this problem, tables are now essential meaning that it is not allowed
@@ -108,10 +108,8 @@
 ?return_pis:bool -&gt;
 ?return_comments:bool -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=in_obj_channel">Netchannels.in_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Nethtml&amp;type=document">document</a> list</code></pre><div class="info"><div class="info">Parses the HTML document from an object channel and returns it.
  For example, to parse the HTML string <code class="code">s</code>:
- <pre class="codepre"><code class="code">
- let ch = Netchannels.input_string s in
- let doc = parse ch
- </code></pre><br/> Arguments are the same as in <code class="code">parse_document</code>.</div></div>
+ <pre class="codepre"><code class="code">let ch = Netchannels.input_string s in
+ let doc = parse ch</code></pre><br/> Arguments are the same as in <code class="code">parse_document</code>.</div></div>
 <div class="info"><div class="info"><b>Note on XHTML</b><br/> The parser can read XHTML, as long as the following XML features are not
  used:<ul><li>Internal DTD subset, i.e. <code class="code">&lt;!DOCTYPE html ... [ ... ]&gt;</code></li><li>External entities</li><li><code class="code">&lt;![CDATA[</code></li><li><code class="code">&lt;![INCLUDE[</code></li><li><code class="code">&lt;![IGNORE[</code></li></ul> The following XML features are ok:<ul><li>Processing instructions</li><li>Empty elements (e.g. <code class="code">&lt;br/&gt;</code>) as long as the element is declared as 
    <code class="code">`Empty</code>.
@@ -121,16 +119,14 @@
  stream, but not a UTF-16-encoded stream. All bytes between 1 and 127
  are taken as ASCII, and other bytes are ignored (copied from input
  to output).<br/> Non-ASCII-compatible streams must be recoded first. For example, to
- read a UTF-16-encoded netchannel <code class="code">ch</code>, use:<br/> <pre class="codepre"><code class="code">
- let p = 
+ read a UTF-16-encoded netchannel <code class="code">ch</code>, use:<br/> <pre class="codepre"><code class="code">let p = 
    new Netconversion.recoding_pipe ~in_enc:`Enc_utf16 ~out_enc:`Enc_utf8 () in
  let ch' =
    new Netchannels.input_filter ch p in
  let doc =
    Nethtml.parse ch' in
  ch' # close_in();
- ch # close_in();
- </code></pre></div></div>
+ ch # close_in();</code></pre></div></div>
 <pre><span class="VALdecode"><span class="keyword">val</span> decode</span> : <code class="type">?enc:<a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> -&gt;
 ?subst:(int -&gt; string) -&gt;
 ?entity_base:[ `Empty | `Html | `Xml ] -&gt;
@@ -160,9 +156,7 @@
 <pre><span class="VALmap_list"><span class="keyword">val</span> map_list</span> : <code class="type">(string -&gt; string) -&gt; <a href="?package=ocamlnet&amp;module=Nethtml&amp;type=document">document</a> list -&gt; <a href="?package=ocamlnet&amp;module=Nethtml&amp;type=document">document</a> list</code></pre><div class="info"><div class="info"><code class="code">map_list f doclst</code>:
  Applies <code class="code">f</code> to all attribute values and data strings (except
  the attributes of &quot;?&quot;, &quot;!&quot;, or &quot;--&quot; nodes). <br/> This can be used to change the text encoding of a parsed document:
- <pre class="codepre"><code class="code">
- let doc' = map_list String.lowercase doc
- </code></pre>
+ <pre class="codepre"><code class="code">let doc' = map_list String.lowercase doc</code></pre>
  converts all text data to lowercase characters.</div></div>
 <pre><code><span class="TYPExmap_value"><span class="keyword">type</span> xmap_value</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTxmap_value.Xmap_attribute"><span class="constructor">Xmap_attribute</span></span> <span class="keyword">of</span> <code class="type">string * string * string</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTxmap_value.Xmap_data"><span class="constructor">Xmap_data</span></span> <span class="keyword">of</span> <code class="type">string option * string</code></code></td></tr></table>
@@ -183,11 +177,9 @@
 ?xhtml:bool -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Nethtml&amp;type=document">document</a> list -&gt; unit</code></pre><div class="info"><div class="info">Writes the document to the output channel. No additional encoding or
  decoding happens.<br/> Empty elements are written without end tag (see also optional argument
  <code class="code">xhtml</code>); the rest is written unabbreviated.<br/> Example: To write the document to a file:
- <pre class="codepre"><code class="code">
- let f = open_out &quot;filename&quot; in
+ <pre class="codepre"><code class="code">let f = open_out &quot;filename&quot; in
  let ch = new Netchannels.output_channel f in
  write ch doc;
- ch # close_out()
- </code></pre><div class="parameters"><div class="param_info"><code class="code">dtd</code> : The assumed simplified DTD, by default <code class="code">html40_dtd</code></div><div class="param_info"><code class="code">xhtml</code> : makes the output compatible with XHTML 1.0 Strict by
+ ch # close_out()</code></pre><div class="parameters"><div class="param_info"><code class="code">dtd</code> : The assumed simplified DTD, by default <code class="code">html40_dtd</code></div><div class="param_info"><code class="code">xhtml</code> : makes the output compatible with XHTML 1.0 Strict by
  closing <code class="code">`Empty</code> tags with &quot;/&gt;&quot; (<code class="code">true</code> by default).</div></div></div></div>
 </div>

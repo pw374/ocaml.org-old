@@ -74,10 +74,8 @@
  changed into optional parts.</div></div>
 <pre><span class="VALnull_url_syntax"><span class="keyword">val</span> null_url_syntax</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a></code></pre><div class="info"><div class="info">An URL syntax that recognizes nothing. Use this as base for your own
  definitions, e.g.
- <pre class="codepre"><code class="code">
- let my_syntax = { null_url_syntax with
-                     url_enable_host = Url_part_required; ... }
- </code></pre></div></div>
+ <pre class="codepre"><code class="code">let my_syntax = { null_url_syntax with
+                     url_enable_host = Url_part_required; ... }</code></pre></div></div>
 <pre><span class="VALip_url_syntax"><span class="keyword">val</span> ip_url_syntax</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a></code></pre><div class="info"><div class="info">Syntax for IP based protocols. This syntax allows scheme, user,
  password, host, port, path, param, query, fragment, but not &quot;other&quot;.
  It does not accept 8 bit bytes.</div></div>
@@ -95,7 +93,7 @@
    by changing the required parts to optional parts: See the function
    <code class="code">partial_url_syntax</code>.</li><li>None of the descriptions allows fragments. These can be enabled by
    setting <code class="code">url_enable_fragment</code> to <code class="code">Url_part_allowed</code>. E.g.
-   <pre class="codepre"><code class="code"> { file_url_syntax with url_enable_fragment = Url_part_allowed } </code></pre></li><li>8 bit bytes are not accepted</li><li>A large number of standardised scheme syntaxes are not available,
+   <pre class="codepre"><code class="code">{ file_url_syntax with url_enable_fragment = Url_part_allowed }</code></pre></li><li>8 bit bytes are not accepted</li><li>A large number of standardised scheme syntaxes are not available,
    e.g. gopher, prospero, wais. The selection is a bit subjective,
    but I have tried to omit protocols that are no longer in common
    use, or that are very special.</li><li>The LDAP URL syntax (RFC 1959) does not fit into our scheme, it
@@ -253,10 +251,9 @@
 <pre><span class="VALsplit_path"><span class="keyword">val</span> split_path</span> : <code class="type">string -&gt; string list</code></pre><div class="info"><div class="info">Splits a <code class="code">'/'</code>-separated path into components (e.g. to set up the
  <code class="code">path</code> argument of <code class="code">make_url</code>).
  E.g.
- <pre class="codepre"><code class="code">
- split_path &quot;a/b/c&quot; = [ &quot;a&quot;; &quot;b&quot;; &quot;c&quot; ],
+ <pre class="codepre"><code class="code">split_path &quot;a/b/c&quot; = [ &quot;a&quot;; &quot;b&quot;; &quot;c&quot; ],
  split_path &quot;/a/b&quot;  = [ &quot;&quot;; &quot;a&quot;; &quot;b&quot; ],
- split_path &quot;a/b/&quot;  = [ &quot;a&quot;; &quot;b&quot;; &quot;&quot; ] </code></pre>
+ split_path &quot;a/b/&quot;  = [ &quot;a&quot;; &quot;b&quot;; &quot;&quot; ]</code></pre>
  Beware that <code class="code">split_path &quot;..&quot;</code> returns <code class="code">[&quot;..&quot;]</code> while <code class="code">split_path &quot;../&quot;</code>
  returns <code class="code">[&quot;..&quot;; &quot;&quot;]</code>.  The two will behave differently, for example
  when used with TODO reference : Neturl.apply_relative_url.</div></div>

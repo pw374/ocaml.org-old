@@ -47,8 +47,7 @@
       or is otherwise no longer able to do so). In this
       case the ID of the container needs to be passed</div></div>
 <div class="info"><div class="info">Example (code fragment):<br/>    Override the processor callbacks as follows to count the number of
-    containers for the service:<br/>  <pre class="codepre"><code class="code"> 
-    method post_add_hook sockserv ctrl =
+    containers for the service:<br/>  <pre class="codepre"><code class="code">method post_add_hook sockserv ctrl =
       ctrl # add_plugin Netplex_semaphore.plugin
 
     method post_start_hook container =
@@ -63,6 +62,5 @@
       let n =
         Netplex_semaphore.decrement sem_name in
       if n=0 then
-        prerr_endline &quot;Last container&quot;
-   </code></pre></div></div>
+        prerr_endline &quot;Last container&quot;</code></pre></div></div>
 </div>

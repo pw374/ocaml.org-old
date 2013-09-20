@@ -20,10 +20,8 @@
       variable, which must contains one or more rules of the form
       <code class="code">pattern -&gt; level</code> separated by &quot;;&quot;. Where <code class="code">pattern</code> is a string
       that may contain <code class="code">*</code>.<br/>      For example, if <code class="code">LWT_LOG</code> contains:
-      <pre class="codepre"><code class="code">
-        access -&gt; warning;
-        foo[*] -&gt; error
-      </code></pre>
+      <pre class="codepre"><code class="code">access -&gt; warning;
+        foo[*] -&gt; error</code></pre>
       then the level of the section <code class="code">&quot;access&quot;</code> is TODO reference : Warning and the
       level of any section matching <code class="code">&quot;foo[*]&quot;</code> is TODO reference : Error.<br/>      If the pattern is omited in a rule then the pattern <code class="code">&quot;*&quot;</code> is
       used instead, so <code class="code">LWT_LOG</code> may just contains <code class="code">&quot;debug&quot;</code> for
@@ -33,13 +31,9 @@
       levels. The rule is added before all other rules. It takes
       effect immediatly and affect all sections for which the level
       has not been set explicitly with TODO reference : Section.set_level. <code class="code">pattern</code>
-      may contains <code class="code">*</code>. For example:<br/>      <pre class="codepre"><code class="code">
-        Lwt_log.add_rule &quot;lwt*&quot; Lwt_log.Info
-      </code></pre></div></div>
+      may contains <code class="code">*</code>. For example:<br/>      <pre class="codepre"><code class="code">Lwt_log.add_rule &quot;lwt*&quot; Lwt_log.Info</code></pre></div></div>
 <pre><span class="VALappend_rule"><span class="keyword">val</span> append_rule</span> : <code class="type">string -&gt; <a href="?package=lwt&amp;module=Lwt_log&amp;type=level">level</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">append_rule pattern level</code> adds the given rule after all other
-      rules. For example to set the default fallback rule:<br/>      <pre class="codepre"><code class="code">
-        Lwt_log.append_rule &quot;*&quot; Lwt_log.Info
-      </code></pre></div></div>
+      rules. For example to set the default fallback rule:<br/>      <pre class="codepre"><code class="code">Lwt_log.append_rule &quot;*&quot; Lwt_log.Info</code></pre></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Logging functions</h6></div></div>
 <pre><span class="VALlog"><span class="keyword">val</span> log</span> : <code class="type">?exn:exn -&gt;
 ?section:<a href="?package=lwt&amp;module=Lwt_log&amp;type=section">section</a> -&gt;
@@ -196,16 +190,14 @@ close:(unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a
       given loggers.<br/>      Note: closing a broadcast logger does not close its
       components.</div></div>
 <pre><span class="VALdispatch"><span class="keyword">val</span> dispatch</span> : <code class="type">(<a href="?package=lwt&amp;module=Lwt_log&amp;type=section">section</a> -&gt; <a href="?package=lwt&amp;module=Lwt_log&amp;type=level">level</a> -&gt; <a href="?package=lwt&amp;module=Lwt_log&amp;type=logger">logger</a>) -&gt; <a href="?package=lwt&amp;module=Lwt_log&amp;type=logger">logger</a></code></pre><div class="info"><div class="info"><code class="code">dispatch f</code> is a logger which dispatch logging instructions to
-      different logger according to their level and/or section.<br/>      Here is an example:<br/>      <pre class="codepre"><code class="code">
-        let access_logger = Lwt_log.file &quot;access.log&quot;
+      different logger according to their level and/or section.<br/>      Here is an example:<br/>      <pre class="codepre"><code class="code">let access_logger = Lwt_log.file &quot;access.log&quot;
         and error_logger = Lwt_log.file &quot;error.log&quot; in
 
         Lwt_log.dispatch
           (fun section level -&gt;
             match Lwt_log.Section.name section, level with
               | &quot;access&quot;, _ -&gt; access_logger
-              | _, Lwt_log.Error -&gt; error_logger)
-      </code></pre></div></div>
+              | _, Lwt_log.Error -&gt; error_logger)</code></pre></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Predefined loggers</h6></div></div>
 <pre><span class="VALnull"><span class="keyword">val</span> null</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_log&amp;type=logger">logger</a></code></pre><div class="info"><div class="info">Logger which drops everything</div></div>
 <pre><span class="TYPEsyslog_facility"><span class="keyword">type</span> syslog_facility</span> = <code class="type">[ `Auth

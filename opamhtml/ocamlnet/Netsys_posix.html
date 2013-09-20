@@ -52,7 +52,7 @@
       echo disabled. If stdin is redirected, it is assumed that the program is
       used in a script, and the password is piped into it.<br/>      Use in conjunction with <code class="code">with_tty</code> to ensure that <code class="code">tty</code> is
       the terminal even if a redirection is in effect, e.g.
-      <pre class="codepre"><code class="code"> with_tty (fun tty -&gt; tty_read_password ~tty prompt) </code></pre><br/>      Raises <code class="code">Sys.Break</code> if the user triggers SIGINT (i.e. presses
+      <pre class="codepre"><code class="code">with_tty (fun tty -&gt; tty_read_password ~tty prompt)</code></pre><br/>      Raises <code class="code">Sys.Break</code> if the user triggers SIGINT (i.e. presses
       CTRL-C) to abort the input of a password.</div></div>
 <pre><span class="VALposix_openpt"><span class="keyword">val</span> posix_openpt</span> : <code class="type">bool -&gt; Unix.file_descr</code></pre><div class="info"><div class="info"><code class="code">posix_openpt noctty</code>: Opens an unused PTY master.<br/>      <code class="code">noctty</code>: If true, the descriptor will not become the controlling
       terminal.<br/>      If this function is not provided by the OS, an emulation is used.<br/>      On some OS, System V style PTY's are unavailable (but they get
@@ -404,7 +404,7 @@ string -&gt; Unix.file_descr -&gt; string -&gt; <a href="?package=ocamlnet&amp;m
       <code class="code">facility</code></div></div>
 <pre><span class="VALcloselog"><span class="keyword">val</span> closelog</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Closes the log stream</div></div>
 <div class="info"><div class="info">Usually, the log stream is redirected to syslog by either:<ul><li>setting <code class="code">Netlog.current_logger</code> to <code class="code">syslog facility</code>, e.g.
-      <pre class="codepre"><code class="code"> Netlog.current_logger := Netsys_posix.syslog `User </code></pre></li><li>using the Netplex class for sending message to syslog (XXX)
+      <pre class="codepre"><code class="code">Netlog.current_logger := Netsys_posix.syslog `User</code></pre></li><li>using the Netplex class for sending message to syslog (XXX)
  </li></ul></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Sync</h1></div></div>
 <pre><span class="VALfsync"><span class="keyword">val</span> fsync</span> : <code class="type">Unix.file_descr -&gt; unit</code></pre><div class="info"><div class="info">Sync data and metadata to disk</div></div>

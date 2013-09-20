@@ -59,12 +59,10 @@
 <pre><span class="VALstring_of_http_status"><span class="keyword">val</span> string_of_http_status</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_status">http_status</a> -&gt; string</code></pre><div class="info"><div class="info">Returns the informational text for a status value</div></div>
 <pre><span class="VALbase_code"><span class="keyword">val</span> base_code</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info">Allows to handle unknown status codes that are untranslatable by
       <code class="code">http_status_of_int</code>:<ul><li>for a code 100 to 199 the value 100 is returned</li><li>for a code 200 to 299 the value 200 is returned</li><li>for a code 300 to 399 the value 300 is returned</li><li>for a code 400 to 499 the value 400 is returned</li><li>for all other codes 500 is returned</li></ul>      E.g.
-      <pre class="codepre"><code class="code">
-  let st =
+      <pre class="codepre"><code class="code">let st =
     try Nethttp.http_status_of_int code
     with Not_found -&gt;
-      Nethttp.http_status_of_int (Nethttp.base_code code)
-      </code></pre></div></div>
+      Nethttp.http_status_of_int (Nethttp.base_code code)</code></pre></div></div>
 <pre><span class="TYPEhttp_method"><span class="keyword">type</span> http_method</span> = <code class="type">string * string</code></pre><div class="info"><div class="info">Method name, URI</div></div>
 <pre><span class="TYPEcache_control_token"><span class="keyword">type</span> cache_control_token</span> = <code class="type">[ `Extension of string * string option
 | `Max_age of int
@@ -193,10 +191,8 @@
  is not present. If the syntax of the field is a comma-separated list of
  multiple values, the <code class="code">get_*</code> functions generally merge all headers of
  the same type. The order is preserved in this case. The list <code class="code">[]</code> means
- that the header exists, but only with empty value. For example,<br/> <pre class="codepre"><code class="code">
- Accept: text/html
- Accept: text/plain
- </code></pre><br/> would be returned as <code class="code">[&quot;text/html&quot;,[],[]; &quot;text/plain&quot;, [],[]]</code>
+ that the header exists, but only with empty value. For example,<br/> <pre class="codepre"><code class="code">Accept: text/html
+ Accept: text/plain</code></pre><br/> would be returned as <code class="code">[&quot;text/html&quot;,[],[]; &quot;text/plain&quot;, [],[]]</code>
  by <code class="code">get_accept</code>.  The header<br/> <pre class="codepre"><code class="code">Accept:</code></pre><br/> would be returned as <code class="code">[]</code>.<br/> The <code class="code">set_*</code> functions generally produce only a single header with comma-
  separated values. Existing header are overwritten/removed.<br/> To remove a header, simply use the <code class="code">delete_field</code> method of <code class="code">http_header</code>.<br/> Error behaviour: The <code class="code">get_*</code> functions raise <code class="code">Bad_header_field</code>
  when they cannot parse a header field. The <code class="code">set_*</code> functions

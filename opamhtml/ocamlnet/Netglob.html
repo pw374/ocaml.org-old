@@ -1,7 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Globbing</div>
-<div class="info"><div class="info">Globbing resolves shell wildcards like &quot;*&quot; and &quot;?&quot;. For example,<br/>    <pre class="codepre"><code class="code">
-    let files = Netglob.glob (`String &quot;*.cm[iox]&quot;)
-    </code></pre><br/>    would return all files matching this pattern (e.g. module.cmi,
+<div class="info"><div class="info">Globbing resolves shell wildcards like &quot;*&quot; and &quot;?&quot;. For example,<br/>    <pre class="codepre"><code class="code">let files = Netglob.glob (`String &quot;*.cm[iox]&quot;)</code></pre><br/>    would return all files matching this pattern (e.g. module.cmi,
     module.cmo).<br/>    The main user function is TODO reference : Netglob.glob. Globbing accesses the
     local filesystem by default, but one can also run the globbing
     algorithm on any other filesystem, provided the access primitives
@@ -185,24 +183,18 @@
  encoding, pass <code class="code">fsys</code>, e.g. as <code class="code">local_fsys()</code>, and call the
  <code class="code">path_encoding</code> method of <code class="code">fsys</code>.)</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Remarks</h2></div></div>
-<div class="info"><div class="info"><b>Examples demonstrating the effect of encodings:</b> (Linux)<br/>    <pre class="codepre"><code class="code">
-       let fsys = local_fsys ~encoding:`Enc_utf8()
-       let l = glob ~fsys (`String &quot;\214*&quot;)
-    </code></pre><br/>    The byte 214 is O-umlaut in ISO-8859-1 (the default encoding for
+<div class="info"><div class="info"><b>Examples demonstrating the effect of encodings:</b> (Linux)<br/>    <pre class="codepre"><code class="code">let fsys = local_fsys ~encoding:`Enc_utf8()
+       let l = glob ~fsys (`String &quot;\214*&quot;)</code></pre><br/>    The byte 214 is O-umlaut in ISO-8859-1 (the default encoding for
     patterns). By passing an <code class="code">fsys</code> argument we change the encoding
     for filenames to UTF-8. For example, if<br/>    &quot;\195\150ffentlich&quot;<br/>    was a file in the current directory, it would be found and 
     returned in <code class="code">l</code>.<br/>    Conversions: For example, assume we have a file
-    &quot;\226\130\172uro&quot; (EUR-uro in UTF-8). The glob<br/>    <pre class="codepre"><code class="code">
-       let fsys = local_fsys ~encoding:`Enc_utf8()
-       let l = glob ~fsys (`String &quot;*&quot;)
-    </code></pre><br/>    finds it although the euro sign cannot be represented
+    &quot;\226\130\172uro&quot; (EUR-uro in UTF-8). The glob<br/>    <pre class="codepre"><code class="code">let fsys = local_fsys ~encoding:`Enc_utf8()
+       let l = glob ~fsys (`String &quot;*&quot;)</code></pre><br/>    finds it although the euro sign cannot be represented
     in ISO-8859-1, the default pattern encoding.<br/>    We run into a problem, however, if we want to generate the
     euro sign even if the file is not present, and the filesystem
-    uses an encoding that does not include this sign:<br/>    <pre class="codepre"><code class="code">
-       let fsys = local_fsys ~encoding:`Enc_iso88591()
+    uses an encoding that does not include this sign:<br/>    <pre class="codepre"><code class="code">let fsys = local_fsys ~encoding:`Enc_iso88591()
        let l = glob ~fsys ~encoding:`Enc_utf8 ~mode:`All_paths 
-                  (`String &quot;\226\130\172uro&quot;)
-    </code></pre><br/>    This raises an exception <code class="code">Netconversion.Cannot_represent 8364</code>.</div></div>
+                  (`String &quot;\226\130\172uro&quot;)</code></pre><br/>    This raises an exception <code class="code">Netconversion.Cannot_represent 8364</code>.</div></div>
 <div class="info"><div class="info"><b>Notes for Win32:</b><br/>  - Globbing only supports forward slashes, not backslashes as path
     separators<ul><li>Globbing does neither recognize drive letters nor UNC
     paths as special cases. This may lead to subtle bugs. Glob
@@ -238,8 +230,7 @@
     parse the expression, and then interpret it. However, users interested in
     a higher degree of compatibility can call the TODO reference : Netglob parsing,
     processing and printing functions in the required order, and emulate
-    the shell behavior. For example,<br/>    <pre class="codepre"><code class="code">
-  let alt_glob pat =
+    the shell behavior. For example,<br/>    <pre class="codepre"><code class="code">let alt_glob pat =
     let g1 = 
        parse_glob_expr 
          ~enable_star:false ~enable_qmark:false ~enable_brackets:false
@@ -254,7 +245,6 @@
          (fun pat2 -&gt; parse_glob_expr ~enable_braces:false pat2) 
          pat2_list in
     List.flatten
-      (List.map (fun g3 -&gt; glob (`Expr g3)) g3_list)
-    </code></pre><br/>    would parse and expand brace expressions in a separate step before 
+      (List.map (fun g3 -&gt; glob (`Expr g3)) g3_list)</code></pre><br/>    would parse and expand brace expressions in a separate step before 
     running <code class="code">glob</code> on the remaining syntactic elements.</div></div>
 </div>

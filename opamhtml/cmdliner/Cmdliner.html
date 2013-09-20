@@ -236,8 +236,7 @@
     TODO reference : http://dx.doi.org/10.1017/S0956796807006326). For example for the function:
 <pre class="codepre"><code class="code">let revolt () = print_endline &quot;Revolt!&quot;</code></pre>
     the term :
-<pre class="codepre"><code class="code">
-open Cmdliner;;
+<pre class="codepre"><code class="code">open Cmdliner;;
 
 let revolt_t = Term.(pure revolt $ pure ())</code></pre>
     is a term that evaluates to the result (and effect) of the <code class="code">revolt</code> 
@@ -448,7 +447,7 @@ let cmd =
 let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre>
     <h2 id="excp">A <code class="code">cp</code> command</h2> <br/>    We define the command line interface of a
     <code class="code">cp</code> command with the synopsis:
-<pre class="codepre"><code class="code">cp [OPTION]... SOURCE... DEST </code></pre>
+<pre class="codepre"><code class="code">cp [OPTION]... SOURCE... DEST</code></pre>
     The <code class="code">DEST</code> argument must be a directory if there is more than 
     one <code class="code">SOURCE</code>. This constraint is too complex to be expressed by the
     combinators of TODO reference : Arg. Hence we just give it the TODO reference : Arg.string type

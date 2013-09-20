@@ -85,18 +85,13 @@
 <pre><span class="VALdump"><span class="keyword">val</span> dump</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netlog&amp;type=level">Netlog.level</a> -&gt; unit</code></pre><div class="info"><div class="info">Dumps the access counter of this variable to TODO reference : Netlog. The
       string argument &quot;*&quot; dumps all variables.</div></div>
 <div class="ocaml_module ident" name="Make_var_type" path="?package=ocamlnet&amp;module=Netplex_cenv.VAR_TYPE"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netplex_sharedvar.Make_var_type">Make_var_type</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">T</code><code class="code"> : </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.TYPE">Netplex_cenv.TYPE</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.VAR_TYPE">Netplex_cenv.VAR_TYPE</a></code> with type t = T.t</div></code></pre><div class="info"><div class="info">Creates a module with <code class="code">get</code> and <code class="code">set</code> functions to access variables
-      of type <code class="code">T.t</code>. Call it like<br/>      <pre class="codepre"><code class="code">
-         module Foo_var = 
-           Make_var_type(struct type t = foo end)
-      </code></pre><br/>      and use <code class="code">Foo_var.get</code> and <code class="code">Foo_var.set</code> to access the shared
+      of type <code class="code">T.t</code>. Call it like<br/>      <pre class="codepre"><code class="code">module Foo_var = 
+           Make_var_type(struct type t = foo end)</code></pre><br/>      and use <code class="code">Foo_var.get</code> and <code class="code">Foo_var.set</code> to access the shared
       variables of type <code class="code">foo</code>. These functions can also raise the exception
-      <code class="code">Sharedvar_not_found</code> (unlike the primitive accessors above).<br/>      The variable must have been created with <code class="code">enc:true</code>, e.g.<br/>      <pre class="codepre"><code class="code">
-          let ok = create_var ~enc:true &quot;name&quot;
-      </code></pre></div></div></div>
+      <code class="code">Sharedvar_not_found</code> (unlike the primitive accessors above).<br/>      The variable must have been created with <code class="code">enc:true</code>, e.g.<br/>      <pre class="codepre"><code class="code">let ok = create_var ~enc:true &quot;name&quot;</code></pre></div></div></div>
 <div class="info"><div class="info">Example code:<br/>    Here, one randomly chosen container computes <code class="code">precious_value</code>, and
     makes it available to all others, so the other container can simply
-    grab the value. This is similar to what <code class="code">get_lazily</code> does internally:<br/>    <pre class="codepre"><code class="code">
-      let get_precious_value() =
+    grab the value. This is similar to what <code class="code">get_lazily</code> does internally:<br/>    <pre class="codepre"><code class="code">let get_precious_value() =
         let container = Netplex_cenv.self_cont() in
         let var_name = &quot;my_service.precious&quot; in
         if Netplex_sharedvar.create_var var_name then (
@@ -114,15 +109,12 @@
            | Some v -&gt; v
            | None -&gt; failwith &quot;get_precious_value&quot;
                        (* or do plan B, e.g. compute the value *)
-        )
-    </code></pre><br/>    We don't do anything here for deleting the value when it is no longer
+        )</code></pre><br/>    We don't do anything here for deleting the value when it is no longer
     needed. Finding a criterion for that is very application-specific. 
     If the variable can be thought as being another service endpoint
     of a socket service, it is a good idea to acquire the ownership
     (by passing <code class="code">~own:true</code> to <code class="code">create_var</code>), so the variable is automatically
     deleted when the socket service stops.<br/>    Of course, the plugin must be enabled, e.g. by overriding the 
-    <code class="code">post_add_hook</code> processor hook:<br/>   <pre class="codepre"><code class="code"> 
-    method post_add_hook sockserv ctrl =
-      ctrl # add_plugin Netplex_sharedvar.plugin
-   </code></pre></div></div>
+    <code class="code">post_add_hook</code> processor hook:<br/>   <pre class="codepre"><code class="code">method post_add_hook sockserv ctrl =
+      ctrl # add_plugin Netplex_sharedvar.plugin</code></pre></div></div>
 </div>

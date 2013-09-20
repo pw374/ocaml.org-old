@@ -8,17 +8,13 @@
  better than C:<ul><li>direct support for strings</li><li>arrays may have fixed or variable length</li><li>unions must have a discriminator</li><li>no pointers. The notation <code class="code">*t</code> is allowed, but means something
    different, namely &quot;t option&quot; in O'Caml notation.</li><li>recursive types are possible and behave like recursive types in
    O'Caml. For example,
-   <pre class="codepre"><code class="code">
-     struct *list {
+   <pre class="codepre"><code class="code">struct *list {
        int value;
        next list;
-     }
-   </code></pre>
+     }</code></pre>
    is a list of integer values and equivalent to
-   <pre class="codepre"><code class="code">
-     type intlist = intlist_el option
-      and intlist_el = { value : int; next : intlist }
-   </code></pre></li></ul> See RFC 1014 for details about XDR.<br/> This module defines:<ul><li>XDR types</li><li>XDR type terms</li><li>XDR type systems</li><li>XDR type term systems</li></ul> In &quot;type terms&quot; you can see the components from which the type has been
+   <pre class="codepre"><code class="code">type intlist = intlist_el option
+      and intlist_el = { value : int; next : intlist }</code></pre></li></ul> See RFC 1014 for details about XDR.<br/> This module defines:<ul><li>XDR types</li><li>XDR type terms</li><li>XDR type systems</li><li>XDR type term systems</li></ul> In &quot;type terms&quot; you can see the components from which the type has been
  formed, while a &quot;type&quot; is an opaque representation that has been checked
  and for that some preprocessing has been done.<br/> A &quot;type system&quot; is a collection of several types that have names and that
  can refer to previously defined types (i.e. a sequence of &quot;typedef&quot;s).
@@ -164,10 +160,10 @@
 <div class="info"><div class="info"><b>Encryption:</b> The <code class="code">encode</code> and <code class="code">decode</code> functions can be used
  to encrypt/decrypt parameters (placeholders in the type marked with
  <code class="code">X_param pname</code> for a parameter name <code class="code">pname</code>). The <code class="code">encode</code> argument
- may list for each parameter an encoding function:<br/> <pre class="codepre"><code class="code"> encode = [ pname1, encoder1; pname2, encoder2; ... ] </code></pre><br/> The functions <code class="code">encoder</code> are called with the XDR-packed parameter value,
+ may list for each parameter an encoding function:<br/> <pre class="codepre"><code class="code">encode = [ pname1, encoder1; pname2, encoder2; ... ]</code></pre><br/> The functions <code class="code">encoder</code> are called with the XDR-packed parameter value,
  and return the encrypted value.<br/> Likewise, the <code class="code">decode</code> argument may list for each parameter a decoding
- function:<br/> <pre class="codepre"><code class="code"> decode = [ pname1, decoder1; pname2, decoder2; ... ] </code></pre><br/> The call style of the decoder functions is a bit more complicated, though.
- They are called as<br/> <pre class="codepre"><code class="code"> let (xdr_s, n) = decoder s pos len </code></pre><br/> meaning that the <code class="code">decoder</code> starts decoding at position <code class="code">pos</code> of string <code class="code">s</code>,
+ function:<br/> <pre class="codepre"><code class="code">decode = [ pname1, decoder1; pname2, decoder2; ... ]</code></pre><br/> The call style of the decoder functions is a bit more complicated, though.
+ They are called as<br/> <pre class="codepre"><code class="code">let (xdr_s, n) = decoder s pos len</code></pre><br/> meaning that the <code class="code">decoder</code> starts decoding at position <code class="code">pos</code> of string <code class="code">s</code>,
  and that at most <code class="code">len</code> bytes can be decoded. It returns the decoded
  string <code class="code">xdr_s</code> (which is then unpacked), and in <code class="code">n</code> the number of
  consumed input bytes is returned.<br/> Exceptions raised in encoders or decoders fall through unmodified.</div></div>

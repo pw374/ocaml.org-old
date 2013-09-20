@@ -25,13 +25,11 @@
  is terminated ( TODO reference : Shell_sys.abandon_job ).</div></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Examples</h1> <br/> All examples presented for the TODO reference : Shell module can be easily rewritten
  for <code class="code">Shell_uq</code>. For example, to call &quot;ls&quot; and collect the result in a
- buffer, use this piece of code:<br/> <pre class="codepre"><code class="code">
- let ues = Unixqueue.create_unix_event_system();;
+ buffer, use this piece of code:<br/> <pre class="codepre"><code class="code">let ues = Unixqueue.create_unix_event_system();;
  let b = Buffer.create 10;;
  let e = new call_engine ~stdout:(Shell.to_buffer b) [ Shell.command &quot;ls&quot; ];;
  Unixqueue.run ues;;
- let r = Buffer.contents b;;
- </code></pre><br/> This means, one simply creates a <code class="code">call_engine</code> instead of invoking
+ let r = Buffer.contents b;;</code></pre><br/> This means, one simply creates a <code class="code">call_engine</code> instead of invoking
  TODO reference : Shell.call, and then runs the queue. Note that you must look at
  <code class="code">e#state</code> to find out whether the engine <code class="code">e</code> produced an error, no
  exception is raised in this case.<br/> It is allowed (and somehow the purpose of this module) to create

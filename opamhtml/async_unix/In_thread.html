@@ -23,12 +23,10 @@
     set to <code class="code">priority</code> for the duration of <code class="code">f ()</code>, provided the thread is allowed to do so,
     see `man setpriority`.<br/>    If you call <code class="code">run</code> several times with the same helper thread, the <code class="code">f ()</code> calls will run
     in sequence, in the order in which they are supplied to <code class="code">run</code>.  Each <code class="code">f ()</code> will
-    complete (return or raise) before another <code class="code">f ()</code> starts.<br/>    For example, if you do:<br/>    <pre class="codepre"><code class="code">
-      let () =
+    complete (return or raise) before another <code class="code">f ()</code> starts.<br/>    For example, if you do:<br/>    <pre class="codepre"><code class="code">let () =
         run ~thread f1;
         run ~thread f2;
-        run ~thread f3;
-    </code></pre><br/>    Then the thread will run <code class="code">f1 ()</code> to completion, then <code class="code">f2 ()</code> to completion, then
+        run ~thread f3;</code></pre><br/>    Then the thread will run <code class="code">f1 ()</code> to completion, then <code class="code">f2 ()</code> to completion, then
     <code class="code">f3 ()</code> to completion.<br/>    If <code class="code">name</code> is supplied, the name of the thread will be set to it for the duration of
     the execution of <code class="code">f ()</code>.</div></div>
 <pre><span class="VALsyscall"><span class="keyword">val</span> syscall</span> : <code class="type">name:string -&gt;

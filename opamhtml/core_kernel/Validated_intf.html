@@ -1,11 +1,9 @@
 <div class="ocaml_toplevel_module">
-<div class="info"><div class="info">For making an abstract version of a type that ensures a validation check has passed.<br/>    Suppose one wants to have a type of positive integers:<br/>    <pre class="codepre"><code class="code">
-      module Positive_int = Validated.Make (struct
+<div class="info"><div class="info">For making an abstract version of a type that ensures a validation check has passed.<br/>    Suppose one wants to have a type of positive integers:<br/>    <pre class="codepre"><code class="code">module Positive_int = Validated.Make (struct
         type t = int
         let here = _here_
         let validate = Int.validate_positive
-      end)
-    </code></pre><br/>    With this, one is certain that any value of type <code class="code">Positive_int.t</code> has passed
+      end)</code></pre><br/>    With this, one is certain that any value of type <code class="code">Positive_int.t</code> has passed
     <code class="code">Int.validate_positive</code>.<br/>    One can call <code class="code">Positive_int.create_exn n</code> to create a new positive int from an <code class="code">n</code>,
     which will of course raise if <code class="code">n &lt;= 0</code>.  One can call <code class="code">Positive_int.raw positive_int</code>
     to get the <code class="code">int</code> from a <code class="code">Positive_int.t</code>.</div></div>
@@ -78,13 +76,11 @@
 <div class="ocaml_module ident" name="Make" path="?package=core_kernel&amp;module=Validated_intf.S.Validated"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Validated_intf.S.Make">Make</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">Raw</code><code class="code"> : </code><code class="code"><a href="?package=core_kernel&amp;module=Validated_intf.S.Raw">Raw</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=core_kernel&amp;module=Validated_intf.S.Validated">Validated</a></code> with type <a href="?package=core_kernel&amp;module=Validated_intf.Validated&amp;type=raw">raw</a> := Raw.t</div></code></pre></div>
 <div class="ocaml_module ident" name="Make_binable" path="?package=core_kernel&amp;module=Validated_intf.Validated_binable"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Validated_intf.S.Make_binable">Make_binable</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">Raw</code><code class="code"> : </code><code class="code"><a href="?package=core_kernel&amp;module=Validated_intf.Raw_binable">Raw_binable</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=core_kernel&amp;module=Validated_intf.Validated_binable">Validated_binable</a></code> with type <a href="?package=core_kernel&amp;module=Validated_intf.Validated_binable&amp;type=raw">raw</a> := Raw.t</div></code></pre></div></div></div>
 
-<div class="info"><div class="info">For making an abstract version of a type that ensures a validation check has passed.<br/>    Suppose one wants to have a type of positive integers:<br/>    <pre class="codepre"><code class="code">
-      module Positive_int = Validated.Make (struct
+<div class="info"><div class="info">For making an abstract version of a type that ensures a validation check has passed.<br/>    Suppose one wants to have a type of positive integers:<br/>    <pre class="codepre"><code class="code">module Positive_int = Validated.Make (struct
         type t = int
         let here = _here_
         let validate = Int.validate_positive
-      end)
-    </code></pre><br/>    With this, one is certain that any value of type <code class="code">Positive_int.t</code> has passed
+      end)</code></pre><br/>    With this, one is certain that any value of type <code class="code">Positive_int.t</code> has passed
     <code class="code">Int.validate_positive</code>.<br/>    One can call <code class="code">Positive_int.create_exn n</code> to create a new positive int from an <code class="code">n</code>,
     which will of course raise if <code class="code">n &lt;= 0</code>.  One can call <code class="code">Positive_int.raw positive_int</code>
     to get the <code class="code">int</code> from a <code class="code">Positive_int.t</code>.</div></div>

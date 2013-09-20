@@ -13,14 +13,8 @@
 <div class="ocaml_include ident" items="[&quot;Monad_infix&quot;]"><pre><span class="keyword">include</span> <code class="type"><code class="code">Core.Std.Monad</code> with type t := 'a <a href="?package=async_core&amp;module=Deferred&amp;type=t">t</a></code></pre><div class="info"><div class="info">Deferreds form a monad.<br/>    <code class="code">t &gt;&gt;= f</code> returns a deferred t' that waits until t is determined to have
     value v, at which point it waits for f v to become determined with value
     v', to which t' will become determined.<br/>    <code class="code">return v</code> returns a deferred that is immediately determined with value
-    v.<br/>    Note that<br/>    <pre class="codepre"><code class="code">
-      upon t f
-    </code></pre><br/>    is more efficient than<br/>    <pre class="codepre"><code class="code">
-      ignore (t &gt;&gt;= (fun a -&gt; f a; Deferred.unit))
-    </code></pre><br/>    because <code class="code">upon</code>, unlike <code class="code">&gt;&gt;=</code> does not create a deferred to hold the result.<br/>    For example, one can write a loop that has good constant factors with:<br/>    <pre class="codepre"><code class="code">
-      let rec loop () =
-        upon t (fun a -&gt; ... loop () ... )
-    </code></pre><br/>    The same loop written with <code class="code">&gt;&gt;=</code> would allocate deferreds that would be immediately
+    v.<br/>    Note that<br/>    <pre class="codepre"><code class="code">upon t f</code></pre><br/>    is more efficient than<br/>    <pre class="codepre"><code class="code">ignore (t &gt;&gt;= (fun a -&gt; f a; Deferred.unit))</code></pre><br/>    because <code class="code">upon</code>, unlike <code class="code">&gt;&gt;=</code> does not create a deferred to hold the result.<br/>    For example, one can write a loop that has good constant factors with:<br/>    <pre class="codepre"><code class="code">let rec loop () =
+        upon t (fun a -&gt; ... loop () ... )</code></pre><br/>    The same loop written with <code class="code">&gt;&gt;=</code> would allocate deferreds that would be immediately
     garbage collected.  (In the past, this loop would have also used linear space in
     recursion depth!)<br/>    In general, for deferreds that are allocated by <code class="code">&gt;&gt;=</code> to be garbage collected quickly,
     it is sufficient that the allocating bind be executed in tail-call position of the
@@ -56,21 +50,17 @@
     choices supplied to <code class="code">enabled</code>, but of course it may be shorter than the input list if
     not all <code class="code">ti</code> are determined.</div></div>
 <pre><span class="VALchoose"><span class="keyword">val</span> choose</span> : <code class="type">'b <a href="?package=async_core&amp;module=Deferred&amp;type=choice">choice</a> list -&gt; 'b <a href="?package=async_core&amp;module=Deferred&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">choose choices</code> is <code class="code">enabled choices &gt;&gt;| (fun f -&gt; List.hd_exn (f ()))</code>.
-    That is:<br/>    <pre class="codepre"><code class="code">
-      choose [choice t1 f1; ...; choice tn fn]
-    </code></pre><br/>    returns a deferred <code class="code">t</code> that becomes determined with value <code class="code">fi ai</code> after some
+    That is:<br/>    <pre class="codepre"><code class="code">choose [choice t1 f1; ...; choice tn fn]</code></pre><br/>    returns a deferred <code class="code">t</code> that becomes determined with value <code class="code">fi ai</code> after some
     <code class="code">ti</code> becomes determined with value <code class="code">ai</code>.  There is no guarantee that the <code class="code">ti</code>
     that becomes determined earliest in time will be the one whose value
     determines the <code class="code">choose</code>.  Nor is it guaranteed that the value in <code class="code">t</code> is the
     first value (in place order) from <code class="code">choices</code> that is determined at the time <code class="code">t</code>
-    is examined.<br/>    For example, if you write:<br/>    <pre class="codepre"><code class="code">
-      choose [choice t1 (fun () -&gt; `X1);
+    is examined.<br/>    For example, if you write:<br/>    <pre class="codepre"><code class="code">choose [choice t1 (fun () -&gt; `X1);
               choice t2 (fun () -&gt; `X2);
              ]
       &gt;&gt;&gt; function
       | `X1 -&gt; e1
-      | `X2 -&gt; e2
-    </code></pre><br/>    It may be the case that both <code class="code">d1</code> and <code class="code">d2</code> become determined, yet the code
+      | `X2 -&gt; e2</code></pre><br/>    It may be the case that both <code class="code">d1</code> and <code class="code">d2</code> become determined, yet the code
     <code class="code">e2</code> actually runs.</div></div>
 <pre><span class="VALrepeat_until_finished"><span class="keyword">val</span> repeat_until_finished</span> : <code class="type">'state -&gt;
 ('state -&gt; [ `Finished of 'result | `Repeat of 'state ] <a href="?package=async_core&amp;module=Deferred&amp;type=t">t</a>) -&gt; 'result <a href="?package=async_core&amp;module=Deferred&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">repeat_until_finished initial_state f</code> repeatedly runs <code class="code">f</code> until <code class="code">f</code> returns
@@ -93,14 +83,8 @@
 <div class="info"><div class="info">Deferreds form a monad.<br/>    <code class="code">t &gt;&gt;= f</code> returns a deferred t' that waits until t is determined to have
     value v, at which point it waits for f v to become determined with value
     v', to which t' will become determined.<br/>    <code class="code">return v</code> returns a deferred that is immediately determined with value
-    v.<br/>    Note that<br/>    <pre class="codepre"><code class="code">
-      upon t f
-    </code></pre><br/>    is more efficient than<br/>    <pre class="codepre"><code class="code">
-      ignore (t &gt;&gt;= (fun a -&gt; f a; Deferred.unit))
-    </code></pre><br/>    because <code class="code">upon</code>, unlike <code class="code">&gt;&gt;=</code> does not create a deferred to hold the result.<br/>    For example, one can write a loop that has good constant factors with:<br/>    <pre class="codepre"><code class="code">
-      let rec loop () =
-        upon t (fun a -&gt; ... loop () ... )
-    </code></pre><br/>    The same loop written with <code class="code">&gt;&gt;=</code> would allocate deferreds that would be immediately
+    v.<br/>    Note that<br/>    <pre class="codepre"><code class="code">upon t f</code></pre><br/>    is more efficient than<br/>    <pre class="codepre"><code class="code">ignore (t &gt;&gt;= (fun a -&gt; f a; Deferred.unit))</code></pre><br/>    because <code class="code">upon</code>, unlike <code class="code">&gt;&gt;=</code> does not create a deferred to hold the result.<br/>    For example, one can write a loop that has good constant factors with:<br/>    <pre class="codepre"><code class="code">let rec loop () =
+        upon t (fun a -&gt; ... loop () ... )</code></pre><br/>    The same loop written with <code class="code">&gt;&gt;=</code> would allocate deferreds that would be immediately
     garbage collected.  (In the past, this loop would have also used linear space in
     recursion depth!)<br/>    In general, for deferreds that are allocated by <code class="code">&gt;&gt;=</code> to be garbage collected quickly,
     it is sufficient that the allocating bind be executed in tail-call position of the
@@ -125,21 +109,17 @@
     choices supplied to <code class="code">enabled</code>, but of course it may be shorter than the input list if
     not all <code class="code">ti</code> are determined.</div></div>
 <div class="info"><div class="info"><code class="code">choose choices</code> is <code class="code">enabled choices &gt;&gt;| (fun f -&gt; List.hd_exn (f ()))</code>.
-    That is:<br/>    <pre class="codepre"><code class="code">
-      choose [choice t1 f1; ...; choice tn fn]
-    </code></pre><br/>    returns a deferred <code class="code">t</code> that becomes determined with value <code class="code">fi ai</code> after some
+    That is:<br/>    <pre class="codepre"><code class="code">choose [choice t1 f1; ...; choice tn fn]</code></pre><br/>    returns a deferred <code class="code">t</code> that becomes determined with value <code class="code">fi ai</code> after some
     <code class="code">ti</code> becomes determined with value <code class="code">ai</code>.  There is no guarantee that the <code class="code">ti</code>
     that becomes determined earliest in time will be the one whose value
     determines the <code class="code">choose</code>.  Nor is it guaranteed that the value in <code class="code">t</code> is the
     first value (in place order) from <code class="code">choices</code> that is determined at the time <code class="code">t</code>
-    is examined.<br/>    For example, if you write:<br/>    <pre class="codepre"><code class="code">
-      choose [choice t1 (fun () -&gt; `X1);
+    is examined.<br/>    For example, if you write:<br/>    <pre class="codepre"><code class="code">choose [choice t1 (fun () -&gt; `X1);
               choice t2 (fun () -&gt; `X2);
              ]
       &gt;&gt;&gt; function
       | `X1 -&gt; e1
-      | `X2 -&gt; e2
-    </code></pre><br/>    It may be the case that both <code class="code">d1</code> and <code class="code">d2</code> become determined, yet the code
+      | `X2 -&gt; e2</code></pre><br/>    It may be the case that both <code class="code">d1</code> and <code class="code">d2</code> become determined, yet the code
     <code class="code">e2</code> actually runs.</div></div>
 <div class="info"><div class="info"><code class="code">repeat_until_finished initial_state f</code> repeatedly runs <code class="code">f</code> until <code class="code">f</code> returns
     <code class="code">`Finished</code>.  The first call to <code class="code">f</code> happens immediately when <code class="code">repeat_until_finished</code>

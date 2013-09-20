@@ -108,11 +108,9 @@
  is applied to several strings. Create a specialized encoding function
  by passing all arguments up to the unit argument, and apply this
  function several times. For example:
- <pre class="codepre"><code class="code">
-     let my_enc = encode ~in_enc:`Enc_utf8 () in
+ <pre class="codepre"><code class="code">let my_enc = encode ~in_enc:`Enc_utf8 () in
      let s1' = my_enc s1 in
-     let s2' = my_enc s2 in ...
- </code></pre></div></div>
+     let s2' = my_enc s2 in ...</code></pre></div></div>
 <pre><span class="TYPEentity_set"><span class="keyword">type</span> entity_set</span> = <code class="type">[ `Empty | `Html | `Xml ]</code></pre>
 <pre><span class="VALdecode"><span class="keyword">val</span> decode</span> : <code class="type">in_enc:<a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> -&gt;
 out_enc:<a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> -&gt;

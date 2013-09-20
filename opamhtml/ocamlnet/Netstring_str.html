@@ -3,8 +3,7 @@
  not work for multi-threaded programs, because the state of the module
  is visible to the outside. The module <code class="code">Netstring_str</code> is similar to <code class="code">Str</code>,
  but has a thread-compatible interface.<br/> For an explanation why we need this module, please read TODO reference : Regexp.</div>
-<div class="info"><div class="info"><b>Supported regexp syntax</b><br/> <pre class="codepre"><code class="code">
- .             matches every character but newline
+<div class="info"><div class="info"><b>Supported regexp syntax</b><br/> <pre class="codepre"><code class="code">.             matches every character but newline
  e*            matches e several times
  e+            matches e several times but at least once
  e?            matches e optionally
@@ -15,8 +14,7 @@
  \(...\)       group paranthesis
  \n            back reference (n is digit)
  ^             matches at beginning of line
- $             matches at end of line
- </code></pre><br/> This is exactly what <code class="code">Str</code> supports. Character classes
+ $             matches at end of line</code></pre><br/> This is exactly what <code class="code">Str</code> supports. Character classes
  are not implemented.</div></div>
 <pre><span class="TYPEregexp"><span class="keyword">type</span> regexp</span> </pre><div class="info"><div class="info">The type of regular expressions</div></div>
 <pre><span class="TYPEsplit_result"><span class="keyword">type</span> split_result</span> = <code class="type">Str.split_result</code></pre><table class="typetable">

@@ -6,9 +6,7 @@
     completes.<br/>    If the file descriptor underlying a reader is closed, the reader will return EOF
     (after all the buffered bytes have been read).<br/>    Any <code class="code">Reader.read*</code> call could, rather than determine its result, send an exception to
     the monitor in effect when <code class="code">read</code> was called.  Such exceptions can be handled in the
-    usual way by using <code class="code">try_with</code>, e.g.:<br/>    <pre class="codepre"><code class="code">
-      try_with (fun () -&gt; Reader.read reader ...)
-    </code></pre></div>
+    usual way by using <code class="code">try_with</code>, e.g.:<br/>    <pre class="codepre"><code class="code">try_with (fun () -&gt; Reader.read reader ...)</code></pre></div>
 <div class="ocaml_module sig" name="Read_result"><pre><span class="keyword">module</span> <a href="?package=async_unix&amp;module=Reader.Read_result">Read_result</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> = <code class="type">[ `Eof | `Ok of 'a ]</code></pre>
 <div class="ocaml_include ident" items="[&quot;Monad_infix&quot;]"><pre><span class="keyword">include</span> <code class="type"><code class="code">Core.Std.Monad.S</code> with type t := 'a <a href="?package=async_unix&amp;module=Reader.Read_result&amp;type=t">t</a></code></pre></div>

@@ -25,9 +25,7 @@
     the list of arguments to pass.<br/>    Although the arguments do not need to be escaped there is still a risk that
     they might be interpreted as flags when they aren't. Most basic unix
     utilities provide the ability to pass arguments after &quot;--&quot; to avoid this.<br/>    Usage example:
-    <pre class="codepre"><code class="code">
-    let patch = run_full ~expect:[0;1] &quot;diff&quot; [&quot;-u&quot;;&quot;--&quot;;file1;file2]
-    </code></pre></div></div>
+    <pre class="codepre"><code class="code">let patch = run_full ~expect:[0;1] &quot;diff&quot; [&quot;-u&quot;;&quot;--&quot;;file1;file2]</code></pre></div></div>
 <pre><span class="TYPEcmd"><span class="keyword">type</span> <code class="type">'a </code>cmd</span> = <code class="type">string -&gt; string list -&gt; 'a</code></pre>
 <pre><span class="VALrun"><span class="keyword">val</span> run</span> : <code class="type">unit <a href="?package=core_extended&amp;module=Shell&amp;type=cmd">cmd</a> <a href="?package=core_extended&amp;module=Shell&amp;type=with_run_flags">with_run_flags</a></code></pre><div class="info"><div class="info">Runs a command and discards its output.</div></div>
 <pre><span class="VALrun_lines"><span class="keyword">val</span> run_lines</span> : <code class="type">?eol:char -&gt; string list <a href="?package=core_extended&amp;module=Shell&amp;type=cmd">cmd</a> <a href="?package=core_extended&amp;module=Shell&amp;type=with_run_flags">with_run_flags</a></code></pre><div class="info"><div class="info">Runs a command and returns its output line separated. Note: most commands
@@ -49,7 +47,7 @@ f:('a -&gt; string -&gt; 'a * [ `Continue | `Stop ]) -&gt; 'a <a href="?package=
     <code class="code">eol</code> specifies the end of line character used to separate the lines
     outputted by the the program</div></div>
 <div class="info"><div class="info"><div class="h9">Dispatch to /bin/bash</div><br/>    All these function take a format (like printf) and run it through the shell.<br/>    Usage example:
-<pre class="codepre"><code class="code">    sh &quot;cp -- %s %s&quot; (Filename.quote file1)  (Filename.quote file2)</code></pre><br/>    In general it is recommended to avoid using those too much and to prefer the
+<pre class="codepre"><code class="code">sh &quot;cp -- %s %s&quot; (Filename.quote file1)  (Filename.quote file2)</code></pre><br/>    In general it is recommended to avoid using those too much and to prefer the
     run* family of function instead because it avoids pitfall like escaping
     issues and is much more straightforward to think about.</div></div>
 <pre><span class="TYPEsh_cmd"><span class="keyword">type</span> <code class="type">('a, 'ret) </code>sh_cmd</span> = <code class="type">('a, unit, string, 'ret) Pervasives.format4 -&gt; 'a</code></pre>
@@ -67,7 +65,7 @@ f:('a -&gt; string -&gt; 'a * [ `Continue | `Stop ]) -&gt; 'a <a href="?package=
 <pre><span class="VALssh_one"><span class="keyword">val</span> ssh_one</span> : <code class="type">('a, string option) <a href="?package=core_extended&amp;module=Shell&amp;type=sh_cmd">sh_cmd</a> <a href="?package=core_extended&amp;module=Shell&amp;type=with_run_flags">with_run_flags</a> <a href="?package=core_extended&amp;module=Shell&amp;type=with_ssh_flags">with_ssh_flags</a></code></pre>
 <pre><span class="VALssh_one_exn"><span class="keyword">val</span> ssh_one_exn</span> : <code class="type">('a, string) <a href="?package=core_extended&amp;module=Shell&amp;type=sh_cmd">sh_cmd</a> <a href="?package=core_extended&amp;module=Shell&amp;type=with_run_flags">with_run_flags</a> <a href="?package=core_extended&amp;module=Shell&amp;type=with_ssh_flags">with_ssh_flags</a></code></pre>
 <div class="info"><div class="info"><div class="h9">Test dispatches</div><br/>    Usage example:
-<pre class="codepre"><code class="code">    if Shell.test &quot;diff&quot; [&quot;-q&quot;;&quot;--&quot;;file1;file2] then
+<pre class="codepre"><code class="code">if Shell.test &quot;diff&quot; [&quot;-q&quot;;&quot;--&quot;;file1;file2] then
        Printf.printf &quot;Files %S and %S are the same\n%!&quot; file1 file2;</code></pre></div></div>
 <pre><span class="TYPEwith_test_flags"><span class="keyword">type</span> <code class="type">'a </code>with_test_flags</span> = <code class="type">?true_v:int list -&gt; ?false_v:int list -&gt; 'a <a href="?package=core_extended&amp;module=Shell&amp;type=with_process_flags">with_process_flags</a></code></pre><div class="info"><div class="info">This is the list of flags for dispatching processes in test mode. This is
     used to test the return code of the dispatched program. The return value of
