@@ -47,16 +47,16 @@ htmlescape:htmlescape.ml
 ocamltohtml:ocamltohtml_all.ml
 	ocamlopt $< -o $@
 
-md-pages/pkg:pkg-pages
+md-pages/pkg:pkg-pages Makefile
 	make pkg
-md-pages/pkg/docs:opamhtml
+md-pages/pkg/docs:opamhtml Makefile
 	make pkg
 
-pkg:
+pkg:Makefile
 	rm -fr md-pages/pkg/
 	mkdir -p md-pages/pkg/docs/
 	rsync -r pkg-pages/* md-pages/pkg/
-	find md-pages/pkg -iname '*.html' -type f -exec mv {} {}.mpp ';'
+	find md-pages/pkg -iname '*.html' -type f | while read l ; do  mv "$$l" "$$(dirname $$l)/$$(basename $$l html)"md ; done
 	rsync -r opamhtml/* md-pages/pkg/docs/
 	rm -f md-pages/pkg/docs/index.html
 
