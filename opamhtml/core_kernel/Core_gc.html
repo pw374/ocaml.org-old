@@ -30,70 +30,70 @@
 <pre><span class="VALminor_words"><span class="keyword">val</span> minor_words</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float</code></pre>
 <div class="ocaml_module sig" name="Fields"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Core_gc.Stat.Fields">Fields</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALnames"><span class="keyword">val</span> names</span> : <code class="type">string list</code></pre>
-<pre><span class="VALstack_size"><span class="keyword">val</span> stack_size</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALtop_heap_words"><span class="keyword">val</span> top_heap_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALcompactions"><span class="keyword">val</span> compactions</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALfragments"><span class="keyword">val</span> fragments</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALlargest_free"><span class="keyword">val</span> largest_free</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALfree_blocks"><span class="keyword">val</span> free_blocks</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALfree_words"><span class="keyword">val</span> free_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALlive_blocks"><span class="keyword">val</span> live_blocks</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALlive_words"><span class="keyword">val</span> live_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALheap_chunks"><span class="keyword">val</span> heap_chunks</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALheap_words"><span class="keyword">val</span> heap_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALmajor_collections"><span class="keyword">val</span> major_collections</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALminor_collections"><span class="keyword">val</span> minor_collections</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALmajor_words"><span class="keyword">val</span> major_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t</code></pre>
-<pre><span class="VALpromoted_words"><span class="keyword">val</span> promoted_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t</code></pre>
-<pre><span class="VALminor_words"><span class="keyword">val</span> minor_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t</code></pre>
+<pre><span class="VALstack_size"><span class="keyword">val</span> stack_size</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALtop_heap_words"><span class="keyword">val</span> top_heap_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALcompactions"><span class="keyword">val</span> compactions</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALfragments"><span class="keyword">val</span> fragments</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALlargest_free"><span class="keyword">val</span> largest_free</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALfree_blocks"><span class="keyword">val</span> free_blocks</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALfree_words"><span class="keyword">val</span> free_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALlive_blocks"><span class="keyword">val</span> live_blocks</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALlive_words"><span class="keyword">val</span> live_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALheap_chunks"><span class="keyword">val</span> heap_chunks</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALheap_words"><span class="keyword">val</span> heap_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALmajor_collections"><span class="keyword">val</span> major_collections</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALminor_collections"><span class="keyword">val</span> minor_collections</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALmajor_words"><span class="keyword">val</span> major_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALpromoted_words"><span class="keyword">val</span> promoted_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALminor_words"><span class="keyword">val</span> minor_words</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
 <pre><span class="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">init:'acc__ -&gt;
-minor_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-promoted_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-major_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-minor_collections:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-major_collections:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-heap_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-heap_chunks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-live_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-live_blocks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-free_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-free_blocks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-largest_free:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-fragments:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-compactions:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-top_heap_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-stack_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt; 'acc__</code></pre>
-<pre><span class="VALmake_creator"><span class="keyword">val</span> make_creator</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt;
+minor_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+promoted_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+major_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+minor_collections:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+major_collections:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+heap_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+heap_chunks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+live_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+live_blocks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+free_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+free_blocks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+largest_free:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+fragments:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+compactions:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+top_heap_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+stack_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt; 'acc__</code></pre>
+<pre><span class="VALmake_creator"><span class="keyword">val</span> make_creator</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
              'compile_acc__ -&gt; ('input__ -&gt; float) * 'compile_acc__) -&gt;
-promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt;
+promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
                 'compile_acc__ -&gt; ('input__ -&gt; float) * 'compile_acc__) -&gt;
-major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt;
+major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
              'compile_acc__ -&gt; ('input__ -&gt; float) * 'compile_acc__) -&gt;
-minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
                    'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
                    'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
             'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
              'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
             'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
              'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
             'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
              'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
               'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
            'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
              'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
                 'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
             'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
 'compile_acc__ -&gt; ('input__ -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>) * 'compile_acc__</code></pre>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">minor_words:float -&gt;
@@ -109,136 +109,136 @@ free_words:int -&gt;
 free_blocks:int -&gt;
 largest_free:int -&gt;
 fragments:int -&gt; compactions:int -&gt; top_heap_words:int -&gt; stack_size:int -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a></code></pre>
-<pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; float) -&gt;
-promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; float) -&gt;
-major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; float) -&gt;
-minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a></code></pre>
-<pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; unit) -&gt;
-promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; unit) -&gt;
-major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; unit) -&gt;
-minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt; unit</code></pre>
-<pre><span class="VALfor_all"><span class="keyword">val</span> for_all</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; bool) -&gt;
-promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; bool) -&gt;
-major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; bool) -&gt;
-minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt; bool</code></pre>
-<pre><span class="VALexists"><span class="keyword">val</span> exists</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; bool) -&gt;
-promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; bool) -&gt;
-major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; bool) -&gt;
-minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt; bool</code></pre>
-<pre><span class="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt; 'elem__ list</code></pre>
-<pre><span class="VALmap_poly"><span class="keyword">val</span> map_poly</span> : <code class="type">([&lt; `Read | `Set_and_create ], <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, 'x0) Fieldslib.Field.user -&gt; 'x0 list</code></pre>
+<pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; float) -&gt;
+promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; float) -&gt;
+major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; float) -&gt;
+minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a></code></pre>
+<pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt; unit</code></pre>
+<pre><span class="VALfor_all"><span class="keyword">val</span> for_all</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt; bool</code></pre>
+<pre><span class="VALexists"><span class="keyword">val</span> exists</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt; bool</code></pre>
+<pre><span class="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt; 'elem__ list</code></pre>
+<pre><span class="VALmap_poly"><span class="keyword">val</span> map_poly</span> : <code class="type">([&lt; `Read | `Set_and_create ], <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, 'x0) <a href="?package=fieldslib&amp;module=Field&amp;type=user">Fieldslib.Field.user</a> -&gt; 'x0 list</code></pre>
 <div class="ocaml_module sig" name="Direct"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Core_gc.Stat.Fields.Direct">Direct</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt;
-minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; unit) -&gt;
-promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; unit) -&gt;
-major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; unit) -&gt;
-minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt; unit</code></pre>
+minor_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; unit) -&gt;
+promoted_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; unit) -&gt;
+major_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; unit) -&gt;
+minor_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+major_collections:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+heap_chunks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+live_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+live_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+free_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+free_blocks:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+largest_free:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+fragments:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+compactions:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+top_heap_words:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+stack_size:((<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt; unit</code></pre>
 <pre><span class="VALfold"><span class="keyword">val</span> fold</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt;
 init:'acc__ -&gt;
-minor_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; 'acc__) -&gt;
+minor_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; 'acc__) -&gt;
 promoted_words:('acc__ -&gt;
-                (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; 'acc__) -&gt;
-major_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; 'acc__) -&gt;
-minor_collections:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-major_collections:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-heap_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-heap_chunks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-live_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-live_blocks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-free_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-free_blocks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-largest_free:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-fragments:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-compactions:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-top_heap_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-stack_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+                (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; 'acc__) -&gt;
+major_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, float) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; float -&gt; 'acc__) -&gt;
+minor_collections:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+major_collections:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+heap_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+heap_chunks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+live_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+live_blocks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+free_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+free_blocks:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+largest_free:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+fragments:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+compactions:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+top_heap_words:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+stack_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
 'acc__</code></pre></div></div></div></div>
-<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">Sexplib.Sexp.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a></code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
-<pre><span class="VALbin_t"><span class="keyword">val</span> bin_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> Bin_prot.Type_class.t</code></pre>
-<pre><span class="VALbin_read_t"><span class="keyword">val</span> bin_read_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> Bin_prot.Read_ml.reader</code></pre>
-<pre><span class="VALbin_read_t_"><span class="keyword">val</span> bin_read_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> Bin_prot.Unsafe_read_c.reader</code></pre>
-<pre><span class="VALbin_read_t__"><span class="keyword">val</span> bin_read_t__</span> : <code class="type">(int -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>) Bin_prot.Unsafe_read_c.reader</code></pre>
-<pre><span class="VALbin_reader_t"><span class="keyword">val</span> bin_reader_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> Bin_prot.Type_class.reader</code></pre>
-<pre><span class="VALbin_size_t"><span class="keyword">val</span> bin_size_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> Bin_prot.Size.sizer</code></pre>
-<pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> Bin_prot.Write_ml.writer</code></pre>
-<pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> Bin_prot.Unsafe_write_c.writer</code></pre>
-<pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> Bin_prot.Type_class.writer</code></pre></div></div>
+<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a></code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
+<pre><span class="VALbin_t"><span class="keyword">val</span> bin_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=t">Bin_prot.Type_class.t</a></code></pre>
+<pre><span class="VALbin_read_t"><span class="keyword">val</span> bin_read_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Bin_prot.Read_ml.reader</a></code></pre>
+<pre><span class="VALbin_read_t_"><span class="keyword">val</span> bin_read_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a></code></pre>
+<pre><span class="VALbin_read_t__"><span class="keyword">val</span> bin_read_t__</span> : <code class="type">(int -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a>) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a></code></pre>
+<pre><span class="VALbin_reader_t"><span class="keyword">val</span> bin_reader_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a></code></pre>
+<pre><span class="VALbin_size_t"><span class="keyword">val</span> bin_size_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Size&amp;type=sizer">Bin_prot.Size.sizer</a></code></pre>
+<pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Bin_prot.Write_ml.writer</a></code></pre>
+<pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a></code></pre>
+<pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a></code></pre></div></div>
 <pre><span class="TYPEstat"><span class="keyword">type</span> stat</span> = <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Stat&amp;type=t">Stat.t</a></code></pre>
 <div class="info"><div class="info">The memory management counters are returned in a <code class="code">stat</code> record.<br/>   The total amount of memory allocated by the program since it was started
    is (in words) <code class="code">minor_words + major_words - promoted_words</code>.  Multiply by
@@ -287,34 +287,34 @@ stack_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Stat&
 <pre><span class="VALset_minor_heap_size"><span class="keyword">val</span> set_minor_heap_size</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit</code></pre>
 <div class="ocaml_module sig" name="Fields"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Core_gc.Control.Fields">Fields</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALnames"><span class="keyword">val</span> names</span> : <code class="type">string list</code></pre>
-<pre><span class="VALallocation_policy"><span class="keyword">val</span> allocation_policy</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALstack_limit"><span class="keyword">val</span> stack_limit</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALmax_overhead"><span class="keyword">val</span> max_overhead</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALverbose"><span class="keyword">val</span> verbose</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALspace_overhead"><span class="keyword">val</span> space_overhead</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALmajor_heap_increment"><span class="keyword">val</span> major_heap_increment</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
-<pre><span class="VALminor_heap_size"><span class="keyword">val</span> minor_heap_size</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t</code></pre>
+<pre><span class="VALallocation_policy"><span class="keyword">val</span> allocation_policy</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALstack_limit"><span class="keyword">val</span> stack_limit</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALmax_overhead"><span class="keyword">val</span> max_overhead</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALverbose"><span class="keyword">val</span> verbose</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALspace_overhead"><span class="keyword">val</span> space_overhead</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALmajor_heap_increment"><span class="keyword">val</span> major_heap_increment</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
+<pre><span class="VALminor_heap_size"><span class="keyword">val</span> minor_heap_size</span> : <code class="type">(<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a></code></pre>
 <pre><span class="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">init:'acc__ -&gt;
-minor_heap_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-major_heap_increment:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-space_overhead:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-verbose:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-max_overhead:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-stack_limit:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt;
-allocation_policy:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'acc__) -&gt; 'acc__</code></pre>
-<pre><span class="VALmake_creator"><span class="keyword">val</span> make_creator</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+minor_heap_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+major_heap_increment:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+space_overhead:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+verbose:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+max_overhead:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+stack_limit:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt;
+allocation_policy:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'acc__) -&gt; 'acc__</code></pre>
+<pre><span class="VALmake_creator"><span class="keyword">val</span> make_creator</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
                  'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
                       'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
                 'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
          'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
               'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
              'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
-allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt;
+allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt;
                    'compile_acc__ -&gt; ('input__ -&gt; int) * 'compile_acc__) -&gt;
 'compile_acc__ -&gt; ('input__ -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>) * 'compile_acc__</code></pre>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">minor_heap_size:int -&gt;
@@ -322,73 +322,73 @@ major_heap_increment:int -&gt;
 space_overhead:int -&gt;
 verbose:int -&gt;
 max_overhead:int -&gt; stack_limit:int -&gt; allocation_policy:int -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a></code></pre>
-<pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt;
-allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; int) -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a></code></pre>
-<pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt;
-allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; unit) -&gt; unit</code></pre>
-<pre><span class="VALfor_all"><span class="keyword">val</span> for_all</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt; bool</code></pre>
-<pre><span class="VALexists"><span class="keyword">val</span> exists</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt;
-allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; bool) -&gt; bool</code></pre>
-<pre><span class="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt;
-allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; 'elem__) -&gt; 'elem__ list</code></pre>
-<pre><span class="VALmap_poly"><span class="keyword">val</span> map_poly</span> : <code class="type">([&lt; `Read | `Set_and_create ], <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, 'x0) Fieldslib.Field.user -&gt; 'x0 list</code></pre>
+<pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt;
+allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; int) -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a></code></pre>
+<pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt;
+allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; unit) -&gt; unit</code></pre>
+<pre><span class="VALfor_all"><span class="keyword">val</span> for_all</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt; bool</code></pre>
+<pre><span class="VALexists"><span class="keyword">val</span> exists</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt;
+allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; bool) -&gt; bool</code></pre>
+<pre><span class="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt;
+allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; 'elem__) -&gt; 'elem__ list</code></pre>
+<pre><span class="VALmap_poly"><span class="keyword">val</span> map_poly</span> : <code class="type">([&lt; `Read | `Set_and_create ], <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, 'x0) <a href="?package=fieldslib&amp;module=Field&amp;type=user">Fieldslib.Field.user</a> -&gt; 'x0 list</code></pre>
 <div class="ocaml_module sig" name="Direct"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Core_gc.Control.Fields.Direct">Direct</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt;
-minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
-allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt; unit</code></pre>
+minor_heap_size:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+major_heap_increment:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+space_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+verbose:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+max_overhead:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+stack_limit:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt;
+allocation_policy:((<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; unit) -&gt; unit</code></pre>
 <pre><span class="VALfold"><span class="keyword">val</span> fold</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt;
 init:'acc__ -&gt;
-minor_heap_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+minor_heap_size:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
 major_heap_increment:('acc__ -&gt;
-                      (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-space_overhead:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-verbose:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-max_overhead:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-stack_limit:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
-allocation_policy:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) Fieldslib.Field.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+                      (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+space_overhead:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+verbose:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+max_overhead:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+stack_limit:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
+allocation_policy:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>, int) <a href="?package=fieldslib&amp;module=Field&amp;type=t">Fieldslib.Field.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; int -&gt; 'acc__) -&gt;
 'acc__</code></pre></div></div></div></div>
-<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">Sexplib.Sexp.t -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a></code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
-<pre><span class="VALbin_t"><span class="keyword">val</span> bin_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> Bin_prot.Type_class.t</code></pre>
-<pre><span class="VALbin_read_t"><span class="keyword">val</span> bin_read_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> Bin_prot.Read_ml.reader</code></pre>
-<pre><span class="VALbin_read_t_"><span class="keyword">val</span> bin_read_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> Bin_prot.Unsafe_read_c.reader</code></pre>
-<pre><span class="VALbin_read_t__"><span class="keyword">val</span> bin_read_t__</span> : <code class="type">(int -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>) Bin_prot.Unsafe_read_c.reader</code></pre>
-<pre><span class="VALbin_reader_t"><span class="keyword">val</span> bin_reader_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> Bin_prot.Type_class.reader</code></pre>
-<pre><span class="VALbin_size_t"><span class="keyword">val</span> bin_size_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> Bin_prot.Size.sizer</code></pre>
-<pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> Bin_prot.Write_ml.writer</code></pre>
-<pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> Bin_prot.Unsafe_write_c.writer</code></pre>
-<pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> Bin_prot.Type_class.writer</code></pre></div></div>
+<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type"><a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a></code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
+<pre><span class="VALbin_t"><span class="keyword">val</span> bin_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=t">Bin_prot.Type_class.t</a></code></pre>
+<pre><span class="VALbin_read_t"><span class="keyword">val</span> bin_read_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Bin_prot.Read_ml.reader</a></code></pre>
+<pre><span class="VALbin_read_t_"><span class="keyword">val</span> bin_read_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a></code></pre>
+<pre><span class="VALbin_read_t__"><span class="keyword">val</span> bin_read_t__</span> : <code class="type">(int -&gt; <a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a>) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a></code></pre>
+<pre><span class="VALbin_reader_t"><span class="keyword">val</span> bin_reader_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a></code></pre>
+<pre><span class="VALbin_size_t"><span class="keyword">val</span> bin_size_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Size&amp;type=sizer">Bin_prot.Size.sizer</a></code></pre>
+<pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Bin_prot.Write_ml.writer</a></code></pre>
+<pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a></code></pre>
+<pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a></code></pre></div></div>
 <pre><span class="TYPEcontrol"><span class="keyword">type</span> control</span> = <code class="type"><a href="?package=core_kernel&amp;module=Core_gc.Control&amp;type=t">Control.t</a></code></pre>
 <div class="info"><div class="info">The GC parameters are given as a <code class="code">control</code> record.
     Note that these parameters can also be initialised

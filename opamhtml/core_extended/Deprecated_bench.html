@@ -29,7 +29,7 @@
    and when the process is suspended/descheduled; cpu only counts time spent on
    computations.</div></div>
 <pre><span class="TYPEwith_benchmark_flags"><span class="keyword">type</span> <code class="type">'a </code>with_benchmark_flags</span> = <code class="type">?verbosity:[ `High | `Low | `Mid ] -&gt;
-?gc_prefs:Core.Std.Gc.Control.t -&gt;
+?gc_prefs:<a href="?package=core&amp;module=Std.Gc.Control&amp;type=t">Core.Std.Gc.Control.t</a> -&gt;
 ?no_compactions:bool -&gt;
 ?trials:[ `Auto | `Num of int ] -&gt; ?clock:[ `Cpu | `Wall ] -&gt; 'a</code></pre>
 <pre><span class="TYPEcolumn"><span class="keyword">type</span> column</span> = <code class="type">[ `Allocated
@@ -48,7 +48,7 @@
          | `Nanos
          | `Normalized_cycles
          | `Warnings ] list -&gt;
-?display:Textutils.Ascii_table.Display.t -&gt; 'a</code></pre><div class="info"><div class="info">The &quot;Name&quot; and &quot;Input size&quot; columns of the printed table reflect the values passed to
+?display:<a href="?package=textutils&amp;module=Ascii_table.Display&amp;type=t">Textutils.Ascii_table.Display.t</a> -&gt; 'a</code></pre><div class="info"><div class="info">The &quot;Name&quot; and &quot;Input size&quot; columns of the printed table reflect the values passed to
    Test.create.  The &quot;Normalized&quot; column is <code class="code">run_time / input_size</code>.  &quot;Stdev&quot; reports the
    standard deviation for the &quot;Run time&quot; column.  &quot;Allocated&quot; reports the average number
    of allocated words through the benchmarks.<br/>   &quot;Warnings&quot; may contain single characters indicating various things:

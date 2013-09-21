@@ -29,7 +29,7 @@
     their corresponding components of <code class="code">tuple</code>.  This is essentially a blit from <code class="code">tuple</code> to
     <code class="code">t</code>.<br/>    It is required that <code class="code">0 &lt;= i &lt; length t</code>.</div></div>
 <pre><span class="VALset_all_slots"><span class="keyword">val</span> set_all_slots</span> : <code class="type">('tuple, 'a) <a href="?package=core_kernel&amp;module=Flat_array.Slots&amp;type=t">Slots.t</a> <a href="?package=core_kernel&amp;module=Flat_array&amp;type=t">t</a> -&gt; int -&gt; 'tuple -&gt; unit</code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('slots -&gt; Sexplib.Sexp.t) -&gt; 'slots <a href="?package=core_kernel&amp;module=Flat_array&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('slots -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; 'slots <a href="?package=core_kernel&amp;module=Flat_array&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
 <div class="info"><div class="info"><code class="code">create slots ~len init</code> creates an array of flat tuples, whose slots are initialized
     to the slots of <code class="code">init</code>, which is an ordinary OCaml tuple.  <code class="code">create</code> raises if <code class="code">len &lt;
     0</code>.</div></div>

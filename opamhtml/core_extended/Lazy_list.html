@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info"><div class="info">Lazy lists.</div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre>
-<div class="ocaml_include ident" items="[&quot;Monad_infix&quot;]"><pre><span class="keyword">include</span> <code class="type"><code class="code">Core.Std.Monad.S</code> with type t := 'a <a href="?package=core_extended&amp;module=Lazy_list&amp;type=t">t</a></code></pre></div>
+<div class="ocaml_include ident" path="?package=core&amp;module=Std.Monad.S" items="[&quot;Monad_infix&quot;]"><pre><span class="keyword">include</span> <code class="type"><code class="code"><a href="?package=core&amp;module=Std.Monad.S">Core.Std.Monad.S</a></code> with type t := 'a <a href="?package=core_extended&amp;module=Lazy_list&amp;type=t">t</a></code></pre></div>
 <pre><span class="VALempty"><span class="keyword">val</span> empty</span> : <code class="type">unit -&gt; 'a <a href="?package=core_extended&amp;module=Lazy_list&amp;type=t">t</a></code></pre>
 <pre><span class="VALis_empty"><span class="keyword">val</span> is_empty</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Lazy_list&amp;type=t">t</a> -&gt; bool</code></pre>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Lazy_list&amp;type=t">t</a> -&gt; int</code></pre>

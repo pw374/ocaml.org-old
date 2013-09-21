@@ -30,7 +30,7 @@
     it only does this when <code class="code">not (Obj.is_int t.(i))</code>.</div></div>
 <pre><span class="VALtruncate"><span class="keyword">val</span> truncate</span> : <code class="type"><a href="?package=core_kernel&amp;module=Obj_array&amp;type=t">t</a> -&gt; len:int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">truncate t ~len</code> shortens <code class="code">t</code>'s length to <code class="code">len</code>.  It is an error if <code class="code">len &lt;= 0</code> or
     <code class="code">len &gt; length t</code>.</div></div>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Obj_array&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Obj_array&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
 <div class="info"><div class="info"><code class="code">create ~len</code> returns an obj-array of length <code class="code">len</code>, all of whose indices have value
     <code class="code">Obj.repr 0</code>.</div></div>
 <div class="info"><div class="info"><code class="code">copy t</code> returns a new array with the same elements as <code class="code">t</code>.</div></div>

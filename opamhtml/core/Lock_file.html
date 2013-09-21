@@ -41,7 +41,7 @@
 <pre><span class="VALcritical_section"><span class="keyword">val</span> critical_section</span> : <code class="type">?message:string -&gt; string -&gt; f:(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">critical_section ?message path ~f</code> wrap function <code class="code">f</code> (including exceptions escaping
       it) by first locking (using TODO reference : create_exn) and then unlocking the given lock
       file.</div></div>
-<pre><span class="VALget_hostname_and_pid"><span class="keyword">val</span> get_hostname_and_pid</span> : <code class="type">string -&gt; (string * Core_kernel.Std.Pid.t) option</code></pre><div class="info"><div class="info"><code class="code">get_hostname_and_pid path</code> reads the lock file at <code class="code">path</code> and returns the hostname
+<pre><span class="VALget_hostname_and_pid"><span class="keyword">val</span> get_hostname_and_pid</span> : <code class="type">string -&gt; (string * <a href="?package=core_kernel&amp;module=Std.Pid&amp;type=t">Core_kernel.Std.Pid.t</a>) option</code></pre><div class="info"><div class="info"><code class="code">get_hostname_and_pid path</code> reads the lock file at <code class="code">path</code> and returns the hostname
       and path in the file.  Returns <code class="code">None</code> if the file cannot be read.</div></div>
 <pre><span class="VALget_message"><span class="keyword">val</span> get_message</span> : <code class="type">string -&gt; string option</code></pre><div class="info"><div class="info"><code class="code">get_message path</code> reads the lock file at <code class="code">path</code> and returns the message in the
       file.  Returns <code class="code">None</code> if the file cannot be read.</div></div>

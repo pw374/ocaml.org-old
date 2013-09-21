@@ -9,7 +9,7 @@
     for instance, enables you to flush it.</div></div>
 <div class="ocaml_module sig" name="Lru"><pre><span class="keyword">module</span> <a href="?package=core_extended&amp;module=Cache.Lru">Lru</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Least recently used caching</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">('k, 'v) </code>t</span> </pre>
-<pre><span class="TYPEmemo"><span class="keyword">type</span> <code class="type">('a, 'b) </code>memo</span> = <code class="type">('a, ('b, exn) Core.Std.Result.t) <a href="?package=core_extended&amp;module=Cache.Lru&amp;type=t">t</a></code></pre>
+<pre><span class="TYPEmemo"><span class="keyword">type</span> <code class="type">('a, 'b) </code>memo</span> = <code class="type">('a, ('b, exn) <a href="?package=core&amp;module=Std.Result&amp;type=t">Core.Std.Result.t</a>) <a href="?package=core_extended&amp;module=Cache.Lru&amp;type=t">t</a></code></pre>
 <pre><span class="VALfind"><span class="keyword">val</span> find</span> : <code class="type">('k, 'v) <a href="?package=core_extended&amp;module=Cache.Lru&amp;type=t">t</a> -&gt; 'k -&gt; 'v option</code></pre>
 <pre><span class="VALadd"><span class="keyword">val</span> add</span> : <code class="type">('k, 'v) <a href="?package=core_extended&amp;module=Cache.Lru&amp;type=t">t</a> -&gt; key:'k -&gt; data:'v -&gt; unit</code></pre>
 <pre><span class="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">('k, 'a) <a href="?package=core_extended&amp;module=Cache.Lru&amp;type=t">t</a> -&gt; 'k -&gt; unit</code></pre>
@@ -19,7 +19,7 @@
 <pre><span class="VALmemoize"><span class="keyword">val</span> memoize</span> : <code class="type">?destruct:('b -&gt; unit) -&gt; ('a -&gt; 'b) -&gt; int -&gt; ('a, 'b) <a href="?package=core_extended&amp;module=Cache.Lru&amp;type=memo">memo</a> * ('a -&gt; 'b)</code></pre></div></div>
 <div class="ocaml_module sig" name="Keep_all"><pre><span class="keyword">module</span> <a href="?package=core_extended&amp;module=Cache.Keep_all">Keep_all</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Full caching (never flushes out values automatically )</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">('k, 'v) </code>t</span> </pre>
-<pre><span class="TYPEmemo"><span class="keyword">type</span> <code class="type">('a, 'b) </code>memo</span> = <code class="type">('a, ('b, exn) Core.Std.Result.t) <a href="?package=core_extended&amp;module=Cache.Keep_all&amp;type=t">t</a></code></pre>
+<pre><span class="TYPEmemo"><span class="keyword">type</span> <code class="type">('a, 'b) </code>memo</span> = <code class="type">('a, ('b, exn) <a href="?package=core&amp;module=Std.Result&amp;type=t">Core.Std.Result.t</a>) <a href="?package=core_extended&amp;module=Cache.Keep_all&amp;type=t">t</a></code></pre>
 <pre><span class="VALfind"><span class="keyword">val</span> find</span> : <code class="type">('k, 'v) <a href="?package=core_extended&amp;module=Cache.Keep_all&amp;type=t">t</a> -&gt; 'k -&gt; 'v option</code></pre>
 <pre><span class="VALadd"><span class="keyword">val</span> add</span> : <code class="type">('k, 'v) <a href="?package=core_extended&amp;module=Cache.Keep_all&amp;type=t">t</a> -&gt; key:'k -&gt; data:'v -&gt; unit</code></pre>
 <pre><span class="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">('k, 'a) <a href="?package=core_extended&amp;module=Cache.Keep_all&amp;type=t">t</a> -&gt; 'k -&gt; unit</code></pre>
@@ -62,7 +62,7 @@
       this type will be:<br/><pre class="codepre"><code class="code">
    type 'a with_init_args = int -&gt; 'a
 </code></pre></div></div>
-<pre><span class="TYPEmemo"><span class="keyword">type</span> <code class="type">('a, 'b) </code>memo</span> = <code class="type">('a, ('b, exn) Core.Std.Result.t) <a href="?package=core_extended&amp;module=Cache.S&amp;type=t">t</a></code></pre>
+<pre><span class="TYPEmemo"><span class="keyword">type</span> <code class="type">('a, 'b) </code>memo</span> = <code class="type">('a, ('b, exn) <a href="?package=core&amp;module=Std.Result&amp;type=t">Core.Std.Result.t</a>) <a href="?package=core_extended&amp;module=Cache.S&amp;type=t">t</a></code></pre>
 <pre><span class="VALfind"><span class="keyword">val</span> find</span> : <code class="type">('k, 'v) <a href="?package=core_extended&amp;module=Cache.S&amp;type=t">t</a> -&gt; 'k -&gt; 'v option</code></pre>
 <pre><span class="VALadd"><span class="keyword">val</span> add</span> : <code class="type">('k, 'v) <a href="?package=core_extended&amp;module=Cache.S&amp;type=t">t</a> -&gt; key:'k -&gt; data:'v -&gt; unit</code></pre>
 <pre><span class="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">('k, 'a) <a href="?package=core_extended&amp;module=Cache.S&amp;type=t">t</a> -&gt; 'k -&gt; unit</code></pre>

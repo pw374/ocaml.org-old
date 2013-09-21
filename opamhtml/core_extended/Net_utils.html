@@ -7,10 +7,10 @@
 <pre><span class="VALport_of_sockaddr"><span class="keyword">val</span> port_of_sockaddr</span> : <code class="type">Unix.sockaddr -&gt; int</code></pre><div class="info"><div class="info">Get port from sockaddr</div></div>
 <pre><span class="VALport_of_in_channel"><span class="keyword">val</span> port_of_in_channel</span> : <code class="type">Pervasives.in_channel -&gt; int</code></pre><div class="info"><div class="info">Get port from a socket associated with an <code class="code">in_channel</code></div></div>
 <pre><span class="VALtcp_socket"><span class="keyword">val</span> tcp_socket</span> : <code class="type">unit -&gt; Unix.file_descr</code></pre><div class="info"><div class="info">Create a standard TCP/IP-socket</div></div>
-<pre><span class="VALconnect_tmout"><span class="keyword">val</span> connect_tmout</span> : <code class="type">Unix.file_descr -&gt; Unix.sockaddr -&gt; Core.Std.Unix.select_timeout -&gt; bool</code></pre><div class="info"><div class="info">Connect a socket with a connect timeout</div></div>
-<pre><span class="VALopen_fd_connection_tmout"><span class="keyword">val</span> open_fd_connection_tmout</span> : <code class="type">con_timeout:Core.Std.Unix.select_timeout -&gt;
+<pre><span class="VALconnect_tmout"><span class="keyword">val</span> connect_tmout</span> : <code class="type">Unix.file_descr -&gt; Unix.sockaddr -&gt; <a href="?package=core&amp;module=Std.Unix&amp;type=select_timeout">Core.Std.Unix.select_timeout</a> -&gt; bool</code></pre><div class="info"><div class="info">Connect a socket with a connect timeout</div></div>
+<pre><span class="VALopen_fd_connection_tmout"><span class="keyword">val</span> open_fd_connection_tmout</span> : <code class="type">con_timeout:<a href="?package=core&amp;module=Std.Unix&amp;type=select_timeout">Core.Std.Unix.select_timeout</a> -&gt;
 rcv_timeout:float -&gt; snd_timeout:float -&gt; Unix.sockaddr -&gt; Unix.file_descr</code></pre><div class="info"><div class="info">Create a socket with timeouts</div></div>
-<pre><span class="VALopen_connection_tmout"><span class="keyword">val</span> open_connection_tmout</span> : <code class="type">con_timeout:Core.Std.Unix.select_timeout -&gt;
+<pre><span class="VALopen_connection_tmout"><span class="keyword">val</span> open_connection_tmout</span> : <code class="type">con_timeout:<a href="?package=core&amp;module=Std.Unix&amp;type=select_timeout">Core.Std.Unix.select_timeout</a> -&gt;
 rcv_timeout:float -&gt;
 snd_timeout:float -&gt;
 Unix.sockaddr -&gt; Pervasives.in_channel * Pervasives.out_channel</code></pre><div class="info"><div class="info">Open a connection with timeouts</div></div>

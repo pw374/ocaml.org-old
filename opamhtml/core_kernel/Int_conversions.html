@@ -19,7 +19,7 @@
 <pre><span class="VALnativeint_to_int64"><span class="keyword">val</span> nativeint_to_int64</span> : <code class="type">nativeint -&gt; int64</code></pre>
 <div class="ocaml_module sig" name="Make"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Int_conversions.Make">Make</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">I</code><code class="code"> : </code><code class="code">sig</code> .. <code class="code">end</code><code class="code">) -&gt; </code><code class="code">sig</code> .. <code class="code">end</code></div></code></pre><div class="ocaml_module_content">
 <pre><span class="VALto_string_hum"><span class="keyword">val</span> to_string_hum</span> : <code class="type">?delimiter:char -&gt; I.t -&gt; string</code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">I.t -&gt; Sexplib.Sexp.t</code></pre></div></div>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">I.t -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre></div></div>
 <pre><span class="VALsexp_of_int_style"><span class="keyword">val</span> sexp_of_int_style</span> : <code class="type">[ `No_underscores | `Underscores ] Pervasives.ref</code></pre>
 <pre><span class="VALinsert_delimiter"><span class="keyword">val</span> insert_delimiter</span> : <code class="type">string -&gt; delimiter:char -&gt; string</code></pre>
 <pre><span class="VALinsert_underscores"><span class="keyword">val</span> insert_underscores</span> : <code class="type">string -&gt; string</code></pre>

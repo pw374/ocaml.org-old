@@ -7,7 +7,7 @@
 connection_state:'s -&gt;
 ?max_message_size:int -&gt;
 <a href="?package=async_extra&amp;module=Import.Reader&amp;type=t">Import.Reader.t</a> -&gt;
-<a href="?package=async_extra&amp;module=Import.Writer&amp;type=t">Import.Writer.t</a> -&gt; (<a href="?package=async_extra&amp;module=Rpc_intf.Connection&amp;type=t">t</a>, Core.Std.Exn.t) Core.Std.Result.t <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info">Initiate an Rpc connection on the given reader/writer pair.  <code class="code">server</code> should be the
+<a href="?package=async_extra&amp;module=Import.Writer&amp;type=t">Import.Writer.t</a> -&gt; (<a href="?package=async_extra&amp;module=Rpc_intf.Connection&amp;type=t">t</a>, <a href="?package=core&amp;module=Std.Exn&amp;type=t">Core.Std.Exn.t</a>) <a href="?package=core&amp;module=Std.Result&amp;type=t">Core.Std.Result.t</a> <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info">Initiate an Rpc connection on the given reader/writer pair.  <code class="code">server</code> should be the
       bag of implementations that the calling side implements; it defaults to
       <code class="code">Implementations.null</code> (i.e., &quot;I implement no RPCs&quot;).</div></div>
 <pre><span class="VALclose"><span class="keyword">val</span> close</span> : <code class="type"><a href="?package=async_extra&amp;module=Rpc_intf.Connection&amp;type=t">t</a> -&gt; unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre>
@@ -19,7 +19,7 @@ connection_state:'s -&gt;
 <a href="?package=async_extra&amp;module=Import.Reader&amp;type=t">Import.Reader.t</a> -&gt;
 <a href="?package=async_extra&amp;module=Import.Writer&amp;type=t">Import.Writer.t</a> -&gt;
 dispatch_queries:(<a href="?package=async_extra&amp;module=Rpc_intf.Connection&amp;type=t">t</a> -&gt; 'a <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a>) -&gt;
-on_handshake_error:[ `Call of Core.Std.Exn.t -&gt; 'a <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a> | `Raise ] -&gt;
+on_handshake_error:[ `Call of <a href="?package=core&amp;module=Std.Exn&amp;type=t">Core.Std.Exn.t</a> -&gt; 'a <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a> | `Raise ] -&gt;
 'a <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">with_close</code> tries to create a <code class="code">t</code> using the given reader and writer.  If a
       handshake error is the result, it calls <code class="code">on_handshake_error</code>, for which the default
       behavior is to raise an exception.  If no error results, <code class="code">dispatch_queries</code> is
@@ -32,7 +32,7 @@ on_handshake_error:[ `Call of Core.Std.Exn.t -&gt; 'a <a href="?package=async_ex
 <a href="?package=async_extra&amp;module=Import.Writer&amp;type=t">Import.Writer.t</a> -&gt;
 implementations:'s <a href="?package=async_extra&amp;module=Rpc_intf.Connection.Implementations&amp;type=t">Implementations.t</a> -&gt;
 connection_state:'s -&gt;
-on_handshake_error:[ `Call of Core.Std.Exn.t -&gt; unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a>
+on_handshake_error:[ `Call of <a href="?package=core&amp;module=Std.Exn&amp;type=t">Core.Std.Exn.t</a> -&gt; unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a>
                    | `Ignore
                    | `Raise ] -&gt;
 unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre>
@@ -40,7 +40,7 @@ unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import
 initial_connection_state:(([&lt; <a href="?package=async_extra&amp;module=Import.Socket.Address&amp;type=t">Import.Socket.Address.t</a> ] as 'a) -&gt; 's) -&gt;
 where_to_listen:('a, 'listening_on) <a href="?package=async_extra&amp;module=Tcp.Where_to_listen&amp;type=t">Tcp.Where_to_listen.t</a> -&gt;
 ?auth:('a -&gt; bool) -&gt;
-?on_handshake_error:[ `Call of Core.Std.Exn.t -&gt; unit | `Ignore | `Raise ] -&gt;
+?on_handshake_error:[ `Call of <a href="?package=core&amp;module=Std.Exn&amp;type=t">Core.Std.Exn.t</a> -&gt; unit | `Ignore | `Raise ] -&gt;
 unit -&gt; ('a, 'listening_on) <a href="?package=async_extra&amp;module=Tcp.Server&amp;type=t">Tcp.Server.t</a> <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">serve implementations ~port ?on_handshake_error ()</code> starts a server with the given
       implementation on <code class="code">port</code>.  The optional auth function will be called on all incoming
       connections with the address info of the client and will disconnect the client
@@ -54,14 +54,14 @@ unit -&gt; ('a, 'listening_on) <a href="?package=async_extra&amp;module=Tcp.Serv
 <pre><span class="VALclient"><span class="keyword">val</span> client</span> : <code class="type">host:string -&gt;
 port:int -&gt;
 ?implementations:'a <a href="?package=async_extra&amp;module=Rpc_intf.Connection.Client_implementations&amp;type=t">Client_implementations.t</a> -&gt;
-unit -&gt; (<a href="?package=async_extra&amp;module=Rpc_intf.Connection&amp;type=t">t</a>, Core.Std.Exn.t) Core.Std.Result.t <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">client ~host ~port ()</code> connects to the server at (<code class="code">host</code>,<code class="code">port</code>) and returns the
+unit -&gt; (<a href="?package=async_extra&amp;module=Rpc_intf.Connection&amp;type=t">t</a>, <a href="?package=core&amp;module=Std.Exn&amp;type=t">Core.Std.Exn.t</a>) <a href="?package=core&amp;module=Std.Result&amp;type=t">Core.Std.Result.t</a> <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">client ~host ~port ()</code> connects to the server at (<code class="code">host</code>,<code class="code">port</code>) and returns the
       connection or an Error if a connection could not be made.  It is the responsibility
       of the caller to eventually call close.</div></div>
 <pre><span class="VALwith_client"><span class="keyword">val</span> with_client</span> : <code class="type">host:string -&gt;
 port:int -&gt;
 ?implementations:'b <a href="?package=async_extra&amp;module=Rpc_intf.Connection.Client_implementations&amp;type=t">Client_implementations.t</a> -&gt;
 (<a href="?package=async_extra&amp;module=Rpc_intf.Connection&amp;type=t">t</a> -&gt; 'a <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a>) -&gt;
-('a, Core.Std.Exn.t) Core.Std.Result.t <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">with_client ~host ~port f</code> connects to the server at (<code class="code">host</code>,<code class="code">port</code>) and runs f
+('a, <a href="?package=core&amp;module=Std.Exn&amp;type=t">Core.Std.Exn.t</a>) <a href="?package=core&amp;module=Std.Result&amp;type=t">Core.Std.Result.t</a> <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">with_client ~host ~port f</code> connects to the server at (<code class="code">host</code>,<code class="code">port</code>) and runs f
       until an exception is thrown or until the returned Deferred is fulfilled.</div></div></div></div>
 
 <div class="info"><div class="info">Initiate an Rpc connection on the given reader/writer pair.  <code class="code">server</code> should be the

@@ -8,7 +8,7 @@
 <pre><span class="VALreraisef"><span class="keyword">val</span> reraisef</span> : <code class="type"><a href="?package=core_kernel&amp;module=Exn&amp;type=t">t</a> -&gt; ('a, unit, string, unit -&gt; 'b) Pervasives.format4 -&gt; 'a</code></pre>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="?package=core_kernel&amp;module=Exn&amp;type=t">t</a> -&gt; string</code></pre>
 <pre><span class="VALto_string_mach"><span class="keyword">val</span> to_string_mach</span> : <code class="type"><a href="?package=core_kernel&amp;module=Exn&amp;type=t">t</a> -&gt; string</code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Exn&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Exn&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
 <pre><span class="VALprotectx"><span class="keyword">val</span> protectx</span> : <code class="type">f:('a -&gt; 'b) -&gt; 'a -&gt; finally:('a -&gt; unit) -&gt; 'b</code></pre><div class="info"><div class="info">Executes <code class="code">f</code> and afterwards executes <code class="code">finally</code>, whether <code class="code">f</code> throws an exception or
     not.</div></div>
 <pre><span class="VALprotect"><span class="keyword">val</span> protect</span> : <code class="type">f:(unit -&gt; 'a) -&gt; finally:(unit -&gt; unit) -&gt; 'a</code></pre>
@@ -19,7 +19,7 @@
     type in this case</div></div>
 <pre><span class="VALreraise_uncaught"><span class="keyword">val</span> reraise_uncaught</span> : <code class="type">string -&gt; (unit -&gt; 'a) -&gt; 'a</code></pre>
 <pre><span class="VALbacktrace"><span class="keyword">val</span> backtrace</span> : <code class="type">unit -&gt; string</code></pre><div class="info"><div class="info"><code class="code">Printexc.get_backtrace</code></div></div>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Exn&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="?package=core_kernel&amp;module=Exn&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
 <div class="info"><div class="info">Raised when finalization after an exception failed, too.
     The first exception argument is the one raised by the initial
     function, the second exception the one raised by the finalizer.</div></div>

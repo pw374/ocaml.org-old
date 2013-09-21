@@ -12,7 +12,7 @@
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre>
 <pre><span class="VALvalue"><span class="keyword">val</span> value</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Doubly_linked.Elt&amp;type=t">t</a> -&gt; 'a</code></pre>
 <pre><span class="VALequal"><span class="keyword">val</span> equal</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Doubly_linked.Elt&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Doubly_linked.Elt&amp;type=t">t</a> -&gt; bool</code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; Sexplib.Sexp.t) -&gt; 'a <a href="?package=core_kernel&amp;module=Doubly_linked.Elt&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre></div></div>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; 'a <a href="?package=core_kernel&amp;module=Doubly_linked.Elt&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre>
 <div class="ocaml_include ident" path="?package=core_kernel&amp;module=Container.S1" items="[]"><pre><span class="keyword">include</span> <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Container.S1">Container.S1</a></code> with type t := 'a <a href="?package=core_kernel&amp;module=Doubly_linked&amp;type=t">t</a></code></pre></div>
 <pre><span class="VALinvariant"><span class="keyword">val</span> invariant</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Doubly_linked&amp;type=t">t</a> -&gt; unit</code></pre>
@@ -60,8 +60,8 @@
     will be traversed.  Elements deleted after the element currently being visited will
     not be traversed.  Deleting the element currently visited is an error that is not
     detected (presumably leading to an infinite loop) .</div></div>
-<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">(Sexplib.Sexp.t -&gt; 'a) -&gt; Sexplib.Sexp.t -&gt; 'a <a href="?package=core_kernel&amp;module=Doubly_linked&amp;type=t">t</a></code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; Sexplib.Sexp.t) -&gt; 'a <a href="?package=core_kernel&amp;module=Doubly_linked&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
+<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">(<a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; 'a) -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Doubly_linked&amp;type=t">t</a></code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; 'a <a href="?package=core_kernel&amp;module=Doubly_linked&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
 <div class="info"><div class="info">creating doubly-linked lists</div></div>
 <div class="info"><div class="info"><code class="code">of_list l</code> returns a doubly-linked list <code class="code">t</code> with the same elements as <code class="code">l</code> and in the
     same order (i.e. the first element of <code class="code">l</code> is the first element of <code class="code">t</code>).  It is always

@@ -45,58 +45,58 @@ ok:('ok1 -&gt; 'ok2 -&gt; 'ok3) -&gt; err:('err -&gt; 'err -&gt; 'err) -&gt; ('o
 <div class="ocaml_module sig" name="V1"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Result.Stable.V1">V1</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code> with type <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> = ('a, 'b) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">('a, 'b) </code>t</span> </pre>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type">('a -&gt; 'a -&gt; int) -&gt; ('b -&gt; 'b -&gt; int) -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> -&gt; int</code></pre>
-<pre><span class="VALbin_t"><span class="keyword">val</span> bin_t</span> : <code class="type">'a Bin_prot.Type_class.t -&gt;
-'b Bin_prot.Type_class.t -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> Bin_prot.Type_class.t</code></pre>
-<pre><span class="VALbin_read_t"><span class="keyword">val</span> bin_read_t</span> : <code class="type">'a Bin_prot.Unsafe_read_c.reader -&gt;
-'b Bin_prot.Unsafe_read_c.reader -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> Bin_prot.Read_ml.reader</code></pre>
-<pre><span class="VALbin_read_t_"><span class="keyword">val</span> bin_read_t_</span> : <code class="type">'a Bin_prot.Unsafe_read_c.reader -&gt;
-'b Bin_prot.Unsafe_read_c.reader -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> Bin_prot.Unsafe_read_c.reader</code></pre>
-<pre><span class="VALbin_read_t__"><span class="keyword">val</span> bin_read_t__</span> : <code class="type">'a Bin_prot.Unsafe_read_c.reader -&gt;
-'b Bin_prot.Unsafe_read_c.reader -&gt;
-(int -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a>) Bin_prot.Unsafe_read_c.reader</code></pre>
-<pre><span class="VALbin_reader_t"><span class="keyword">val</span> bin_reader_t</span> : <code class="type">'a Bin_prot.Type_class.reader -&gt;
-'b Bin_prot.Type_class.reader -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> Bin_prot.Type_class.reader</code></pre>
-<pre><span class="VALbin_size_t"><span class="keyword">val</span> bin_size_t</span> : <code class="type">'a Bin_prot.Size.sizer -&gt;
-'b Bin_prot.Size.sizer -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> Bin_prot.Size.sizer</code></pre>
-<pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type">'a Bin_prot.Unsafe_write_c.writer -&gt;
-'b Bin_prot.Unsafe_write_c.writer -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> Bin_prot.Write_ml.writer</code></pre>
-<pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type">'a Bin_prot.Unsafe_write_c.writer -&gt;
-'b Bin_prot.Unsafe_write_c.writer -&gt;
-('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> Bin_prot.Unsafe_write_c.writer</code></pre>
-<pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type">'a Bin_prot.Type_class.writer -&gt;
-'b Bin_prot.Type_class.writer -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> Bin_prot.Type_class.writer</code></pre>
-<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">(Sexplib.Sexp.t -&gt; 'a) -&gt;
-(Sexplib.Sexp.t -&gt; 'b) -&gt; Sexplib.Sexp.t -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a></code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; Sexplib.Sexp.t) -&gt;
-('b -&gt; Sexplib.Sexp.t) -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre></div></div>
+<pre><span class="VALbin_t"><span class="keyword">val</span> bin_t</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Type_class&amp;type=t">Bin_prot.Type_class.t</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Type_class&amp;type=t">Bin_prot.Type_class.t</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=t">Bin_prot.Type_class.t</a></code></pre>
+<pre><span class="VALbin_read_t"><span class="keyword">val</span> bin_read_t</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Bin_prot.Read_ml.reader</a></code></pre>
+<pre><span class="VALbin_read_t_"><span class="keyword">val</span> bin_read_t_</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a></code></pre>
+<pre><span class="VALbin_read_t__"><span class="keyword">val</span> bin_read_t__</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+(int -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a>) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a></code></pre>
+<pre><span class="VALbin_reader_t"><span class="keyword">val</span> bin_reader_t</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a></code></pre>
+<pre><span class="VALbin_size_t"><span class="keyword">val</span> bin_size_t</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Size&amp;type=sizer">Bin_prot.Size.sizer</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Size&amp;type=sizer">Bin_prot.Size.sizer</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Size&amp;type=sizer">Bin_prot.Size.sizer</a></code></pre>
+<pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Bin_prot.Write_ml.writer</a></code></pre>
+<pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt;
+('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a></code></pre>
+<pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a> -&gt;
+'b <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a></code></pre>
+<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">(<a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; 'a) -&gt;
+(<a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; 'b) -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a></code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt;
+('b -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; ('a, 'b) <a href="?package=core_kernel&amp;module=Result.Stable.V1&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre></div></div>
 <div class="ocaml_module ident" name="V1_stable_unit_test" path="?package=core_kernel&amp;module=Stable_unit_test_intf.Arg"><pre><span class="keyword">module</span> <a href="?package=core_kernel&amp;module=Result.Stable.V1_stable_unit_test">V1_stable_unit_test</a> : <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Stable_unit_test_intf.Arg">Stable_unit_test_intf.Arg</a></code></code></pre></div></div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type">('ok -&gt; 'ok -&gt; int) -&gt;
 ('err -&gt; 'err -&gt; int) -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> -&gt; int</code></pre>
-<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">(Sexplib.Sexp.t -&gt; 'ok) -&gt;
-(Sexplib.Sexp.t -&gt; 'err) -&gt; Sexplib.Sexp.t -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a></code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('ok -&gt; Sexplib.Sexp.t) -&gt;
-('err -&gt; Sexplib.Sexp.t) -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
-<pre><span class="VALbin_t"><span class="keyword">val</span> bin_t</span> : <code class="type">'ok Bin_prot.Type_class.t -&gt;
-'err Bin_prot.Type_class.t -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> Bin_prot.Type_class.t</code></pre>
-<pre><span class="VALbin_read_t"><span class="keyword">val</span> bin_read_t</span> : <code class="type">'ok Bin_prot.Unsafe_read_c.reader -&gt;
-'err Bin_prot.Unsafe_read_c.reader -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> Bin_prot.Read_ml.reader</code></pre>
-<pre><span class="VALbin_read_t_"><span class="keyword">val</span> bin_read_t_</span> : <code class="type">'ok Bin_prot.Unsafe_read_c.reader -&gt;
-'err Bin_prot.Unsafe_read_c.reader -&gt;
-('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> Bin_prot.Unsafe_read_c.reader</code></pre>
-<pre><span class="VALbin_read_t__"><span class="keyword">val</span> bin_read_t__</span> : <code class="type">'ok Bin_prot.Unsafe_read_c.reader -&gt;
-'err Bin_prot.Unsafe_read_c.reader -&gt;
-(int -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a>) Bin_prot.Unsafe_read_c.reader</code></pre>
-<pre><span class="VALbin_reader_t"><span class="keyword">val</span> bin_reader_t</span> : <code class="type">'ok Bin_prot.Type_class.reader -&gt;
-'err Bin_prot.Type_class.reader -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> Bin_prot.Type_class.reader</code></pre>
-<pre><span class="VALbin_size_t"><span class="keyword">val</span> bin_size_t</span> : <code class="type">'ok Bin_prot.Size.sizer -&gt;
-'err Bin_prot.Size.sizer -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> Bin_prot.Size.sizer</code></pre>
-<pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type">'ok Bin_prot.Unsafe_write_c.writer -&gt;
-'err Bin_prot.Unsafe_write_c.writer -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> Bin_prot.Write_ml.writer</code></pre>
-<pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type">'ok Bin_prot.Unsafe_write_c.writer -&gt;
-'err Bin_prot.Unsafe_write_c.writer -&gt;
-('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> Bin_prot.Unsafe_write_c.writer</code></pre>
-<pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type">'ok Bin_prot.Type_class.writer -&gt;
-'err Bin_prot.Type_class.writer -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> Bin_prot.Type_class.writer</code></pre>
+<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">(<a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; 'ok) -&gt;
+(<a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; 'err) -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a></code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('ok -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt;
+('err -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
+<pre><span class="VALbin_t"><span class="keyword">val</span> bin_t</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Type_class&amp;type=t">Bin_prot.Type_class.t</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Type_class&amp;type=t">Bin_prot.Type_class.t</a> -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=t">Bin_prot.Type_class.t</a></code></pre>
+<pre><span class="VALbin_read_t"><span class="keyword">val</span> bin_read_t</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Bin_prot.Read_ml.reader</a></code></pre>
+<pre><span class="VALbin_read_t_"><span class="keyword">val</span> bin_read_t_</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a></code></pre>
+<pre><span class="VALbin_read_t__"><span class="keyword">val</span> bin_read_t__</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a> -&gt;
+(int -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a>) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Bin_prot.Unsafe_read_c.reader</a></code></pre>
+<pre><span class="VALbin_reader_t"><span class="keyword">val</span> bin_reader_t</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a> -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a></code></pre>
+<pre><span class="VALbin_size_t"><span class="keyword">val</span> bin_size_t</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Size&amp;type=sizer">Bin_prot.Size.sizer</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Size&amp;type=sizer">Bin_prot.Size.sizer</a> -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Size&amp;type=sizer">Bin_prot.Size.sizer</a></code></pre>
+<pre><span class="VALbin_write_t"><span class="keyword">val</span> bin_write_t</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Bin_prot.Write_ml.writer</a></code></pre>
+<pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt;
+('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a></code></pre>
+<pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type">'ok <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a> -&gt;
+'err <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a> -&gt; ('ok, 'err) <a href="?package=core_kernel&amp;module=Result&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a></code></pre>
 <div class="info"><div class="info">e.g. <code class="code">failf &quot;Couldn't find bloogle %s&quot; (Bloogle.to_string b)</code></div></div>
 <div class="info"><div class="info"><code class="code">ok_fst</code> is useful with <code class="code">List.partition_map</code>.  Continuing the above example:
 <pre class="codepre"><code class="code">

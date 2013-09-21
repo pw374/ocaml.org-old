@@ -20,7 +20,7 @@
 | `Not_enough_data of 'partial_unpack * int
 | `Ok of 'value * int ]</code></pre>
 <pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">('a, 'partial_unpack) <a href="?package=core_kernel&amp;module=Unpack_buffer.Unpack_one&amp;type=t">t</a> -&gt; f:('a -&gt; 'b) -&gt; ('b, 'partial_unpack) <a href="?package=core_kernel&amp;module=Unpack_buffer.Unpack_one&amp;type=t">t</a></code></pre>
-<pre><span class="VALcreate_bin_prot"><span class="keyword">val</span> create_bin_prot</span> : <code class="type">'a Bin_prot.Type_class.reader -&gt; ('a, unit) <a href="?package=core_kernel&amp;module=Unpack_buffer.Unpack_one&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create_bin_prot reader</code> returns an unpacker that reads the &quot;size-prefixed&quot; bin_prot
+<pre><span class="VALcreate_bin_prot"><span class="keyword">val</span> create_bin_prot</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a> -&gt; ('a, unit) <a href="?package=core_kernel&amp;module=Unpack_buffer.Unpack_one&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create_bin_prot reader</code> returns an unpacker that reads the &quot;size-prefixed&quot; bin_prot
       encoding, in which a value is encoded by first writing the length of the bin_prot
       data as a 64-bit int, and then writing the data itself.  This encoding makes it
       trivial to know if enough data is available in the buffer, so there is no need to
@@ -34,7 +34,7 @@
 <pre><span class="VALinvariant"><span class="keyword">val</span> invariant</span> : <code class="type">('a, 'b) <a href="?package=core_kernel&amp;module=Unpack_buffer&amp;type=t">t</a> -&gt; unit</code></pre>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?partial_unpack:'partial_unpack -&gt;
 ('value, 'partial_unpack) <a href="?package=core_kernel&amp;module=Unpack_buffer.Unpack_one&amp;type=t">Unpack_one.t</a> -&gt; ('value, 'partial_unpack) <a href="?package=core_kernel&amp;module=Unpack_buffer&amp;type=t">t</a></code></pre>
-<pre><span class="VALcreate_bin_prot"><span class="keyword">val</span> create_bin_prot</span> : <code class="type">'a Bin_prot.Type_class.reader -&gt; ('a, unit) <a href="?package=core_kernel&amp;module=Unpack_buffer&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create_bin_prot reader</code> returns an unpack buffer that unpacks the &quot;size-prefixed&quot;
+<pre><span class="VALcreate_bin_prot"><span class="keyword">val</span> create_bin_prot</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Type_class&amp;type=reader">Bin_prot.Type_class.reader</a> -&gt; ('a, unit) <a href="?package=core_kernel&amp;module=Unpack_buffer&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create_bin_prot reader</code> returns an unpack buffer that unpacks the &quot;size-prefixed&quot;
     bin_prot encoding, in which a value is encoded by first writing the length of the
     bin_prot data as a 64-bit int, and then writing the bin_prot data itself.  This
     encoding makes it trivial to know if enough data is available in the buffer, so there
@@ -51,9 +51,9 @@
     error.  I.e. no more data can be fed to or unpacked from <code class="code">t</code>.</div></div>
 <pre><span class="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info"><code class="code">debug</code> controls whether invariants are checked at each call.  Setting this to <code class="code">true</code>
     can make things very slow.</div></div>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('value -&gt; Sexplib.Sexp.t) -&gt;
-('partial_unpack -&gt; Sexplib.Sexp.t) -&gt;
-('value, 'partial_unpack) <a href="?package=core_kernel&amp;module=Unpack_buffer&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('value -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt;
+('partial_unpack -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt;
+('value, 'partial_unpack) <a href="?package=core_kernel&amp;module=Unpack_buffer&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
 <div class="info"><div class="info"><code class="code">create_bin_prot reader</code> returns an unpack buffer that unpacks the &quot;size-prefixed&quot;
     bin_prot encoding, in which a value is encoded by first writing the length of the
     bin_prot data as a 64-bit int, and then writing the bin_prot data itself.  This

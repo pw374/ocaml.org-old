@@ -35,8 +35,8 @@
     <code class="code">t</code>.  Elements added by <code class="code">f</code> may or may not be visited, elements removed by <code class="code">f</code> that
     have not been visited will not be visited.  It is an (undetected) error to delete the
     current element.</div></div>
-<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">(Sexplib.Sexp.t -&gt; 'a) -&gt; Sexplib.Sexp.t -&gt; 'a <a href="?package=core_kernel&amp;module=Bag&amp;type=t">t</a></code></pre>
-<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; Sexplib.Sexp.t) -&gt; 'a <a href="?package=core_kernel&amp;module=Bag&amp;type=t">t</a> -&gt; Sexplib.Sexp.t</code></pre>
+<pre><span class="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">(<a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; 'a) -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Bag&amp;type=t">t</a></code></pre>
+<pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; 'a <a href="?package=core_kernel&amp;module=Bag&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
 <div class="info"><div class="info"><code class="code">create ()</code> returns an empty bag.</div></div>
 <div class="info"><div class="info"><code class="code">add t v</code> adds <code class="code">v</code> to the bag <code class="code">t</code>, returning an element that can
     later be removed from the bag.  <code class="code">add</code> runs in constant time.</div></div>

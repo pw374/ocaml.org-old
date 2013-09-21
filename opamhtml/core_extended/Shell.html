@@ -3,7 +3,7 @@
     strictly.</div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Process handling </h6></div></div>
 <pre><span class="TYPEwith_process_flags"><span class="keyword">type</span> <code class="type">'a </code>with_process_flags</span> = <code class="type">?use_extra_path:bool -&gt;
-?timeout:Core.Std.Time.Span.t option -&gt;
+?timeout:<a href="?package=core&amp;module=Std.Time.Span&amp;type=t">Core.Std.Time.Span.t</a> option -&gt;
 ?working_dir:string -&gt;
 ?setuid:int -&gt;
 ?setgid:int -&gt;
@@ -85,8 +85,8 @@ f:('a -&gt; string -&gt; 'a * [ `Continue | `Stop ]) -&gt; 'a <a href="?package=
     only useful in environments where the PATH variable has been blown away.</div></div>
 <div class="ocaml_module sig" name="Process"><pre><span class="keyword">module</span> <a href="?package=core_extended&amp;module=Shell.Process">Process</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Process dispatching</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEstatus"><span class="keyword">type</span> status</span> = <code class="type">[ `Exited of int
-| `Signaled of Core.Std.Signal.t
-| `Timeout of Core.Std.Time.Span.t ]</code></pre><div class="info"><div class="info">The termination status of a process.
+| `Signaled of <a href="?package=core&amp;module=Std.Signal&amp;type=t">Core.Std.Signal.t</a>
+| `Timeout of <a href="?package=core&amp;module=Std.Time.Span&amp;type=t">Core.Std.Time.Span.t</a> ]</code></pre><div class="info"><div class="info">The termination status of a process.
       This is an extension of <code class="code">Unix.Process_status.t</code> to allow timeouts.</div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre>
 <pre><code><span class="TYPEresult"><span class="keyword">type</span> result</span> = {</code></pre><table class="typetable">
@@ -94,7 +94,7 @@ f:('a -&gt; string -&gt; 'a * [ `Continue | `Stop ]) -&gt; 'a <a href="?package=
 <pre><span class="EXCEPTIONFailed"><span class="keyword">exception</span> Failed</span> <span class="keyword">of</span> <code class="type"><a href="?package=core_extended&amp;module=Shell.Process&amp;type=result">result</a></code></pre>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="?package=core_extended&amp;module=Shell.Process&amp;type=t">t</a> -&gt; string</code></pre>
 <pre><span class="VALstatus_to_string"><span class="keyword">val</span> status_to_string</span> : <code class="type"><a href="?package=core_extended&amp;module=Shell.Process&amp;type=status">status</a> -&gt; string</code></pre>
-<pre><span class="VALset_defaults"><span class="keyword">val</span> set_defaults</span> : <code class="type">?timeout:Core.Std.Time.Span.t option -&gt;
+<pre><span class="VALset_defaults"><span class="keyword">val</span> set_defaults</span> : <code class="type">?timeout:<a href="?package=core&amp;module=Std.Time.Span&amp;type=t">Core.Std.Time.Span.t</a> option -&gt;
 ?verbose:bool -&gt; ?echo:bool -&gt; unit -&gt; unit</code></pre>
 <pre><span class="VALformat_failed"><span class="keyword">val</span> format_failed</span> : <code class="type"><a href="?package=core_extended&amp;module=Shell.Process&amp;type=result">result</a> -&gt; string</code></pre>
 <pre><span class="VALcmd"><span class="keyword">val</span> cmd</span> : <code class="type">string -&gt; string list -&gt; <a href="?package=core_extended&amp;module=Shell.Process&amp;type=t">t</a></code></pre>
@@ -118,7 +118,7 @@ f:('a -&gt; string -&gt; 'a * [ `Continue | `Stop ]) -&gt; 'a <a href="?package=
 <pre><span class="VALtest_k"><span class="keyword">val</span> test_k</span> : <code class="type">((<a href="?package=core_extended&amp;module=Shell.Process&amp;type=t">t</a> -&gt; bool) -&gt; 'a) -&gt; 'a <a href="?package=core_extended&amp;module=Shell&amp;type=with_test_flags">with_test_flags</a></code></pre></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Small helper commands</h6></div></div>
 <pre><span class="VALmkdir"><span class="keyword">val</span> mkdir</span> : <code class="type">?p:unit -&gt; ?perm:int -&gt; string -&gt; unit</code></pre>
-<pre><span class="VALcp"><span class="keyword">val</span> cp</span> : <code class="type">?overwrite:bool -&gt; ?perm:Core.Std.Unix.file_perm -&gt; string -&gt; string -&gt; unit</code></pre>
+<pre><span class="VALcp"><span class="keyword">val</span> cp</span> : <code class="type">?overwrite:bool -&gt; ?perm:<a href="?package=core&amp;module=Std.Unix&amp;type=file_perm">Core.Std.Unix.file_perm</a> -&gt; string -&gt; string -&gt; unit</code></pre>
 <pre><span class="VALln"><span class="keyword">val</span> ln</span> : <code class="type">?s:unit -&gt; ?f:unit -&gt; string -&gt; string -&gt; unit</code></pre>
 <pre><span class="VALrm"><span class="keyword">val</span> rm</span> : <code class="type">?r:unit -&gt; ?f:unit -&gt; string -&gt; unit</code></pre>
 <pre><span class="VALmv"><span class="keyword">val</span> mv</span> : <code class="type">string -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Raises &quot;Failed_command&quot;</div></div>

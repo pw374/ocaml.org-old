@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">TODO reference : Core_kernel.Core_gc, plus finalizers.</div>
-<div class="ocaml_include ident" items="[&quot;Control&quot;,&quot;Stat&quot;]"><pre><span class="keyword">include</span> <code class="type">module type of <code class="code">Core_kernel.Std.Gc</code> with module Stat = Core_kernel.Std.Gc.Stat with module Control = Core_kernel.Std.Gc.Control with type alarm = Core_kernel.Std.Gc.alarm</code></pre></div>
+<div class="ocaml_include ident" path="?package=core_kernel&amp;module=Std.Gc" items="[&quot;Control&quot;,&quot;Stat&quot;]"><pre><span class="keyword">include</span> <code class="type">module type of <code class="code"><a href="?package=core_kernel&amp;module=Std.Gc">Core_kernel.Std.Gc</a></code> with module Stat = <a href="?package=core_kernel&amp;module=Std.Gc.Stat">Core_kernel.Std.Gc.Stat</a> with module Control = <a href="?package=core_kernel&amp;module=Std.Gc.Control">Core_kernel.Std.Gc.Control</a> with type alarm = <a href="?package=core_kernel&amp;module=Std.Gc&amp;type=alarm">Core_kernel.Std.Gc.alarm</a></code></pre></div>
 <div class="ocaml_module sig" name="Expert"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Core_gc.Expert">Expert</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The <code class="code">Expert</code> module contains functions that novice users should not use due to their
     complexity.<br/>    In particular, finalizers are difficult to use correctly, because they can run at any
     time, even in the middle of other code, and because unhandled exceptions in a
@@ -9,8 +9,8 @@
     not involve multithreading, and runs user code as ordinary async jobs.<br/>    If you do use <code class="code">Core</code> finalizers, you should strive to make the finalization function
     perform a simple idempotent action, like setting a ref.  The same rules as for
     signal handlers apply to finalizers.</div></div><div class="ocaml_module_content">
-<pre><span class="VALadd_finalizer"><span class="keyword">val</span> add_finalizer</span> : <code class="type">'a Core_kernel.Std.Heap_block.t -&gt;
-('a Core_kernel.Std.Heap_block.t -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add_finalizer b f</code> ensures that <code class="code">f</code> runs after <code class="code">b</code> becomes unreachable.  The OCaml
+<pre><span class="VALadd_finalizer"><span class="keyword">val</span> add_finalizer</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Std.Heap_block&amp;type=t">Core_kernel.Std.Heap_block.t</a> -&gt;
+('a <a href="?package=core_kernel&amp;module=Std.Heap_block&amp;type=t">Core_kernel.Std.Heap_block.t</a> -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add_finalizer b f</code> ensures that <code class="code">f</code> runs after <code class="code">b</code> becomes unreachable.  The OCaml
       runtime only supports finalizers on heap blocks, hence <code class="code">add_finalizer</code> requires <code class="code">b :
       _ Heap_block.t</code>.  The runtime essentially maintains a set of finalizer pairs:<br/>      <span class="verbatim">        'a Heap_block.t * ('a Heap_block.t -&gt; unit)
       </span><br/>      Each call to <code class="code">add_finalizer</code> adds a new pair to the set.  It is allowed for many

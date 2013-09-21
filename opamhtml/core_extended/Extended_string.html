@@ -12,7 +12,7 @@
    When <code class="code">strict</code> is <code class="code">false</code> every illegal backslash except escaped numeral
    greater than <code class="code">255</code> is copied literally. The aforementioned numerals still
    raise errors. This mimics the behaviour of the ocaml lexer.</div></div>
-<pre><span class="VALunescaped_res"><span class="keyword">val</span> unescaped_res</span> : <code class="type">?strict:bool -&gt; string -&gt; (string, int * string) Core.Result.t</code></pre><div class="info"><div class="info">Same as <code class="code">unescaped</code> but instead of raising <code class="code">Failure _</code> returns an error
+<pre><span class="VALunescaped_res"><span class="keyword">val</span> unescaped_res</span> : <code class="type">?strict:bool -&gt; string -&gt; (string, int * string) <a href="?package=core&amp;module=Result&amp;type=t">Core.Result.t</a></code></pre><div class="info"><div class="info">Same as <code class="code">unescaped</code> but instead of raising <code class="code">Failure _</code> returns an error
    message with the position in the string in case of failure.</div></div>
 <pre><span class="VALsqueeze"><span class="keyword">val</span> squeeze</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">squeeze str</code> reduces all sequences of spaces, newlines, tables, and
  carriage returns to single spaces.</div></div>
