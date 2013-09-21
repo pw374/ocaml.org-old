@@ -422,7 +422,7 @@ allocation_policy:('acc__ -&gt; (<a href="?package=core_kernel&amp;module=Core_g
    unreachable blocks.</div></div>
 <pre><span class="VALcompact"><span class="keyword">val</span> compact</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Perform a full major collection and compact the heap.  Note that heap
    compaction is a lengthy operation.</div></div>
-<pre><span class="VALprint_stat"><span class="keyword">val</span> print_stat</span> : <code class="type">Pervasives.out_channel -&gt; unit</code></pre><div class="info"><div class="info">Print the current values of the memory management counters (in
+<pre><span class="VALprint_stat"><span class="keyword">val</span> print_stat</span> : <code class="type"><a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; unit</code></pre><div class="info"><div class="info">Print the current values of the memory management counters (in
    human-readable form) into the channel argument.</div></div>
 <pre><span class="VALallocated_bytes"><span class="keyword">val</span> allocated_bytes</span> : <code class="type">unit -&gt; float</code></pre><div class="info"><div class="info">Return the total number of bytes allocated since the program was
    started.  It is returned as a <code class="code">float</code> to avoid overflow problems

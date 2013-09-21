@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">UCS4 encoded string. The type is the bigarray of 32-bit integers.
    Bigarray.cma or Bigarray.cmxa must be linked when this module is used.</div>
-<pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">(int32, Bigarray.int32_elt, Bigarray.c_layout) Bigarray.Array1.t</code></pre>
+<pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">(int32, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int32_elt">Bigarray.int32_elt</a>, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">Bigarray.c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">Bigarray.Array1.t</a></code></pre>
 <pre><span class="EXCEPTIONMalformed_code"><span class="keyword">exception</span> Malformed_code</span></pre>
 <pre><span class="VALvalidate"><span class="keyword">val</span> validate</span> : <code class="type"><a href="?package=camomile&amp;module=UCS4&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">validate s</code>
    If <code class="code">s</code> is valid UCS4 then successes otherwise raises <code class="code">Malformed_code</code>.

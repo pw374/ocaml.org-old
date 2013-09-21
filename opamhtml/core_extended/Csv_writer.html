@@ -4,7 +4,7 @@
  write and another that writes the result in a subpart of another string we
  avoid unnecessary string creations.</div>
 <pre><span class="VALoutput_lines"><span class="keyword">val</span> output_lines</span> : <code class="type">?quote:char -&gt;
-?sep:char -&gt; Pervasives.out_channel -&gt; string list list -&gt; unit</code></pre><div class="info"><div class="info">Prints a valid csv file to a given channel (note that line are ended
+?sep:char -&gt; <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; string list list -&gt; unit</code></pre><div class="info"><div class="info">Prints a valid csv file to a given channel (note that line are ended
     &quot;\r\n&quot;)</div></div>
 <pre><span class="VALline_to_string"><span class="keyword">val</span> line_to_string</span> : <code class="type">?quote:char -&gt; ?sep:char -&gt; string list -&gt; string</code></pre><div class="info"><div class="info">Convert one CSV line to a string.</div></div>
 <pre><span class="VALmaybe_escape_field"><span class="keyword">val</span> maybe_escape_field</span> : <code class="type">?quote:char -&gt; ?sep:char -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Escape the a CSV field if need be.</div></div>

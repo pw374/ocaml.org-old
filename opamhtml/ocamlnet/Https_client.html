@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">HTTPS extension to TODO reference : Http_client</div>
 <pre><span class="TYPEchannel_binding_id"><span class="keyword">type</span> channel_binding_id</span> = <code class="type">int</code></pre><div class="info"><div class="info">Same as TODO reference : Http_client.channel_binding_id</div></div>
-<div class="ocaml_class sig" name="transport_channel_type"><pre><span class="TYPEtransport_channel_type"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Https_client&amp;class=transport_channel_type">transport_channel_type</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Same as TODO reference : Http_client.transport_channel_type</div></div><div class="ocaml_class_content"><pre><span class="METHODsetup_e"><span class="keyword">method</span> setup_e</span> : <code class="code">Unix.file_descr -&gt;
+<div class="ocaml_class sig" name="transport_channel_type"><pre><span class="TYPEtransport_channel_type"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Https_client&amp;class=transport_channel_type">transport_channel_type</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Same as TODO reference : Http_client.transport_channel_type</div></div><div class="ocaml_class_content"><pre><span class="METHODsetup_e"><span class="keyword">method</span> setup_e</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt;
 <a href="?package=ocamlnet&amp;module=Https_client&amp;type=channel_binding_id">channel_binding_id</a> -&gt;
 float -&gt;
 exn -&gt;
@@ -8,13 +8,13 @@ string -&gt;
 int -&gt;
 <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=multiplex_controller">Uq_engines.multiplex_controller</a> <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre>
 
-<pre><span class="METHODcontinue"><span class="keyword">method</span> continue</span> : <code class="code">Unix.file_descr -&gt;
+<pre><span class="METHODcontinue"><span class="keyword">method</span> continue</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt;
 <a href="?package=ocamlnet&amp;module=Https_client&amp;type=channel_binding_id">channel_binding_id</a> -&gt;
 float -&gt;
 exn -&gt;
 string -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=multiplex_controller">Uq_engines.multiplex_controller</a></code></pre>
 </div></div>
-<pre><span class="VALhttps_transport_channel_type"><span class="keyword">val</span> https_transport_channel_type</span> : <code class="type">?verify:(<a href="?package=ssl&amp;module=Ssl&amp;type=context">Ssl.context</a> -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=socket">Ssl.socket</a> -&gt; Unix.file_descr -&gt; unit) -&gt;
+<pre><span class="VALhttps_transport_channel_type"><span class="keyword">val</span> https_transport_channel_type</span> : <code class="type">?verify:(<a href="?package=ssl&amp;module=Ssl&amp;type=context">Ssl.context</a> -&gt; <a href="?package=ssl&amp;module=Ssl&amp;type=socket">Ssl.socket</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit) -&gt;
 <a href="?package=ssl&amp;module=Ssl&amp;type=context">Ssl.context</a> -&gt; <a href="?package=ocamlnet&amp;module=Https_client&amp;type=transport_channel_type">transport_channel_type</a></code></pre><div class="info"><div class="info">Configures a TLS tunnel for this context.<br/>      The <code class="code">verify</code> callback is invoked right after connecting to the
       remote socket and finishing the SSL handshake. The user can do here
       additional checks whether the peer is acceptable. If not acceptable,

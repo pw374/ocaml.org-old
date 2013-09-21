@@ -423,7 +423,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
  If the language is not available, <code class="code">&quot;&quot;</code> will be returned.</div></div>
 <pre><span class="VALmk_param"><span class="keyword">val</span> mk_param</span> : <code class="type">?charset:string -&gt; ?language:string -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_param">s_param</a></code></pre><div class="info"><div class="info">Creates a parameter from a value (in decoded form). The parameter
  may have a charset and a language.</div></div>
-<pre><span class="VALprint_s_param"><span class="keyword">val</span> print_s_param</span> : <code class="type">Format.formatter -&gt; <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_param">s_param</a> -&gt; unit</code></pre><div class="info"><div class="info">Prints a parameter to the formatter (as toploop printer)</div></div>
+<pre><span class="VALprint_s_param"><span class="keyword">val</span> print_s_param</span> : <code class="type"><a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_param">s_param</a> -&gt; unit</code></pre><div class="info"><div class="info">Prints a parameter to the formatter (as toploop printer)</div></div>
 <pre><span class="VALscan_value_with_parameters_ep"><span class="keyword">val</span> scan_value_with_parameters_ep</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option">s_option</a> list -&gt; string * (string * <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_param">s_param</a>) list</code></pre><div class="info"><div class="info"><code class="code">let name, params = scan_value_with_parameters_ep s options</code>:
  This version of the scanner copes with encoded parameters according
  to RFC 2231.
@@ -448,8 +448,8 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
 ?hardmaxlen:int -&gt;
 ?fold_qstring:bool -&gt;
 ?fold_literal:bool -&gt;
-?unused:int Pervasives.ref -&gt;
-?hardunused:int Pervasives.ref -&gt;
+?unused:int <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a> -&gt;
+?hardunused:int <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a> -&gt;
 <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_token">s_token</a> list -&gt; unit</code></pre><div class="info"><div class="info">Writes the list of <code class="code">s_token</code> to the <code class="code">out_obj_channel</code>. The value
  is optionally folded into several lines while writing, but this
  is off by default. To enable folding, pass <b>both</b> <code class="code">maxlen1</code> and

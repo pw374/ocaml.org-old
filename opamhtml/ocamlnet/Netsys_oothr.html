@@ -62,7 +62,7 @@
         In a single-threaded program: this is a no-op.</div></div>
 <pre><span class="METHODrepr"><span class="keyword">method</span> repr</span> : <code class="code">exn</code></pre>
 <div class="info"><div class="info">May be used internally be the implementation</div></div></div></div>
-<pre><span class="VALprovider"><span class="keyword">val</span> provider</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_oothr&amp;type=mtprovider">mtprovider</a> Pervasives.ref</code></pre><div class="info"><div class="info">Return the multi-threading provider</div></div>
+<pre><span class="VALprovider"><span class="keyword">val</span> provider</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_oothr&amp;type=mtprovider">mtprovider</a> <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Return the multi-threading provider</div></div>
 <pre><span class="VALserialize"><span class="keyword">val</span> serialize</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_oothr&amp;type=mutex">mutex</a> -&gt; ('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">serialize m f arg</code>: Locks <code class="code">m</code>, runs <code class="code">f arg</code>, unlocks <code class="code">m</code>, and returns
       the result.</div></div>
 </div>

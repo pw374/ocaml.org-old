@@ -61,7 +61,7 @@ the document up to the next <code class="code">break</code> fits into the curren
 out as space. Otherwise it comes out as newline followed by spaces.</div></div>
 <div class="info"><div class="info"><h3 id="3_TITLE">Pretty Printing</h3></div></div>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">?width:int -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a> -&gt; string</code></pre>
-<pre><span class="VALto_file"><span class="keyword">val</span> to_file</span> : <code class="type">?width:int -&gt; Pervasives.out_channel -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a> -&gt; unit</code></pre>
+<pre><span class="VALto_file"><span class="keyword">val</span> to_file</span> : <code class="type">?width:int -&gt; <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a> -&gt; unit</code></pre>
 <div class="info"><div class="info"><h3 id="3_TITLE">Auxiliaries</h3></div></div>
 <pre><span class="VALlist"><span class="keyword">val</span> list</span> : <code class="type">sep:<a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a> -&gt; f:('a -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a>) -&gt; 'a list -&gt; <a href="?package=core_extended&amp;module=Pp&amp;type=t">t</a></code></pre><div class="info"><div class="info">A list of objects which are seperated by some seperator is very common. The
 <code class="code">list sep f</code> function takes care to insert the separator only between objects

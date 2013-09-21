@@ -1,13 +1,13 @@
 <div class="ocaml_toplevel_module"><div class="info">Sets of file descriptors for polling</div>
-<div class="ocaml_class sig" name="pollset"><pre><span class="TYPEpollset"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netsys_pollset&amp;class=pollset">pollset</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODfind"><span class="keyword">method</span> find</span> : <code class="code">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=poll_req_events">Netsys_posix.poll_req_events</a></code></pre>
+<div class="ocaml_class sig" name="pollset"><pre><span class="TYPEpollset"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netsys_pollset&amp;class=pollset">pollset</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODfind"><span class="keyword">method</span> find</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=poll_req_events">Netsys_posix.poll_req_events</a></code></pre>
 <div class="info"><div class="info">Checks whether a descriptor is member of the set, and returns
         its event mask. Raises <code class="code">Not_found</code> if the descriptor is not in the set.</div></div>
-<pre><span class="METHODadd"><span class="keyword">method</span> add</span> : <code class="code">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=poll_req_events">Netsys_posix.poll_req_events</a> -&gt; unit</code></pre>
+<pre><span class="METHODadd"><span class="keyword">method</span> add</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=poll_req_events">Netsys_posix.poll_req_events</a> -&gt; unit</code></pre>
 <div class="info"><div class="info">Add a descriptor or modify an existing descriptor</div></div>
-<pre><span class="METHODremove"><span class="keyword">method</span> remove</span> : <code class="code">Unix.file_descr -&gt; unit</code></pre>
+<pre><span class="METHODremove"><span class="keyword">method</span> remove</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit</code></pre>
 <div class="info"><div class="info">Remove a descriptor from the set (if it is member)</div></div>
 <pre><span class="METHODwait"><span class="keyword">method</span> wait</span> : <code class="code">float -&gt;
-(Unix.file_descr * <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=poll_req_events">Netsys_posix.poll_req_events</a> *
+(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=poll_req_events">Netsys_posix.poll_req_events</a> *
  <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=poll_act_events">Netsys_posix.poll_act_events</a>)
 list</code></pre>
 <div class="info"><div class="info">Wait for events, and return the output events matching the event

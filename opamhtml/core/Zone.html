@@ -17,7 +17,7 @@
     misconfigured or if the appropriate timezone files can't be found because of the way
     the box is configured.  We don't put an _exn on this function because that
     misconfiguration is quite rare.</div></div>
-<pre><span class="VALlikely_machine_zones"><span class="keyword">val</span> likely_machine_zones</span> : <code class="type">string list Pervasives.ref</code></pre><div class="info"><div class="info"><code class="code">likely_machine_zones</code> is a list of zone names that will be searched first when trying
+<pre><span class="VALlikely_machine_zones"><span class="keyword">val</span> likely_machine_zones</span> : <code class="type">string list <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info"><code class="code">likely_machine_zones</code> is a list of zone names that will be searched first when trying
     to determine the machine zone of a box.  Setting this to a likely set of zones for
     your application will speed the very first call to machine_zone</div></div>
 <pre><span class="VALof_utc_offset"><span class="keyword">val</span> of_utc_offset</span> : <code class="type">hours:int -&gt; <a href="?package=core&amp;module=Zone&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">of_utc_offset offset</code> returns a timezone with a static UTC offset (given in

@@ -2,7 +2,7 @@
  message level (like AUTH_NONE, AUTH_SYS, AUTH_DH), otherwise you will
  get an error <code class="code">Auth_too_weak</code>. <code class="code">AUTH_LOCAL</code> overrides the result of the
  other authentication method.</div></div>
-<pre><span class="VALget_peer_credentials"><span class="keyword">val</span> get_peer_credentials</span> : <code class="type">Unix.file_descr -&gt; int * int</code></pre><div class="info"><div class="info">Return the pair (euid,egid) for a Unix domain socket.
+<pre><span class="VALget_peer_credentials"><span class="keyword">val</span> get_peer_credentials</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; int * int</code></pre><div class="info"><div class="info">Return the pair (euid,egid) for a Unix domain socket.
  The function raises <code class="code">Invalid_argument</code> if it is not available for this
  operating system. (Generally, this should work on Linux, BSD, and
  Solaris, and OS with compatible system functions - supported methods are

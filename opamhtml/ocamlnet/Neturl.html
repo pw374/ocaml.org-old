@@ -81,7 +81,7 @@
 <pre><span class="VALip_url_syntax"><span class="keyword">val</span> ip_url_syntax</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a></code></pre><div class="info"><div class="info">Syntax for IP based protocols. This syntax allows scheme, user,
  password, host, port, path, param, query, fragment, but not &quot;other&quot;.
  It does not accept 8 bit bytes.</div></div>
-<pre><span class="VALcommon_url_syntax"><span class="keyword">val</span> common_url_syntax</span> : <code class="type">(string, <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a>) Hashtbl.t</code></pre><div class="info"><div class="info">Syntax descriptions for common URL schemes. The key of the hashtable
+<pre><span class="VALcommon_url_syntax"><span class="keyword">val</span> common_url_syntax</span> : <code class="type">(string, <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a>) <a href="?package=ocaml&amp;module=Hashtbl&amp;type=t">Hashtbl.t</a></code></pre><div class="info"><div class="info">Syntax descriptions for common URL schemes. The key of the hashtable
  is the scheme name, and the value is the corresponding syntax.<br/> - <code class="code">&quot;file&quot;</code>: scheme, host?, path<ul><li><code class="code">&quot;ftp&quot;</code>: scheme, user?, password?, host, port?, path?, param?
    Note: param is not checked.</li><li><code class="code">&quot;http&quot;</code>, <code class="code">&quot;https&quot;</code>:
    scheme, user?, password?, host, port?, path?, query?</li><li><code class="code">&quot;mailto&quot;</code>: scheme, other, query? (RFC 2368)</li><li><code class="code">&quot;pop&quot;</code>, <code class="code">&quot;pops&quot;</code>: scheme, user?, user_param?, password?, host, port?
@@ -108,7 +108,7 @@
 ?user_param:string list -&gt;
 ?password:string -&gt;
 ?host:string -&gt;
-?addr:Unix.inet_addr -&gt;
+?addr:<a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt;
 ?port:int -&gt;
 ?socksymbol:<a href="?package=ocamlnet&amp;module=Netsockaddr&amp;type=socksymbol">Netsockaddr.socksymbol</a> -&gt;
 ?path:string list -&gt;
@@ -150,7 +150,7 @@
 ?user_param:string list -&gt;
 ?password:string -&gt;
 ?host:string -&gt;
-?addr:Unix.inet_addr -&gt;
+?addr:<a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt;
 ?port:int -&gt;
 ?socksymbol:<a href="?package=ocamlnet&amp;module=Netsockaddr&amp;type=socksymbol">Netsockaddr.socksymbol</a> -&gt;
 ?path:string list -&gt;
@@ -197,7 +197,7 @@
 <pre><span class="VALurl_syntax_of_url"><span class="keyword">val</span> url_syntax_of_url</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a> -&gt; <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a></code></pre><div class="info"><div class="info">Returns the <code class="code">url_syntax</code> record of a URL.</div></div>
 <pre><span class="VALurl_of_string"><span class="keyword">val</span> url_of_string</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a> -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a></code></pre><div class="info"><div class="info">Parses the passed string according to the passed <code class="code">url_syntax</code>.</div></div>
 <pre><span class="VALstring_of_url"><span class="keyword">val</span> string_of_url</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a> -&gt; string</code></pre><div class="info"><div class="info">Returns the URL as string</div></div>
-<pre><span class="VALparse_url"><span class="keyword">val</span> parse_url</span> : <code class="type">?schemes:(string, <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a>) Hashtbl.t -&gt;
+<pre><span class="VALparse_url"><span class="keyword">val</span> parse_url</span> : <code class="type">?schemes:(string, <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a>) <a href="?package=ocaml&amp;module=Hashtbl&amp;type=t">Hashtbl.t</a> -&gt;
 ?base_syntax:<a href="?package=ocamlnet&amp;module=Neturl&amp;type=url_syntax">url_syntax</a> -&gt;
 ?accept_8bits:bool -&gt; ?enable_fragment:bool -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a></code></pre><div class="info"><div class="info">Parses the string and returns the URL the string represents.
  If the URL is absolute (i.e. begins with a scheme like
@@ -244,7 +244,7 @@
  is raised.<br/> Note that IPv6 addresses, when returned by <code class="code">url_host</code>, are enclosed
  in square brackets. Modules calling <code class="code">url_host</code> may require porting
  to support this syntax variant.</div></div>
-<pre><span class="VALurl_addr"><span class="keyword">val</span> url_addr</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a> -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">If the <code class="code">host</code> part of the URL is an IP address, the address is returned.
+<pre><span class="VALurl_addr"><span class="keyword">val</span> url_addr</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a></code></pre><div class="info"><div class="info">If the <code class="code">host</code> part of the URL is an IP address, the address is returned.
       Works for IPv4 and IPv6 addresses. Otherwise <code class="code">Not_found</code> is raised.</div></div>
 <pre><span class="VALurl_socksymbol"><span class="keyword">val</span> url_socksymbol</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a> -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Netsockaddr&amp;type=socksymbol">Netsockaddr.socksymbol</a></code></pre><div class="info"><div class="info"><code class="code">url_socksymbol url default_port</code>: Returns the <code class="code">host</code> and <code class="code">port</code> parts
       of the URL as <code class="code">socksymbol</code>. If the port is missing in the URL,

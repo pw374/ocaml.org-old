@@ -94,8 +94,8 @@
 | `Float32 of float
 | `Float64 of float
 | `Int16 of int
-| `Int32 of Int32.t
-| `Int64 of Int64.t
+| `Int32 of <a href="?package=ocaml&amp;module=Int32&amp;type=t">Int32.t</a>
+| `Int64 of <a href="?package=ocaml&amp;module=Int64&amp;type=t">Int64.t</a>
 | `Int8 of char
 | `Num_variant of int * <a href="?package=biniou&amp;module=Bi_io&amp;type=tree">tree</a> option
 | `Record of (string option * <a href="?package=biniou&amp;module=Bi_io&amp;type=hash">hash</a> * <a href="?package=biniou&amp;module=Bi_io&amp;type=tree">tree</a>) array
@@ -118,7 +118,7 @@
 <pre><span class="VALview"><span class="keyword">val</span> view</span> : <code class="type">?unhash:(<a href="?package=biniou&amp;module=Bi_io&amp;type=hash">hash</a> -&gt; string option) -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Prints a human-readable representation of the data into a string.</div></div>
 <pre><span class="VALprint_view_of_tree"><span class="keyword">val</span> print_view_of_tree</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_io&amp;type=tree">tree</a> -&gt; unit</code></pre>
 <pre><span class="VALprint_view"><span class="keyword">val</span> print_view</span> : <code class="type">?unhash:(<a href="?package=biniou&amp;module=Bi_io&amp;type=hash">hash</a> -&gt; string option) -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Prints a human-readable representation of the data to stdout.</div></div>
-<pre><span class="VALoutput_view_of_tree"><span class="keyword">val</span> output_view_of_tree</span> : <code class="type">Pervasives.out_channel -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=tree">tree</a> -&gt; unit</code></pre>
-<pre><span class="VALoutput_view"><span class="keyword">val</span> output_view</span> : <code class="type">?unhash:(<a href="?package=biniou&amp;module=Bi_io&amp;type=hash">hash</a> -&gt; string option) -&gt; Pervasives.out_channel -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Prints a human-readable representation of the data to an out_channel.</div></div>
+<pre><span class="VALoutput_view_of_tree"><span class="keyword">val</span> output_view_of_tree</span> : <code class="type"><a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=tree">tree</a> -&gt; unit</code></pre>
+<pre><span class="VALoutput_view"><span class="keyword">val</span> output_view</span> : <code class="type">?unhash:(<a href="?package=biniou&amp;module=Bi_io&amp;type=hash">hash</a> -&gt; string option) -&gt; <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Prints a human-readable representation of the data to an out_channel.</div></div>
 <pre><span class="VALsafety_test"><span class="keyword">val</span> safety_test</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Check that certain low-level hacks work as expected</div></div>
 </div>

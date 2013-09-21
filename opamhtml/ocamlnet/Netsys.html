@@ -9,7 +9,7 @@
     because the function provides the best interface for the kind of
     descriptor.</div></div>
 <pre><span class="TYPEfd_style"><span class="keyword">type</span> fd_style</span> = <code class="type">[ `Read_write
-| `Recv_send of Unix.sockaddr * Unix.sockaddr
+| `Recv_send of <a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a>
 | `Recv_send_implied
 | `Recvfrom_sendto
 | `W32_event
@@ -47,8 +47,8 @@
       be used to dereference the I/O object. Note that the following functions
       like <code class="code">gread</code> and <code class="code">gwrite</code> automatically look up the I/O object behind
       the proxy and call the right I/O function.</div></div>
-<pre><span class="VALget_fd_style"><span class="keyword">val</span> get_fd_style</span> : <code class="type">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a></code></pre><div class="info"><div class="info">Get the file descriptor style</div></div>
-<pre><span class="VALgread"><span class="keyword">val</span> gread</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">gread fd_style fd s pos len</code>: Reads up to <code class="code">len</code> bytes from 
+<pre><span class="VALget_fd_style"><span class="keyword">val</span> get_fd_style</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a></code></pre><div class="info"><div class="info">Get the file descriptor style</div></div>
+<pre><span class="VALgread"><span class="keyword">val</span> gread</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">gread fd_style fd s pos len</code>: Reads up to <code class="code">len</code> bytes from 
       descriptor <code class="code">fd</code> which is supposed to support the I/O style 
       <code class="code">fd_style</code>, i.e. the right system call (<code class="code">read</code>, <code class="code">recv</code>,
       <code class="code">recvfrom</code>) is chosen to read from the descriptor.
@@ -57,7 +57,7 @@
       The function can fail with any I/O exception defined for the
       actually performed I/O operation. Whether the operation is blocking
       or non-blocking depends on the descriptor.<br/>      If <code class="code">len&gt;0</code> but <code class="code">n=0</code> the end of the input data is reached.</div></div>
-<pre><span class="VALblocking_gread"><span class="keyword">val</span> blocking_gread</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">let p = blocking_gread fd_style fd s pos len</code>: 
+<pre><span class="VALblocking_gread"><span class="keyword">val</span> blocking_gread</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">let p = blocking_gread fd_style fd s pos len</code>: 
       Like <code class="code">gread</code> up to <code class="code">len</code> bytes are read from <code class="code">fd</code> and stored in <code class="code">s</code>.
       If the I/O operation is blocking but the descriptor is in 
       non-blocking mode, this function blocks until the operation can
@@ -65,7 +65,7 @@
       automatically restarted.<br/>      If <code class="code">n &lt; len</code> the end of the input data is reached (where <code class="code">n</code> is the
       returned number).<br/>      See <code class="code">wait_until_readable</code> below for further information which
       types of descriptors can be handled in non-blocking mode.</div></div>
-<pre><span class="VALreally_gread"><span class="keyword">val</span> really_gread</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">really_read fd_style fd s pos len</code>: Reads exactly <code class="code">len</code> bytes from <code class="code">fd</code>
+<pre><span class="VALreally_gread"><span class="keyword">val</span> really_gread</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">really_read fd_style fd s pos len</code>: Reads exactly <code class="code">len</code> bytes from <code class="code">fd</code>
       and stores them in <code class="code">s</code> starting at <code class="code">pos</code>. If the end of file condition
       is seen before <code class="code">len</code> bytes are read, the exception <code class="code">End_of_file</code>
       is raised, and it is unspecified how many bytes have been stored in
@@ -73,7 +73,7 @@
       to block until the operation becomes possible, and interruptions by
       signals are handled.<br/>      See <code class="code">wait_until_readable</code> below for further information which
       types of descriptors can be handled in non-blocking mode.</div></div>
-<pre><span class="VALgwrite"><span class="keyword">val</span> gwrite</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">gwrite fd_style fd s pos len</code>: Writes up to <code class="code">len</code> bytes to
+<pre><span class="VALgwrite"><span class="keyword">val</span> gwrite</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">gwrite fd_style fd s pos len</code>: Writes up to <code class="code">len</code> bytes to
       descriptor <code class="code">fd</code> which is supposed to support the I/O style 
       <code class="code">fd_style</code>, i.e. the right system call (<code class="code">write</code>, <code class="code">send</code>,
       <code class="code">sendto</code>) is chosen to write to the descriptor.
@@ -82,7 +82,7 @@
       returned. The function can fail with any I/O exception defined for the
       actually performed I/O operation. Whether the operation is blocking
       or non-blocking depends on the descriptor.</div></div>
-<pre><span class="VALreally_gwrite"><span class="keyword">val</span> really_gwrite</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">really_write fd_style fd s pos len</code>: Writes exactly the <code class="code">len</code> bytes
+<pre><span class="VALreally_gwrite"><span class="keyword">val</span> really_gwrite</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">really_write fd_style fd s pos len</code>: Writes exactly the <code class="code">len</code> bytes
       from <code class="code">s</code> to <code class="code">fd</code> starting at <code class="code">pos</code>. 
       If the I/O operation is blocking but the descriptor is in 
       non-blocking mode, this function blocks until the operation can
@@ -90,7 +90,7 @@
       automatically restarted.<br/>      See <code class="code">wait_until_writable</code> below for further information which
       types of descriptors can be handled in non-blocking mode.</div></div>
 <pre><span class="EXCEPTIONShutdown_not_supported"><span class="keyword">exception</span> Shutdown_not_supported</span></pre><div class="info"><div class="info">See <code class="code">gshutdown</code></div></div>
-<pre><span class="VALgshutdown"><span class="keyword">val</span> gshutdown</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; Unix.shutdown_command -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">gshutdown fd_style fd cmd</code>: If there is the possibility to shut down
+<pre><span class="VALgshutdown"><span class="keyword">val</span> gshutdown</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=shutdown_command">Unix.shutdown_command</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">gshutdown fd_style fd cmd</code>: If there is the possibility to shut down
       the connection for this kind of descriptor, the shutdown is tried.
       It is possible that the function raises the <code class="code">EAGAIN</code> Unix error if
       the shutdown operation is non-blocking, and currently not possible. 
@@ -118,9 +118,9 @@
          closed. The shutdown operation is non-blocking. If it is not
          possible at the moment of calling, the error <code class="code">EAGAIN</code> is reported.</li><li>Other styles raise <code class="code">Shutdown_not_supported</code>.
    </li></ul></div></div>
-<pre><span class="VALis_readable"><span class="keyword">val</span> is_readable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; bool</code></pre>
-<pre><span class="VALis_writable"><span class="keyword">val</span> is_writable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; bool</code></pre>
-<pre><span class="VALis_prird"><span class="keyword">val</span> is_prird</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; bool</code></pre><div class="info"><div class="info">Test whether the descriptor would not block if one of the input,
+<pre><span class="VALis_readable"><span class="keyword">val</span> is_readable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool</code></pre>
+<pre><span class="VALis_writable"><span class="keyword">val</span> is_writable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool</code></pre>
+<pre><span class="VALis_prird"><span class="keyword">val</span> is_prird</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool</code></pre><div class="info"><div class="info">Test whether the descriptor would not block if one of the input,
       output, or priority input operations were done.<br/>      On POSIX systems the tests work for a wide variety of descriptor 
       types (but not for regular files which are assumed to be always
       readable and writable).
@@ -131,9 +131,9 @@
       a class of I/O operations, the functions return <code class="code">true</code>, in
       the hope that it is better to block than to never conduct
       the operation.</div></div>
-<pre><span class="VALwait_until_readable"><span class="keyword">val</span> wait_until_readable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; float -&gt; bool</code></pre>
-<pre><span class="VALwait_until_writable"><span class="keyword">val</span> wait_until_writable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; float -&gt; bool</code></pre>
-<pre><span class="VALwait_until_prird"><span class="keyword">val</span> wait_until_prird</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">Wait until an operation for a single descriptor becomes possible.
+<pre><span class="VALwait_until_readable"><span class="keyword">val</span> wait_until_readable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; float -&gt; bool</code></pre>
+<pre><span class="VALwait_until_writable"><span class="keyword">val</span> wait_until_writable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; float -&gt; bool</code></pre>
+<pre><span class="VALwait_until_prird"><span class="keyword">val</span> wait_until_prird</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">Wait until an operation for a single descriptor becomes possible.
       The float argument is the timeout (negative value means no timeout).
       Returns whether the operation is possible (<code class="code">true</code>). Otherwise,
       there was a timeout (<code class="code">false</code>).<br/>      On POSIX systems this works for a wide variety of descriptor 
@@ -147,7 +147,7 @@
       a class of I/O operations, the functions return immediately <code class="code">true</code>, in
       the hope that it is better to block than to never conduct
       the operation.</div></div>
-<pre><span class="VALgclose"><span class="keyword">val</span> gclose</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; Unix.file_descr -&gt; unit</code></pre><div class="info"><div class="info">Shuts down the system object referenced by the descriptor so far
+<pre><span class="VALgclose"><span class="keyword">val</span> gclose</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit</code></pre><div class="info"><div class="info">Shuts down the system object referenced by the descriptor so far
       possible, and closes the descriptor.<br/>      Errors are logged to TODO reference : Netlog as <code class="code">`Crit</code> events, and
       do not generate exceptions.<br/>      The exact semantics of the close operation varies from descriptor
       style to descriptor style. Generally, <code class="code">gclose</code> assumes that all
@@ -160,7 +160,7 @@
       either by protocol means (e.g. wait for ACK messages), or by
       calling <code class="code">gshutdown</code> first (see above).</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Functions for sockets</h1></div></div>
-<pre><span class="VALwait_until_connected"><span class="keyword">val</span> wait_until_connected</span> : <code class="type">Unix.file_descr -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">After a non-blocking connect has been initiated, this function can be
+<pre><span class="VALwait_until_connected"><span class="keyword">val</span> wait_until_connected</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">After a non-blocking connect has been initiated, this function can be
       used to wait until (1) the connect is successful, or (2) the connect
       fails, or (3) the operation times out. The <code class="code">float</code> argument is the
       timeout value (negative value means no timeout).
@@ -170,7 +170,7 @@
       Win32 the wait condition is slightly different.<br/>      On Win32, this function also tolerates client proxy descriptors for
       Win32 named pipes. However, there is no waiting - the function 
       immediately returns.</div></div>
-<pre><span class="VALconnect_check"><span class="keyword">val</span> connect_check</span> : <code class="type">Unix.file_descr -&gt; unit</code></pre><div class="info"><div class="info">Tests whether the socket is connected with the peer after calling
+<pre><span class="VALconnect_check"><span class="keyword">val</span> connect_check</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit</code></pre><div class="info"><div class="info">Tests whether the socket is connected with the peer after calling
       <code class="code">Unix.connect</code>. If the socket is connected, the function returns normally.
       Otherwise, the current socket error is raised as a <code class="code">Unix.Unix_error</code>
       exception. This function is intended to be called after a 
@@ -178,12 +178,12 @@
       is indicated (e.g. after <code class="code">wait_until_connected</code> returns).<br/>      Side effect: The per-socket error code may be reset.<br/>      On Win32, this function also tolerates client proxy descriptors for
       Win32 named pipes. However, there is no real check - the function 
       immediately returns.</div></div>
-<pre><span class="VALdomain_of_inet_addr"><span class="keyword">val</span> domain_of_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; Unix.socket_domain</code></pre><div class="info"><div class="info">Returns the socket domain of Internet addresses, i.e. whether the
+<pre><span class="VALdomain_of_inet_addr"><span class="keyword">val</span> domain_of_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=socket_domain">Unix.socket_domain</a></code></pre><div class="info"><div class="info">Returns the socket domain of Internet addresses, i.e. whether the
  address is IPv4 or IPv6</div></div>
-<pre><span class="VALprotostring_of_inet_addr"><span class="keyword">val</span> protostring_of_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; string</code></pre>
-<pre><span class="VALinet_addr_of_protostring"><span class="keyword">val</span> inet_addr_of_protostring</span> : <code class="type">string -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">Converts an IP address to the 4 bytes (IPv4) or 16 bytes (IPv6)
+<pre><span class="VALprotostring_of_inet_addr"><span class="keyword">val</span> protostring_of_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; string</code></pre>
+<pre><span class="VALinet_addr_of_protostring"><span class="keyword">val</span> inet_addr_of_protostring</span> : <code class="type">string -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a></code></pre><div class="info"><div class="info">Converts an IP address to the 4 bytes (IPv4) or 16 bytes (IPv6)
       representation in network byte order, and vice-versa</div></div>
-<pre><span class="VALgetpeername"><span class="keyword">val</span> getpeername</span> : <code class="type">Unix.file_descr -&gt; Unix.sockaddr</code></pre><div class="info"><div class="info">like <code class="code">Unix.getpeername</code>, but errors are fixed up. <code class="code">ENOTCONN</code> is
+<pre><span class="VALgetpeername"><span class="keyword">val</span> getpeername</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a></code></pre><div class="info"><div class="info">like <code class="code">Unix.getpeername</code>, but errors are fixed up. <code class="code">ENOTCONN</code> is
       ensured when the socked is unconnected or shut down.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Helper functions</h1></div></div>
 <pre><span class="VALis_absolute"><span class="keyword">val</span> is_absolute</span> : <code class="type">string -&gt; bool</code></pre><div class="info"><div class="info">Whether this file path is absolute. Works for Unix and Win32.</div></div>
@@ -197,10 +197,10 @@
  restarted the call if the exception <code class="code">Unix_error(EINTR,_,_)</code> is caught.
  In the restart case, the timeout argument is reduced by the
  already elapsed time.<br/> Negative timeout arguments are interpreted as &quot;no timeout&quot;.</div></div>
-<pre><span class="VALrestarting_select"><span class="keyword">val</span> restarting_select</span> : <code class="type">Unix.file_descr list -&gt;
-Unix.file_descr list -&gt;
-Unix.file_descr list -&gt;
-float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</code></pre><div class="info"><div class="info">A wrapper around <code class="code">Unix.select</code> that handles the <code class="code">EINTR</code> condition.<br/>      Note: This function calls <code class="code">Unix.select</code> and shares all pros and cons
+<pre><span class="VALrestarting_select"><span class="keyword">val</span> restarting_select</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt;
+<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt;
+<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt;
+float -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list</code></pre><div class="info"><div class="info">A wrapper around <code class="code">Unix.select</code> that handles the <code class="code">EINTR</code> condition.<br/>      Note: This function calls <code class="code">Unix.select</code> and shares all pros and cons
       with <code class="code">Unix.select</code>. In particular, the OS often sets a limit on the 
       number (and/or the numeric value) of the descriptors (e.g. for
       Linux it is 1024, for Windows it is 64). On Ocaml 3.11 the Windows
@@ -209,35 +209,35 @@ float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</
 <pre><span class="VALsleep"><span class="keyword">val</span> sleep</span> : <code class="type">float -&gt; unit</code></pre>
 <pre><span class="VALrestarting_sleep"><span class="keyword">val</span> restarting_sleep</span> : <code class="type">float -&gt; unit</code></pre><div class="info"><div class="info">Sleep for the passed time. <code class="code">restarting_sleep</code> additionally handles
       <code class="code">EINTR</code>.</div></div>
-<pre><span class="VALunix_error_of_code"><span class="keyword">val</span> unix_error_of_code</span> : <code class="type">int -&gt; Unix.error</code></pre><div class="info"><div class="info">Converts an integer error into the corresponding variant</div></div>
-<pre><span class="VALint64_of_file_descr"><span class="keyword">val</span> int64_of_file_descr</span> : <code class="type">Unix.file_descr -&gt; int64</code></pre><div class="info"><div class="info">Returns the file descriptor as int64 number. Works for all OS.</div></div>
-<pre><span class="VALstring_of_fd"><span class="keyword">val</span> string_of_fd</span> : <code class="type">Unix.file_descr -&gt; string</code></pre><div class="info"><div class="info">Return a string describing the descriptor (for debugging)</div></div>
-<pre><span class="VALstring_of_sockaddr"><span class="keyword">val</span> string_of_sockaddr</span> : <code class="type">Unix.sockaddr -&gt; string</code></pre><div class="info"><div class="info">Returns a human-readable string describing the address
+<pre><span class="VALunix_error_of_code"><span class="keyword">val</span> unix_error_of_code</span> : <code class="type">int -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=error">Unix.error</a></code></pre><div class="info"><div class="info">Converts an integer error into the corresponding variant</div></div>
+<pre><span class="VALint64_of_file_descr"><span class="keyword">val</span> int64_of_file_descr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; int64</code></pre><div class="info"><div class="info">Returns the file descriptor as int64 number. Works for all OS.</div></div>
+<pre><span class="VALstring_of_fd"><span class="keyword">val</span> string_of_fd</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string</code></pre><div class="info"><div class="info">Return a string describing the descriptor (for debugging)</div></div>
+<pre><span class="VALstring_of_sockaddr"><span class="keyword">val</span> string_of_sockaddr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a> -&gt; string</code></pre><div class="info"><div class="info">Returns a human-readable string describing the address
       (for debug messages)<br/>      Note that the reverse (parsing such a string) can be
       accomplished with TODO reference : Netsockaddr.socksymbol_of_string and
       TODO reference : Uq_resolver.sockaddr_of_socksymbol.</div></div>
 <pre><span class="VALstring_of_fd_style"><span class="keyword">val</span> string_of_fd_style</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; string</code></pre><div class="info"><div class="info">Returns a string describing the fd style (debugging)</div></div>
-<pre><span class="VALis_stdin"><span class="keyword">val</span> is_stdin</span> : <code class="type">Unix.file_descr -&gt; bool</code></pre>
-<pre><span class="VALis_stdout"><span class="keyword">val</span> is_stdout</span> : <code class="type">Unix.file_descr -&gt; bool</code></pre>
-<pre><span class="VALis_stderr"><span class="keyword">val</span> is_stderr</span> : <code class="type">Unix.file_descr -&gt; bool</code></pre><div class="info"><div class="info">Returns whether the descriptors are stdin/stdout/stderr</div></div>
-<pre><span class="VALset_close_on_exec"><span class="keyword">val</span> set_close_on_exec</span> : <code class="type">Unix.file_descr -&gt; unit</code></pre>
-<pre><span class="VALclear_close_on_exec"><span class="keyword">val</span> clear_close_on_exec</span> : <code class="type">Unix.file_descr -&gt; unit</code></pre><div class="info"><div class="info">Working versions of the functions with the same name in <code class="code">Unix</code></div></div>
+<pre><span class="VALis_stdin"><span class="keyword">val</span> is_stdin</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool</code></pre>
+<pre><span class="VALis_stdout"><span class="keyword">val</span> is_stdout</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool</code></pre>
+<pre><span class="VALis_stderr"><span class="keyword">val</span> is_stderr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool</code></pre><div class="info"><div class="info">Returns whether the descriptors are stdin/stdout/stderr</div></div>
+<pre><span class="VALset_close_on_exec"><span class="keyword">val</span> set_close_on_exec</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit</code></pre>
+<pre><span class="VALclear_close_on_exec"><span class="keyword">val</span> clear_close_on_exec</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit</code></pre><div class="info"><div class="info">Working versions of the functions with the same name in <code class="code">Unix</code></div></div>
 <pre><span class="VAL_exit"><span class="keyword">val</span> _exit</span> : <code class="type">int -&gt; unit</code></pre><div class="info"><div class="info">Exit the program immediately without running the atexit handlers.
  The argument is the exit code, just as for <code class="code">exit</code>.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">IP addresses</h1></div></div>
-<pre><span class="VALlogand_inet_addr"><span class="keyword">val</span> logand_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; Unix.inet_addr -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">Returns the bitwise AND of the two argument addresses</div></div>
-<pre><span class="VALlogor_inet_addr"><span class="keyword">val</span> logor_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; Unix.inet_addr -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">Returns the bitwise OR of the two argument addresses</div></div>
-<pre><span class="VALlogxor_inet_addr"><span class="keyword">val</span> logxor_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; Unix.inet_addr -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">Returns the bitwise XOR of the two argument addresses</div></div>
-<pre><span class="VALlognot_inet_addr"><span class="keyword">val</span> lognot_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; Unix.inet_addr</code></pre><div class="info"><div class="info">Returns the bitwise NOT of the argument address</div></div>
-<pre><span class="VALis_ipv4_inet_addr"><span class="keyword">val</span> is_ipv4_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is an IPv4 address</div></div>
-<pre><span class="VALis_ipv6_inet_addr"><span class="keyword">val</span> is_ipv6_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is an IPv6 address</div></div>
-<pre><span class="VALis_multicast_inet_addr"><span class="keyword">val</span> is_multicast_inet_addr</span> : <code class="type">Unix.inet_addr -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is a multicast address (either IPv4 or IPv6)</div></div>
+<pre><span class="VALlogand_inet_addr"><span class="keyword">val</span> logand_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a></code></pre><div class="info"><div class="info">Returns the bitwise AND of the two argument addresses</div></div>
+<pre><span class="VALlogor_inet_addr"><span class="keyword">val</span> logor_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a></code></pre><div class="info"><div class="info">Returns the bitwise OR of the two argument addresses</div></div>
+<pre><span class="VALlogxor_inet_addr"><span class="keyword">val</span> logxor_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a></code></pre><div class="info"><div class="info">Returns the bitwise XOR of the two argument addresses</div></div>
+<pre><span class="VALlognot_inet_addr"><span class="keyword">val</span> lognot_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a></code></pre><div class="info"><div class="info">Returns the bitwise NOT of the argument address</div></div>
+<pre><span class="VALis_ipv4_inet_addr"><span class="keyword">val</span> is_ipv4_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is an IPv4 address</div></div>
+<pre><span class="VALis_ipv6_inet_addr"><span class="keyword">val</span> is_ipv6_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is an IPv6 address</div></div>
+<pre><span class="VALis_multicast_inet_addr"><span class="keyword">val</span> is_multicast_inet_addr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; bool</code></pre><div class="info"><div class="info">Whether the address is a multicast address (either IPv4 or IPv6)</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Multicast Functions</h1></div></div>
-<pre><span class="VALmcast_set_loop"><span class="keyword">val</span> mcast_set_loop</span> : <code class="type">Unix.file_descr -&gt; bool -&gt; unit</code></pre><div class="info"><div class="info">Whether sent multicast messages are received by the sending host</div></div>
-<pre><span class="VALmcast_set_ttl"><span class="keyword">val</span> mcast_set_ttl</span> : <code class="type">Unix.file_descr -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Set TTL/hops value</div></div>
-<pre><span class="VALmcast_add_membership"><span class="keyword">val</span> mcast_add_membership</span> : <code class="type">Unix.file_descr -&gt; Unix.inet_addr -&gt; Unix.inet_addr -&gt; unit</code></pre><div class="info"><div class="info">Join a multicast group.<br/>      First inet addr is the group to join. Second inet addr selects the
+<pre><span class="VALmcast_set_loop"><span class="keyword">val</span> mcast_set_loop</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool -&gt; unit</code></pre><div class="info"><div class="info">Whether sent multicast messages are received by the sending host</div></div>
+<pre><span class="VALmcast_set_ttl"><span class="keyword">val</span> mcast_set_ttl</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Set TTL/hops value</div></div>
+<pre><span class="VALmcast_add_membership"><span class="keyword">val</span> mcast_add_membership</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; unit</code></pre><div class="info"><div class="info">Join a multicast group.<br/>      First inet addr is the group to join. Second inet addr selects the
       network interface (or <code class="code">Unix.inet_addr_any</code>).</div></div>
-<pre><span class="VALmcast_drop_membership"><span class="keyword">val</span> mcast_drop_membership</span> : <code class="type">Unix.file_descr -&gt; Unix.inet_addr -&gt; Unix.inet_addr -&gt; unit</code></pre><div class="info"><div class="info">Leave a multicast group.<br/>     First inet addr is the group to leave. Second inet addr selects the
+<pre><span class="VALmcast_drop_membership"><span class="keyword">val</span> mcast_drop_membership</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=inet_addr">Unix.inet_addr</a> -&gt; unit</code></pre><div class="info"><div class="info">Leave a multicast group.<br/>     First inet addr is the group to leave. Second inet addr selects the
      network interface (or <code class="code">Unix.inet_addr_any</code>).</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Profiling</h1></div></div>
 <pre><span class="VALmoncontrol"><span class="keyword">val</span> moncontrol</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Interface to the <code class="code">moncontrol</code> routine of the GPROF profiler. 
@@ -246,14 +246,14 @@ float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</
 <div class="info"><div class="info"><h1 id="1_TITLE">Deprecated</h1></div></div>
 <div class="info"><div class="info">The following interfaces have been replaced by more generic implementations
     that work on more platforms.</div></div>
-<pre><span class="VALblocking_read"><span class="keyword">val</span> blocking_read</span> : <code class="type">Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Same as <code class="code">blocking_gread `Read_write</code></div></div>
-<pre><span class="VALreally_read"><span class="keyword">val</span> really_read</span> : <code class="type">Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Same as <code class="code">really_gread `Read_write</code></div></div>
-<pre><span class="VALreally_write"><span class="keyword">val</span> really_write</span> : <code class="type">Unix.file_descr -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Same as <code class="code">really_gwrite `Read_write</code></div></div>
+<pre><span class="VALblocking_read"><span class="keyword">val</span> blocking_read</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Same as <code class="code">blocking_gread `Read_write</code></div></div>
+<pre><span class="VALreally_read"><span class="keyword">val</span> really_read</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Same as <code class="code">really_gread `Read_write</code></div></div>
+<pre><span class="VALreally_write"><span class="keyword">val</span> really_write</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Same as <code class="code">really_gwrite `Read_write</code></div></div>
 <div class="info"><div class="info">The following interfaces have been moved to TODO reference : Netsys_posix.</div></div>
 <pre><span class="TYPEshm_open_flag"><span class="keyword">type</span> shm_open_flag</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=shm_open_flag">Netsys_posix.shm_open_flag</a></code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_RDONLY"><span class="constructor">SHM_O_RDONLY</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_RDWR"><span class="constructor">SHM_O_RDWR</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_CREAT"><span class="constructor">SHM_O_CREAT</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_EXCL"><span class="constructor">SHM_O_EXCL</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_TRUNC"><span class="constructor">SHM_O_TRUNC</span></span></code></td></tr></table>
 <pre><span class="VALhave_posix_shm"><span class="keyword">val</span> have_posix_shm</span> : <code class="type">unit -&gt; bool</code></pre>
-<pre><span class="VALshm_open"><span class="keyword">val</span> shm_open</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netsys&amp;type=shm_open_flag">shm_open_flag</a> list -&gt; int -&gt; Unix.file_descr</code></pre>
+<pre><span class="VALshm_open"><span class="keyword">val</span> shm_open</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netsys&amp;type=shm_open_flag">shm_open_flag</a> list -&gt; int -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre>
 <pre><span class="VALshm_unlink"><span class="keyword">val</span> shm_unlink</span> : <code class="type">string -&gt; unit</code></pre>
 <div class="info"><div class="info"><h1 id="1_TITLE">Further Documentation</h1></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">How to orderly close I/O channels</h2> <br/>    After reading from uni-directional descriptors, and seeing the
@@ -302,6 +302,6 @@ float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</
  </li></ul></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netsys.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging</div></div></div></div>
 <pre><span class="VALset_moncontrol"><span class="keyword">val</span> set_moncontrol</span> : <code class="type">(bool -&gt; unit) -&gt; unit</code></pre>
 </div>

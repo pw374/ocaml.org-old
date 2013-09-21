@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><pre><span class="TYPEcode_stylist"><span class="keyword">type</span> code_stylist</span> = <code class="type">&lt; style : lang:string -&gt; string -&gt; string &gt;</code></pre><div class="info"><div class="info">has at least a method <code class="code">style</code> that takes a language name and some
     code and returns that code with style.</div></div>
-<pre><span class="VALdefault_language"><span class="keyword">val</span> default_language</span> : <code class="type">string Pervasives.ref</code></pre><div class="info"><div class="info">default language for code blocks can be set to any name, 
+<pre><span class="VALdefault_language"><span class="keyword">val</span> default_language</span> : <code class="type">string <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">default language for code blocks can be set to any name, 
     by default it is the empty string</div></div>
 <pre><span class="VALmake_paragraphs"><span class="keyword">val</span> make_paragraphs</span> : <code class="type"><a href="?package=omd&amp;module=Omd_representation&amp;type=t">Omd_representation.t</a> -&gt; <a href="?package=omd&amp;module=Omd_representation&amp;type=t">Omd_representation.t</a></code></pre><div class="info"><div class="info">Since <code class="code">Omd_parser.parse</code> doesn't build paragraphs, if you want
     Markdown-style paragraphs, you need to apply this function to

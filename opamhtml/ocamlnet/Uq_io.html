@@ -5,7 +5,7 @@
 | `Buffer_in of <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=in_buffer">in_buffer</a>
 | `Count_in of (int -&gt; unit) * <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=in_device">in_device</a>
 | `Multiplex of <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=multiplex_controller">Uq_engines.multiplex_controller</a>
-| `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * Unix.file_descr * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ]</code></pre><div class="info"><div class="info">Currently supported devices for input:<ul><li><code class="code">`Polldescr(st,fd,esys)</code>: The <code class="code">poll</code> system call is used with file
+| `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ]</code></pre><div class="info"><div class="info">Currently supported devices for input:<ul><li><code class="code">`Polldescr(st,fd,esys)</code>: The <code class="code">poll</code> system call is used with file
          descriptor <code class="code">fd</code> to wait for incoming data. The
          event system <code class="code">esys</code> is the underlying event queue. This works
          well for pipes, sockets etc. but not for normal files. The
@@ -20,7 +20,7 @@
 | `Buffer_out of <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=out_buffer">out_buffer</a>
 | `Count_out of (int -&gt; unit) * <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=out_device">out_device</a>
 | `Multiplex of <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=multiplex_controller">Uq_engines.multiplex_controller</a>
-| `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * Unix.file_descr * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ]</code></pre><div class="info"><div class="info">Currently supported devices for output:<ul><li><code class="code">`Polldescr(fd,esys)</code>: The <code class="code">poll</code> system call is used with file
+| `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ]</code></pre><div class="info"><div class="info">Currently supported devices for output:<ul><li><code class="code">`Polldescr(fd,esys)</code>: The <code class="code">poll</code> system call is used with file
          descriptor <code class="code">fd</code> to wait until data can be output. The
          event system <code class="code">esys</code> is the underlying event queue. This works
          well for pipes, sockets etc. but not for normal files.</li><li><code class="code">`Multiplex mplex</code>: The multiplex controller <code class="code">mplex</code> is
@@ -40,7 +40,7 @@
 | `Count_in of (int -&gt; unit) * <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=in_device">in_device</a>
 | `Count_out of (int -&gt; unit) * <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=out_device">out_device</a>
 | `Multiplex of <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=multiplex_controller">Uq_engines.multiplex_controller</a>
-| `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * Unix.file_descr * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ] -&gt;
+| `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ] -&gt;
 bool</code></pre><div class="info"><div class="info">Returns whether <code class="code">`Memory</code> buffers are supported</div></div>
 <pre><span class="EXCEPTIONLine_too_long"><span class="keyword">exception</span> Line_too_long</span></pre><div class="info"><div class="info">May be raised by TODO reference : Uq_io.input_line_e</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Input</h2></div></div>
@@ -124,7 +124,7 @@ bool</code></pre><div class="info"><div class="info">Returns whether <code class
  | `Count_in of (int -&gt; unit) * <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=in_device">in_device</a>
  | `Count_out of (int -&gt; unit) * <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=out_device">out_device</a>
  | `Multiplex of <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=multiplex_controller">Uq_engines.multiplex_controller</a>
- | `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * Unix.file_descr * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ] -&gt;
+ | `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ] -&gt;
 unit <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info">Performs a regular shutdown of the device. The <code class="code">linger</code> argument
       may be used to configure a non-default linger timeout.
       The engine transitions to <code class="code">`Done()</code> when done.<br/>      The shutdown also releases the OS resources (closes the descriptor
@@ -139,7 +139,7 @@ unit <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engine
  | `Count_in of (int -&gt; unit) * <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=in_device">in_device</a>
  | `Count_out of (int -&gt; unit) * <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=out_device">out_device</a>
  | `Multiplex of <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=multiplex_controller">Uq_engines.multiplex_controller</a>
- | `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * Unix.file_descr * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ] -&gt;
+ | `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ] -&gt;
 unit</code></pre><div class="info"><div class="info">Releases the OS resources immediately. This is the right thing to do
       when aborting the communication, or for cleanup after an I/O error.
       It is wrong to inactivate after a successful shutdown, because the

@@ -36,7 +36,7 @@
 <pre><span class="VALoption_of_char"><span class="keyword">val</span> option_of_char</span> : <code class="type">char -&gt; <a href="?package=ocamlnet&amp;module=Telnet_client&amp;type=telnet_negotiated_option">telnet_negotiated_option</a></code></pre><div class="info"><div class="info">Converts a character representing an option to the internal option
  name.</div></div>
 <pre><code><span class="TYPEtelnet_connector"><span class="keyword">type</span> telnet_connector</span> = </code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTtelnet_connector.Telnet_connect"><span class="constructor">Telnet_connect</span></span> <span class="keyword">of</span> <code class="type">string * int</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTtelnet_connector.Telnet_socket"><span class="constructor">Telnet_socket</span></span> <span class="keyword">of</span> <code class="type">Unix.file_descr</code></code></td><td class="typefieldcomment" align="left"/></tr></table><div class="info"><div class="info">Connectors:<ul><li><code class="code">Telnet_connect(host,port)</code>: The client connects to this port.</li><li><code class="code">Telnet_socket s</code>: The client uses an already connected socket.</li></ul> Why <code class="code">Telnet_socket</code>? Telnet is a symmetrical protocol; client and servers
+		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTtelnet_connector.Telnet_connect"><span class="constructor">Telnet_connect</span></span> <span class="keyword">of</span> <code class="type">string * int</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTtelnet_connector.Telnet_socket"><span class="constructor">Telnet_socket</span></span> <span class="keyword">of</span> <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></code></td><td class="typefieldcomment" align="left"/></tr></table><div class="info"><div class="info">Connectors:<ul><li><code class="code">Telnet_connect(host,port)</code>: The client connects to this port.</li><li><code class="code">Telnet_socket s</code>: The client uses an already connected socket.</li></ul> Why <code class="code">Telnet_socket</code>? Telnet is a symmetrical protocol; client and servers
  implement the same protocol features (the only difference is the
  environment: a client is typically connected with a real terminal; a server
  is connected with a pseudo terminal). This simply means that this
@@ -91,13 +91,13 @@
  active. It first resets the session (see method <code class="code">reset</code>), and
  then wraps the exception into the <code class="code">Telnet_protocol</code> exception,
  and raises this exception again.</div></div>
-<pre><span class="METHODoutput_queue"><span class="keyword">method</span> output_queue</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Telnet_client&amp;type=telnet_command">telnet_command</a> Queue.t</code></pre>
+<pre><span class="METHODoutput_queue"><span class="keyword">method</span> output_queue</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Telnet_client&amp;type=telnet_command">telnet_command</a> <a href="?package=ocaml&amp;module=Queue&amp;type=t">Queue.t</a></code></pre>
 <div class="info"><div class="info">The queue of commands to send to the remote side. If you add new
  commands to this queue, do not forget to invoke the <code class="code">update</code>
  method which indicates to the event system that new data to
  send is available.
  After commands have been sent, they are removed from the queue.</div></div>
-<pre><span class="METHODinput_queue"><span class="keyword">method</span> input_queue</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Telnet_client&amp;type=telnet_command">telnet_command</a> Queue.t</code></pre>
+<pre><span class="METHODinput_queue"><span class="keyword">method</span> input_queue</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Telnet_client&amp;type=telnet_command">telnet_command</a> <a href="?package=ocaml&amp;module=Queue&amp;type=t">Queue.t</a></code></pre>
 <div class="info"><div class="info">The queue of commands received from the remote side. This class
  only adds commands to the queue (and invokes the callback 
  function). The user of this class is responsible for removing
@@ -190,7 +190,7 @@
 	  of the connection. This is <code class="code">true</code> by default.</div></div></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Telnet_client.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module  By default,
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module  By default,
         the exchanged Telnet commands are logged. This can be extended
         by setting the <code class="code">verbose_input</code> and <code class="code">verbose_output</code> options.</div></div></div></div>
 </div>

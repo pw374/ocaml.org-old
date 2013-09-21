@@ -13,7 +13,7 @@
 <pre><span class="VALtest_assert_bool"><span class="keyword">val</span> test_assert_bool</span> : <code class="type">'a -&gt; unit</code></pre>
 <pre><span class="VALtest_case_filter"><span class="keyword">val</span> test_case_filter</span> : <code class="type">unit -&gt; unit</code></pre>
 <pre><span class="VALassert_equal_test_result"><span class="keyword">val</span> assert_equal_test_result</span> : <code class="type">?cmp:(<a href="?package=ounit&amp;module=OUnit&amp;type=test_result">OUnit.test_result</a> list -&gt; <a href="?package=ounit&amp;module=OUnit&amp;type=test_result">OUnit.test_result</a> list -&gt; bool) -&gt;
-?pp_diff:(Format.formatter -&gt;
+?pp_diff:(<a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt;
           <a href="?package=ounit&amp;module=OUnit&amp;type=test_result">OUnit.test_result</a> list * <a href="?package=ounit&amp;module=OUnit&amp;type=test_result">OUnit.test_result</a> list -&gt; unit) -&gt;
 ?msg:string -&gt; <a href="?package=ounit&amp;module=OUnit&amp;type=test_result">OUnit.test_result</a> list -&gt; <a href="?package=ounit&amp;module=OUnit&amp;type=test_result">OUnit.test_result</a> list -&gt; unit</code></pre>
 <pre><span class="VALtest_case_decorate"><span class="keyword">val</span> test_case_decorate</span> : <code class="type">unit -&gt; unit</code></pre>
@@ -23,8 +23,8 @@
 <div class="ocaml_module sig" name="EInt"><pre><span class="keyword">module</span> <a href="?package=ounit&amp;module=Test.EInt">EInt</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">int</code></pre>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type">int -&gt; int -&gt; int</code></pre>
-<pre><span class="VALpp_printer"><span class="keyword">val</span> pp_printer</span> : <code class="type">Format.formatter -&gt; int -&gt; unit</code></pre>
-<pre><span class="VALpp_print_sep"><span class="keyword">val</span> pp_print_sep</span> : <code class="type">Format.formatter -&gt; unit -&gt; unit</code></pre></div></div>
+<pre><span class="VALpp_printer"><span class="keyword">val</span> pp_printer</span> : <code class="type"><a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; int -&gt; unit</code></pre>
+<pre><span class="VALpp_print_sep"><span class="keyword">val</span> pp_print_sep</span> : <code class="type"><a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; unit -&gt; unit</code></pre></div></div>
 <div class="ocaml_module ident" name="DiffSetInt" path="?package=ounit&amp;module=OUnitDiff.SetMake"><pre><span class="keyword">module</span> <a href="?package=ounit&amp;module=Test.DiffSetInt">DiffSetInt</a> : <code class="type"><code class="code"><a href="?package=ounit&amp;module=OUnitDiff.SetMake">OUnitDiff.SetMake</a></code>(<code class="code"><a href="?package=ounit&amp;module=Test.EInt">EInt</a></code>)</code></pre></div>
 <div class="ocaml_module ident" name="DiffListSimpleInt" path="?package=ounit&amp;module=OUnitDiff.ListSimpleMake"><pre><span class="keyword">module</span> <a href="?package=ounit&amp;module=Test.DiffListSimpleInt">DiffListSimpleInt</a> : <code class="type"><code class="code"><a href="?package=ounit&amp;module=OUnitDiff.ListSimpleMake">OUnitDiff.ListSimpleMake</a></code>(<code class="code"><a href="?package=ounit&amp;module=Test.EInt">EInt</a></code>)</code></pre></div>
 <pre><span class="VALtest_diff"><span class="keyword">val</span> test_diff</span> : <code class="type">unit -&gt; unit</code></pre>

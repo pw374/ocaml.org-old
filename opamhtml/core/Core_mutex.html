@@ -1,4 +1,4 @@
-<div class="ocaml_toplevel_module"><pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">Mutex.t</code></pre>
+<div class="ocaml_toplevel_module"><pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type"><a href="?package=ocaml&amp;module=Mutex&amp;type=t">Mutex.t</a></code></pre>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -&gt; <a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a></code></pre>
 <pre><span class="VALequal"><span class="keyword">val</span> equal</span> : <code class="type"><a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a> -&gt; bool</code></pre>
 <pre><span class="VALlock"><span class="keyword">val</span> lock</span> : <code class="type"><a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">lock mtx</code> locks <code class="code">mtx</code>, possibly waiting for it to be released
@@ -13,11 +13,11 @@
 <pre><span class="VALcritical_section"><span class="keyword">val</span> critical_section</span> : <code class="type"><a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a> -&gt; f:(unit -&gt; 'a) -&gt; 'a</code></pre>
 <pre><span class="VALsynchronize"><span class="keyword">val</span> synchronize</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">synchronize f</code> creates a mutex and returns a new function that is identical to <code class="code">f</code>
     except that the mutex is held during its execution.</div></div>
-<pre><span class="VALupdate_signal"><span class="keyword">val</span> update_signal</span> : <code class="type"><a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a> -&gt; Condition.t -&gt; f:(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">update_signal mtx cnd ~f</code> updates some state within a critical
+<pre><span class="VALupdate_signal"><span class="keyword">val</span> update_signal</span> : <code class="type"><a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Condition&amp;type=t">Condition.t</a> -&gt; f:(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">update_signal mtx cnd ~f</code> updates some state within a critical
     section protected by mutex <code class="code">mtx</code> using function <code class="code">f</code> and signals
     condition variable <code class="code">cnd</code> after finishing.  If <code class="code">f</code> raises an exception,
     the condition will NOT be signaled!</div></div>
-<pre><span class="VALupdate_broadcast"><span class="keyword">val</span> update_broadcast</span> : <code class="type"><a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a> -&gt; Condition.t -&gt; f:(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">update_broadcast mtx cnd ~f</code> updates some state within a critical
+<pre><span class="VALupdate_broadcast"><span class="keyword">val</span> update_broadcast</span> : <code class="type"><a href="?package=core&amp;module=Core_mutex&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Condition&amp;type=t">Condition.t</a> -&gt; f:(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">update_broadcast mtx cnd ~f</code> updates some state within a critical
     section protected by mutex <code class="code">mtx</code> using function <code class="code">f</code> and broadcasts
     condition variable <code class="code">cnd</code> after finishing.  If <code class="code">f</code> raises an exception,
     the condition will NOT be broadcast!</div></div>

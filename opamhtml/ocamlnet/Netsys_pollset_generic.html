@@ -20,10 +20,10 @@
       there for possible problems. If no better implementation is available,
       this is the same as <code class="code">standard_pollset</code>.</div></div>
 <pre><span class="VALselect_emulation"><span class="keyword">val</span> select_emulation</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_pollset&amp;type=pollset">Netsys_pollset.pollset</a> -&gt;
-Unix.file_descr list -&gt;
-Unix.file_descr list -&gt;
-Unix.file_descr list -&gt;
-float -&gt; Unix.file_descr list * Unix.file_descr list * Unix.file_descr list</code></pre><div class="info"><div class="info"><code class="code">let select = select_emulation pset</code>: Returns a function with the
+<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt;
+<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt;
+<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt;
+float -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list</code></pre><div class="info"><div class="info"><code class="code">let select = select_emulation pset</code>: Returns a function with the
       same meaning as <code class="code">Unix.select</code>. It is emulated on top of <code class="code">pset</code>.<br/>      Using the function is only recommended when the lists of file
       descriptors are short. Long lists impose a big performance penalty.<br/>      Unlike <code class="code">Unix.select</code> the descriptors may be returned in any order.</div></div>
 </div>

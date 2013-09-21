@@ -21,8 +21,8 @@
 
 <pre><span class="METHODlog_max_level"><span class="keyword">method</span> log_max_level</span> : <code class="code">Netplex_types.level</code></pre>
 </div></div>
-<pre><span class="VALchannel_logger"><span class="keyword">val</span> channel_logger</span> : <code class="type">Pervasives.out_channel -&gt; Netplex_types.logger</code></pre><div class="info"><div class="info">Outputs messages to the channel</div></div>
-<pre><span class="VALchannel_logger_from_obj"><span class="keyword">val</span> channel_logger_from_obj</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netplex_log&amp;type=generic_config">generic_config</a> -&gt; Pervasives.out_channel -&gt; Netplex_types.logger</code></pre><div class="info"><div class="info">Outputs messages to the channel</div></div>
+<pre><span class="VALchannel_logger"><span class="keyword">val</span> channel_logger</span> : <code class="type"><a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; Netplex_types.logger</code></pre><div class="info"><div class="info">Outputs messages to the channel</div></div>
+<pre><span class="VALchannel_logger_from_obj"><span class="keyword">val</span> channel_logger_from_obj</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netplex_log&amp;type=generic_config">generic_config</a> -&gt; <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; Netplex_types.logger</code></pre><div class="info"><div class="info">Outputs messages to the channel</div></div>
 <pre><span class="VALstderr_logger_factory"><span class="keyword">val</span> stderr_logger_factory</span> : <code class="type">Netplex_types.logger_factory</code></pre><div class="info"><div class="info">Reads a logging section like<br/> <pre class="codepre"><code class="code"> logging {
        type = &quot;stderr&quot;;
        format = &quot;&lt;format string&gt;&quot;;

@@ -282,7 +282,7 @@
 <pre><span class="VALwrite_mime_message"><span class="keyword">val</span> write_mime_message</span> : <code class="type">?wr_header:bool -&gt;
 ?wr_body:bool -&gt;
 ?nr:int -&gt;
-?ret_boundary:string Pervasives.ref -&gt;
+?ret_boundary:string <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a> -&gt;
 ?crlf:bool -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=complex_mime_message">complex_mime_message</a> -&gt; unit</code></pre><div class="info"><div class="info">Writes the MIME message to the output channel. The content-transfer-
  encoding of the leaves is respected, and their bodies are encoded
  accordingly. The content-transfer-encoding of multipart messages is

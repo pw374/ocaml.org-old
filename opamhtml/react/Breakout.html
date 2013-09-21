@@ -1,9 +1,9 @@
 <div class="ocaml_toplevel_module"><div class="ocaml_module sig" name="Log"><pre><span class="keyword">module</span> <a href="?package=react&amp;module=Breakout.Log">Log</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALinit"><span class="keyword">val</span> init</span> : <code class="type">unit -&gt; unit</code></pre>
-<pre><span class="VALvalue"><span class="keyword">val</span> value</span> : <code class="type">(Format.formatter -&gt; 'a -&gt; unit) -&gt; string -&gt; 'a -&gt; unit</code></pre>
-<pre><span class="VALe"><span class="keyword">val</span> e</span> : <code class="type">(Format.formatter -&gt; 'a -&gt; unit) -&gt;
+<pre><span class="VALvalue"><span class="keyword">val</span> value</span> : <code class="type">(<a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; 'a -&gt; unit) -&gt; string -&gt; 'a -&gt; unit</code></pre>
+<pre><span class="VALe"><span class="keyword">val</span> e</span> : <code class="type">(<a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; 'a -&gt; unit) -&gt;
 string -&gt; 'a <a href="?package=react&amp;module=React&amp;type=event">React.event</a> -&gt; 'a <a href="?package=react&amp;module=React&amp;type=event">React.event</a></code></pre>
-<pre><span class="VALs"><span class="keyword">val</span> s</span> : <code class="type">(Format.formatter -&gt; 'a -&gt; unit) -&gt;
+<pre><span class="VALs"><span class="keyword">val</span> s</span> : <code class="type">(<a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; 'a -&gt; unit) -&gt;
 string -&gt; 'a <a href="?package=react&amp;module=React&amp;type=signal">React.signal</a> -&gt; 'a <a href="?package=react&amp;module=React&amp;type=signal">React.signal</a></code></pre></div></div>
 <div class="ocaml_module sig" name="V2"><pre><span class="keyword">module</span> <a href="?package=react&amp;module=Breakout.V2">V2</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre>
@@ -19,7 +19,7 @@ string -&gt; 'a <a href="?package=react&amp;module=React&amp;type=signal">React.
 <pre><span class="VALsmul"><span class="keyword">val</span> smul</span> : <code class="type">float -&gt; <a href="?package=react&amp;module=Breakout.V2&amp;type=t">t</a> -&gt; <a href="?package=react&amp;module=Breakout.V2&amp;type=t">t</a></code></pre>
 <pre><span class="VALdot"><span class="keyword">val</span> dot</span> : <code class="type"><a href="?package=react&amp;module=Breakout.V2&amp;type=t">t</a> -&gt; <a href="?package=react&amp;module=Breakout.V2&amp;type=t">t</a> -&gt; float</code></pre>
 <pre><span class="VALto_ints"><span class="keyword">val</span> to_ints</span> : <code class="type"><a href="?package=react&amp;module=Breakout.V2&amp;type=t">t</a> -&gt; int * int</code></pre>
-<pre><span class="VALprint"><span class="keyword">val</span> print</span> : <code class="type">Format.formatter -&gt; <a href="?package=react&amp;module=Breakout.V2&amp;type=t">t</a> -&gt; unit</code></pre></div></div>
+<pre><span class="VALprint"><span class="keyword">val</span> print</span> : <code class="type"><a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; <a href="?package=react&amp;module=Breakout.V2&amp;type=t">t</a> -&gt; unit</code></pre></div></div>
 <div class="ocaml_module sig" name="Rect"><pre><span class="keyword">module</span> <a href="?package=react&amp;module=Breakout.Rect">Rect</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type"><a href="?package=react&amp;module=Breakout.V2&amp;type=t">V2.t</a> -&gt; <a href="?package=react&amp;module=Breakout.V2&amp;type=t">V2.t</a> -&gt; <a href="?package=react&amp;module=Breakout.Rect&amp;type=t">t</a></code></pre>
@@ -30,7 +30,7 @@ string -&gt; 'a <a href="?package=react&amp;module=React&amp;type=signal">React.
 <pre><span class="VALxmax"><span class="keyword">val</span> xmax</span> : <code class="type"><a href="?package=react&amp;module=Breakout.Rect&amp;type=t">t</a> -&gt; float</code></pre>
 <pre><span class="VALymin"><span class="keyword">val</span> ymin</span> : <code class="type"><a href="?package=react&amp;module=Breakout.Rect&amp;type=t">t</a> -&gt; float</code></pre>
 <pre><span class="VALymax"><span class="keyword">val</span> ymax</span> : <code class="type"><a href="?package=react&amp;module=Breakout.Rect&amp;type=t">t</a> -&gt; float</code></pre>
-<pre><span class="VALprint"><span class="keyword">val</span> print</span> : <code class="type">Format.formatter -&gt; <a href="?package=react&amp;module=Breakout.Rect&amp;type=t">t</a> -&gt; unit</code></pre></div></div>
+<pre><span class="VALprint"><span class="keyword">val</span> print</span> : <code class="type"><a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; <a href="?package=react&amp;module=Breakout.Rect&amp;type=t">t</a> -&gt; unit</code></pre></div></div>
 <div class="ocaml_module sig" name="Draw"><pre><span class="keyword">module</span> <a href="?package=react&amp;module=Breakout.Draw">Draw</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALframe"><span class="keyword">val</span> frame</span> : <code class="type"><a href="?package=react&amp;module=Breakout.Rect&amp;type=t">Rect.t</a></code></pre>
 <pre><span class="VALinit"><span class="keyword">val</span> init</span> : <code class="type">unit -&gt; unit</code></pre>
@@ -55,7 +55,7 @@ string -&gt; 'a <a href="?package=react&amp;module=React&amp;type=signal">React.
 <pre><span class="VALcollisions"><span class="keyword">val</span> collisions</span> : <code class="type"><a href="?package=react&amp;module=Breakout.Game&amp;type=t">t</a> -&gt; unit <a href="?package=react&amp;module=React&amp;type=event">React.event</a></code></pre>
 <pre><span class="VALoutcome"><span class="keyword">val</span> outcome</span> : <code class="type"><a href="?package=react&amp;module=Breakout.Game&amp;type=t">t</a> -&gt; [&gt; `Game_over of int ] <a href="?package=react&amp;module=React&amp;type=event">React.event</a></code></pre></div></div>
 <div class="ocaml_module sig" name="Render"><pre><span class="keyword">module</span> <a href="?package=react&amp;module=Breakout.Render">Render</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALstr"><span class="keyword">val</span> str</span> : <code class="type">('a, unit, string) Pervasives.format -&gt; 'a</code></pre>
+<pre><span class="VALstr"><span class="keyword">val</span> str</span> : <code class="type">('a, unit, string) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format">Pervasives.format</a> -&gt; 'a</code></pre>
 <pre><span class="VALstr_bricks"><span class="keyword">val</span> str_bricks</span> : <code class="type">int -&gt; string</code></pre>
 <pre><span class="VALintro"><span class="keyword">val</span> intro</span> : <code class="type">int -&gt; unit</code></pre>
 <pre><span class="VALgame_init"><span class="keyword">val</span> game_init</span> : <code class="type">string -&gt; unit</code></pre>

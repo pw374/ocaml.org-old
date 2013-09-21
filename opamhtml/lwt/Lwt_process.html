@@ -23,8 +23,8 @@
 <div class="info"><div class="info"><div class="h8">Redirections</div></div></div>
 <pre><span class="TYPEredirection"><span class="keyword">type</span> redirection</span> = <code class="type">[ `Close
 | `Dev_null
-| `FD_copy of Unix.file_descr
-| `FD_move of Unix.file_descr
+| `FD_copy of <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a>
+| `FD_move of <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a>
 | `Keep ]</code></pre><div class="info"><div class="info">A file descriptor redirection. It describe how standard file
     descriptors are redirected in the child process.</div></div>
 <div class="info"><div class="info">Note: all optionnal redirection argumetns default to <code class="code">`Keep</code></div></div>
@@ -33,7 +33,7 @@
 ?env:string array -&gt;
 ?stdin:<a href="?package=lwt&amp;module=Lwt_process&amp;type=redirection">redirection</a> -&gt;
 ?stdout:<a href="?package=lwt&amp;module=Lwt_process&amp;type=redirection">redirection</a> -&gt;
-?stderr:<a href="?package=lwt&amp;module=Lwt_process&amp;type=redirection">redirection</a> -&gt; <a href="?package=lwt&amp;module=Lwt_process&amp;type=command">command</a> -&gt; Unix.process_status <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Executes the given command and returns its exit status.</div></div>
+?stderr:<a href="?package=lwt&amp;module=Lwt_process&amp;type=redirection">redirection</a> -&gt; <a href="?package=lwt&amp;module=Lwt_process&amp;type=command">command</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=process_status">Unix.process_status</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Executes the given command and returns its exit status.</div></div>
 <div class="info"><div class="info"><div class="h8">Receiving</div></div></div>
 <pre><span class="VALpread"><span class="keyword">val</span> pread</span> : <code class="type">?timeout:float -&gt;
 ?env:string array -&gt;
@@ -75,7 +75,7 @@
 ?stderr:<a href="?package=lwt&amp;module=Lwt_process&amp;type=redirection">redirection</a> -&gt; <a href="?package=lwt&amp;module=Lwt_process&amp;type=command">command</a> -&gt; string <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">Lwt_stream.t</a> -&gt; string <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">Lwt_stream.t</a></code></pre>
 <div class="info"><div class="info"><h6 id="6_TITLE">Spawning processes</h6></div></div>
 <pre><code><span class="TYPEstate"><span class="keyword">type</span> state</span> = </code></pre><table class="typetable">
-		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTstate.Running"><span class="constructor">Running</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">The process is still running</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTstate.Exited"><span class="constructor">Exited</span></span> <span class="keyword">of</span> <code class="type">Unix.process_status</code></code></td><td class="typefieldcomment" align="left"><div class="info">The process has exited</div></td></tr></table><div class="info"><div class="info">State of a sub-process</div></div>
+		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTstate.Running"><span class="constructor">Running</span></span></code></td><td class="typefieldcomment" align="left"><div class="info">The process is still running</div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTstate.Exited"><span class="constructor">Exited</span></span> <span class="keyword">of</span> <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=process_status">Unix.process_status</a></code></code></td><td class="typefieldcomment" align="left"><div class="info">The process has exited</div></td></tr></table><div class="info"><div class="info">State of a sub-process</div></div>
 <div class="ocaml_class sig" name="process_none"><pre><span class="TYPEprocess_none"><span class="keyword">class</span> <a href="?package=lwt&amp;module=Lwt_process&amp;class=process_none">process_none</a></span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_process&amp;type=command">command</a> -&gt; <a href="?package=lwt&amp;module=Lwt_process&amp;type=redirection">redirection</a> option -&gt; <a href="?package=lwt&amp;module=Lwt_process&amp;type=redirection">redirection</a> option -&gt; <a href="?package=lwt&amp;module=Lwt_process&amp;type=redirection">redirection</a> option -&gt; string array option -&gt; float option -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODpid"><span class="keyword">method</span> pid</span> : <code class="code">int</code></pre>
 <div class="info"><div class="info">Pid of the sub-process</div></div>
 <pre><span class="METHODstate"><span class="keyword">method</span> state</span> : <code class="code"><a href="?package=lwt&amp;module=Lwt_process&amp;type=state">state</a></code></pre>
@@ -86,13 +86,13 @@
 <pre><span class="METHODterminate"><span class="keyword">method</span> terminate</span> : <code class="code">unit</code></pre>
 <div class="info"><div class="info">Terminates the process. It is equivalent to <code class="code">kill Sys.sigkill</code>
         on Unix but also works on windows (unlike TODO reference : kill).</div></div>
-<pre><span class="METHODstatus"><span class="keyword">method</span> status</span> : <code class="code">Unix.process_status <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre>
+<pre><span class="METHODstatus"><span class="keyword">method</span> status</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=process_status">Unix.process_status</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre>
 <div class="info"><div class="info">Threads which wait for the sub-process to exit then returns its
         exit status</div></div>
 <pre><span class="METHODrusage"><span class="keyword">method</span> rusage</span> : <code class="code"><a href="?package=lwt&amp;module=Lwt_unix&amp;type=resource_usage">Lwt_unix.resource_usage</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre>
 <div class="info"><div class="info">Threads which wait for the sub-process to exit then returns
         its resource usages</div></div>
-<pre><span class="METHODclose"><span class="keyword">method</span> close</span> : <code class="code">Unix.process_status <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre>
+<pre><span class="METHODclose"><span class="keyword">method</span> close</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=process_status">Unix.process_status</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre>
 <div class="info"><div class="info">Closes the process and returns its exit status. This close all
         channels used to communicate with the process</div></div></div></div>
 <pre><span class="VALopen_process_none"><span class="keyword">val</span> open_process_none</span> : <code class="type">?timeout:float -&gt;

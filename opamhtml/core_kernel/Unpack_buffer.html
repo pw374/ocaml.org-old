@@ -49,7 +49,7 @@
     empty if nothing could be unpacked.  If there is an unpacking error, <code class="code">unpack</code> returns
     an error, and subsequent <code class="code">feed</code> and <code class="code">unpack</code> operations on <code class="code">t</code> will return that same
     error.  I.e. no more data can be fed to or unpacked from <code class="code">t</code>.</div></div>
-<pre><span class="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info"><code class="code">debug</code> controls whether invariants are checked at each call.  Setting this to <code class="code">true</code>
+<pre><span class="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info"><code class="code">debug</code> controls whether invariants are checked at each call.  Setting this to <code class="code">true</code>
     can make things very slow.</div></div>
 <pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('value -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt;
 ('partial_unpack -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt;

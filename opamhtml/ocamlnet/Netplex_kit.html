@@ -3,7 +3,7 @@
  are flagged as <code class="code">virtual</code></div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field"><pre><span class="keyword">inherit</span> <code class="type"/>Netplex_types.processor_hooks</pre></div>
 
 <pre><span class="METHODprocess"><span class="keyword">method</span> <span class="keyword">virtual</span> process</span> : <code class="code">when_done:(unit -&gt; unit) -&gt;
-Netplex_types.container -&gt; Unix.file_descr -&gt; string -&gt; unit</code></pre>
+Netplex_types.container -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; unit</code></pre>
 
 <pre><span class="METHODsupported_ptypes"><span class="keyword">method</span> <span class="keyword">virtual</span> supported_ptypes</span> : <code class="code">Netplex_types.parallelization_type list</code></pre>
 </div></div>
@@ -47,7 +47,7 @@ Netplex_types.container -&gt; Unix.file_descr -&gt; string -&gt; unit</code></pr
 ?lstn_reuseaddr:bool -&gt;
 ?so_keepalive:bool -&gt;
 ?tcp_nodelay:bool -&gt;
-?configure_slave_socket:(Unix.file_descr -&gt; unit) -&gt;
+?configure_slave_socket:(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit) -&gt;
 string -&gt; Netplex_types.extended_address array -&gt; Netplex_types.protocol</code></pre><div class="info"><div class="info"><code class="code">create_protocol name addresses</code>: Creates a <code class="code">protocol</code> object
       from the passed arguments</div></div>
 <pre><span class="VALcreate_socket_service_config"><span class="keyword">val</span> create_socket_service_config</span> : <code class="type">?startup_timeout:float -&gt;

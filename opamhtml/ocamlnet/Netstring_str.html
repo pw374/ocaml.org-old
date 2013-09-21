@@ -19,7 +19,7 @@
  </code></pre><br/> This is exactly what <code class="code">Str</code> supports. Character classes
  are not implemented.</div></div>
 <pre><span class="TYPEregexp"><span class="keyword">type</span> regexp</span> </pre><div class="info"><div class="info">The type of regular expressions</div></div>
-<pre><span class="TYPEsplit_result"><span class="keyword">type</span> split_result</span> = <code class="type">Str.split_result</code></pre><table class="typetable">
+<pre><span class="TYPEsplit_result"><span class="keyword">type</span> split_result</span> = <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=split_result">Str.split_result</a></code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTsplit_result.Text"><span class="constructor">Text</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTsplit_result.Delim"><span class="constructor">Delim</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td><td class="typefieldcomment" align="left"><div class="info">Here we keep compatibility with <code class="code">Str</code></div></td></tr></table>
 <pre><span class="TYPEresult"><span class="keyword">type</span> result</span> </pre><div class="info"><div class="info">The type of matching results</div></div>
 <pre><span class="VALregexp"><span class="keyword">val</span> regexp</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netstring_str&amp;type=regexp">regexp</a></code></pre><div class="info"><div class="info">Parses a regexp</div></div>
@@ -87,5 +87,5 @@
 <pre><span class="VALfirst_chars"><span class="keyword">val</span> first_chars</span> : <code class="type">string -&gt; int -&gt; string</code></pre><div class="info"><div class="info">Same as <code class="code">string_before</code></div></div>
 <pre><span class="VALlast_chars"><span class="keyword">val</span> last_chars</span> : <code class="type">string -&gt; int -&gt; string</code></pre><div class="info"><div class="info">Same as <code class="code">string_after</code></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netstring_str.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre></div></div>
 </div>

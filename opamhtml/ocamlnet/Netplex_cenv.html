@@ -9,8 +9,8 @@
 <div class="info"><div class="info">Logging functions can be invoked from both container and controller 
     contexts.</div></div>
 <pre><span class="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Netplex_types.level -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Writes a log message</div></div>
-<pre><span class="VALlogf"><span class="keyword">val</span> logf</span> : <code class="type">Netplex_types.level -&gt; ('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info">Writes a log message like <code class="code">printf</code></div></div>
-<pre><span class="VALreport_connection_string"><span class="keyword">val</span> report_connection_string</span> : <code class="type">Unix.file_descr -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Output a log line for the <code class="code">netplex.connections</code> admin message.
+<pre><span class="VALlogf"><span class="keyword">val</span> logf</span> : <code class="type">Netplex_types.level -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info">Writes a log message like <code class="code">printf</code></div></div>
+<pre><span class="VALreport_connection_string"><span class="keyword">val</span> report_connection_string</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Output a log line for the <code class="code">netplex.connections</code> admin message.
       The string is the detail to report.</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Timer</h2></div></div>
 <div class="info"><div class="info">Timer functions can only be invoked from container contexts. 
@@ -156,7 +156,7 @@
       because of kernel persistency.<br/>      See TODO reference : Netplex_admin.unlink for more information.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netplex_cenv.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging</div></div></div></div>
 <pre><span class="VALregister_par"><span class="keyword">val</span> register_par</span> : <code class="type">Netplex_types.parallelizer -&gt; unit</code></pre>
 <pre><span class="VALregister_cont"><span class="keyword">val</span> register_cont</span> : <code class="type">Netplex_types.container -&gt; Netplex_types.par_thread -&gt; unit</code></pre>
 <pre><span class="VALunregister_cont"><span class="keyword">val</span> unregister_cont</span> : <code class="type">Netplex_types.container -&gt; Netplex_types.par_thread -&gt; unit</code></pre>

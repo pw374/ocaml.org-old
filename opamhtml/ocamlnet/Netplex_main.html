@@ -1,7 +1,7 @@
 <div class="ocaml_toplevel_module"><div class="info">Main program for Netplex servers</div>
 <pre><span class="TYPEcmdline_config"><span class="keyword">type</span> cmdline_config</span> </pre>
 <pre><span class="VALargs"><span class="keyword">val</span> args</span> : <code class="type">?defaults:<a href="?package=ocamlnet&amp;module=Netplex_main&amp;type=cmdline_config">cmdline_config</a> -&gt;
-unit -&gt; (Arg.key * Arg.spec * Arg.doc) list * <a href="?package=ocamlnet&amp;module=Netplex_main&amp;type=cmdline_config">cmdline_config</a></code></pre><div class="info"><div class="info"><code class="code">let (opt_list, cmdline_cfg) = args()</code>:
+unit -&gt; (<a href="?package=ocaml&amp;module=Arg&amp;type=key">Arg.key</a> * <a href="?package=ocaml&amp;module=Arg&amp;type=spec">Arg.spec</a> * <a href="?package=ocaml&amp;module=Arg&amp;type=doc">Arg.doc</a>) list * <a href="?package=ocamlnet&amp;module=Netplex_main&amp;type=cmdline_config">cmdline_config</a></code></pre><div class="info"><div class="info"><code class="code">let (opt_list, cmdline_cfg) = args()</code>:
  Returns <code class="code">opt_list</code> for inclusion in the <code class="code">Arg.parse</code> option list.
  The effects made available by the returned <code class="code">cmdline_cfg</code> value.<br/> The defaults (unless overridden by <code class="code">defaults</code>): The config file
  is derived from the name of the executable (by appending <code class="code">.conf</code>

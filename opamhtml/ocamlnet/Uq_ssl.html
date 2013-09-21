@@ -32,7 +32,7 @@
 ?preclose:(unit -&gt; unit) -&gt;
 ?initial_state:<a href="?package=ocamlnet&amp;module=Uq_ssl&amp;type=ssl_socket_state">ssl_socket_state</a> -&gt;
 ?timeout:float * exn -&gt;
-Unix.file_descr -&gt;
+<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt;
 <a href="?package=ssl&amp;module=Ssl&amp;type=context">Ssl.context</a> -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; <a href="?package=ocamlnet&amp;module=Uq_ssl&amp;type=ssl_multiplex_controller">ssl_multiplex_controller</a></code></pre><div class="info"><div class="info">Creates a multiplex controller for an SSL socket. The descriptor must
  be a connected socket descriptor.<br/> <code class="code">close_inactive_descr</code>: Whether to close the file descriptor by
  <code class="code">inactivate</code>.<br/> <code class="code">preclose</code>: This function is called immediately before closing
@@ -44,6 +44,6 @@ Unix.file_descr -&gt;
 <pre><span class="VALssl_accept_engine"><span class="keyword">val</span> ssl_accept_engine</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Uq_ssl&amp;type=ssl_multiplex_controller">ssl_multiplex_controller</a> -&gt; unit <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info">This engine performs the server handshake.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Uq_ssl.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div>
-<pre><span class="VALdump_data"><span class="keyword">val</span> dump_data</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">If also <code class="code">enable</code>, output a full dump of payload data</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div>
+<pre><span class="VALdump_data"><span class="keyword">val</span> dump_data</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">If also <code class="code">enable</code>, output a full dump of payload data</div></div></div></div>
 </div>

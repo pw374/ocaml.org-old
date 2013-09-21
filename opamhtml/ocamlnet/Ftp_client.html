@@ -25,8 +25,8 @@
    when an account iD must be typed in</li><li><code class="code">`Preliminary</code>: a reply with code 100 to 199. There will be another
    final reply for the command
    </li></ul></div></div>
-<pre><span class="TYPEport"><span class="keyword">type</span> port</span> = <code class="type">[ `Active of string * int * Unix.file_descr
-| `Ext_active of string * int * Unix.file_descr
+<pre><span class="TYPEport"><span class="keyword">type</span> port</span> = <code class="type">[ `Active of string * int * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a>
+| `Ext_active of string * int * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a>
 | `Ext_passive of int
 | `Passive of string * int
 | `Unspecified ]</code></pre><div class="info"><div class="info">The port of the data connection: <code class="code">`Active</code> means that the server 
@@ -100,7 +100,7 @@
 | `Disconnect
 | `Dummy
 | `EPRT
-| `EPSV of [ `AF of Unix.socket_domain | `ALL ] option
+| `EPSV of [ `AF of <a href="?package=ocaml&amp;module=Unix&amp;type=socket_domain">Unix.socket_domain</a> | `ALL ] option
 | `FEAT
 | `HELP of string option
 | `LANG of string option
@@ -357,5 +357,5 @@ store:(<a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_state">ftp_
  <code class="code">Netconversion.conversion_pipe</code>.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Ftp_client.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div></div></div>
 </div>

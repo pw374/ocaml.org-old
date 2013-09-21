@@ -34,7 +34,7 @@
  <code class="code">(count,size,ext)</code> where <code class="code">count</code> is the number of messages in 
  the mailbox, <code class="code">size</code> is the size of the mailbox in octets, 
  and <code class="code">ext</code> is any server extension data.</div></div>
-<pre><span class="METHODlist"><span class="keyword">method</span> list</span> : <code class="code">?msgno:int -&gt; unit -&gt; (int, int * string) Hashtbl.t</code></pre>
+<pre><span class="METHODlist"><span class="keyword">method</span> list</span> : <code class="code">?msgno:int -&gt; unit -&gt; (int, int * string) <a href="?package=ocaml&amp;module=Hashtbl&amp;type=t">Hashtbl.t</a></code></pre>
 <div class="info"><div class="info">Returns the scan listing for an optional message number or
  for all messages in the current mailbox. The result is a hash
  table that maps a message number to a tuple <code class="code">(size,ext)</code> where
@@ -52,7 +52,7 @@
 <pre><span class="METHODtop"><span class="keyword">method</span> top</span> : <code class="code">?lines:int -&gt; msgno:int -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=in_obj_channel">Netchannels.in_obj_channel</a></code></pre>
 <div class="info"><div class="info">Returns the message header plus a limited number of lines
  of the message body. The default body length is 0 lines.</div></div>
-<pre><span class="METHODuidl"><span class="keyword">method</span> uidl</span> : <code class="code">?msgno:int -&gt; unit -&gt; (int, string) Hashtbl.t</code></pre>
+<pre><span class="METHODuidl"><span class="keyword">method</span> uidl</span> : <code class="code">?msgno:int -&gt; unit -&gt; (int, string) <a href="?package=ocaml&amp;module=Hashtbl&amp;type=t">Hashtbl.t</a></code></pre>
 <div class="info"><div class="info">Returns the unique identifier(s) for an optional message number
  or for all messages in the current mailbox. The result is a
  hash table that maps a message number to its unique id.</div></div></div></div>

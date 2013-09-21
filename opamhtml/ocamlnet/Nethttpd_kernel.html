@@ -8,7 +8,7 @@
 | `Message_too_long
 | `Server_error
 | `Timeout
-| `Unix_error of Unix.error ]</code></pre><div class="info"><div class="info">These are the serious protocol violations after that the daemon stops
+| `Unix_error of <a href="?package=ocaml&amp;module=Unix&amp;type=error">Unix.error</a> ]</code></pre><div class="info"><div class="info">These are the serious protocol violations after that the daemon stops
  any further processing.<br/> Note that <code class="code">`Timeout</code> refers to a timeout in the middle of a request.
  <code class="code">`Broken_pipe_ignore</code> is the &quot;harmless&quot; version of <code class="code">`Broken_pipe</code>
  (see <code class="code">config_suppress_broken_pipe</code>).<br/> Long messages are fatal because it is suspected that they are denial
@@ -124,7 +124,7 @@
    </li></ul></div></div>
 <pre><span class="VALsend_file_response"><span class="keyword">val</span> send_file_response</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;type=http_response">http_response</a> -&gt;
 <a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_status">Nethttp.http_status</a> -&gt;
-<a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_header">Nethttp.http_header</a> option -&gt; Unix.file_descr -&gt; int64 -&gt; unit</code></pre><div class="info"><div class="info">Sends the contents of a file as response body, together with the given status and
+<a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_header">Nethttp.http_header</a> option -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; int64 -&gt; unit</code></pre><div class="info"><div class="info">Sends the contents of a file as response body, together with the given status and
  the header (optional). The descriptor must be a file descriptor (that cannot
  block). The int64 number is the length
  of the body.  Response header fields are set as follows:<ul><li>The <code class="code">Content-Length</code> is set to the length of the string.</li><li>The <code class="code">Content-Type</code> is set to &quot;text/html&quot; unless given by the header.</li></ul> Note that <code class="code">Content-Range</code> is not set automatically, even if the file is only
@@ -189,7 +189,7 @@
    </li></ul></div></div>
 <div class="ocaml_class ident" name="modify_http_protocol_config" path="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=http_protocol_config"><pre><span class="TYPEmodify_http_protocol_config"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=modify_http_protocol_config">modify_http_protocol_config</a></span> : <code class="type">int option -&gt; int option -&gt; int option -&gt; int option -&gt; int option -&gt; <a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;type=announcement">announcement</a> option -&gt; bool option -&gt; <a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;type=http_protocol_config">http_protocol_config</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=http_protocol_config">http_protocol_config</a></pre><div class="info"><div class="info">Modifies the passed config object as specified by the optional
       arguments</div></div></div>
-<div class="ocaml_class sig" name="http_protocol"><pre><span class="TYPEhttp_protocol"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=http_protocol">http_protocol</a></span> : <code class="type">Unix.file_descr -&gt; #<a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=http_protocol_config">http_protocol_config</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The core event loop of the HTTP daemon</div></div><div class="ocaml_class_content"><div class="info"><div class="info">Exchange of HTTP messages<br/> In <code class="code">fd</code> one must pass the already connected socket. It must be in non-
+<div class="ocaml_class sig" name="http_protocol"><pre><span class="TYPEhttp_protocol"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=http_protocol">http_protocol</a></span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; #<a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=http_protocol_config">http_protocol_config</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The core event loop of the HTTP daemon</div></div><div class="ocaml_class_content"><div class="info"><div class="info">Exchange of HTTP messages<br/> In <code class="code">fd</code> one must pass the already connected socket. It must be in non-
  blocking mode.<br/> How to use this class: Basically, one invokes <code class="code">cycle</code> until the whole
  message exchange on <code class="code">fd</code> is processed. <code class="code">cycle</code> receives data from the
  socket and sends data to the socket. There are two internal queues:<br/> The receive queue stores parts of received requests as <code class="code">req_token</code>.
@@ -287,7 +287,7 @@
  with the two tokens <code class="code">`Fatal_error</code> and <code class="code">`Eof</code>. 
  The response queue is cleared. The <code class="code">cycle</code>
  method will return immediately without doing anything.</div></div>
-<pre><span class="METHODfd"><span class="keyword">method</span> fd</span> : <code class="code">Unix.file_descr</code></pre>
+<pre><span class="METHODfd"><span class="keyword">method</span> fd</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre>
 <div class="info"><div class="info">Just returns the socket</div></div>
 <pre><span class="METHODdo_input"><span class="keyword">method</span> do_input</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info">Returns <code class="code">true</code> iff the protocol engine is interested in new data from the
@@ -303,7 +303,7 @@
 <pre><span class="METHODtest_coverage"><span class="keyword">method</span> test_coverage</span> : <code class="code">string list</code></pre>
 <div class="info"><div class="info">For testing: returns a list of tokens indicating into which cases the program
  ran.</div></div></div></div>
-<div class="ocaml_class sig" name="lingering_close"><pre><span class="TYPElingering_close"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=lingering_close">lingering_close</a></span> : <code class="type">Unix.file_descr -&gt; (unit -&gt; unit) option -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Closes a file descriptor using the &quot;lingering close&quot; algorithm.
+<div class="ocaml_class sig" name="lingering_close"><pre><span class="TYPElingering_close"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Nethttpd_kernel&amp;class=lingering_close">lingering_close</a></span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; (unit -&gt; unit) option -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Closes a file descriptor using the &quot;lingering close&quot; algorithm.
     The optional <code class="code">preclose</code> function is called just before <code class="code">Unix.close</code>.</div></div><div class="ocaml_class_content"><div class="info"><div class="info">Closes a file descriptor using the &quot;lingering close&quot; algorithm<br/> Usage:
  <pre class="codepre"><code class="code"> while lc # lingering do lc # cycle ~block:true () done </code></pre></div></div>
 <pre><span class="METHODcycle"><span class="keyword">method</span> cycle</span> : <code class="code">?block:bool -&gt; unit -&gt; unit</code></pre>
@@ -312,9 +312,9 @@
  blocks until data is available. (Default: <code class="code">false</code>)</div></div>
 <pre><span class="METHODlingering"><span class="keyword">method</span> lingering</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info">Whether the socket is still lingering</div></div>
-<pre><span class="METHODfd"><span class="keyword">method</span> fd</span> : <code class="code">Unix.file_descr</code></pre>
+<pre><span class="METHODfd"><span class="keyword">method</span> fd</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre>
 <div class="info"><div class="info">The file descriptor</div></div></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Nethttpd_kernel.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging of this module</div></div></div></div>
 </div>

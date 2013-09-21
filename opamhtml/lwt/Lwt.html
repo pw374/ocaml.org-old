@@ -103,7 +103,7 @@
       terminates (for instance, because it is looping).</div></div>
 <pre><span class="VALignore_result"><span class="keyword">val</span> ignore_result</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">ignore_result t</code> is like <code class="code">Pervasives.ignore t</code> except that:<br/>      - if <code class="code">t</code> already failed, it raises the exception now,<ul><li>if <code class="code">t</code> is sleeping and fails later, the exception will be
         given to TODO reference : async_exception_hook. </li></ul></div></div>
-<pre><span class="VALasync_exception_hook"><span class="keyword">val</span> async_exception_hook</span> : <code class="type">(exn -&gt; unit) Pervasives.ref</code></pre><div class="info"><div class="info">Function called when a asynchronous exception is thrown.<br/>      The default behavior is to print an error message with a
+<pre><span class="VALasync_exception_hook"><span class="keyword">val</span> async_exception_hook</span> : <code class="type">(exn -&gt; unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Function called when a asynchronous exception is thrown.<br/>      The default behavior is to print an error message with a
       backtrace if available and to exit the program.<br/>      The behavior is undefined if this function raise an
       exception.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Sleeping and resuming</h6></div></div>

@@ -50,7 +50,7 @@ child ::= `Data | tree | epsilon </code></pre>
 | `Unknown_ns_prefix of string ]</code></pre><div class="info"><div class="info">The type for input errors.</div></div>
 <pre><span class="VALerror_message"><span class="keyword">val</span> error_message</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=error">error</a> -&gt; string</code></pre><div class="info"><div class="info">Converts the error to an english error message.</div></div>
 <pre><span class="EXCEPTIONError"><span class="keyword">exception</span> Error</span> <span class="keyword">of</span> <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=pos">pos</a> * <a href="?package=xmlm&amp;module=Xmlm&amp;type=error">error</a></code></pre><div class="info"><div class="info">Raised on input errors.</div></div>
-<pre><span class="TYPEsource"><span class="keyword">type</span> source</span> = <code class="type">[ `Channel of Pervasives.in_channel
+<pre><span class="TYPEsource"><span class="keyword">type</span> source</span> = <code class="type">[ `Channel of <a href="?package=ocaml&amp;module=Pervasives&amp;type=in_channel">Pervasives.in_channel</a>
 | `Fun of unit -&gt; int
 | `String of int * string ]</code></pre><div class="info"><div class="info">The type for input sources. For <code class="code">`String</code> starts reading at the
     given integer position. For <code class="code">`Fun</code> the function must return the
@@ -89,8 +89,8 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="VALpos"><span class="keyword">val</span> pos</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=pos">pos</a></code></pre><div class="info"><div class="info">Current position in the input abstraction.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Output</h1></div></div>
 <pre><span class="TYPEfrag"><span class="keyword">type</span> <code class="type">'a </code>frag</span> = <code class="type">[ `Data of string | `El of <a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> * 'a list ]</code></pre><div class="info"><div class="info">The type for deconstructing data structures of type <code class="code">'a</code>.</div></div>
-<pre><span class="TYPEdest"><span class="keyword">type</span> dest</span> = <code class="type">[ `Buffer of Buffer.t
-| `Channel of Pervasives.out_channel
+<pre><span class="TYPEdest"><span class="keyword">type</span> dest</span> = <code class="type">[ `Buffer of <a href="?package=ocaml&amp;module=Buffer&amp;type=t">Buffer.t</a>
+| `Channel of <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a>
 | `Fun of int -&gt; unit ]</code></pre><div class="info"><div class="info">The type for output destinations. For <code class="code">`Buffer</code>, the buffer won't
     be cleared. For <code class="code">`Fun</code> the function is called with the output <em>    bytes</em> as <code class="code">int</code>s.</div></div>
 <pre><span class="TYPEoutput"><span class="keyword">type</span> output</span> </pre><div class="info"><div class="info">The type for output abstractions.</div></div>
@@ -117,7 +117,7 @@ child ::= `Data | tree | epsilon </code></pre>
     hash-consing or to process the character stream, e.g. to normalize
     unicode characters or to convert to a custom encoding.</div></div>
 <pre><span class="TYPEstd_string"><span class="keyword">type</span> std_string</span> = <code class="type">string</code></pre>
-<pre><span class="TYPEstd_buffer"><span class="keyword">type</span> std_buffer</span> = <code class="type">Buffer.t</code></pre>
+<pre><span class="TYPEstd_buffer"><span class="keyword">type</span> std_buffer</span> = <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">Buffer.t</a></code></pre>
 <div class="ocaml_module sig" name="String"><pre><span class="keyword">module type</span> <a href="?package=xmlm&amp;module=Xmlm.String">String</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Input signature for strings.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type for strings.</div></div>
 <pre><span class="VALempty"><span class="keyword">val</span> empty</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a></code></pre><div class="info"><div class="info">The empty string.</div></div>
@@ -169,7 +169,7 @@ child ::= `Data | tree | epsilon </code></pre>
 | `Unknown_ns_prefix of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a> ]</code></pre>
 <pre><span class="EXCEPTIONError"><span class="keyword">exception</span> Error</span> <span class="keyword">of</span> <code class="type"><a href="?package=xmlm&amp;module=Xmlm.S&amp;type=pos">pos</a> * <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=error">error</a></code></pre>
 <pre><span class="VALerror_message"><span class="keyword">val</span> error_message</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.S&amp;type=error">error</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a></code></pre>
-<pre><span class="TYPEsource"><span class="keyword">type</span> source</span> = <code class="type">[ `Channel of Pervasives.in_channel
+<pre><span class="TYPEsource"><span class="keyword">type</span> source</span> = <code class="type">[ `Channel of <a href="?package=ocaml&amp;module=Pervasives&amp;type=in_channel">Pervasives.in_channel</a>
 | `Fun of unit -&gt; int
 | `String of int * <a href="?package=xmlm&amp;module=Xmlm&amp;type=std_string">std_string</a> ]</code></pre>
 <pre><span class="TYPEinput"><span class="keyword">type</span> input</span> </pre>
@@ -186,7 +186,7 @@ child ::= `Data | tree | epsilon </code></pre>
 <div class="info"><div class="info"><h1 id="1_TITLE">Output</h1></div></div>
 <pre><span class="TYPEfrag"><span class="keyword">type</span> <code class="type">'a </code>frag</span> = <code class="type">[ `Data of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=string">string</a> | `El of <a href="?package=xmlm&amp;module=Xmlm.S&amp;type=tag">tag</a> * 'a list ]</code></pre>
 <pre><span class="TYPEdest"><span class="keyword">type</span> dest</span> = <code class="type">[ `Buffer of <a href="?package=xmlm&amp;module=Xmlm&amp;type=std_buffer">std_buffer</a>
-| `Channel of Pervasives.out_channel
+| `Channel of <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a>
 | `Fun of int -&gt; unit ]</code></pre>
 <pre><span class="TYPEoutput"><span class="keyword">type</span> output</span> </pre>
 <pre><span class="VALmake_output"><span class="keyword">val</span> make_output</span> : <code class="type">?decl:bool -&gt;

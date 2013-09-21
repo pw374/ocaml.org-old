@@ -8,7 +8,7 @@
 <div class="info"><div class="info"><h1 id="1_TITLE">Calling commands and pipelines</h1></div></div>
 <div class="info"><div class="info">The following functions are simplified versions of the
  <code class="code">Shell_sys.job</code> abstraction.</div></div>
-<pre><span class="EXCEPTIONSubprocess_error"><span class="keyword">exception</span> Subprocess_error</span> <span class="keyword">of</span> <code class="type">(string * Unix.process_status) list</code></pre><div class="info"><div class="info">The string contains the called commands in a readable representation.
+<pre><span class="EXCEPTIONSubprocess_error"><span class="keyword">exception</span> Subprocess_error</span> <span class="keyword">of</span> <code class="type">(string * <a href="?package=ocaml&amp;module=Unix&amp;type=process_status">Unix.process_status</a>) list</code></pre><div class="info"><div class="info">The string contains the called commands in a readable representation.
  The list enumerates the return codes of the processes that have
  been started for the commands.</div></div>
 <pre><span class="TYPEproducer"><span class="keyword">type</span> producer</span> </pre><div class="info"><div class="info">A producer generates data sent to a called process</div></div>
@@ -18,7 +18,7 @@
 ?arguments:string array -&gt;
 ?chdir:string -&gt;
 ?environment:<a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=environment">Shell_sys.environment</a> -&gt;
-?descriptors:Unix.file_descr list -&gt;
+?descriptors:<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt;
 ?assignments:<a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a> list -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=command">Shell_sys.command</a></code></pre><div class="info"><div class="info">Creates a command descriptor, to be used in <code class="code">call</code>. The anonymous
  string argument is the name of the executable to invoke. If the name
  contains a '/', it is simply interpreted as the filename of the
@@ -33,7 +33,7 @@
 <pre><span class="VALcmd"><span class="keyword">val</span> cmd</span> : <code class="type">?cmdname:string -&gt;
 ?chdir:string -&gt;
 ?environment:<a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=environment">Shell_sys.environment</a> -&gt;
-?descriptors:Unix.file_descr list -&gt;
+?descriptors:<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt;
 ?assignments:<a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a> list -&gt; string -&gt; string list -&gt; <a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=command">Shell_sys.command</a></code></pre><div class="info"><div class="info">The same as <code class="code">command</code> but with a slightly different interface: Use
  <pre class="codepre"><code class="code"> cmd &quot;ls&quot; [ &quot;/dir/file&quot; ] </code></pre>
  instead of
@@ -73,7 +73,7 @@
 <pre><span class="VALsetup_job"><span class="keyword">val</span> setup_job</span> : <code class="type">?stdin:<a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a> -&gt;
 ?stdout:<a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a> -&gt;
 ?stderr:<a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a> -&gt;
-<a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=command">Shell_sys.command</a> list -&gt; <a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=job">Shell_sys.job</a> * Unix.file_descr list</code></pre><div class="info"><div class="info">Creates a job like <code class="code">call</code>, but does not execute it. In addition to
+<a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=command">Shell_sys.command</a> list -&gt; <a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=job">Shell_sys.job</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list</code></pre><div class="info"><div class="info">Creates a job like <code class="code">call</code>, but does not execute it. In addition to
  the job, the file descriptors are returned that must be closed 
  when the job is done.</div></div>
 <pre><span class="VALpostprocess_job"><span class="keyword">val</span> postprocess_job</span> : <code class="type">?ignore_error_code:bool -&gt; <a href="?package=ocamlnet&amp;module=Shell_sys&amp;type=job_instance">Shell_sys.job_instance</a> -&gt; unit</code></pre><div class="info"><div class="info">Looks at the error codes of the job, and raises
@@ -82,26 +82,26 @@
  called processes, or signals terminating any of the called processes.<div class="parameters"><div class="param_info"><code class="code">ignore_error_code</code> : If <code class="code">true</code>, exit codes other than 0 of the
    subprocesses are ignored. This does not apply to signals, however.
    By default <code class="code">false</code>.</div></div></div></div>
-<pre><span class="VALassign"><span class="keyword">val</span> assign</span> : <code class="type">src:Unix.file_descr -&gt; target:Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a></code></pre><div class="info"><div class="info">Arranges a redirection such that writing to <code class="code">src</code> or reading from <code class="code">src</code>
+<pre><span class="VALassign"><span class="keyword">val</span> assign</span> : <code class="type">src:<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; target:<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a></code></pre><div class="info"><div class="info">Arranges a redirection such that writing to <code class="code">src</code> or reading from <code class="code">src</code>
  will actually write to <code class="code">target</code> or read from <code class="code">target</code>
  (i.e., the <code class="code">target</code> descriptor is duplicated and replaces
  the <code class="code">src</code> descriptor just before the process is launched.)<br/> Note that assignments work only if the descriptors are shared
  with the called process, so they must also be contained in the
  <code class="code">descriptors</code> list of <code class="code">command</code> or <code class="code">cmd</code>. Furthermore, the
  close-on-exec flag must not be set.</div></div>
-<pre><span class="VAL&gt;&amp;"><span class="keyword">val</span> &gt;&amp;</span> : <code class="type">Unix.file_descr -&gt; Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a></code></pre><div class="info"><div class="info">Same as <code class="code">assign</code>, but infix notation. For example,
+<pre><span class="VAL&gt;&amp;"><span class="keyword">val</span> &gt;&amp;</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a></code></pre><div class="info"><div class="info">Same as <code class="code">assign</code>, but infix notation. For example,
  <code class="code">stdout &gt;&amp; stderr</code> creates an assignment such that all output
  to stdout is redirected to stderr.<br/> <code class="code">f &gt;&amp; g</code> is the same as <code class="code">assign ~src:f target:g</code>. It should
  be used for output assignments (as in the Bourne shell).</div></div>
-<pre><span class="VAL&lt;&amp;"><span class="keyword">val</span> &lt;&amp;</span> : <code class="type">Unix.file_descr -&gt; Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a></code></pre><div class="info"><div class="info">Same as <code class="code">assign</code>, but infix notation. For example,
+<pre><span class="VAL&lt;&amp;"><span class="keyword">val</span> &lt;&amp;</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a></code></pre><div class="info"><div class="info">Same as <code class="code">assign</code>, but infix notation. For example,
  <code class="code">stdin &lt;&amp; f</code> creates an assignment such that the called process
  reads from the open file descriptor <code class="code">f</code>.<br/> <code class="code">f &lt;&amp; g</code> is the same as <code class="code">assign ~src:f target:g</code>. It should
  be used for input assignments (as in the Bourne shell).</div></div>
-<pre><span class="VALassigned_pair"><span class="keyword">val</span> assigned_pair</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a> -&gt; Unix.file_descr * Unix.file_descr</code></pre><div class="info"><div class="info">Returns the target and the source of the assignment as
+<pre><span class="VALassigned_pair"><span class="keyword">val</span> assigned_pair</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Shell&amp;type=assignment">assignment</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre><div class="info"><div class="info">Returns the target and the source of the assignment as
  pair of descriptors <code class="code">(target,src)</code>.</div></div>
-<pre><span class="VALstdin"><span class="keyword">val</span> stdin</span> : <code class="type">Unix.file_descr</code></pre>
-<pre><span class="VALstdout"><span class="keyword">val</span> stdout</span> : <code class="type">Unix.file_descr</code></pre>
-<pre><span class="VALstderr"><span class="keyword">val</span> stderr</span> : <code class="type">Unix.file_descr</code></pre><div class="info"><div class="info">The standard descriptors; defined here for convenience.</div></div>
+<pre><span class="VALstdin"><span class="keyword">val</span> stdin</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre>
+<pre><span class="VALstdout"><span class="keyword">val</span> stdout</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre>
+<pre><span class="VALstderr"><span class="keyword">val</span> stderr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre><div class="info"><div class="info">The standard descriptors; defined here for convenience.</div></div>
 <pre><span class="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">?pos:int -&gt; ?len:int -&gt; ?epipe:(unit -&gt; unit) -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from a string <code class="code">s</code>. After these data
  are sent, the pipeline is closed.<div class="parameters"><div class="param_info"><code class="code">pos</code> : The position in <code class="code">s</code> where the data slice to transfer begins.
     By default <code class="code">0</code>.</div><div class="param_info"><code class="code">len</code> : The length of the data slice to transfer. By default,
@@ -109,27 +109,27 @@
     string are taken.</div><div class="param_info"><code class="code">epipe</code> : This function is called when the pipeline breaks
     (EPIPE). Default: the empty function. EPIPE exceptions are
     always caught, and implicitly handled by closing the pipeline.</div></div></div></div>
-<pre><span class="VALfrom_stream"><span class="keyword">val</span> from_stream</span> : <code class="type">?epipe:(unit -&gt; unit) -&gt; string Stream.t -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from a stream of strings.
+<pre><span class="VALfrom_stream"><span class="keyword">val</span> from_stream</span> : <code class="type">?epipe:(unit -&gt; unit) -&gt; string <a href="?package=ocaml&amp;module=Stream&amp;type=t">Stream.t</a> -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from a stream of strings.
  After the data are sent, the pipeline is closed.<div class="parameters"><div class="param_info"><code class="code">epipe</code> : This function is called when the pipeline breaks
     (EPIPE). Default: the empty function. EPIPE exceptions are
     always caught, and implicitly handled by closing the pipeline.</div></div></div></div>
-<pre><span class="VALfrom_function"><span class="keyword">val</span> from_function</span> : <code class="type">producer:(Unix.file_descr -&gt; bool) -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from a function. See
+<pre><span class="VALfrom_function"><span class="keyword">val</span> from_function</span> : <code class="type">producer:(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool) -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from a function. See
   TODO reference : Shell_sys.add_producer for the meaning of the <code class="code">producer</code>
   function.</div></div>
 <pre><span class="VALfrom_file"><span class="keyword">val</span> from_file</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from the file whose name is
  passed to this function.</div></div>
-<pre><span class="VALfrom_fd"><span class="keyword">val</span> from_fd</span> : <code class="type">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from the file descriptor passed
+<pre><span class="VALfrom_fd"><span class="keyword">val</span> from_fd</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from the file descriptor passed
  to this function.</div></div>
 <pre><span class="VALfrom_dev_null"><span class="keyword">val</span> from_dev_null</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">A producer taking the data from <code class="code">/dev/null</code>.</div></div>
-<pre><span class="VALto_buffer"><span class="keyword">val</span> to_buffer</span> : <code class="type">Buffer.t -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer writing the data into the passed buffer.</div></div>
-<pre><span class="VALto_function"><span class="keyword">val</span> to_function</span> : <code class="type">consumer:(Unix.file_descr -&gt; bool) -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer writing the data by calling a function. See
+<pre><span class="VALto_buffer"><span class="keyword">val</span> to_buffer</span> : <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">Buffer.t</a> -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer writing the data into the passed buffer.</div></div>
+<pre><span class="VALto_function"><span class="keyword">val</span> to_function</span> : <code class="type">consumer:(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool) -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer writing the data by calling a function. See
   TODO reference : Shell_sys.add_consumer for the meaning of the <code class="code">consumer</code>
   function.</div></div>
 <pre><span class="VALto_file"><span class="keyword">val</span> to_file</span> : <code class="type">?append:bool -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer writing the data into the file whose name is
  passed to this function. Unless <code class="code">append</code> is given, the file is
  truncated and overwritten. If <code class="code">append</code> is <code class="code">true</code>, the data are
  appended to the file. By default, <code class="code">append</code> is <code class="code">false</code>.</div></div>
-<pre><span class="VALto_fd"><span class="keyword">val</span> to_fd</span> : <code class="type">Unix.file_descr -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer redirecting the data to the file descriptor</div></div>
+<pre><span class="VALto_fd"><span class="keyword">val</span> to_fd</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer redirecting the data to the file descriptor</div></div>
 <pre><span class="VALto_dev_null"><span class="keyword">val</span> to_dev_null</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">A consumer redirecting the data to <code class="code">/dev/null</code>.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Examples</h1> <br/> The following examples show toploop sessions using <code class="code">Shell</code>.</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Invoking simple commands</h2><br/> Call the command &quot;ls&quot; without redirection:

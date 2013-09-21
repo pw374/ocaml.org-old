@@ -25,13 +25,13 @@
    this time.</div></div>
 <pre><span class="VALjoin"><span class="keyword">val</span> join</span> : <code class="type"><a href="?package=core&amp;module=Core_thread&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">join th</code> suspends the execution of the calling thread
    until the thread <code class="code">th</code> has terminated.</div></div>
-<pre><span class="VALwait_read"><span class="keyword">val</span> wait_read</span> : <code class="type">Unix.file_descr -&gt; unit</code></pre><div class="info"><div class="info">See TODO reference : Thread.wait_write.</div></div>
-<pre><span class="VALwait_write"><span class="keyword">val</span> wait_write</span> : <code class="type">Unix.file_descr -&gt; unit</code></pre><div class="info"><div class="info">Suspend the execution of the calling thread until at least
+<pre><span class="VALwait_read"><span class="keyword">val</span> wait_read</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit</code></pre><div class="info"><div class="info">See TODO reference : Thread.wait_write.</div></div>
+<pre><span class="VALwait_write"><span class="keyword">val</span> wait_write</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit</code></pre><div class="info"><div class="info">Suspend the execution of the calling thread until at least
    one character is available for reading (TODO reference : Thread.wait_read) or
    one character can be written without blocking (<code class="code">wait_write</code>)
    on the given Unix file descriptor.</div></div>
-<pre><span class="VALwait_timed_read"><span class="keyword">val</span> wait_timed_read</span> : <code class="type">Unix.file_descr -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">See TODO reference : Thread.wait_timed_write.</div></div>
-<pre><span class="VALwait_timed_write"><span class="keyword">val</span> wait_timed_write</span> : <code class="type">Unix.file_descr -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">Same as TODO reference : Thread.wait_read and TODO reference : Thread.wait_write, but wait for at most
+<pre><span class="VALwait_timed_read"><span class="keyword">val</span> wait_timed_read</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">See TODO reference : Thread.wait_timed_write.</div></div>
+<pre><span class="VALwait_timed_write"><span class="keyword">val</span> wait_timed_write</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; float -&gt; bool</code></pre><div class="info"><div class="info">Same as TODO reference : Thread.wait_read and TODO reference : Thread.wait_write, but wait for at most
    the amount of time given as second argument (in seconds).
    Return <code class="code">true</code> if the file descriptor is ready for input/output
    and <code class="code">false</code> if the timeout expired.</div></div>

@@ -18,7 +18,7 @@
     is not set.<br/>    Under Windows, the value of the <code class="code">TEMP</code> environment variable, or &quot;.&quot;  if the variable
     is not set.</div></div>
 <pre><span class="VALopen_temp_file"><span class="keyword">val</span> open_temp_file</span> : <code class="type">?perm:int -&gt;
-?in_dir:string -&gt; string -&gt; string -&gt; string * Pervasives.out_channel</code></pre><div class="info"><div class="info">Same as TODO reference : Core_filename.temp_file, but returns both the name of a fresh
+?in_dir:string -&gt; string -&gt; string -&gt; string * <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a></code></pre><div class="info"><div class="info">Same as TODO reference : Core_filename.temp_file, but returns both the name of a fresh
     temporary file, and an output channel opened (atomically) on
     this file.  This function is more secure than <code class="code">temp_file</code>: there
     is no risk that the temporary file will be modified (e.g. replaced

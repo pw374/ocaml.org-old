@@ -8,7 +8,7 @@
 
 <pre><span class="METHODadd_weak_resource"><span class="keyword">method</span> add_weak_resource</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Unixqueue_util&amp;type=group">Unixqueue_util.group</a> -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue_util&amp;type=operation">Unixqueue_util.operation</a> * float -&gt; unit</code></pre>
 
-<pre><span class="METHODadd_close_action"><span class="keyword">method</span> add_close_action</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Unixqueue_util&amp;type=group">Unixqueue_util.group</a> -&gt; Unix.file_descr * (Unix.file_descr -&gt; unit) -&gt; unit</code></pre>
+<pre><span class="METHODadd_close_action"><span class="keyword">method</span> add_close_action</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Unixqueue_util&amp;type=group">Unixqueue_util.group</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * (<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit) -&gt; unit</code></pre>
 
 <pre><span class="METHODadd_abort_action"><span class="keyword">method</span> add_abort_action</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Unixqueue_util&amp;type=group">Unixqueue_util.group</a> -&gt; (<a href="?package=ocamlnet&amp;module=Unixqueue_util&amp;type=group">Unixqueue_util.group</a> -&gt; exn -&gt; unit) -&gt; unit</code></pre>
 
@@ -30,9 +30,9 @@ unit</code></pre>
 <pre><span class="METHODwhen_blocking"><span class="keyword">method</span> when_blocking</span> : <code class="code">(unit -&gt; unit) -&gt; unit</code></pre>
 
 <pre><span class="METHODsetup"><span class="keyword">method</span> <span class="keyword">private</span> setup</span> : <code class="code">unit -&gt;
-Unix.file_descr list * Unix.file_descr list * Unix.file_descr list * float</code></pre>
+<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * float</code></pre>
 
-<pre><span class="METHODqueue_events"><span class="keyword">method</span> <span class="keyword">private</span> queue_events</span> : <code class="code">Unix.file_descr list * Unix.file_descr list * Unix.file_descr list -&gt; bool</code></pre>
+<pre><span class="METHODqueue_events"><span class="keyword">method</span> <span class="keyword">private</span> queue_events</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> list -&gt; bool</code></pre>
 
 <pre><span class="METHODsource"><span class="keyword">method</span> <span class="keyword">private</span> source</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Unixqueue_util&amp;type=event">Unixqueue_util.event</a> <a href="?package=ocamlnet&amp;module=Equeue&amp;type=t">Equeue.t</a> -&gt; unit</code></pre>
 </div></div>

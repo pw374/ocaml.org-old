@@ -73,31 +73,31 @@
 <pre><span class="VALset_level"><span class="keyword">val</span> set_level</span> : <code class="type"><a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; unit</code></pre>
 <pre><span class="VALset_output"><span class="keyword">val</span> set_output</span> : <code class="type"><a href="?package=async_extra&amp;module=Log.Blocking.Output&amp;type=t">Output.t</a> -&gt; unit</code></pre>
 <pre><span class="VALraw"><span class="keyword">val</span> raw</span> : <code class="type">?tags:(string * string) list -&gt;
-('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">raw</code> printf like logging for raw (no level) messages.  Raw messages are still
+('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">raw</code> printf like logging for raw (no level) messages.  Raw messages are still
       output with a timestamp.</div></div>
 <pre><span class="VALinfo"><span class="keyword">val</span> info</span> : <code class="type">?tags:(string * string) list -&gt;
-('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">info</code> printf like logging at the `Info log level</div></div>
+('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">info</code> printf like logging at the `Info log level</div></div>
 <pre><span class="VALerror"><span class="keyword">val</span> error</span> : <code class="type">?tags:(string * string) list -&gt;
-('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">error</code> printf like logging at the `Info log level</div></div>
+('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">error</code> printf like logging at the `Info log level</div></div>
 <pre><span class="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">?tags:(string * string) list -&gt;
-('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">error</code> printf like logging at the `Info log level</div></div></div></div>
+('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">error</code> printf like logging at the `Info log level</div></div></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre>
 <div class="ocaml_module sig" name="Global_intf"><pre><span class="keyword">module type</span> <a href="?package=async_extra&amp;module=Log.Global_intf">Global_intf</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">An interface for singleton logs</div></div><div class="ocaml_module_content">
 <pre><span class="VALlog"><span class="keyword">val</span> log</span> : <code class="type"><a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> <a href="?package=core&amp;module=Std.Lazy&amp;type=t">Core.Std.Lazy.t</a></code></pre>
 <pre><span class="VALset_level"><span class="keyword">val</span> set_level</span> : <code class="type"><a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; unit</code></pre>
 <pre><span class="VALset_output"><span class="keyword">val</span> set_output</span> : <code class="type"><a href="?package=async_extra&amp;module=Log.Output&amp;type=t">Output.t</a> list -&gt; unit</code></pre>
 <pre><span class="VALraw"><span class="keyword">val</span> raw</span> : <code class="type">?tags:(string * string) list -&gt;
-('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info">logging functions as the functions that operate on a given log.  In this case they
+('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info">logging functions as the functions that operate on a given log.  In this case they
       operate on a single log global to the module</div></div>
 <pre><span class="VALinfo"><span class="keyword">val</span> info</span> : <code class="type">?tags:(string * string) list -&gt;
-('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre>
+('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre>
 <pre><span class="VALerror"><span class="keyword">val</span> error</span> : <code class="type">?tags:(string * string) list -&gt;
-('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre>
+('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre>
 <pre><span class="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">?tags:(string * string) list -&gt;
-('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre>
+('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre>
 <pre><span class="VALflushed"><span class="keyword">val</span> flushed</span> : <code class="type">unit -&gt; unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre>
 <pre><span class="VALprintf"><span class="keyword">val</span> printf</span> : <code class="type">?tags:(string * string) list -&gt;
-?level:<a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; ('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre>
+?level:<a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre>
 <pre><span class="VALsexp"><span class="keyword">val</span> sexp</span> : <code class="type">?tags:(string * string) list -&gt;
 ?level:<a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; 'a -&gt; ('a -&gt; <a href="?package=core&amp;module=Std.Sexp&amp;type=t">Core.Std.Sexp.t</a>) -&gt; unit</code></pre>
 <pre><span class="VALof_lazy"><span class="keyword">val</span> of_lazy</span> : <code class="type">?tags:(string * string) list -&gt;
@@ -117,16 +117,16 @@
     before the call to flushed is out the door.</div></div>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">level:<a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; output:<a href="?package=async_extra&amp;module=Log.Output&amp;type=t">Output.t</a> list -&gt; <a href="?package=async_extra&amp;module=Log&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create</code> create a new log</div></div>
 <pre><span class="VALraw"><span class="keyword">val</span> raw</span> : <code class="type">?tags:(string * string) list -&gt;
-<a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">raw</code> printf like logging for raw (no level) messages.  Raw messages are still
+<a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">raw</code> printf like logging for raw (no level) messages.  Raw messages are still
     output with a timestamp.</div></div>
 <pre><span class="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">?tags:(string * string) list -&gt;
-<a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">debug</code> printf like logging at the `Debug log level</div></div>
+<a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">debug</code> printf like logging at the `Debug log level</div></div>
 <pre><span class="VALinfo"><span class="keyword">val</span> info</span> : <code class="type">?tags:(string * string) list -&gt;
-<a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">info</code> printf like logging at the `Info log level</div></div>
+<a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">info</code> printf like logging at the `Info log level</div></div>
 <pre><span class="VALerror"><span class="keyword">val</span> error</span> : <code class="type">?tags:(string * string) list -&gt;
-<a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">error</code> printf like logging at the `Error log level</div></div>
+<a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">error</code> printf like logging at the `Error log level</div></div>
 <pre><span class="VALprintf"><span class="keyword">val</span> printf</span> : <code class="type">?tags:(string * string) list -&gt;
-?level:<a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; <a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) Pervasives.format4 -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">printf</code> generalized printf style logging</div></div>
+?level:<a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; <a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">printf</code> generalized printf style logging</div></div>
 <pre><span class="VALsexp"><span class="keyword">val</span> sexp</span> : <code class="type">?tags:(string * string) list -&gt;
 ?level:<a href="?package=async_extra&amp;module=Log.Level&amp;type=t">Level.t</a> -&gt; <a href="?package=async_extra&amp;module=Log&amp;type=t">t</a> -&gt; 'a -&gt; ('a -&gt; <a href="?package=core&amp;module=Std.Sexp&amp;type=t">Core.Std.Sexp.t</a>) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">sexp</code> logging of values without first converting them to a string.  In the case
     where the log level would discard this message no conversion will ever be done.</div></div>

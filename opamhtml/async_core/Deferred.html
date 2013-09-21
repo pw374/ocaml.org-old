@@ -78,7 +78,7 @@
     is called.</div></div>
 <pre><span class="VALforever"><span class="keyword">val</span> forever</span> : <code class="type">'state -&gt; ('state -&gt; 'state <a href="?package=async_core&amp;module=Deferred&amp;type=t">t</a>) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">forever initial_state f</code> repeatedly runs <code class="code">f</code>, supplying the state returned to the
     next call to <code class="code">f</code>.</div></div>
-<pre><span class="VALdebug_space_leaks"><span class="keyword">val</span> debug_space_leaks</span> : <code class="type">int option Pervasives.ref</code></pre><div class="info"><div class="info">Set <code class="code">debug_space_leaks</code> to <code class="code">Some n</code> to trigger assertion failures when single deferred
+<pre><span class="VALdebug_space_leaks"><span class="keyword">val</span> debug_space_leaks</span> : <code class="type">int option <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Set <code class="code">debug_space_leaks</code> to <code class="code">Some n</code> to trigger assertion failures when single deferred
     has more than <code class="code">n</code> handlers waiting for it to be filled.  Note that if <code class="code">n</code> is
     less than 2, we may not trigger all assertion failures.</div></div>
 <pre><span class="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type">('a -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; 'a <a href="?package=async_core&amp;module=Deferred&amp;type=t">t</a> -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a></code></pre>
