@@ -58,8 +58,8 @@
         <div class="container-fluid">
           <ul class="nav pull-left">
 {{! ifdef filename
-            <li><a href="https://github.com/ocamllabs/sandbox-ocaml.org/tree/master/{{!x tryget filename x!}}">Edit this page</a></li>
-¡}}
+            <li><a href="https://github.com/ocamllabs/sandbox-ocaml.org/tree/master/((! tryget filename !))">Edit this page</a></li>
+!}}
           </ul>
           <ul class="nav pull-right">
             <li><a href="#">Feedback</a></li>
