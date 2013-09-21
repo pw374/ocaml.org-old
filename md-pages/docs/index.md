@@ -21,7 +21,7 @@
                 </a>
             </div>
             <div class="row">
-                <a href="/packages" class="span3 documentation-highlight">
+                <a href="/pkg" class="span3 documentation-highlight">
                     <img src="/static/img/documents.png" alt="">
                     Package Documents
                 </a>
