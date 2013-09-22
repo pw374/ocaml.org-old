@@ -57,6 +57,7 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <ul class="nav pull-left">
+            <li><a onclick="document.getElementById('footer').style.display='none'">[X]</a></li>
 {{! ifdef filename
             <li><a href="https://github.com/ocamllabs/sandbox-ocaml.org/tree/master/((! tryget filename !))">Edit this page</a></li>
 !}}
