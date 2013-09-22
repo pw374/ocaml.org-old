@@ -14,7 +14,7 @@
 <pre><span class="VALunmake"><span class="keyword">val</span> unmake</span> : <code class="type">'b <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Read_ml.reader</a> -&gt; <a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt; 'b <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Unsafe_read_c.reader</a></code></pre><div class="info"><div class="info"><code class="code">unmake ml_reader buf</code> takes an ML-style reader <code class="code">ml_reader</code> and a
     buffer.  This function can be used to wrap higher-order type
     conversion functions and, together with  <a href="#Unsafe_common.get_sptr_ptr">Unsafe_common.get_sptr_ptr</a>,
-    <span class="SK_custom_Unsafe_common"> custom</span> and  <a href="#handle_error">handle_error</a>, is used in
+    <span class="SK_custom_Unsafe_common">Unsafe_common</span> and  <a href="#handle_error">handle_error</a>, is used in
     e.g.  <a href="#make1">make1</a>,  <a href="#make2">make2</a> and  <a href="#make3">make3</a> for that purpose.<b>Returns</b> an
     unsafe C-style reader.</div></div>
 <pre><span class="VALhandle_error"><span class="keyword">val</span> handle_error</span> : <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt; <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr_ptr">Unsafe_common.sptr_ptr</a> -&gt; <a href="?package=bin_prot&amp;module=Common.ReadError&amp;type=t">Common.ReadError.t</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">handle_error buf sptr_ptr err</code> deallocates <code class="code">sptr_ptr</code> for buffer

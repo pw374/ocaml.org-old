@@ -29,7 +29,7 @@ string -&gt; ('a -&gt; <a href="?package=textutils&amp;module=Console.Ansi&amp;t
 ?bars:[ `Ascii | `Unicode ] -&gt; 'row <a href="?package=textutils&amp;module=Ascii_table.Column&amp;type=t">Column.t</a> list -&gt; 'row list -&gt; 'rest</code></pre>
 <pre><span class="VALoutput"><span class="keyword">val</span> output</span> : <code class="type">('a, oc:<a href="?package=core&amp;module=Std.Out_channel&amp;type=t">Core.Std.Out_channel.t</a> -&gt; unit) <a href="?package=textutils&amp;module=Ascii_table&amp;type=renderer">renderer</a></code></pre><div class="info"><div class="info">The idea is that you have a Column.t list and a list of rows, where each
     row contains the data for each column.  So e.g. 'a could be a record type
-    <span class="SK_custom_col_1"> custom</span>, where the first column pulls out col_1 and
+    <span class="SK_custom_col_1">col_1</span>, where the first column pulls out col_1 and
     the second column pulls out col_2. *</div></div>
 <pre><span class="VALto_string_noattr"><span class="keyword">val</span> to_string_noattr</span> : <code class="type">('a, string) <a href="?package=textutils&amp;module=Ascii_table&amp;type=renderer">renderer</a></code></pre>
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">('a, string) <a href="?package=textutils&amp;module=Ascii_table&amp;type=renderer">renderer</a></code></pre>
