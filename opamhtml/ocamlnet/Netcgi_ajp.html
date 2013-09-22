@@ -1,9 +1,9 @@
-<div class="ocaml_toplevel_module"><div class="info">Apache JServ Protocol (AJP) 1.3 connector.<br/> See the TODO reference : Netcgi_ajp.setup section at the end of this file to know
+<div class="ocaml_toplevel_module"><div class="info">Apache JServ Protocol (AJP) 1.3 connector.<br/> See the  <a title="RK_element Netcgi_ajp.setup">Netcgi_ajp.setup</a> section at the end of this file to know
  how to configure your web server.</div>
 <pre><span class="VALarg_parse"><span class="keyword">val</span> arg_parse</span> : <code class="type">(<a href="?package=ocaml&amp;module=Arg&amp;type=key">Arg.key</a> * <a href="?package=ocaml&amp;module=Arg&amp;type=spec">Arg.spec</a> * <a href="?package=ocaml&amp;module=Arg&amp;type=doc">Arg.doc</a>) list -&gt;
 <a href="?package=ocaml&amp;module=Arg&amp;type=anon_fun">Arg.anon_fun</a> -&gt; <a href="?package=ocaml&amp;module=Arg&amp;type=usage_msg">Arg.usage_msg</a> -&gt; (string * string) list</code></pre><div class="info"><div class="info"><code class="code">arg_parse speclist anon_fun usage_msg</code> parses the command line
       and return an associative list describing the content of the
-      property file (see TODO reference : Netcgi_ajp.props_of_file).  This function
+      property file (see  <a title="RK_element Netcgi_ajp.props_of_file">Netcgi_ajp.props_of_file</a>).  This function
       allows to fakes the &quot;java&quot; command (JVM startup):<br/>      - the option <code class="code">-classpath &lt;path&gt;</code> is ignored;<ul><li>the first anonymous argument (Java class name) is ignored;</li><li>the second anonymous argument is the name of the property file;</li><li>other options are interpreted according to the <code class="code">speclist</code>.</li></ul><b>Raises</b> <code>Failure</code> and prints a usage message if the property file
       cannot be read.<br/></div></div>
 <pre><span class="VALprops_of_file"><span class="keyword">val</span> props_of_file</span> : <code class="type">string -&gt; (string * string) list</code></pre><div class="info"><div class="info"><code class="code">props_of_file fname</code> parses the property file <code class="code">fname</code> and
@@ -25,9 +25,9 @@
 ?output_type:<a href="?package=ocamlnet&amp;module=Netcgi&amp;type=output_type">Netcgi.output_type</a> -&gt;
 ?arg_store:<a href="?package=ocamlnet&amp;module=Netcgi&amp;type=arg_store">Netcgi.arg_store</a> -&gt;
 ?exn_handler:<a href="?package=ocamlnet&amp;module=Netcgi&amp;type=exn_handler">Netcgi.exn_handler</a> -&gt;
-?sockaddr:<a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a> -&gt; ?port:int -&gt; (<a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi">Netcgi.cgi</a> -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">run f</code> executes <code class="code">f cgi</code> for each AJP request.<div class="parameters"><div class="param_info"><code class="code">config</code> : Default: TODO reference : Netcgi.default_config</div><div class="param_info"><code class="code">allow</code> : Tells whether a connection from the socket is allowed.
+?sockaddr:<a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a> -&gt; ?port:int -&gt; (<a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi">Netcgi.cgi</a> -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">run f</code> executes <code class="code">f cgi</code> for each AJP request.<div class="parameters"><div class="param_info"><code class="code">config</code> : Default:  <a title="RK_element Netcgi.default_config">Netcgi.default_config</a></div><div class="param_info"><code class="code">allow</code> : Tells whether a connection from the socket is allowed.
                    Default: allow from all.</div><div class="param_info"><code class="code">output_type</code> : Default: <code class="code">`Direct &quot;&quot;</code></div><div class="param_info"><code class="code">arg_store</code> : Default: <code class="code">`Automatic</code> for all arguments.</div><div class="param_info"><code class="code">port</code> : The port used by the web server to send the requests
-                  (Default: 8009).</div><div class="param_info"><code class="code">sockaddr</code> : The sockaddress (overrides <code class="code">port</code>)</div><div class="param_info"><code class="code">exn_handler</code> : See TODO reference : Netcgi.exn_handler.  Default: delegate
+                  (Default: 8009).</div><div class="param_info"><code class="code">sockaddr</code> : The sockaddress (overrides <code class="code">port</code>)</div><div class="param_info"><code class="code">exn_handler</code> : See  <a title="RK_element Netcgi.exn_handler">Netcgi.exn_handler</a>.  Default: delegate
       all exceptions to the default handler.</div></div></div></div>
 <pre><span class="VALhandle_request"><span class="keyword">val</span> handle_request</span> : <code class="type">?script_name:string -&gt;
 <a href="?package=ocamlnet&amp;module=Netcgi&amp;type=config">Netcgi.config</a> -&gt;
@@ -42,7 +42,8 @@ log:(string -&gt; unit) option -&gt; <a href="?package=ocaml&amp;module=Unix&amp
       open or must be closed.</div></div>
 <div class="info"><div class="info"><h2 id="setup">Setup</h2><br/>    <h3 id="3_TITLE">Apache</h3><br/>    You need to use mod_jk to have support for AJP/1.3.  To install
     it, please see
-    TODO reference : http://tomcat.apache.org/tomcat-3.3-doc/mod_jk-howto.html.<br/>    In httpd.conf or in a file, say mod_jk.conf, in
+     <a href="http://tomcat.apache.org/tomcat-3.3-doc/mod_jk-howto.html">Working
+    with mod_jk</a>.<br/>    In httpd.conf or in a file, say mod_jk.conf, in
     /etc/apache2/conf.d/ (or /etc/apache2/conf.d/ for Apache 1.x), add
     the following:
     <span class="verbatim">    # Shared memory file name (Unix only).  The parent dir must exist.
@@ -66,7 +67,8 @@ log:(string -&gt; unit) option -&gt; <a href="?package=ocaml&amp;module=Unix&amp
       JkMount /servlet/* ajp13_worker
     &lt;/IfModule&gt;
     </span><br/>    <h3 id="3_TITLE">Other web severs</h3><br/>    Please go to this
-    TODO reference : http://tomcat.apache.org/connectors-doc/index.html.  Mail us specific instructions or tips for other web
+     <a href="http://tomcat.apache.org/connectors-doc/index.html">configuration
+    page</a>.  Mail us specific instructions or tips for other web
     servers so we can include them here.<br/>    <h3 id="3_TITLE">Workers.properties</h3><br/>    Here is an example of workers.properties:
     <span class="verbatim">    # Comma separated list of worker names:
     worker.list=ajp13_worker

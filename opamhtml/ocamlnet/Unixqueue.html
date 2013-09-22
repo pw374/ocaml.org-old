@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info"><div class="info">Unixqueues are one of the two forms of system event loops provided
     by Ocamlnet. Besides Unixqueue, there is also pollset (see
-    TODO reference : Netsys_pollset). The pollsets are much simpler (there is no
+     <a title="RK_element Netsys_pollset">Netsys_pollset</a>). The pollsets are much simpler (there is no
     queuing of events), and nowadays Unixqueue bases upon pollset,
     and extends its functionality. Historically, however, Unixqueue
     precede pollset, and there are still implementations of the former
@@ -26,15 +26,15 @@
       available for all purposes.</li><li>It defines a set of access functions like <code class="code">add_event</code> which 
       simply call the methods of the event system object of the same name.
       Note that these functions work for all event system implementation,
-      not only for <code class="code">standard_event_system</code>.</li></ul>    There are further modules that have to do with Unixqueue:<br/>    - TODO reference : Unixqueue_pollset is the implementation behind 
+      not only for <code class="code">standard_event_system</code>.</li></ul>    There are further modules that have to do with Unixqueue:<br/>    -  <a title="RK_element Unixqueue_pollset">Unixqueue_pollset</a> is the implementation behind 
       <code class="code">standard_event_system</code>. If you want to use other pollsets than
       the standard one, it is possible to create Unixqueues on top of these
-      by using this module directly.<ul><li>TODO reference : Unixqueue_select is the historic default implementation. It
+      by using this module directly.<ul><li> <a title="RK_element Unixqueue_select">Unixqueue_select</a> is the historic default implementation. It
       calls directly <code class="code">Unix.select</code>. It is still available because it 
       serves as a reference implementation for now.</li><li><code class="code">Unixqueue_util</code> is an internal module with implementation details.
-      Please don't call it directly.</li><li>TODO reference : Uq_gtk is an implementation of Unixqueue mapping to the 
+      Please don't call it directly.</li><li> <a title="RK_element Uq_gtk">Uq_gtk</a> is an implementation of Unixqueue mapping to the 
       GTK event loop. Useful for multiplexing event-based I/O and
-      GTK graphics operations.</li><li>TODO reference : Uq_tcl is an implementation of Unixqueue mapping to the 
+      GTK graphics operations.</li><li> <a title="RK_element Uq_tcl">Uq_tcl</a> is an implementation of Unixqueue mapping to the 
       TCL event loop. Useful for multiplexing event-based I/O and
       event-based code written in TCL (especially TK).
  </li></ul></div></div>
@@ -101,9 +101,9 @@
  several possible reactions: (1) The handler can return normally,
  which means that the event has been accepted, and will not be
  passed to any other handler. (2) The handler can raise
- TODO reference : Equeue.Reject, which means that the handler cannot process
+  <a title="RK_element Equeue.Reject">Equeue.Reject</a>, which means that the handler cannot process
  the event, and that another handler should get it. (3) The handler
- can raise TODO reference : Equeue.Terminate which means that the event has been
+ can raise  <a title="RK_element Equeue.Terminate">Equeue.Terminate</a> which means that the event has been
  accepted, and that the handler is terminated (it will never be
  called again). (4) The handler can raise <code class="code">Abort</code> which means that
  the event is deferred, and that a special abort mechanism is
@@ -148,14 +148,14 @@
 </div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Creating event systems</h1></div></div>
 <div class="ocaml_class ident" name="standard_event_system" path="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system"><pre><span class="TYPEstandard_event_system"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=standard_event_system">standard_event_system</a></span> : <code class="type">unit -&gt; </code><a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system">event_system</a></pre><div class="info"><div class="info">The standard implementation of an event system. It uses 
-      TODO reference : Unixqueue_pollset.pollset_event_system on top of
-      TODO reference : Netsys_pollset_generic.standard_pollset.</div></div></div>
+       <a title="RK_element Unixqueue_pollset.pollset_event_system">Unixqueue_pollset.pollset_event_system</a> on top of
+       <a title="RK_element Netsys_pollset_generic.standard_pollset">Netsys_pollset_generic.standard_pollset</a>.</div></div></div>
 <pre><span class="VALstandard_event_system"><span class="keyword">val</span> standard_event_system</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">event_system</a></code></pre><div class="info"><div class="info">Create a new, empty, standard event system</div></div>
 <div class="ocaml_class ident" name="unix_event_system" path="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system"><pre><span class="TYPEunix_event_system"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=unix_event_system">unix_event_system</a></span> : <code class="type">unit -&gt; </code><a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system">event_system</a></pre><div class="info"><div class="info">An alternate name for <code class="code">standard_event_system</code>, provided for
       backward compatibility.</div></div></div>
 <pre><span class="VALcreate_unix_event_system"><span class="keyword">val</span> create_unix_event_system</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">event_system</a></code></pre><div class="info"><div class="info">An alternate name for <code class="code">standard_event_system</code>, provided for
       backward compatibility.</div></div>
-<div class="ocaml_class ident" name="performance_event_system" path="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system"><pre><span class="TYPEperformance_event_system"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=performance_event_system">performance_event_system</a></span> : <code class="type">unit -&gt; </code><a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system">event_system</a></pre><div class="info"><div class="info">The implementation using TODO reference : Netsys_pollset_generic.performance_pollset.</div></div></div>
+<div class="ocaml_class ident" name="performance_event_system" path="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system"><pre><span class="TYPEperformance_event_system"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=performance_event_system">performance_event_system</a></span> : <code class="type">unit -&gt; </code><a href="?package=ocamlnet&amp;module=Unixqueue&amp;class=event_system">event_system</a></pre><div class="info"><div class="info">The implementation using  <a title="RK_element Netsys_pollset_generic.performance_pollset">Netsys_pollset_generic.performance_pollset</a>.</div></div></div>
 <pre><span class="VALperformance_event_system"><span class="keyword">val</span> performance_event_system</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">event_system</a></code></pre><div class="info"><div class="info">Same as function</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Using event systems</h1></div></div>
 <div class="info"><div class="info">The following functions work for all kinds of event systems, not
@@ -218,7 +218,7 @@
 <pre><span class="VALrun"><span class="keyword">val</span> run</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">event_system</a> -&gt; unit</code></pre><div class="info"><div class="info">Starts the event loop. This means that the resources are watched,
  and that events are generated, and that handlers are called.<br/> The event loop returns normally when there are not any resources
  and not any events in the queue. The loop raises
- TODO reference : Equeue.Out_of_handlers if there are resources but no handlers
+  <a title="RK_element Equeue.Out_of_handlers">Equeue.Out_of_handlers</a> if there are resources but no handlers
  to process their events. It is possible that exceptions raised
  from handlers fall through to the <code class="code">run</code> call.<br/> After the exception is caught and processed, the event loop
  can be restarted.</div></div>
@@ -233,7 +233,7 @@
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Unixqueue.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">This module controls debugging of all <code class="code">Unixqueue_*</code> modules</div></div>
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enable TODO reference : Netlog debugging</div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enable  <a title="RK_element Netlog">Netlog</a> debugging</div></div>
 <pre><span class="VALset_debug_mode"><span class="keyword">val</span> set_debug_mode</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Sets <code class="code">enable</code>.</div></div>
 <pre><span class="VALset_debug_target"><span class="keyword">val</span> set_debug_target</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Equeue.Debug&amp;type=debug_target">Equeue.Debug.debug_target</a> -&gt; unit</code></pre><div class="info"><div class="info">Restricts debugging to this target.</div></div></div></div>
 </div>

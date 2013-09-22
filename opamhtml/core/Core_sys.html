@@ -40,7 +40,7 @@
 <pre><span class="VALos_type"><span class="keyword">val</span> os_type</span> : <code class="type">string</code></pre><div class="info"><div class="info">Operating system currently executing the Caml program. One of<ul><li> <code class="code">&quot;Unix&quot;</code> (for all Unix versions, including Linux and Mac OS X),</li><li> <code class="code">&quot;Win32&quot;</code> (for MS-Windows, OCaml compiled with MSVC++ or Mingw),</li><li> <code class="code">&quot;Cygwin&quot;</code> (for MS-Windows, OCaml compiled with Cygwin). </li></ul></div></div>
 <pre><span class="VALword_size"><span class="keyword">val</span> word_size</span> : <code class="type">int</code></pre><div class="info"><div class="info">Size of one word on the machine currently executing the Caml program, in
     bits: 32 or 64.</div></div>
-<pre><span class="EXCEPTIONBreak"><span class="keyword">exception</span> Break</span></pre><div class="info"><div class="info">Exception raised on interactive interrupt if TODO reference : Sys.catch_break is on.</div></div>
+<pre><span class="EXCEPTIONBreak"><span class="keyword">exception</span> Break</span></pre><div class="info"><div class="info">Exception raised on interactive interrupt if  <a title="RK_element Sys.catch_break">Sys.catch_break</a> is on.</div></div>
 <pre><span class="VALcatch_break"><span class="keyword">val</span> catch_break</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Warning: this function clobbers the Signal.int (SIGINT) handler.  SIGINT is the
     signal that's sent to your program when you hit CTRL-C.<br/>    Warning: catch_break uses deep ocaml runtime magic to raise Sys.Break inside of the
     main execution context.  Consider explicitly handling Signal.int instead.  If

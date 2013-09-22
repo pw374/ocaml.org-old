@@ -113,42 +113,42 @@
     been transferred to the channel buffer before the error.<br/></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Unsafe functions</h6></div></div>
 <pre><span class="VALunsafe_read_assume_fd_is_nonblocking"><span class="keyword">val</span> unsafe_read_assume_fd_is_nonblocking</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">unsafe_read_assume_fd_is_nonblocking fd ~pos ~len bstr</code>
-    similar to TODO reference : Bigstring.read_assume_fd_is_nonblocking, but does
+    similar to  <a title="RK_element Bigstring.read_assume_fd_is_nonblocking">Bigstring.read_assume_fd_is_nonblocking</a>, but does
     not perform any bounds checks.  Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_write"><span class="keyword">val</span> unsafe_write</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">unsafe_write fd ~pos ~len bstr</code> similar to
-    TODO reference : Bigstring.write, but does not perform any bounds checks.
+     <a title="RK_element Bigstring.write">Bigstring.write</a>, but does not perform any bounds checks.
     Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_write_assume_fd_is_nonblocking"><span class="keyword">val</span> unsafe_write_assume_fd_is_nonblocking</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">unsafe_write_assume_fd_is_nonblocking fd ~pos ~len bstr</code>
-    similar to TODO reference : Bigstring.write_assume_fd_is_nonblocking, but does
+    similar to  <a title="RK_element Bigstring.write_assume_fd_is_nonblocking">Bigstring.write_assume_fd_is_nonblocking</a>, but does
     not perform any bounds checks.  Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_read"><span class="keyword">val</span> unsafe_read</span> : <code class="type">min_len:int -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">unsafe_read ~min_len fd ~pos ~len bstr</code> similar to
-    TODO reference : Bigstring.read, but does not perform any bounds checks.
+     <a title="RK_element Bigstring.read">Bigstring.read</a>, but does not perform any bounds checks.
     Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_really_recv"><span class="keyword">val</span> unsafe_really_recv</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">unsafe_really_recv sock ~pos ~len bstr</code> similar to
-    TODO reference : Bigstring.really_recv, but does not perform any
+     <a title="RK_element Bigstring.really_recv">Bigstring.really_recv</a>, but does not perform any
     bounds checks.  Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_really_write"><span class="keyword">val</span> unsafe_really_write</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">unsafe_really_write fd ~pos ~len bstr</code> similar to
-    TODO reference : Bigstring.write, but does not perform any bounds checks.
+     <a title="RK_element Bigstring.write">Bigstring.write</a>, but does not perform any bounds checks.
     Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_really_send_no_sigpipe"><span class="keyword">val</span> unsafe_really_send_no_sigpipe</span> : <code class="type">(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; unit)
 <a href="?package=core_kernel&amp;module=Std.Or_error&amp;type=t">Core_kernel.Std.Or_error.t</a></code></pre><div class="info"><div class="info"><code class="code">unsafe_really_send_no_sigpipe sock ~pos ~len bstr</code>
-    similar to TODO reference : Bigstring.send, but does not perform any
+    similar to  <a title="RK_element Bigstring.send">Bigstring.send</a>, but does not perform any
     bounds checks.  Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_send_nonblocking_no_sigpipe"><span class="keyword">val</span> unsafe_send_nonblocking_no_sigpipe</span> : <code class="type">(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int option)
 <a href="?package=core_kernel&amp;module=Std.Or_error&amp;type=t">Core_kernel.Std.Or_error.t</a></code></pre><div class="info"><div class="info"><code class="code">unsafe_send_nonblocking_no_sigpipe sock ~pos ~len bstr</code> similar to
-    TODO reference : Bigstring.send_nonblocking_no_sigpipe, but does not perform any
+     <a title="RK_element Bigstring.send_nonblocking_no_sigpipe">Bigstring.send_nonblocking_no_sigpipe</a>, but does not perform any
     bounds checks.  Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_writev"><span class="keyword">val</span> unsafe_writev</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> <a href="?package=core&amp;module=Core_unix.IOVec&amp;type=t">Core_unix.IOVec.t</a> array -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">unsafe_writev fd iovecs count</code> similar to
-    TODO reference : Bigstring.writev, but does not perform any bounds checks.
+     <a title="RK_element Bigstring.writev">Bigstring.writev</a>, but does not perform any bounds checks.
     Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_sendmsg_nonblocking_no_sigpipe"><span class="keyword">val</span> unsafe_sendmsg_nonblocking_no_sigpipe</span> : <code class="type">(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> <a href="?package=core&amp;module=Core_unix.IOVec&amp;type=t">Core_unix.IOVec.t</a> array -&gt; int -&gt; int option)
 <a href="?package=core_kernel&amp;module=Std.Or_error&amp;type=t">Core_kernel.Std.Or_error.t</a></code></pre><div class="info"><div class="info"><code class="code">unsafe_sendmsg_nonblocking_no_sigpipe fd iovecs count</code>
-    similar to TODO reference : Bigstring.sendmsg_nonblocking_no_sigpipe, but
+    similar to  <a title="RK_element Bigstring.sendmsg_nonblocking_no_sigpipe">Bigstring.sendmsg_nonblocking_no_sigpipe</a>, but
     does not perform any bounds checks.  Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_input"><span class="keyword">val</span> unsafe_input</span> : <code class="type">min_len:int -&gt; <a href="?package=ocaml&amp;module=Pervasives&amp;type=in_channel">Pervasives.in_channel</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">unsafe_input ~min_len ic ~pos ~len bstr</code> similar to
-    TODO reference : Bigstring.input, but does not perform any bounds checks.
+     <a title="RK_element Bigstring.input">Bigstring.input</a>, but does not perform any bounds checks.
     Will crash on bounds errors!</div></div>
 <pre><span class="VALunsafe_output"><span class="keyword">val</span> unsafe_output</span> : <code class="type">min_len:int -&gt; <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; pos:int -&gt; len:int -&gt; <a href="?package=core&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">unsafe_output ~min_len oc ~pos ~len bstr</code> similar to
-    TODO reference : Bigstring.output, but does not perform any bounds checks.
+     <a title="RK_element Bigstring.output">Bigstring.output</a>, but does not perform any bounds checks.
     Will crash on bounds errors!</div></div>
 </div>

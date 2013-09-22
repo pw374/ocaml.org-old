@@ -32,7 +32,7 @@
    <code class="code">s</code> and nothing else.</div></div>
 <pre><span class="VALregexp_string"><span class="keyword">val</span> regexp_string</span> : <code class="type">string -&gt; <a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a></code></pre><div class="info"><div class="info"><code class="code">Str.regexp_string s</code> returns a regular expression
    that matches exactly <code class="code">s</code> and nothing else.</div></div>
-<pre><span class="VALregexp_string_case_fold"><span class="keyword">val</span> regexp_string_case_fold</span> : <code class="type">string -&gt; <a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a></code></pre><div class="info"><div class="info"><code class="code">Str.regexp_string_case_fold</code> is similar to TODO reference : Str.regexp_string,
+<pre><span class="VALregexp_string_case_fold"><span class="keyword">val</span> regexp_string_case_fold</span> : <code class="type">string -&gt; <a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a></code></pre><div class="info"><div class="info"><code class="code">Str.regexp_string_case_fold</code> is similar to  <a title="RK_element Str.regexp_string">Str.regexp_string</a>,
    but the regexp matches in a case-insensitive way.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">String matching and searching</h6></div></div>
 <pre><span class="VALstring_match"><span class="keyword">val</span> string_match</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">string_match r s start</code> tests whether a substring of <code class="code">s</code> that
@@ -48,27 +48,27 @@
   considers substrings that start at position <code class="code">last</code> and proceeds
   towards the beginning of string. Return the position of the first
   character of the matched substring.<b>Raises</b> <code>Not_found</code> if no substring matches.<br/></div></div>
-<pre><span class="VALstring_partial_match"><span class="keyword">val</span> string_partial_match</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; bool</code></pre><div class="info"><div class="info">Similar to TODO reference : Str.string_match, but also returns true if
+<pre><span class="VALstring_partial_match"><span class="keyword">val</span> string_partial_match</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; bool</code></pre><div class="info"><div class="info">Similar to  <a title="RK_element Str.string_match">Str.string_match</a>, but also returns true if
    the argument string is a prefix of a string that matches.
    This includes the case of a true complete match.</div></div>
 <pre><span class="VALmatched_string"><span class="keyword">val</span> matched_string</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">matched_string s</code> returns the substring of <code class="code">s</code> that was matched
    by the last call to one of the following matching or searching
-   functions:<ul><li>TODO reference : Str.string_match</li><li>TODO reference : Str.search_forward</li><li>TODO reference : Str.search_backward</li><li>TODO reference : Str.string_partial_match</li><li>TODO reference : Str.global_substitute</li><li>TODO reference : Str.substitute_first
-   provided that none of the following functions was called inbetween:</li><li>TODO reference : Str.global_replace</li><li>TODO reference : Str.replace_first</li><li>TODO reference : Str.split</li><li>TODO reference : Str.bounded_split</li><li>TODO reference : Str.split_delim</li><li>TODO reference : Str.bounded_split_delim</li><li>TODO reference : Str.full_split</li><li>TODO reference : Str.bounded_full_split</li></ul>   Note: in the case of <code class="code">global_substitute</code> and <code class="code">substitute_first</code>,
+   functions:<ul><li> <a title="RK_element Str.string_match">Str.string_match</a></li><li> <a title="RK_element Str.search_forward">Str.search_forward</a></li><li> <a title="RK_element Str.search_backward">Str.search_backward</a></li><li> <a title="RK_element Str.string_partial_match">Str.string_partial_match</a></li><li> <a title="RK_element Str.global_substitute">Str.global_substitute</a></li><li> <a title="RK_element Str.substitute_first">Str.substitute_first</a>
+   provided that none of the following functions was called inbetween:</li><li> <a title="RK_element Str.global_replace">Str.global_replace</a></li><li> <a title="RK_element Str.replace_first">Str.replace_first</a></li><li> <a title="RK_element Str.split">Str.split</a></li><li> <a title="RK_element Str.bounded_split">Str.bounded_split</a></li><li> <a title="RK_element Str.split_delim">Str.split_delim</a></li><li> <a title="RK_element Str.bounded_split_delim">Str.bounded_split_delim</a></li><li> <a title="RK_element Str.full_split">Str.full_split</a></li><li> <a title="RK_element Str.bounded_full_split">Str.bounded_full_split</a></li></ul>   Note: in the case of <code class="code">global_substitute</code> and <code class="code">substitute_first</code>,
    a call to <code class="code">matched_string</code> is only valid within the <code class="code">subst</code> argument,
    not after <code class="code">global_substitute</code> or <code class="code">substitute_first</code> returns.<br/>   The user must make sure that the parameter <code class="code">s</code> is the same string
    that was passed to the matching or searching function.</div></div>
 <pre><span class="VALmatch_beginning"><span class="keyword">val</span> match_beginning</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info"><code class="code">match_beginning()</code> returns the position of the first character
    of the substring that was matched by the last call to a matching
-   or searching function (see TODO reference : Str.matched_string for details).</div></div>
+   or searching function (see  <a title="RK_element Str.matched_string">Str.matched_string</a> for details).</div></div>
 <pre><span class="VALmatch_end"><span class="keyword">val</span> match_end</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info"><code class="code">match_end()</code> returns the position of the character following the
    last character of the substring that was matched by the last call
-   to a matching or searching function (see TODO reference : Str.matched_string for
+   to a matching or searching function (see  <a title="RK_element Str.matched_string">Str.matched_string</a> for
    details).</div></div>
 <pre><span class="VALmatched_group"><span class="keyword">val</span> matched_group</span> : <code class="type">int -&gt; string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">matched_group n s</code> returns the substring of <code class="code">s</code> that was matched
    by the <code class="code">n</code>th group <code class="code">\(...\)</code> of the regular expression that was
    matched by the last call to a matching or searching function (see
-   TODO reference : Str.matched_string for details).
+    <a title="RK_element Str.matched_string">Str.matched_string</a> for details).
    The user must make sure that the parameter <code class="code">s</code> is the same string
    that was passed to the matching or searching function.<b>Raises</b> <code>Not_found</code> if the <code class="code">n</code>th group
    of the regular expression was not matched.  This can happen
@@ -79,14 +79,14 @@
 <pre><span class="VALgroup_beginning"><span class="keyword">val</span> group_beginning</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">group_beginning n</code> returns the position of the first character
    of the substring that was matched by the <code class="code">n</code>th group of
    the regular expression that was matched by the last call to a
-   matching or searching function (see TODO reference : Str.matched_string for details).<b>Raises</b> <code>Not_found</code> if the <code class="code">n</code>th group of the regular expression
+   matching or searching function (see  <a title="RK_element Str.matched_string">Str.matched_string</a> for details).<b>Raises</b> <code>Not_found</code> if the <code class="code">n</code>th group of the regular expression
    was not matched.<br/><code>Invalid_argument</code> if there are fewer than <code class="code">n</code> groups in
    the regular expression.<br/></div></div>
 <pre><span class="VALgroup_end"><span class="keyword">val</span> group_end</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">group_end n</code> returns
    the position of the character following the last character of
    substring that was matched by the <code class="code">n</code>th group of the regular
    expression that was matched by the last call to a matching or
-   searching function (see TODO reference : Str.matched_string for details).<b>Raises</b> <code>Not_found</code> if the <code class="code">n</code>th group of the regular expression
+   searching function (see  <a title="RK_element Str.matched_string">Str.matched_string</a> for details).<b>Raises</b> <code>Not_found</code> if the <code class="code">n</code>th group of the regular expression
    was not matched.<br/><code>Invalid_argument</code> if there are fewer than <code class="code">n</code> groups in
    the regular expression.<br/></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Replacement</h6></div></div>
@@ -96,20 +96,20 @@
    <code class="code">\1</code>, <code class="code">\2</code>, etc; these sequences will be replaced by the text
    matched by the corresponding group in the regular expression.
    <code class="code">\0</code> stands for the text matched by the whole regular expression.</div></div>
-<pre><span class="VALreplace_first"><span class="keyword">val</span> replace_first</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Same as TODO reference : Str.global_replace, except that only the first substring
+<pre><span class="VALreplace_first"><span class="keyword">val</span> replace_first</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Str.global_replace">Str.global_replace</a>, except that only the first substring
    matching the regular expression is replaced.</div></div>
 <pre><span class="VALglobal_substitute"><span class="keyword">val</span> global_substitute</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; (string -&gt; string) -&gt; string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">global_substitute regexp subst s</code> returns a string identical
    to <code class="code">s</code>, except that all substrings of <code class="code">s</code> that match <code class="code">regexp</code>
    have been replaced by the result of function <code class="code">subst</code>. The
    function <code class="code">subst</code> is called once for each matching substring,
    and receives <code class="code">s</code> (the whole text) as argument.</div></div>
-<pre><span class="VALsubstitute_first"><span class="keyword">val</span> substitute_first</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; (string -&gt; string) -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Same as TODO reference : Str.global_substitute, except that only the first substring
+<pre><span class="VALsubstitute_first"><span class="keyword">val</span> substitute_first</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; (string -&gt; string) -&gt; string -&gt; string</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Str.global_substitute">Str.global_substitute</a>, except that only the first substring
    matching the regular expression is replaced.</div></div>
 <pre><span class="VALreplace_matched"><span class="keyword">val</span> replace_matched</span> : <code class="type">string -&gt; string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">replace_matched repl s</code> returns the replacement text <code class="code">repl</code>
    in which <code class="code">\1</code>, <code class="code">\2</code>, etc. have been replaced by the text
    matched by the corresponding groups in the regular expression
    that was matched by the last call to a matching or searching
-   function (see TODO reference : Str.matched_string for details).
+   function (see  <a title="RK_element Str.matched_string">Str.matched_string</a> for details).
    <code class="code">s</code> must be the same string that was passed to the matching or
    searching function.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Splitting</h6></div></div>
@@ -118,26 +118,26 @@
    For instance, <code class="code">split (regexp &quot;[ \t]+&quot;) s</code> splits <code class="code">s</code> into
    blank-separated words.  An occurrence of the delimiter at the
    beginning or at the end of the string is ignored.</div></div>
-<pre><span class="VALbounded_split"><span class="keyword">val</span> bounded_split</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; string list</code></pre><div class="info"><div class="info">Same as TODO reference : Str.split, but splits into at most <code class="code">n</code> substrings,
+<pre><span class="VALbounded_split"><span class="keyword">val</span> bounded_split</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; string list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Str.split">Str.split</a>, but splits into at most <code class="code">n</code> substrings,
    where <code class="code">n</code> is the extra integer parameter.</div></div>
-<pre><span class="VALsplit_delim"><span class="keyword">val</span> split_delim</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; string list</code></pre><div class="info"><div class="info">Same as TODO reference : Str.split but occurrences of the
+<pre><span class="VALsplit_delim"><span class="keyword">val</span> split_delim</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; string list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Str.split">Str.split</a> but occurrences of the
    delimiter at the beginning and at the end of the string are
    recognized and returned as empty strings in the result.
    For instance, <code class="code">split_delim (regexp &quot; &quot;) &quot; abc &quot;</code>
    returns <code class="code">[&quot;&quot;; &quot;abc&quot;; &quot;&quot;]</code>, while <code class="code">split</code> with the same
    arguments returns <code class="code">[&quot;abc&quot;]</code>.</div></div>
-<pre><span class="VALbounded_split_delim"><span class="keyword">val</span> bounded_split_delim</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; string list</code></pre><div class="info"><div class="info">Same as TODO reference : Str.bounded_split, but occurrences of the
+<pre><span class="VALbounded_split_delim"><span class="keyword">val</span> bounded_split_delim</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; string list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Str.bounded_split">Str.bounded_split</a>, but occurrences of the
    delimiter at the beginning and at the end of the string are
    recognized and returned as empty strings in the result.</div></div>
 <pre><code><span class="TYPEsplit_result"><span class="keyword">type</span> split_result</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTsplit_result.Text"><span class="constructor">Text</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTsplit_result.Delim"><span class="constructor">Delim</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td></tr></table>
-<pre><span class="VALfull_split"><span class="keyword">val</span> full_split</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; <a href="?package=ocaml&amp;module=Str&amp;type=split_result">split_result</a> list</code></pre><div class="info"><div class="info">Same as TODO reference : Str.split_delim, but returns
+<pre><span class="VALfull_split"><span class="keyword">val</span> full_split</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; <a href="?package=ocaml&amp;module=Str&amp;type=split_result">split_result</a> list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Str.split_delim">Str.split_delim</a>, but returns
    the delimiters as well as the substrings contained between
    delimiters.  The former are tagged <code class="code">Delim</code> in the result list;
    the latter are tagged <code class="code">Text</code>.  For instance,
    <code class="code">full_split (regexp &quot;[{}]&quot;) &quot;{ab}&quot;</code> returns
    <code class="code">[Delim &quot;{&quot;; Text &quot;ab&quot;; Delim &quot;}&quot;]</code>.</div></div>
-<pre><span class="VALbounded_full_split"><span class="keyword">val</span> bounded_full_split</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; <a href="?package=ocaml&amp;module=Str&amp;type=split_result">split_result</a> list</code></pre><div class="info"><div class="info">Same as TODO reference : Str.bounded_split_delim, but returns
+<pre><span class="VALbounded_full_split"><span class="keyword">val</span> bounded_full_split</span> : <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=regexp">regexp</a> -&gt; string -&gt; int -&gt; <a href="?package=ocaml&amp;module=Str&amp;type=split_result">split_result</a> list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Str.bounded_split_delim">Str.bounded_split_delim</a>, but returns
    the delimiters as well as the substrings contained between
    delimiters.  The former are tagged <code class="code">Delim</code> in the result list;
    the latter are tagged <code class="code">Text</code>.</div></div>
@@ -149,6 +149,6 @@
    that follow position <code class="code">n</code> (including the character at
    position <code class="code">n</code>).</div></div>
 <pre><span class="VALfirst_chars"><span class="keyword">val</span> first_chars</span> : <code class="type">string -&gt; int -&gt; string</code></pre><div class="info"><div class="info"><code class="code">first_chars s n</code> returns the first <code class="code">n</code> characters of <code class="code">s</code>.
-   This is the same function as TODO reference : Str.string_before.</div></div>
+   This is the same function as  <a title="RK_element Str.string_before">Str.string_before</a>.</div></div>
 <pre><span class="VALlast_chars"><span class="keyword">val</span> last_chars</span> : <code class="type">string -&gt; int -&gt; string</code></pre><div class="info"><div class="info"><code class="code">last_chars s n</code> returns the last <code class="code">n</code> characters of <code class="code">s</code>.</div></div>
 </div>

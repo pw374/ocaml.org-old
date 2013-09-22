@@ -8,10 +8,10 @@
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -&gt;
 (int * int * int) <a href="?package=react&amp;module=React&amp;type=event">React.event</a> -&gt; (unit -&gt; <a href="?package=zed&amp;module=Zed_lines&amp;type=t">Zed_lines.t</a>) -&gt; int -&gt; int -&gt; <a href="?package=zed&amp;module=Zed_cursor&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create length changes get_lines position wanted_column</code> creates
       a new cursor pointing to position <code class="code">position</code>.<br/>      <code class="code">length</code> is the current length of the text the cursor points
-      to. It raises TODO reference : Out_of_bounds if <code class="code">position</code> is greater than
+      to. It raises  <a title="RK_element Out_of_bounds">Out_of_bounds</a> if <code class="code">position</code> is greater than
       <code class="code">length</code>.<br/>      <code class="code">changes</code> is an event which occurs with values of the form
       <code class="code">(start, added, removed)</code> when the text changes, with the same
-      semantic as TODO reference : Zed_edit.changes.<br/>      <code class="code">get_lines</code> is used to retreive the current set of line
+      semantic as  <a title="RK_element Zed_edit.changes">Zed_edit.changes</a>.<br/>      <code class="code">get_lines</code> is used to retreive the current set of line
       positions of the text. It is used to compute the line and column
       of the cursor.<br/>      <code class="code">wanted_column</code> is the column on which the cursor want to be, if
       there is enough room on the line.</div></div>
@@ -34,11 +34,11 @@
 <pre><span class="VALset_wanted_column"><span class="keyword">val</span> set_wanted_column</span> : <code class="type"><a href="?package=zed&amp;module=Zed_cursor&amp;type=t">t</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">set_wanted_column cursor</code> sets the column on which the cursor
       want to be.</div></div>
 <pre><span class="VALgoto"><span class="keyword">val</span> goto</span> : <code class="type"><a href="?package=zed&amp;module=Zed_cursor&amp;type=t">t</a> -&gt; ?set_wanted_column:bool -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">goto cursor position</code> moves the given cursor to the given
-      position. It raises TODO reference : Out_of_bounds if <code class="code">position</code> is outside
+      position. It raises  <a title="RK_element Out_of_bounds">Out_of_bounds</a> if <code class="code">position</code> is outside
       the bounds of the text. If <code class="code">set_wanted_column</code> is <code class="code">true</code> (the
       default), then the wanted column will be set to the column of
       the cursor at given position.</div></div>
 <pre><span class="VALmove"><span class="keyword">val</span> move</span> : <code class="type"><a href="?package=zed&amp;module=Zed_cursor&amp;type=t">t</a> -&gt; ?set_wanted_column:bool -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">move cursor delta</code> moves the given cursor by the given number
-      of characters. It raises TODO reference : Out_of_bounds if the result is
+      of characters. It raises  <a title="RK_element Out_of_bounds">Out_of_bounds</a> if the result is
       outside the bounds of the text.</div></div>
 </div>

@@ -5,27 +5,27 @@
     set up new connectors.  Here is the normal flow of operations:<br/>    - You start by reading the request environment properties as well
     as the input header.  Often both are undistinguished and provided
     through some sort of meta-variables.  The function
-    TODO reference : Netcgi_common.update_props_inheader helps you to sort them and
+     <a title="RK_element Netcgi_common.update_props_inheader">Netcgi_common.update_props_inheader</a> helps you to sort them and
     to normalize the input header fields.  You also need to set up a
-    TODO reference : Netchannels.out_obj_channel to the output stream of your
-    connector.  Then, TODO reference : Netcgi_common.cgi_environment can create an
+     <a title="RK_element Netchannels.out_obj_channel">Netchannels.out_obj_channel</a> to the output stream of your
+    connector.  Then,  <a title="RK_element Netcgi_common.cgi_environment">Netcgi_common.cgi_environment</a> can create an
     environment object for you.  If <code class="code">stderr</code> output is not appropriate
     (e.g. ot is not redirected to the server log), you need to
-    override <code class="code">#log_error</code>.<br/>    - From the environment object and arguments, TODO reference : Netcgi_common.cgi
+    override <code class="code">#log_error</code>.<br/>    - From the environment object and arguments,  <a title="RK_element Netcgi_common.cgi">Netcgi_common.cgi</a>
     creates a CGI object.  Often, arguments are read from the
     environment <code class="code">#cgi_query_string</code> (in case of GET) or from an input
-    channel (in case of POST).  TODO reference : Netcgi_common.cgi_with_args handles
-    this for you: it requires a TODO reference : Netchannels.in_obj_channel from
-    which the arguments are read (only used in the case of POST).<br/>    - TODO reference : Netcgi_common.exn_handler_default provides a default error
+    channel (in case of POST).   <a title="RK_element Netcgi_common.cgi_with_args">Netcgi_common.cgi_with_args</a> handles
+    this for you: it requires a  <a title="RK_element Netchannels.in_obj_channel">Netchannels.in_obj_channel</a> from
+    which the arguments are read (only used in the case of POST).<br/>    -  <a title="RK_element Netcgi_common.exn_handler_default">Netcgi_common.exn_handler_default</a> provides a default error
     page for uncaught exceptions.  It also allows the user to pass his
     own exception handler that has precedence on the default one.<br/>    To see this schema in use, we recommend you have a look to the
     implementation of the CGI connector because it is very simple.</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Arguments</h2></div></div>
 <pre><span class="TYPErepresentation"><span class="keyword">type</span> representation</span> = <code class="type">[ `MIME of <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_message">Netmime.mime_message</a> | `Simple of <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_body">Netmime.mime_body</a> ]</code></pre>
 <pre><span class="TYPEstore"><span class="keyword">type</span> store</span> = <code class="type">[ `File of string | `Memory ]</code></pre>
-<pre><span class="EXCEPTIONOversized"><span class="keyword">exception</span> Oversized</span></pre><div class="info"><div class="info">See TODO reference : Netcgi.Argument.Oversized.</div></div>
+<pre><span class="EXCEPTIONOversized"><span class="keyword">exception</span> Oversized</span></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.Argument.Oversized">Netcgi.Argument.Oversized</a>.</div></div>
 <pre><span class="EXCEPTIONToo_many_arguments"><span class="keyword">exception</span> Too_many_arguments</span></pre><div class="info"><div class="info">Hit the limit <code class="code">max_arguments</code></div></div>
-<div class="ocaml_class sig" name="cgi_argument"><pre><span class="TYPEcgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument">cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.cgi_argument.</div></div><div class="ocaml_class_content"><pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
+<div class="ocaml_class sig" name="cgi_argument"><pre><span class="TYPEcgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument">cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.cgi_argument">Netcgi.cgi_argument</a>.</div></div><div class="ocaml_class_content"><pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
 
 <pre><span class="METHODvalue"><span class="keyword">method</span> value</span> : <code class="code">string</code></pre>
 
@@ -43,7 +43,7 @@
 
 <pre><span class="METHODfinalize"><span class="keyword">method</span> finalize</span> : <code class="code">unit -&gt; unit</code></pre>
 </div></div>
-<div class="ocaml_class sig" name="rw_cgi_argument"><pre><span class="TYPErw_cgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument">rw_cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.rw_cgi_argument.<span class="warning">Deprecated.</span> Arguments are read-only.<br/></div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument">cgi_argument</a></pre></div>
+<div class="ocaml_class sig" name="rw_cgi_argument"><pre><span class="TYPErw_cgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument">rw_cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.rw_cgi_argument">Netcgi.rw_cgi_argument</a>.<span class="warning">Deprecated.</span> Arguments are read-only.<br/></div></div><div class="ocaml_class_content"><div class="ocaml_class ident" name="_inherit_field" path="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument"> <pre><span class="keyword">inherit</span> <code class="type"/><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_argument">cgi_argument</a></pre></div>
 
 <pre><span class="METHODro"><span class="keyword">method</span> ro</span> : <code class="code">bool</code></pre>
 
@@ -51,12 +51,12 @@
 
 <pre><span class="METHODopen_value_wr"><span class="keyword">method</span> open_value_wr</span> : <code class="code">unit -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a></code></pre>
 </div></div>
-<div class="ocaml_class ident" name="simple_arg" path="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument"><pre><span class="TYPEsimple_arg"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=simple_arg">simple_arg</a></span> : <code class="type">bool option -&gt; string -&gt; string -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">See TODO reference : Netcgi.Argument.simple.  We reveal more of the object than
-    TODO reference : Netcgi.Argument.simple for the backward compatibility layer.</div></div></div>
-<div class="ocaml_class ident" name="mime_arg" path="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument"><pre><span class="TYPEmime_arg"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=mime_arg">mime_arg</a></span> : <code class="type">bool option -&gt; string option -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_message">Netmime.mime_message</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">See TODO reference : Netcgi.Argument.mime.  We reveal more of the object than
-    TODO reference : Netcgi.Argument.mime for the backward compatibility layer.</div></div></div>
+<div class="ocaml_class ident" name="simple_arg" path="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument"><pre><span class="TYPEsimple_arg"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=simple_arg">simple_arg</a></span> : <code class="type">bool option -&gt; string -&gt; string -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.Argument.simple">Netcgi.Argument.simple</a>.  We reveal more of the object than
+     <a title="RK_element Netcgi.Argument.simple">Netcgi.Argument.simple</a> for the backward compatibility layer.</div></div></div>
+<div class="ocaml_class ident" name="mime_arg" path="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument"><pre><span class="TYPEmime_arg"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=mime_arg">mime_arg</a></span> : <code class="type">bool option -&gt; string option -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_message">Netmime.mime_message</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.Argument.mime">Netcgi.Argument.mime</a>.  We reveal more of the object than
+     <a title="RK_element Netcgi.Argument.mime">Netcgi.Argument.mime</a> for the backward compatibility layer.</div></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Cookies</h2></div></div>
-<div class="info"><div class="info">The cookie implementation has been moved to TODO reference : Nethttp.Cookie.
+<div class="info"><div class="info">The cookie implementation has been moved to  <a title="RK_element Nethttp.Cookie">Nethttp.Cookie</a>.
     New code should directly call the functions defined there.</div></div>
 <div class="ocaml_module sig" name="Cookie"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netcgi_common.Cookie">Cookie</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">Nethttp.Cookie.t</a></code></pre>
@@ -95,28 +95,28 @@
 	fields are used.  For better browser compatibility, if
 	&quot;Set-cookie2&quot; (RFC 2965) is issued, then a &quot;Set-cookie&quot;
 	precedes (declaring the same cookie with a limited number of
-	options). <br/>        <b>Deprecated name.</b> Use TODO reference : Nethttp.Header.set_set_cookie_ct.</div></div>
-<pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header">Netmime.mime_header</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common.Cookie&amp;type=t">t</a> list</code></pre><div class="info"><div class="info">Decode the cookie header, may they be version 0 or 1.  <br/>        <b>Deprecated name.</b> Use TODO reference : Nethttp.Header.get_cookie_ct.</div></div>
-<pre><span class="VALof_record"><span class="keyword">val</span> of_record</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=cookie">Nethttp.cookie</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common.Cookie&amp;type=t">t</a></code></pre><div class="info"><div class="info">Conversion from the deprecated style of cookie.<br/>        <b>Deprecated name.</b> Use TODO reference : Nethttp.Cookie.of_netscape_cookie.</div></div>
+	options). <br/>        <b>Deprecated name.</b> Use  <a title="RK_element Nethttp.Header.set_set_cookie_ct">Nethttp.Header.set_set_cookie_ct</a>.</div></div>
+<pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Netmime&amp;class=mime_header">Netmime.mime_header</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common.Cookie&amp;type=t">t</a> list</code></pre><div class="info"><div class="info">Decode the cookie header, may they be version 0 or 1.  <br/>        <b>Deprecated name.</b> Use  <a title="RK_element Nethttp.Header.get_cookie_ct">Nethttp.Header.get_cookie_ct</a>.</div></div>
+<pre><span class="VALof_record"><span class="keyword">val</span> of_record</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=cookie">Nethttp.cookie</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common.Cookie&amp;type=t">t</a></code></pre><div class="info"><div class="info">Conversion from the deprecated style of cookie.<br/>        <b>Deprecated name.</b> Use  <a title="RK_element Nethttp.Cookie.of_netscape_cookie">Nethttp.Cookie.of_netscape_cookie</a>.</div></div>
 <pre><span class="VALto_record"><span class="keyword">val</span> to_record</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi_common.Cookie&amp;type=t">t</a> -&gt; <a href="?package=ocamlnet&amp;module=Nethttp&amp;type=cookie">Nethttp.cookie</a></code></pre><div class="info"><div class="info">Conversion to the deprecated style of cookie (some parameters
-        are dropped).<br/>        <b>Deprecated name.</b> Use TODO reference : Nethttp.Cookie.to_netscape_cookie.</div></div></div></div>
+        are dropped).<br/>        <b>Deprecated name.</b> Use  <a title="RK_element Nethttp.Cookie.to_netscape_cookie">Nethttp.Cookie.to_netscape_cookie</a>.</div></div></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Environment</h2></div></div>
 <pre><code><span class="TYPEconfig"><span class="keyword">type</span> config</span> = {</code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.tmp_directory">tmp_directory</span> : <code class="type">string</code>;</code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.tmp_prefix">tmp_prefix</span> : <code class="type">string</code>;</code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.permitted_http_methods">permitted_http_methods</span> : <code class="type">[ `DELETE | `GET | `HEAD | `POST | `PUT ] list</code>;</code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.permitted_input_content_types">permitted_input_content_types</span> : <code class="type">string list</code>;</code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.input_content_length_limit">input_content_length_limit</span> : <code class="type">int</code>;</code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.max_arguments">max_arguments</span> : <code class="type">int</code>;</code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.workarounds">workarounds</span> : <code class="type">[ `Backslash_bug
 | `MSIE_Content_type_bug
 | `Work_around_MSIE_Content_type_bug
-| `Work_around_backslash_bug ] list</code>;</code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.default_exn_handler">default_exn_handler</span> : <code class="type">bool</code>;</code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">See TODO reference : Netcgi.config.</div></div>
+| `Work_around_backslash_bug ] list</code>;</code></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTconfig.default_exn_handler">default_exn_handler</span> : <code class="type">bool</code>;</code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">See  <a title="RK_element Netcgi.config">Netcgi.config</a>.</div></div>
 <pre><span class="TYPEoutput_type"><span class="keyword">type</span> output_type</span> = <code class="type">[ `Direct of string
 | `Transactional of
     <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=config">config</a> -&gt;
-    <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=trans_out_obj_channel">Netchannels.trans_out_obj_channel</a> ]</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.output_type.</div></div>
+    <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=trans_out_obj_channel">Netchannels.trans_out_obj_channel</a> ]</code></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.output_type">Netcgi.output_type</a>.</div></div>
 <pre><span class="VALfix_MSIE_Content_type_bug"><span class="keyword">val</span> fix_MSIE_Content_type_bug</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">fix_MSIE_Content_type_bug ct</code> transforms the content-type
       string <code class="code">ct</code> to fix the MSIE Content-Type bug.</div></div>
 <pre><span class="VALis_MSIE"><span class="keyword">val</span> is_MSIE</span> : <code class="type">string -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">is_MSIE user_agent</code> tells whether the <code class="code">user_agent</code> is Microsoft
       Internet Explorer.  Useful to know when to apply
-      TODO reference : Netcgi_common.fix_MSIE_Content_type_bug.</div></div>
+       <a title="RK_element Netcgi_common.fix_MSIE_Content_type_bug">Netcgi_common.fix_MSIE_Content_type_bug</a>.</div></div>
 <div class="ocaml_class sig" name="cgi_environment"><pre><span class="TYPEcgi_environment"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi_environment">cgi_environment</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; (string * string) list -&gt; (string * string) list -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=config">config</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info"><code class="code">new cgi_environment ~config ~properties ~input_header out_obj</code>
-    generates a TODO reference : Netcgi.cgi_environment object, from the arguments.
+    generates a  <a title="RK_element Netcgi.cgi_environment">Netcgi.cgi_environment</a> object, from the arguments.
     The creation of such an object <i>does not</i> raise any exception.
     The method <code class="code">#out_channel</code> of the created environment returns
     <code class="code">out_obj</code>.<div class="parameters"><div class="param_info"><code class="code">config</code> : give the configuration options.  Of particular
@@ -126,12 +126,12 @@
     Examples: <code class="code">(&quot;REQUEST_METHOD&quot;, &quot;POST&quot;)</code>, <code class="code">(&quot;SERVER_PROTOCOL&quot;,
     &quot;HTTP/1.1&quot;)</code>.  Note that &quot;CONTENT_TYPE&quot; and &quot;CONTENT_LENGTH&quot; are
     part of the input header.  It is highly recommended to use
-    TODO reference : Netcgi_common.update_props_inheader to build this list.</div><div class="param_info"><code class="code">input_header</code> : is a list of (field, value) pairs of the HTTP
+     <a title="RK_element Netcgi_common.update_props_inheader">Netcgi_common.update_props_inheader</a> to build this list.</div><div class="param_info"><code class="code">input_header</code> : is a list of (field, value) pairs of the HTTP
     input request.  It is ASSUMED that field names in <code class="code">input_header</code>
     are lowercase in order to apply a fix to the MSIE Content-Type
     bug.  Also remember that the separator is '-', not '_'.  Both
     requirements will be stafisfied if you use
-    TODO reference : Netcgi_common.update_props_inheader to build <code class="code">input_header</code>.<br/>    <b>Notes:</b> The header is kept into variables and
+     <a title="RK_element Netcgi_common.update_props_inheader">Netcgi_common.update_props_inheader</a> to build <code class="code">input_header</code>.<br/>    <b>Notes:</b> The header is kept into variables and
     <code class="code">#send_output_header</code> sents it directly to <code class="code">out_obj</code>.  This has
     several advantages:<br/>    - It is possible to change header fields at every moment before
     the commitment happens. For example, it is possible to set the
@@ -233,9 +233,9 @@
 <pre><span class="METHODconfig"><span class="keyword">method</span> config</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=config">config</a></code></pre>
 </div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">CGI</h2></div></div>
-<pre><span class="TYPEother_url_spec"><span class="keyword">type</span> other_url_spec</span> = <code class="type">[ `Env | `None | `This of string ]</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.other_url_spec.</div></div>
-<pre><span class="TYPEquery_string_spec"><span class="keyword">type</span> query_string_spec</span> = <code class="type">[ `Args of <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=rw_cgi_argument">rw_cgi_argument</a> list | `Env | `None | `This of <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a> list ]</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.query_string_spec.</div></div>
-<pre><span class="TYPEcache_control"><span class="keyword">type</span> cache_control</span> = <code class="type">[ `Max_age of int | `No_cache | `Unspecified ]</code></pre><div class="info"><div class="info">See TODO reference : Netcgi.cache_control.</div></div>
+<pre><span class="TYPEother_url_spec"><span class="keyword">type</span> other_url_spec</span> = <code class="type">[ `Env | `None | `This of string ]</code></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.other_url_spec">Netcgi.other_url_spec</a>.</div></div>
+<pre><span class="TYPEquery_string_spec"><span class="keyword">type</span> query_string_spec</span> = <code class="type">[ `Args of <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=rw_cgi_argument">rw_cgi_argument</a> list | `Env | `None | `This of <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a> list ]</code></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.query_string_spec">Netcgi.query_string_spec</a>.</div></div>
+<pre><span class="TYPEcache_control"><span class="keyword">type</span> cache_control</span> = <code class="type">[ `Max_age of int | `No_cache | `Unspecified ]</code></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.cache_control">Netcgi.cache_control</a>.</div></div>
 <pre><span class="TYPErequest_method"><span class="keyword">type</span> request_method</span> = <code class="type">[ `DELETE | `GET | `HEAD | `POST | `PUT of <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a> ]</code></pre>
 <pre><span class="VALstring_of_request_method"><span class="keyword">val</span> string_of_request_method</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=request_method">request_method</a> -&gt; string</code></pre>
 <pre><span class="TYPEarg_store_type"><span class="keyword">type</span> arg_store_type</span> = <code class="type">[ `Automatic
@@ -245,20 +245,20 @@
 | `File_max of float
 | `Memory
 | `Memory_max of float ]</code></pre>
-<pre><span class="TYPEarg_store"><span class="keyword">type</span> arg_store</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_environment">cgi_environment</a> -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_header_ro">Netmime.mime_header_ro</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=arg_store_type">arg_store_type</a></code></pre><div class="info"><div class="info">See TODO reference : Netcgi.arg_store.</div></div>
-<div class="ocaml_class sig" name="cgi"><pre><span class="TYPEcgi"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi">cgi</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a> list -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=request_method">request_method</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=output_type">output_type</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_environment">cgi_environment</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info"><code class="code">cgi env op meth args</code> constructs TODO reference : Netcgi.cgi objects.  The
+<pre><span class="TYPEarg_store"><span class="keyword">type</span> arg_store</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_environment">cgi_environment</a> -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_header_ro">Netmime.mime_header_ro</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=arg_store_type">arg_store_type</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Netcgi.arg_store">Netcgi.arg_store</a>.</div></div>
+<div class="ocaml_class sig" name="cgi"><pre><span class="TYPEcgi"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;class=cgi">cgi</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a> list -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=request_method">request_method</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=output_type">output_type</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_environment">cgi_environment</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info"><code class="code">cgi env op meth args</code> constructs  <a title="RK_element Netcgi.cgi">Netcgi.cgi</a> objects.  The
     environment <code class="code">#out_channel</code> is wrapped into a transactional channel
     or a discarding channel according to <code class="code">op</code> (<code class="code">`Direct</code> or
     <code class="code">`Transactional</code>) and <code class="code">request_method</code> (<code class="code">`HEAD</code> requests must only
     return a header).  For standard cases, when POST and PUT arguments
     are available through a <code class="code">Netchannels.in_obj_channel</code>, we recommend
-    you use TODO reference : Netcgi_common.cgi_with_args that will parse the
+    you use  <a title="RK_element Netcgi_common.cgi_with_args">Netcgi_common.cgi_with_args</a> that will parse the
     arguments for you and check preconditions.<br/>    Remark: You may think that the argument <code class="code">meth</code> is superfluous as
     it can be deduced from <code class="code">env#cgi_request_method</code>.  While it is true
     for <code class="code">`DELETE</code>, <code class="code">`GET</code>, <code class="code">`HEAD</code> and <code class="code">`POST</code>, the <code class="code">`PUT</code> takes a
-    TODO reference : Netcgi_common.cgi_argument parameter.  Setting correctly this
+     <a title="RK_element Netcgi_common.cgi_argument">Netcgi_common.cgi_argument</a> parameter.  Setting correctly this
     parameter and decoding <code class="code">env#cgi_request_method</code> is done for you by
-    TODO reference : Netcgi_common.cgi_with_args.</div></div><div class="ocaml_class_content"><pre><span class="METHODargument"><span class="keyword">method</span> argument</span> : <code class="code">string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a></code></pre>
+     <a title="RK_element Netcgi_common.cgi_with_args">Netcgi_common.cgi_with_args</a>.</div></div><div class="ocaml_class_content"><pre><span class="METHODargument"><span class="keyword">method</span> argument</span> : <code class="code">string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a></code></pre>
 
 <pre><span class="METHODargument_value"><span class="keyword">method</span> argument_value</span> : <code class="code">?default:string -&gt; string -&gt; string</code></pre>
 
@@ -305,7 +305,7 @@
 <pre><span class="VALcgi_with_args"><span class="keyword">val</span> cgi_with_args</span> : <code class="type">(<a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_environment">cgi_environment</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=output_type">output_type</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=request_method">request_method</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_argument">cgi_argument</a> list -&gt; 'a) -&gt;
 <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_environment">cgi_environment</a> -&gt;
 <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=output_type">output_type</a> -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=in_obj_channel">Netchannels.in_obj_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=arg_store">arg_store</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">cgi_with_args (new cgi) env out op ?put_arg in_chan</code> constructs
-      a TODO reference : Netcgi.cgi object.  However, <code class="code">new cgi</code> can be replaced by
+      a  <a title="RK_element Netcgi.cgi">Netcgi.cgi</a> object.  However, <code class="code">new cgi</code> can be replaced by
       any function, so it is easy to use this to construct extensions
       of the <code class="code">cgi</code> class (as needed by some connectors).  The
       arguments of the cgi object are taken from the environment <code class="code">env</code>
@@ -318,7 +318,7 @@
       http-status (this exception must be caught by the connector and
       a default answer sent).<br/>      The string is a description of the cause of the error.<br/>      This exception is for use by connectors only, users should deal
       with the exceptions in their code by generating a response with
-      the usual <code class="code">#set_header</code> and <code class="code">#out_channel</code> of TODO reference : Netcgi.cgi.</div></div>
+      the usual <code class="code">#set_header</code> and <code class="code">#out_channel</code> of  <a title="RK_element Netcgi.cgi">Netcgi.cgi</a>.</div></div>
 <pre><span class="VALexn_handler_default"><span class="keyword">val</span> exn_handler_default</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_environment">cgi_environment</a> -&gt;
 exn_handler:(<a href="?package=ocamlnet&amp;module=Netcgi_common&amp;type=cgi_environment">cgi_environment</a> -&gt; (unit -&gt; unit) -&gt; unit) -&gt;
 finally:(unit -&gt; unit) -&gt; (unit -&gt; exn option) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">exn_handler_default env ~exn_handler ~finally run_cgi</code> will

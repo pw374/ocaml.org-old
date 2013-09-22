@@ -1,6 +1,6 @@
-<div class="ocaml_toplevel_module"><div class="info">HTTPS extension to TODO reference : Http_client</div>
-<pre><span class="TYPEchannel_binding_id"><span class="keyword">type</span> channel_binding_id</span> = <code class="type">int</code></pre><div class="info"><div class="info">Same as TODO reference : Http_client.channel_binding_id</div></div>
-<div class="ocaml_class sig" name="transport_channel_type"><pre><span class="TYPEtransport_channel_type"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Https_client&amp;class=transport_channel_type">transport_channel_type</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Same as TODO reference : Http_client.transport_channel_type</div></div><div class="ocaml_class_content"><pre><span class="METHODsetup_e"><span class="keyword">method</span> setup_e</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt;
+<div class="ocaml_toplevel_module"><div class="info">HTTPS extension to  <a title="RK_element Http_client">Http_client</a></div>
+<pre><span class="TYPEchannel_binding_id"><span class="keyword">type</span> channel_binding_id</span> = <code class="type">int</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Http_client.channel_binding_id">Http_client.channel_binding_id</a></div></div>
+<div class="ocaml_class sig" name="transport_channel_type"><pre><span class="TYPEtransport_channel_type"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Https_client&amp;class=transport_channel_type">transport_channel_type</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Http_client.transport_channel_type">Http_client.transport_channel_type</a></div></div><div class="ocaml_class_content"><pre><span class="METHODsetup_e"><span class="keyword">method</span> setup_e</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt;
 <a href="?package=ocamlnet&amp;module=Https_client&amp;type=channel_binding_id">channel_binding_id</a> -&gt;
 float -&gt;
 exn -&gt;
@@ -32,9 +32,9 @@ string -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=
          let tct = Https_client.https_transport_channel_type ctx in
          p # configure_transport Http_client.https_cb_id tct
       )
-    </code></pre><br/>    This will enable &quot;https&quot; for the functions in TODO reference : Http_client.Convenience,
+    </code></pre><br/>    This will enable &quot;https&quot; for the functions in  <a title="RK_element Http_client.Convenience">Http_client.Convenience</a>,
     e.g. <pre class="codepre"><code class="code"> let data = Http_client.Convenience.http_get &quot;https://url&quot; </code></pre></div></div>
-<div class="info"><div class="info"><h2 id="2_TITLE">How to configure TODO reference : Http_fs</h2><br/>    Just do once:<br/>    <pre class="codepre"><code class="code">
+<div class="info"><div class="info"><h2 id="2_TITLE">How to configure  <a title="RK_element Http_fs">Http_fs</a></h2><br/>    Just do once:<br/>    <pre class="codepre"><code class="code">
     Ssl.init()
     </code></pre><br/>    and create the <code class="code">http_fs</code> object with<br/>    <pre class="codepre"><code class="code">
     Http_fs.http_fs 

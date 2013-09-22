@@ -4,7 +4,7 @@
    All operations over maps are purely applicative (no side-effects).
    The implementation uses balanced binary trees, and therefore searching
    and insertion take time logarithmic in the size of the map.</div>
-<div class="ocaml_module sig" name="OrderedType"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Map.OrderedType">OrderedType</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Input signature of the functor TODO reference : Map.Make.</div></div><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="OrderedType"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Map.OrderedType">OrderedType</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Input signature of the functor  <a title="RK_element Map.Make">Map.Make</a>.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of the map keys.</div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="?package=ocaml&amp;module=Map.OrderedType&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Map.OrderedType&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">A total ordering function over the keys.
           This is a two-argument function <code class="code">f</code> such that
@@ -12,8 +12,8 @@
           <code class="code">f e1 e2</code> is strictly negative if <code class="code">e1</code> is smaller than <code class="code">e2</code>,
           and <code class="code">f e1 e2</code> is strictly positive if <code class="code">e1</code> is greater than <code class="code">e2</code>.
           Example: a suitable ordering function is the generic structural
-          comparison function TODO reference : Pervasives.compare.</div></div></div></div>
-<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Map.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of the functor TODO reference : Map.Make.</div></div><div class="ocaml_module_content">
+          comparison function  <a title="RK_element Pervasives.compare">Pervasives.compare</a>.</div></div></div></div>
+<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Map.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of the functor  <a title="RK_element Map.Make">Map.Make</a>.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEkey"><span class="keyword">type</span> key</span> </pre><div class="info"><div class="info">The type of the map keys.</div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">+'a </code>t</span> </pre><div class="info"><div class="info">The type of maps from type <code class="code">key</code> to type <code class="code">'a</code>.</div></div>
 <pre><span class="VALempty"><span class="keyword">val</span> empty</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a></code></pre><div class="info"><div class="info">The empty map.</div></div>
@@ -57,11 +57,11 @@
 <pre><span class="VALbindings"><span class="keyword">val</span> bindings</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a> -&gt; (<a href="?package=ocaml&amp;module=Map.S&amp;type=key">key</a> * 'a) list</code></pre><div class="info"><div class="info">Return the list of all bindings of the given map.
        The returned list is sorted in increasing order with respect
        to the ordering <code class="code">Ord.compare</code>, where <code class="code">Ord</code> is the argument
-       given to TODO reference : Map.Make.<b>Since</b> 3.12.0</div></div>
+       given to  <a title="RK_element Map.Make">Map.Make</a>.<b>Since</b> 3.12.0</div></div>
 <pre><span class="VALmin_binding"><span class="keyword">val</span> min_binding</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Map.S&amp;type=key">key</a> * 'a</code></pre><div class="info"><div class="info">Return the smallest binding of the given map
        (with respect to the <code class="code">Ord.compare</code> ordering), or raise
        <code class="code">Not_found</code> if the map is empty.<b>Since</b> 3.12.0</div></div>
-<pre><span class="VALmax_binding"><span class="keyword">val</span> max_binding</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Map.S&amp;type=key">key</a> * 'a</code></pre><div class="info"><div class="info">Same as TODO reference : Map.S.min_binding, but returns the largest binding
+<pre><span class="VALmax_binding"><span class="keyword">val</span> max_binding</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Map.S&amp;type=key">key</a> * 'a</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Map.S.min_binding">Map.S.min_binding</a>, but returns the largest binding
         of the given map.<b>Since</b> 3.12.0</div></div>
 <pre><span class="VALchoose"><span class="keyword">val</span> choose</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Map.S&amp;type=key">key</a> * 'a</code></pre><div class="info"><div class="info">Return one binding of the given map, or raise <code class="code">Not_found</code> if
        the map is empty. Which binding is chosen is unspecified,
@@ -80,7 +80,7 @@
        replaced by the result of the application of <code class="code">f</code> to <code class="code">a</code>.
        The bindings are passed to <code class="code">f</code> in increasing order
        with respect to the ordering over the type of the keys.</div></div>
-<pre><span class="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">(<a href="?package=ocaml&amp;module=Map.S&amp;type=key">key</a> -&gt; 'a -&gt; 'b) -&gt; 'a <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a> -&gt; 'b <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a></code></pre><div class="info"><div class="info">Same as TODO reference : Map.S.map, but the function receives as arguments both the
+<pre><span class="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">(<a href="?package=ocaml&amp;module=Map.S&amp;type=key">key</a> -&gt; 'a -&gt; 'b) -&gt; 'a <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a> -&gt; 'b <a href="?package=ocaml&amp;module=Map.S&amp;type=t">t</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element Map.S.map">Map.S.map</a>, but the function receives as arguments both the
        key and the associated value for each binding of the map.</div></div></div></div>
 <div class="ocaml_module ident" name="Make" path="?package=ocaml&amp;module=Map.S"><pre><span class="keyword">module</span> <a href="?package=ocaml&amp;module=Map.Make">Make</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">Ord</code><code class="code"> : </code><code class="code"><a href="?package=ocaml&amp;module=Map.OrderedType">OrderedType</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=ocaml&amp;module=Map.S">S</a></code> with type <a href="?package=ocaml&amp;module=Map.S&amp;type=key">key</a> = Ord.t</div></code></pre><div class="info"><div class="info">Functor building an implementation of the map structure
    given a totally ordered type.</div></div></div>

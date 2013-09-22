@@ -2,7 +2,7 @@
     further API's from POSIX-style operating systems.</div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Files, Processes, TTYs, Users, Groups</h1></div></div>
 <pre><span class="VALint_of_file_descr"><span class="keyword">val</span> int_of_file_descr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; int</code></pre><div class="info"><div class="info">Return the file descriptor as integer. See also
-      TODO reference : Netsys.int64_of_file_descr which works for all OS.</div></div>
+       <a title="RK_element Netsys.int64_of_file_descr">Netsys.int64_of_file_descr</a> which works for all OS.</div></div>
 <pre><span class="VALfile_descr_of_int"><span class="keyword">val</span> file_descr_of_int</span> : <code class="type">int -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre><div class="info"><div class="info">Make a file descriptor from an integer</div></div>
 <pre><span class="VALsysconf_open_max"><span class="keyword">val</span> sysconf_open_max</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info">Return the maximum number of open file descriptor per process.
  It is also ensured that for every file descriptor <code class="code">fd</code>:
@@ -12,7 +12,7 @@
       file descriptor</div></div>
 <pre><span class="VALfdopendir"><span class="keyword">val</span> fdopendir</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=dir_handle">Unix.dir_handle</a></code></pre><div class="info"><div class="info">Make a directory handle from a file descriptor. The descriptor
       is then &quot;owned&quot; by the directory handle, and will be closed by
-      <code class="code">Unix.closedir</code>.<br/>      This function is useful in conjunction with TODO reference : Netsys_posix.openat
+      <code class="code">Unix.closedir</code>.<br/>      This function is useful in conjunction with  <a title="RK_element Netsys_posix.openat">Netsys_posix.openat</a>
       to read directories relative to a parent directory.<br/>      This is a recent addition to the POSIX standard; be prepared to
       get <code class="code">Invalid_argument</code> because it is unavailable.</div></div>
 <pre><span class="VALrealpath"><span class="keyword">val</span> realpath</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">Returns a pathname pointing to the same filesystem object so that
@@ -274,7 +274,7 @@ string -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.f
     system call. On other platforms, pipes are used for emulation.<br/>    A <code class="code">not_event</code> can have two states: off and on. Initially, the
     <code class="code">not_event</code> is off. By signalling it, the state changes to on,
     and the underlying real file descriptor becomes readable.
-    By consuming the event, the state is switched back to off.<br/>    Note that a similar API exists for Win32: See TODO reference : Netsys_win32.w32_event.</div></div>
+    By consuming the event, the state is switched back to off.<br/>    Note that a similar API exists for Win32: See  <a title="RK_element Netsys_win32.w32_event">Netsys_win32.w32_event</a>.</div></div>
 <pre><span class="TYPEnot_event"><span class="keyword">type</span> not_event</span> </pre>
 <pre><span class="VALcreate_event"><span class="keyword">val</span> create_event</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=not_event">not_event</a></code></pre><div class="info"><div class="info">Creates a new event file descriptor.</div></div>
 <pre><span class="VALset_nonblock_event"><span class="keyword">val</span> set_nonblock_event</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=not_event">not_event</a> -&gt; unit</code></pre><div class="info"><div class="info">Sets the event fd to non-blocking mode</div></div>
@@ -342,7 +342,7 @@ string -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.f
       case. <code class="code">install_subprocess_handler</code> can safely called several times.
       The handler is installed every time the function is called, but the
       required data structures are only initialized at the first call.</div></div>
-<pre><span class="VALregister_subprocess_handler"><span class="keyword">val</span> register_subprocess_handler</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Uses the TODO reference : Netsys_signal framework to manage the installation of
+<pre><span class="VALregister_subprocess_handler"><span class="keyword">val</span> register_subprocess_handler</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Uses the  <a title="RK_element Netsys_signal">Netsys_signal</a> framework to manage the installation of
       the SIGCHLD handler.<br/>      This is the preferred method of installing the SIGCHLD handler.</div></div>
 <div class="info"><div class="info"><b>Further notes.</b></div></div>
 <div class="info"><div class="info">The subprocess handler and <code class="code">fork()</code>: The subprocess handler uses
@@ -438,7 +438,7 @@ string -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.f
    zero bytes</li></ul> One of <code class="code">SHM_O_RDONLY</code> or <code class="code">SHM_O_RDWR</code> must be given.<br/> On success, the function returns a file descriptor representing the
  object. To access the object, one has to memory-map this file
  use one of the <code class="code">map_file</code> functions in the <code class="code">Bigarray</code>
- module, or in TODO reference : Netsys_mem). Use <code class="code">Unix.ftruncate</code> to resize the object.<br/> Note that it is unspecified whether this file pops up somewhere
+ module, or in  <a title="RK_element Netsys_mem">Netsys_mem</a>). Use <code class="code">Unix.ftruncate</code> to resize the object.<br/> Note that it is unspecified whether this file pops up somewhere
  in the file system, and if so, where.<br/> If a system error occurs, the function raises a <code class="code">Unix.Unix_error</code>
  exception.</div></div>
 <pre><span class="VALshm_unlink"><span class="keyword">val</span> shm_unlink</span> : <code class="type">string -&gt; unit</code></pre><div class="info"><div class="info">Unlinks the name for a shared memory object</div></div>
@@ -574,5 +574,5 @@ string -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.f
 <pre><span class="VALioprio_set"><span class="keyword">val</span> ioprio_set</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=ioprio_target">ioprio_target</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=ioprio">ioprio</a> -&gt; unit</code></pre><div class="info"><div class="info">Sets the priority of the target processes.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netsys_posix.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables  <a title="RK_element Netlog">Netlog</a>-style debugging</div></div></div></div>
 </div>

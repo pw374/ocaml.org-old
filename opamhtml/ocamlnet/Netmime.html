@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Netmime contains high-level classes and functions to process
- mail and MIME messages.<br/> <b>Contents</b><br/> - TODO reference : Netmime.types<ul><li>TODO reference : Netmime.classes</li><li>TODO reference : Netmime.parsing</li><li>TODO reference : Netmime.printing</li></ul> The tutorial has been moved to TODO reference : Netmime_tut.</div>
+ mail and MIME messages.<br/> <b>Contents</b><br/> -  <a title="RK_element Netmime.types">Netmime.types</a><ul><li> <a title="RK_element Netmime.classes">Netmime.classes</a></li><li> <a title="RK_element Netmime.parsing">Netmime.parsing</a></li><li> <a title="RK_element Netmime.printing">Netmime.printing</a></li></ul> The tutorial has been moved to  <a title="RK_element Netmime_tut">Netmime_tut</a>.</div>
 <div class="info"><div class="info"><h1 id="types">Types</h1></div></div>
 <pre><span class="TYPEstore"><span class="keyword">type</span> store</span> = <code class="type">[ `File of string | `Memory ]</code></pre><div class="info"><div class="info">Specifies where to store the body of a mail message. <code class="code">`Memory</code>
  means in-memory, <code class="code">`File name</code> means in the file <code class="code">name</code>. The body
@@ -195,7 +195,7 @@
    <code class="code">Mimestring.scan_header</code>!)</div><div class="param_info"><code class="code">strip</code> : whether whitespace at the beginning and at the end of the 
    header fields is stripped</div><div class="param_info"><code class="code">ro</code> : whether the returned header is read-only (default: false)</div></div></div></div>
 <div class="info"><div class="info">Hint: To write the header <code class="code">h</code> into the channel <code class="code">ch</code>, use
- <pre class="codepre"><code class="code"> Mimestring.write_header ch h#fields </code></pre><br/> Link: TODO reference : Mimestring.write_header</div></div>
+ <pre class="codepre"><code class="code"> Mimestring.write_header ch h#fields </code></pre><br/> Link:  <a title="RK_element Mimestring.write_header">Mimestring.write_header</a></div></div>
 <pre><span class="TYPEmultipart_style"><span class="keyword">type</span> multipart_style</span> = <code class="type">[ `Deep | `Flat | `None ]</code></pre><div class="info"><div class="info">How to parse multipart messages:<ul><li><code class="code">`None</code>: Do not handle multipart messages specially. Multipart bodies
     are not further decoded, and returned as <code class="code">`Body b</code> where <code class="code">b</code> is
     the transfer-encoded text representation.</li><li><code class="code">`Flat</code>: If the top-level message is a multipart message, the parts
@@ -265,7 +265,7 @@
            (new input_stream (new input_channel (open_in f)))
  </code></pre><div class="parameters"><div class="param_info"><code class="code">unfold</code> : whether linefeeds are replaced by spaces in the values of the
    header fields (Note: defaults to <code class="code">false</code> here in contrast to
-   TODO reference : Mimestring.scan_header!)</div><div class="param_info"><code class="code">strip</code> : whether whitespace at the beginning and at the end of the 
+    <a title="RK_element Mimestring.scan_header">Mimestring.scan_header</a>!)</div><div class="param_info"><code class="code">strip</code> : whether whitespace at the beginning and at the end of the 
    header fields is stripped</div><div class="param_info"><code class="code">ro</code> : Whether the created MIME headers are read-only or not. Furthermore,
    the default <code class="code">storage_style</code> uses this parameter for the MIME bodies, too.
    However, the MIME bodies may have a different read-only flag in general.</div></div></div></div>

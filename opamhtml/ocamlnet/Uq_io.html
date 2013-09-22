@@ -10,7 +10,7 @@
          event system <code class="code">esys</code> is the underlying event queue. This works
          well for pipes, sockets etc. but not for normal files. The
          style <code class="code">st</code> can be obtained from <code class="code">fd</code> via
-         TODO reference : Netsys.get_fd_style.</li><li><code class="code">`Multiplex mplex</code>: The multiplex controller <code class="code">mplex</code> is
+          <a title="RK_element Netsys.get_fd_style">Netsys.get_fd_style</a>.</li><li><code class="code">`Multiplex mplex</code>: The multiplex controller <code class="code">mplex</code> is
          used as device. </li><li><code class="code">`Buffer buf</code>: Data comes from the buffer <code class="code">buf</code> (which in turn
          is connected with a second device)</li><li><code class="code">`Count_in(f,d)</code>: Data is read from <code class="code">d</code>, and every time a few
          bytes <code class="code">n</code> are read the function <code class="code">f n</code> is called (which may raise
@@ -42,7 +42,7 @@
 | `Multiplex of <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=multiplex_controller">Uq_engines.multiplex_controller</a>
 | `Polldescr of <a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">Netsys.fd_style</a> * <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> * <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> ] -&gt;
 bool</code></pre><div class="info"><div class="info">Returns whether <code class="code">`Memory</code> buffers are supported</div></div>
-<pre><span class="EXCEPTIONLine_too_long"><span class="keyword">exception</span> Line_too_long</span></pre><div class="info"><div class="info">May be raised by TODO reference : Uq_io.input_line_e</div></div>
+<pre><span class="EXCEPTIONLine_too_long"><span class="keyword">exception</span> Line_too_long</span></pre><div class="info"><div class="info">May be raised by  <a title="RK_element Uq_io.input_line_e">Uq_io.input_line_e</a></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Input</h2></div></div>
 <pre><span class="VALinput_e"><span class="keyword">val</span> input_e</span> : <code class="type">[&lt; <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=in_device">in_device</a> ] -&gt; <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=string_like">string_like</a> -&gt; int -&gt; int -&gt; int <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info"><code class="code">let e = input_e d s pos len</code>: Reads data from <code class="code">d</code> and puts it into
      the string <code class="code">s</code> starting at <code class="code">pos</code> and with maximum length <code class="code">len</code>.
@@ -74,7 +74,7 @@ bool</code></pre><div class="info"><div class="info">Returns whether <code class
       <pre class="codepre"><code class="code"> input_e d s p l &gt;&gt; eof_as_none </code></pre>
       and 
       <pre class="codepre"><code class="code"> input_line_e d &gt;&gt; eof_as_none </code></pre>
-      where <code class="code">&gt;&gt;</code> is from TODO reference : Uq_engines.Operators</div></div>
+      where <code class="code">&gt;&gt;</code> is from  <a title="RK_element Uq_engines.Operators">Uq_engines.Operators</a></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Output</h2></div></div>
 <pre><span class="VALoutput_e"><span class="keyword">val</span> output_e</span> : <code class="type">[&lt; <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=out_device">out_device</a> ] -&gt; <a href="?package=ocamlnet&amp;module=Uq_io&amp;type=string_like">string_like</a> -&gt; int -&gt; int -&gt; int <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info"><code class="code">let e = output_e d s pos len</code>: Outputs data to <code class="code">d</code> and takes it
       from the string <code class="code">s</code> starting at <code class="code">pos</code> and with maximum length

@@ -5,17 +5,17 @@
     <code class="code">mk_c_reader</code> and an ML-reader <code class="code">ml_el_reader</code> that operates on the
     same type as the argument of the C-style reader.<b>Returns</b> ML-style
     reader for the higher-order type.</div></div>
-<pre><span class="VALmake2"><span class="keyword">val</span> make2</span> : <code class="type">('a, 'b, 'c) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader2">Unsafe_read_c.reader2</a> -&gt; ('a, 'b, 'c) <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader2">Read_ml.reader2</a></code></pre><div class="info"><div class="info"><code class="code">make2 mk_c_reader ml_el1_reader ml_el2_reader</code> like TODO reference : make1 but
+<pre><span class="VALmake2"><span class="keyword">val</span> make2</span> : <code class="type">('a, 'b, 'c) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader2">Unsafe_read_c.reader2</a> -&gt; ('a, 'b, 'c) <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader2">Read_ml.reader2</a></code></pre><div class="info"><div class="info"><code class="code">make2 mk_c_reader ml_el1_reader ml_el2_reader</code> like  <a title="RK_element make1">make1</a> but
     operates on unsafe C-style write functions for types with two type
     parameters.</div></div>
 <pre><span class="VALmake3"><span class="keyword">val</span> make3</span> : <code class="type">('a, 'b, 'c, 'd) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader3">Unsafe_read_c.reader3</a> -&gt; ('a, 'b, 'c, 'd) <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader3">Read_ml.reader3</a></code></pre><div class="info"><div class="info"><code class="code">make3 mk_c_reader ml_el1_reader ml_el2_reader ml_el3_reader</code> like
-    TODO reference : make1 but operates on unsafe C-style write functions for types
+     <a title="RK_element make1">make1</a> but operates on unsafe C-style write functions for types
     with three type parameters.</div></div>
 <pre><span class="VALunmake"><span class="keyword">val</span> unmake</span> : <code class="type">'b <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Read_ml.reader</a> -&gt; <a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt; 'b <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Unsafe_read_c.reader</a></code></pre><div class="info"><div class="info"><code class="code">unmake ml_reader buf</code> takes an ML-style reader <code class="code">ml_reader</code> and a
     buffer.  This function can be used to wrap higher-order type
-    conversion functions and, together with TODO reference : Unsafe_common.get_sptr_ptr,
-    TODO custom and TODO reference : handle_error, is used in
-    e.g. TODO reference : make1, TODO reference : make2 and TODO reference : make3 for that purpose.<b>Returns</b> an
+    conversion functions and, together with  <a title="RK_element Unsafe_common.get_sptr_ptr">Unsafe_common.get_sptr_ptr</a>,
+    TODO custom and  <a title="RK_element handle_error">handle_error</a>, is used in
+    e.g.  <a title="RK_element make1">make1</a>,  <a title="RK_element make2">make2</a> and  <a title="RK_element make3">make3</a> for that purpose.<b>Returns</b> an
     unsafe C-style reader.</div></div>
 <pre><span class="VALhandle_error"><span class="keyword">val</span> handle_error</span> : <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt; <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr_ptr">Unsafe_common.sptr_ptr</a> -&gt; <a href="?package=bin_prot&amp;module=Common.ReadError&amp;type=t">Common.ReadError.t</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">handle_error buf sptr_ptr err</code> deallocates <code class="code">sptr_ptr</code> for buffer
     <code class="code">buf</code>.<b>Raises</b> <code>ReadError</code> with the appropriate location information

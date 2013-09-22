@@ -65,7 +65,7 @@ f:([ `Both of 'a * 'a | `Left of 'a | `Right of 'a ] -&gt; unit) -&gt; unit</cod
     called with <code class="code">`Left 0</code>; <code class="code">`Both (1, 1)</code>; and <code class="code">`Right 2</code>.</div></div>
 <pre><span class="VALpartition_tf"><span class="keyword">val</span> partition_tf</span> : <code class="type">('a, 'cmp) <a href="?package=core_kernel&amp;module=Core_set&amp;type=t">t</a> -&gt; f:('a -&gt; bool) -&gt; ('a, 'cmp) <a href="?package=core_kernel&amp;module=Core_set&amp;type=t">t</a> * ('a, 'cmp) <a href="?package=core_kernel&amp;module=Core_set&amp;type=t">t</a></code></pre><div class="info"><div class="info">if <code class="code">a, b = partition_tf set ~f</code> then <code class="code">a</code> is the elements on which <code class="code">f</code> produced <code class="code">true</code>,
     and <code class="code">b</code> is the elements on which <code class="code">f</code> produces <code class="code">false</code>.</div></div>
-<pre><span class="VALelements"><span class="keyword">val</span> elements</span> : <code class="type">('a, 'b) <a href="?package=core_kernel&amp;module=Core_set&amp;type=t">t</a> -&gt; 'a list</code></pre><div class="info"><div class="info">Same as TODO reference : to_list.</div></div>
+<pre><span class="VALelements"><span class="keyword">val</span> elements</span> : <code class="type">('a, 'b) <a href="?package=core_kernel&amp;module=Core_set&amp;type=t">t</a> -&gt; 'a list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element to_list">to_list</a>.</div></div>
 <pre><span class="VALmin_elt"><span class="keyword">val</span> min_elt</span> : <code class="type">('a, 'b) <a href="?package=core_kernel&amp;module=Core_set&amp;type=t">t</a> -&gt; 'a option</code></pre>
 <pre><span class="VALmin_elt_exn"><span class="keyword">val</span> min_elt_exn</span> : <code class="type">('a, 'b) <a href="?package=core_kernel&amp;module=Core_set&amp;type=t">t</a> -&gt; 'a</code></pre>
 <pre><span class="VALmax_elt"><span class="keyword">val</span> max_elt</span> : <code class="type">('a, 'b) <a href="?package=core_kernel&amp;module=Core_set&amp;type=t">t</a> -&gt; 'a option</code></pre>
@@ -135,7 +135,7 @@ f:([ `Both of 'a * 'a | `Left of 'a | `Right of 'a ] -&gt; unit) -&gt; unit</cod
     called with <code class="code">`Left 0</code>; <code class="code">`Both (1, 1)</code>; and <code class="code">`Right 2</code>.</div></div>
 <div class="info"><div class="info">if <code class="code">a, b = partition_tf set ~f</code> then <code class="code">a</code> is the elements on which <code class="code">f</code> produced <code class="code">true</code>,
     and <code class="code">b</code> is the elements on which <code class="code">f</code> produces <code class="code">false</code>.</div></div>
-<div class="info"><div class="info">Same as TODO reference : to_list.</div></div>
+<div class="info"><div class="info">Same as  <a title="RK_element to_list">to_list</a>.</div></div>
 <div class="info"><div class="info">returns an arbitrary element, or <code class="code">None</code> if the set is empty.</div></div>
 <div class="info"><div class="info"><code class="code">split t x</code> produces a triple <code class="code">(t1, b, t2)</code> where <code class="code">t1</code> is the set of elements strictly
     less than <code class="code">x</code>, <code class="code">b = mem set x</code>, and <code class="code">t2</code> is the set of elements strictly larger than

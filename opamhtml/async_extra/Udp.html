@@ -120,8 +120,8 @@ stop:('acc__ -&gt;
  <a href="?package=async_extra&amp;module=Import.Socket.Address.Inet&amp;type=t">Import.Socket.Address.Inet.t</a> -&gt; [ `Not_ready | `Ok ])
 <a href="?package=core&amp;module=Std.Or_error&amp;type=t">Core.Std.Or_error.t</a></code></pre><div class="info"><div class="info"><code class="code">sendto_sync sock buf addr</code> does not try again if <code class="code">sock</code> is not ready to write.
     Instead, it returns <code class="code">`Not_ready</code> immediately.<br/>    Short writes are distinguished by <code class="code">buf</code> not being empty afterward.<b>Raises</b> <code>Unix_error</code> in the case of output errors.  See also
-    TODO reference : Iobuf.sendto_nonblocking_no_sigpipe and
-    TODO reference : Bigstring.sendto_nonblocking_no_sigpipe.<br/></div><div class="info"><code class="code">sendto sock buf addr</code> retries if <code class="code">sock</code> is not ready to write.</div></div>
+     <a title="RK_element Iobuf.sendto_nonblocking_no_sigpipe">Iobuf.sendto_nonblocking_no_sigpipe</a> and
+     <a title="RK_element Bigstring.sendto_nonblocking_no_sigpipe">Bigstring.sendto_nonblocking_no_sigpipe</a>.<br/></div><div class="info"><code class="code">sendto sock buf addr</code> retries if <code class="code">sock</code> is not ready to write.</div></div>
 <pre><span class="VALsendto"><span class="keyword">val</span> sendto</span> : <code class="type">unit -&gt;
 (<a href="?package=async_extra&amp;module=Import.Fd&amp;type=t">Import.Fd.t</a> -&gt;
  ('a, <a href="?package=core&amp;module=Std.Iobuf&amp;type=seek">Core.Std.Iobuf.seek</a>) <a href="?package=core&amp;module=Std.Iobuf&amp;type=t">Core.Std.Iobuf.t</a> -&gt;

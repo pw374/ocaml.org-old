@@ -6,7 +6,7 @@
       terminal is saved.</div></div>
 <pre><span class="VALquit"><span class="keyword">val</span> quit</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_ui&amp;type=t">t</a> -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">quit ()</code> quit the given ui and restore the terminal state.</div></div>
 <pre><span class="VALsize"><span class="keyword">val</span> size</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_ui&amp;type=t">t</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_geom&amp;type=size">LTerm_geom.size</a></code></pre><div class="info"><div class="info"><code class="code">size ui</code> returns the current size of the terminal used by the
-      given user-interface. It is updated by TODO reference : wait.</div></div>
+      given user-interface. It is updated by  <a title="RK_element wait">wait</a>.</div></div>
 <pre><span class="VALdraw"><span class="keyword">val</span> draw</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_ui&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">draw ui</code> enqueue a draw operation for the given UI.</div></div>
 <pre><span class="VALcursor_visible"><span class="keyword">val</span> cursor_visible</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_ui&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">cursor_visible ui</code> returns <code class="code">true</code> if the cursor is displayed in
       the UI. It is initially not visible.</div></div>

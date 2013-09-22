@@ -14,7 +14,7 @@ setup:(<a href="?package=ocamlnet&amp;module=Rpc_server&amp;type=t">Rpc_server.t
    the Internet port is registered with the portmapper program.
    This will fail if there are several Internet bindings with distinct
    port numbers!</li><li><code class="code">timeout</code>: This is a float parameter. It sets the transport
-   timeout of the RPC server (see TODO reference : Rpc_server.set_timeout).
+   timeout of the RPC server (see  <a title="RK_element Rpc_server.set_timeout">Rpc_server.set_timeout</a>).
    If a connection hangs for this number of seconds, it is 
    shut down by the server.</li></ul> Further parameters and subsections can be defined by the user. These
  parameters should be parsed and checked for correctness by the
@@ -44,7 +44,7 @@ setup:(<a href="?package=ocamlnet&amp;module=Rpc_server&amp;type=t">Rpc_server.t
  </code></pre><br/> The <code class="code">setup</code> function is also called once before a new connection is
  accepted to get a list of programs and procedures. The <code class="code">Rpc_server.t</code>
  is a special one in this case, and one can test for it with the
- TODO reference : Rpc_server.is_dummy function.<div class="parameters"><div class="param_info"><code class="code">socket_config</code> : An optional function computing the socket
+  <a title="RK_element Rpc_server.is_dummy">Rpc_server.is_dummy</a> function.<div class="parameters"><div class="param_info"><code class="code">socket_config</code> : An optional function computing the socket
  configuration. By default, <code class="code">Rpc_server.default_socket_config</code> is used.
  Special socket configuration would, for example, allow SSL.</div><div class="param_info"><code class="code">hooks</code> : An optional function returning the hooks to call.
  See <code class="code">Netplex_types.processor_hooks</code> for documentation.</div><div class="param_info"><code class="code">supported_ptypes</code> : Which parallelization types are supported

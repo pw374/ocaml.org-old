@@ -4,14 +4,16 @@
     help messages and UNIX man page generation. It supports programs 
     with single or multiple commands
     (like <code class="code">darcs</code> or <code class="code">git</code>) and respect most of the
-    TODO reference : http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap12.html and
-    TODO reference : http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html conventions.<br/>    Consult the TODO reference : basics, details about the supported
-    TODO reference : cmdline and TODO reference : examples of
+     <a href="http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap12.html">
+    POSIX</a> and
+     <a href="http://www.gnu.org/software/libc/manual/html_node/Argument-Syntax.html">
+    GNU</a> conventions.<br/>    Consult the  <a title="RK_element basics">basics</a>, details about the supported
+     <a title="RK_element cmdline">command line syntax</a> and  <a title="RK_element examples"> examples</a> of
     use. Open the module to use it, it defines only three modules in
     your scope.<br/>    <em>Release 0.9.2 - Daniel Bünzli &lt;daniel.buenzli at erratique.ch&gt; </em></div>
 <div class="info"><div class="info"><h1 id="top">Interface</h1></div></div>
 <div class="ocaml_module sig" name="Manpage"><pre><span class="keyword">module</span> <a href="?package=cmdliner&amp;module=Cmdliner.Manpage">Manpage</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Man page specification. <br/>    Man page generation is automatically handled by <code class="code">Cmdliner</code>. The
-    TODO reference : block type is used to define a man page's content.<br/>    The TODO reference : print function can be useful if the client wants to define
+     <a title="RK_element block">block</a> type is used to define a man page's content.<br/>    The  <a title="RK_element print">print</a> function can be useful if the client wants to define
     other man pages (e.g. to implement a help command).</div></div><div class="ocaml_module_content">
 <div class="info"><div class="info"><h1 id="1_TITLE">Man pages</h1></div></div>
 <pre><span class="TYPEblock"><span class="keyword">type</span> block</span> = <code class="type">[ `I of string * string | `Noblank | `P of string | `S of string ]</code></pre><div class="info"><div class="info">The type for a block of man page text. <br/>      <ul><li><code class="code">`Noblank</code> suppresses the blank line introduced between two blocks.</li><li><code class="code">`I (l,t)</code> is an indented paragraph with label
@@ -28,16 +30,16 @@
       If <code class="code">fmt</code> is <code class="code">`Pager</code> the function tries to write the formatted
       result in a pager, if that fails the format <code class="code">`Plain</code> is written 
       on <code class="code">ppf</code>. <code class="code">subst</code> can be used to perform variable substitution, 
-      see TODO reference : Buffer.add_substitute (defaults to the identity).</div></div></div></div>
-<div class="ocaml_module sig" name="Term"><pre><span class="keyword">module</span> <a href="?package=cmdliner&amp;module=Cmdliner.Term">Term</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Terms. <br/>    A term is evaluated by a program to produce a TODO reference : result.
-    A term made of terms referring to TODO reference : Arg
+      see  <a title="RK_element Buffer.add_substitute">Buffer.add_substitute</a> (defaults to the identity).</div></div></div></div>
+<div class="ocaml_module sig" name="Term"><pre><span class="keyword">module</span> <a href="?package=cmdliner&amp;module=Cmdliner.Term">Term</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Terms. <br/>    A term is evaluated by a program to produce a  <a title="RK_element result">result</a>.
+    A term made of terms referring to  <a title="RK_element Arg">command line arguments</a>
     implicitly defines a command line syntax.</div></div><div class="ocaml_module_content">
 <div class="info"><div class="info"><h1 id="1_TITLE">Terms</h1></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre><div class="info"><div class="info">The type for terms evaluating to values of type 'a.</div></div>
 <pre><span class="VALpure"><span class="keyword">val</span> pure</span> : <code class="type">'a -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">pure v</code> is a term that evaluates to <code class="code">v</code>.</div></div>
 <pre><span class="VAL$"><span class="keyword">val</span> $</span> : <code class="type">('a -&gt; 'b) <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'b <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">f $ v</code> is a term that evaluates to the result of applying
       the evaluation of <code class="code">v</code> to the one of <code class="code">f</code>.</div></div>
-<pre><span class="VALapp"><span class="keyword">val</span> app</span> : <code class="type">('a -&gt; 'b) <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'b <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">app</code> is TODO reference : ($).</div></div>
+<pre><span class="VALapp"><span class="keyword">val</span> app</span> : <code class="type">('a -&gt; 'b) <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'b <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">app</code> is  <a title="RK_element ($)">($)</a>.</div></div>
 <pre><span class="VALret"><span class="keyword">val</span> ret</span> : <code class="type">[ `Error of bool * string
 | `Help of [ `Groff | `Pager | `Plain ] * string option
 | `Ok of 'a ] <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">ret v</code> is a term whose evaluation depends on the case
@@ -50,7 +52,7 @@
 <pre><span class="VALchoice_names"><span class="keyword">val</span> choice_names</span> : <code class="type">string list <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">choice_names</code> is a term that evaluates to the names of the terms
       to choose from.</div></div>
 <pre><span class="VALman_format"><span class="keyword">val</span> man_format</span> : <code class="type">[ `Groff | `Pager | `Plain ] <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">man_format</code> is a term that defines a <code class="code">--man-format</code> option and 
-      evaluates to a value that can be used with TODO reference : Manpage.print.</div></div>
+      evaluates to a value that can be used with  <a title="RK_element Manpage.print">Manpage.print</a>.</div></div>
 <div class="info"><div class="info"><h1 id="tinfo">Term information</h1> <br/>      Term information defines the name and man page of a term.
       For simple evaluation this is the name of the program and its
       man page. For multiple term evaluation, this is 
@@ -74,22 +76,22 @@
 <div class="info"><div class="info"><h1 id="1_TITLE">Evaluation</h1></div></div>
 <pre><span class="TYPEresult"><span class="keyword">type</span> <code class="type">'a </code>result</span> = <code class="type">[ `Error of [ `Exn | `Parse | `Term ] | `Help | `Ok of 'a | `Version ]</code></pre><div class="info"><div class="info">The type for evaluation results.
       <ul><li><code class="code">`Error `Exn</code>, an exception <code class="code">e</code> was caught and reported
-         on the error formatter (see the <code class="code">~catch</code> parameter of TODO reference : eval).</li><li><code class="code">`Error `Term</code>, a term evaluation error occured and was reported
-         on the error formatter (see TODO reference : Term.ret).</li><li><code class="code">`Error `Parse</code>, a command line parse error occured and was 
+         on the error formatter (see the <code class="code">~catch</code> parameter of  <a title="RK_element eval">eval</a>).</li><li><code class="code">`Error `Term</code>, a term evaluation error occured and was reported
+         on the error formatter (see  <a title="RK_element Term.ret">Term.ret</a>).</li><li><code class="code">`Error `Parse</code>, a command line parse error occured and was 
          reported on the error formatter.</li><li><code class="code">`Help</code>, man page about the term was printed on the help formatter.</li><li><code class="code">`Version</code>, the version string of the main term was printed
        on the help formatter.</li><li><code class="code">`Ok v</code>, the term evaluated successfully and <code class="code">v</code> is the result.</li></ul></div></div>
 <pre><span class="VALeval"><span class="keyword">val</span> eval</span> : <code class="type">?help:<a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt;
 ?err:<a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt;
 ?catch:bool -&gt; ?argv:string array -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> * <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=info">info</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=result">result</a></code></pre><div class="info"><div class="info"><code class="code">eval help err catch argv (t,i)</code>  is the evaluation result
-    of <code class="code">t</code> with command line arguments <code class="code">argv</code> (defaults to TODO reference : Sys.argv).<br/>    If <code class="code">catch</code> is <code class="code">true</code> (default) uncaught exeptions
+    of <code class="code">t</code> with command line arguments <code class="code">argv</code> (defaults to  <a title="RK_element Sys.argv">Sys.argv</a>).<br/>    If <code class="code">catch</code> is <code class="code">true</code> (default) uncaught exeptions
     are intercepted and their stack trace is written to the <code class="code">err</code>
     formatter. <br/>    <code class="code">help</code> is the formatter used to print help or version messages
-    (defaults to TODO reference : Format.std_formatter). <code class="code">err</code> is the formatter
-    used to print error messages (defaults to TODO reference : Format.err_formatter).</div></div>
+    (defaults to  <a title="RK_element Format.std_formatter">Format.std_formatter</a>). <code class="code">err</code> is the formatter
+    used to print error messages (defaults to  <a title="RK_element Format.err_formatter">Format.err_formatter</a>).</div></div>
 <pre><span class="VALeval_choice"><span class="keyword">val</span> eval_choice</span> : <code class="type">?help:<a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt;
 ?err:<a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt;
 ?catch:bool -&gt;
-?argv:string array -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> * <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=info">info</a> -&gt; ('a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> * <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=info">info</a>) list -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=result">result</a></code></pre><div class="info"><div class="info"><code class="code">eval_choice help err catch argv default (t,i) choices</code> is like TODO reference : eval 
+?argv:string array -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> * <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=info">info</a> -&gt; ('a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">t</a> * <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=info">info</a>) list -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=result">result</a></code></pre><div class="info"><div class="info"><code class="code">eval_choice help err catch argv default (t,i) choices</code> is like  <a title="RK_element eval">eval</a> 
       except that if the first argument on the command line is not an option 
       name it will look in <code class="code">choices</code> for a term whose information has this 
       name and evaluate it.<br/>      If the command name is unknown an error is reported. If the name
@@ -97,10 +99,10 @@
       name and man page of the program.</div></div></div></div>
 <div class="ocaml_module sig" name="Arg"><pre><span class="keyword">module</span> <a href="?package=cmdliner&amp;module=Cmdliner.Arg">Arg</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Terms for command line arguments.<br/>    This module provides functions to define terms that evaluate 
     to the arguments provided on the command line. <br/>    Basic constraints, like the argument type or repeatability, are
-    specified by defining a value of type TODO reference : t. Further contraints can
-    be specified during the TODO reference : argterms to a term.</div></div><div class="ocaml_module_content">
+    specified by defining a value of type  <a title="RK_element t">t</a>. Further contraints can
+    be specified during the  <a title="RK_element argterms">conversion</a> to a term.</div></div><div class="ocaml_module_content">
 <div class="info"><div class="info"><h1 id="argconv">Argument converters</h1>  <br/>    An argument converter transforms a string argument of the command
-    line to an OCaml value. TODO reference : converters
+    line to an OCaml value.  <a title="RK_element converters">Predefined converters</a>
     are provided for many types of the standard library.</div></div>
 <pre><span class="TYPEparser"><span class="keyword">type</span> <code class="type">'a </code>parser</span> = <code class="type">string -&gt; [ `Error of string | `Ok of 'a ]</code></pre><div class="info"><div class="info">The type for argument parsers.</div></div>
 <pre><span class="TYPEprinter"><span class="keyword">type</span> <code class="type">'a </code>printer</span> = <code class="type"><a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">The type for converted argument printers.</div></div>
@@ -134,7 +136,7 @@
       that may appear <em>at most</em> once on the command line under one of 
       the names specified by <code class="code">i</code>. The argument holds <code class="code">true</code> if the 
       flag is present on the command line and <code class="code">false</code> otherwise.</div></div>
-<pre><span class="VALflag_all"><span class="keyword">val</span> flag_all</span> : <code class="type"><a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; bool list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">flag_all</code> is like TODO reference : flag except the flag may appear more than
+<pre><span class="VALflag_all"><span class="keyword">val</span> flag_all</span> : <code class="type"><a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; bool list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">flag_all</code> is like  <a title="RK_element flag">flag</a> except the flag may appear more than
       once. The argument holds a list that contains one <code class="code">true</code> value per 
       occurence of the flag. It holds the empty list if the flag
       is absent from the command line.</div></div>
@@ -144,7 +146,7 @@
       values. The argument holds <code class="code">v</code> if the flag is absent from the 
       command line and the value <code class="code">v</code><sub class="subscript">k</sub> if the name under which it appears 
       is in <code class="code">i</code><sub class="subscript">k</sub>.</div></div>
-<pre><span class="VALvflag_all"><span class="keyword">val</span> vflag_all</span> : <code class="type">'a list -&gt; ('a * <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a>) list -&gt; 'a list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">vflag_all v l</code> is like TODO reference : vflag except the flag may appear more
+<pre><span class="VALvflag_all"><span class="keyword">val</span> vflag_all</span> : <code class="type">'a list -&gt; ('a * <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a>) list -&gt; 'a list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">vflag_all v l</code> is like  <a title="RK_element vflag">vflag</a> except the flag may appear more
       than once. The argument holds the list <code class="code">v</code> if the flag is absent
       from the command line. Otherwise it holds a list that contains one 
       corresponding value per occurence of the flag, in the order found on 
@@ -155,7 +157,7 @@
       <code class="code">v</code> if the option is absent from the command line. Otherwise
       it has the value of the option as converted by <code class="code">c</code>. <br/>      If <code class="code">vopt</code> is provided the value of the optional argument is itself
       optional, taking the value <code class="code">vopt</code> if unspecified on the command line.</div></div>
-<pre><span class="VALopt_all"><span class="keyword">val</span> opt_all</span> : <code class="type">?vopt:'a -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'a list -&gt; <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; 'a list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">opt_all vopt c v i</code> is like TODO reference : opt except the optional argument may 
+<pre><span class="VALopt_all"><span class="keyword">val</span> opt_all</span> : <code class="type">?vopt:'a -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'a list -&gt; <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; 'a list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">opt_all vopt c v i</code> is like  <a title="RK_element opt">opt</a> except the optional argument may 
       appear more than once. The argument holds a list that contains one value
       per occurence of the flag in the order found on the command line. 
       It holds the list <code class="code">v</code> if the flag is absent from the command line.</div></div>
@@ -176,7 +178,7 @@
       of the <code class="code">n</code>th positional argument or <code class="code">v</code> if there are none.<br/>      If <code class="code">rev</code> is <code class="code">true</code> (defaults to <code class="code">false</code>), the computed
       position is <code class="code">max-n</code> where <code class="code">max</code> is the position of 
       the last positional argument present on the command line.</div></div>
-<pre><span class="VALpos_right"><span class="keyword">val</span> pos_right</span> : <code class="type">?rev:bool -&gt; int -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'a list -&gt; <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; 'a list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">pos_right</code> is like TODO reference : pos_left except it holds all the positional
+<pre><span class="VALpos_right"><span class="keyword">val</span> pos_right</span> : <code class="type">?rev:bool -&gt; int -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'a list -&gt; <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=info">info</a> -&gt; 'a list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">pos_right</code> is like  <a title="RK_element pos_left">pos_left</a> except it holds all the positional
       arguments found on the right of the specified positional argument.</div></div>
 <div class="info"><div class="info"><h1 id="argterms">Arguments as terms</h1></div></div>
 <pre><span class="VALvalue"><span class="keyword">val</span> value</span> : <code class="type">'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=t">t</a> -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Term&amp;type=t">Term.t</a></code></pre><div class="info"><div class="info"><code class="code">value a</code> is a term that evaluates to <code class="code">a</code>'s value.</div></div>
@@ -193,23 +195,23 @@
       for lists of flags or options where the last occurence takes precedence
       over the others.</div></div>
 <div class="info"><div class="info"><h1 id="converters">Predefined converters</h1></div></div>
-<pre><span class="VALbool"><span class="keyword">val</span> bool</span> : <code class="type">bool <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">bool</code> converts values with TODO reference : bool_of_string.</div></div>
+<pre><span class="VALbool"><span class="keyword">val</span> bool</span> : <code class="type">bool <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">bool</code> converts values with  <a title="RK_element bool_of_string">bool_of_string</a>.</div></div>
 <pre><span class="VALchar"><span class="keyword">val</span> char</span> : <code class="type">char <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">char</code> converts values by ensuring the argument has a single char.</div></div>
-<pre><span class="VALint"><span class="keyword">val</span> int</span> : <code class="type">int <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">int</code> converts values with TODO reference : int_of_string.</div></div>
-<pre><span class="VALnativeint"><span class="keyword">val</span> nativeint</span> : <code class="type">nativeint <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">nativeint</code> converts values with TODO reference : Nativeint.of_string.</div></div>
-<pre><span class="VALint32"><span class="keyword">val</span> int32</span> : <code class="type">int32 <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">int32</code> converts values with TODO reference : Int32.of_string.</div></div>
-<pre><span class="VALint64"><span class="keyword">val</span> int64</span> : <code class="type">int64 <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">int64</code> converts values with TODO reference : Int64.of_string.</div></div>
-<pre><span class="VALfloat"><span class="keyword">val</span> float</span> : <code class="type">float <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">float</code> converts values with TODO reference : float_of_string.</div></div>
+<pre><span class="VALint"><span class="keyword">val</span> int</span> : <code class="type">int <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">int</code> converts values with  <a title="RK_element int_of_string">int_of_string</a>.</div></div>
+<pre><span class="VALnativeint"><span class="keyword">val</span> nativeint</span> : <code class="type">nativeint <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">nativeint</code> converts values with  <a title="RK_element Nativeint.of_string">Nativeint.of_string</a>.</div></div>
+<pre><span class="VALint32"><span class="keyword">val</span> int32</span> : <code class="type">int32 <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">int32</code> converts values with  <a title="RK_element Int32.of_string">Int32.of_string</a>.</div></div>
+<pre><span class="VALint64"><span class="keyword">val</span> int64</span> : <code class="type">int64 <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">int64</code> converts values with  <a title="RK_element Int64.of_string">Int64.of_string</a>.</div></div>
+<pre><span class="VALfloat"><span class="keyword">val</span> float</span> : <code class="type">float <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">float</code> converts values with  <a title="RK_element float_of_string">float_of_string</a>.</div></div>
 <pre><span class="VALstring"><span class="keyword">val</span> string</span> : <code class="type">string <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">string</code> converts values with the identity function.</div></div>
 <pre><span class="VALenum"><span class="keyword">val</span> enum</span> : <code class="type">(string * 'a) list -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">enum l p</code> converts values such that unambiguous prefixes of string names 
       in <code class="code">l</code> map to the corresponding value of type <code class="code">'a</code>.</div></div>
 <pre><span class="VALfile"><span class="keyword">val</span> file</span> : <code class="type">string <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">file</code> converts a value with the identity function and
-      checks with TODO reference : Sys.file_exists that a file with that name exists.</div></div>
+      checks with  <a title="RK_element Sys.file_exists">Sys.file_exists</a> that a file with that name exists.</div></div>
 <pre><span class="VALdir"><span class="keyword">val</span> dir</span> : <code class="type">string <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">dir</code> converts a value with the identity function and checks
-      with TODO reference : Sys.file_exists and TODO reference : Sys.is_directory 
+      with  <a title="RK_element Sys.file_exists">Sys.file_exists</a> and  <a title="RK_element Sys.is_directory">Sys.is_directory</a> 
       that a directory with that name exists.</div></div>
 <pre><span class="VALnon_dir_file"><span class="keyword">val</span> non_dir_file</span> : <code class="type">string <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">non_dir_file</code> converts a value with the identity function and checks
-      with TODO reference : Sys.file_exists and TODO reference : Sys.is_directory 
+      with  <a title="RK_element Sys.file_exists">Sys.file_exists</a> and  <a title="RK_element Sys.is_directory">Sys.is_directory</a> 
       that a non directory file with that name exists.</div></div>
 <pre><span class="VALlist"><span class="keyword">val</span> list</span> : <code class="type">?sep:char -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'a list <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">list sep c</code> splits the argument at each <code class="code">sep</code> (defaults to <code class="code">','</code>) 
       character and converts each substrings with <code class="code">c</code>.</div></div>
@@ -218,7 +220,7 @@
 <pre><span class="VALpair"><span class="keyword">val</span> pair</span> : <code class="type">?sep:char -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'b <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; ('a * 'b) <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">pair sep c0 c1</code> splits the argument at the <em>first</em> <code class="code">sep</code> character 
       (defaults to <code class="code">','</code>) and respectively converts the substrings with 
       <code class="code">c0</code> and <code class="code">c1</code>.</div></div>
-<pre><span class="VALt2"><span class="keyword">val</span> t2</span> : <code class="type">?sep:char -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'b <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; ('a * 'b) <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info">TODO reference : t2 is TODO reference : pair.</div></div>
+<pre><span class="VALt2"><span class="keyword">val</span> t2</span> : <code class="type">?sep:char -&gt; 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'b <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; ('a * 'b) <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"> <a title="RK_element t2">t2</a> is  <a title="RK_element pair">pair</a>.</div></div>
 <pre><span class="VALt3"><span class="keyword">val</span> t3</span> : <code class="type">?sep:char -&gt;
 'a <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'b <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; 'c <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a> -&gt; ('a * 'b * 'c) <a href="?package=cmdliner&amp;module=Cmdliner.Arg&amp;type=converter">converter</a></code></pre><div class="info"><div class="info"><code class="code">t3 sep c0 c1 c2</code> splits the argument at the <em>first</em> two <code class="code">sep</code> 
       characters (defaults to <code class="code">','</code>) and respectively converts the 
@@ -229,11 +231,12 @@
       characters (defaults to <code class="code">','</code>) respectively converts the substrings 
       with <code class="code">c0</code>, <code class="code">c1</code>, <code class="code">c2</code> and <code class="code">c3</code>.</div></div></div></div>
 <div class="info"><div class="info"><h1 id="basics">Basics</h1><br/>    With <code class="code">Cmdliner</code> your program evaluates a term. A <em>term</em>
-    is a value of type TODO reference : Term.t. The type parameter indicates
+    is a value of type  <a title="RK_element Term.t">Term.t</a>. The type parameter indicates
     the type of the result of the evaluation.<br/>    One way to create terms is by lifting regular OCaml values with
-    TODO reference : Term.pure. Terms can be applied to terms evaluating to
-    functional values with TODO reference : Term.( $ ) (the type for terms is an
-    TODO reference : http://dx.doi.org/10.1017/S0956796807006326). For example for the function:
+     <a title="RK_element Term.pure">Term.pure</a>. Terms can be applied to terms evaluating to
+    functional values with  <a title="RK_element Term.( $ )">Term.( $ )</a> (the type for terms is an
+     <a href="http://dx.doi.org/10.1017/S0956796807006326">applicative
+    functor</a>). For example for the function:
 <pre class="codepre"><code class="code">let revolt () = print_endline &quot;Revolt!&quot;</code></pre>
     the term :
 <pre class="codepre"><code class="code">
@@ -242,14 +245,14 @@ open Cmdliner;;
 let revolt_t = Term.(pure revolt $ pure ())</code></pre>
     is a term that evaluates to the result (and effect) of the <code class="code">revolt</code> 
     function.
-    Terms are evaluated with TODO reference : Term.eval:
+    Terms are evaluated with  <a title="RK_element Term.eval">Term.eval</a>:
 <pre class="codepre"><code class="code">let () = match Term.eval (revolt_t, Term.info &quot;revolt&quot;) with 
 | `Error _ -&gt; exit 1 | _ -&gt; exit 0</code></pre>
     This defines a command line program named <code class="code">&quot;revolt&quot;</code>, without command line 
     arguments arguments, that just prints <code class="code">&quot;Revolt!&quot;</code> on <code class="code">stdout</code>.
 <pre class="codepre"><code class="code">&gt; ./revolt 
 Revolt!</code></pre>
-    The combinators in the TODO reference : Arg module allow to extract command
+    The combinators in the  <a title="RK_element Arg">Arg</a> module allow to extract command
     line argument data as terms. These terms can then be applied to
     lifted OCaml functions to be evaluated by the program. <br/>    Terms corresponding to command line argument data that are part of
     a term evaluation implicitly define a command line syntax.  We
@@ -295,13 +298,13 @@ let info =
 
 let () = match Term.eval (chorus_t, info) with `Error _ -&gt; exit 1 | _ -&gt; exit 0
 </code></pre>
-    The <code class="code">info</code> value created with TODO reference : Term.info gives more information
+    The <code class="code">info</code> value created with  <a title="RK_element Term.info">Term.info</a> gives more information
     about the term we execute and is used to generate the program's
     man page. Since we provided a <code class="code">~version</code> string, the program will
     automatically respond to the <code class="code">--version</code> option by printing this
-    string.<br/>    A program using TODO reference : Term.eval always responds to the
+    string.<br/>    A program using  <a title="RK_element Term.eval">Term.eval</a> always responds to the
     <code class="code">--help</code> option by showing the man page about the program generated
-    using the information you provided with TODO reference : Term.info and TODO reference : Arg.info.
+    using the information you provided with  <a title="RK_element Term.info">Term.info</a> and  <a title="RK_element Arg.info">Arg.info</a>.
     Here is the output generated by our example :
 <span class="verbatim">&gt; ./chorus --help
 NAME
@@ -327,23 +330,23 @@ OPTIONS
 BUGS
        Email bug reports to &lt;hehey at example.org&gt;.</span><br/>    If a pager is available, this output is written to a pager.
     This help is also available in plain text or in the 
-    TODO reference : http://www.gnu.org/software/groff/groff.html man page format by 
+     <a href="http://www.gnu.org/software/groff/groff.html">groff</a> man page format by 
     invoking the program with the option <code class="code">--help=plain</code> or <code class="code">--help=groff</code>. <br/>    For examples of more complex command line definitions look and 
-    run the TODO reference : examples.<br/>    <h2 id="2_TITLE">Multiple terms</h2> <br/>    <code class="code">Cmdliner</code> also provides support for programs like <code class="code">darcs</code> or
+    run the  <a title="RK_element examples">examples</a>.<br/>    <h2 id="2_TITLE">Multiple terms</h2> <br/>    <code class="code">Cmdliner</code> also provides support for programs like <code class="code">darcs</code> or
     <code class="code">git</code> that have multiple commands each with their own syntax:
     <pre class="codepre"><code class="code">prog COMMAND [OPTION]... ARG...</code></pre>
     A command is defined by coupling a term with 
-    TODO reference : Term.tinfo. The term information defines the 
+     <a title="RK_element Term.tinfo">term information</a>. The term information defines the 
     command name and its man page. Given a list of commands the function
-    TODO reference : Term.eval_choice will execute the term corresponding to the
+     <a title="RK_element Term.eval_choice">Term.eval_choice</a> will execute the term corresponding to the
     <code class="code">COMMAND</code> argument or or a specific &quot;main&quot; term if there is
     no <code class="code">COMMAND</code> argument.<br/>    <h2 id="2_TITLE">Manual</h2><br/>    Man page sections are printed in the order specified by
-    TODO reference : Term.info. The man page information of an argument is listed in
+     <a title="RK_element Term.info">Term.info</a>. The man page information of an argument is listed in
     alphabetical order at the end of the text of the section specified
-    by its TODO reference : Arg.info. Positional arguments are
+    by its  <a title="RK_element Arg.info">argument information</a>. Positional arguments are
     also listed iff both the <code class="code">docv</code> and <code class="code">doc</code> string is specified in
     their argument information.<br/>    If an argument information mentions a section not specified in
-    TODO reference : Term.info, an empty section is created for it. This section is
+     <a title="RK_element Term.info">Term.info</a>, an empty section is created for it. This section is
     inserted just after the <code class="code">&quot;SYNOPSIS&quot;</code> section or after a section
     named <code class="code">&quot;DESCRIPTION&quot;</code> if there is one. <br/>    Ideally all manual strings should be UTF-8 encoded. However at the
     moment Groff (at least <code class="code">1.19.2</code>) doesn't seem to cope with UTF-8
@@ -361,11 +364,11 @@ BUGS
     <ul><li><code class="code">prog [OPTION]... [ARG]...</code></li></ul>
     The program automatically reponds to the <code class="code">--help</code> option by 
     printing the help. If a version string is provided in 
-    the TODO reference : Term.tinfo, it also automatically responds
-    to the <code class="code">--version</code> option by printing this string.<br/>    Command line arguments are either TODO reference : optargs or
-    TODO reference : posargs. Both can be freely interleaved but
+    the  <a title="RK_element Term.tinfo">term information</a>, it also automatically responds
+    to the <code class="code">--version</code> option by printing this string.<br/>    Command line arguments are either  <a title="RK_element optargs"><em>optional</em></a> or
+     <a title="RK_element posargs"><em>positional</em></a>. Both can be freely interleaved but
     since <code class="code">Cmdliner</code> accepts many optional forms this may result in
-    ambiguities. The special TODO reference : posargs can be used to resolve 
+    ambiguities. The special  <a title="RK_element posargs"> token <code class="code">--</code></a> can be used to resolve 
     them.<br/>    Programs evaluating multiple terms also add this form of invocation:
     <ul><li><code class="code">prog COMMAND [OPTION]... [ARG]...</code></li></ul>
     Commands automatically respond to the <code class="code">--help</code> option
@@ -385,8 +388,8 @@ BUGS
     Glued forms are especially useful if
     the value itself starts with a dash as is the case for negative numbers,
     <code class="code">&quot;--min=-10&quot;</code>.<br/>    An optional argument without a value is either a <em>flag</em> 
-    (see TODO reference : Arg.flag, TODO reference : Arg.vflag) or an optional argument with an optional 
-    value (see the <code class="code">~vopt</code> argument of TODO reference : Arg.opt). <br/>    <h2 id="posargs">Positional arguments</h2><br/>    Positional arguments are tokens on the command line that are not
+    (see  <a title="RK_element Arg.flag">Arg.flag</a>,  <a title="RK_element Arg.vflag">Arg.vflag</a>) or an optional argument with an optional 
+    value (see the <code class="code">~vopt</code> argument of  <a title="RK_element Arg.opt">Arg.opt</a>). <br/>    <h2 id="posargs">Positional arguments</h2><br/>    Positional arguments are tokens on the command line that are not
     option names and are not the value of an optional argument. They
     are numbered from left to right starting with zero.<br/>    Since positional arguments may be mistaken as the optional value
     of an optional argument or they may need to look like option
@@ -400,9 +403,9 @@ rm [OPTION]... FILE...
     represented in our program by the <code class="code">prompt</code> type. If more than one
     of these flags is present on the command line the last one takes
     precedence.<br/>    To implement this behaviour we map the presence of these flags
-    to values of the <code class="code">prompt</code> type by using TODO reference : Arg.vflag_all.  This
+    to values of the <code class="code">prompt</code> type by using  <a title="RK_element Arg.vflag_all">Arg.vflag_all</a>.  This
     argument will contain all occurences of the flag on the command
-    line and we just take the TODO reference : Arg.last one to define our term value
+    line and we just take the  <a title="RK_element Arg.last">Arg.last</a> one to define our term value
     (if there's no occurence the last value of the default list <code class="code">[Always]</code> is
     taken, i.e. the default is <code class="code">Always</code>).
 <pre class="codepre"><code class="code">
@@ -463,10 +466,10 @@ let () = match Term.eval cmd with `Error _ -&gt; exit 1 | _ -&gt; exit 0
 <pre class="codepre"><code class="code">cp [OPTION]... SOURCE... DEST </code></pre>
     The <code class="code">DEST</code> argument must be a directory if there is more than 
     one <code class="code">SOURCE</code>. This constraint is too complex to be expressed by the
-    combinators of TODO reference : Arg. Hence we just give it the TODO reference : Arg.string type
+    combinators of  <a title="RK_element Arg">Arg</a>. Hence we just give it the  <a title="RK_element Arg.string">Arg.string</a> type
     and verify the constraint at the beginning of the <code class="code">cp</code>
     implementation. If unsatisfied we return an <code class="code">`Error</code> and
-    by using TODO reference : Term.ret on the lifted result <code class="code">cp_t</code> of <code class="code">cp</code>, 
+    by using  <a title="RK_element Term.ret">Term.ret</a> on the lifted result <code class="code">cp_t</code> of <code class="code">cp</code>, 
     <code class="code">Cmdliner</code> handles the error reporting.
 <pre class="codepre"><code class="code">
 (* Implementation, we check the dest argument and print the args *)
@@ -524,11 +527,11 @@ synopsis:
 <pre class="codepre"><code class="code">tail [OPTION]... [FILE]...</code></pre><br/>The <code class="code">--lines</code> option whose value specifies the number of last lines to
 print has a special syntax where a <code class="code">+</code> prefix indicates to start
 printing from that line number. In the program this is represented by
-the <code class="code">loc</code> type. We define a custom <code class="code">loc</code> TODO reference : Arg.argconv 
+the <code class="code">loc</code> type. We define a custom <code class="code">loc</code>  <a title="RK_element Arg.argconv">argument converter</a> 
 for this option.<br/>The <code class="code">--follow</code> option has an optional enumerated value. The argument
-converter <code class="code">follow</code>, created with TODO reference : Arg.enum parses the option value
-into the enumeration. By using TODO reference : Arg.some and the <code class="code">~vopt</code> argument of
-TODO reference : Arg.opt, the term corresponding to the option <code class="code">--follow</code> evaluates to
+converter <code class="code">follow</code>, created with  <a title="RK_element Arg.enum">Arg.enum</a> parses the option value
+into the enumeration. By using  <a title="RK_element Arg.some">Arg.some</a> and the <code class="code">~vopt</code> argument of
+ <a title="RK_element Arg.opt">Arg.opt</a>, the term corresponding to the option <code class="code">--follow</code> evaluates to
 <code class="code">None</code> if <code class="code">--follow</code> is absent from the command line, to <code class="code">Some Descriptor</code>
 if present but without a value and to <code class="code">Some v</code> if present with a value
 <code class="code">v</code> specified.<br/><pre class="codepre"><code class="code">
@@ -610,9 +613,9 @@ that we can pass to the commands to stand for an argument of type
 <code class="code">copts</code>. These options are documented in a section called <code class="code">COMMON
 OPTIONS</code>, since we also want to put <code class="code">--help</code> and <code class="code">--version</code> in this
 section, the term information of commands makes a judicious use of the
-<code class="code">sdocs</code> parameter of TODO reference : Term.info.<br/>The <code class="code">help</code> command shows help about commands or other topics. The help
+<code class="code">sdocs</code> parameter of  <a title="RK_element Term.info">Term.info</a>.<br/>The <code class="code">help</code> command shows help about commands or other topics. The help
 shown for commands is generated by <code class="code">Cmdliner</code> by making an approriate
-use of TODO reference : Term.ret on the lifted <code class="code">help</code> function.<br/>If the program is invoked without a command we just want to show the
+use of  <a title="RK_element Term.ret">Term.ret</a> on the lifted <code class="code">help</code> function.<br/>If the program is invoked without a command we just want to show the
 help of the program as printed by <code class="code">Cmdliner</code> with <code class="code">--help</code>. This is
 done by the <code class="code">no_cmd</code> term.<br/><pre class="codepre"><code class="code">
 (* Implementations, just print the args. *)

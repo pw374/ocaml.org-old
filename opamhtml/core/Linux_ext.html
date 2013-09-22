@@ -24,7 +24,7 @@
     been interrupted by a signal, the source file may have been truncated
     during operation, or a timeout occurred on the socket during sending.
     It is currently impossible to find out which of the events above
-    happened.  Calling TODO reference : sendfile several times on the same descriptor
+    happened.  Calling  <a title="RK_element sendfile">sendfile</a> several times on the same descriptor
     that only partially accepted data due to a timeout will eventually
     lead to the unix error <code class="code">EAGAIN</code>.</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Non-portable TCP-functionality</h2></div></div>
@@ -125,7 +125,7 @@
 <pre><span class="VALpr_set_pdeathsig"><span class="keyword">val</span> pr_set_pdeathsig</span> : <code class="type">(<a href="?package=core&amp;module=Signal&amp;type=t">Signal.t</a> -&gt; unit) <a href="?package=core_kernel&amp;module=Std.Or_error&amp;type=t">Core_kernel.Std.Or_error.t</a></code></pre><div class="info"><div class="info"><code class="code">pr_set_pdeathsig s</code> sets the signal <code class="code">s</code> to be sent to the executing
     process when its parent dies.  NOTE: the parent may have died
     before or while executing this system call.  To make sure that you
-    do not miss this event, you should call TODO reference : getppid to get
+    do not miss this event, you should call  <a title="RK_element getppid">getppid</a> to get
     the parent process id after this system call.  If the parent has
     died, the returned parent PID will be 1, i.e. the init process will
     have adopted the child.  You should then either send the signal to
@@ -280,7 +280,7 @@ timeout:[ `After of <a href="?package=core&amp;module=Span&amp;type=t">Span.t</a
 <div class="info"><div class="info"><code class="code">pr_set_pdeathsig s</code> sets the signal <code class="code">s</code> to be sent to the executing
     process when its parent dies.  NOTE: the parent may have died
     before or while executing this system call.  To make sure that you
-    do not miss this event, you should call TODO reference : getppid to get
+    do not miss this event, you should call  <a title="RK_element getppid">getppid</a> to get
     the parent process id after this system call.  If the parent has
     died, the returned parent PID will be 1, i.e. the init process will
     have adopted the child.  You should then either send the signal to

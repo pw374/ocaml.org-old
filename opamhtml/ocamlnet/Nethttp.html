@@ -102,10 +102,10 @@
          </li></ul></div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTnetscape_cookie.cookie_secure">cookie_secure</span> : <code class="type">bool</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Cookies are also bound to the type of the web server:
  <code class="code">false</code> means servers without SSL, <code class="code">true</code> means servers with
  activated SSL (&quot;https&quot;).</div></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">These are old-style cookies, as introduced by Netscape. For
-        a better representation of cookies see the TODO reference : Nethttp.Cookie
+        a better representation of cookies see the  <a title="RK_element Nethttp.Cookie">Nethttp.Cookie</a>
         module.<br/>        This type is kept for now (and is also not considered as deprecated),
-        as the access functions in the TODO reference : Nethttp.Header module are more
-        complete than those for TODO reference : Nethttp.Cookie.</div></div>
+        as the access functions in the  <a title="RK_element Nethttp.Header">Nethttp.Header</a> module are more
+        complete than those for  <a title="RK_element Nethttp.Cookie">Nethttp.Cookie</a>.</div></div>
 <pre><span class="TYPEcookie"><span class="keyword">type</span> cookie</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=netscape_cookie">netscape_cookie</a></code></pre><div class="info"><div class="info">Compatibility name. <b>Deprecated</b></div></div>
 <pre><span class="VALdecode_query"><span class="keyword">val</span> decode_query</span> : <code class="type">string -&gt; string * string</code></pre><div class="info"><div class="info">Splits the URI into a &quot;script name&quot; and a &quot;query string&quot;</div></div>
 <pre><span class="VALsplit_host_port"><span class="keyword">val</span> split_host_port</span> : <code class="type">string -&gt; string * int option</code></pre><div class="info"><div class="info">Splits the <code class="code">Host</code> header in hostname and optional port number.
@@ -126,18 +126,18 @@
       sent in such a way older browsers understand them -- albeit not
       all attributes of course -- so your application can be ready for
       the time RFC 2965 will be the norm.  <br/>      This cookie representation is preferred over the Netscape-only
-      type TODO reference : Nethttp.netscape_cookie.<br/>      N.B. This module appears also as TODO reference : Netcgi.Cookie.</div><div class="info">Mutable cookie type</div></div>
+      type  <a title="RK_element Nethttp.netscape_cookie">Nethttp.netscape_cookie</a>.<br/>      N.B. This module appears also as  <a title="RK_element Netcgi.Cookie">Netcgi.Cookie</a>.</div><div class="info">Mutable cookie type</div></div>
 <pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">?max_age:int -&gt;
 ?domain:string -&gt;
 ?path:string -&gt;
 ?secure:bool -&gt;
 ?comment:string -&gt;
 ?comment_url:string -&gt; ?ports:int list -&gt; string -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">make ?expires ?domain ?path ?secure name value</code> creates a new
-        cookie with name <code class="code">name</code> holding <code class="code">value</code>.<div class="parameters"><div class="param_info"><code class="code">max_age</code> : see TODO reference : Netcgi.Cookie.set_max_age.
-                       Default: when user agent exits.</div><div class="param_info"><code class="code">domain</code> : see TODO reference : Netcgi.Cookie.set_domain.
-	              Default: hostname of the server.</div><div class="param_info"><code class="code">path</code> : see TODO reference : Netcgi.Cookie.set_path.
-                    Default: script name + path_info.</div><div class="param_info"><code class="code">secure</code> : see TODO reference : Netcgi.Cookie.set_secure.  Default: <code class="code">false</code>.</div><div class="param_info"><code class="code">comment</code> : see TODO reference : Netcgi.Cookie.set_comment.  Default: <code class="code">&quot;&quot;</code>.</div><div class="param_info"><code class="code">comment_url</code> : see TODO reference : Netcgi.Cookie.set_comment_url.
-	                   Default: <code class="code">&quot;&quot;</code>.</div><div class="param_info"><code class="code">ports</code> : see TODO reference : Netcgi.Cookie.set_ports.
+        cookie with name <code class="code">name</code> holding <code class="code">value</code>.<div class="parameters"><div class="param_info"><code class="code">max_age</code> : see  <a title="RK_element Netcgi.Cookie.set_max_age">Netcgi.Cookie.set_max_age</a>.
+                       Default: when user agent exits.</div><div class="param_info"><code class="code">domain</code> : see  <a title="RK_element Netcgi.Cookie.set_domain">Netcgi.Cookie.set_domain</a>.
+	              Default: hostname of the server.</div><div class="param_info"><code class="code">path</code> : see  <a title="RK_element Netcgi.Cookie.set_path">Netcgi.Cookie.set_path</a>.
+                    Default: script name + path_info.</div><div class="param_info"><code class="code">secure</code> : see  <a title="RK_element Netcgi.Cookie.set_secure">Netcgi.Cookie.set_secure</a>.  Default: <code class="code">false</code>.</div><div class="param_info"><code class="code">comment</code> : see  <a title="RK_element Netcgi.Cookie.set_comment">Netcgi.Cookie.set_comment</a>.  Default: <code class="code">&quot;&quot;</code>.</div><div class="param_info"><code class="code">comment_url</code> : see  <a title="RK_element Netcgi.Cookie.set_comment_url">Netcgi.Cookie.set_comment_url</a>.
+	                   Default: <code class="code">&quot;&quot;</code>.</div><div class="param_info"><code class="code">ports</code> : see  <a title="RK_element Netcgi.Cookie.set_ports">Netcgi.Cookie.set_ports</a>.
 	             Default: same port the cookie was sent.</div></div></div></div>
 <pre><span class="VALname"><span class="keyword">val</span> name</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info">The name of the cookie.</div></div>
 <pre><span class="VALvalue"><span class="keyword">val</span> value</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info">The value of the cookie.</div></div>
@@ -177,7 +177,7 @@
 	store personal information, the comment should describe how
 	the cookie will be used so the client can decide whether to
 	allow the cookie or not.  To cancel a comment, set it to <code class="code">&quot;&quot;</code>.<br/>	Cookie version 1 (RFC 2109).</div></div>
-<pre><span class="VALset_comment_url"><span class="keyword">val</span> set_comment_url</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">t</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">set_comment_url c url</code> same as TODO reference : Netcgi.Cookie.set_comment
+<pre><span class="VALset_comment_url"><span class="keyword">val</span> set_comment_url</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">t</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">set_comment_url c url</code> same as  <a title="RK_element Netcgi.Cookie.set_comment">Netcgi.Cookie.set_comment</a>
 	except that the cookie comment is available on the page
 	pointed by <code class="code">url</code>.  To cancel, set it to <code class="code">&quot;&quot;</code>.<br/>	Cookie version 1 (RFC 2965).</div></div>
 <pre><span class="VALset_ports"><span class="keyword">val</span> set_ports</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">t</a> -&gt; int list option -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">set ports c (Some p)</code> says that the cookie <code class="code">c</code> must only be
@@ -382,7 +382,7 @@
  <code class="code">(auth_scheme,auth_params)</code>.<br/> All present <code class="code">WWW-Authenticate</code> headers are merged.<b>Raises</b> <code>Not_found</code> if the header is missing.<br/></div></div>
 <pre><span class="VALset_www_authenticate"><span class="keyword">val</span> set_www_authenticate</span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Nethttp&amp;class=http_header">http_header</a> -&gt; (string * (string * string) list) list -&gt; unit</code></pre><div class="info"><div class="info">Sets the <code class="code">WWW-Authenticate</code> header</div></div>
 <pre><span class="VALget_cookie"><span class="keyword">val</span> get_cookie</span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Nethttp&amp;class=http_header_ro">http_header_ro</a> -&gt; (string * string) list</code></pre><div class="info"><div class="info">Get the (Netscape) cookies as (name,value) pairs (or Not_found).</div></div>
-<pre><span class="VALget_cookie_ct"><span class="keyword">val</span> get_cookie_ct</span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Nethttp&amp;class=http_header_ro">http_header_ro</a> -&gt; <a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">Cookie.t</a> list</code></pre><div class="info"><div class="info">Get the cookies in the TODO reference : Nethttp.Cookie.t representation
+<pre><span class="VALget_cookie_ct"><span class="keyword">val</span> get_cookie_ct</span> : <code class="type">#<a href="?package=ocamlnet&amp;module=Nethttp&amp;class=http_header_ro">http_header_ro</a> -&gt; <a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">Cookie.t</a> list</code></pre><div class="info"><div class="info">Get the cookies in the  <a title="RK_element Nethttp.Cookie.t">Nethttp.Cookie.t</a> representation
         (the suffix &quot;_ct&quot; reminds of <code class="code">Cookie.t</code>).
         This function also supports version 1 cookies.
         Returns the empty list if there are no cookies.</div></div>

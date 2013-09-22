@@ -2,9 +2,9 @@
     advantage of multiple CPU cores. It does not use Ocaml's multi-threading
     feature because this would implicitly serialize all computations.
     Instead, independent processes are created, and the communication
-    between processes is made as cheap and unproblematic as possible.<br/>    Please read TODO reference : Netmcore_basics for an introduction into using
-    this module. There is also TODO reference : Netmcore_tut with more advanced
-    techniques.<br/>    Before using this library, it is required to call TODO reference : Netmcore.startup.
+    between processes is made as cheap and unproblematic as possible.<br/>    Please read  <a title="RK_element Netmcore_basics">Netmcore_basics</a> for an introduction into using
+    this module. There is also  <a title="RK_element Netmcore_tut">Netmcore_tut</a> with more advanced
+    techniques.<br/>    Before using this library, it is required to call  <a title="RK_element Netmcore.startup">Netmcore.startup</a>.
     This turns the current process into the master process. The master
     process has only a supervising function, and is responsible for
     managing global resources, and for starting further worker processes.<br/>    The worker processes can start more workers. This is different from
@@ -18,7 +18,7 @@
     thread-related resources are in an uncontrolled state). There is
     no such problem in the worker processes. In this library,
     however, nothing is done to ease the multi-threaded life, so you
-    should carefully check the compatibility first.<br/>    TODO reference : Netmcore controls the lifetime of certain system resources in
+    should carefully check the compatibility first.<br/>     <a title="RK_element Netmcore">Netmcore</a> controls the lifetime of certain system resources in
     addition to worker processes:<ul><li>Temporary files</li><li>Shared memory objects</li><li>Named semaphores</li></ul>    These objects have kernel persistence, and continue to exist when
     the program ends. Because of this, there are two mechanisms to
     control the lifetime, and to delete these objects finally: First,
@@ -28,7 +28,7 @@
     &quot;netplex.pmanage&quot; (in the socket directory). When the program is
     started the next time with the same socket directory, the objects
     from the previous run are automatically deleted. The second mechanism
-    can be disabled by setting the<ul><li><code class="code">disable_pmanage</code> parameter for the TODO reference : Netmcore.startup call, or by
+    can be disabled by setting the<ul><li><code class="code">disable_pmanage</code> parameter for the  <a title="RK_element Netmcore.startup">Netmcore.startup</a> call, or by
       setting the</li><li><code class="code">unlink</code> parameter in the same call. This second option only disables
       the deletion, but the management file is updated.</li></ul></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Types and exceptions</h2></div></div>
@@ -65,8 +65,8 @@
         the process <code class="code">pid</code> terminates. If <code class="code">res</code> is non-<code class="code">None</code> it is the
         result value. If it is <code class="code">None</code>, no result was passed back
         (including all pathological cases like crashes)</li></ul>      Except fork and join points, these resources are also added to
-      the pmanage object of Netplex (see TODO reference : Netplex_cenv.pmanage and
-      TODO reference : Netsys_pmanage).</div></div>
+      the pmanage object of Netplex (see  <a title="RK_element Netplex_cenv.pmanage">Netplex_cenv.pmanage</a> and
+       <a title="RK_element Netsys_pmanage">Netsys_pmanage</a>).</div></div>
 <pre><span class="EXCEPTIONNo_resource"><span class="keyword">exception</span> No_resource</span> <span class="keyword">of</span> <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a></code></pre><div class="info"><div class="info">No such resource, or no resource of the expected type</div></div>
 <div class="ocaml_class sig" name="compute_resource"><pre><span class="TYPEcompute_resource"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netmcore&amp;class=compute_resource">compute_resource</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODid"><span class="keyword">method</span> id</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a></code></pre>
 <div class="info"><div class="info">an ID of the resource that is valid in the whole Netplex system</div></div>
@@ -82,7 +82,7 @@
 <div class="info"><div class="info">This is the lower-level version of the process API where arguments
     and results of processes are dynamically typed. It may have some
     uses when writing generic process managers, but for the
-    normal application the statically typed API in TODO reference : Netmcore_process
+    normal application the statically typed API in  <a title="RK_element Netmcore_process">Netmcore_process</a>
     is easier to use (and less verbose).</div></div>
 <pre><span class="VALdef_process"><span class="keyword">val</span> def_process</span> : <code class="type">(<a href="?package=ocamlnet&amp;module=Netplex_encap&amp;type=encap">Netplex_encap.encap</a> -&gt; <a href="?package=ocamlnet&amp;module=Netplex_encap&amp;type=encap">Netplex_encap.encap</a>) -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a> * <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a></code></pre><div class="info"><div class="info"><code class="code">let fork_point, join_point = def_process f</code>:
       Defines process types, i.e. ways of starting and finishing processes. 
@@ -109,7 +109,7 @@
             Int_encap.wrap r
           )
       </code></pre><br/>      The wrapping and unwrapping is required for ensuring type-safety
-      (see TODO reference : Netplex_encap for the details of the idea).<br/>      Calling this process is done with (also see below):<br/>      <pre class="codepre"><code class="code">
+      (see  <a title="RK_element Netplex_encap">Netplex_encap</a> for the details of the idea).<br/>      Calling this process is done with (also see below):<br/>      <pre class="codepre"><code class="code">
       let pid = Netmcore.start my_process_fork (String_encap.wrap s) in
       let r_encap_opt = Netmcore.join my_process_join pid in
       match r_encap_opt with
@@ -134,7 +134,7 @@
       (or <code class="code">join_nowait</code>) once per process.<br/>      Raises <code class="code">No_resource</code> if there is no such resource.<br/>      It is not possible to call <code class="code">join</code> from the master process (as this
       process must not block). You can, however, get the result of an
       already terminated process with <code class="code">join_nowait</code>, e.g. after
-      TODO reference : Netmcore.run returned.</div></div>
+       <a title="RK_element Netmcore.run">Netmcore.run</a> returned.</div></div>
 <pre><span class="VALjoin_nowait"><span class="keyword">val</span> join_nowait</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a> -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=process_id">process_id</a> -&gt; <a href="?package=ocamlnet&amp;module=Netplex_encap&amp;type=encap">Netplex_encap.encap</a> option</code></pre><div class="info"><div class="info"><code class="code">let res_opt = join_nowait join_point pid</code>: Checks if the process <code class="code">pid</code>
       is done, and returns the result value if so. Otherwise return <code class="code">None</code>.</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Managing resources from worker processes</h2></div></div>
@@ -153,8 +153,8 @@
 <pre><span class="VALget_shm"><span class="keyword">val</span> get_shm</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a> -&gt; string</code></pre><div class="info"><div class="info">Gets the shm object with this ID (or raises <code class="code">No_resource</code>). As
       for <code class="code">get_resource</code> the shm object is marked as being used by the process.</div></div>
 <pre><span class="VALget_sem_container"><span class="keyword">val</span> get_sem_container</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsys_sem&amp;type=container">Netsys_sem.container</a></code></pre><div class="info"><div class="info">Get the semaphore container</div></div>
-<div class="info"><div class="info">Shared memory objects can be created with TODO reference : Netsys_posix.shm_create,
-    and opened with TODO reference : Netsys_posix.shm_open.</div></div>
+<div class="info"><div class="info">Shared memory objects can be created with  <a title="RK_element Netsys_posix.shm_create">Netsys_posix.shm_create</a>,
+    and opened with  <a title="RK_element Netsys_posix.shm_open">Netsys_posix.shm_open</a>.</div></div>
 <pre><span class="VALcreate_preallocated_shm"><span class="keyword">val</span> create_preallocated_shm</span> : <code class="type">?value_area:bool -&gt; string -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a> * string</code></pre><div class="info"><div class="info"><code class="code">create_preallocated_shm prefix size</code>: Creates a new preallocated
       shm object with a unique name based on <code class="code">prefix</code>, and a length of
       <code class="code">size</code> bytes. The object is created and mapped into the master
@@ -173,8 +173,8 @@
 <pre><span class="VALmanage_sem"><span class="keyword">val</span> manage_sem</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=compute_resource">compute_resource</a></code></pre><div class="info"><div class="info">hands over a named semaphore to the manager</div></div>
 <pre><span class="VALget_sem"><span class="keyword">val</span> get_sem</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">res_id</a> -&gt; string</code></pre><div class="info"><div class="info">gets the semaphore with this ID (or raises <code class="code">No_resource</code>). As
       for <code class="code">get_resource</code> the semaphore is marked as being used by the process.</div></div>
-<div class="info"><div class="info">Semaphores can be opened with TODO reference : Netsys_posix.sem_open, and
-    created with TODO reference : Netsys_posix.sem_create.</div></div>
+<div class="info"><div class="info">Semaphores can be opened with  <a title="RK_element Netsys_posix.sem_open">Netsys_posix.sem_open</a>, and
+    created with  <a title="RK_element Netsys_posix.sem_create">Netsys_posix.sem_create</a>.</div></div>
 <pre><span class="VALself_process_id"><span class="keyword">val</span> self_process_id</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=process_id">process_id</a></code></pre><div class="info"><div class="info">Returns the process ID of a worker</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Initialization and system start</h2></div></div>
 <div class="info"><div class="info">This module can either be used as Netplex plugin and integrated into
@@ -208,7 +208,7 @@ first_process:('a -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=
 extract_result:(Netplex_types.controller -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=process_id">process_id</a> -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info">This function fixes a design error in <code class="code">startup</code>, namely that it was
       difficult to get the result of the process(es) back. Here, the
       additional callback <code class="code">extract_result</code> can be used to retrieve the
-      results from processes, especially from the first process.<br/>      You need to call TODO reference : Netmcore.join_nowait to get the results from
+      results from processes, especially from the first process.<br/>      You need to call  <a title="RK_element Netmcore.join_nowait">Netmcore.join_nowait</a> to get the results from
       processes.<br/>      The result of <code class="code">extract_result</code> is the result of <code class="code">run</code>.</div></div>
 <pre><span class="VALdestroy_resources"><span class="keyword">val</span> destroy_resources</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Destroys all resources that may be left</div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netmcore.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">

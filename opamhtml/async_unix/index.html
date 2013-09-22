@@ -10,8 +10,8 @@
     the same thing as their counterparts in <code class="code">Sys</code>, but instead return deferreds.  For a
     description of the semantics of their semantics see the documentation for the <code class="code">Sys</code>
     module.</div></td></tr>
-<tr><td class="module"><a href="?package=async_unix&amp;module=Busy_pollers">Busy_pollers</a></td><td><div class="info">A set of busy-poll functions.<br/>    See TODO reference : Scheduler.add_busy_poller for the user-level interface.</div></td></tr>
-<tr><td class="module"><a href="?package=async_unix&amp;module=Busy_pollers">Busy_pollers</a></td><td><div class="info">A set of busy-poll functions.<br/>    See TODO reference : Scheduler.add_busy_poller for the user-level interface.</div></td></tr>
+<tr><td class="module"><a href="?package=async_unix&amp;module=Busy_pollers">Busy_pollers</a></td><td><div class="info">A set of busy-poll functions.<br/>    See  <a title="RK_element Scheduler.add_busy_poller">Scheduler.add_busy_poller</a> for the user-level interface.</div></td></tr>
+<tr><td class="module"><a href="?package=async_unix&amp;module=Busy_pollers">Busy_pollers</a></td><td><div class="info">A set of busy-poll functions.<br/>    See  <a title="RK_element Scheduler.add_busy_poller">Scheduler.add_busy_poller</a> for the user-level interface.</div></td></tr>
 <tr><td class="module"><a href="?package=async_unix&amp;module=Epoll_file_descr_watcher">Epoll_file_descr_watcher</a></td><td/></tr>
 <tr><td class="module"><a href="?package=async_unix&amp;module=Epoll_file_descr_watcher">Epoll_file_descr_watcher</a></td><td/></tr>
 <tr><td class="module"><a href="?package=async_unix&amp;module=Fd">Fd</a></td><td><div class="info">An <code class="code">Fd.t</code> is a wrapper around a Unix file descriptor, with additional information
@@ -211,11 +211,11 @@
 <tr><td class="module"><a href="?package=async_unix&amp;module=Thread_safe_pipe">Thread_safe_pipe</a></td><td><div class="info">A thread-safe pipe is a thread-safe interface to the write end of a normal
     <code class="code">Async.Pipe</code>.  All operations except for <code class="code">create</code> must be called from threads outside
     async.  <code class="code">create</code> can be called from inside or outside async.<br/>    For <code class="code">Pipe</code> functions that return a <code class="code">unit Deferred.t</code>, the analog in <code class="code">Thread_safe_pipe</code>
-    blocks.<br/>    For documentation of <code class="code">wakeup_scheduler</code>, see the TODO reference : Thread_safe module.</div></td></tr>
+    blocks.<br/>    For documentation of <code class="code">wakeup_scheduler</code>, see the  <a title="RK_element Thread_safe">Thread_safe</a> module.</div></td></tr>
 <tr><td class="module"><a href="?package=async_unix&amp;module=Thread_safe_pipe">Thread_safe_pipe</a></td><td><div class="info">A thread-safe pipe is a thread-safe interface to the write end of a normal
     <code class="code">Async.Pipe</code>.  All operations except for <code class="code">create</code> must be called from threads outside
     async.  <code class="code">create</code> can be called from inside or outside async.<br/>    For <code class="code">Pipe</code> functions that return a <code class="code">unit Deferred.t</code>, the analog in <code class="code">Thread_safe_pipe</code>
-    blocks.<br/>    For documentation of <code class="code">wakeup_scheduler</code>, see the TODO reference : Thread_safe module.</div></td></tr>
+    blocks.<br/>    For documentation of <code class="code">wakeup_scheduler</code>, see the  <a title="RK_element Thread_safe">Thread_safe</a> module.</div></td></tr>
 <tr><td class="module"><a href="?package=async_unix&amp;module=Unix_syscalls">Unix_syscalls</a></td><td><div class="info"><code class="code">Unix_syscalls</code> provides an interface to many of the functions in OCaml's standard
     Unix module.  It uses a deferred in the return type of functions that would block.
     The idea is that in an async program one does not use the standard Unix module, since

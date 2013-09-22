@@ -19,7 +19,7 @@
    Not tail-recursive (length of the first argument).  The <code class="code">@</code>
    operator is not tail-recursive either.</div></div>
 <pre><span class="VALrev_append"><span class="keyword">val</span> rev_append</span> : <code class="type">'a list -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info"><code class="code">List.rev_append l1 l2</code> reverses <code class="code">l1</code> and concatenates it to <code class="code">l2</code>.
-   This is equivalent to TODO reference : ListLabels.rev<code class="code"> l1 @ l2</code>, but <code class="code">rev_append</code> is
+   This is equivalent to  <a title="RK_element ListLabels.rev">ListLabels.rev</a><code class="code"> l1 @ l2</code>, but <code class="code">rev_append</code> is
    tail-recursive and more efficient.</div></div>
 <pre><span class="VALconcat"><span class="keyword">val</span> concat</span> : <code class="type">'a list list -&gt; 'a list</code></pre><div class="info"><div class="info">Concatenate a list of lists.  The elements of the argument are all
    concatenated together (in the same order) to give the result.
@@ -31,17 +31,17 @@
 <pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">f:('a -&gt; unit) -&gt; 'a list -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">List.iter f [a1; ...; an]</code> applies function <code class="code">f</code> in turn to
    <code class="code">a1; ...; an</code>. It is equivalent to
    <code class="code">begin f a1; f a2; ...; f an; () end</code>.</div></div>
-<pre><span class="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">f:(int -&gt; 'a -&gt; unit) -&gt; 'a list -&gt; unit</code></pre><div class="info"><div class="info">Same as TODO reference : List.iter, but the function is applied to the index of
+<pre><span class="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">f:(int -&gt; 'a -&gt; unit) -&gt; 'a list -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element List.iter">List.iter</a>, but the function is applied to the index of
    the element as first argument (counting from 0), and the element
    itself as second argument.<b>Since</b> 4.00.0</div></div>
 <pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">f:('a -&gt; 'b) -&gt; 'a list -&gt; 'b list</code></pre><div class="info"><div class="info"><code class="code">List.map f [a1; ...; an]</code> applies function <code class="code">f</code> to <code class="code">a1, ..., an</code>,
    and builds the list <code class="code">[f a1; ...; f an]</code>
    with the results returned by <code class="code">f</code>.  Not tail-recursive.</div></div>
-<pre><span class="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">f:(int -&gt; 'a -&gt; 'b) -&gt; 'a list -&gt; 'b list</code></pre><div class="info"><div class="info">Same as TODO reference : List.map, but the function is applied to the index of
+<pre><span class="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">f:(int -&gt; 'a -&gt; 'b) -&gt; 'a list -&gt; 'b list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element List.map">List.map</a>, but the function is applied to the index of
    the element as first argument (counting from 0), and the element
    itself as second argument.<b>Since</b> 4.00.0</div></div>
 <pre><span class="VALrev_map"><span class="keyword">val</span> rev_map</span> : <code class="type">f:('a -&gt; 'b) -&gt; 'a list -&gt; 'b list</code></pre><div class="info"><div class="info"><code class="code">List.rev_map f l</code> gives the same result as
-   TODO reference : ListLabels.rev<code class="code"> (</code>TODO reference : ListLabels.map<code class="code"> f l)</code>, but is tail-recursive and
+    <a title="RK_element ListLabels.rev">ListLabels.rev</a><code class="code"> (</code> <a title="RK_element ListLabels.map">ListLabels.map</a><code class="code"> f l)</code>, but is tail-recursive and
    more efficient.</div></div>
 <pre><span class="VALfold_left"><span class="keyword">val</span> fold_left</span> : <code class="type">f:('a -&gt; 'b -&gt; 'a) -&gt; init:'a -&gt; 'b list -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">List.fold_left f a [b1; ...; bn]</code> is
    <code class="code">f (... (f (f a b1) b2) ...) bn</code>.</div></div>
@@ -57,7 +57,7 @@
    Raise <code class="code">Invalid_argument</code> if the two lists have
    different lengths.  Not tail-recursive.</div></div>
 <pre><span class="VALrev_map2"><span class="keyword">val</span> rev_map2</span> : <code class="type">f:('a -&gt; 'b -&gt; 'c) -&gt; 'a list -&gt; 'b list -&gt; 'c list</code></pre><div class="info"><div class="info"><code class="code">List.rev_map2 f l1 l2</code> gives the same result as
-   TODO reference : ListLabels.rev<code class="code"> (</code>TODO reference : ListLabels.map2<code class="code"> f l1 l2)</code>, but is tail-recursive and
+    <a title="RK_element ListLabels.rev">ListLabels.rev</a><code class="code"> (</code> <a title="RK_element ListLabels.map2">ListLabels.map2</a><code class="code"> f l1 l2)</code>, but is tail-recursive and
    more efficient.</div></div>
 <pre><span class="VALfold_left2"><span class="keyword">val</span> fold_left2</span> : <code class="type">f:('a -&gt; 'b -&gt; 'c -&gt; 'a) -&gt; init:'a -&gt; 'b list -&gt; 'c list -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">List.fold_left2 f a [b1; ...; bn] [c1; ...; cn]</code> is
    <code class="code">f (... (f (f a b1 c1) b2 c2) ...) bn cn</code>.
@@ -74,15 +74,15 @@
 <pre><span class="VALexists"><span class="keyword">val</span> exists</span> : <code class="type">f:('a -&gt; bool) -&gt; 'a list -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">exists p [a1; ...; an]</code> checks if at least one element of
    the list satisfies the predicate <code class="code">p</code>. That is, it returns
    <code class="code">(p a1) || (p a2) || ... || (p an)</code>.</div></div>
-<pre><span class="VALfor_all2"><span class="keyword">val</span> for_all2</span> : <code class="type">f:('a -&gt; 'b -&gt; bool) -&gt; 'a list -&gt; 'b list -&gt; bool</code></pre><div class="info"><div class="info">Same as TODO reference : ListLabels.for_all, but for a two-argument predicate.
+<pre><span class="VALfor_all2"><span class="keyword">val</span> for_all2</span> : <code class="type">f:('a -&gt; 'b -&gt; bool) -&gt; 'a list -&gt; 'b list -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ListLabels.for_all">ListLabels.for_all</a>, but for a two-argument predicate.
    Raise <code class="code">Invalid_argument</code> if the two lists have
    different lengths.</div></div>
-<pre><span class="VALexists2"><span class="keyword">val</span> exists2</span> : <code class="type">f:('a -&gt; 'b -&gt; bool) -&gt; 'a list -&gt; 'b list -&gt; bool</code></pre><div class="info"><div class="info">Same as TODO reference : ListLabels.exists, but for a two-argument predicate.
+<pre><span class="VALexists2"><span class="keyword">val</span> exists2</span> : <code class="type">f:('a -&gt; 'b -&gt; bool) -&gt; 'a list -&gt; 'b list -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ListLabels.exists">ListLabels.exists</a>, but for a two-argument predicate.
    Raise <code class="code">Invalid_argument</code> if the two lists have
    different lengths.</div></div>
 <pre><span class="VALmem"><span class="keyword">val</span> mem</span> : <code class="type">'a -&gt; set:'a list -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">mem a l</code> is true if and only if <code class="code">a</code> is equal
    to an element of <code class="code">l</code>.</div></div>
-<pre><span class="VALmemq"><span class="keyword">val</span> memq</span> : <code class="type">'a -&gt; set:'a list -&gt; bool</code></pre><div class="info"><div class="info">Same as TODO reference : ListLabels.mem, but uses physical equality instead of structural
+<pre><span class="VALmemq"><span class="keyword">val</span> memq</span> : <code class="type">'a -&gt; set:'a list -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ListLabels.mem">ListLabels.mem</a>, but uses physical equality instead of structural
    equality to compare list elements.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">List searching</h6></div></div>
 <pre><span class="VALfind"><span class="keyword">val</span> find</span> : <code class="type">f:('a -&gt; bool) -&gt; 'a list -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">find p l</code> returns the first element of the list <code class="code">l</code>
@@ -92,7 +92,7 @@
 <pre><span class="VALfilter"><span class="keyword">val</span> filter</span> : <code class="type">f:('a -&gt; bool) -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info"><code class="code">filter p l</code> returns all the elements of the list <code class="code">l</code>
    that satisfy the predicate <code class="code">p</code>.  The order of the elements
    in the input list is preserved.</div></div>
-<pre><span class="VALfind_all"><span class="keyword">val</span> find_all</span> : <code class="type">f:('a -&gt; bool) -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info"><code class="code">find_all</code> is another name for TODO reference : ListLabels.filter.</div></div>
+<pre><span class="VALfind_all"><span class="keyword">val</span> find_all</span> : <code class="type">f:('a -&gt; bool) -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info"><code class="code">find_all</code> is another name for  <a title="RK_element ListLabels.filter">ListLabels.filter</a>.</div></div>
 <pre><span class="VALpartition"><span class="keyword">val</span> partition</span> : <code class="type">f:('a -&gt; bool) -&gt; 'a list -&gt; 'a list * 'a list</code></pre><div class="info"><div class="info"><code class="code">partition p l</code> returns a pair of lists <code class="code">(l1, l2)</code>, where
    <code class="code">l1</code> is the list of all the elements of <code class="code">l</code> that
    satisfy the predicate <code class="code">p</code>, and <code class="code">l2</code> is the list of all the
@@ -105,16 +105,16 @@
    if <code class="code">(a,b)</code> is the leftmost binding of <code class="code">a</code> in list <code class="code">l</code>.
    Raise <code class="code">Not_found</code> if there is no value associated with <code class="code">a</code> in the
    list <code class="code">l</code>.</div></div>
-<pre><span class="VALassq"><span class="keyword">val</span> assq</span> : <code class="type">'a -&gt; ('a * 'b) list -&gt; 'b</code></pre><div class="info"><div class="info">Same as TODO reference : ListLabels.assoc, but uses physical equality instead of
+<pre><span class="VALassq"><span class="keyword">val</span> assq</span> : <code class="type">'a -&gt; ('a * 'b) list -&gt; 'b</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ListLabels.assoc">ListLabels.assoc</a>, but uses physical equality instead of
    structural equality to compare keys.</div></div>
-<pre><span class="VALmem_assoc"><span class="keyword">val</span> mem_assoc</span> : <code class="type">'a -&gt; map:('a * 'b) list -&gt; bool</code></pre><div class="info"><div class="info">Same as TODO reference : ListLabels.assoc, but simply return true if a binding exists,
+<pre><span class="VALmem_assoc"><span class="keyword">val</span> mem_assoc</span> : <code class="type">'a -&gt; map:('a * 'b) list -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ListLabels.assoc">ListLabels.assoc</a>, but simply return true if a binding exists,
    and false if no bindings exist for the given key.</div></div>
-<pre><span class="VALmem_assq"><span class="keyword">val</span> mem_assq</span> : <code class="type">'a -&gt; map:('a * 'b) list -&gt; bool</code></pre><div class="info"><div class="info">Same as TODO reference : ListLabels.mem_assoc, but uses physical equality instead of
+<pre><span class="VALmem_assq"><span class="keyword">val</span> mem_assq</span> : <code class="type">'a -&gt; map:('a * 'b) list -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ListLabels.mem_assoc">ListLabels.mem_assoc</a>, but uses physical equality instead of
    structural equality to compare keys.</div></div>
 <pre><span class="VALremove_assoc"><span class="keyword">val</span> remove_assoc</span> : <code class="type">'a -&gt; ('a * 'b) list -&gt; ('a * 'b) list</code></pre><div class="info"><div class="info"><code class="code">remove_assoc a l</code> returns the list of
    pairs <code class="code">l</code> without the first pair with key <code class="code">a</code>, if any.
    Not tail-recursive.</div></div>
-<pre><span class="VALremove_assq"><span class="keyword">val</span> remove_assq</span> : <code class="type">'a -&gt; ('a * 'b) list -&gt; ('a * 'b) list</code></pre><div class="info"><div class="info">Same as TODO reference : ListLabels.remove_assoc, but uses physical equality instead
+<pre><span class="VALremove_assq"><span class="keyword">val</span> remove_assq</span> : <code class="type">'a -&gt; ('a * 'b) list -&gt; ('a * 'b) list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ListLabels.remove_assoc">ListLabels.remove_assoc</a>, but uses physical equality instead
    of structural equality to compare keys.  Not tail-recursive.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Lists of pairs</h6></div></div>
 <pre><span class="VALsplit"><span class="keyword">val</span> split</span> : <code class="type">('a * 'b) list -&gt; 'a list * 'b list</code></pre><div class="info"><div class="info">Transform a list of pairs into a pair of lists:
@@ -131,17 +131,17 @@
    compare as equal, a positive integer if the first is greater,
    and a negative integer if the first is smaller (see Array.sort for
    a complete specification).  For example,
-   TODO reference : Pervasives.compare is a suitable comparison function.
+    <a title="RK_element Pervasives.compare">Pervasives.compare</a> is a suitable comparison function.
    The resulting list is sorted in increasing order.
    <code class="code">List.sort</code> is guaranteed to run in constant heap space
    (in addition to the size of the result list) and logarithmic
    stack space.<br/>   The current implementation uses Merge Sort. It runs in constant
    heap space and logarithmic stack space.</div></div>
-<pre><span class="VALstable_sort"><span class="keyword">val</span> stable_sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info">Same as TODO reference : ListLabels.sort, but the sorting algorithm is guaranteed to
+<pre><span class="VALstable_sort"><span class="keyword">val</span> stable_sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ListLabels.sort">ListLabels.sort</a>, but the sorting algorithm is guaranteed to
    be stable (i.e. elements that compare equal are kept in their
    original order) .<br/>   The current implementation uses Merge Sort. It runs in constant
    heap space and logarithmic stack space.</div></div>
-<pre><span class="VALfast_sort"><span class="keyword">val</span> fast_sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info">Same as TODO reference : List.sort or TODO reference : List.stable_sort, whichever is faster
+<pre><span class="VALfast_sort"><span class="keyword">val</span> fast_sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info">Same as  <a title="RK_element List.sort">List.sort</a> or  <a title="RK_element List.stable_sort">List.stable_sort</a>, whichever is faster
     on typical input.</div></div>
 <pre><span class="VALmerge"><span class="keyword">val</span> merge</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a list -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info">Merge two lists:
     Assuming that <code class="code">l1</code> and <code class="code">l2</code> are sorted according to the

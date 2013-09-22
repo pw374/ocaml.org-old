@@ -9,7 +9,7 @@
       string address is just converted to a <code class="code">Unix.inet_addr</code>.
  </li></ul></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Asynchronous Interface</h1></div></div>
-<div class="info"><div class="info">The following types are the same as in TODO reference : Uq_engines, here only 
+<div class="info"><div class="info">The following types are the same as in  <a title="RK_element Uq_engines">Uq_engines</a>, here only 
     redefined for systematic reasons</div></div>
 <pre><span class="TYPEengine_state"><span class="keyword">type</span> <code class="type">'t </code>engine_state</span> = <code class="type">[ `Aborted | `Done of 't | `Error of exn | `Working of int ]</code></pre>
 <div class="ocaml_class sig" name="engine"><pre><span class="TYPEengine"><span class="keyword">class type</span> <code class="type">['t] </code><a href="?package=ocamlnet&amp;module=Uq_resolver&amp;class=engine">engine</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="ocaml_class_content"><pre><span class="METHODstate"><span class="keyword">method</span> state</span> : <code class="code">'t <a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=engine_state">engine_state</a></code></pre>
@@ -35,7 +35,7 @@
 <pre><span class="VALget_host_by_name"><span class="keyword">val</span> get_host_by_name</span> : <code class="type">?resolver:<a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=resolver">resolver</a> -&gt; string -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=host_entry">Unix.host_entry</a></code></pre><div class="info"><div class="info">Look up the host, and return the host entry
       or raise the exception <code class="code">Host_not_found</code>.<br/>      If a <code class="code">resolver</code> is passed, this resolver is used, otherwise the
       pluggable resolver is used.</div></div>
-<pre><span class="VALsockaddr_of_socksymbol"><span class="keyword">val</span> sockaddr_of_socksymbol</span> : <code class="type">?resolver:<a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=resolver">resolver</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsockaddr&amp;type=socksymbol">Netsockaddr.socksymbol</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a></code></pre><div class="info"><div class="info">Use the resolver to look up names in TODO reference : Netsockaddr.socksymbol,
+<pre><span class="VALsockaddr_of_socksymbol"><span class="keyword">val</span> sockaddr_of_socksymbol</span> : <code class="type">?resolver:<a href="?package=ocamlnet&amp;module=Uq_resolver&amp;type=resolver">resolver</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsockaddr&amp;type=socksymbol">Netsockaddr.socksymbol</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a></code></pre><div class="info"><div class="info">Use the resolver to look up names in  <a title="RK_element Netsockaddr.socksymbol">Netsockaddr.socksymbol</a>,
       and convert the symbol to a <code class="code">Unix.sockaddr</code> only containing IP
       addresses.<br/>      If a <code class="code">resolver</code> is passed, this resolver is used, otherwise the
       pluggable resolver is used.</div></div>

@@ -4,7 +4,7 @@
    The implementation uses balanced binary trees, and is therefore
    reasonably efficient: insertion and membership take time
    logarithmic in the size of the set, for instance.</div>
-<div class="ocaml_module sig" name="OrderedType"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Set.OrderedType">OrderedType</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Input signature of the functor TODO reference : Set.Make.</div></div><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="OrderedType"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Set.OrderedType">OrderedType</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Input signature of the functor  <a title="RK_element Set.Make">Set.Make</a>.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of the set elements.</div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="?package=ocaml&amp;module=Set.OrderedType&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Set.OrderedType&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">A total ordering function over the set elements.
           This is a two-argument function <code class="code">f</code> such that
@@ -12,8 +12,8 @@
           <code class="code">f e1 e2</code> is strictly negative if <code class="code">e1</code> is smaller than <code class="code">e2</code>,
           and <code class="code">f e1 e2</code> is strictly positive if <code class="code">e1</code> is greater than <code class="code">e2</code>.
           Example: a suitable ordering function is the generic structural
-          comparison function TODO reference : Pervasives.compare.</div></div></div></div>
-<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Set.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of the functor TODO reference : Set.Make.</div></div><div class="ocaml_module_content">
+          comparison function  <a title="RK_element Pervasives.compare">Pervasives.compare</a>.</div></div></div></div>
+<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Set.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of the functor  <a title="RK_element Set.Make">Set.Make</a>.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEelt"><span class="keyword">type</span> elt</span> </pre><div class="info"><div class="info">The type of the set elements.</div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of sets.</div></div>
 <pre><span class="VALempty"><span class="keyword">val</span> empty</span> : <code class="type"><a href="?package=ocaml&amp;module=Set.S&amp;type=t">t</a></code></pre><div class="info"><div class="info">The empty set.</div></div>
@@ -52,11 +52,11 @@
 <pre><span class="VALelements"><span class="keyword">val</span> elements</span> : <code class="type"><a href="?package=ocaml&amp;module=Set.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Set.S&amp;type=elt">elt</a> list</code></pre><div class="info"><div class="info">Return the list of all elements of the given set.
        The returned list is sorted in increasing order with respect
        to the ordering <code class="code">Ord.compare</code>, where <code class="code">Ord</code> is the argument
-       given to TODO reference : Set.Make.</div></div>
+       given to  <a title="RK_element Set.Make">Set.Make</a>.</div></div>
 <pre><span class="VALmin_elt"><span class="keyword">val</span> min_elt</span> : <code class="type"><a href="?package=ocaml&amp;module=Set.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Set.S&amp;type=elt">elt</a></code></pre><div class="info"><div class="info">Return the smallest element of the given set
        (with respect to the <code class="code">Ord.compare</code> ordering), or raise
        <code class="code">Not_found</code> if the set is empty.</div></div>
-<pre><span class="VALmax_elt"><span class="keyword">val</span> max_elt</span> : <code class="type"><a href="?package=ocaml&amp;module=Set.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Set.S&amp;type=elt">elt</a></code></pre><div class="info"><div class="info">Same as TODO reference : Set.S.min_elt, but returns the largest element of the
+<pre><span class="VALmax_elt"><span class="keyword">val</span> max_elt</span> : <code class="type"><a href="?package=ocaml&amp;module=Set.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Set.S&amp;type=elt">elt</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element Set.S.min_elt">Set.S.min_elt</a>, but returns the largest element of the
        given set.</div></div>
 <pre><span class="VALchoose"><span class="keyword">val</span> choose</span> : <code class="type"><a href="?package=ocaml&amp;module=Set.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Set.S&amp;type=elt">elt</a></code></pre><div class="info"><div class="info">Return one element of the given set, or raise <code class="code">Not_found</code> if
        the set is empty. Which element is chosen is unspecified,

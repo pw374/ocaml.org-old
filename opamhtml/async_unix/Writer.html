@@ -81,7 +81,7 @@ string -&gt; f:(<a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a>
 <pre><span class="VALwrite_bigsubstring"><span class="keyword">val</span> write_bigsubstring</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Std.Bigsubstring&amp;type=t">Core.Std.Bigsubstring.t</a> -&gt; unit</code></pre>
 <pre><span class="VALwritef"><span class="keyword">val</span> writef</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre>
 <pre><span class="VALto_formatter"><span class="keyword">val</span> to_formatter</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a></code></pre><div class="info"><div class="info"><code class="code">to_formatter t</code><b>Returns</b> an OCaml-formatter that one can print to using
-    TODO reference : Format.fprintf.  Note that flushing the formatter will only submit all buffered
+     <a title="RK_element Format.fprintf">Format.fprintf</a>.  Note that flushing the formatter will only submit all buffered
     data to the writer, but does _not_ guarantee flushing to the operating system.</div></div>
 <pre><span class="VALwrite_char"><span class="keyword">val</span> write_char</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; char -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">write_char t c</code> writes the character</div></div>
 <pre><span class="VALnewline"><span class="keyword">val</span> newline</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">newline t</code> is <code class="code">write_char t '\n'</code></div></div>
@@ -107,7 +107,7 @@ string -&gt; f:(<a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a>
 <pre><span class="VALschedule_iovec"><span class="keyword">val</span> schedule_iovec</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Std.Bigstring&amp;type=t">Core.Std.Bigstring.t</a> <a href="?package=core&amp;module=Std.Unix.IOVec&amp;type=t">Core.Std.Unix.IOVec.t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">schedule_iovec t iovec</code> schedules a write of I/O-vector <code class="code">iovec</code>.  It is not safe to
     change the bigstrings underlying the I/O-vector until the writer has been successfully
     flushed or closed after this operation.</div></div>
-<pre><span class="VALschedule_iovecs"><span class="keyword">val</span> schedule_iovecs</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Std.Bigstring&amp;type=t">Core.Std.Bigstring.t</a> <a href="?package=core&amp;module=Std.Unix.IOVec&amp;type=t">Core.Std.Unix.IOVec.t</a> <a href="?package=core&amp;module=Std.Queue&amp;type=t">Core.Std.Queue.t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">schedule_iovecs t iovecs</code> like TODO reference : schedule_iovec, but takes a whole queue <code class="code">iovecs</code> of
+<pre><span class="VALschedule_iovecs"><span class="keyword">val</span> schedule_iovecs</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Std.Bigstring&amp;type=t">Core.Std.Bigstring.t</a> <a href="?package=core&amp;module=Std.Unix.IOVec&amp;type=t">Core.Std.Unix.IOVec.t</a> <a href="?package=core&amp;module=Std.Queue&amp;type=t">Core.Std.Queue.t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">schedule_iovecs t iovecs</code> like  <a title="RK_element schedule_iovec">schedule_iovec</a>, but takes a whole queue <code class="code">iovecs</code> of
     I/O-vectors as argument.  The queue is guaranteed to be empty when this function
     returns and can be modified.  It is not safe to change the bigstrings underlying the
     I/O-vectors until the writer has been successfully flushed or closed after this
@@ -261,7 +261,7 @@ string <a href="?package=async_unix&amp;module=Import.Pipe.Writer&amp;type=t">Im
     contents of the string are copied to an internal buffer before write returns, so
     clients can do whatever they want with <code class="code">s</code> after that.</div></div>
 <div class="info"><div class="info"><code class="code">to_formatter t</code><b>Returns</b> an OCaml-formatter that one can print to using
-    TODO reference : Format.fprintf.  Note that flushing the formatter will only submit all buffered
+     <a title="RK_element Format.fprintf">Format.fprintf</a>.  Note that flushing the formatter will only submit all buffered
     data to the writer, but does _not_ guarantee flushing to the operating system.</div></div>
 <div class="info"><div class="info"><code class="code">write_char t c</code> writes the character</div></div>
 <div class="info"><div class="info"><code class="code">newline t</code> is <code class="code">write_char t '\n'</code></div></div>
@@ -286,7 +286,7 @@ string <a href="?package=async_unix&amp;module=Import.Pipe.Writer&amp;type=t">Im
 <div class="info"><div class="info"><code class="code">schedule_iovec t iovec</code> schedules a write of I/O-vector <code class="code">iovec</code>.  It is not safe to
     change the bigstrings underlying the I/O-vector until the writer has been successfully
     flushed or closed after this operation.</div></div>
-<div class="info"><div class="info"><code class="code">schedule_iovecs t iovecs</code> like TODO reference : schedule_iovec, but takes a whole queue <code class="code">iovecs</code> of
+<div class="info"><div class="info"><code class="code">schedule_iovecs t iovecs</code> like  <a title="RK_element schedule_iovec">schedule_iovec</a>, but takes a whole queue <code class="code">iovecs</code> of
     I/O-vectors as argument.  The queue is guaranteed to be empty when this function
     returns and can be modified.  It is not safe to change the bigstrings underlying the
     I/O-vectors until the writer has been successfully flushed or closed after this

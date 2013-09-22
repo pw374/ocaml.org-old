@@ -1,12 +1,12 @@
 <div class="ocaml_toplevel_module"><div class="info">Semaphores</div>
 <div class="info"><div class="info">Semaphores are here defined as values that reside in shared heaps
-    (TODO reference : Netmcore_heap), for example in the header field of 
-    TODO reference : Netmcore_array or somewhere else in heap-allocated
+    ( <a title="RK_element Netmcore_heap">Netmcore_heap</a>), for example in the header field of 
+     <a title="RK_element Netmcore_array">Netmcore_array</a> or somewhere else in heap-allocated
     data structures.<br/>    In order to ensure that the semaphore is in the heap, the
     special function <code class="code">create</code> must be used to initialize it
     there. As <code class="code">create</code> requires a mutator as argument, this is
     only possible by calling <code class="code">create</code> from the callback of
-    TODO reference : Netmcore_heap.modify.<br/>    Semaphores are special values, and cannot be copied or moved.<br/>    Note that TODO reference : Netsys_posix provides wrappers for direct use
+     <a title="RK_element Netmcore_heap.modify">Netmcore_heap.modify</a>.<br/>    Semaphores are special values, and cannot be copied or moved.<br/>    Note that  <a title="RK_element Netsys_posix">Netsys_posix</a> provides wrappers for direct use
     of the semaphore functionality of the OS. These wrappers, however,
     cannot be used together with heaps, because semaphores are
     there represented as bigarrays, which cannot be pushed to heaps.
@@ -23,6 +23,6 @@
       processes.</div></div>
 <pre><span class="VALwait"><span class="keyword">val</span> wait</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore_sem&amp;type=semaphore">semaphore</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=sem_wait_behavior">Netsys_posix.sem_wait_behavior</a> -&gt; unit</code></pre><div class="info"><div class="info">Decrements the semaphore by one. Semaphores cannot become negative.
       If the semaphore is already 0, the wait behavior defines how to go
-      on:<ul><li>TODO reference : Netsys_posix.SEM_WAIT_BLOCK: Wait until the semaphore is
-        posted</li><li>TODO reference : Netsys_posix.SEM_WAIT_NONBLOCK: Raise <code class="code">EAGAIN</code></li></ul>      Waiting is restarted after running a signal handler.</div></div>
+      on:<ul><li> <a title="RK_element Netsys_posix.SEM_WAIT_BLOCK">Netsys_posix.SEM_WAIT_BLOCK</a>: Wait until the semaphore is
+        posted</li><li> <a title="RK_element Netsys_posix.SEM_WAIT_NONBLOCK">Netsys_posix.SEM_WAIT_NONBLOCK</a>: Raise <code class="code">EAGAIN</code></li></ul>      Waiting is restarted after running a signal handler.</div></div>
 </div>

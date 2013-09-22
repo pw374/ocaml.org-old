@@ -2,10 +2,10 @@
 <div class="info"><div class="info">Globbing resolves shell wildcards like &quot;*&quot; and &quot;?&quot;. For example,<br/>    <pre class="codepre"><code class="code">
     let files = Netglob.glob (`String &quot;*.cm[iox]&quot;)
     </code></pre><br/>    would return all files matching this pattern (e.g. module.cmi,
-    module.cmo).<br/>    The main user function is TODO reference : Netglob.glob. Globbing accesses the
+    module.cmo).<br/>    The main user function is  <a title="RK_element Netglob.glob">Netglob.glob</a>. Globbing accesses the
     local filesystem by default, but one can also run the globbing
     algorithm on any other filesystem, provided the access primitives
-    of TODO reference : Netglob.glob_fsys are available.</div></div>
+    of  <a title="RK_element Netglob.glob_fsys">Netglob.glob_fsys</a> are available.</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Types and exceptions</h2></div></div>
 <pre><span class="TYPEglob_expr"><span class="keyword">type</span> glob_expr</span> = <code class="type">glob_expr_atom list</code></pre>
 <pre><span class="TYPEglob_expr_atom"><span class="keyword">type</span> glob_expr_atom</span> = <code class="type">[ `Brace of <a href="?package=ocamlnet&amp;module=Netglob&amp;type=glob_expr">glob_expr</a> list
@@ -36,11 +36,11 @@
 	directory of the current user for the empty string. Raises
 	<code class="code">Not_found</code> if the lookup fails.</div></div></div></div>
 <div class="ocaml_class sig" name="glob_fsys"><pre><span class="TYPEglob_fsys"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netglob&amp;class=glob_fsys">glob_fsys</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Filesystem primitives. This is intentionally not the same as
-    TODO reference : Netfs.stream_fs because only a few access functions are needed
+     <a title="RK_element Netfs.stream_fs">Netfs.stream_fs</a> because only a few access functions are needed
     here, and because the functions here should also be capable of accessing
     relative paths (not starting with /). It is possible to turn a
-    TODO reference : Netfs.stream_fs into TODO reference : Netglob.glob_fs by calling 
-    TODO reference : Netglob.of_stream_fs.</div></div><div class="ocaml_class_content"><pre><span class="METHODpath_encoding"><span class="keyword">method</span> path_encoding</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> option</code></pre>
+     <a title="RK_element Netfs.stream_fs">Netfs.stream_fs</a> into  <a title="RK_element Netglob.glob_fs">Netglob.glob_fs</a> by calling 
+     <a title="RK_element Netglob.of_stream_fs">Netglob.of_stream_fs</a>.</div></div><div class="ocaml_class_content"><pre><span class="METHODpath_encoding"><span class="keyword">method</span> path_encoding</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> option</code></pre>
 <div class="info"><div class="info">Paths of filesystems may be encoded</div></div>
 <pre><span class="METHODread_dir"><span class="keyword">method</span> read_dir</span> : <code class="code">string -&gt; string list</code></pre>
 <div class="info"><div class="info">Returns the file names contained in the directory, without
@@ -59,7 +59,7 @@
         these files exist.</li><li><code class="code">`All_words</code>: Patterns that cannot be resolved are returned
         as-is (like the shell does)
    </li></ul></div></div>
-<pre><span class="TYPEpattern"><span class="keyword">type</span> pattern</span> = <code class="type">[ `Expr of <a href="?package=ocamlnet&amp;module=Netglob&amp;type=valid_glob_expr">valid_glob_expr</a> | `String of string ]</code></pre><div class="info"><div class="info">Input for TODO reference : Netglob.glob</div></div>
+<pre><span class="TYPEpattern"><span class="keyword">type</span> pattern</span> = <code class="type">[ `Expr of <a href="?package=ocamlnet&amp;module=Netglob&amp;type=valid_glob_expr">valid_glob_expr</a> | `String of string ]</code></pre><div class="info"><div class="info">Input for  <a title="RK_element Netglob.glob">Netglob.glob</a></div></div>
 <pre><span class="EXCEPTIONBad_glob_expr"><span class="keyword">exception</span> Bad_glob_expr</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">An syntax error in the glob expression; the argument is the bad
       expression</div></div>
 <pre><span class="EXCEPTIONUnsupported_expr"><span class="keyword">exception</span> Unsupported_expr</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">The notations <code class="code">:class:</code>, <code class="code">.symbol.</code>, <code class="code">=eqclass=</code> inside <code class="code">...</code> are
@@ -99,7 +99,7 @@
 ?expand_brace:bool -&gt;
 ?expand_tilde:bool -&gt; <a href="?package=ocamlnet&amp;module=Netglob&amp;type=valid_glob_expr">valid_glob_expr</a> -&gt; <a href="?package=ocamlnet&amp;module=Netglob&amp;type=valid_glob_expr">valid_glob_expr</a> list</code></pre><div class="info"><div class="info">Resolve generative sub expressions by expanding them. The returned
  list of glob expr no longer contains the expanded constructions.<br/> - <code class="code">expand_brace</code>: Expands <code class="code">`Brace</code> subexpressions.<ul><li><code class="code">expand_tilde</code>: Expands <code class="code">`Tilde</code> subexpressions.</li><li><code class="code">user_info</code>: The subset of file system operations needed for tilde
-   expansion. Defaults to TODO reference : Netglob.local_user_info (see below).</li></ul> Both <code class="code">expand_*</code> options are enabled by default.</div></div>
+   expansion. Defaults to  <a title="RK_element Netglob.local_user_info">Netglob.local_user_info</a> (see below).</li></ul> Both <code class="code">expand_*</code> options are enabled by default.</div></div>
 <pre><span class="VALmatch_glob_expr"><span class="keyword">val</span> match_glob_expr</span> : <code class="type">?protect_period:bool -&gt;
 ?protect_slash:bool -&gt;
 ?encoding:<a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">Netconversion.encoding</a> -&gt; <a href="?package=ocamlnet&amp;module=Netglob&amp;type=valid_glob_expr">valid_glob_expr</a> -&gt; string -&gt; bool</code></pre><div class="info"><div class="info">Matches the glob_expr against a string.<br/> The input must neither contain brace expressions nor tildes (i.e. call
@@ -236,7 +236,7 @@
     new tilde or wildcard expressions, e.g. <code class="code">&quot;~user{1,2}/file&quot;</code> would
     be legal. This implementation here does not support this - we first
     parse the expression, and then interpret it. However, users interested in
-    a higher degree of compatibility can call the TODO reference : Netglob parsing,
+    a higher degree of compatibility can call the  <a title="RK_element Netglob">Netglob</a> parsing,
     processing and printing functions in the required order, and emulate
     the shell behavior. For example,<br/>    <pre class="codepre"><code class="code">
   let alt_glob pat =

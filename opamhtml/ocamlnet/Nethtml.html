@@ -8,7 +8,7 @@
    occuring in the values are <b>not</b> resolved.<br/>   Arguments without values (e.g. <code class="code">&lt;select name=&quot;x&quot; multiple&gt;</code>: here,
    <code class="code">multiple</code> is such an argument) are represented as <code class="code">(name,name)</code>, i.e. the
    name is also returned as value.<br/>   As argument names are case-insensitive, the names are all lowercase.</li></ul><br/> Character encodings: The parser is restricted to ASCII-compatible
- encodings (see the function TODO reference : Netconversion.is_ascii_compatible for
+ encodings (see the function  <a title="RK_element Netconversion.is_ascii_compatible">Netconversion.is_ascii_compatible</a> for
  a definition). In order to read other encodings, the text must be
  first recoded to an ASCII-compatible encoding (example below).
  Names of elements and attributes must additionally be ASCII-only.</div><div class="info">We also need a type that declares how to handle the various tags.
@@ -142,7 +142,7 @@
  <code class="code">subst</code> is called (input is the Unicode code point, output is the
  substituted string). By default, the function fails if such a 
  character is found.<br/> The arg <code class="code">entity_base</code> selects which entities can be converted
- (see TODO reference : Netencoding.Html.decode). The function <code class="code">lookup</code> is called
+ (see  <a title="RK_element Netencoding.Html.decode">Netencoding.Html.decode</a>). The function <code class="code">lookup</code> is called
  for all unknown <code class="code">&amp;name;</code> entities. By default, this function fails.<br/> Declarations, processing instructions, and comments are not
  decoded. The same also applies to elements declared as <code class="code">`Special</code>
  in the DTD. The <code class="code">dtd</code> argument determines the DTD, by default

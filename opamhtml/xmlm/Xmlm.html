@@ -1,24 +1,24 @@
-<div class="ocaml_toplevel_module"><div class="info">Streaming XML IO.  <br/>    A well-formed sequence of TODO reference : #TYPEsignal represents an
-    TODO reference : http://www.w3.org/TR/REC-xml document tree traversal in
+<div class="ocaml_toplevel_module"><div class="info">Streaming XML IO.  <br/>    A well-formed sequence of  <a href="#TYPEsignal">signals</a> represents an
+     <a href="http://www.w3.org/TR/REC-xml">XML</a> document tree traversal in
     depth first order (this has nothing to do with XML
     well-formedness). Input pulls a well-formed sequence of signals
     from a data source and output pushes a well-formed sequence of
     signals to a data destination. Functions are provided to easily 
-    transform sequences of signals to/from arborescent data structures.<br/>    Consult the TODO reference : #io and TODO reference : #ex 
+    transform sequences of signals to/from arborescent data structures.<br/>    Consult the  <a href="#io">features and limitations</a> and  <a href="#ex">examples</a> 
     of use.<br/>    <em>Release 1.1.1 - Daniel Bünzli &lt;daniel.buenzli at erratique.ch&gt; </em><br/>    <h3 id="3_TITLE">References</h3>
     <ul><li>Tim Bray et al. 
-    <em>TODO reference : http://www.w3.org/TR/xml-names11</em>,
+    <em> <a href="http://www.w3.org/TR/xml-names11">Namespaces in XML 1.1 (2nd ed.)</a></em>,
     2006.</li><li>Tim Bray. 
-    <em>TODO reference : http://www.xml.com/axml/axml.html</em>, 
+    <em> <a href="http://www.xml.com/axml/axml.html">The annotated XML Specification</a></em>, 
     1998.</li></ul></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Basic types and values</h1></div></div>
 <pre><span class="TYPEencoding"><span class="keyword">type</span> encoding</span> = <code class="type">[ `ISO_8859_1 | `US_ASCII | `UTF_16 | `UTF_16BE | `UTF_16LE | `UTF_8 ]</code></pre><div class="info"><div class="info">The type for character encodings. For <code class="code">`UTF_16</code>, endianness is
     determined from the 
-    TODO reference : http://www.unicode.org/unicode/faq/utf_bom.html#BOM.</div></div>
+     <a href="http://www.unicode.org/unicode/faq/utf_bom.html#BOM">BOM</a>.</div></div>
 <pre><span class="TYPEdtd"><span class="keyword">type</span> dtd</span> = <code class="type">string option</code></pre><div class="info"><div class="info">The type for the optional
-    TODO reference : http://www.w3.org/TR/REC-xml/#dt-doctype.</div></div>
+     <a href="http://www.w3.org/TR/REC-xml/#dt-doctype">DTD</a>.</div></div>
 <pre><span class="TYPEname"><span class="keyword">type</span> name</span> = <code class="type">string * string</code></pre><div class="info"><div class="info">The type for attribute and element's
-    TODO reference : http://www.w3.org/TR/xml-names11/#dt-expname 
+     <a href="http://www.w3.org/TR/xml-names11/#dt-expname">expanded names</a> 
     <code class="code">(uri,local)</code>. An empty <code class="code">uri</code> represents a name without a
     namespace name, i.e. an unprefixed name 
     that is not under the scope of a default namespace.</div></div>
@@ -31,9 +31,9 @@ tree ::= `El_start child `El_end
 child ::= `Data | tree | epsilon </code></pre>
     Input and output deal only with well-formed sequences or
     exceptions are raised.</div></div>
-<pre><span class="VALns_xml"><span class="keyword">val</span> ns_xml</span> : <code class="type">string</code></pre><div class="info"><div class="info">Namespace name TODO reference : http://www.w3.org/XML/1998/namespace bound to the 
+<pre><span class="VALns_xml"><span class="keyword">val</span> ns_xml</span> : <code class="type">string</code></pre><div class="info"><div class="info">Namespace name  <a href="http://www.w3.org/XML/1998/namespace">value</a> bound to the 
     reserved <code class="code">&quot;xml&quot;</code> prefix.</div></div>
-<pre><span class="VALns_xmlns"><span class="keyword">val</span> ns_xmlns</span> : <code class="type">string</code></pre><div class="info"><div class="info">Namespace name TODO reference : http://www.w3.org/2000/xmlns/ bound to the 
+<pre><span class="VALns_xmlns"><span class="keyword">val</span> ns_xmlns</span> : <code class="type">string</code></pre><div class="info"><div class="info">Namespace name  <a href="http://www.w3.org/2000/xmlns/">value</a> bound to the 
     reserved <code class="code">&quot;xmlns&quot;</code> prefix.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Input</h1></div></div>
 <pre><span class="TYPEpos"><span class="keyword">type</span> pos</span> = <code class="type">int * int</code></pre><div class="info"><div class="info">The type for input positions. Line and column number, both start
@@ -62,16 +62,16 @@ child ::= `Data | tree | epsilon </code></pre>
 ?ns:(string -&gt; string option) -&gt;
 ?entity:(string -&gt; string option) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=source">source</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a></code></pre><div class="info"><div class="info">Returns a new input abstraction reading from the given source.
     <ul><li><code class="code">entity</code> is called to resolve non predefined entity references,
-       TODO reference : #inentity. Default returns always <code class="code">None</code>.</li><li><code class="code">ns</code> is called to bind undeclared namespace prefixes,
-       TODO reference : #inns. Default returns always <code class="code">None</code>.</li><li><code class="code">strip</code>, strips whitespace in character data, TODO reference : #inwspace.
-       Defaults to <code class="code">false</code>.</li><li><code class="code">enc</code>, character encoding of the document, TODO reference : #inenc. 
+        <a href="#inentity"> details</a>. Default returns always <code class="code">None</code>.</li><li><code class="code">ns</code> is called to bind undeclared namespace prefixes,
+        <a href="#inns"> details</a>. Default returns always <code class="code">None</code>.</li><li><code class="code">strip</code>, strips whitespace in character data,  <a href="#inwspace"> details</a>.
+       Defaults to <code class="code">false</code>.</li><li><code class="code">enc</code>, character encoding of the document,  <a href="#inenc"> details</a>. 
        Defaults to <code class="code">None</code>.</li></ul></div></div>
 <pre><span class="VALinput"><span class="keyword">val</span> input</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=signal">signal</a></code></pre><div class="info"><div class="info">Inputs a signal. Repeated invocation of the function with the same
-    input abstraction will generate a TODO reference : #TYPEsignal sequence
-    of signals or an TODO reference : Error is raised. Furthermore there will be no
+    input abstraction will generate a  <a href="#TYPEsignal">well-formed</a> sequence
+    of signals or an  <a title="RK_element Error">Error</a> is raised. Furthermore there will be no
     two consecutive <code class="code">`Data</code> signals in the sequence and their string
     is always non empty. After a well-formed sequence was input another may 
-    be input, see TODO reference : eoi and TODO reference : #iseq.<br/>    <b>Raises</b> TODO reference : Error on input errors.</div></div>
+    be input, see  <a title="RK_element eoi">eoi</a> and  <a href="#iseq">details</a>.<br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors.</div></div>
 <pre><span class="VALinput_tree"><span class="keyword">val</span> input_tree</span> : <code class="type">el:(<a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> -&gt; 'a list -&gt; 'a) -&gt; data:(string -&gt; 'a) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; 'a</code></pre><div class="info"><div class="info">If the next signal is a :
     <ul><li>Other signals, raises <code class="code">Invalid_argument</code>.</li><li><code class="code">`El_start</code> signal, inputs the sequence of signals until its 
        matching <code class="code">`El_end</code> and invokes <code class="code">el</code> and <code class="code">data</code> as follows
@@ -79,13 +79,13 @@ child ::= `Data | tree | epsilon </code></pre>
       This function won't be called twice consecutively or with the empty 
       string.</li><li><code class="code">el</code>, is called on each <code class="code">`El_end</code> signals with the corresponding 
       <code class="code">`El_start</code> tag and the result of the callback invocation for the 
-      element's children.</li></ul></li><li><code class="code">`Data</code> signal, inputs it and invokes <code class="code">data</code> with the character data.</li></ul><br/>    <b>Raises</b> TODO reference : Error on input errors and <code class="code">Invalid_argument</code>
+      element's children.</li></ul></li><li><code class="code">`Data</code> signal, inputs it and invokes <code class="code">data</code> with the character data.</li></ul><br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors and <code class="code">Invalid_argument</code>
       if the next signal is not <code class="code">`El_start</code> or <code class="code">`Data</code>.</div></div>
-<pre><span class="VALinput_doc_tree"><span class="keyword">val</span> input_doc_tree</span> : <code class="type">el:(<a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> -&gt; 'a list -&gt; 'a) -&gt; data:(string -&gt; 'a) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a</code></pre><div class="info"><div class="info">Same as TODO reference : input_tree but reads a complete TODO reference : #TYPEsignal  
-    sequence of signals. <br/>    <b>Raises</b> TODO reference : Error on input errors and <code class="code">Invalid_argument</code>
+<pre><span class="VALinput_doc_tree"><span class="keyword">val</span> input_doc_tree</span> : <code class="type">el:(<a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> -&gt; 'a list -&gt; 'a) -&gt; data:(string -&gt; 'a) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a</code></pre><div class="info"><div class="info">Same as  <a title="RK_element input_tree">input_tree</a> but reads a complete  <a href="#TYPEsignal">well-formed</a>  
+    sequence of signals. <br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors and <code class="code">Invalid_argument</code>
      if the next signal is not <code class="code">`Dtd</code>.</div></div>
-<pre><span class="VALpeek"><span class="keyword">val</span> peek</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=signal">signal</a></code></pre><div class="info"><div class="info">Same as TODO reference : input but doesn't remove the signal from the sequence. <br/>    <b>Raises</b> TODO reference : Error on input errors.</div></div>
-<pre><span class="VALeoi"><span class="keyword">val</span> eoi</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; bool</code></pre><div class="info"><div class="info">Returns <code class="code">true</code> if the end of input is reached. See TODO reference : #iseq.<br/>    <b>Raises</b> TODO reference : Error on input errors.</div></div>
+<pre><span class="VALpeek"><span class="keyword">val</span> peek</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=signal">signal</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element input">input</a> but doesn't remove the signal from the sequence. <br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors.</div></div>
+<pre><span class="VALeoi"><span class="keyword">val</span> eoi</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; bool</code></pre><div class="info"><div class="info">Returns <code class="code">true</code> if the end of input is reached. See  <a href="#iseq">details</a>.<br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors.</div></div>
 <pre><span class="VALpos"><span class="keyword">val</span> pos</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=pos">pos</a></code></pre><div class="info"><div class="info">Current position in the input abstraction.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Output</h1></div></div>
 <pre><span class="TYPEfrag"><span class="keyword">type</span> <code class="type">'a </code>frag</span> = <code class="type">[ `Data of string | `El of <a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> * 'a list ]</code></pre><div class="info"><div class="info">The type for deconstructing data structures of type <code class="code">'a</code>.</div></div>
@@ -98,21 +98,22 @@ child ::= `Data | tree | epsilon </code></pre>
 ?nl:bool -&gt;
 ?indent:int option -&gt; ?ns_prefix:(string -&gt; string option) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dest">dest</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a></code></pre><div class="info"><div class="info">Returns a new output abstraction writing to the given destination.
     <ul><li><code class="code">ns_prefix</code>, undeclared namespace prefix bindings, 
-       see TODO reference : #outns. Default returns always <code class="code">None</code>.</li><li><code class="code">indent</code>, identation behaviour, see TODO reference : #outindent. Defaults to
+       see  <a href="#outns">details</a>. Default returns always <code class="code">None</code>.</li><li><code class="code">indent</code>, identation behaviour, see  <a href="#outindent"> details</a>. Defaults to
       <code class="code">None</code>.</li><li><code class="code">nl</code>, if <code class="code">true</code> a newline is output when the root's element <code class="code">`El_end</code> 
      signal is output.
-    Defaults to <code class="code">false</code>.</li><li><code class="code">decl</code>, if <code class="code">true</code> the TODO reference : http://www.w3.org/TR/REC-xml/#NT-XMLDecl is output (defaults to <code class="code">true</code>).</li></ul></div></div>
+    Defaults to <code class="code">false</code>.</li><li><code class="code">decl</code>, if <code class="code">true</code> the  <a href="http://www.w3.org/TR/REC-xml/#NT-XMLDecl"> XML
+     declaration</a> is output (defaults to <code class="code">true</code>).</li></ul></div></div>
 <pre><span class="VALoutput"><span class="keyword">val</span> output</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=signal">signal</a> -&gt; unit</code></pre><div class="info"><div class="info">Outputs a signal. After a well-formed sequence of signals was 
     output a new well-formed sequence can be output.<br/>    <b>Raises</b> <code class="code">Invalid_argument</code> if the resulting signal sequence on
-    the output abstraction is not TODO reference : #TYPEsignal or if a
+    the output abstraction is not  <a href="#TYPEsignal">well-formed</a> or if a
     namespace name could not be bound to a prefix.</div></div>
 <pre><span class="VALoutput_depth"><span class="keyword">val</span> output_depth</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">output_depth o</code> is <code class="code">o</code>'s current element nesting level (undefined
     before the first <code class="code">`El_start</code> and after the last <code class="code">`El_end</code>).</div></div>
 <pre><span class="VALoutput_tree"><span class="keyword">val</span> output_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Outputs signals corresponding to a value by recursively
-    applying the given value deconstructor.<br/>    <b>Raises</b> see TODO reference : output.</div></div>
-<pre><span class="VALoutput_doc_tree"><span class="keyword">val</span> output_doc_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a -&gt; unit</code></pre><div class="info"><div class="info">Same as TODO reference : output_tree but outputs a complete TODO reference : #TYPEsignal 
-    sequence of signals.<br/>    <b>Raises</b> see TODO reference : output.</div></div>
-<div class="info"><div class="info"><h1 id="sto">Functorial interface</h1> <br/>    TODO reference : Make allows client to specify types for strings and internal
+    applying the given value deconstructor.<br/>    <b>Raises</b> see  <a title="RK_element output">output</a>.</div></div>
+<pre><span class="VALoutput_doc_tree"><span class="keyword">val</span> output_doc_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element output_tree">output_tree</a> but outputs a complete  <a href="#TYPEsignal">well-formed</a> 
+    sequence of signals.<br/>    <b>Raises</b> see  <a title="RK_element output">output</a>.</div></div>
+<div class="info"><div class="info"><h1 id="sto">Functorial interface</h1> <br/>     <a title="RK_element Make">Make</a> allows client to specify types for strings and internal
     buffers. Among other things this can be used to perform
     hash-consing or to process the character stream, e.g. to normalize
     unicode characters or to convert to a custom encoding.</div></div>
@@ -125,9 +126,9 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="VALappend"><span class="keyword">val</span> append</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a></code></pre><div class="info"><div class="info">Concatenates two strings.</div></div>
 <pre><span class="VALlowercase"><span class="keyword">val</span> lowercase</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a></code></pre><div class="info"><div class="info">New string with uppercase letter translated
       to lowercase (correctness is only needed for ASCII
-      TODO reference : http://www.unicode.org/glossary/#code_point).</div></div>
+       <a href="http://www.unicode.org/glossary/#code_point">code point</a>).</div></div>
 <pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">(int -&gt; unit) -&gt; <a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Iterates over the unicode 
-      TODO reference : http://www.unicode.org/glossary/#code_point
+       <a href="http://www.unicode.org/glossary/#code_point">code point</a>
       of the given string.</div></div>
 <pre><span class="VALof_string"><span class="keyword">val</span> of_string</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=std_string">std_string</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a></code></pre><div class="info"><div class="info">String from an OCaml string.</div></div>
 <pre><span class="VALto_utf_8"><span class="keyword">val</span> to_utf_8</span> : <code class="type">('a -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=std_string">std_string</a> -&gt; 'a) -&gt; 'a -&gt; <a href="?package=xmlm&amp;module=Xmlm.String&amp;type=t">t</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">to_utf_8 f v s</code>, is <code class="code">f (... (f (f v s1) s2) ...) sn</code>. Where the
@@ -139,12 +140,12 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="EXCEPTIONFull"><span class="keyword">exception</span> Full</span></pre><div class="info"><div class="info">Raised if the buffer cannot be grown.</div></div>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -&gt; <a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a></code></pre><div class="info"><div class="info">Creates a buffer of the given size.</div></div>
 <pre><span class="VALadd_uchar"><span class="keyword">val</span> add_uchar</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Adds the given (guaranteed valid) unicode
-      TODO reference : http://www.unicode.org/glossary/#code_point to a
-      buffer. <br/>      <b>Raises</b> TODO reference : Full if the buffer cannot be grown.</div></div>
+       <a href="http://www.unicode.org/glossary/#code_point">code point</a> to a
+      buffer. <br/>      <b>Raises</b>  <a title="RK_element Full">Full</a> if the buffer cannot be grown.</div></div>
 <pre><span class="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Clears the buffer.</div></div>
 <pre><span class="VALcontents"><span class="keyword">val</span> contents</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=string">string</a></code></pre><div class="info"><div class="info">Returns the buffer contents.</div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Returns the number of characters contained in the buffer.</div></div></div></div>
-<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=xmlm&amp;module=Xmlm.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of TODO reference : Make.</div></div><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=xmlm&amp;module=Xmlm.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of  <a title="RK_element Make">Make</a>.</div></div><div class="ocaml_module_content">
 <div class="info"><div class="info"><h1 id="1_TITLE">Basic types and values</h1></div></div>
 <pre><span class="TYPEstring"><span class="keyword">type</span> string</span> </pre>
 <pre><span class="TYPEencoding"><span class="keyword">type</span> encoding</span> = <code class="type">[ `ISO_8859_1 | `US_ASCII | `UTF_16 | `UTF_16BE | `UTF_16LE | `UTF_8 ]</code></pre>
@@ -202,19 +203,21 @@ child ::= `Data | tree | epsilon </code></pre>
     must not be modified.
     <h2 id="input">Input</h2>
     <h3 id="inenc">Encoding</h3>    <br/>    The parser supports ASCII, US-ASCII, 
-    TODO reference : http://www.faqs.org/rfcs/rfc3629.html,
-    TODO reference : http://www.faqs.org/rfcs/rfc2781.html,
-    TODO reference : http://www.faqs.org/rfcs/rfc2781.html,
-    TODO reference : http://www.faqs.org/rfcs/rfc2781.html and
-    TODO reference : http://anubis.dkuug.dk/JTC1/SC2/WG3/docs/n411.pdf 
+     <a href="http://www.faqs.org/rfcs/rfc3629.html"> UTF-8</a>,
+     <a href="http://www.faqs.org/rfcs/rfc2781.html"> UTF-16</a>,
+     <a href="http://www.faqs.org/rfcs/rfc2781.html"> UTF-16LE</a>,
+     <a href="http://www.faqs.org/rfcs/rfc2781.html"> UTF-16BE</a> and
+     <a href="http://anubis.dkuug.dk/JTC1/SC2/WG3/docs/n411.pdf">ISO-8559-1</a> 
     (Latin-1) encoded documents. But strings returned by
     the library are <b>always</b> UTF-8 encoded (unless you use the functor). <br/>    The encoding can be specified explicitly using the optional
     argument <code class="code">enc</code>. Otherwise the parser uses UTF-16 or UTF-8 if there is a
-    TODO reference : http://www.unicode.org/unicode/faq/utf_bom.html#BOM at the
+     <a href="http://www.unicode.org/unicode/faq/utf_bom.html#BOM">BOM</a> at the
     beginning of the document. If there is no BOM it uses the encoding
-    specified in the TODO reference : http://www.w3.org/TR/REC-xml/#NT-XMLDecl. Finally, if there is no XML declaration UTF-8 is assumed.
+    specified in the  <a href="http://www.w3.org/TR/REC-xml/#NT-XMLDecl"> XML
+    declaration</a>. Finally, if there is no XML declaration UTF-8 is assumed.
     <h3 id="inwspace">White space handling</h3><br/>    The parser performs
-    TODO reference : http://www.w3.org/TR/REC-xml/#AVNormalize on <em>every</em> attribute data.  This means that
+     <a href="http://www.w3.org/TR/REC-xml/#AVNormalize">attribute data
+    normalization</a> on <em>every</em> attribute data.  This means that
     attribute data does not have leading and trailling white space and that 
     any white space is collapsed and transformed to a single space 
     character (<code class="code">U+0020</code>).<br/>    White space handling of character data depends on the <code class="code">strip</code>
@@ -224,23 +227,24 @@ child ::= `Data | tree | epsilon </code></pre>
     space character (<code class="code">U+0020</code>), except if the data is under the scope of a <em>    xml:space</em> attribute whose value is <em>preserve</em>.  If <code class="code">strip</code> is
     <code class="code">false</code> all white space data is preserved as present in the
     document (however all kinds of
-    TODO reference : http://www.w3.org/TR/REC-xml/#sec-line-ends are
-    translated to the newline character (<code class="code">U+000A</code>).  <h3 id="inns">Namespaces</h3><br/>    Xmlm's TODO reference : #TYPEname are
-    TODO reference : http://www.w3.org/TR/xml-names11/#dt-expname.
+     <a href="http://www.w3.org/TR/REC-xml/#sec-line-ends">line ends</a> are
+    translated to the newline character (<code class="code">U+000A</code>).  <h3 id="inns">Namespaces</h3><br/>    Xmlm's  <a href="#TYPEname">names</a> are
+     <a href="http://www.w3.org/TR/xml-names11/#dt-expname">expanded names</a>.
     The parser automatically handles the document's namespace
     declarations.  Undeclared namespace prefixes can be bound via the
     callback <code class="code">ns</code>, which must return a namespace name. If <code class="code">ns</code> returns
     <code class="code">None</code> an <code class="code">`Unknown_ns_prefix</code> error is raised.<br/>    Attributes used for namespace declarations are preserved by the
-    parser. They are in the TODO reference : ns_xmlns namespace. Default namespace
+    parser. They are in the  <a title="RK_element ns_xmlns">ns_xmlns</a> namespace. Default namespace
     declarations made with <i>xmlns</i> have the attribute name
     <code class="code">(Xmlm.ns_xmlns, &quot;xmlns&quot;)</code>. Prefix declarations have the prefix as
     the local name, for example <i>xmlns:ex</i> results in the attribute name
     <code class="code">(Xmlm.ns_xmlns, &quot;ex&quot;)</code>.<br/>    Regarding constraints on the usage of the <i>xml</i> and <i>xmlns</i>
     prefixes by documents, the parser does not report errors on violations 
     of the <i>must</i> constraints listed in
-    TODO reference : http://www.w3.org/TR/xml-names11/#xmlReserved. 
-    <h3 id="inentity">Character and entity references</h3><br/>    TODO reference : http://www.w3.org/TR/REC-xml/#dt-charref
-    and TODO reference : http://www.w3.org/TR/REC-xml/#sec-predefined-ent are automatically resolved. Other entity references can
+     <a href="http://www.w3.org/TR/xml-names11/#xmlReserved">this paragraph</a>. 
+    <h3 id="inentity">Character and entity references</h3><br/>     <a href="http://www.w3.org/TR/REC-xml/#dt-charref">Character references</a>
+    and  <a href="http://www.w3.org/TR/REC-xml/#sec-predefined-ent">predefined
+    entities</a> are automatically resolved. Other entity references can
     be resolved by the callback <code class="code">entity</code>, which must return an UTF-8
     (unless you use the functor) string corresponding to the
     replacement character data.  The replacement data is <em>not</em>
@@ -249,38 +253,40 @@ child ::= `Data | tree | epsilon </code></pre>
     <code class="code">`Unknown_entity_ref</code> is returned.    
     <h3 id="iseq">Sequences of documents</h3><br/>    When a well-formed sequence of signals is input, no data is consumed beyond
     the closing <code class="code">'&gt;'</code> of the document's root element. <br/>    If you want to parse a document as
-    TODO reference : http://www.w3.org/TR/REC-xml/#NT-document in the XML
-    specification, call TODO reference : eoi after a well-formed sequence of
+     <a href="http://www.w3.org/TR/REC-xml/#NT-document">defined</a> in the XML
+    specification, call  <a title="RK_element eoi">eoi</a> after a well-formed sequence of
     signals, it must return <code class="code">true</code>. If you expect another document on
     the same input abstraction a new well-formed sequence of signals
-    can be TODO reference : input. Use TODO reference : eoi to check if a document follows (this
-    may consume data).<br/>    Invoking TODO reference : eoi after a well-formed sequence of signals skips
+    can be  <a title="RK_element input">input</a>. Use  <a title="RK_element eoi">eoi</a> to check if a document follows (this
+    may consume data).<br/>    Invoking  <a title="RK_element eoi">eoi</a> after a well-formed sequence of signals skips
     whitespaces, comments and processing instructions until it gets to
-    either an TODO reference : http://www.w3.org/TR/REC-xml/#NT-XMLDecl or a TODO reference : http://www.w3.org/TR/REC-xml/#dt-doctype
+    either an  <a href="http://www.w3.org/TR/REC-xml/#NT-XMLDecl"> XML
+    declaration</a> or a  <a href="http://www.w3.org/TR/REC-xml/#dt-doctype">DTD</a>
     or the start of a new element or the end of input (in which case
-    TODO reference : eoi returns <code class="code">true</code>).  If there is a new document but there is no
+     <a title="RK_element eoi">eoi</a> returns <code class="code">true</code>).  If there is a new document but there is no
     XML declaration or the declaration specifies UTF-16, the same
     encoding as for the previous document is used.<br/>    <h3 id="inmisc">Miscellaneous</h3>
     <ul><li>Non validating.</li><li>Tail recursive.</li><li>Attribute and character data chunks are limited by 
        <code class="code">Sys.max_string_length</code> (unless you use the functor). 
        The error <code class="code">`Max_buffer_size</code> is raised if the limit is hit.</li><li>Element attributes are not checked for uniqueness.</li><li>The parser drops 
-    TODO reference : http://www.w3.org/TR/REC-xml/#dt-comment, 
-    TODO reference : http://www.w3.org/TR/REC-xml/#dt-pi, and 
-    TODO reference : http://www.w3.org/TR/REC-xml/#sec-rmd.</li><li>The TODO reference : http://www.w3.org/TR/REC-xml/#dt-doctype is parsed
+     <a href="http://www.w3.org/TR/REC-xml/#dt-comment">comments</a>, 
+     <a href="http://www.w3.org/TR/REC-xml/#dt-pi">processing instructions</a>, and 
+     <a href="http://www.w3.org/TR/REC-xml/#sec-rmd">standalone declaration</a>.</li><li>The  <a href="http://www.w3.org/TR/REC-xml/#dt-doctype">DTD</a> is parsed
       roughly (no guarantee it is well formed) and its information is ignored.</li><li>Parses the more liberal and simpler XML 1.1 
-    TODO reference : http://www.w3.org/TR/xml11/#NT-Name definition (minus <code class="code">':'</code> because
+     <a href="http://www.w3.org/TR/xml11/#NT-Name">Name</a> definition (minus <code class="code">':'</code> because
     of namespaces).</li></ul><br/>    <h2 id="output">Output</h2> 
-    <h3 id="outenc">Encoding</h3> <br/>    Outputs only TODO reference : http://www.faqs.org/rfcs/rfc3629.html
+    <h3 id="outenc">Encoding</h3> <br/>    Outputs only  <a href="http://www.faqs.org/rfcs/rfc3629.html"> UTF-8</a>
     encoded documents (even if you use the functor).  Strings given to
     output functions <b>must be</b> UTF-8 encoded (unless you use the
     functor, but you need to provide a translation), no checks are
-    performed.  <h3 id="outns">Namespaces</h3><br/>    Xmlm's TODO reference : #TYPEname are
-    TODO reference : http://www.w3.org/TR/xml-names11/#dt-expname.
+    performed.  <h3 id="outns">Namespaces</h3><br/>    Xmlm's  <a href="#TYPEname">names</a> are
+     <a href="http://www.w3.org/TR/xml-names11/#dt-expname">expanded names</a>.
     Expanded names are automatically converted to
-    TODO reference : http://www.w3.org/TR/xml-names11/#dt-qualname by the output abstraction. There is no particular api to specify 
+     <a href="http://www.w3.org/TR/xml-names11/#dt-qualname">qualified
+    names</a> by the output abstraction. There is no particular api to specify 
     prefixes and default namespaces, 
     the actual result depends solely on the output
-    of attributes belonging to the TODO reference : ns_xmlns namespace. For example to set 
+    of attributes belonging to the  <a title="RK_element ns_xmlns">ns_xmlns</a> namespace. For example to set 
     the default namespace of an element to <i>http://example.org/myns</i>, 
     use the following attribute :
     <pre class="codepre"><code class="code">(* xmlns='http://example.org/myns' *)
@@ -297,12 +303,12 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
     current output scope. Given a namespace name the function must return 
     the prefix to use. Note that this
     will <b>not</b> add any namespace declaration attribute to the
-    output.  If the function returns <code class="code">None</code>, TODO reference : output will raise
+    output.  If the function returns <code class="code">None</code>,  <a title="RK_element output">output</a> will raise
     <code class="code">Invalid_argument</code>.  The default function returns always <code class="code">None</code>.
     <h3 id="outindent">Indentation</h3><br/>    Output can be indented by specifying the <code class="code">indent</code> argument when an
        output abstraction is created. If <code class="code">indent</code> is <code class="code">None</code> (default)
        signal output does not introduce any extra white space.  If
-       <code class="code">ident</code> is <code class="code">Some c</code>, each TODO reference : signal is output on its own line
+       <code class="code">ident</code> is <code class="code">Some c</code>, each  <a title="RK_element signal">signal</a> is output on its own line
        (for empty elements <code class="code">`El_start</code> and <code class="code">`El_end</code> are collapsed on a single
        line) and nested elements are indented with <code class="code">c</code> space
        characters.
@@ -311,12 +317,13 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
     signals.<br/>    <h3 id="outmisc">Miscellaneous</h3>
     <ul><li>Tail recursive.</li><li>No checks are peformed on the prefix and local part of output
       names to verify they are
-      TODO reference : http://www.w3.org/TR/xml-names11/#NT-NCNames.
+       <a href="http://www.w3.org/TR/xml-names11/#NT-NCName">NCName</a>s.
       For example using the tag name <code class="code">(&quot;&quot;,&quot;dip d&quot;)</code> will produce 
       a non well-formed document because of the space character.</li><li>In attribute and character data you provide, markup 
        delimiters <code class="code">'&lt;'</code>,<code class="code">'&gt;'</code>,<code class="code">'&amp;'</code>, and <code class="code">'\&quot;'</code> are 
         automatically escaped to 
-        TODO reference : http://www.w3.org/TR/REC-xml/#sec-predefined-ent.</li><li>Output on a channel does not flush it.</li></ul><br/>    <h2 id="2_TITLE">Tips</h2> 
+         <a href="http://www.w3.org/TR/REC-xml/#sec-predefined-ent">predefined
+        entities</a>.</li><li>Output on a channel does not flush it.</li></ul><br/>    <h2 id="2_TITLE">Tips</h2> 
     <ul><li>Complete whitespace control on output is achieved 
        with <code class="code">indent = None</code> and suitable <code class="code">`Data</code> signals</li><li>The best options to do an input/output round trip
        and preserve as much information as possible is to 
@@ -386,7 +393,7 @@ let out_tree o t =
   in
   Xmlm.output_doc_tree frag o t</code></pre> <br/>    <h2 id="exrow">Tabular data processing</h2><br/>    We show how to process XML data that represents tabular data (some
     people like do that).<br/>    The file we need to deal with represents nominal data about
-    TODO reference : http://www.w3.org/. There are no namespaces
+     <a href="http://www.w3.org/">W3C bureaucrats</a>. There are no namespaces
     and attributes are ignored. The element structure of the document
     is :
     <ul><li>&lt;list&gt;

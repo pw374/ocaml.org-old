@@ -1,9 +1,9 @@
 <div class="ocaml_toplevel_module"><div class="info">Semaphores<div class="authors"><b>Author(s): </b><span class="author">Markus Mottl &lt;mmottl@janestreet.com&gt;</span></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre><div class="info"><div class="info">Type of semaphores</div></div>
 <pre><span class="VALinit"><span class="keyword">val</span> init</span> : <code class="type">'a option -&gt; 'a <a href="?package=core_extended&amp;module=Semaphore&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">init v</code> initializes a semaphore with an optional value <code class="code">v</code>.  If it is
-    <code class="code">Some x</code>, then TODO reference : Semaphore.wait will return immediately with <code class="code">x</code>,
-    otherwise it will block until TODO reference : Semaphore.signal is called.</div></div>
-<pre><span class="VALsignal"><span class="keyword">val</span> signal</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Semaphore&amp;type=t">t</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">signal sem v</code> allows one thread blocked in TODO reference : Semaphore.wait on
+    <code class="code">Some x</code>, then  <a title="RK_element Semaphore.wait">Semaphore.wait</a> will return immediately with <code class="code">x</code>,
+    otherwise it will block until  <a title="RK_element Semaphore.signal">Semaphore.signal</a> is called.</div></div>
+<pre><span class="VALsignal"><span class="keyword">val</span> signal</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Semaphore&amp;type=t">t</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">signal sem v</code> allows one thread blocked in  <a title="RK_element Semaphore.wait">Semaphore.wait</a> on
     semaphore <code class="code">sem</code> to continue.  The semaphore will then block again
     further threads.</div></div>
 <pre><span class="VALwait"><span class="keyword">val</span> wait</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Semaphore&amp;type=t">t</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">wait sem</code> blocks the calling thread on semaphore <code class="code">sem</code> if it was not

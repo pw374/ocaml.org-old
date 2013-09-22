@@ -82,10 +82,10 @@
 <pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">f:('a -&gt; 'b) -&gt; 'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">Array.map ~f a</code> applies function <code class="code">f</code> to all the elements of <code class="code">a</code>,
    and builds an array with the results returned by <code class="code">f</code>:
    <code class="code">[| f a.(0); f a.(1); ...; f a.(Array.length a - 1) |]</code>.</div></div>
-<pre><span class="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">f:(int -&gt; 'a -&gt; unit) -&gt; 'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Same as TODO reference : Array.iter, but the
+<pre><span class="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">f:(int -&gt; 'a -&gt; unit) -&gt; 'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Array.iter">Array.iter</a>, but the
    function is applied to the index of the element as first argument,
    and the element itself as second argument.</div></div>
-<pre><span class="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">f:(int -&gt; 'a -&gt; 'b) -&gt; 'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a></code></pre><div class="info"><div class="info">Same as TODO reference : Array.map, but the
+<pre><span class="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">f:(int -&gt; 'a -&gt; 'b) -&gt; 'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element Array.map">Array.map</a>, but the
    function is applied to the index of the element as first argument,
    and the element itself as second argument.</div></div>
 <pre><span class="VALfoldi"><span class="keyword">val</span> foldi</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; init:'b -&gt; f:(int -&gt; 'b -&gt; 'a -&gt; 'b) -&gt; 'b</code></pre>
@@ -113,7 +113,7 @@
     entries are replaced with <code class="code">x</code>. Note that this changes the index at which elements
     will appear.</div></div>
 <pre><span class="VALfilter_map"><span class="keyword">val</span> filter_map</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; f:('a -&gt; 'b option) -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">filter_map ~f array</code> maps <code class="code">f</code> over <code class="code">array</code> and filters <code class="code">None</code> out of the results.</div></div>
-<pre><span class="VALfilter_mapi"><span class="keyword">val</span> filter_mapi</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; f:(int -&gt; 'a -&gt; 'b option) -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a></code></pre><div class="info"><div class="info">Same as <code class="code">filter_map</code> but uses TODO reference : Array.mapi.</div></div>
+<pre><span class="VALfilter_mapi"><span class="keyword">val</span> filter_mapi</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; f:(int -&gt; 'a -&gt; 'b option) -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a></code></pre><div class="info"><div class="info">Same as <code class="code">filter_map</code> but uses  <a title="RK_element Array.mapi">Array.mapi</a>.</div></div>
 <pre><span class="VALiter2_exn"><span class="keyword">val</span> iter2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; f:('a -&gt; 'b -&gt; unit) -&gt; unit</code></pre>
 <pre><span class="VALmap2_exn"><span class="keyword">val</span> map2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; f:('a -&gt; 'b -&gt; 'c) -&gt; 'c <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a></code></pre>
 <pre><span class="VALfold2_exn"><span class="keyword">val</span> fold2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_array&amp;type=t">t</a> -&gt; init:'c -&gt; f:('c -&gt; 'a -&gt; 'b -&gt; 'c) -&gt; 'c</code></pre>
@@ -204,10 +204,10 @@
 <div class="info"><div class="info"><code class="code">Array.map ~f a</code> applies function <code class="code">f</code> to all the elements of <code class="code">a</code>,
    and builds an array with the results returned by <code class="code">f</code>:
    <code class="code">[| f a.(0); f a.(1); ...; f a.(Array.length a - 1) |]</code>.</div></div>
-<div class="info"><div class="info">Same as TODO reference : Array.iter, but the
+<div class="info"><div class="info">Same as  <a title="RK_element Array.iter">Array.iter</a>, but the
    function is applied to the index of the element as first argument,
    and the element itself as second argument.</div></div>
-<div class="info"><div class="info">Same as TODO reference : Array.map, but the
+<div class="info"><div class="info">Same as  <a title="RK_element Array.map">Array.map</a>, but the
    function is applied to the index of the element as first argument,
    and the element itself as second argument.</div></div>
 <div class="info"><div class="info"><code class="code">Array.fold_right f a ~init</code> computes
@@ -227,7 +227,7 @@
     entries are replaced with <code class="code">x</code>. Note that this changes the index at which elements
     will appear.</div></div>
 <div class="info"><div class="info"><code class="code">filter_map ~f array</code> maps <code class="code">f</code> over <code class="code">array</code> and filters <code class="code">None</code> out of the results.</div></div>
-<div class="info"><div class="info">Same as <code class="code">filter_map</code> but uses TODO reference : Array.mapi.</div></div>
+<div class="info"><div class="info">Same as <code class="code">filter_map</code> but uses  <a title="RK_element Array.mapi">Array.mapi</a>.</div></div>
 <div class="info"><div class="info"><code class="code">for_all2_exn t1 t2 ~f</code> fails if <code class="code">length t1 &lt;&gt; length t2</code>.</div></div>
 <div class="info"><div class="info"><code class="code">filter ~f array</code> removes the elements for which <code class="code">f</code> returns false.</div></div>
 <div class="info"><div class="info">Like <code class="code">filter</code> except <code class="code">f</code> also receives the index.</div></div>

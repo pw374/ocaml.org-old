@@ -2,9 +2,9 @@
     which ensures to be always pointing to a valid logging implementation.
     By default, the function prints the messages to stderr, prepended
     by a timestamp. In Netplex context, the implementation is changed so
-    that the Netplex logger is used instead (see TODO reference : Netplex_log), and
+    that the Netplex logger is used instead (see  <a title="RK_element Netplex_log">Netplex_log</a>), and
     the <code class="code">log</code> and <code class="code">logf</code> functions below have the same effect as
-    the counterparts in TODO reference : Netplex_cenv with the same name.</div>
+    the counterparts in  <a title="RK_element Netplex_cenv">Netplex_cenv</a> with the same name.</div>
 <pre><span class="TYPElevel"><span class="keyword">type</span> level</span> = <code class="type">[ `Alert | `Crit | `Debug | `Emerg | `Err | `Info | `Notice | `Warning ]</code></pre><div class="info"><div class="info">The log levels (syslog-like)</div></div>
 <pre><span class="TYPElogger"><span class="keyword">type</span> logger</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netlog&amp;type=level">level</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">A logging function takes a level, and the message</div></div>
 <pre><span class="VALchannel_logger"><span class="keyword">val</span> channel_logger</span> : <code class="type"><a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a> -&gt; <a href="?package=ocamlnet&amp;module=Netlog&amp;type=level">level</a> -&gt; <a href="?package=ocamlnet&amp;module=Netlog&amp;type=logger">logger</a></code></pre><div class="info"><div class="info"><code class="code">channel_logger ch lev</code>: Prints all messages with a level of <code class="code">lev</code>
@@ -13,7 +13,7 @@
 <pre><span class="VALcurrent_logger"><span class="keyword">val</span> current_logger</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netlog&amp;type=logger">logger</a> <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">The variable containing the current logger function.
       Defaults to <code class="code">channel_logger stderr `Debug</code> at program startup.
       Assign something else to this variable in order to change the
-      log destination or the log level.<br/>      Note that the function TODO reference : Netplex_main.run modifies <code class="code">current_logger</code>
+      log destination or the log level.<br/>      Note that the function  <a title="RK_element Netplex_main.run">Netplex_main.run</a> modifies <code class="code">current_logger</code>
       so log messages are forwarded to the Netplex logger. It is then the
       Netplex framework that determines log destination and level.</div></div>
 <pre><span class="VALlog"><span class="keyword">val</span> log</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netlog&amp;type=level">level</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Writes a log message</div></div>
@@ -35,10 +35,10 @@
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netlog.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">Controlling messages for debugging Ocamlnet</div></div>
 <div class="info"><div class="info">Many Ocamlnet modules can emit debug messages. For a module
-      <code class="code">M</code> (e.g. TODO reference : Rpc_client) there is usually a sub module 
+      <code class="code">M</code> (e.g.  <a title="RK_element Rpc_client">Rpc_client</a>) there is usually a sub module 
       <code class="code">M.Debug</code> providing functions controlling the debug messages.
       These functions send the messages to this <code class="code">Debug</code> module, and from here
-      they are forwarded to TODO reference : Netlog.log (with a level of <code class="code">`Debug</code>).<br/>      In this module everything is by default initialized to enable
+      they are forwarded to  <a title="RK_element Netlog.log">Netlog.log</a> (with a level of <code class="code">`Debug</code>).<br/>      In this module everything is by default initialized to enable
       debug messages (i.e., <code class="code">current_dlogger</code> is set to <code class="code">fwd_dlogger</code>,
       and this function sends the messages to <code class="code">current_logger</code> where they are
       printed by <code class="code">channel_logger stderr `Debug</code>). However, the debugged

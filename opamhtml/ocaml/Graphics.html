@@ -11,7 +11,7 @@
 <pre><span class="VALset_window_title"><span class="keyword">val</span> set_window_title</span> : <code class="type">string -&gt; unit</code></pre><div class="info"><div class="info">Set the title of the graphics window.</div></div>
 <pre><span class="VALresize_window"><span class="keyword">val</span> resize_window</span> : <code class="type">int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Resize and erase the graphics window.</div></div>
 <pre><span class="VALclear_graph"><span class="keyword">val</span> clear_graph</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Erase the graphics window.</div></div>
-<pre><span class="VALsize_x"><span class="keyword">val</span> size_x</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info">See TODO reference : Graphics.size_y.</div></div>
+<pre><span class="VALsize_x"><span class="keyword">val</span> size_x</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info">See  <a title="RK_element Graphics.size_y">Graphics.size_y</a>.</div></div>
 <pre><span class="VALsize_y"><span class="keyword">val</span> size_y</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info">Return the size of the graphics window. Coordinates of the screen
    pixels range over <code class="code">0 .. size_x()-1</code> and <code class="code">0 .. size_y()-1</code>.
    Drawings outside of this rectangle are clipped, without causing
@@ -26,11 +26,11 @@
    component <code class="code">r</code>, green component <code class="code">g</code>, and blue component <code class="code">b</code>.
    <code class="code">r</code>, <code class="code">g</code> and <code class="code">b</code> are in the range <code class="code">0..255</code>.</div></div>
 <pre><span class="VALset_color"><span class="keyword">val</span> set_color</span> : <code class="type"><a href="?package=ocaml&amp;module=Graphics&amp;type=color">color</a> -&gt; unit</code></pre><div class="info"><div class="info">Set the current drawing color.</div></div>
-<pre><span class="VALbackground"><span class="keyword">val</span> background</span> : <code class="type"><a href="?package=ocaml&amp;module=Graphics&amp;type=color">color</a></code></pre><div class="info"><div class="info">See TODO reference : Graphics.foreground.</div></div>
+<pre><span class="VALbackground"><span class="keyword">val</span> background</span> : <code class="type"><a href="?package=ocaml&amp;module=Graphics&amp;type=color">color</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Graphics.foreground">Graphics.foreground</a>.</div></div>
 <pre><span class="VALforeground"><span class="keyword">val</span> foreground</span> : <code class="type"><a href="?package=ocaml&amp;module=Graphics&amp;type=color">color</a></code></pre><div class="info"><div class="info">Default background and foreground colors (usually, either black
    foreground on a white background or white foreground on a
    black background).
-   TODO reference : Graphics.clear_graph fills the screen with the <code class="code">background</code> color.
+    <a title="RK_element Graphics.clear_graph">Graphics.clear_graph</a> fills the screen with the <code class="code">background</code> color.
    The initial drawing color is <code class="code">foreground</code>.</div></div>
 <div class="info"><div class="info"><div class="h7">Some predefined colors</div></div></div>
 <pre><span class="VALblack"><span class="keyword">val</span> black</span> : <code class="type"><a href="?package=ocaml&amp;module=Graphics&amp;type=color">color</a></code></pre>
@@ -94,7 +94,7 @@
    used when <code class="code">set_line_width 1</code> is specified.
    Raise <code class="code">Invalid_argument</code> if the argument is negative.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Text drawing</h6></div></div>
-<pre><span class="VALdraw_char"><span class="keyword">val</span> draw_char</span> : <code class="type">char -&gt; unit</code></pre><div class="info"><div class="info">See TODO reference : Graphics.draw_string.</div></div>
+<pre><span class="VALdraw_char"><span class="keyword">val</span> draw_char</span> : <code class="type">char -&gt; unit</code></pre><div class="info"><div class="info">See  <a title="RK_element Graphics.draw_string">Graphics.draw_string</a>.</div></div>
 <pre><span class="VALdraw_string"><span class="keyword">val</span> draw_string</span> : <code class="type">string -&gt; unit</code></pre><div class="info"><div class="info">Draw a character or a character string with lower left corner
    at current position. After drawing, the current position is set
    to the lower right corner of the text drawn.</div></div>
@@ -113,11 +113,11 @@
 <pre><span class="VALfill_poly"><span class="keyword">val</span> fill_poly</span> : <code class="type">(int * int) array -&gt; unit</code></pre><div class="info"><div class="info">Fill the given polygon with the current color. The array
    contains the coordinates of the vertices of the polygon.</div></div>
 <pre><span class="VALfill_arc"><span class="keyword">val</span> fill_arc</span> : <code class="type">int -&gt; int -&gt; int -&gt; int -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Fill an elliptical pie slice with the current color. The
-   parameters are the same as for TODO reference : Graphics.draw_arc.</div></div>
+   parameters are the same as for  <a title="RK_element Graphics.draw_arc">Graphics.draw_arc</a>.</div></div>
 <pre><span class="VALfill_ellipse"><span class="keyword">val</span> fill_ellipse</span> : <code class="type">int -&gt; int -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Fill an ellipse with the current color. The
-   parameters are the same as for TODO reference : Graphics.draw_ellipse.</div></div>
+   parameters are the same as for  <a title="RK_element Graphics.draw_ellipse">Graphics.draw_ellipse</a>.</div></div>
 <pre><span class="VALfill_circle"><span class="keyword">val</span> fill_circle</span> : <code class="type">int -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Fill a circle with the current color. The
-   parameters are the same as for TODO reference : Graphics.draw_circle.</div></div>
+   parameters are the same as for  <a title="RK_element Graphics.draw_circle">Graphics.draw_circle</a>.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Images</h6></div></div>
 <pre><span class="TYPEimage"><span class="keyword">type</span> image</span> </pre><div class="info"><div class="info">The abstract type for images, in internal representation.
    Externally, images are represented as matrices of colors.</div></div>
@@ -134,7 +134,7 @@
 <pre><span class="VALdump_image"><span class="keyword">val</span> dump_image</span> : <code class="type"><a href="?package=ocaml&amp;module=Graphics&amp;type=image">image</a> -&gt; <a href="?package=ocaml&amp;module=Graphics&amp;type=color">color</a> array array</code></pre><div class="info"><div class="info">Convert an image to a color matrix.</div></div>
 <pre><span class="VALdraw_image"><span class="keyword">val</span> draw_image</span> : <code class="type"><a href="?package=ocaml&amp;module=Graphics&amp;type=image">image</a> -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Draw the given image with lower left corner at the given point.</div></div>
 <pre><span class="VALget_image"><span class="keyword">val</span> get_image</span> : <code class="type">int -&gt; int -&gt; int -&gt; int -&gt; <a href="?package=ocaml&amp;module=Graphics&amp;type=image">image</a></code></pre><div class="info"><div class="info">Capture the contents of a rectangle on the screen as an image.
-   The parameters are the same as for TODO reference : Graphics.fill_rect.</div></div>
+   The parameters are the same as for  <a title="RK_element Graphics.fill_rect">Graphics.fill_rect</a>.</div></div>
 <pre><span class="VALcreate_image"><span class="keyword">val</span> create_image</span> : <code class="type">int -&gt; int -&gt; <a href="?package=ocaml&amp;module=Graphics&amp;type=image">image</a></code></pre><div class="info"><div class="info"><code class="code">create_image w h</code> returns a new image <code class="code">w</code> pixels wide and <code class="code">h</code>
    pixels tall, to be used in conjunction with <code class="code">blit_image</code>.
    The initial image contents are random, except that no point
@@ -193,11 +193,11 @@
 <pre><span class="VALdisplay_mode"><span class="keyword">val</span> display_mode</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Set display mode on or off. When turned on, drawings are done
    in the graphics window; when turned off, drawings do not affect
    the graphics window.  This occurs independently of
-   drawing into the backing store (see the function TODO reference : Graphics.remember_mode
+   drawing into the backing store (see the function  <a title="RK_element Graphics.remember_mode">Graphics.remember_mode</a>
    below). Default display mode is on.</div></div>
 <pre><span class="VALremember_mode"><span class="keyword">val</span> remember_mode</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Set remember mode on or off. When turned on, drawings are done
    in the backing store; when turned off, the backing store is
    unaffected by drawings.  This occurs independently of drawing
-   onto the graphics window (see the function TODO reference : Graphics.display_mode above).
+   onto the graphics window (see the function  <a title="RK_element Graphics.display_mode">Graphics.display_mode</a> above).
    Default remember mode is on.</div></div>
 </div>

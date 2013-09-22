@@ -379,7 +379,7 @@
 acceptor_subkey:bool -&gt;
 sequence_number:int64 -&gt;
 get_mic:(<a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=message">message</a> -&gt; string) -&gt; message:<a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=message">message</a> -&gt; string</code></pre><div class="info"><div class="info">Create a MIC token:<br/>      - <code class="code">sent_by_acceptor</code>: whether this token comes from the acceptor<ul><li><code class="code">acceptor_subkey</code>: see RFC</li><li><code class="code">sequence_number</code>: a sequence number</li><li><code class="code">get_mic</code>: the checksum function
-        (e.g. TODO reference : Netmech_scram.Cryptosystem.get_mic)</li><li><code class="code">message</code>: the message to be signed</li></ul>      The function returns the MIC token</div></div>
+        (e.g.  <a title="RK_element Netmech_scram.Cryptosystem.get_mic">Netmech_scram.Cryptosystem.get_mic</a>)</li><li><code class="code">message</code>: the message to be signed</li></ul>      The function returns the MIC token</div></div>
 <pre><span class="VALparse_mic_token_header"><span class="keyword">val</span> parse_mic_token_header</span> : <code class="type">string -&gt; bool * bool * int64</code></pre><div class="info"><div class="info">Returns the triple
       (<code class="code">sent_by_acceptor</code>, <code class="code">acceptor_subkey</code>, <code class="code">sequence_number</code>) from
       the header of a MIC token that is passed to this function as
@@ -392,7 +392,7 @@ sequence_number:int64 -&gt;
 get_ec:(int -&gt; int) -&gt;
 encrypt_and_sign:(<a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=message">message</a> -&gt; <a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=message">message</a>) -&gt; message:<a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=message">message</a> -&gt; <a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=message">message</a></code></pre><div class="info"><div class="info">Wraps a <code class="code">message</code> so that it is encrypted and signed (confidential).<br/>      - <code class="code">sent_by_acceptor</code>: whether this token comes from the acceptor<ul><li><code class="code">acceptor_subkey</code>: see RFC</li><li><code class="code">sequence_number</code>: a sequence number</li><li><code class="code">get_ec</code>: This function returns the &quot;extra count&quot; number for
         the size of the plaintext w/o filler (e.g. use
-        TODO reference : Netmech_scram.Cryptosystem.get_ec).</li><li><code class="code">encrypt_and_sign</code>: the encryption function from the cryptosystem.
+         <a title="RK_element Netmech_scram.Cryptosystem.get_ec">Netmech_scram.Cryptosystem.get_ec</a>).</li><li><code class="code">encrypt_and_sign</code>: the encryption function from the cryptosystem.
         The plaintext is passed to this function, and the ciphertext with
         the appended signature must be returned in the string.</li><li><code class="code">message</code>: the payload message</li></ul>      The function returns the token wrapping the message.</div></div>
 <pre><span class="VALparse_wrap_token_header"><span class="keyword">val</span> parse_wrap_token_header</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netgssapi&amp;type=message">message</a> -&gt; bool * bool * bool * int64</code></pre><div class="info"><div class="info"><code class="code">let (sent_by_acceptor, sealed, acceptor_subkey, sequence_number) =

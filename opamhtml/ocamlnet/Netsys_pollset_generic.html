@@ -3,8 +3,8 @@
       descriptors is watched (several hundred should be ok). It is no problem
       when the pollset lives only for a short time. Also, it is not strictly
       necessary to call the <code class="code">dispose</code> method after use.<br/>      On POSIX platforms, this returns a
-      TODO reference : Netsys_pollset_posix.poll_based_pollset.<br/>      On Win32, this returns TODO reference : Netsys_pollset_win32.pollset in single-threaded
-      programs, and a TODO reference : Netsys_pollset_win32.threaded_pollset in
+       <a title="RK_element Netsys_pollset_posix.poll_based_pollset">Netsys_pollset_posix.poll_based_pollset</a>.<br/>      On Win32, this returns  <a title="RK_element Netsys_pollset_win32.pollset">Netsys_pollset_win32.pollset</a> in single-threaded
+      programs, and a  <a title="RK_element Netsys_pollset_win32.threaded_pollset">Netsys_pollset_win32.threaded_pollset</a> in
       multi-threaded programs. Note that Win32 restricts the number of
       descriptors that can be watched per thread to 64. The <code class="code">threaded_pollset</code>
       version overcomes this limit, but it is only available if your 
@@ -16,7 +16,7 @@
       that this pollset may have higher initial costs, and may not be 
       suitable for cases where pollsets live only for a short time. Also,
       make sure the <code class="code">dispose</code> method is called after use.<br/>      On some POSIX platforms this is backed by
-      TODO reference : Netsys_pollset_posix.accelerated_pollset. See the documentation
+       <a title="RK_element Netsys_pollset_posix.accelerated_pollset">Netsys_pollset_posix.accelerated_pollset</a>. See the documentation
       there for possible problems. If no better implementation is available,
       this is the same as <code class="code">standard_pollset</code>.</div></div>
 <pre><span class="VALselect_emulation"><span class="keyword">val</span> select_emulation</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_pollset&amp;type=pollset">Netsys_pollset.pollset</a> -&gt;

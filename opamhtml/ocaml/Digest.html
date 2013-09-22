@@ -7,10 +7,10 @@
    primitives should be used instead.</div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">string</code></pre><div class="info"><div class="info">The type of digests: 16-character strings.</div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="?package=ocaml&amp;module=Digest&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Digest&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">The comparison function for 16-character digest, with the same
-    specification as TODO reference : Pervasives.compare and the implementation
-    shared with TODO reference : String.compare. Along with the type <code class="code">t</code>, this
+    specification as  <a title="RK_element Pervasives.compare">Pervasives.compare</a> and the implementation
+    shared with  <a title="RK_element String.compare">String.compare</a>. Along with the type <code class="code">t</code>, this
     function <code class="code">compare</code> allows the module <code class="code">Digest</code> to be passed as
-    argument to the functors TODO reference : Set.Make and TODO reference : Map.Make.<b>Since</b> 4.00.0</div></div>
+    argument to the functors  <a title="RK_element Set.Make">Set.Make</a> and  <a title="RK_element Map.Make">Map.Make</a>.<b>Since</b> 4.00.0</div></div>
 <pre><span class="VALstring"><span class="keyword">val</span> string</span> : <code class="type">string -&gt; <a href="?package=ocaml&amp;module=Digest&amp;type=t">t</a></code></pre><div class="info"><div class="info">Return the digest of the given string.</div></div>
 <pre><span class="VALsubstring"><span class="keyword">val</span> substring</span> : <code class="type">string -&gt; int -&gt; int -&gt; <a href="?package=ocaml&amp;module=Digest&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">Digest.substring s ofs len</code> returns the digest of the substring
    of <code class="code">s</code> starting at character number <code class="code">ofs</code> and containing <code class="code">len</code>

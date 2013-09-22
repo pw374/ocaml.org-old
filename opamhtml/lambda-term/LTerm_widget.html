@@ -15,16 +15,16 @@
 <div class="info"><div class="info">The parent of the widget, if any.</div></div>
 <pre><span class="METHODset_parent"><span class="keyword">method</span> set_parent</span> : <code class="code"><a href="?package=lambda-term&amp;module=LTerm_widget&amp;type=t">t</a> option -&gt; unit</code></pre>
 <div class="info"><div class="info">Sets the parent of the widget. This also affect
-        TODO reference : queue_draw.</div></div>
+         <a title="RK_element queue_draw">queue_draw</a>.</div></div>
 <pre><span class="METHODcan_focus"><span class="keyword">method</span> can_focus</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info">Whether the widget can receive the focus or not.</div></div>
 <pre><span class="METHODqueue_draw"><span class="keyword">method</span> queue_draw</span> : <code class="code">unit</code></pre>
 <div class="info"><div class="info">Enqueue a redraw operation. If the widget has a parent, this
-        is the same as calling the TODO reference : queue_draw method of the parent,
+        is the same as calling the  <a title="RK_element queue_draw">queue_draw</a> method of the parent,
         otherwise this does nothing.</div></div>
 <pre><span class="METHODset_queue_draw"><span class="keyword">method</span> set_queue_draw</span> : <code class="code">(unit -&gt; unit) -&gt; unit</code></pre>
 <div class="info"><div class="info"><code class="code">set_queue_draw f</code> sets the function called when the
-        TODO reference : queue_draw method is invoked, for this widget and all its
+         <a title="RK_element queue_draw">queue_draw</a> method is invoked, for this widget and all its
         children.</div></div>
 <pre><span class="METHODdraw"><span class="keyword">method</span> draw</span> : <code class="code"><a href="?package=lambda-term&amp;module=LTerm_draw&amp;type=context">LTerm_draw.context</a> -&gt; <a href="?package=lambda-term&amp;module=LTerm_widget&amp;type=t">t</a> -&gt; unit</code></pre>
 <div class="info"><div class="info"><code class="code">draw ctx focused</code> draws the widget on the given
@@ -74,7 +74,7 @@
         <code class="code">expand</code> is <code class="code">true</code> (the default) then <code class="code">widget</code> will occupy as
         much space as possible. If <code class="code">position</code> is not specified then
         the widget is appended to the end of the widget list. It
-        raises TODO reference : Out_of_range if the given position is negative or
+        raises  <a title="RK_element Out_of_range">Out_of_range</a> if the given position is negative or
         exceed the number of widgets.</div></div>
 <pre><span class="METHODremove"><span class="keyword">method</span> remove</span> : <code class="code">'a. (#<a href="?package=lambda-term&amp;module=LTerm_widget&amp;class=t">t</a> as 'a) -&gt; unit</code></pre>
 <div class="info"><div class="info"><code class="code">remove widget</code> remove a widget from the box.</div></div></div></div>

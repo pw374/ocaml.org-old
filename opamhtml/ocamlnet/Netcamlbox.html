@@ -44,7 +44,7 @@
    Camlboxes can be used to gain speed-ups on multi-cores. See
    examples/camlbox/README in the distribution tarball for an example
    how to accomplish this.<br/>   <b>Integration into event-based programs:</b> See the section
-   below, TODO reference : Netcamlbox.events.</div>
+   below,  <a title="RK_element Netcamlbox.events">Netcamlbox.events</a>.</div>
 <div class="info"><div class="info"><b>Since OCaml-4.01:</b> This OCaml version changed the semantics of the
     built-in primitives <code class="code">caml_modify</code> and <code class="code">caml_initialize</code>. Essentially,
     it is no longer possible to modify OCaml values residing outside the
@@ -147,18 +147,18 @@
    thus slower by design.<br/>   But anyway, what to do if Camlboxes need to be integrated into
    a program that bases already on file descriptor polling? Of course,
    speed will decrease, but maybe not dramatically. We assume here
-   that the program uses TODO reference : Unixqueues as the basic data structure
+   that the program uses  <a title="RK_element Unixqueue">Unixqueue</a>s as the basic data structure
    for organizing polling.<br/>   If the program can use the Netmulticore library, there is a very
    simple solution. The condition variables provided by this library
-   allow the integration into Unixqueues, see TODO reference : Netmcore_condition.
+   allow the integration into Unixqueues, see  <a title="RK_element Netmcore_condition">Netmcore_condition</a>.
    The condition variable is signalled whenever a new message is put
    into the Camlbox, and the receiver waits until this signal arrives.
-   The function TODO reference : Netmcore_condition.wait_e permits it to integrate
+   The function  <a title="RK_element Netmcore_condition.wait_e">Netmcore_condition.wait_e</a> permits it to integrate
    waiting into a Unixqueue.<br/>   Otherwise, if Netmulticore is no option (e.g. because the processes
    are unrelated that communicate via Camlboxes), the other workaround
    is to use threads. A special thread is set up which waits for new
    Camlbox messages. Whenever a message arrives, an engine is notified
-   via a TODO reference : Uq_engines.signal_engine (which is thread-safe). This engine
+   via a  <a title="RK_element Uq_engines.signal_engine">Uq_engines.signal_engine</a> (which is thread-safe). This engine
    can run in a different thread.</div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netcamlbox.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre></div></div>

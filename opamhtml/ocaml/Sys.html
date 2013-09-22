@@ -51,7 +51,7 @@
    previously associated with the signal. If the signal number is
    invalid (or not available on your system), an <code class="code">Invalid_argument</code>
    exception is raised.</div></div>
-<pre><span class="VALset_signal"><span class="keyword">val</span> set_signal</span> : <code class="type">int -&gt; <a href="?package=ocaml&amp;module=Sys&amp;type=signal_behavior">signal_behavior</a> -&gt; unit</code></pre><div class="info"><div class="info">Same as TODO reference : Sys.signal but return value is ignored.</div></div>
+<pre><span class="VALset_signal"><span class="keyword">val</span> set_signal</span> : <code class="type">int -&gt; <a href="?package=ocaml&amp;module=Sys&amp;type=signal_behavior">signal_behavior</a> -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Sys.signal">Sys.signal</a> but return value is ignored.</div></div>
 <div class="info"><div class="info"><div class="h7">Signal numbers for the standard POSIX signals.</div></div></div>
 <pre><span class="VALsigabrt"><span class="keyword">val</span> sigabrt</span> : <code class="type">int</code></pre><div class="info"><div class="info">Abnormal termination</div></div>
 <pre><span class="VALsigalrm"><span class="keyword">val</span> sigalrm</span> : <code class="type">int</code></pre><div class="info"><div class="info">Timeout</div></div>
@@ -74,7 +74,7 @@
 <pre><span class="VALsigttou"><span class="keyword">val</span> sigttou</span> : <code class="type">int</code></pre><div class="info"><div class="info">Terminal write from background process</div></div>
 <pre><span class="VALsigvtalrm"><span class="keyword">val</span> sigvtalrm</span> : <code class="type">int</code></pre><div class="info"><div class="info">Timeout in virtual time</div></div>
 <pre><span class="VALsigprof"><span class="keyword">val</span> sigprof</span> : <code class="type">int</code></pre><div class="info"><div class="info">Profiling interrupt</div></div>
-<pre><span class="EXCEPTIONBreak"><span class="keyword">exception</span> Break</span></pre><div class="info"><div class="info">Exception raised on interactive interrupt if TODO reference : Sys.catch_break
+<pre><span class="EXCEPTIONBreak"><span class="keyword">exception</span> Break</span></pre><div class="info"><div class="info">Exception raised on interactive interrupt if  <a title="RK_element Sys.catch_break">Sys.catch_break</a>
    is on.</div></div>
 <pre><span class="VALcatch_break"><span class="keyword">val</span> catch_break</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">catch_break</code> governs whether interactive interrupt (ctrl-C)
    terminates the program or raises the <code class="code">Break</code> exception.

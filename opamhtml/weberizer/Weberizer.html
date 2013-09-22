@@ -64,7 +64,7 @@ string -&gt; (&lt; content : <a href="?package=weberizer&amp;module=Weberizer&am
       structured argument.  <code class="code">ctx#page</code> returns the whole HTML page —
       this can be useful to generate a table of content for example.</div></div>
 <pre><span class="VALfun_string"><span class="keyword">val</span> fun_string</span> : <code class="type"><a href="?package=weberizer&amp;module=Weberizer.Binding&amp;type=t">t</a> -&gt; string -&gt; (&lt; page : <a href="?package=weberizer&amp;module=Weberizer&amp;type=html">html</a> &gt; -&gt; string list -&gt; string) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">fun_string b var f</code> add to the binding <code class="code">var</code> -&gt; <code class="code">f</code> to <code class="code">b</code>.
-      See TODO reference : fun_html for the arguments of <code class="code">f</code>.</div></div>
+      See  <a title="RK_element fun_html">fun_html</a> for the arguments of <code class="code">f</code>.</div></div>
 <pre><span class="VALon_error"><span class="keyword">val</span> on_error</span> : <code class="type"><a href="?package=weberizer&amp;module=Weberizer.Binding&amp;type=t">t</a> -&gt; (string -&gt; string list -&gt; exn -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">on_error b f</code> when a function associated to a variable <code class="code">v</code>
       applied to the arguments <code class="code">a</code> raises an exception <code class="code">e</code>, call <code class="code">f v
       a e</code>.  The default value for <code class="code">f</code> prints an error on <code class="code">stderr</code>.</div></div></div></div>

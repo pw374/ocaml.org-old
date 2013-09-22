@@ -69,7 +69,7 @@
 <div class="ocaml_module sig" name="Expert"><pre><span class="keyword">module</span> <a href="?package=core&amp;module=Signal.Expert">Expert</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The <code class="code">Expert</code> module contains functions that novice users should avoid, due to their
     complexity.<br/>    An OCaml signal handler can run at any time, which introduces all the semantic
     complexities of multithreading.  It is much easier to use async signal handling, see
-    TODO reference : Async_unix.Signal, which does not involve multithreading, and runs user code as
+     <a title="RK_element Async_unix.Signal">Async_unix.Signal</a>, which does not involve multithreading, and runs user code as
     ordinary async jobs.  Also, beware that there can only be a single OCaml signal
     handler for any signal, so handling a signal with a <code class="code">Core</code> signal handler will
     interfere if async is attempting to handle the same signal.<br/>    If you do use <code class="code">Core</code> signal handlers, you should strive to make the signal handler
@@ -155,7 +155,7 @@
 <div class="info"><div class="info">The <code class="code">Expert</code> module contains functions that novice users should avoid, due to their
     complexity.<br/>    An OCaml signal handler can run at any time, which introduces all the semantic
     complexities of multithreading.  It is much easier to use async signal handling, see
-    TODO reference : Async_unix.Signal, which does not involve multithreading, and runs user code as
+     <a title="RK_element Async_unix.Signal">Async_unix.Signal</a>, which does not involve multithreading, and runs user code as
     ordinary async jobs.  Also, beware that there can only be a single OCaml signal
     handler for any signal, so handling a signal with a <code class="code">Core</code> signal handler will
     interfere if async is attempting to handle the same signal.<br/>    If you do use <code class="code">Core</code> signal handlers, you should strive to make the signal handler

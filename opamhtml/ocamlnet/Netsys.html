@@ -27,21 +27,21 @@
         connection. There are no socket addresses.
         recv/send are the preferred operations. It is not possible to call
         <code class="code">getsockname</code> or <code class="code">getpeername</code>.</li><li><code class="code">`W32_pipe</code>: The descriptor is a proxy descriptor for a Win32 named
-        pipe as returned by TODO reference : Netsys_win32.pipe_descr. </li><li><code class="code">`W32_pipe_server</code>: The descriptor is a proxy descriptor for a Win32
+        pipe as returned by  <a title="RK_element Netsys_win32.pipe_descr">Netsys_win32.pipe_descr</a>. </li><li><code class="code">`W32_pipe_server</code>: The descriptor is a proxy descriptor for a Win32
         pipe server as returned by
-        TODO reference : Netsys_win32.pipe_server_descr. </li><li><code class="code">`W32_event</code>: The descriptor is a Win32 proxy descriptor for an event
-         as returned by TODO reference : Netsys_win32.create_event. It is not possible to
+         <a title="RK_element Netsys_win32.pipe_server_descr">Netsys_win32.pipe_server_descr</a>. </li><li><code class="code">`W32_event</code>: The descriptor is a Win32 proxy descriptor for an event
+         as returned by  <a title="RK_element Netsys_win32.create_event">Netsys_win32.create_event</a>. It is not possible to
         read/write with these descriptors.</li><li><code class="code">`W32_process</code>: The descriptor is a proxy descriptor for a Win32
         process as returned by
-        TODO reference : Netsys_win32.create_process. It is not possible to read/write
+         <a title="RK_element Netsys_win32.create_process">Netsys_win32.create_process</a>. It is not possible to read/write
         with these descriptors.</li><li><code class="code">`W32_input_thread</code>: The descriptor is a proxy descriptor for a
         Win32-specific input thread
         as returned by
-        TODO reference : Netsys_win32.create_input_thread. </li><li><code class="code">`W32_output_thread</code>: The descriptor is a proxy descriptor for a
+         <a title="RK_element Netsys_win32.create_input_thread">Netsys_win32.create_input_thread</a>. </li><li><code class="code">`W32_output_thread</code>: The descriptor is a proxy descriptor for a
         Win32-specific output thread
         as returned by
-        TODO reference : Netsys_win32.create_output_thread. </li></ul>      Win32: For the exact meaning of proxy descriptors, please see 
-      TODO reference : Netsys_win32. In short, a proxy descriptor is an abstract handle
+         <a title="RK_element Netsys_win32.create_output_thread">Netsys_win32.create_output_thread</a>. </li></ul>      Win32: For the exact meaning of proxy descriptors, please see 
+       <a title="RK_element Netsys_win32">Netsys_win32</a>. In short, a proxy descriptor is an abstract handle
       for the I/O object. The handle itself cannot be used for I/O, however,
       but only some specialized function. The proxy descriptor can only
       be used to dereference the I/O object. Note that the following functions
@@ -127,7 +127,7 @@
       If the <code class="code">poll</code> interface is available it is preferred over the
       <code class="code">select</code> interface to conduct the test.<br/>      On Win32, the tests are limited to sockets, named pipes and
       event objects. (The latter two only in the form provided by
-      TODO reference : Netsys_win32, see there.)<br/>      Generally, if the blocking status cannot be determined for
+       <a title="RK_element Netsys_win32">Netsys_win32</a>, see there.)<br/>      Generally, if the blocking status cannot be determined for
       a class of I/O operations, the functions return <code class="code">true</code>, in
       the hope that it is better to block than to never conduct
       the operation.</div></div>
@@ -143,12 +143,12 @@
       <code class="code">select</code> interface to wait for I/O. The functions also catch
       interruptions by signals.<br/>      On Win32, waiting is limited to sockets, named pipes and
       event objects. (The latter two only in the form provided by
-      TODO reference : Netsys_win32, see there.)<br/>      Generally, if waiting is not supported for
+       <a title="RK_element Netsys_win32">Netsys_win32</a>, see there.)<br/>      Generally, if waiting is not supported for
       a class of I/O operations, the functions return immediately <code class="code">true</code>, in
       the hope that it is better to block than to never conduct
       the operation.</div></div>
 <pre><span class="VALgclose"><span class="keyword">val</span> gclose</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; unit</code></pre><div class="info"><div class="info">Shuts down the system object referenced by the descriptor so far
-      possible, and closes the descriptor.<br/>      Errors are logged to TODO reference : Netlog as <code class="code">`Crit</code> events, and
+      possible, and closes the descriptor.<br/>      Errors are logged to  <a title="RK_element Netlog">Netlog</a> as <code class="code">`Crit</code> events, and
       do not generate exceptions.<br/>      The exact semantics of the close operation varies from descriptor
       style to descriptor style. Generally, <code class="code">gclose</code> assumes that all
       I/O is done, and all buffers are flushed, and that one can tear
@@ -214,8 +214,8 @@ float -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.fi
 <pre><span class="VALstring_of_fd"><span class="keyword">val</span> string_of_fd</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string</code></pre><div class="info"><div class="info">Return a string describing the descriptor (for debugging)</div></div>
 <pre><span class="VALstring_of_sockaddr"><span class="keyword">val</span> string_of_sockaddr</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a> -&gt; string</code></pre><div class="info"><div class="info">Returns a human-readable string describing the address
       (for debug messages)<br/>      Note that the reverse (parsing such a string) can be
-      accomplished with TODO reference : Netsockaddr.socksymbol_of_string and
-      TODO reference : Uq_resolver.sockaddr_of_socksymbol.</div></div>
+      accomplished with  <a title="RK_element Netsockaddr.socksymbol_of_string">Netsockaddr.socksymbol_of_string</a> and
+       <a title="RK_element Uq_resolver.sockaddr_of_socksymbol">Uq_resolver.sockaddr_of_socksymbol</a>.</div></div>
 <pre><span class="VALstring_of_fd_style"><span class="keyword">val</span> string_of_fd_style</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys&amp;type=fd_style">fd_style</a> -&gt; string</code></pre><div class="info"><div class="info">Returns a string describing the fd style (debugging)</div></div>
 <pre><span class="VALis_stdin"><span class="keyword">val</span> is_stdin</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool</code></pre>
 <pre><span class="VALis_stdout"><span class="keyword">val</span> is_stdout</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool</code></pre>
@@ -249,7 +249,7 @@ float -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.fi
 <pre><span class="VALblocking_read"><span class="keyword">val</span> blocking_read</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Same as <code class="code">blocking_gread `Read_write</code></div></div>
 <pre><span class="VALreally_read"><span class="keyword">val</span> really_read</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Same as <code class="code">really_gread `Read_write</code></div></div>
 <pre><span class="VALreally_write"><span class="keyword">val</span> really_write</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Same as <code class="code">really_gwrite `Read_write</code></div></div>
-<div class="info"><div class="info">The following interfaces have been moved to TODO reference : Netsys_posix.</div></div>
+<div class="info"><div class="info">The following interfaces have been moved to  <a title="RK_element Netsys_posix">Netsys_posix</a>.</div></div>
 <pre><span class="TYPEshm_open_flag"><span class="keyword">type</span> shm_open_flag</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_posix&amp;type=shm_open_flag">Netsys_posix.shm_open_flag</a></code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_RDONLY"><span class="constructor">SHM_O_RDONLY</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_RDWR"><span class="constructor">SHM_O_RDWR</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_CREAT"><span class="constructor">SHM_O_CREAT</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_EXCL"><span class="constructor">SHM_O_EXCL</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTshm_open_flag.SHM_O_TRUNC"><span class="constructor">SHM_O_TRUNC</span></span></code></td></tr></table>
 <pre><span class="VALhave_posix_shm"><span class="keyword">val</span> have_posix_shm</span> : <code class="type">unit -&gt; bool</code></pre>
@@ -302,6 +302,6 @@ float -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.fi
  </li></ul></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netsys.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables TODO reference : Netlog-style debugging</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables  <a title="RK_element Netlog">Netlog</a>-style debugging</div></div></div></div>
 <pre><span class="VALset_moncontrol"><span class="keyword">val</span> set_moncontrol</span> : <code class="type">(bool -&gt; unit) -&gt; unit</code></pre>
 </div>

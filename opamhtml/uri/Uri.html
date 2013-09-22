@@ -27,7 +27,7 @@
     <code class="code">key</code> parameter in query <code class="code">q</code>.  Note that an empty list is not the
     same as a <code class="code">None</code> return value.  For a query <code class="code">foo</code>, the mapping is:<ul><li><code class="code">/</code> returns None</li><li><code class="code">/?foo</code> returns Some []</li><li><code class="code">/?foo=</code> returns <code class="code">Some [&quot;&quot;]</code></li><li><code class="code">/?foo=bar</code> returns <code class="code">Some [&quot;bar&quot;]</code></li><li><code class="code">/?foo=bar,chi</code> returns <code class="code">Some [&quot;bar&quot;,&quot;chi&quot;]</code></li></ul>    Query keys can be duplicated in the URI, in which case the first
     one is returned.  If you want to resolve duplicate keys, obtain
-    the full result set with TODO reference : query  instead.</div></div>
+    the full result set with  <a title="RK_element query ">query </a> instead.</div></div>
 <pre><span class="VALget_query_param"><span class="keyword">val</span> get_query_param</span> : <code class="type"><a href="?package=uri&amp;module=Uri&amp;type=t">t</a> -&gt; string -&gt; string option</code></pre><div class="info"><div class="info"><code class="code">get_query_param q key</code> returns the value found for a <code class="code">key</code> in
      query <code class="code">q</code>.  If there are multiple values for the key, then the
      first one is returned/</div></div>

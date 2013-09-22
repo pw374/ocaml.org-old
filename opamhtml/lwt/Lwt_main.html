@@ -6,7 +6,7 @@
         returns.</li><li>Successive invocations of <code class="code">run</code> are serialized: an
         invocation of <code class="code">run</code> will not terminate before all
         subsequent invocations are terminated.</li></ul>      Note also that it is not safe to call <code class="code">run</code> in a function
-      registered with <code class="code">Pervasives.at_exit</code>, use the TODO reference : at_exit
+      registered with <code class="code">Pervasives.at_exit</code>, use the  <a title="RK_element at_exit">at_exit</a>
       function of this module instead.</div></div>
 <pre><span class="VALyield"><span class="keyword">val</span> yield</span> : <code class="type">unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">yield ()</code> is a threads which suspends itself and then resumes
       as soon as possible and terminates.</div></div>

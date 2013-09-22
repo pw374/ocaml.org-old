@@ -1,10 +1,10 @@
 <div class="ocaml_toplevel_module"><div class="info">Common data-structures for CGI-like connectors.<br/> This library tries to minimize the use of unsafe practices.  It
  cannot be bullet proof however and you should read about
- TODO reference : http://www.w3.org/Security/Faq/wwwsf4.html.<br/> REMARK: It happens frequently that hard to predict random numbers
+  <a href="http://www.w3.org/Security/Faq/wwwsf4.html">security</a>.<br/> REMARK: It happens frequently that hard to predict random numbers
  are needed in Web applications.  The previous version of this
  library used to include some facilities for that (in the
  <code class="code">Netcgi_jserv</code> module).  They have been dropped in favor of
- TODO reference : http://pauillac.inria.fr/~xleroy/software.html#cryptokit.</div>
+  <a href="http://pauillac.inria.fr/~xleroy/software.html#cryptokit">Cryptokit</a>.</div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Arguments</h2></div></div>
 <div class="ocaml_class sig" name="cgi_argument"><pre><span class="TYPEcgi_argument"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_argument">cgi_argument</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Represent a key-value pair of data passed to the script (including
     file uploads).</div></div><div class="ocaml_class_content"><pre><span class="METHODname"><span class="keyword">method</span> name</span> : <code class="code">string</code></pre>
@@ -54,8 +54,8 @@
 <pre><span class="VALmime"><span class="keyword">val</span> mime</span> : <code class="type">?work_around_backslash_bug:bool -&gt;
 ?name:string -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_message">Netmime.mime_message</a> -&gt; <a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_argument">cgi_argument</a></code></pre><div class="info"><div class="info"><code class="code">mime_arg ?name msg</code> creates a MIME-structured CGI argument
 	called <code class="code">name</code> with contents <code class="code">msg</code>.  You can create <code class="code">msg</code> by
-	either TODO reference : Netmime.memory_mime_message or
-	TODO reference : Netmime.file_mime_message.<div class="parameters"><div class="param_info"><code class="code">name</code> : set the name of the argument.  If it is not given,
+	either  <a title="RK_element Netmime.memory_mime_message">Netmime.memory_mime_message</a> or
+	 <a title="RK_element Netmime.file_mime_message">Netmime.file_mime_message</a>.<div class="parameters"><div class="param_info"><code class="code">name</code> : set the name of the argument.  If it is not given,
 	the name is extracted from the &quot;Content-Disposition&quot; field of
 	the <code class="code">msg</code> header or it <code class="code">&quot;&quot;</code> if this field is not found.</div><div class="param_info"><code class="code">work_around_backslash_bug</code> : Whether to work around a bug
 	found in almost all browsers regarding the treatment of
@@ -80,8 +80,8 @@
 
 <pre><span class="METHODopen_value_wr"><span class="keyword">method</span> open_value_wr</span> : <code class="code">unit -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a></code></pre>
 </div></div>
-<div class="ocaml_class ident" name="simple_argument" path="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument"><pre><span class="TYPEsimple_argument"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=simple_argument">simple_argument</a></span> : <code class="type">bool option -&gt; string -&gt; string -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">Old deprecated simple argument class.<span class="warning">Deprecated.</span> Use TODO reference : Netcgi.Argument.simple instead.<br/></div></div></div>
-<div class="ocaml_class ident" name="mime_argument" path="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument"><pre><span class="TYPEmime_argument"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=mime_argument">mime_argument</a></span> : <code class="type">bool option -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_message">Netmime.mime_message</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">Old deprecated MIME argument class.<span class="warning">Deprecated.</span> Use TODO reference : Netcgi.Argument.mime instead.<br/></div></div></div>
+<div class="ocaml_class ident" name="simple_argument" path="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument"><pre><span class="TYPEsimple_argument"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=simple_argument">simple_argument</a></span> : <code class="type">bool option -&gt; string -&gt; string -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">Old deprecated simple argument class.<span class="warning">Deprecated.</span> Use  <a title="RK_element Netcgi.Argument.simple">Netcgi.Argument.simple</a> instead.<br/></div></div></div>
+<div class="ocaml_class ident" name="mime_argument" path="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument"><pre><span class="TYPEmime_argument"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=mime_argument">mime_argument</a></span> : <code class="type">bool option -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_message">Netmime.mime_message</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Netcgi&amp;class=rw_cgi_argument">rw_cgi_argument</a></pre><div class="info"><div class="info">Old deprecated MIME argument class.<span class="warning">Deprecated.</span> Use  <a title="RK_element Netcgi.Argument.mime">Netcgi.Argument.mime</a> instead.<br/></div></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Cookies</h2></div></div>
 <div class="ocaml_module sig" name="Cookie"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netcgi.Cookie">Cookie</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Functions to manipulate cookies.<br/>    You should know that besides the <code class="code">name</code> and <code class="code">value</code> attribute,
     user agents will send at most the <code class="code">path</code>, <code class="code">domain</code> and <code class="code">port</code> and
@@ -92,7 +92,7 @@
     supported.  You do not have to worry however, cookies are always
     sent in such a way older browsers understand them -- albeit not
     all attributes of course -- so your application can be ready for
-    the time RFC 2965 will be the norm.<br/>    N.B. This module appears also as TODO reference : Nethttp.Cookie.</div></div><div class="ocaml_module_content">
+    the time RFC 2965 will be the norm.<br/>    N.B. This module appears also as  <a title="RK_element Nethttp.Cookie">Nethttp.Cookie</a>.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp.Cookie&amp;type=t">Nethttp.Cookie.t</a></code></pre><div class="info"><div class="info">Mutable cookie type.</div></div>
 <pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">?max_age:int -&gt;
 ?domain:string -&gt;
@@ -100,11 +100,11 @@
 ?secure:bool -&gt;
 ?comment:string -&gt;
 ?comment_url:string -&gt; ?ports:int list -&gt; string -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi.Cookie&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">make ?expires ?domain ?path ?secure name value</code> creates a new
-        cookie with name <code class="code">name</code> holding <code class="code">value</code>.<div class="parameters"><div class="param_info"><code class="code">max_age</code> : see TODO reference : Netcgi.Cookie.set_max_age.
-                       Default: when user agent exits.</div><div class="param_info"><code class="code">domain</code> : see TODO reference : Netcgi.Cookie.set_domain.
-	              Default: hostname of the server.</div><div class="param_info"><code class="code">path</code> : see TODO reference : Netcgi.Cookie.set_path.
-                    Default: script name + path_info.</div><div class="param_info"><code class="code">secure</code> : see TODO reference : Netcgi.Cookie.set_secure.  Default: <code class="code">false</code>.</div><div class="param_info"><code class="code">comment</code> : see TODO reference : Netcgi.Cookie.set_comment.  Default: <code class="code">&quot;&quot;</code>.</div><div class="param_info"><code class="code">comment_url</code> : see TODO reference : Netcgi.Cookie.set_comment_url.
-	                   Default: <code class="code">&quot;&quot;</code>.</div><div class="param_info"><code class="code">ports</code> : see TODO reference : Netcgi.Cookie.set_ports.
+        cookie with name <code class="code">name</code> holding <code class="code">value</code>.<div class="parameters"><div class="param_info"><code class="code">max_age</code> : see  <a title="RK_element Netcgi.Cookie.set_max_age">Netcgi.Cookie.set_max_age</a>.
+                       Default: when user agent exits.</div><div class="param_info"><code class="code">domain</code> : see  <a title="RK_element Netcgi.Cookie.set_domain">Netcgi.Cookie.set_domain</a>.
+	              Default: hostname of the server.</div><div class="param_info"><code class="code">path</code> : see  <a title="RK_element Netcgi.Cookie.set_path">Netcgi.Cookie.set_path</a>.
+                    Default: script name + path_info.</div><div class="param_info"><code class="code">secure</code> : see  <a title="RK_element Netcgi.Cookie.set_secure">Netcgi.Cookie.set_secure</a>.  Default: <code class="code">false</code>.</div><div class="param_info"><code class="code">comment</code> : see  <a title="RK_element Netcgi.Cookie.set_comment">Netcgi.Cookie.set_comment</a>.  Default: <code class="code">&quot;&quot;</code>.</div><div class="param_info"><code class="code">comment_url</code> : see  <a title="RK_element Netcgi.Cookie.set_comment_url">Netcgi.Cookie.set_comment_url</a>.
+	                   Default: <code class="code">&quot;&quot;</code>.</div><div class="param_info"><code class="code">ports</code> : see  <a title="RK_element Netcgi.Cookie.set_ports">Netcgi.Cookie.set_ports</a>.
 	             Default: same port the cookie was sent.</div></div></div></div>
 <pre><span class="VALname"><span class="keyword">val</span> name</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi.Cookie&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info">The name of the cookie.</div></div>
 <pre><span class="VALvalue"><span class="keyword">val</span> value</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi.Cookie&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info">The value of the cookie.</div></div>
@@ -144,7 +144,7 @@
 	store personal information, the comment should describe how
 	the cookie will be used so the client can decide whether to
 	allow the cookie or not.  To cancel a comment, set it to <code class="code">&quot;&quot;</code>.<br/>	Cookie version 1 (RFC 2109).</div></div>
-<pre><span class="VALset_comment_url"><span class="keyword">val</span> set_comment_url</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi.Cookie&amp;type=t">t</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">set_comment_url c url</code> same as TODO reference : Netcgi.Cookie.set_comment
+<pre><span class="VALset_comment_url"><span class="keyword">val</span> set_comment_url</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi.Cookie&amp;type=t">t</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">set_comment_url c url</code> same as  <a title="RK_element Netcgi.Cookie.set_comment">Netcgi.Cookie.set_comment</a>
 	except that the cookie comment is available on the page
 	pointed by <code class="code">url</code>.  To cancel, set it to <code class="code">&quot;&quot;</code>.<br/>	Cookie version 1 (RFC 2965).</div></div>
 <pre><span class="VALset_ports"><span class="keyword">val</span> set_ports</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi.Cookie&amp;type=t">t</a> -&gt; int list option -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">set ports c (Some p)</code> says that the cookie <code class="code">c</code> must only be
@@ -176,7 +176,7 @@
       program has bugs in some of its components.  This will however
       also prevent a stack trace to be printed; if you want this turn
       this option off.</div></td></tr><tr><td>}</td></tr></table>
-<pre><span class="VALdefault_config"><span class="keyword">val</span> default_config</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi&amp;type=config">config</a></code></pre><div class="info"><div class="info">The default configuration is:<ul><li><code class="code">tmp_directory</code>: TODO reference : Netsys_tmp.tmp_directory()</li><li><code class="code">tmp_prefix</code>: &quot;netcgi&quot;</li><li><code class="code">permitted_http_methods</code>: <code class="code">`GET</code>, <code class="code">`HEAD</code>, <code class="code">`POST</code>.</li><li><code class="code">permitted_input_content_types</code>: <code class="code">&quot;multipart/form-data&quot;</code>,
+<pre><span class="VALdefault_config"><span class="keyword">val</span> default_config</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi&amp;type=config">config</a></code></pre><div class="info"><div class="info">The default configuration is:<ul><li><code class="code">tmp_directory</code>:  <a title="RK_element Netsys_tmp.tmp_directory()">Netsys_tmp.tmp_directory()</a></li><li><code class="code">tmp_prefix</code>: &quot;netcgi&quot;</li><li><code class="code">permitted_http_methods</code>: <code class="code">`GET</code>, <code class="code">`HEAD</code>, <code class="code">`POST</code>.</li><li><code class="code">permitted_input_content_types</code>: <code class="code">&quot;multipart/form-data&quot;</code>,
       <code class="code">&quot;application/x-www-form-urlencoded&quot;</code>.</li><li><code class="code">input_content_length_limit</code>: <code class="code">maxint</code> (i.e., no limit).</li><li><code class="code">max_arguments = 10000</code> (for security reasons)</li><li><code class="code">workarounds</code>: all of them.</li><li><code class="code">default_exn_handler</code>: set to <code class="code">true</code>.</li></ul>      To create a custom configuration, it is recommended to use this syntax:
       <pre class="codepre"><code class="code">
       let custom_config = { default_config with tmp_prefix = &quot;my_prefix&quot; }
@@ -198,7 +198,7 @@
 <pre><span class="METHODcgi_server_software"><span class="keyword">method</span> cgi_server_software</span> : <code class="code">string</code></pre>
 
 <pre><span class="METHODcgi_request_method"><span class="keyword">method</span> cgi_request_method</span> : <code class="code">string</code></pre>
-<div class="info"><div class="info">We recommend you to use the method TODO reference : Netcgi.cgi.request_method
+<div class="info"><div class="info">We recommend you to use the method  <a title="RK_element Netcgi.cgi.request_method">Netcgi.cgi.request_method</a>
 	which is more type-safe and informative.</div></div>
 <pre><span class="METHODcgi_script_name"><span class="keyword">method</span> cgi_script_name</span> : <code class="code">string</code></pre>
 
@@ -217,7 +217,7 @@
 <pre><span class="METHODcgi_remote_ident"><span class="keyword">method</span> cgi_remote_ident</span> : <code class="code">string</code></pre>
 
 <pre><span class="METHODcgi_query_string"><span class="keyword">method</span> cgi_query_string</span> : <code class="code">string</code></pre>
-<div class="info"><div class="info">This is the row query string.  The TODO reference : Netcgi.cgi class gives
+<div class="info"><div class="info">This is the row query string.  The  <a title="RK_element Netcgi.cgi">Netcgi.cgi</a> class gives
 	you an easy access to the arguments through the <code class="code">#arg...</code>
 	methods.</div></div>
 <pre><span class="METHODprotocol"><span class="keyword">method</span> protocol</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=protocol">Nethttp.protocol</a></code></pre>
@@ -273,7 +273,7 @@
         string or <code class="code">&quot;&quot;</code> if it is not set.</div></div>
 <pre><span class="METHODinput_content_type"><span class="keyword">method</span> input_content_type</span> : <code class="code">unit -&gt; string * (string * <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_param">Mimestring.s_param</a>) list</code></pre>
 <div class="info"><div class="info">Returns the parsed <code class="code">&quot;Content-type&quot;</code> request header field.<b>Raises</b> <code>Not_found</code> if it is not set.
-        See also TODO reference : Mimestring.scan_mime_type_ep.<br/></div></div>
+        See also  <a title="RK_element Mimestring.scan_mime_type_ep">Mimestring.scan_mime_type_ep</a>.<br/></div></div>
 <div class="info"><div class="info"><h3 id="3_TITLE">Response header</h3></div></div>
 <pre><span class="METHODoutput_header"><span class="keyword">method</span> output_header</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_header">Netmime.mime_header</a></code></pre>
 <div class="info"><div class="info">The whole HTTP response header</div></div>
@@ -317,7 +317,7 @@
 <div class="info"><div class="info"><span class="warning">Deprecated.</span> Use <code class="code">#out_channel</code> instead.<br/></div></div>
 <pre><span class="METHODout_channel"><span class="keyword">method</span> out_channel</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a></code></pre>
 <div class="info"><div class="info">The &quot;raw&quot; output channel.  In general you should use instead
-	TODO reference : Netcgi.cgi<code class="code">#out_channnel</code> which supports transactions (if you
+	 <a title="RK_element Netcgi.cgi">Netcgi.cgi</a><code class="code">#out_channnel</code> which supports transactions (if you
 	choose to).  Access to the &quot;raw&quot; channel is useful however,
 	for example for sending images or download of files (for which
 	transactions are not interesting but merely more work).</div></div>
@@ -425,7 +425,7 @@
         called.  When there is no support for transactions, the header
         must be set before the first byte of output is written.<br/>        If <code class="code">#set_header</code> is called a second time, it will overwrite
         <i>all</i> the header fields.<div class="parameters"><div class="param_info"><code class="code">status</code> : Sets the HTTP status of the reply according to
-	TODO reference : http://www.w3.org/Protocols/rfc2616.  Defaults to
+	 <a href="http://www.w3.org/Protocols/rfc2616">RFC 2616</a>.  Defaults to
 	&quot;no status&quot;, but the server normally complements an <code class="code">`Ok</code>
 	status in this case.</div><div class="param_info"><code class="code">content_type</code> : Sets the content type.
 	Defaults to <code class="code">&quot;text/html&quot;</code>.</div><div class="param_info"><code class="code">content_length</code> : Sets the content length (in bytes).
@@ -434,7 +434,7 @@
 	per web server.  You can query the cookies using <code class="code">env#cookies</code>
 	and <code class="code">env#cookie</code>.  If you set cookies, you want to think about
 	an appropriate <code class="code">cache</code> setting.  You may also want to add a
-	TODO reference : http://www.w3.org/P3P/ header (Platform for Privacy
+	 <a href="http://www.w3.org/P3P/">P3P</a> header (Platform for Privacy
 	Preferences) -- otherwise your cookies may be discarded by
 	some browsers.</div><div class="param_info"><code class="code">cache</code> : Sets the cache behavior for replies to GET
         requests.  The default is <code class="code">`Unspecified</code>.  <b>It is strongly
@@ -564,9 +564,9 @@ string -&gt;
         the same as <code class="code">`Memory</code> (resp. <code class="code">`File</code>, resp. <code class="code">`Automatic</code>)
         except that the parameter indicates the maximum size in kB of
         the argument value.  If the size is bigger, the
-        TODO reference : Netcgi.cgi_argument methods <code class="code">#value</code> and <code class="code">#open_value_rd</code>
-        methods will raise TODO reference : Netcgi.Argument.Oversized.<br/>        Remark: this allows for fine grained size constraints while
-        TODO reference : Netcgi.config<code class="code">.input_content_length_limit</code> option is a
+         <a title="RK_element Netcgi.cgi_argument">Netcgi.cgi_argument</a> methods <code class="code">#value</code> and <code class="code">#open_value_rd</code>
+        methods will raise  <a title="RK_element Netcgi.Argument.Oversized">Netcgi.Argument.Oversized</a>.<br/>        Remark: this allows for fine grained size constraints while
+         <a title="RK_element Netcgi.config">Netcgi.config</a><code class="code">.input_content_length_limit</code> option is a
         limit on the size of the entire request.</div></div>
 <pre><span class="TYPEexn_handler"><span class="keyword">type</span> exn_handler</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_environment">cgi_environment</a> -&gt; (unit -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info">A function of type <code class="code">exn_handler</code> allows to define a custom
       handler of uncaught exceptions raised by the <code class="code">unit -&gt; unit</code>
@@ -585,7 +585,7 @@ string -&gt;
 <pre><span class="TYPEconnection_directive"><span class="keyword">type</span> connection_directive</span> = <code class="type">[ `Conn_close | `Conn_close_linger | `Conn_error of exn | `Conn_keep_alive ]</code></pre><div class="info"><div class="info">Directive how to go on with the current connection:<ul><li><code class="code">`Conn_close</code>: Just shut down and close descriptor</li><li><code class="code">`Conn_close_linger</code>: Linger, shut down, and close descriptor</li><li><code class="code">`Conn_keep_alive</code>: Check for another request on the same connection</li><li><code class="code">`Conn_error e</code>: Shut down and close descriptor, and handle the
    exception <code class="code">e</code>
    </li></ul></div></div>
-<div class="info"><div class="info">Specific connectors can be found in separate modules.  For example:<br/>    - TODO reference : Netcgi_cgi:  classical CGI.<ul><li>TODO reference : Netcgi_fcgi: FastCGI protocol.</li><li>TODO reference : Netcgi_ajp:  AJP 1.3 connector (JSERV protocol).</li><li>TODO reference : Netcgi_mod:  connector binding to Apache API.</li><li>TODO reference : Netcgi_scgi: SCGI connector.</li><li>TODO reference : Netcgi_test: special &quot;connector&quot; to test your code.</li></ul>    A typical use is as follows:
+<div class="info"><div class="info">Specific connectors can be found in separate modules.  For example:<br/>    -  <a title="RK_element Netcgi_cgi">Netcgi_cgi</a>:  classical CGI.<ul><li> <a title="RK_element Netcgi_fcgi">Netcgi_fcgi</a>: FastCGI protocol.</li><li> <a title="RK_element Netcgi_ajp">Netcgi_ajp</a>:  AJP 1.3 connector (JSERV protocol).</li><li> <a title="RK_element Netcgi_mod">Netcgi_mod</a>:  connector binding to Apache API.</li><li> <a title="RK_element Netcgi_scgi">Netcgi_scgi</a>: SCGI connector.</li><li> <a title="RK_element Netcgi_test">Netcgi_test</a>: special &quot;connector&quot; to test your code.</li></ul>    A typical use is as follows:
     <pre class="codepre"><code class="code">
     open Netcgi
 

@@ -86,8 +86,8 @@
    is no difference because endian-ness only changes the order of bytes, not bits.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Blang">Blang</a></td><td><div class="info">A simple boolean domain-specific language</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Blang">Blang</a></td><td><div class="info">A simple boolean domain-specific language</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Blit">Blit</a></td><td><div class="info">See TODO reference : Blit_intf for documentation.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Blit">Blit</a></td><td><div class="info">See TODO reference : Blit_intf for documentation.</div></td></tr>
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Blit">Blit</a></td><td><div class="info">See  <a title="RK_element Blit_intf">Blit_intf</a> for documentation.</div></td></tr>
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Blit">Blit</a></td><td><div class="info">See  <a title="RK_element Blit_intf">Blit_intf</a> for documentation.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Blit_intf">Blit_intf</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Blit_intf">Blit_intf</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Bool">Bool</a></td><td/></tr>
@@ -289,7 +289,7 @@
     functions that access an existing map, such as <code class="code">add</code>, <code class="code">change</code>, <code class="code">find</code>, <code class="code">fold</code>,
     <code class="code">iter</code>, <code class="code">map</code>, <code class="code">to_alist</code>, etc.<br/>    Depending on the number of type variables <code class="code">N</code>, the type of accessor (resp. creator)
     functions are defined in the module type <code class="code">AccessorsN</code> (resp. <code class="code">CreatorsN</code>) in
-    TODO reference : Core_map_intf.  Also for creators, when the comparison function is not fixed,
+     <a title="RK_element Core_map_intf">Core_map_intf</a>.  Also for creators, when the comparison function is not fixed,
     i.e. the <code class="code">'cmp</code> variable of <code class="code">Map.t</code> is free, we need to pass a comparator to the
     function creating the map.  The module type is called <code class="code">Creators3_with_comparator</code>.
     There is also a module type <code class="code">Accessors3_with_comparator</code> in addition to <code class="code">Accessors3</code>
@@ -337,7 +337,7 @@
     functions that access an existing map, such as <code class="code">add</code>, <code class="code">change</code>, <code class="code">find</code>, <code class="code">fold</code>,
     <code class="code">iter</code>, <code class="code">map</code>, <code class="code">to_alist</code>, etc.<br/>    Depending on the number of type variables <code class="code">N</code>, the type of accessor (resp. creator)
     functions are defined in the module type <code class="code">AccessorsN</code> (resp. <code class="code">CreatorsN</code>) in
-    TODO reference : Core_map_intf.  Also for creators, when the comparison function is not fixed,
+     <a title="RK_element Core_map_intf">Core_map_intf</a>.  Also for creators, when the comparison function is not fixed,
     i.e. the <code class="code">'cmp</code> variable of <code class="code">Map.t</code> is free, we need to pass a comparator to the
     function creating the map.  The module type is called <code class="code">Creators3_with_comparator</code>.
     There is also a module type <code class="code">Accessors3_with_comparator</code> in addition to <code class="code">Accessors3</code>
@@ -384,10 +384,10 @@
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Core_set_unit_tests">Core_set_unit_tests</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Core_sexp">Core_sexp</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Core_sexp">Core_sexp</a></td><td/></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Core_stack">Core_stack</a></td><td><div class="info">A stack implemented with an array.  See TODO reference : Stack_intf for documentation.<br/>    The implementation will grow the array as necessary.  By default, it will not
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Core_stack">Core_stack</a></td><td><div class="info">A stack implemented with an array.  See  <a title="RK_element Stack_intf">Stack_intf</a> for documentation.<br/>    The implementation will grow the array as necessary.  By default, it will not
     automatically shrink the array.  One can use <code class="code">set_auto_shrink</code> to change
     auto-shrinking behavior.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Core_stack">Core_stack</a></td><td><div class="info">A stack implemented with an array.  See TODO reference : Stack_intf for documentation.<br/>    The implementation will grow the array as necessary.  By default, it will not
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Core_stack">Core_stack</a></td><td><div class="info">A stack implemented with an array.  See  <a title="RK_element Stack_intf">Stack_intf</a> for documentation.<br/>    The implementation will grow the array as necessary.  By default, it will not
     automatically shrink the array.  One can use <code class="code">set_auto_shrink</code> to change
     auto-shrinking behavior.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Core_string">Core_string</a></td><td><div class="info">An extension of the standard StringLabels. If you open Core.Std, you'll get
@@ -462,14 +462,14 @@
     <code class="code">Flat_array</code>.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Flat_array_unit_tests">Flat_array_unit_tests</a></td><td><div class="info">This signature is here to remind us to update the unit tests whenever we change
     <code class="code">Flat_array</code>.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Flat_queue">Flat_queue</a></td><td><div class="info">A queue of flat tuples, represented in a TODO reference : Flat_array.<br/>    The elements of a queue are numbered 0, 1, ..., <code class="code">length t - 1</code>, where element <code class="code">0</code> is
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Flat_queue">Flat_queue</a></td><td><div class="info">A queue of flat tuples, represented in a  <a title="RK_element Flat_array">Flat_array</a>.<br/>    The elements of a queue are numbered 0, 1, ..., <code class="code">length t - 1</code>, where element <code class="code">0</code> is
     at the front of the queue.  One can access the <code class="code">j</code>'th component of the <code class="code">i</code>'th element
     using <code class="code">get t i Slot.tj</code>.<br/>    A flat tuple is like an ordinary OCaml tuple, except it is second class and mutable.
     The flat tuples in a flat queue are layed out sequentially, with each flat tuple's
     components immediately following the components of the prior flat tuple.  A flat tuple
     is not first class -- one can only refer to a flat tuple via its index in the queue
     holding it.  Flat tuples are mutable via <code class="code">Flat_queue.set</code>.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Flat_queue">Flat_queue</a></td><td><div class="info">A queue of flat tuples, represented in a TODO reference : Flat_array.<br/>    The elements of a queue are numbered 0, 1, ..., <code class="code">length t - 1</code>, where element <code class="code">0</code> is
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Flat_queue">Flat_queue</a></td><td><div class="info">A queue of flat tuples, represented in a  <a title="RK_element Flat_array">Flat_array</a>.<br/>    The elements of a queue are numbered 0, 1, ..., <code class="code">length t - 1</code>, where element <code class="code">0</code> is
     at the front of the queue.  One can access the <code class="code">j</code>'th component of the <code class="code">i</code>'th element
     using <code class="code">get t i Slot.tj</code>.<br/>    A flat tuple is like an ordinary OCaml tuple, except it is second class and mutable.
     The flat tuples in a flat queue are layed out sequentially, with each flat tuple's
@@ -530,8 +530,8 @@
     for example a list of integer constants; this is also implementation-dependent.  You
     should also be aware that compiler optimizations may duplicate some immutable values,
     for example floating-point numbers when stored into arrays; thus they can be finalized
-    and collected while another copy is still in use by the program.<br/>    The results of calling TODO reference : String.make, TODO reference : String.create, TODO reference : Array.make, and
-    TODO reference : Pervasives.ref are guaranteed to be heap-allocated and non-constant except when the
+    and collected while another copy is still in use by the program.<br/>    The results of calling  <a title="RK_element String.make">String.make</a>,  <a title="RK_element String.create">String.create</a>,  <a title="RK_element Array.make">Array.make</a>, and
+     <a title="RK_element Pervasives.ref">Pervasives.ref</a> are guaranteed to be heap-allocated and non-constant except when the
     length argument is <code class="code">0</code>.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Heap_block">Heap_block</a></td><td><div class="info">A heap block is a value that is guaranteed to live on the OCaml heap, and is hence
     guaranteed to be usable with finalization or in a weak pointer.  It is an abstract
@@ -543,8 +543,8 @@
     for example a list of integer constants; this is also implementation-dependent.  You
     should also be aware that compiler optimizations may duplicate some immutable values,
     for example floating-point numbers when stored into arrays; thus they can be finalized
-    and collected while another copy is still in use by the program.<br/>    The results of calling TODO reference : String.make, TODO reference : String.create, TODO reference : Array.make, and
-    TODO reference : Pervasives.ref are guaranteed to be heap-allocated and non-constant except when the
+    and collected while another copy is still in use by the program.<br/>    The results of calling  <a title="RK_element String.make">String.make</a>,  <a title="RK_element String.create">String.create</a>,  <a title="RK_element Array.make">Array.make</a>, and
+     <a title="RK_element Pervasives.ref">Pervasives.ref</a> are guaranteed to be heap-allocated and non-constant except when the
     length argument is <code class="code">0</code>.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Heap_intf">Heap_intf</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Heap_intf">Heap_intf</a></td><td/></tr>
@@ -626,8 +626,8 @@
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Invariant">Invariant</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Invariant_intf">Invariant_intf</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Invariant_intf">Invariant_intf</a></td><td/></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Linked_stack">Linked_stack</a></td><td><div class="info">A stack implemented with a list.  See TODO reference : Stack_intf for documentation.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Linked_stack">Linked_stack</a></td><td><div class="info">A stack implemented with a list.  See TODO reference : Stack_intf for documentation.</div></td></tr>
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Linked_stack">Linked_stack</a></td><td><div class="info">A stack implemented with a list.  See  <a title="RK_element Stack_intf">Stack_intf</a> for documentation.</div></td></tr>
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Linked_stack">Linked_stack</a></td><td><div class="info">A stack implemented with a list.  See  <a title="RK_element Stack_intf">Stack_intf</a> for documentation.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Make_substring">Make_substring</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Make_substring">Make_substring</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Memo">Memo</a></td><td/></tr>
@@ -864,8 +864,8 @@
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Thread_safe_queue">Thread_safe_queue</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Tuple">Tuple</a></td><td><div class="info">Functors and signatures for dealing with modules for tuples.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Tuple">Tuple</a></td><td><div class="info">Functors and signatures for dealing with modules for tuples.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Tuple_type">Tuple_type</a></td><td><div class="info">Tuple-like types used in <code class="code">Flat_array</code> and <code class="code">Pool</code>.<br/>    See TODO reference : Tuple_type_intf for documentation.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Tuple_type">Tuple_type</a></td><td><div class="info">Tuple-like types used in <code class="code">Flat_array</code> and <code class="code">Pool</code>.<br/>    See TODO reference : Tuple_type_intf for documentation.</div></td></tr>
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Tuple_type">Tuple_type</a></td><td><div class="info">Tuple-like types used in <code class="code">Flat_array</code> and <code class="code">Pool</code>.<br/>    See  <a title="RK_element Tuple_type_intf">Tuple_type_intf</a> for documentation.</div></td></tr>
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Tuple_type">Tuple_type</a></td><td><div class="info">Tuple-like types used in <code class="code">Flat_array</code> and <code class="code">Pool</code>.<br/>    See  <a title="RK_element Tuple_type_intf">Tuple_type_intf</a> for documentation.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Tuple_type_intf">Tuple_type_intf</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Tuple_type_intf">Tuple_type_intf</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Type_equal">Type_equal</a></td><td><div class="info">For representing type equalities otherwise not known by the type-checker.<br/>    The purpose of <code class="code">Type_equal</code> is to represent type equalities that the type checker
@@ -1010,13 +1010,13 @@
                                    ~snd:Int.validate_non_negative)
         | Snoo floogle -&gt; V.name &quot;Snoo&quot; Floogle.validate
     </code></pre></div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Validated">Validated</a></td><td><div class="info">See TODO reference : Validated_intf for documentation.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=Validated">Validated</a></td><td><div class="info">See TODO reference : Validated_intf for documentation.</div></td></tr>
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Validated">Validated</a></td><td><div class="info">See  <a title="RK_element Validated_intf">Validated_intf</a> for documentation.</div></td></tr>
+<tr><td class="module"><a href="?package=core_kernel&amp;module=Validated">Validated</a></td><td><div class="info">See  <a title="RK_element Validated_intf">Validated_intf</a> for documentation.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Validated_intf">Validated_intf</a></td><td/></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Validated_intf">Validated_intf</a></td><td/></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=With_return">With_return</a></td><td><div class="info">This is <code class="code">include</code>'d and documented in TODO reference : module: Common.  It is defined here to avoid
+<tr><td class="module"><a href="?package=core_kernel&amp;module=With_return">With_return</a></td><td><div class="info">This is <code class="code">include</code>'d and documented in  <a title="RK_element module: Common">module: Common</a>.  It is defined here to avoid
     circular dependencies.</div></td></tr>
-<tr><td class="module"><a href="?package=core_kernel&amp;module=With_return">With_return</a></td><td><div class="info">This is <code class="code">include</code>'d and documented in TODO reference : module: Common.  It is defined here to avoid
+<tr><td class="module"><a href="?package=core_kernel&amp;module=With_return">With_return</a></td><td><div class="info">This is <code class="code">include</code>'d and documented in  <a title="RK_element module: Common">module: Common</a>.  It is defined here to avoid
     circular dependencies.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Word_size">Word_size</a></td><td><div class="info">For determining the word size that the program is using.</div></td></tr>
 <tr><td class="module"><a href="?package=core_kernel&amp;module=Word_size">Word_size</a></td><td><div class="info">For determining the word size that the program is using.</div></td></tr>

@@ -1,11 +1,11 @@
 <div class="ocaml_toplevel_module"><div class="info"><div class="info">This module implements a SOCKS version 5 client (see RFC 1928) for
- use with the TODO reference : Uq_engines.connector, TODO reference : Uq_engines.listener, and
- TODO reference : Uq_engines.datagram_provider engine factories.<br/> This implementation supports IPv4 and IPv6.</div></div>
+ use with the  <a title="RK_element Uq_engines.connector">Uq_engines.connector</a>,  <a title="RK_element Uq_engines.listener">Uq_engines.listener</a>, and
+  <a title="RK_element Uq_engines.datagram_provider">Uq_engines.datagram_provider</a> engine factories.<br/> This implementation supports IPv4 and IPv6.</div></div>
 <pre><span class="EXCEPTIONSocks_error"><span class="keyword">exception</span> Socks_error</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">Raised when error messages of the SOCKS proxy are received, or
  because of other SOCKS-related problems.</div></div>
 <div class="ocaml_class sig" name="proxy_client"><pre><span class="TYPEproxy_client"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Uq_socks5&amp;class=proxy_client">proxy_client</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=connect_address">Uq_engines.connect_address</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The object created by <code class="code">new proxy_client addr</code> can be passed as <code class="code">proxy</code> 
- to the TODO reference : Uq_engines.connector, TODO reference : Uq_engines.listener, and 
- TODO reference : Uq_engines.datagram_provider functions to use
+ to the  <a title="RK_element Uq_engines.connector">Uq_engines.connector</a>,  <a title="RK_element Uq_engines.listener">Uq_engines.listener</a>, and 
+  <a title="RK_element Uq_engines.datagram_provider">Uq_engines.datagram_provider</a> functions to use
  the SOCKS proxy for connections, servers, and datagram socket, 
  respectively.<br/> The SOCKS client supports the following methods:<ul><li><code class="code">connect</code>: Only TCP connections are supported (UDP could be made
    working - TODO)</li><li><code class="code">listen</code>: This works (only) for TCP sockets, too</li><li><code class="code">create_datagram_socket</code>: Creates unconnected datagram sockets that

@@ -18,7 +18,7 @@
 <pre><span class="VALget_opt_len"><span class="keyword">val</span> get_opt_len</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; pos:int -&gt; int option -&gt; int</code></pre><div class="info"><div class="info"><code class="code">get_opt_len bstr ~pos opt_len</code><b>Returns</b> the length of a subbigstring
     in <code class="code">bstr</code> starting at position <code class="code">pos</code> and given optional length
     <code class="code">opt_len</code>.  This function does not check the validity of its
-    arguments.  Use TODO reference : check_args for that purpose.</div></div>
+    arguments.  Use  <a title="RK_element check_args">check_args</a> for that purpose.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Accessors</h6></div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">length bstr</code><b>Returns</b> the length of bigstring <code class="code">bstr</code>.</div></div>
 <pre><span class="VALsub"><span class="keyword">val</span> sub</span> : <code class="type">?pos:int -&gt; ?len:int -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a> -&gt; <a href="?package=core_kernel&amp;module=Bigstring&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">sub ?pos ?len bstr</code><div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">Bigstring.length bstr - pos</code></div></div><b>Returns</b> the sub-bigstring in <code class="code">bstr</code> that starts at
@@ -120,7 +120,7 @@
 <div class="info"><div class="info"><code class="code">get_opt_len bstr ~pos opt_len</code><b>Returns</b> the length of a subbigstring
     in <code class="code">bstr</code> starting at position <code class="code">pos</code> and given optional length
     <code class="code">opt_len</code>.  This function does not check the validity of its
-    arguments.  Use TODO reference : check_args for that purpose.</div></div>
+    arguments.  Use  <a title="RK_element check_args">check_args</a> for that purpose.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Accessors</h6></div></div>
 <div class="info"><div class="info"><code class="code">length bstr</code><b>Returns</b> the length of bigstring <code class="code">bstr</code>.</div></div>
 <div class="info"><div class="info"><code class="code">sub ?pos ?len bstr</code><div class="parameters"><div class="param_info"><code class="code">pos</code> : default = 0</div><div class="param_info"><code class="code">len</code> : default = <code class="code">Bigstring.length bstr - pos</code></div></div><b>Returns</b> the sub-bigstring in <code class="code">bstr</code> that starts at
