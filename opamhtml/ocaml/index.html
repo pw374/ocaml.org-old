@@ -43,18 +43,18 @@
    The implementation allows efficient sharing of large numerical
    arrays between OCaml code and C or Fortran numerical libraries.<br/>   Concerning the naming conventions, users of this module are encouraged
    to do <code class="code">open Bigarray</code> in their source, then refer to array types and
-   operations via short dot notation, e.g. <code class="code">Array1.t</code> or <code class="code">Array2.sub</code>.<br/>   Big arrays support all the OCaml ad-hoc polymorphic operations:<ul><li>comparisons (<code class="code">=</code>, <code class="code">&lt;&gt;</code>, <code class="code">&lt;=</code>, etc, as well as  <a title="RK_element Pervasives.compare">Pervasives.compare</a>);</li><li>hashing (module <code class="code">Hash</code>);</li><li>and structured input-output (the functions from the
-      <a title="RK_element Marshal">Marshal</a> module, as well as  <a title="RK_element Pervasives.output_value">Pervasives.output_value</a>
-     and  <a title="RK_element Pervasives.input_value">Pervasives.input_value</a>).
+   operations via short dot notation, e.g. <code class="code">Array1.t</code> or <code class="code">Array2.sub</code>.<br/>   Big arrays support all the OCaml ad-hoc polymorphic operations:<ul><li>comparisons (<code class="code">=</code>, <code class="code">&lt;&gt;</code>, <code class="code">&lt;=</code>, etc, as well as  <a href="#Pervasives.compare">Pervasives.compare</a>);</li><li>hashing (module <code class="code">Hash</code>);</li><li>and structured input-output (the functions from the
+      <a href="#Marshal">Marshal</a> module, as well as  <a href="#Pervasives.output_value">Pervasives.output_value</a>
+     and  <a href="#Pervasives.input_value">Pervasives.input_value</a>).
 </li></ul></div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Bigarray">Bigarray</a></td><td><div class="info">Large, multi-dimensional, numerical arrays.<br/>   This module implements multi-dimensional arrays of integers and
    floating-point numbers, thereafter referred to as 'big arrays'.
    The implementation allows efficient sharing of large numerical
    arrays between OCaml code and C or Fortran numerical libraries.<br/>   Concerning the naming conventions, users of this module are encouraged
    to do <code class="code">open Bigarray</code> in their source, then refer to array types and
-   operations via short dot notation, e.g. <code class="code">Array1.t</code> or <code class="code">Array2.sub</code>.<br/>   Big arrays support all the OCaml ad-hoc polymorphic operations:<ul><li>comparisons (<code class="code">=</code>, <code class="code">&lt;&gt;</code>, <code class="code">&lt;=</code>, etc, as well as  <a title="RK_element Pervasives.compare">Pervasives.compare</a>);</li><li>hashing (module <code class="code">Hash</code>);</li><li>and structured input-output (the functions from the
-      <a title="RK_element Marshal">Marshal</a> module, as well as  <a title="RK_element Pervasives.output_value">Pervasives.output_value</a>
-     and  <a title="RK_element Pervasives.input_value">Pervasives.input_value</a>).
+   operations via short dot notation, e.g. <code class="code">Array1.t</code> or <code class="code">Array2.sub</code>.<br/>   Big arrays support all the OCaml ad-hoc polymorphic operations:<ul><li>comparisons (<code class="code">=</code>, <code class="code">&lt;&gt;</code>, <code class="code">&lt;=</code>, etc, as well as  <a href="#Pervasives.compare">Pervasives.compare</a>);</li><li>hashing (module <code class="code">Hash</code>);</li><li>and structured input-output (the functions from the
+      <a href="#Marshal">Marshal</a> module, as well as  <a href="#Pervasives.output_value">Pervasives.output_value</a>
+     and  <a href="#Pervasives.input_value">Pervasives.input_value</a>).
 </li></ul></div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Buffer">Buffer</a></td><td><div class="info">Extensible string buffers.<br/>   This module implements string buffers that automatically expand
    as necessary.  It provides accumulative concatenation of strings
@@ -292,12 +292,12 @@
    <code class="code">open_out_bin</code> or <code class="code">open_in_bin</code>; channels opened in text mode will
    cause unmarshaling errors on platforms where text channels behave
    differently than binary channels, e.g. Windows.</div></td></tr>
-<tr><td class="module"><a href="?package=ocaml&amp;module=MoreLabels">MoreLabels</a></td><td><div class="info">Extra labeled libraries.<br/>   This meta-module provides labelized version of the  <a title="RK_element Hashtbl">Hashtbl</a>,
-    <a title="RK_element Map">Map</a> and  <a title="RK_element Set">Set</a> modules.<br/>   They only differ by their labels. They are provided to help
+<tr><td class="module"><a href="?package=ocaml&amp;module=MoreLabels">MoreLabels</a></td><td><div class="info">Extra labeled libraries.<br/>   This meta-module provides labelized version of the  <a href="#Hashtbl">Hashtbl</a>,
+    <a href="#Map">Map</a> and  <a href="#Set">Set</a> modules.<br/>   They only differ by their labels. They are provided to help
    porting from previous versions of OCaml.
    The contents of this module are subject to change.</div></td></tr>
-<tr><td class="module"><a href="?package=ocaml&amp;module=MoreLabels">MoreLabels</a></td><td><div class="info">Extra labeled libraries.<br/>   This meta-module provides labelized version of the  <a title="RK_element Hashtbl">Hashtbl</a>,
-    <a title="RK_element Map">Map</a> and  <a title="RK_element Set">Set</a> modules.<br/>   They only differ by their labels. They are provided to help
+<tr><td class="module"><a href="?package=ocaml&amp;module=MoreLabels">MoreLabels</a></td><td><div class="info">Extra labeled libraries.<br/>   This meta-module provides labelized version of the  <a href="#Hashtbl">Hashtbl</a>,
+    <a href="#Map">Map</a> and  <a href="#Set">Set</a> modules.<br/>   They only differ by their labels. They are provided to help
    porting from previous versions of OCaml.
    The contents of this module are subject to change.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Nat">Nat</a></td><td/></tr>
@@ -348,17 +348,17 @@
 <tr><td class="module"><a href="?package=ocaml&amp;module=Printexc">Printexc</a></td><td><div class="info">Facilities for printing exceptions and inspecting current call stack.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Printf">Printf</a></td><td><div class="info">Formatted output functions.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Printf">Printf</a></td><td><div class="info">Formatted output functions.</div></td></tr>
-<tr><td class="module"><a href="?package=ocaml&amp;module=Queue">Queue</a></td><td><div class="info">First-in first-out queues.<br/>   This module implements queues (FIFOs), with in-place modification.<br/>   <b>Warning</b> This module is not thread-safe: each  <a title="RK_element Queue.t">Queue.t</a> value
-   must be protected from concurrent access (e.g. with a  <a title="RK_element Mutex.t">Mutex.t</a>).
+<tr><td class="module"><a href="?package=ocaml&amp;module=Queue">Queue</a></td><td><div class="info">First-in first-out queues.<br/>   This module implements queues (FIFOs), with in-place modification.<br/>   <b>Warning</b> This module is not thread-safe: each  <a href="#Queue.t">Queue.t</a> value
+   must be protected from concurrent access (e.g. with a  <a href="#Mutex.t">Mutex.t</a>).
    Failure to do so can lead to a crash.</div></td></tr>
-<tr><td class="module"><a href="?package=ocaml&amp;module=Queue">Queue</a></td><td><div class="info">First-in first-out queues.<br/>   This module implements queues (FIFOs), with in-place modification.<br/>   <b>Warning</b> This module is not thread-safe: each  <a title="RK_element Queue.t">Queue.t</a> value
-   must be protected from concurrent access (e.g. with a  <a title="RK_element Mutex.t">Mutex.t</a>).
+<tr><td class="module"><a href="?package=ocaml&amp;module=Queue">Queue</a></td><td><div class="info">First-in first-out queues.<br/>   This module implements queues (FIFOs), with in-place modification.<br/>   <b>Warning</b> This module is not thread-safe: each  <a href="#Queue.t">Queue.t</a> value
+   must be protected from concurrent access (e.g. with a  <a href="#Mutex.t">Mutex.t</a>).
    Failure to do so can lead to a crash.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Random">Random</a></td><td><div class="info">Pseudo-random number generators (PRNG).</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Random">Random</a></td><td><div class="info">Pseudo-random number generators (PRNG).</div></td></tr>
-<tr><td class="module"><a href="?package=ocaml&amp;module=Ratio">Ratio</a></td><td><div class="info">Operation on rational numbers.<br/>    This module is used to support the implementation of  <a title="RK_element Num">Num</a> and
+<tr><td class="module"><a href="?package=ocaml&amp;module=Ratio">Ratio</a></td><td><div class="info">Operation on rational numbers.<br/>    This module is used to support the implementation of  <a href="#Num">Num</a> and
     should not be called directly.</div></td></tr>
-<tr><td class="module"><a href="?package=ocaml&amp;module=Ratio">Ratio</a></td><td><div class="info">Operation on rational numbers.<br/>    This module is used to support the implementation of  <a title="RK_element Num">Num</a> and
+<tr><td class="module"><a href="?package=ocaml&amp;module=Ratio">Ratio</a></td><td><div class="info">Operation on rational numbers.<br/>    This module is used to support the implementation of  <a href="#Num">Num</a> and
     should not be called directly.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Scanf">Scanf</a></td><td><div class="info">Formatted input functions.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Scanf">Scanf</a></td><td><div class="info">Formatted input functions.</div></td></tr>
@@ -376,19 +376,19 @@
    logarithmic in the size of the set, for instance.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Sort">Sort</a></td><td><div class="info">Sorting and merging lists.<span class="warning">Deprecated.</span> This module is obsolete and exists only for backward
    compatibility.
-   The sorting functions in  <a title="RK_element Array">Array</a> and  <a title="RK_element List">List</a> should be used instead.
+   The sorting functions in  <a href="#Array">Array</a> and  <a href="#List">List</a> should be used instead.
    The new functions are faster and use less memory.<br/></div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Sort">Sort</a></td><td><div class="info">Sorting and merging lists.<span class="warning">Deprecated.</span> This module is obsolete and exists only for backward
    compatibility.
-   The sorting functions in  <a title="RK_element Array">Array</a> and  <a title="RK_element List">List</a> should be used instead.
+   The sorting functions in  <a href="#Array">Array</a> and  <a href="#List">List</a> should be used instead.
    The new functions are faster and use less memory.<br/></div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Stack">Stack</a></td><td><div class="info">Last-in first-out stacks.<br/>   This module implements stacks (LIFOs), with in-place modification.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Stack">Stack</a></td><td><div class="info">Last-in first-out stacks.<br/>   This module implements stacks (LIFOs), with in-place modification.</div></td></tr>
-<tr><td class="module"><a href="?package=ocaml&amp;module=StdLabels">StdLabels</a></td><td><div class="info">Standard labeled libraries.<br/>   This meta-module provides labelized version of the  <a title="RK_element Array">Array</a>,
-    <a title="RK_element List">List</a> and  <a title="RK_element String">String</a> modules.<br/>   They only differ by their labels. Detailed interfaces can be found
+<tr><td class="module"><a href="?package=ocaml&amp;module=StdLabels">StdLabels</a></td><td><div class="info">Standard labeled libraries.<br/>   This meta-module provides labelized version of the  <a href="#Array">Array</a>,
+    <a href="#List">List</a> and  <a href="#String">String</a> modules.<br/>   They only differ by their labels. Detailed interfaces can be found
    in <code class="code">arrayLabels.mli</code>, <code class="code">listLabels.mli</code> and <code class="code">stringLabels.mli</code>.</div></td></tr>
-<tr><td class="module"><a href="?package=ocaml&amp;module=StdLabels">StdLabels</a></td><td><div class="info">Standard labeled libraries.<br/>   This meta-module provides labelized version of the  <a title="RK_element Array">Array</a>,
-    <a title="RK_element List">List</a> and  <a title="RK_element String">String</a> modules.<br/>   They only differ by their labels. Detailed interfaces can be found
+<tr><td class="module"><a href="?package=ocaml&amp;module=StdLabels">StdLabels</a></td><td><div class="info">Standard labeled libraries.<br/>   This meta-module provides labelized version of the  <a href="#Array">Array</a>,
+    <a href="#List">List</a> and  <a href="#String">String</a> modules.<br/>   They only differ by their labels. Detailed interfaces can be found
    in <code class="code">arrayLabels.mli</code>, <code class="code">listLabels.mli</code> and <code class="code">stringLabels.mli</code>.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Std_exit">Std_exit</a></td><td/></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Std_exit">Std_exit</a></td><td/></tr>
@@ -405,7 +405,7 @@
   number <code class="code">n</code> is between positions <code class="code">n</code> and <code class="code">n+1</code>.<br/>  Two parameters <code class="code">start</code> and <code class="code">len</code> are said to designate a valid
   substring of <code class="code">s</code> if <code class="code">len &gt;= 0</code> and <code class="code">start</code> and <code class="code">start+len</code> are
   valid positions in <code class="code">s</code>.<br/>  OCaml strings can be modified in place, for instance via the
-   <a title="RK_element String.set">String.set</a> and  <a title="RK_element String.blit">String.blit</a> functions described below.  This
+   <a href="#String.set">String.set</a> and  <a href="#String.blit">String.blit</a> functions described below.  This
   possibility should be used rarely and with much care, however, since
   both the OCaml compiler and most OCaml libraries share strings as if
   they were immutable, rather than copying them.  In particular,
@@ -422,7 +422,7 @@
   literals or one of their string arguments.  Therefore, the returned strings
   must not be modified directly.  If mutation is absolutely necessary,
   it should be performed on a fresh copy of the string, as produced by
-   <a title="RK_element String.copy">String.copy</a>.</div></td></tr>
+   <a href="#String.copy">String.copy</a>.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=String">String</a></td><td><div class="info">String operations.<br/>  Given a string <code class="code">s</code> of length <code class="code">l</code>, we call character number in <code class="code">s</code>
   the index of a character in <code class="code">s</code>.  Indexes start at <code class="code">0</code>, and we will
   call a character number valid in <code class="code">s</code> if it falls within the range
@@ -432,7 +432,7 @@
   number <code class="code">n</code> is between positions <code class="code">n</code> and <code class="code">n+1</code>.<br/>  Two parameters <code class="code">start</code> and <code class="code">len</code> are said to designate a valid
   substring of <code class="code">s</code> if <code class="code">len &gt;= 0</code> and <code class="code">start</code> and <code class="code">start+len</code> are
   valid positions in <code class="code">s</code>.<br/>  OCaml strings can be modified in place, for instance via the
-   <a title="RK_element String.set">String.set</a> and  <a title="RK_element String.blit">String.blit</a> functions described below.  This
+   <a href="#String.set">String.set</a> and  <a href="#String.blit">String.blit</a> functions described below.  This
   possibility should be used rarely and with much care, however, since
   both the OCaml compiler and most OCaml libraries share strings as if
   they were immutable, rather than copying them.  In particular,
@@ -449,7 +449,7 @@
   literals or one of their string arguments.  Therefore, the returned strings
   must not be modified directly.  If mutation is absolutely necessary,
   it should be performed on a fresh copy of the string, as produced by
-   <a title="RK_element String.copy">String.copy</a>.</div></td></tr>
+   <a href="#String.copy">String.copy</a>.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=StringLabels">StringLabels</a></td><td><div class="info">String operations.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=StringLabels">StringLabels</a></td><td><div class="info">String operations.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Sys">Sys</a></td><td><div class="info">System interface.</div></td></tr>
@@ -457,10 +457,10 @@
 <tr><td class="module"><a href="?package=ocaml&amp;module=Unix">Unix</a></td><td><div class="info">Interface to the Unix system</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Unix">Unix</a></td><td><div class="info">Interface to the Unix system</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=UnixLabels">UnixLabels</a></td><td><div class="info">Interface to the Unix system.
-   To use as replacement to default  <a title="RK_element Unix">Unix</a> module,
+   To use as replacement to default  <a href="#Unix">Unix</a> module,
    add <code class="code">module Unix = UnixLabels</code> in your implementation.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=UnixLabels">UnixLabels</a></td><td><div class="info">Interface to the Unix system.
-   To use as replacement to default  <a title="RK_element Unix">Unix</a> module,
+   To use as replacement to default  <a href="#Unix">Unix</a> module,
    add <code class="code">module Unix = UnixLabels</code> in your implementation.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Weak">Weak</a></td><td><div class="info">Arrays of weak pointers and hash tables of weak pointers.</div></td></tr>
 <tr><td class="module"><a href="?package=ocaml&amp;module=Weak">Weak</a></td><td><div class="info">Arrays of weak pointers and hash tables of weak pointers.</div></td></tr>

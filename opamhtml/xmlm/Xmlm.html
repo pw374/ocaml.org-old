@@ -68,10 +68,10 @@ child ::= `Data | tree | epsilon </code></pre>
        Defaults to <code class="code">None</code>.</li></ul></div></div>
 <pre><span class="VALinput"><span class="keyword">val</span> input</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=signal">signal</a></code></pre><div class="info"><div class="info">Inputs a signal. Repeated invocation of the function with the same
     input abstraction will generate a  <a href="#TYPEsignal">well-formed</a> sequence
-    of signals or an  <a title="RK_element Error">Error</a> is raised. Furthermore there will be no
+    of signals or an  <a href="#Error">Error</a> is raised. Furthermore there will be no
     two consecutive <code class="code">`Data</code> signals in the sequence and their string
     is always non empty. After a well-formed sequence was input another may 
-    be input, see  <a title="RK_element eoi">eoi</a> and  <a href="#iseq">details</a>.<br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors.</div></div>
+    be input, see  <a href="#eoi">eoi</a> and  <a href="#iseq">details</a>.<br/>    <b>Raises</b>  <a href="#Error">Error</a> on input errors.</div></div>
 <pre><span class="VALinput_tree"><span class="keyword">val</span> input_tree</span> : <code class="type">el:(<a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> -&gt; 'a list -&gt; 'a) -&gt; data:(string -&gt; 'a) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; 'a</code></pre><div class="info"><div class="info">If the next signal is a :
     <ul><li>Other signals, raises <code class="code">Invalid_argument</code>.</li><li><code class="code">`El_start</code> signal, inputs the sequence of signals until its 
        matching <code class="code">`El_end</code> and invokes <code class="code">el</code> and <code class="code">data</code> as follows
@@ -79,13 +79,13 @@ child ::= `Data | tree | epsilon </code></pre>
       This function won't be called twice consecutively or with the empty 
       string.</li><li><code class="code">el</code>, is called on each <code class="code">`El_end</code> signals with the corresponding 
       <code class="code">`El_start</code> tag and the result of the callback invocation for the 
-      element's children.</li></ul></li><li><code class="code">`Data</code> signal, inputs it and invokes <code class="code">data</code> with the character data.</li></ul><br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors and <code class="code">Invalid_argument</code>
+      element's children.</li></ul></li><li><code class="code">`Data</code> signal, inputs it and invokes <code class="code">data</code> with the character data.</li></ul><br/>    <b>Raises</b>  <a href="#Error">Error</a> on input errors and <code class="code">Invalid_argument</code>
       if the next signal is not <code class="code">`El_start</code> or <code class="code">`Data</code>.</div></div>
-<pre><span class="VALinput_doc_tree"><span class="keyword">val</span> input_doc_tree</span> : <code class="type">el:(<a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> -&gt; 'a list -&gt; 'a) -&gt; data:(string -&gt; 'a) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a</code></pre><div class="info"><div class="info">Same as  <a title="RK_element input_tree">input_tree</a> but reads a complete  <a href="#TYPEsignal">well-formed</a>  
-    sequence of signals. <br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors and <code class="code">Invalid_argument</code>
+<pre><span class="VALinput_doc_tree"><span class="keyword">val</span> input_doc_tree</span> : <code class="type">el:(<a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> -&gt; 'a list -&gt; 'a) -&gt; data:(string -&gt; 'a) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a</code></pre><div class="info"><div class="info">Same as  <a href="#input_tree">input_tree</a> but reads a complete  <a href="#TYPEsignal">well-formed</a>  
+    sequence of signals. <br/>    <b>Raises</b>  <a href="#Error">Error</a> on input errors and <code class="code">Invalid_argument</code>
      if the next signal is not <code class="code">`Dtd</code>.</div></div>
-<pre><span class="VALpeek"><span class="keyword">val</span> peek</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=signal">signal</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element input">input</a> but doesn't remove the signal from the sequence. <br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors.</div></div>
-<pre><span class="VALeoi"><span class="keyword">val</span> eoi</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; bool</code></pre><div class="info"><div class="info">Returns <code class="code">true</code> if the end of input is reached. See  <a href="#iseq">details</a>.<br/>    <b>Raises</b>  <a title="RK_element Error">Error</a> on input errors.</div></div>
+<pre><span class="VALpeek"><span class="keyword">val</span> peek</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=signal">signal</a></code></pre><div class="info"><div class="info">Same as  <a href="#input">input</a> but doesn't remove the signal from the sequence. <br/>    <b>Raises</b>  <a href="#Error">Error</a> on input errors.</div></div>
+<pre><span class="VALeoi"><span class="keyword">val</span> eoi</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; bool</code></pre><div class="info"><div class="info">Returns <code class="code">true</code> if the end of input is reached. See  <a href="#iseq">details</a>.<br/>    <b>Raises</b>  <a href="#Error">Error</a> on input errors.</div></div>
 <pre><span class="VALpos"><span class="keyword">val</span> pos</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=input">input</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=pos">pos</a></code></pre><div class="info"><div class="info">Current position in the input abstraction.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Output</h1></div></div>
 <pre><span class="TYPEfrag"><span class="keyword">type</span> <code class="type">'a </code>frag</span> = <code class="type">[ `Data of string | `El of <a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> * 'a list ]</code></pre><div class="info"><div class="info">The type for deconstructing data structures of type <code class="code">'a</code>.</div></div>
@@ -110,10 +110,10 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="VALoutput_depth"><span class="keyword">val</span> output_depth</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">output_depth o</code> is <code class="code">o</code>'s current element nesting level (undefined
     before the first <code class="code">`El_start</code> and after the last <code class="code">`El_end</code>).</div></div>
 <pre><span class="VALoutput_tree"><span class="keyword">val</span> output_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Outputs signals corresponding to a value by recursively
-    applying the given value deconstructor.<br/>    <b>Raises</b> see  <a title="RK_element output">output</a>.</div></div>
-<pre><span class="VALoutput_doc_tree"><span class="keyword">val</span> output_doc_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element output_tree">output_tree</a> but outputs a complete  <a href="#TYPEsignal">well-formed</a> 
-    sequence of signals.<br/>    <b>Raises</b> see  <a title="RK_element output">output</a>.</div></div>
-<div class="info"><div class="info"><h1 id="sto">Functorial interface</h1> <br/>     <a title="RK_element Make">Make</a> allows client to specify types for strings and internal
+    applying the given value deconstructor.<br/>    <b>Raises</b> see  <a href="#output">output</a>.</div></div>
+<pre><span class="VALoutput_doc_tree"><span class="keyword">val</span> output_doc_tree</span> : <code class="type">('a -&gt; 'a <a href="?package=xmlm&amp;module=Xmlm&amp;type=frag">frag</a>) -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=output">output</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> * 'a -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a href="#output_tree">output_tree</a> but outputs a complete  <a href="#TYPEsignal">well-formed</a> 
+    sequence of signals.<br/>    <b>Raises</b> see  <a href="#output">output</a>.</div></div>
+<div class="info"><div class="info"><h1 id="sto">Functorial interface</h1> <br/>     <a href="#Make">Make</a> allows client to specify types for strings and internal
     buffers. Among other things this can be used to perform
     hash-consing or to process the character stream, e.g. to normalize
     unicode characters or to convert to a custom encoding.</div></div>
@@ -141,11 +141,11 @@ child ::= `Data | tree | epsilon </code></pre>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -&gt; <a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a></code></pre><div class="info"><div class="info">Creates a buffer of the given size.</div></div>
 <pre><span class="VALadd_uchar"><span class="keyword">val</span> add_uchar</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Adds the given (guaranteed valid) unicode
        <a href="http://www.unicode.org/glossary/#code_point">code point</a> to a
-      buffer. <br/>      <b>Raises</b>  <a title="RK_element Full">Full</a> if the buffer cannot be grown.</div></div>
+      buffer. <br/>      <b>Raises</b>  <a href="#Full">Full</a> if the buffer cannot be grown.</div></div>
 <pre><span class="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Clears the buffer.</div></div>
 <pre><span class="VALcontents"><span class="keyword">val</span> contents</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; <a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=string">string</a></code></pre><div class="info"><div class="info">Returns the buffer contents.</div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="?package=xmlm&amp;module=Xmlm.Buffer&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Returns the number of characters contained in the buffer.</div></div></div></div>
-<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=xmlm&amp;module=Xmlm.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of  <a title="RK_element Make">Make</a>.</div></div><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=xmlm&amp;module=Xmlm.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Output signature of  <a href="#Make">Make</a>.</div></div><div class="ocaml_module_content">
 <div class="info"><div class="info"><h1 id="1_TITLE">Basic types and values</h1></div></div>
 <pre><span class="TYPEstring"><span class="keyword">type</span> string</span> </pre>
 <pre><span class="TYPEencoding"><span class="keyword">type</span> encoding</span> = <code class="type">[ `ISO_8859_1 | `US_ASCII | `UTF_16 | `UTF_16BE | `UTF_16LE | `UTF_8 ]</code></pre>
@@ -234,7 +234,7 @@ child ::= `Data | tree | epsilon </code></pre>
     declarations.  Undeclared namespace prefixes can be bound via the
     callback <code class="code">ns</code>, which must return a namespace name. If <code class="code">ns</code> returns
     <code class="code">None</code> an <code class="code">`Unknown_ns_prefix</code> error is raised.<br/>    Attributes used for namespace declarations are preserved by the
-    parser. They are in the  <a title="RK_element ns_xmlns">ns_xmlns</a> namespace. Default namespace
+    parser. They are in the  <a href="#ns_xmlns">ns_xmlns</a> namespace. Default namespace
     declarations made with <i>xmlns</i> have the attribute name
     <code class="code">(Xmlm.ns_xmlns, &quot;xmlns&quot;)</code>. Prefix declarations have the prefix as
     the local name, for example <i>xmlns:ex</i> results in the attribute name
@@ -254,16 +254,16 @@ child ::= `Data | tree | epsilon </code></pre>
     <h3 id="iseq">Sequences of documents</h3><br/>    When a well-formed sequence of signals is input, no data is consumed beyond
     the closing <code class="code">'&gt;'</code> of the document's root element. <br/>    If you want to parse a document as
      <a href="http://www.w3.org/TR/REC-xml/#NT-document">defined</a> in the XML
-    specification, call  <a title="RK_element eoi">eoi</a> after a well-formed sequence of
+    specification, call  <a href="#eoi">eoi</a> after a well-formed sequence of
     signals, it must return <code class="code">true</code>. If you expect another document on
     the same input abstraction a new well-formed sequence of signals
-    can be  <a title="RK_element input">input</a>. Use  <a title="RK_element eoi">eoi</a> to check if a document follows (this
-    may consume data).<br/>    Invoking  <a title="RK_element eoi">eoi</a> after a well-formed sequence of signals skips
+    can be  <a href="#input">input</a>. Use  <a href="#eoi">eoi</a> to check if a document follows (this
+    may consume data).<br/>    Invoking  <a href="#eoi">eoi</a> after a well-formed sequence of signals skips
     whitespaces, comments and processing instructions until it gets to
     either an  <a href="http://www.w3.org/TR/REC-xml/#NT-XMLDecl"> XML
     declaration</a> or a  <a href="http://www.w3.org/TR/REC-xml/#dt-doctype">DTD</a>
     or the start of a new element or the end of input (in which case
-     <a title="RK_element eoi">eoi</a> returns <code class="code">true</code>).  If there is a new document but there is no
+     <a href="#eoi">eoi</a> returns <code class="code">true</code>).  If there is a new document but there is no
     XML declaration or the declaration specifies UTF-16, the same
     encoding as for the previous document is used.<br/>    <h3 id="inmisc">Miscellaneous</h3>
     <ul><li>Non validating.</li><li>Tail recursive.</li><li>Attribute and character data chunks are limited by 
@@ -286,7 +286,7 @@ child ::= `Data | tree | epsilon </code></pre>
     names</a> by the output abstraction. There is no particular api to specify 
     prefixes and default namespaces, 
     the actual result depends solely on the output
-    of attributes belonging to the  <a title="RK_element ns_xmlns">ns_xmlns</a> namespace. For example to set 
+    of attributes belonging to the  <a href="#ns_xmlns">ns_xmlns</a> namespace. For example to set 
     the default namespace of an element to <i>http://example.org/myns</i>, 
     use the following attribute :
     <pre class="codepre"><code class="code">(* xmlns='http://example.org/myns' *)
@@ -303,12 +303,12 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
     current output scope. Given a namespace name the function must return 
     the prefix to use. Note that this
     will <b>not</b> add any namespace declaration attribute to the
-    output.  If the function returns <code class="code">None</code>,  <a title="RK_element output">output</a> will raise
+    output.  If the function returns <code class="code">None</code>,  <a href="#output">output</a> will raise
     <code class="code">Invalid_argument</code>.  The default function returns always <code class="code">None</code>.
     <h3 id="outindent">Indentation</h3><br/>    Output can be indented by specifying the <code class="code">indent</code> argument when an
        output abstraction is created. If <code class="code">indent</code> is <code class="code">None</code> (default)
        signal output does not introduce any extra white space.  If
-       <code class="code">ident</code> is <code class="code">Some c</code>, each  <a title="RK_element signal">signal</a> is output on its own line
+       <code class="code">ident</code> is <code class="code">Some c</code>, each  <a href="#signal">signal</a> is output on its own line
        (for empty elements <code class="code">`El_start</code> and <code class="code">`El_end</code> are collapsed on a single
        line) and nested elements are indented with <code class="code">c</code> space
        characters.

@@ -1,9 +1,9 @@
 <div class="ocaml_toplevel_module"><div class="info">Conversion between character encodings <br/> <b>Contents</b>
- <ul><li> <a title="RK_element Netconversion.interface">Netconversion.interface</a>
-     <ul><li> <a title="RK_element Netconversion.unicode_functions">Netconversion.unicode_functions</a></li><li> <a title="RK_element Netconversion.cursors">Netconversion.cursors</a>
-           <ul><li> <a title="RK_element Netconversion.bom">Netconversion.bom</a></li></ul></li><li> <a title="RK_element Netconversion.direct_conv">Netconversion.direct_conv</a></li></ul>
-   </li><li> <a title="RK_element Netconversion.preliminaries">Netconversion.preliminaries</a>
-     <ul><li> <a title="RK_element Netconversion.problems">Netconversion.problems</a></li><li> <a title="RK_element Netconversion.domain">Netconversion.domain</a></li><li> <a title="RK_element Netconversion.linking">Netconversion.linking</a></li><li> <a title="RK_element Netconversion.subsets">Netconversion.subsets</a></li><li> <a title="RK_element Netconversion.unicode">Netconversion.unicode</a></li></ul></li></ul></div>
+ <ul><li> <a href="#Netconversion.interface">Netconversion.interface</a>
+     <ul><li> <a href="#Netconversion.unicode_functions">Netconversion.unicode_functions</a></li><li> <a href="#Netconversion.cursors">Netconversion.cursors</a>
+           <ul><li> <a href="#Netconversion.bom">Netconversion.bom</a></li></ul></li><li> <a href="#Netconversion.direct_conv">Netconversion.direct_conv</a></li></ul>
+   </li><li> <a href="#Netconversion.preliminaries">Netconversion.preliminaries</a>
+     <ul><li> <a href="#Netconversion.problems">Netconversion.problems</a></li><li> <a href="#Netconversion.domain">Netconversion.domain</a></li><li> <a href="#Netconversion.linking">Netconversion.linking</a></li><li> <a href="#Netconversion.subsets">Netconversion.subsets</a></li><li> <a href="#Netconversion.unicode">Netconversion.unicode</a></li></ul></li></ul></div>
 <div class="info"><div class="info"><h1 id="preliminaries">Preliminaries</h1><br/> A <b>character set</b> is a set of characters where every character is
  identified by a <b>code point</b>. An <b>encoding</b> is a way of 
  representing characters from a set in byte strings. For example,
@@ -329,7 +329,7 @@
  fail.</div></div>
 <pre><span class="VALbyte_order_mark"><span class="keyword">val</span> byte_order_mark</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">encoding</a> -&gt; string</code></pre><div class="info"><div class="info">Returns the byte order mark that must occur at the beginning of
  files to indicate whether &quot;little endian&quot; or &quot;big endian&quot; is used.
- If this does not apply to the encoding, an empty string is returned.<br/> See also the section about &quot; <a title="RK_element Netconversion.bom">Netconversion.bom</a>&quot; below.</div></div>
+ If this does not apply to the encoding, an empty string is returned.<br/> See also the section about &quot; <a href="#Netconversion.bom">Netconversion.bom</a>&quot; below.</div></div>
 <pre><span class="VALmakechar"><span class="keyword">val</span> makechar</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">encoding</a> -&gt; int -&gt; string</code></pre><div class="info"><div class="info"><code class="code">makechar enc i:</code>
  Creates the string representing the Unicode code point <code class="code">i</code> in encoding
  <code class="code">enc</code>. Raises <code class="code">Not_found</code> if the character is legal but cannot be 
@@ -371,7 +371,7 @@
     convert ~in_enc:`Enc_iso88591 ~out_enc:`Enc_utf8 s_latin1 </code></pre><br/> which converts the ISO-8859-1 string <code class="code">s_latin1</code> to the UTF-8 string
  <code class="code">s_utf8</code>.<br/> It is also possible to convert while reading from or writing to a file.
  This use case is effectively handled by the class 
-  <a title="RK_element Netconversion.conversion_pipe">Netconversion.conversion_pipe</a>.
+  <a href="#Netconversion.conversion_pipe">Netconversion.conversion_pipe</a>.
  See the explanations of this class for examples.</div></div>
 <pre><span class="VALconvert"><span class="keyword">val</span> convert</span> : <code class="type">?subst:(int -&gt; string) -&gt;
 in_enc:<a href="?package=ocamlnet&amp;module=Netconversion&amp;type=encoding">encoding</a> -&gt;

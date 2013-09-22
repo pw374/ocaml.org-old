@@ -13,7 +13,7 @@
    the buffer (for instance, 80 for a buffer that holds one output
    line).  Nothing bad will happen if the buffer grows beyond that
    limit, however. In doubt, take <code class="code">n = 16</code> for instance.
-   If <code class="code">n</code> is not between 1 and  <a title="RK_element Sys.max_string_length">Sys.max_string_length</a>, it will
+   If <code class="code">n</code> is not between 1 and  <a href="#Sys.max_string_length">Sys.max_string_length</a>, it will
    be clipped to that interval.</div></div>
 <pre><span class="VALcontents"><span class="keyword">val</span> contents</span> : <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">t</a> -&gt; string</code></pre><div class="info"><div class="info">Return a copy of the current contents of the buffer.
    The buffer itself is unchanged.</div></div>
@@ -32,7 +32,7 @@ index out of bounds</div></div>
 <pre><span class="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Empty the buffer.</div></div>
 <pre><span class="VALreset"><span class="keyword">val</span> reset</span> : <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Empty the buffer and deallocate the internal string holding the
    buffer contents, replacing it with the initial internal string
-   of length <code class="code">n</code> that was allocated by  <a title="RK_element Buffer.create">Buffer.create</a> <code class="code">n</code>.
+   of length <code class="code">n</code> that was allocated by  <a href="#Buffer.create">Buffer.create</a> <code class="code">n</code>.
    For long-lived buffers that may have grown a lot, <code class="code">reset</code> allows
    faster reclamation of the space used by the buffer.</div></div>
 <pre><span class="VALadd_char"><span class="keyword">val</span> add_char</span> : <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">t</a> -&gt; char -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add_char b c</code> appends the character <code class="code">c</code> at the end of the buffer <code class="code">b</code>.</div></div>

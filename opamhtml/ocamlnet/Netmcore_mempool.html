@@ -4,7 +4,7 @@
     The worker processes do not map the pool to some random address,
     but rather the processes inherit the pool from the common master
     process which ensures that all processes will see the pool at
-    the same address.<br/>    In order to allow inheritance, the function  <a title="RK_element Netmcore.start">Netmcore.start</a>
+    the same address.<br/>    In order to allow inheritance, the function  <a href="#Netmcore.start">Netmcore.start</a>
     for starting workers needs to get an additional argument
     <code class="code">~inherit_resources</code>. The resource ID of the pool must be put
     into this list - otherwise the worker does not get access to
@@ -16,7 +16,7 @@
 <pre><span class="VALcreate_mempool"><span class="keyword">val</span> create_mempool</span> : <code class="type">?alloc_really:bool -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">Netmcore.res_id</a></code></pre><div class="info"><div class="info">Creates the memory pool as shared memory object of the passed size
       (rounded up to the next multiple of pages) and returns the resource ID.<br/>      Note that the process calling this function cannot use the pool,
       but only worker processes that are forked later. It is possible
-      to call <code class="code">create_mempool</code> before running  <a title="RK_element Netmcore.startup">Netmcore.startup</a>.<br/>      Option <code class="code">alloc_really</code>: On some operating systems (namely Linux)
+      to call <code class="code">create_mempool</code> before running  <a href="#Netmcore.startup">Netmcore.startup</a>.<br/>      Option <code class="code">alloc_really</code>: On some operating systems (namely Linux)
       shared memory is not fully included into the memory bookkeeping
       as long as nothing is written into it (so-called
       overcommitment). This means that the memory is not reserved, and

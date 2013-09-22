@@ -2,7 +2,7 @@
 <div class="info"><div class="info"><h6 id="6_TITLE">Basic functions</h6></div></div>
 <pre><span class="VALinit"><span class="keyword">val</span> init</span> : <code class="type">int -&gt; unit</code></pre><div class="info"><div class="info">Initialize the generator, using the argument as a seed.
      The same seed will always yield the same sequence of numbers.</div></div>
-<pre><span class="VALfull_init"><span class="keyword">val</span> full_init</span> : <code class="type">int array -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Random.init">Random.init</a> but takes more data as seed.</div></div>
+<pre><span class="VALfull_init"><span class="keyword">val</span> full_init</span> : <code class="type">int array -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a href="#Random.init">Random.init</a> but takes more data as seed.</div></div>
 <pre><span class="VALself_init"><span class="keyword">val</span> self_init</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">Initialize the generator with a random seed chosen
    in a system-dependent way.  If <code class="code">/dev/urandom</code> is available on
    the host machine, it is used to provide a highly random initial

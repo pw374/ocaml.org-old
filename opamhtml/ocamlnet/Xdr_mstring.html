@@ -5,7 +5,7 @@
     </code></pre><br/>    In the encoded XDR stream there is no difference between strings and
     managed strings, i.e. the wire representation is identical. Only
     the Ocaml type differs to which the managed string is mapped. This
-    type is  <a title="RK_element Xdr_mstring.mstring">Xdr_mstring.mstring</a> (below).<br/>    In the RPC context there is often the problem that the I/O backend
+    type is  <a href="#Xdr_mstring.mstring">Xdr_mstring.mstring</a> (below).<br/>    In the RPC context there is often the problem that the I/O backend
     would profit from a different string representation than the user of
     the RPC layer. To bridge this gap, managed strings have been invented.
     Generally, the user can determine how to represent strings (usually
@@ -25,8 +25,8 @@
     of an RPC client.<br/>    <b>Encoding.</b> Image a client wants to call an RPC, and one of the
     arguments is a managed string. This means we finally need an <code class="code">mstring</code>
     object that can be put into the argument list of the call.<br/>    This library supports two string representation specially: The normal
-    Ocaml <code class="code">string</code> type, and  <a title="RK_element Netsys_mem.memory">Netsys_mem.memory</a> which is actually just
-    a bigarray of char's. There are two factories <code class="code">fac</code>,<br/>     -  <a title="RK_element Xdr_mstring.string_based_mstrings">Xdr_mstring.string_based_mstrings</a>, and<ul><li> <a title="RK_element Xdr_mstring.memory_based_mstrings">Xdr_mstring.memory_based_mstrings</a>,</li></ul>    and both can be used to create the <code class="code">mstring</code> to pass to the
+    Ocaml <code class="code">string</code> type, and  <a href="#Netsys_mem.memory">Netsys_mem.memory</a> which is actually just
+    a bigarray of char's. There are two factories <code class="code">fac</code>,<br/>     -  <a href="#Xdr_mstring.string_based_mstrings">Xdr_mstring.string_based_mstrings</a>, and<ul><li> <a href="#Xdr_mstring.memory_based_mstrings">Xdr_mstring.memory_based_mstrings</a>,</li></ul>    and both can be used to create the <code class="code">mstring</code> to pass to the
     RPC layer. It should be noted that this layer can process the
     <code class="code">memory</code> representation a bit better. So, if the original <code class="code">data</code>
     value is a string, the factory for <code class="code">string</code> should be used, and
@@ -46,7 +46,7 @@
     object with the access methods of the <code class="code">mstring</code> class (see below).
     As these methods are quite limited, it makes normally only sense
     to output the <code class="code">mstring</code> contents to a file descriptor.<br/>    The user can request a different factory for managed strings. The 
-    function  <a title="RK_element Rpc_client.set_mstring_factories">Rpc_client.set_mstring_factories</a> can be used for this
+    function  <a href="#Rpc_client.set_mstring_factories">Rpc_client.set_mstring_factories</a> can be used for this
     purpose. (Similar ways exist for managed clients, and for RPC servers.)<br/>    <b>Potential.</b> Before introducing managed strings, a clean analysis
     was done how many copy operations can be avoided by using this
     technique. Example: The first N bytes of a file are taken as 
@@ -59,7 +59,7 @@
       file into the input buffer (a <code class="code">memory</code> value), and the second copy
       writes the data into the socket.</li></ul>    Part of the optimization is that <code class="code">Unix.read</code> and <code class="code">Unix.write</code>
     do a completely avoidable copy of the data which is prevented by
-    switching to  <a title="RK_element Netsys_mem.mem_read">Netsys_mem.mem_read</a> and  <a title="RK_element Netsys_mem.mem_write">Netsys_mem.mem_write</a>,
+    switching to  <a href="#Netsys_mem.mem_read">Netsys_mem.mem_read</a> and  <a href="#Netsys_mem.mem_write">Netsys_mem.mem_write</a>,
     respectively. The latter two functions exploit an optimization
     that is only possible when the data is <code class="code">memory</code>-typed.<br/>    The possible optimizations for the decoding side of the problem
     are slightly less impressive, but still worth doing it.</div></div>
@@ -98,7 +98,7 @@
       with <code class="code">Bigarray.Array1.create</code></div></div>
 <pre><span class="VALmemory_to_mstring"><span class="keyword">val</span> memory_to_mstring</span> : <code class="type">?pos:int -&gt; ?len:int -&gt; <a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">Netsys_mem.memory</a> -&gt; <a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;type=mstring">mstring</a></code></pre><div class="info"><div class="info">Represent memory as mstring (no copy)</div></div>
 <pre><span class="VALpaligned_memory_based_mstrings"><span class="keyword">val</span> paligned_memory_based_mstrings</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;type=mstring_factory">mstring_factory</a></code></pre><div class="info"><div class="info">Uses memory to represent mstrings. The memory bigarrays are allocated
-      with  <a title="RK_element Netsys_mem.alloc_memory_pages">Netsys_mem.alloc_memory_pages</a> if available, and 
+      with  <a href="#Netsys_mem.alloc_memory_pages">Netsys_mem.alloc_memory_pages</a> if available, and 
       <code class="code">Bigarray.Array1.create</code> if not.</div></div>
 <pre><span class="VALmemory_pool_based_mstrings"><span class="keyword">val</span> memory_pool_based_mstrings</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory_pool">Netsys_mem.memory_pool</a> -&gt; <a href="?package=ocamlnet&amp;module=Xdr_mstring&amp;type=mstring_factory">mstring_factory</a></code></pre><div class="info"><div class="info">Uses memory to represent mstrings. The memory bigarrays are obtained
       from the pool. The length of these mstrings is limited by the 

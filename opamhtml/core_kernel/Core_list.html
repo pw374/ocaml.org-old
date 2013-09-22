@@ -13,25 +13,25 @@
     Raise <code class="code">Invalid_argument &quot;List.nth&quot;</code> if <code class="code">n</code> is negative.</div></div>
 <pre><span class="VALrev"><span class="keyword">val</span> rev</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info">List reversal.</div></div>
 <pre><span class="VALrev_append"><span class="keyword">val</span> rev_append</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">List.rev_append l1 l2</code> reverses <code class="code">l1</code> and concatenates it to <code class="code">l2</code>.  This is equivalent
-    to <code class="code">(</code> <a title="RK_element List.rev">List.rev</a><code class="code"> l1) @ l2</code>, but <code class="code">rev_append</code> is more efficient.</div></div>
+    to <code class="code">(</code> <a href="#List.rev">List.rev</a><code class="code"> l1) @ l2</code>, but <code class="code">rev_append</code> is more efficient.</div></div>
 <pre><span class="VALunordered_append"><span class="keyword">val</span> unordered_append</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre>
 <pre><span class="VALrev_map"><span class="keyword">val</span> rev_map</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; 'b) -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">List.rev_map f l</code> gives the same result as
-    <a title="RK_element List.rev">List.rev</a><code class="code"> (</code> <a title="RK_element ListLabels.map">ListLabels.map</a><code class="code"> f l)</code>, but is more efficient.</div></div>
+    <a href="#List.rev">List.rev</a><code class="code"> (</code> <a href="#ListLabels.map">ListLabels.map</a><code class="code"> f l)</code>, but is more efficient.</div></div>
 <pre><span class="VALfold_left"><span class="keyword">val</span> fold_left</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; init:'b -&gt; f:('b -&gt; 'a -&gt; 'b) -&gt; 'b</code></pre>
 <pre><span class="VALiter2_exn"><span class="keyword">val</span> iter2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; 'b -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">List.iter2_exn f [a1; ...; an] [b1; ...; bn]</code> calls in turn
     <code class="code">f a1 b1; ...; f an bn</code>.
     Raise <code class="code">Invalid_argument</code> if the two lists have
     different lengths.</div></div>
 <pre><span class="VALrev_map2_exn"><span class="keyword">val</span> rev_map2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; 'b -&gt; 'c) -&gt; 'c <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">List.rev_map2_exn f l1 l2</code> gives the same result as
-    <a title="RK_element List.rev">List.rev</a><code class="code"> (</code> <a title="RK_element List.map2_exn">List.map2_exn</a><code class="code"> f l1 l2)</code>, but is more efficient.</div></div>
+    <a href="#List.rev">List.rev</a><code class="code"> (</code> <a href="#List.map2_exn">List.map2_exn</a><code class="code"> f l1 l2)</code>, but is more efficient.</div></div>
 <pre><span class="VALfold2_exn"><span class="keyword">val</span> fold2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; init:'c -&gt; f:('c -&gt; 'a -&gt; 'b -&gt; 'c) -&gt; 'c</code></pre><div class="info"><div class="info"><code class="code">List.fold2_exn f a [b1; ...; bn] [c1; ...; cn]</code> is
    <code class="code">f (... (f (f a b1 c1) b2 c2) ...) bn cn</code>.
    Raise <code class="code">Invalid_argument</code> if the two lists have
    different lengths.</div></div>
-<pre><span class="VALfor_all2_exn"><span class="keyword">val</span> for_all2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; 'b -&gt; bool) -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a title="RK_element List.for_all">List.for_all</a>, but for a two-argument predicate.
+<pre><span class="VALfor_all2_exn"><span class="keyword">val</span> for_all2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; 'b -&gt; bool) -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a href="#List.for_all">List.for_all</a>, but for a two-argument predicate.
    Raise <code class="code">Invalid_argument</code> if the two lists have
    different lengths.</div></div>
-<pre><span class="VALexists2_exn"><span class="keyword">val</span> exists2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; 'b -&gt; bool) -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a title="RK_element List.exists">List.exists</a>, but for a two-argument predicate.  Raise
+<pre><span class="VALexists2_exn"><span class="keyword">val</span> exists2_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'b <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; 'b -&gt; bool) -&gt; bool</code></pre><div class="info"><div class="info">Same as  <a href="#List.exists">List.exists</a>, but for a two-argument predicate.  Raise
     <code class="code">Invalid_argument</code> if the end of one list is reached before the end of the
     other.</div></div>
 <pre><span class="VALfilter"><span class="keyword">val</span> filter</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; f:('a -&gt; bool) -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">filter p l</code> returns all the elements of the list <code class="code">l</code> that satisfy the predicate <code class="code">p</code>.
@@ -50,7 +50,7 @@
 <pre><span class="VALsort"><span class="keyword">val</span> sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info">Sort a list in increasing order according to a comparison function.  The comparison
     function must return 0 if its arguments compare as equal, a positive integer if the
     first is greater, and a negative integer if the first is smaller (see Array.sort for a
-    complete specification).  For example,  <a title="RK_element Pervasives.compare">Pervasives.compare</a> is a suitable comparison
+    complete specification).  For example,  <a href="#Pervasives.compare">Pervasives.compare</a> is a suitable comparison
     function.<br/>    The current implementation uses Merge Sort. It runs in constant heap space and
     logarithmic stack space.<br/>    Presently, the sort is stable, meaning that two equal elements in the input will be in
     the same order in the output.</div></div>
@@ -208,23 +208,23 @@
     Raise <code class="code">Invalid_argument &quot;List.nth&quot;</code> if <code class="code">n</code> is negative.</div></div>
 <div class="info"><div class="info">List reversal.</div></div>
 <div class="info"><div class="info"><code class="code">List.rev_append l1 l2</code> reverses <code class="code">l1</code> and concatenates it to <code class="code">l2</code>.  This is equivalent
-    to <code class="code">(</code> <a title="RK_element List.rev">List.rev</a><code class="code"> l1) @ l2</code>, but <code class="code">rev_append</code> is more efficient.</div></div>
+    to <code class="code">(</code> <a href="#List.rev">List.rev</a><code class="code"> l1) @ l2</code>, but <code class="code">rev_append</code> is more efficient.</div></div>
 <div class="info"><div class="info"><code class="code">List.rev_map f l</code> gives the same result as
-    <a title="RK_element List.rev">List.rev</a><code class="code"> (</code> <a title="RK_element ListLabels.map">ListLabels.map</a><code class="code"> f l)</code>, but is more efficient.</div></div>
+    <a href="#List.rev">List.rev</a><code class="code"> (</code> <a href="#ListLabels.map">ListLabels.map</a><code class="code"> f l)</code>, but is more efficient.</div></div>
 <div class="info"><div class="info"><code class="code">List.iter2_exn f [a1; ...; an] [b1; ...; bn]</code> calls in turn
     <code class="code">f a1 b1; ...; f an bn</code>.
     Raise <code class="code">Invalid_argument</code> if the two lists have
     different lengths.</div></div>
 <div class="info"><div class="info"><code class="code">List.rev_map2_exn f l1 l2</code> gives the same result as
-    <a title="RK_element List.rev">List.rev</a><code class="code"> (</code> <a title="RK_element List.map2_exn">List.map2_exn</a><code class="code"> f l1 l2)</code>, but is more efficient.</div></div>
+    <a href="#List.rev">List.rev</a><code class="code"> (</code> <a href="#List.map2_exn">List.map2_exn</a><code class="code"> f l1 l2)</code>, but is more efficient.</div></div>
 <div class="info"><div class="info"><code class="code">List.fold2_exn f a [b1; ...; bn] [c1; ...; cn]</code> is
    <code class="code">f (... (f (f a b1 c1) b2 c2) ...) bn cn</code>.
    Raise <code class="code">Invalid_argument</code> if the two lists have
    different lengths.</div></div>
-<div class="info"><div class="info">Same as  <a title="RK_element List.for_all">List.for_all</a>, but for a two-argument predicate.
+<div class="info"><div class="info">Same as  <a href="#List.for_all">List.for_all</a>, but for a two-argument predicate.
    Raise <code class="code">Invalid_argument</code> if the two lists have
    different lengths.</div></div>
-<div class="info"><div class="info">Same as  <a title="RK_element List.exists">List.exists</a>, but for a two-argument predicate.  Raise
+<div class="info"><div class="info">Same as  <a href="#List.exists">List.exists</a>, but for a two-argument predicate.  Raise
     <code class="code">Invalid_argument</code> if the end of one list is reached before the end of the
     other.</div></div>
 <div class="info"><div class="info"><code class="code">filter p l</code> returns all the elements of the list <code class="code">l</code> that satisfy the predicate <code class="code">p</code>.
@@ -242,7 +242,7 @@
 <div class="info"><div class="info">Sort a list in increasing order according to a comparison function.  The comparison
     function must return 0 if its arguments compare as equal, a positive integer if the
     first is greater, and a negative integer if the first is smaller (see Array.sort for a
-    complete specification).  For example,  <a title="RK_element Pervasives.compare">Pervasives.compare</a> is a suitable comparison
+    complete specification).  For example,  <a href="#Pervasives.compare">Pervasives.compare</a> is a suitable comparison
     function.<br/>    The current implementation uses Merge Sort. It runs in constant heap space and
     logarithmic stack space.<br/>    Presently, the sort is stable, meaning that two equal elements in the input will be in
     the same order in the output.</div></div>

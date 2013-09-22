@@ -3,17 +3,17 @@
 <div class="info"><div class="info"><div class="h7">Functional input with format strings</div></div></div>
 <div class="info"><div class="info">The module <code class="code">Scanf</code> provides formatted input functions or <em>scanners</em>.<br/>    The formatted input functions can read from any kind of input, including
     strings, files, or anything that can return characters. The more general
-    source of characters is named a <em>formatted input channel</em> (or <em>    scanning buffer</em>) and has type  <a title="RK_element Scanning.in_channel">Scanning.in_channel</a>. The more general
+    source of characters is named a <em>formatted input channel</em> (or <em>    scanning buffer</em>) and has type  <a href="#Scanning.in_channel">Scanning.in_channel</a>. The more general
     formatted input function reads from any scanning buffer and is named
     <code class="code">bscanf</code>.<br/>    Generally speaking, the formatted input functions have 3 arguments:<ul><li>the first argument is a source of characters for the input,</li><li>the second argument is a format string that specifies the values to
       read,</li><li>the third argument is a <em>receiver function</em> that is applied to the
-      values read.</li></ul>    Hence, a typical call to the formatted input function  <a title="RK_element Scanf.bscanf">Scanf.bscanf</a> is
-    <code class="code">bscanf ic fmt f</code>, where:<br/>    - <code class="code">ic</code> is a source of characters (typically a <em>    formatted input channel</em> with type  <a title="RK_element Scanning.in_channel">Scanning.in_channel</a>),<br/>    - <code class="code">fmt</code> is a format string (the same format strings as those used to print
-    material with module  <a title="RK_element Printf">Printf</a> or  <a title="RK_element Format">Format</a>),<br/>    - <code class="code">f</code> is a function that has as many arguments as the number of values to
+      values read.</li></ul>    Hence, a typical call to the formatted input function  <a href="#Scanf.bscanf">Scanf.bscanf</a> is
+    <code class="code">bscanf ic fmt f</code>, where:<br/>    - <code class="code">ic</code> is a source of characters (typically a <em>    formatted input channel</em> with type  <a href="#Scanning.in_channel">Scanning.in_channel</a>),<br/>    - <code class="code">fmt</code> is a format string (the same format strings as those used to print
+    material with module  <a href="#Printf">Printf</a> or  <a href="#Format">Format</a>),<br/>    - <code class="code">f</code> is a function that has as many arguments as the number of values to
     read in the input.</div></div>
 <div class="info"><div class="info"><div class="h7">A simple example</div></div></div>
 <div class="info"><div class="info">As suggested above, the expression <code class="code">bscanf ic &quot;%d&quot; f</code> reads a decimal
-    integer <code class="code">n</code> from the source of characters <code class="code">ic</code> and returns <code class="code">f n</code>.<br/>    For instance,<br/>    - if we use <code class="code">stdin</code> as the source of characters ( <a title="RK_element Scanning.stdin">Scanning.stdin</a> is
+    integer <code class="code">n</code> from the source of characters <code class="code">ic</code> and returns <code class="code">f n</code>.<br/>    For instance,<br/>    - if we use <code class="code">stdin</code> as the source of characters ( <a href="#Scanning.stdin">Scanning.stdin</a> is
     the predefined formatted input channel that reads from standard input),<br/>    - if we define the receiver <code class="code">f</code> as <code class="code">let f x = x + 1</code>,<br/>    then <code class="code">bscanf Scanning.stdin &quot;%d&quot; f</code> reads an integer <code class="code">n</code> from the
     standard input and returns <code class="code">f n</code> (that is <code class="code">n + 1</code>). Thus, if we
     evaluate <code class="code">bscanf stdin &quot;%d&quot; f</code>, and then enter <code class="code">41</code> at the
@@ -113,9 +113,9 @@
 <div class="info"><div class="info"><h6 id="6_TITLE">Format string description</h6></div></div>
 <div class="info"><div class="info">The format string is a character string which contains three types of
     objects:<ul><li>plain characters, which are simply matched with the characters of the
-      input (with a special case for space and line feed, see  <a title="RK_element Scanf.space">Scanf.space</a>),</li><li>conversion specifications, each of which causes reading and conversion of
-      one argument for the function <code class="code">f</code> (see  <a title="RK_element Scanf.conversion">Scanf.conversion</a>),</li><li>scanning indications to specify boundaries of tokens
-      (see scanning  <a title="RK_element Scanf.indication">Scanf.indication</a>).
+      input (with a special case for space and line feed, see  <a href="#Scanf.space">Scanf.space</a>),</li><li>conversion specifications, each of which causes reading and conversion of
+      one argument for the function <code class="code">f</code> (see  <a href="#Scanf.conversion">Scanf.conversion</a>),</li><li>scanning indications to specify boundaries of tokens
+      (see scanning  <a href="#Scanf.indication">Scanf.indication</a>).
 </li></ul></div></div>
 <div class="info"><div class="info"><div class="h7">The space character in format strings</div></div></div>
 <div class="info"><div class="info">As mentioned above, a plain character in the format string is just
@@ -140,8 +140,8 @@
       (usual input conventions for decimal (<code class="code">0-9</code>+), hexadecimal
        (<code class="code">0x[0-9a-f]+</code> and <code class="code">0X[0-9A-F]+</code>), octal (<code class="code">0o[0-7]+</code>), and binary
        (<code class="code">0b[0-1]+</code>) notations are understood).</li><li><code class="code">u</code>: reads an unsigned decimal integer.</li><li><code class="code">x</code> or <code class="code">X</code>: reads an unsigned hexadecimal integer (<code class="code">[0-9a-fA-F]+</code>).</li><li><code class="code">o</code>: reads an unsigned octal integer (<code class="code">[0-7]+</code>).</li><li><code class="code">s</code>: reads a string argument that spreads as much as possible, until the
-      following bounding condition holds: <ul><li>the end-of-input has been reached.</li><li>a scanning indication (see scanning  <a title="RK_element Scanf.indication">Scanf.indication</a>) has been
-         encountered,</li><li>a whitespace has been found (see  <a title="RK_element Scanf.space">Scanf.space</a>),</li></ul>
+      following bounding condition holds: <ul><li>the end-of-input has been reached.</li><li>a scanning indication (see scanning  <a href="#Scanf.indication">Scanf.indication</a>) has been
+         encountered,</li><li>a whitespace has been found (see  <a href="#Scanf.space">Scanf.space</a>),</li></ul>
       Hence, this conversion always succeeds: it returns an empty
       string if the bounding condition holds when the scan begins.</li><li><code class="code">S</code>: reads a delimited string argument (delimiters and special
       escaped characters follow the lexical conventions of OCaml).</li><li><code class="code">c</code>: reads a single character. To test the current input character
@@ -239,18 +239,18 @@
     <code class="code">End_of_file</code>: if the end of input is reached the conversion succeeds and
     simply returns the characters read so far, or <code class="code">&quot;&quot;</code> if none were ever read.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Specialised formatted input functions</h6></div></div>
-<pre><span class="VALfscanf"><span class="keyword">val</span> fscanf</span> : <code class="type"><a href="?package=ocaml&amp;module=Pervasives&amp;type=in_channel">Pervasives.in_channel</a> -&gt; ('a, 'b, 'c, 'd) <a href="?package=ocaml&amp;module=Scanf&amp;type=scanner">scanner</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element Scanf.bscanf">Scanf.bscanf</a>, but reads from the given regular input channel.<br/>    Warning: since all formatted input functions operate from a <em>formatted
+<pre><span class="VALfscanf"><span class="keyword">val</span> fscanf</span> : <code class="type"><a href="?package=ocaml&amp;module=Pervasives&amp;type=in_channel">Pervasives.in_channel</a> -&gt; ('a, 'b, 'c, 'd) <a href="?package=ocaml&amp;module=Scanf&amp;type=scanner">scanner</a></code></pre><div class="info"><div class="info">Same as  <a href="#Scanf.bscanf">Scanf.bscanf</a>, but reads from the given regular input channel.<br/>    Warning: since all formatted input functions operate from a <em>formatted
     input channel</em>, be aware that each <code class="code">fscanf</code> invocation will operate with a
     formatted input channel reading from the given channel. This extra level
     of bufferization can lead to a strange scanning behaviour if you use low
     level primitives on the channel (reading characters, seeking the reading
     position, and so on).<br/>    As a consequence, never mix direct low level reading and high level
     scanning from the same regular input channel.</div></div>
-<pre><span class="VALsscanf"><span class="keyword">val</span> sscanf</span> : <code class="type">string -&gt; ('a, 'b, 'c, 'd) <a href="?package=ocaml&amp;module=Scanf&amp;type=scanner">scanner</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element Scanf.bscanf">Scanf.bscanf</a>, but reads from the given string.</div></div>
-<pre><span class="VALscanf"><span class="keyword">val</span> scanf</span> : <code class="type">('a, 'b, 'c, 'd) <a href="?package=ocaml&amp;module=Scanf&amp;type=scanner">scanner</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element Scanf.bscanf">Scanf.bscanf</a>, but reads from the predefined formatted input
-    channel  <a title="RK_element Scanf.Scanning.stdin">Scanf.Scanning.stdin</a> that is connected to <code class="code">Pervasives.stdin</code>.</div></div>
+<pre><span class="VALsscanf"><span class="keyword">val</span> sscanf</span> : <code class="type">string -&gt; ('a, 'b, 'c, 'd) <a href="?package=ocaml&amp;module=Scanf&amp;type=scanner">scanner</a></code></pre><div class="info"><div class="info">Same as  <a href="#Scanf.bscanf">Scanf.bscanf</a>, but reads from the given string.</div></div>
+<pre><span class="VALscanf"><span class="keyword">val</span> scanf</span> : <code class="type">('a, 'b, 'c, 'd) <a href="?package=ocaml&amp;module=Scanf&amp;type=scanner">scanner</a></code></pre><div class="info"><div class="info">Same as  <a href="#Scanf.bscanf">Scanf.bscanf</a>, but reads from the predefined formatted input
+    channel  <a href="#Scanf.Scanning.stdin">Scanf.Scanning.stdin</a> that is connected to <code class="code">Pervasives.stdin</code>.</div></div>
 <pre><span class="VALkscanf"><span class="keyword">val</span> kscanf</span> : <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">Scanning.in_channel</a> -&gt;
-(<a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">Scanning.in_channel</a> -&gt; exn -&gt; 'd) -&gt; ('a, 'b, 'c, 'd) <a href="?package=ocaml&amp;module=Scanf&amp;type=scanner">scanner</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element Scanf.bscanf">Scanf.bscanf</a>, but takes an additional function argument
+(<a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">Scanning.in_channel</a> -&gt; exn -&gt; 'd) -&gt; ('a, 'b, 'c, 'd) <a href="?package=ocaml&amp;module=Scanf&amp;type=scanner">scanner</a></code></pre><div class="info"><div class="info">Same as  <a href="#Scanf.bscanf">Scanf.bscanf</a>, but takes an additional function argument
     <code class="code">ef</code> that is called in case of error: if the scanning process or
     some conversion fails, the scanning function aborts and calls the
     error handling function <code class="code">ef</code> with the formatted input channel and the
@@ -265,7 +265,7 @@
     same type as <code class="code">fmt</code>.<b>Since</b> 3.09.0</div></div>
 <pre><span class="VALsscanf_format"><span class="keyword">val</span> sscanf_format</span> : <code class="type">string -&gt;
 ('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt;
-(('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; 'g) -&gt; 'g</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Scanf.bscanf_format">Scanf.bscanf_format</a>, but reads from the given string.<b>Since</b> 3.09.0</div></div>
+(('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; 'g) -&gt; 'g</code></pre><div class="info"><div class="info">Same as  <a href="#Scanf.bscanf_format">Scanf.bscanf_format</a>, but reads from the given string.<b>Since</b> 3.09.0</div></div>
 <pre><span class="VALformat_from_string"><span class="keyword">val</span> format_from_string</span> : <code class="type">string -&gt;
 ('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; ('a, 'b, 'c, 'd, 'e, 'f) format6</code></pre><div class="info"><div class="info"><code class="code">format_from_string s fmt</code> converts a string argument to a format string,
     according to the given format string <code class="code">fmt</code>.

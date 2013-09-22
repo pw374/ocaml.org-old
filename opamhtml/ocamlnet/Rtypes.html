@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Binary encodings of numbers (Legacy)</div>
-<div class="info"><div class="info">Please use  <a title="RK_element Netnumber">Netnumber</a> in new code - which is not restricted to
+<div class="info"><div class="info">Please use  <a href="#Netnumber">Netnumber</a> in new code - which is not restricted to
     big endian</div></div>
 <pre><span class="TYPEint4"><span class="keyword">type</span> int4</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=int4">Netnumber.int4</a></code></pre><div class="info"><div class="info">32 bit signed integer</div></div>
 <pre><span class="TYPEint8"><span class="keyword">type</span> int8</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=int8">Netnumber.int8</a></code></pre><div class="info"><div class="info">64 bit signed integer</div></div>
@@ -8,9 +8,9 @@
 <pre><span class="TYPEfp4"><span class="keyword">type</span> fp4</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=fp4">Netnumber.fp4</a></code></pre><div class="info"><div class="info">single precision float</div></div>
 <pre><span class="TYPEfp8"><span class="keyword">type</span> fp8</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=fp8">Netnumber.fp8</a></code></pre><div class="info"><div class="info">double precision float</div></div>
 <pre><span class="EXCEPTIONCannot_represent"><span class="keyword">exception</span> Cannot_represent</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">raised if a conversion can't be done
-      (same as  <a title="RK_element Netnumber.Cannot_represent">Netnumber.Cannot_represent</a>)</div></div>
+      (same as  <a href="#Netnumber.Cannot_represent">Netnumber.Cannot_represent</a>)</div></div>
 <pre><span class="EXCEPTIONOut_of_range"><span class="keyword">exception</span> Out_of_range</span></pre><div class="info"><div class="info">raised if string position out of range
-      (same as  <a title="RK_element Netnumber.Out_of_range">Netnumber.Out_of_range</a>)</div></div>
+      (same as  <a href="#Netnumber.Out_of_range">Netnumber.Out_of_range</a>)</div></div>
 <pre><span class="VALmk_int4"><span class="keyword">val</span> mk_int4</span> : <code class="type">char * char * char * char -&gt; <a href="?package=ocamlnet&amp;module=Rtypes&amp;type=int4">int4</a></code></pre>
 <pre><span class="VALmk_int8"><span class="keyword">val</span> mk_int8</span> : <code class="type">char * char * char * char * char * char * char * char -&gt; <a href="?package=ocamlnet&amp;module=Rtypes&amp;type=int8">int8</a></code></pre>
 <pre><span class="VALmk_uint4"><span class="keyword">val</span> mk_uint4</span> : <code class="type">char * char * char * char -&gt; <a href="?package=ocamlnet&amp;module=Rtypes&amp;type=uint4">uint4</a></code></pre>

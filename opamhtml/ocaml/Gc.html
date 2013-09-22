@@ -106,8 +106,8 @@
    You should also be aware that compiler optimisations may duplicate
    some immutable values, for example floating-point numbers when
    stored into arrays, so they can be finalised and collected while
-   another copy is still in use by the program.<br/>   The results of calling  <a title="RK_element String.make">String.make</a>,  <a title="RK_element String.create">String.create</a>,
-    <a title="RK_element Array.make">Array.make</a>, and  <a title="RK_element Pervasives.ref">Pervasives.ref</a> are guaranteed to be
+   another copy is still in use by the program.<br/>   The results of calling  <a href="#String.make">String.make</a>,  <a href="#String.create">String.create</a>,
+    <a href="#Array.make">Array.make</a>, and  <a href="#Pervasives.ref">Pervasives.ref</a> are guaranteed to be
    heap-allocated and non-constant except when the length argument is <code class="code">0</code>.</div></div>
 <pre><span class="VALfinalise_release"><span class="keyword">val</span> finalise_release</span> : <code class="type">unit -&gt; unit</code></pre><div class="info"><div class="info">A finalisation function may call <code class="code">finalise_release</code> to tell the
     GC that it can launch the next finalisation function without waiting

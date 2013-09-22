@@ -66,7 +66,7 @@
  not shrink.</div></div>
 <pre><span class="VALreset"><span class="keyword">val</span> reset</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netbuffer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Empty the buffer, deallocate the internal string, and replace it
         with a new string of length <code class="code">n</code> that was allocated by
-         <a title="RK_element Netbuffer.create">Netbuffer.create</a> <code class="code">n</code>.</div></div>
+         <a href="#Netbuffer.create">Netbuffer.create</a> <code class="code">n</code>.</div></div>
 <pre><span class="VALtry_shrinking"><span class="keyword">val</span> try_shrinking</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netbuffer&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">try_shrinking nb</code>: If the length of the buffer is less than half of
  the allocated space, the netbuffer is reallocated in order to save
  memory.</div></div>

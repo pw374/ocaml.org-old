@@ -18,7 +18,7 @@
 <pre><span class="VALmul"><span class="keyword">val</span> mul</span> : <code class="type">nativeint -&gt; nativeint -&gt; nativeint</code></pre><div class="info"><div class="info">Multiplication.</div></div>
 <pre><span class="VALdiv"><span class="keyword">val</span> div</span> : <code class="type">nativeint -&gt; nativeint -&gt; nativeint</code></pre><div class="info"><div class="info">Integer division.  Raise <code class="code">Division_by_zero</code> if the second
    argument is zero.  This division rounds the real quotient of
-   its arguments towards zero, as specified for  <a title="RK_element Pervasives.(/)">Pervasives.(/)</a>.</div></div>
+   its arguments towards zero, as specified for  <a href="#Pervasives.(/)">Pervasives.(/)</a>.</div></div>
 <pre><span class="VALrem"><span class="keyword">val</span> rem</span> : <code class="type">nativeint -&gt; nativeint -&gt; nativeint</code></pre><div class="info"><div class="info">Integer remainder.  If <code class="code">y</code> is not zero, the result
    of <code class="code">Nativeint.rem x y</code> satisfies the following properties:
    <code class="code">Nativeint.zero &lt;= Nativeint.rem x y &lt; Nativeint.abs y</code> and
@@ -64,7 +64,7 @@
    discarding the fractional part (truncate towards 0).
    The result of the conversion is undefined if, after truncation,
    the number is outside the range
-   [ <a title="RK_element Nativeint.min_int">Nativeint.min_int</a>,  <a title="RK_element Nativeint.max_int">Nativeint.max_int</a>].</div></div>
+   [ <a href="#Nativeint.min_int">Nativeint.min_int</a>,  <a href="#Nativeint.max_int">Nativeint.max_int</a>].</div></div>
 <pre><span class="VALto_float"><span class="keyword">val</span> to_float</span> : <code class="type">nativeint -&gt; float</code></pre><div class="info"><div class="info">Convert the given native integer to a floating-point number.</div></div>
 <pre><span class="VALof_int32"><span class="keyword">val</span> of_int32</span> : <code class="type">int32 -&gt; nativeint</code></pre><div class="info"><div class="info">Convert the given 32-bit integer (type <code class="code">int32</code>)
    to a native integer.</div></div>
@@ -83,13 +83,13 @@
 <pre><span class="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">nativeint -&gt; string</code></pre><div class="info"><div class="info">Return the string representation of its argument, in decimal.</div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">nativeint</code></pre><div class="info"><div class="info">An alias for the type of native integers.</div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="?package=ocaml&amp;module=Nativeint&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Nativeint&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">The comparison function for native integers, with the same specification as
-     <a title="RK_element Pervasives.compare">Pervasives.compare</a>.  Along with the type <code class="code">t</code>, this function <code class="code">compare</code>
+     <a href="#Pervasives.compare">Pervasives.compare</a>.  Along with the type <code class="code">t</code>, this function <code class="code">compare</code>
     allows the module <code class="code">Nativeint</code> to be passed as argument to the functors
-     <a title="RK_element Set.Make">Set.Make</a> and  <a title="RK_element Map.Make">Map.Make</a>.</div></div>
+     <a href="#Set.Make">Set.Make</a> and  <a href="#Map.Make">Map.Make</a>.</div></div>
 <pre><span class="VALformat"><span class="keyword">val</span> format</span> : <code class="type">string -&gt; nativeint -&gt; string</code></pre><div class="info"><div class="info"><code class="code">Nativeint.format fmt n</code> return the string representation of the
    native integer <code class="code">n</code> in the format specified by <code class="code">fmt</code>.
    <code class="code">fmt</code> is a <code class="code">Printf</code>-style format consisting of exactly
    one <code class="code">%d</code>, <code class="code">%i</code>, <code class="code">%u</code>, <code class="code">%x</code>, <code class="code">%X</code> or <code class="code">%o</code> conversion specification.
-   This function is deprecated; use  <a title="RK_element Printf.sprintf">Printf.sprintf</a> with a <code class="code">%nx</code> format
+   This function is deprecated; use  <a href="#Printf.sprintf">Printf.sprintf</a> with a <code class="code">%nx</code> format
    instead.</div></div>
 </div>

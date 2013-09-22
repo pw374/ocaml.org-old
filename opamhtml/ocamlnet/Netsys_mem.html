@@ -75,7 +75,7 @@
       result into undefined behavior (anything from funny results
       to crashes may happen).<br/>      Some Ocaml primitives might not work on the returned values
       (polymorphic equality, marshalling, hashing) unless 
-       <a title="RK_element Netsys_mem.value_area">Netsys_mem.value_area</a> is called for the memory block.</div></div>
+       <a href="#Netsys_mem.value_area">Netsys_mem.value_area</a> is called for the memory block.</div></div>
 <pre><span class="VALas_obj"><span class="keyword">val</span> as_obj</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a> -&gt; int -&gt; <a href="?package=ocaml&amp;module=Obj&amp;type=t">Obj.t</a></code></pre><div class="info"><div class="info">Same as <code class="code">as_value</code> but returns the value as <code class="code">Obj.t</code></div></div>
 <pre><span class="VALvalue_area"><span class="keyword">val</span> value_area</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_mem&amp;type=memory">memory</a> -&gt; unit</code></pre><div class="info"><div class="info">Marks the memory block as value area. This enables that the
       value primitives (polymorphic equality, marshalling, hashing)

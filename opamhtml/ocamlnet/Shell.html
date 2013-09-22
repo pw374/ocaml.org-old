@@ -1,8 +1,8 @@
 <div class="ocaml_toplevel_module"><div class="info">Calls external programs, creates pipelines, etc. (simplified interface)</div>
 <div class="info"><div class="info"><b>Signal handlers:</b> When you call the function <code class="code">call</code>, signal handlers
- are automatically installed by  <a title="RK_element Shell_sys.install_job_handlers">Shell_sys.install_job_handlers</a>, unless
+ are automatically installed by  <a href="#Shell_sys.install_job_handlers">Shell_sys.install_job_handlers</a>, unless
  this installation has already been performed. You can configure these
- handlers by  <a title="RK_element Shell_sys.configure_job_handlers">Shell_sys.configure_job_handlers</a>. The handlers remain
+ handlers by  <a href="#Shell_sys.configure_job_handlers">Shell_sys.configure_job_handlers</a>. The handlers remain
  in effect even after <code class="code">call</code> returns.<br/> Note that this has a global side effect on the whole process, because
  there is only one set of signal handlers.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Calling commands and pipelines</h1></div></div>
@@ -62,7 +62,7 @@
  a serious error condition has happened, and it is recommended
  to exit the program as soon as possible.<div class="parameters"><div class="param_info"><code class="code">ignore_error_code</code> : If <code class="code">true</code>, exit codes other than 0 of the
    subprocesses are ignored. This does not apply to signals, however.
-   By default <code class="code">false</code>.</div><div class="param_info"><code class="code">mode</code> : See  <a title="RK_element Shell_sys.run_job">Shell_sys.run_job</a> for a detailed description
+   By default <code class="code">false</code>.</div><div class="param_info"><code class="code">mode</code> : See  <a href="#Shell_sys.run_job">Shell_sys.run_job</a> for a detailed description
    of this parameter. By default <code class="code">Same_as_caller</code>.</div><div class="param_info"><code class="code">stdin</code> : If present, the first process of the pipeline reads
    input data from this procucer. By default, there is no such 
    producer.</div><div class="param_info"><code class="code">stdout</code> : If present, the last process of the pipeline writes
@@ -114,7 +114,7 @@
     (EPIPE). Default: the empty function. EPIPE exceptions are
     always caught, and implicitly handled by closing the pipeline.</div></div></div></div>
 <pre><span class="VALfrom_function"><span class="keyword">val</span> from_function</span> : <code class="type">producer:(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool) -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from a function. See
-   <a title="RK_element Shell_sys.add_producer">Shell_sys.add_producer</a> for the meaning of the <code class="code">producer</code>
+   <a href="#Shell_sys.add_producer">Shell_sys.add_producer</a> for the meaning of the <code class="code">producer</code>
   function.</div></div>
 <pre><span class="VALfrom_file"><span class="keyword">val</span> from_file</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">Creates a producer taking the data from the file whose name is
  passed to this function.</div></div>
@@ -123,7 +123,7 @@
 <pre><span class="VALfrom_dev_null"><span class="keyword">val</span> from_dev_null</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Shell&amp;type=producer">producer</a></code></pre><div class="info"><div class="info">A producer taking the data from <code class="code">/dev/null</code>.</div></div>
 <pre><span class="VALto_buffer"><span class="keyword">val</span> to_buffer</span> : <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">Buffer.t</a> -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer writing the data into the passed buffer.</div></div>
 <pre><span class="VALto_function"><span class="keyword">val</span> to_function</span> : <code class="type">consumer:(<a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; bool) -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer writing the data by calling a function. See
-   <a title="RK_element Shell_sys.add_consumer">Shell_sys.add_consumer</a> for the meaning of the <code class="code">consumer</code>
+   <a href="#Shell_sys.add_consumer">Shell_sys.add_consumer</a> for the meaning of the <code class="code">consumer</code>
   function.</div></div>
 <pre><span class="VALto_file"><span class="keyword">val</span> to_file</span> : <code class="type">?append:bool -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Shell&amp;type=consumer">consumer</a></code></pre><div class="info"><div class="info">Creates a consumer writing the data into the file whose name is
  passed to this function. Unless <code class="code">append</code> is given, the file is

@@ -1,12 +1,12 @@
 <div class="ocaml_toplevel_module"><div class="info">Condition variables</div>
 <div class="info"><div class="info">Condition variables are here defined as values that reside in shared heaps
-    ( <a title="RK_element Netmcore_heap">Netmcore_heap</a>), for example in the header field of 
-     <a title="RK_element Netmcore_array">Netmcore_array</a> or somewhere else in heap-allocated
+    ( <a href="#Netmcore_heap">Netmcore_heap</a>), for example in the header field of 
+     <a href="#Netmcore_array">Netmcore_array</a> or somewhere else in heap-allocated
     data structures.<br/>    In order to ensure that the condition variable is in the heap, the
     special function <code class="code">create_condition</code> must be used to initialize it
     there. As <code class="code">create_condition</code> requires a mutator as argument, this is
     only possible by calling <code class="code">create_condition</code> from the callback of
-     <a title="RK_element Netmcore_heap.modify">Netmcore_heap.modify</a>.<br/>    Condition variables are special values, and cannot be copied or moved.<br/>    Condition variables are implemented on top of semaphores. Compared to
+     <a href="#Netmcore_heap.modify">Netmcore_heap.modify</a>.<br/>    Condition variables are special values, and cannot be copied or moved.<br/>    Condition variables are implemented on top of semaphores. Compared to
     the <code class="code">pthreads</code> version of condition variables, the user needs here to
     allocate special <code class="code">wait_entry</code> slots, one for each process. An entry
     can be used for all condition variables a process needs to wait for.

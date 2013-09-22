@@ -3,20 +3,20 @@
    The implementation allows efficient sharing of large numerical
    arrays between OCaml code and C or Fortran numerical libraries.<br/>   Concerning the naming conventions, users of this module are encouraged
    to do <code class="code">open Bigarray</code> in their source, then refer to array types and
-   operations via short dot notation, e.g. <code class="code">Array1.t</code> or <code class="code">Array2.sub</code>.<br/>   Big arrays support all the OCaml ad-hoc polymorphic operations:<ul><li>comparisons (<code class="code">=</code>, <code class="code">&lt;&gt;</code>, <code class="code">&lt;=</code>, etc, as well as  <a title="RK_element Pervasives.compare">Pervasives.compare</a>);</li><li>hashing (module <code class="code">Hash</code>);</li><li>and structured input-output (the functions from the
-      <a title="RK_element Marshal">Marshal</a> module, as well as  <a title="RK_element Pervasives.output_value">Pervasives.output_value</a>
-     and  <a title="RK_element Pervasives.input_value">Pervasives.input_value</a>).
+   operations via short dot notation, e.g. <code class="code">Array1.t</code> or <code class="code">Array2.sub</code>.<br/>   Big arrays support all the OCaml ad-hoc polymorphic operations:<ul><li>comparisons (<code class="code">=</code>, <code class="code">&lt;&gt;</code>, <code class="code">&lt;=</code>, etc, as well as  <a href="#Pervasives.compare">Pervasives.compare</a>);</li><li>hashing (module <code class="code">Hash</code>);</li><li>and structured input-output (the functions from the
+      <a href="#Marshal">Marshal</a> module, as well as  <a href="#Pervasives.output_value">Pervasives.output_value</a>
+     and  <a href="#Pervasives.input_value">Pervasives.input_value</a>).
 </li></ul></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Element kinds</h6></div></div>
 <div class="info"><div class="info">Big arrays can contain elements of the following kinds:<ul><li>IEEE single precision (32 bits) floating-point numbers
-   ( <a title="RK_element Bigarray.float32_elt">Bigarray.float32_elt</a>),</li><li>IEEE double precision (64 bits) floating-point numbers
-   ( <a title="RK_element Bigarray.float64_elt">Bigarray.float64_elt</a>),</li><li>IEEE single precision (2 * 32 bits) floating-point complex numbers
-   ( <a title="RK_element Bigarray.complex32_elt">Bigarray.complex32_elt</a>),</li><li>IEEE double precision (2 * 64 bits) floating-point complex numbers
-   ( <a title="RK_element Bigarray.complex64_elt">Bigarray.complex64_elt</a>),</li><li>8-bit integers (signed or unsigned)
-   ( <a title="RK_element Bigarray.int8_signed_elt">Bigarray.int8_signed_elt</a> or  <a title="RK_element Bigarray.int8_unsigned_elt">Bigarray.int8_unsigned_elt</a>),</li><li>16-bit integers (signed or unsigned)
-   ( <a title="RK_element Bigarray.int16_signed_elt">Bigarray.int16_signed_elt</a> or  <a title="RK_element Bigarray.int16_unsigned_elt">Bigarray.int16_unsigned_elt</a>),</li><li>OCaml integers (signed, 31 bits on 32-bit architectures,
-   63 bits on 64-bit architectures) ( <a title="RK_element Bigarray.int_elt">Bigarray.int_elt</a>),</li><li>32-bit signed integer ( <a title="RK_element Bigarray.int32_elt">Bigarray.int32_elt</a>),</li><li>64-bit signed integers ( <a title="RK_element Bigarray.int64_elt">Bigarray.int64_elt</a>),</li><li>platform-native signed integers (32 bits on 32-bit architectures,
-   64 bits on 64-bit architectures) ( <a title="RK_element Bigarray.nativeint_elt">Bigarray.nativeint_elt</a>).</li></ul>   Each element kind is represented at the type level by one
+   ( <a href="#Bigarray.float32_elt">Bigarray.float32_elt</a>),</li><li>IEEE double precision (64 bits) floating-point numbers
+   ( <a href="#Bigarray.float64_elt">Bigarray.float64_elt</a>),</li><li>IEEE single precision (2 * 32 bits) floating-point complex numbers
+   ( <a href="#Bigarray.complex32_elt">Bigarray.complex32_elt</a>),</li><li>IEEE double precision (2 * 64 bits) floating-point complex numbers
+   ( <a href="#Bigarray.complex64_elt">Bigarray.complex64_elt</a>),</li><li>8-bit integers (signed or unsigned)
+   ( <a href="#Bigarray.int8_signed_elt">Bigarray.int8_signed_elt</a> or  <a href="#Bigarray.int8_unsigned_elt">Bigarray.int8_unsigned_elt</a>),</li><li>16-bit integers (signed or unsigned)
+   ( <a href="#Bigarray.int16_signed_elt">Bigarray.int16_signed_elt</a> or  <a href="#Bigarray.int16_unsigned_elt">Bigarray.int16_unsigned_elt</a>),</li><li>OCaml integers (signed, 31 bits on 32-bit architectures,
+   63 bits on 64-bit architectures) ( <a href="#Bigarray.int_elt">Bigarray.int_elt</a>),</li><li>32-bit signed integer ( <a href="#Bigarray.int32_elt">Bigarray.int32_elt</a>),</li><li>64-bit signed integers ( <a href="#Bigarray.int64_elt">Bigarray.int64_elt</a>),</li><li>platform-native signed integers (32 bits on 32-bit architectures,
+   64 bits on 64-bit architectures) ( <a href="#Bigarray.nativeint_elt">Bigarray.nativeint_elt</a>).</li></ul>   Each element kind is represented at the type level by one
    of the abstract types defined below.</div></div>
 <pre><span class="TYPEfloat32_elt"><span class="keyword">type</span> float32_elt</span> </pre>
 <pre><span class="TYPEfloat64_elt"><span class="keyword">type</span> float64_elt</span> </pre>
@@ -43,23 +43,23 @@
    of the big array.  The following predefined values of type
    <code class="code">kind</code> list all possible associations of OCaml types with
    element kinds:</div></div>
-<pre><span class="VALfloat32"><span class="keyword">val</span> float32</span> : <code class="type">(float, <a href="?package=ocaml&amp;module=Bigarray&amp;type=float32_elt">float32_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALfloat64"><span class="keyword">val</span> float64</span> : <code class="type">(float, <a href="?package=ocaml&amp;module=Bigarray&amp;type=float64_elt">float64_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALcomplex32"><span class="keyword">val</span> complex32</span> : <code class="type">(<a href="?package=ocaml&amp;module=Complex&amp;type=t">Complex.t</a>, <a href="?package=ocaml&amp;module=Bigarray&amp;type=complex32_elt">complex32_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALcomplex64"><span class="keyword">val</span> complex64</span> : <code class="type">(<a href="?package=ocaml&amp;module=Complex&amp;type=t">Complex.t</a>, <a href="?package=ocaml&amp;module=Bigarray&amp;type=complex64_elt">complex64_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALint8_signed"><span class="keyword">val</span> int8_signed</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int8_signed_elt">int8_signed_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALint8_unsigned"><span class="keyword">val</span> int8_unsigned</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int8_unsigned_elt">int8_unsigned_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALint16_signed"><span class="keyword">val</span> int16_signed</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int16_signed_elt">int16_signed_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALint16_unsigned"><span class="keyword">val</span> int16_unsigned</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int16_unsigned_elt">int16_unsigned_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALint"><span class="keyword">val</span> int</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int_elt">int_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALint32"><span class="keyword">val</span> int32</span> : <code class="type">(int32, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int32_elt">int32_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALint64"><span class="keyword">val</span> int64</span> : <code class="type">(int64, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int64_elt">int64_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
-<pre><span class="VALnativeint"><span class="keyword">val</span> nativeint</span> : <code class="type">(nativeint, <a href="?package=ocaml&amp;module=Bigarray&amp;type=nativeint_elt">nativeint_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALfloat32"><span class="keyword">val</span> float32</span> : <code class="type">(float, <a href="?package=ocaml&amp;module=Bigarray&amp;type=float32_elt">float32_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALfloat64"><span class="keyword">val</span> float64</span> : <code class="type">(float, <a href="?package=ocaml&amp;module=Bigarray&amp;type=float64_elt">float64_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALcomplex32"><span class="keyword">val</span> complex32</span> : <code class="type">(<a href="?package=ocaml&amp;module=Complex&amp;type=t">Complex.t</a>, <a href="?package=ocaml&amp;module=Bigarray&amp;type=complex32_elt">complex32_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALcomplex64"><span class="keyword">val</span> complex64</span> : <code class="type">(<a href="?package=ocaml&amp;module=Complex&amp;type=t">Complex.t</a>, <a href="?package=ocaml&amp;module=Bigarray&amp;type=complex64_elt">complex64_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALint8_signed"><span class="keyword">val</span> int8_signed</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int8_signed_elt">int8_signed_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALint8_unsigned"><span class="keyword">val</span> int8_unsigned</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int8_unsigned_elt">int8_unsigned_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALint16_signed"><span class="keyword">val</span> int16_signed</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int16_signed_elt">int16_signed_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALint16_unsigned"><span class="keyword">val</span> int16_unsigned</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int16_unsigned_elt">int16_unsigned_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALint"><span class="keyword">val</span> int</span> : <code class="type">(int, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int_elt">int_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALint32"><span class="keyword">val</span> int32</span> : <code class="type">(int32, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int32_elt">int32_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALint64"><span class="keyword">val</span> int64</span> : <code class="type">(int64, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int64_elt">int64_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
+<pre><span class="VALnativeint"><span class="keyword">val</span> nativeint</span> : <code class="type">(nativeint, <a href="?package=ocaml&amp;module=Bigarray&amp;type=nativeint_elt">nativeint_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">See  <a href="#Bigarray.char">Bigarray.char</a>.</div></div>
 <pre><span class="VALchar"><span class="keyword">val</span> char</span> : <code class="type">(char, <a href="?package=ocaml&amp;module=Bigarray&amp;type=int8_unsigned_elt">int8_unsigned_elt</a>) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">As shown by the types of the values above,
    big arrays of kind <code class="code">float32_elt</code> and <code class="code">float64_elt</code> are
    accessed using the OCaml type <code class="code">float</code>.  Big arrays of complex kinds
    <code class="code">complex32_elt</code>, <code class="code">complex64_elt</code> are accessed with the OCaml type
-    <a title="RK_element Complex.t">Complex.t</a>.  Big arrays of
+    <a href="#Complex.t">Complex.t</a>.  Big arrays of
    integer kinds are accessed using the smallest OCaml integer
    type large enough to represent the array elements:
    <code class="code">int</code> for 8- and 16-bit integer bigarrays, as well as OCaml-integer
@@ -70,7 +70,7 @@
    characters instead of arrays of small integers, by using
    the kind value <code class="code">char</code> instead of <code class="code">int8_unsigned</code>.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Array layouts</h6></div></div>
-<pre><span class="TYPEc_layout"><span class="keyword">type</span> c_layout</span> </pre><div class="info"><div class="info">See  <a title="RK_element Bigarray.fortran_layout">Bigarray.fortran_layout</a>.</div></div>
+<pre><span class="TYPEc_layout"><span class="keyword">type</span> c_layout</span> </pre><div class="info"><div class="info">See  <a href="#Bigarray.fortran_layout">Bigarray.fortran_layout</a>.</div></div>
 <pre><span class="TYPEfortran_layout"><span class="keyword">type</span> fortran_layout</span> </pre><div class="info"><div class="info">To facilitate interoperability with existing C and Fortran code,
    this library supports two different memory layouts for big arrays,
    one compatible with the C conventions,
@@ -85,10 +85,10 @@
    column 0 are contiguous in memory, followed by all elements of
    column 1, etc.  In other terms, the array elements at <code class="code">(x,y)</code>
    and <code class="code">(x+1, y)</code> are adjacent in memory.<br/>   Each layout style is identified at the type level by the
-   abstract types  <a title="RK_element Bigarray.c_layout">Bigarray.c_layout</a> and <code class="code">fortran_layout</code> respectively.</div></div>
+   abstract types  <a href="#Bigarray.c_layout">Bigarray.c_layout</a> and <code class="code">fortran_layout</code> respectively.</div></div>
 <pre><span class="TYPElayout"><span class="keyword">type</span> <code class="type">'a </code>layout</span> </pre><div class="info"><div class="info">The type <code class="code">'a layout</code> represents one of the two supported
-   memory layouts: C-style if <code class="code">'a</code> is  <a title="RK_element Bigarray.c_layout">Bigarray.c_layout</a>, Fortran-style
-   if <code class="code">'a</code> is  <a title="RK_element Bigarray.fortran_layout">Bigarray.fortran_layout</a>.</div></div>
+   memory layouts: C-style if <code class="code">'a</code> is  <a href="#Bigarray.c_layout">Bigarray.c_layout</a>, Fortran-style
+   if <code class="code">'a</code> is  <a href="#Bigarray.fortran_layout">Bigarray.fortran_layout</a>.</div></div>
 <div class="info"><div class="info"><div class="h7">Supported layouts</div><br/>   The abstract values <code class="code">c_layout</code> and <code class="code">fortran_layout</code> represent
    the two supported layouts at the level of values.</div></div>
 <pre><span class="VALc_layout"><span class="keyword">val</span> c_layout</span> : <code class="type"><a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a> <a href="?package=ocaml&amp;module=Bigarray&amp;type=layout">layout</a></code></pre>
@@ -255,7 +255,7 @@
 <div class="info"><div class="info"><h6 id="6_TITLE">One-dimensional arrays</h6></div></div>
 <div class="ocaml_module sig" name="Array1"><pre><span class="keyword">module</span> <a href="?package=ocaml&amp;module=Bigarray.Array1">Array1</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">One-dimensional arrays. The <code class="code">Array1</code> structure provides operations
    similar to those of
-    <a title="RK_element Bigarray.Genarray">Bigarray.Genarray</a>, but specialized to the case of one-dimensional arrays.
+    <a href="#Bigarray.Genarray">Bigarray.Genarray</a>, but specialized to the case of one-dimensional arrays.
    (The <code class="code">Array2</code> and <code class="code">Array3</code> structures below provide operations
    specialized for two- and three-dimensional arrays.)
    Statically knowing the number of dimensions of the array allows
@@ -279,7 +279,7 @@
 <pre><span class="VALset"><span class="keyword">val</span> set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">t</a> -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">Array1.set a x v</code>, also written <code class="code">a.{x} &lt;- v</code>,
      stores the value <code class="code">v</code> at index <code class="code">x</code> in <code class="code">a</code>.
      <code class="code">x</code> must be inside the bounds of <code class="code">a</code> as described in
-      <a title="RK_element Bigarray.Array1.get">Bigarray.Array1.get</a>;
+      <a href="#Bigarray.Array1.get">Bigarray.Array1.get</a>;
      otherwise, <code class="code">Invalid_argument</code> is raised.</div></div>
 <pre><span class="VALsub"><span class="keyword">val</span> sub</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">t</a> -&gt; int -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">t</a></code></pre><div class="info"><div class="info">Extract a sub-array of the given one-dimensional big array.
      See <code class="code">Genarray.sub_left</code> for more details.</div></div>
@@ -291,16 +291,16 @@
      given array.</div></div>
 <pre><span class="VALmap_file"><span class="keyword">val</span> map_file</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt;
 ?pos:int64 -&gt; ('a, 'b) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a> -&gt; 'c <a href="?package=ocaml&amp;module=Bigarray&amp;type=layout">layout</a> -&gt; bool -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">t</a></code></pre><div class="info"><div class="info">Memory mapping of a file as a one-dimensional big array.
-     See  <a title="RK_element Bigarray.Genarray.map_file">Bigarray.Genarray.map_file</a> for more details.</div></div>
-<pre><span class="VALunsafe_get"><span class="keyword">val</span> unsafe_get</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">t</a> -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info">Like  <a title="RK_element Bigarray.Array1.get">Bigarray.Array1.get</a>, but bounds checking is not always performed.
+     See  <a href="#Bigarray.Genarray.map_file">Bigarray.Genarray.map_file</a> for more details.</div></div>
+<pre><span class="VALunsafe_get"><span class="keyword">val</span> unsafe_get</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">t</a> -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info">Like  <a href="#Bigarray.Array1.get">Bigarray.Array1.get</a>, but bounds checking is not always performed.
       Use with caution and only when the program logic guarantees that
       the access is within bounds.</div></div>
-<pre><span class="VALunsafe_set"><span class="keyword">val</span> unsafe_set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">t</a> -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Like  <a title="RK_element Bigarray.Array1.set">Bigarray.Array1.set</a>, but bounds checking is not always performed.
+<pre><span class="VALunsafe_set"><span class="keyword">val</span> unsafe_set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">t</a> -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Like  <a href="#Bigarray.Array1.set">Bigarray.Array1.set</a>, but bounds checking is not always performed.
       Use with caution and only when the program logic guarantees that
       the access is within bounds.</div></div></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Two-dimensional arrays</h6></div></div>
 <div class="ocaml_module sig" name="Array2"><pre><span class="keyword">module</span> <a href="?package=ocaml&amp;module=Bigarray.Array2">Array2</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Two-dimensional arrays. The <code class="code">Array2</code> structure provides operations
-   similar to those of  <a title="RK_element Bigarray.Genarray">Bigarray.Genarray</a>, but specialized to the
+   similar to those of  <a href="#Bigarray.Genarray">Bigarray.Genarray</a>, but specialized to the
    case of two-dimensional arrays.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">('a, 'b, 'c) </code>t</span> </pre><div class="info"><div class="info">The type of two-dimensional big arrays whose elements have
      OCaml type <code class="code">'a</code>, representation kind <code class="code">'b</code>, and memory layout <code class="code">'c</code>.</div></div>
@@ -308,7 +308,7 @@
      two dimension, whose size is <code class="code">dim1</code> in the first dimension
      and <code class="code">dim2</code> in the second dimension.  <code class="code">kind</code> and <code class="code">layout</code>
      determine the array element kind and the array layout
-     as described for  <a title="RK_element Bigarray.Genarray.create">Bigarray.Genarray.create</a>.</div></div>
+     as described for  <a href="#Bigarray.Genarray.create">Bigarray.Genarray.create</a>.</div></div>
 <pre><span class="VALdim1"><span class="keyword">val</span> dim1</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Return the first dimension of the given two-dimensional big array.</div></div>
 <pre><span class="VALdim2"><span class="keyword">val</span> dim2</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Return the second dimension of the given two-dimensional big array.</div></div>
 <pre><span class="VALkind"><span class="keyword">val</span> kind</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; ('a, 'b) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a></code></pre><div class="info"><div class="info">Return the kind of the given big array.</div></div>
@@ -316,47 +316,47 @@
 <pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">Array2.get a x y</code>, also written <code class="code">a.{x,y}</code>,
      returns the element of <code class="code">a</code> at coordinates (<code class="code">x</code>, <code class="code">y</code>).
      <code class="code">x</code> and <code class="code">y</code> must be within the bounds
-     of <code class="code">a</code>, as described for  <a title="RK_element Bigarray.Genarray.get">Bigarray.Genarray.get</a>;
+     of <code class="code">a</code>, as described for  <a href="#Bigarray.Genarray.get">Bigarray.Genarray.get</a>;
      otherwise, <code class="code">Invalid_argument</code> is raised.</div></div>
 <pre><span class="VALset"><span class="keyword">val</span> set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">Array2.set a x y v</code>, or alternatively <code class="code">a.{x,y} &lt;- v</code>,
      stores the value <code class="code">v</code> at coordinates (<code class="code">x</code>, <code class="code">y</code>) in <code class="code">a</code>.
      <code class="code">x</code> and <code class="code">y</code> must be within the bounds of <code class="code">a</code>,
-     as described for  <a title="RK_element Bigarray.Genarray.set">Bigarray.Genarray.set</a>;
+     as described for  <a href="#Bigarray.Genarray.set">Bigarray.Genarray.set</a>;
      otherwise, <code class="code">Invalid_argument</code> is raised.</div></div>
 <pre><span class="VALsub_left"><span class="keyword">val</span> sub_left</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a></code></pre><div class="info"><div class="info">Extract a two-dimensional sub-array of the given two-dimensional
      big array by restricting the first dimension.
-     See  <a title="RK_element Bigarray.Genarray.sub_left">Bigarray.Genarray.sub_left</a> for more details.
+     See  <a href="#Bigarray.Genarray.sub_left">Bigarray.Genarray.sub_left</a> for more details.
      <code class="code">Array2.sub_left</code> applies only to arrays with C layout.</div></div>
 <pre><span class="VALsub_right"><span class="keyword">val</span> sub_right</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a></code></pre><div class="info"><div class="info">Extract a two-dimensional sub-array of the given two-dimensional
      big array by restricting the second dimension.
-     See  <a title="RK_element Bigarray.Genarray.sub_right">Bigarray.Genarray.sub_right</a> for more details.
+     See  <a href="#Bigarray.Genarray.sub_right">Bigarray.Genarray.sub_right</a> for more details.
      <code class="code">Array2.sub_right</code> applies only to arrays with Fortran layout.</div></div>
 <pre><span class="VALslice_left"><span class="keyword">val</span> slice_left</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">Array1.t</a></code></pre><div class="info"><div class="info">Extract a row (one-dimensional slice) of the given two-dimensional
      big array.  The integer parameter is the index of the row to
-     extract.  See  <a title="RK_element Bigarray.Genarray.slice_left">Bigarray.Genarray.slice_left</a> for more details.
+     extract.  See  <a href="#Bigarray.Genarray.slice_left">Bigarray.Genarray.slice_left</a> for more details.
      <code class="code">Array2.slice_left</code> applies only to arrays with C layout.</div></div>
 <pre><span class="VALslice_right"><span class="keyword">val</span> slice_right</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">Array1.t</a></code></pre><div class="info"><div class="info">Extract a column (one-dimensional slice) of the given
      two-dimensional big array.  The integer parameter is the
-     index of the column to extract.  See  <a title="RK_element Bigarray.Genarray.slice_right">Bigarray.Genarray.slice_right</a>
+     index of the column to extract.  See  <a href="#Bigarray.Genarray.slice_right">Bigarray.Genarray.slice_right</a>
      for more details.  <code class="code">Array2.slice_right</code> applies only to arrays
      with Fortran layout.</div></div>
 <pre><span class="VALblit"><span class="keyword">val</span> blit</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Copy the first big array to the second big array.
-     See  <a title="RK_element Bigarray.Genarray.blit">Bigarray.Genarray.blit</a> for more details.</div></div>
+     See  <a href="#Bigarray.Genarray.blit">Bigarray.Genarray.blit</a> for more details.</div></div>
 <pre><span class="VALfill"><span class="keyword">val</span> fill</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Fill the given big array with the given value.
-     See  <a title="RK_element Bigarray.Genarray.fill">Bigarray.Genarray.fill</a> for more details.</div></div>
+     See  <a href="#Bigarray.Genarray.fill">Bigarray.Genarray.fill</a> for more details.</div></div>
 <pre><span class="VALof_array"><span class="keyword">val</span> of_array</span> : <code class="type">('a, 'b) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a> -&gt; 'c <a href="?package=ocaml&amp;module=Bigarray&amp;type=layout">layout</a> -&gt; 'a array array -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a></code></pre><div class="info"><div class="info">Build a two-dimensional big array initialized from the
      given array of arrays.</div></div>
 <pre><span class="VALmap_file"><span class="keyword">val</span> map_file</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt;
 ?pos:int64 -&gt;
 ('a, 'b) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a> -&gt; 'c <a href="?package=ocaml&amp;module=Bigarray&amp;type=layout">layout</a> -&gt; bool -&gt; int -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a></code></pre><div class="info"><div class="info">Memory mapping of a file as a two-dimensional big array.
-     See  <a title="RK_element Bigarray.Genarray.map_file">Bigarray.Genarray.map_file</a> for more details.</div></div>
-<pre><span class="VALunsafe_get"><span class="keyword">val</span> unsafe_get</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info">Like  <a title="RK_element Bigarray.Array2.get">Bigarray.Array2.get</a>, but bounds checking is not always
+     See  <a href="#Bigarray.Genarray.map_file">Bigarray.Genarray.map_file</a> for more details.</div></div>
+<pre><span class="VALunsafe_get"><span class="keyword">val</span> unsafe_get</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info">Like  <a href="#Bigarray.Array2.get">Bigarray.Array2.get</a>, but bounds checking is not always
       performed.</div></div>
-<pre><span class="VALunsafe_set"><span class="keyword">val</span> unsafe_set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Like  <a title="RK_element Bigarray.Array2.set">Bigarray.Array2.set</a>, but bounds checking is not always
+<pre><span class="VALunsafe_set"><span class="keyword">val</span> unsafe_set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">t</a> -&gt; int -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Like  <a href="#Bigarray.Array2.set">Bigarray.Array2.set</a>, but bounds checking is not always
       performed.</div></div></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Three-dimensional arrays</h6></div></div>
 <div class="ocaml_module sig" name="Array3"><pre><span class="keyword">module</span> <a href="?package=ocaml&amp;module=Bigarray.Array3">Array3</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Three-dimensional arrays. The <code class="code">Array3</code> structure provides operations
-   similar to those of  <a title="RK_element Bigarray.Genarray">Bigarray.Genarray</a>, but specialized to the case
+   similar to those of  <a href="#Bigarray.Genarray">Bigarray.Genarray</a>, but specialized to the case
    of three-dimensional arrays.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">('a, 'b, 'c) </code>t</span> </pre><div class="info"><div class="info">The type of three-dimensional big arrays whose elements have
      OCaml type <code class="code">'a</code>, representation kind <code class="code">'b</code>, and memory layout <code class="code">'c</code>.</div></div>
@@ -364,7 +364,7 @@
      three dimension, whose size is <code class="code">dim1</code> in the first dimension,
      <code class="code">dim2</code> in the second dimension, and <code class="code">dim3</code> in the third.
      <code class="code">kind</code> and <code class="code">layout</code> determine the array element kind and
-     the array layout as described for  <a title="RK_element Bigarray.Genarray.create">Bigarray.Genarray.create</a>.</div></div>
+     the array layout as described for  <a href="#Bigarray.Genarray.create">Bigarray.Genarray.create</a>.</div></div>
 <pre><span class="VALdim1"><span class="keyword">val</span> dim1</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Return the first dimension of the given three-dimensional big array.</div></div>
 <pre><span class="VALdim2"><span class="keyword">val</span> dim2</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Return the second dimension of the given three-dimensional big array.</div></div>
 <pre><span class="VALdim3"><span class="keyword">val</span> dim3</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Return the third dimension of the given three-dimensional big array.</div></div>
@@ -373,56 +373,56 @@
 <pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">Array3.get a x y z</code>, also written <code class="code">a.{x,y,z}</code>,
      returns the element of <code class="code">a</code> at coordinates (<code class="code">x</code>, <code class="code">y</code>, <code class="code">z</code>).
      <code class="code">x</code>, <code class="code">y</code> and <code class="code">z</code> must be within the bounds of <code class="code">a</code>,
-     as described for  <a title="RK_element Bigarray.Genarray.get">Bigarray.Genarray.get</a>;
+     as described for  <a href="#Bigarray.Genarray.get">Bigarray.Genarray.get</a>;
      otherwise, <code class="code">Invalid_argument</code> is raised.</div></div>
 <pre><span class="VALset"><span class="keyword">val</span> set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">Array3.set a x y v</code>, or alternatively <code class="code">a.{x,y,z} &lt;- v</code>,
      stores the value <code class="code">v</code> at coordinates (<code class="code">x</code>, <code class="code">y</code>, <code class="code">z</code>) in <code class="code">a</code>.
      <code class="code">x</code>, <code class="code">y</code> and <code class="code">z</code> must be within the bounds of <code class="code">a</code>,
-     as described for  <a title="RK_element Bigarray.Genarray.set">Bigarray.Genarray.set</a>;
+     as described for  <a href="#Bigarray.Genarray.set">Bigarray.Genarray.set</a>;
      otherwise, <code class="code">Invalid_argument</code> is raised.</div></div>
 <pre><span class="VALsub_left"><span class="keyword">val</span> sub_left</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a></code></pre><div class="info"><div class="info">Extract a three-dimensional sub-array of the given
      three-dimensional big array by restricting the first dimension.
-     See  <a title="RK_element Bigarray.Genarray.sub_left">Bigarray.Genarray.sub_left</a> for more details.  <code class="code">Array3.sub_left</code>
+     See  <a href="#Bigarray.Genarray.sub_left">Bigarray.Genarray.sub_left</a> for more details.  <code class="code">Array3.sub_left</code>
      applies only to arrays with C layout.</div></div>
 <pre><span class="VALsub_right"><span class="keyword">val</span> sub_right</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a></code></pre><div class="info"><div class="info">Extract a three-dimensional sub-array of the given
      three-dimensional big array by restricting the second dimension.
-     See  <a title="RK_element Bigarray.Genarray.sub_right">Bigarray.Genarray.sub_right</a> for more details.  <code class="code">Array3.sub_right</code>
+     See  <a href="#Bigarray.Genarray.sub_right">Bigarray.Genarray.sub_right</a> for more details.  <code class="code">Array3.sub_right</code>
      applies only to arrays with Fortran layout.</div></div>
 <pre><span class="VALslice_left_1"><span class="keyword">val</span> slice_left_1</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">Array1.t</a></code></pre><div class="info"><div class="info">Extract a one-dimensional slice of the given three-dimensional
      big array by fixing the first two coordinates.
      The integer parameters are the coordinates of the slice to
-     extract.  See  <a title="RK_element Bigarray.Genarray.slice_left">Bigarray.Genarray.slice_left</a> for more details.
+     extract.  See  <a href="#Bigarray.Genarray.slice_left">Bigarray.Genarray.slice_left</a> for more details.
      <code class="code">Array3.slice_left_1</code> applies only to arrays with C layout.</div></div>
 <pre><span class="VALslice_right_1"><span class="keyword">val</span> slice_right_1</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">Array1.t</a></code></pre><div class="info"><div class="info">Extract a one-dimensional slice of the given three-dimensional
      big array by fixing the last two coordinates.
      The integer parameters are the coordinates of the slice to
-     extract.  See  <a title="RK_element Bigarray.Genarray.slice_right">Bigarray.Genarray.slice_right</a> for more details.
+     extract.  See  <a href="#Bigarray.Genarray.slice_right">Bigarray.Genarray.slice_right</a> for more details.
      <code class="code">Array3.slice_right_1</code> applies only to arrays with Fortran
      layout.</div></div>
 <pre><span class="VALslice_left_2"><span class="keyword">val</span> slice_left_2</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=c_layout">c_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">Array2.t</a></code></pre><div class="info"><div class="info">Extract a  two-dimensional slice of the given three-dimensional
      big array by fixing the first coordinate.
      The integer parameter is the first coordinate of the slice to
-     extract.  See  <a title="RK_element Bigarray.Genarray.slice_left">Bigarray.Genarray.slice_left</a> for more details.
+     extract.  See  <a href="#Bigarray.Genarray.slice_left">Bigarray.Genarray.slice_left</a> for more details.
      <code class="code">Array3.slice_left_2</code> applies only to arrays with C layout.</div></div>
 <pre><span class="VALslice_right_2"><span class="keyword">val</span> slice_right_2</span> : <code class="type">('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; ('a, 'b, <a href="?package=ocaml&amp;module=Bigarray&amp;type=fortran_layout">fortran_layout</a>) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">Array2.t</a></code></pre><div class="info"><div class="info">Extract a two-dimensional slice of the given
      three-dimensional big array by fixing the last coordinate.
      The integer parameter is the coordinate of the slice
-     to extract.  See  <a title="RK_element Bigarray.Genarray.slice_right">Bigarray.Genarray.slice_right</a> for more details.
+     to extract.  See  <a href="#Bigarray.Genarray.slice_right">Bigarray.Genarray.slice_right</a> for more details.
      <code class="code">Array3.slice_right_2</code> applies only to arrays with Fortran
      layout.</div></div>
 <pre><span class="VALblit"><span class="keyword">val</span> blit</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Copy the first big array to the second big array.
-     See  <a title="RK_element Bigarray.Genarray.blit">Bigarray.Genarray.blit</a> for more details.</div></div>
+     See  <a href="#Bigarray.Genarray.blit">Bigarray.Genarray.blit</a> for more details.</div></div>
 <pre><span class="VALfill"><span class="keyword">val</span> fill</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Fill the given big array with the given value.
-     See  <a title="RK_element Bigarray.Genarray.fill">Bigarray.Genarray.fill</a> for more details.</div></div>
+     See  <a href="#Bigarray.Genarray.fill">Bigarray.Genarray.fill</a> for more details.</div></div>
 <pre><span class="VALof_array"><span class="keyword">val</span> of_array</span> : <code class="type">('a, 'b) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a> -&gt; 'c <a href="?package=ocaml&amp;module=Bigarray&amp;type=layout">layout</a> -&gt; 'a array array array -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a></code></pre><div class="info"><div class="info">Build a three-dimensional big array initialized from the
      given array of arrays of arrays.</div></div>
 <pre><span class="VALmap_file"><span class="keyword">val</span> map_file</span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt;
 ?pos:int64 -&gt;
 ('a, 'b) <a href="?package=ocaml&amp;module=Bigarray&amp;type=kind">kind</a> -&gt; 'c <a href="?package=ocaml&amp;module=Bigarray&amp;type=layout">layout</a> -&gt; bool -&gt; int -&gt; int -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a></code></pre><div class="info"><div class="info">Memory mapping of a file as a three-dimensional big array.
-     See  <a title="RK_element Bigarray.Genarray.map_file">Bigarray.Genarray.map_file</a> for more details.</div></div>
-<pre><span class="VALunsafe_get"><span class="keyword">val</span> unsafe_get</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info">Like  <a title="RK_element Bigarray.Array3.get">Bigarray.Array3.get</a>, but bounds checking is not always
+     See  <a href="#Bigarray.Genarray.map_file">Bigarray.Genarray.map_file</a> for more details.</div></div>
+<pre><span class="VALunsafe_get"><span class="keyword">val</span> unsafe_get</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info">Like  <a href="#Bigarray.Array3.get">Bigarray.Array3.get</a>, but bounds checking is not always
       performed.</div></div>
-<pre><span class="VALunsafe_set"><span class="keyword">val</span> unsafe_set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Like  <a title="RK_element Bigarray.Array3.set">Bigarray.Array3.set</a>, but bounds checking is not always
+<pre><span class="VALunsafe_set"><span class="keyword">val</span> unsafe_set</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">t</a> -&gt; int -&gt; int -&gt; int -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info">Like  <a href="#Bigarray.Array3.set">Bigarray.Array3.set</a>, but bounds checking is not always
       performed.</div></div></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Coercions between generic big arrays and fixed-dimension big arrays</h6></div></div>
 <pre><span class="VALgenarray_of_array1"><span class="keyword">val</span> genarray_of_array1</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">Array1.t</a> -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Genarray&amp;type=t">Genarray.t</a></code></pre><div class="info"><div class="info">Return the generic big array corresponding to the given one-dimensional
@@ -455,10 +455,10 @@
    elements as the original big array <code class="code">b</code>.  That is, the product
    of the dimensions of <code class="code">b</code> must be equal to <code class="code">i1 * ... * iN</code>.
    Otherwise, <code class="code">Invalid_argument</code> is raised.</div></div>
-<pre><span class="VALreshape_1"><span class="keyword">val</span> reshape_1</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Genarray&amp;type=t">Genarray.t</a> -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">Array1.t</a></code></pre><div class="info"><div class="info">Specialized version of  <a title="RK_element Bigarray.reshape">Bigarray.reshape</a> for reshaping to
+<pre><span class="VALreshape_1"><span class="keyword">val</span> reshape_1</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Genarray&amp;type=t">Genarray.t</a> -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array1&amp;type=t">Array1.t</a></code></pre><div class="info"><div class="info">Specialized version of  <a href="#Bigarray.reshape">Bigarray.reshape</a> for reshaping to
    one-dimensional arrays.</div></div>
-<pre><span class="VALreshape_2"><span class="keyword">val</span> reshape_2</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Genarray&amp;type=t">Genarray.t</a> -&gt; int -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">Array2.t</a></code></pre><div class="info"><div class="info">Specialized version of  <a title="RK_element Bigarray.reshape">Bigarray.reshape</a> for reshaping to
+<pre><span class="VALreshape_2"><span class="keyword">val</span> reshape_2</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Genarray&amp;type=t">Genarray.t</a> -&gt; int -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array2&amp;type=t">Array2.t</a></code></pre><div class="info"><div class="info">Specialized version of  <a href="#Bigarray.reshape">Bigarray.reshape</a> for reshaping to
    two-dimensional arrays.</div></div>
-<pre><span class="VALreshape_3"><span class="keyword">val</span> reshape_3</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Genarray&amp;type=t">Genarray.t</a> -&gt; int -&gt; int -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">Array3.t</a></code></pre><div class="info"><div class="info">Specialized version of  <a title="RK_element Bigarray.reshape">Bigarray.reshape</a> for reshaping to
+<pre><span class="VALreshape_3"><span class="keyword">val</span> reshape_3</span> : <code class="type">('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Genarray&amp;type=t">Genarray.t</a> -&gt; int -&gt; int -&gt; int -&gt; ('a, 'b, 'c) <a href="?package=ocaml&amp;module=Bigarray.Array3&amp;type=t">Array3.t</a></code></pre><div class="info"><div class="info">Specialized version of  <a href="#Bigarray.reshape">Bigarray.reshape</a> for reshaping to
    three-dimensional arrays.</div></div>
 </div>

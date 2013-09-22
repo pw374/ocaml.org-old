@@ -5,23 +5,23 @@
    the value is not used any more (through normal pointers) by the
    program.  Note that finalisation functions are run after the
    weak pointers are erased.<br/>   A weak pointer is said to be full if it points to a value,
-   empty if the value was erased by the GC.<br/>   Notes:<ul><li>Integers are not allocated and cannot be stored in weak arrays.</li><li>Weak arrays cannot be marshaled using  <a title="RK_element Pervasives.output_value">Pervasives.output_value</a>
-     nor the functions of the  <a title="RK_element Marshal">Marshal</a> module.
+   empty if the value was erased by the GC.<br/>   Notes:<ul><li>Integers are not allocated and cannot be stored in weak arrays.</li><li>Weak arrays cannot be marshaled using  <a href="#Pervasives.output_value">Pervasives.output_value</a>
+     nor the functions of the  <a href="#Marshal">Marshal</a> module.
 </li></ul></div></div>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -&gt; 'a <a href="?package=ocaml&amp;module=Weak&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">Weak.create n</code> returns a new weak array of length <code class="code">n</code>.
    All the pointers are initially empty.  Raise <code class="code">Invalid_argument</code>
-   if <code class="code">n</code> is negative or greater than  <a title="RK_element Sys.max_array_length">Sys.max_array_length</a><code class="code">-1</code>.</div></div>
+   if <code class="code">n</code> is negative or greater than  <a href="#Sys.max_array_length">Sys.max_array_length</a><code class="code">-1</code>.</div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Weak&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">Weak.length ar</code> returns the length (number of elements) of
    <code class="code">ar</code>.</div></div>
 <pre><span class="VALset"><span class="keyword">val</span> set</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Weak&amp;type=t">t</a> -&gt; int -&gt; 'a option -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">Weak.set ar n (Some el)</code> sets the <code class="code">n</code>th cell of <code class="code">ar</code> to be a
    (full) pointer to <code class="code">el</code>; <code class="code">Weak.set ar n None</code> sets the <code class="code">n</code>th
    cell of <code class="code">ar</code> to empty.
    Raise <code class="code">Invalid_argument &quot;Weak.set&quot;</code> if <code class="code">n</code> is not in the range
-   0 to  <a title="RK_element Weak.length">Weak.length</a><code class="code"> a - 1</code>.</div></div>
+   0 to  <a href="#Weak.length">Weak.length</a><code class="code"> a - 1</code>.</div></div>
 <pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Weak&amp;type=t">t</a> -&gt; int -&gt; 'a option</code></pre><div class="info"><div class="info"><code class="code">Weak.get ar n</code> returns None if the <code class="code">n</code>th cell of <code class="code">ar</code> is
    empty, <code class="code">Some x</code> (where <code class="code">x</code> is the value) if it is full.
    Raise <code class="code">Invalid_argument &quot;Weak.get&quot;</code> if <code class="code">n</code> is not in the range
-   0 to  <a title="RK_element Weak.length">Weak.length</a><code class="code"> a - 1</code>.</div></div>
+   0 to  <a href="#Weak.length">Weak.length</a><code class="code"> a - 1</code>.</div></div>
 <pre><span class="VALget_copy"><span class="keyword">val</span> get_copy</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Weak&amp;type=t">t</a> -&gt; int -&gt; 'a option</code></pre><div class="info"><div class="info"><code class="code">Weak.get_copy ar n</code> returns None if the <code class="code">n</code>th cell of <code class="code">ar</code> is
    empty, <code class="code">Some x</code> (where <code class="code">x</code> is a (shallow) copy of the value) if
    it is full.
@@ -30,10 +30,10 @@
    the incremental GC from erasing the value in its current cycle
    (<code class="code">get</code> may delay the erasure to the next GC cycle).
    Raise <code class="code">Invalid_argument &quot;Weak.get&quot;</code> if <code class="code">n</code> is not in the range
-   0 to  <a title="RK_element Weak.length">Weak.length</a><code class="code"> a - 1</code>.</div></div>
+   0 to  <a href="#Weak.length">Weak.length</a><code class="code"> a - 1</code>.</div></div>
 <pre><span class="VALcheck"><span class="keyword">val</span> check</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Weak&amp;type=t">t</a> -&gt; int -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">Weak.check ar n</code> returns <code class="code">true</code> if the <code class="code">n</code>th cell of <code class="code">ar</code> is
    full, <code class="code">false</code> if it is empty.  Note that even if <code class="code">Weak.check ar n</code>
-   returns <code class="code">true</code>, a subsequent  <a title="RK_element Weak.get">Weak.get</a><code class="code"> ar n</code> can return <code class="code">None</code>.</div></div>
+   returns <code class="code">true</code>, a subsequent  <a href="#Weak.get">Weak.get</a><code class="code"> ar n</code> can return <code class="code">None</code>.</div></div>
 <pre><span class="VALfill"><span class="keyword">val</span> fill</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Weak&amp;type=t">t</a> -&gt; int -&gt; int -&gt; 'a option -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">Weak.fill ar ofs len el</code> sets to <code class="code">el</code> all pointers of <code class="code">ar</code> from
    <code class="code">ofs</code> to <code class="code">ofs + len - 1</code>.  Raise <code class="code">Invalid_argument &quot;Weak.fill&quot;</code>
    if <code class="code">ofs</code> and <code class="code">len</code> do not designate a valid subarray of <code class="code">a</code>.</div></div>
@@ -48,16 +48,16 @@
     magically disappear from the set when it is not used by the
     rest of the program any more.  This is normally used to share
     data structures without inducing memory leaks.
-    Weak hash tables are defined on values from a  <a title="RK_element Hashtbl.HashedType">Hashtbl.HashedType</a>
+    Weak hash tables are defined on values from a  <a href="#Hashtbl.HashedType">Hashtbl.HashedType</a>
     module; the <code class="code">equal</code> relation and <code class="code">hash</code> function are taken from that
     module.  We will say that <code class="code">v</code> is an instance of <code class="code">x</code> if <code class="code">equal x v</code>
     is <code class="code">true</code>.<br/>    The <code class="code">equal</code> relation must be able to work on a shallow copy of
     the values and give the same result as with the values themselves.</div></div>
-<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Weak.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The output signature of the functor  <a title="RK_element Weak.Make">Weak.Make</a>.</div></div><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Weak.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The output signature of the functor  <a href="#Weak.Make">Weak.Make</a>.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEdata"><span class="keyword">type</span> data</span> </pre><div class="info"><div class="info">The type of the elements stored in the table.</div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of tables that contain elements of type <code class="code">data</code>.
         Note that weak hash tables cannot be marshaled using
-         <a title="RK_element Pervasives.output_value">Pervasives.output_value</a> or the functions of the  <a title="RK_element Marshal">Marshal</a>
+         <a href="#Pervasives.output_value">Pervasives.output_value</a> or the functions of the  <a href="#Marshal">Marshal</a>
         module.</div></div>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -&gt; <a href="?package=ocaml&amp;module=Weak.S&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">create n</code> creates a new empty weak hash table, of initial
         size <code class="code">n</code>.  The table will grow as needed.</div></div>

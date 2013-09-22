@@ -1,4 +1,4 @@
-<div class="ocaml_toplevel_module"><div class="info">Shared heaps of structured values<br/>    These heaps live in  <a title="RK_element Netmcore_mempool">Netmcore_mempool</a>-type shared memory pools,
+<div class="ocaml_toplevel_module"><div class="info">Shared heaps of structured values<br/>    These heaps live in  <a href="#Netmcore_mempool">Netmcore_mempool</a>-type shared memory pools,
     and can contain an arbitrary number of Ocaml values. These values
     can be mutable, but special care has to be taken when modifying them.
     The first value pushed onto the heap is called the <i>root element</i>.
@@ -11,7 +11,7 @@
     them, and following such references from other processes would probably
     crash the program (or at least return wrong values). In order to ensure
     this, it is strictly forbidden to directly manipulate mutable
-    data structures. The  <a title="RK_element Netmcore_heap.modify">Netmcore_heap.modify</a> function has to be used,
+    data structures. The  <a href="#Netmcore_heap.modify">Netmcore_heap.modify</a> function has to be used,
     as this function makes it possible to copy more values to the heap.
     Unfortunately, there is nothing in the type system that would prevent
     direct mutation. so this can only be ensured by the discipline of the
@@ -29,7 +29,7 @@
       can be marshalled.</div></div>
 <pre><span class="VALcreate_heap"><span class="keyword">val</span> create_heap</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore&amp;type=res_id">Netmcore.res_id</a> -&gt; int -&gt; 'a -&gt; 'a <a href="?package=ocamlnet&amp;module=Netmcore_heap&amp;type=heap">heap</a></code></pre><div class="info"><div class="info"><code class="code">create_heap pool_id size root</code>: Creates a new heap with <code class="code">size</code>
       bytes in the pool identified by <code class="code">pool_id</code>. This ID must refer
-      to a  <a title="RK_element Netmcore_mempool">Netmcore_mempool</a>-managed pool.<br/>      The value <code class="code">root</code> is copied to the new heap. This is done by
+      to a  <a href="#Netmcore_mempool">Netmcore_mempool</a>-managed pool.<br/>      The value <code class="code">root</code> is copied to the new heap. This is done by
       deeply duplicating <code class="code">root</code> and all values pointed to by <code class="code">root</code>,
       and storing these duplicates in the heap.<br/>      The possible types of value <code class="code">root</code> are restricted, see the <code class="code">add</code>
       function for more.</div></div>
@@ -55,7 +55,7 @@
       value.<br/>      Not all values can be pushed here. In particular, forbidden are:<ul><li>Functions</li><li>Objects</li><li>Unsupported custom blocks, e.g. <code class="code">in_channel</code> and <code class="code">out_channel</code>.
         Supported custom blocks are only <code class="code">int32</code>, <code class="code">int64</code>, <code class="code">nativeint</code>,
         and bigarrays.</li><li>Heaps (a heap cannot contain a heap)</li><li>Values containing semaphores and other synchronization primitives.
-        Explicitly allowed are dummy primitives like  <a title="RK_element Netmcore_mutex.dummy">Netmcore_mutex.dummy</a>.
+        Explicitly allowed are dummy primitives like  <a href="#Netmcore_mutex.dummy">Netmcore_mutex.dummy</a>.
    </li></ul></div></div>
 <pre><span class="VALadd_immutable"><span class="keyword">val</span> add_immutable</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore_heap&amp;type=mutator">mutator</a> -&gt; 'a -&gt; 'a</code></pre><div class="info"><div class="info">Pushes a new value onto the heap. This function must only be used
       if the added value is immutable. An important optimization is applied
@@ -104,7 +104,7 @@
 <pre><span class="VALmut_sem_container"><span class="keyword">val</span> mut_sem_container</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netmcore_heap&amp;type=mutator">mutator</a> -&gt; <a href="?package=ocamlnet&amp;module=Netsys_sem&amp;type=container">Netsys_sem.container</a></code></pre><div class="info"><div class="info">Return the semaphore container</div></div>
 <pre><span class="VALdebug_info"><span class="keyword">val</span> debug_info</span> : <code class="type">'a <a href="?package=ocamlnet&amp;module=Netmcore_heap&amp;type=heap">heap</a> -&gt; string</code></pre><div class="info"><div class="info">Returns a multi-line debug string</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Example: Mutable Variable</h2><br/>    This example creates a heap that stores a single value. (This is
-    available as  <a title="RK_element Netmcore_ref">Netmcore_ref</a>.)<br/>    <pre class="codepre"><code class="code">
+    available as  <a href="#Netmcore_ref">Netmcore_ref</a>.)<br/>    <pre class="codepre"><code class="code">
     let shared_ref x =
       (* The shm version of [ref x] *)
       let r = ref x in

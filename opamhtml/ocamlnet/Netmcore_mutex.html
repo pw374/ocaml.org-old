@@ -1,12 +1,12 @@
 <div class="ocaml_toplevel_module"><div class="info">Mutexes</div>
 <div class="info"><div class="info">Mutexes are here defined as values that reside in shared heaps
-    ( <a title="RK_element Netmcore_heap">Netmcore_heap</a>), for example in the header field of 
-     <a title="RK_element Netmcore_array">Netmcore_array</a> or somewhere else in heap-allocated
+    ( <a href="#Netmcore_heap">Netmcore_heap</a>), for example in the header field of 
+     <a href="#Netmcore_array">Netmcore_array</a> or somewhere else in heap-allocated
     data structures.<br/>    In order to ensure that the mutex is in the heap, the
     special function <code class="code">create</code> must be used to initialize it
     there. As <code class="code">create</code> requires a mutator as argument, this is
     only possible by calling <code class="code">create</code> from the callback of
-     <a title="RK_element Netmcore_heap.modify">Netmcore_heap.modify</a>.<br/>    Mutexes are special values, and cannot be copied or moved.<br/>    Mutexes are implemented on top of semaphores. For mutex types with
+     <a href="#Netmcore_heap.modify">Netmcore_heap.modify</a>.<br/>    Mutexes are special values, and cannot be copied or moved.<br/>    Mutexes are implemented on top of semaphores. For mutex types with
     deadlock handling, the process is considered as the owner, and
     process ID is the identifier.<br/>    Only mutexes of type <code class="code">`Normal</code> are thread-safe, i.e. can be used
     when the worker processes also use threads internally.</div></div>

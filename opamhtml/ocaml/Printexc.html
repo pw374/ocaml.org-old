@@ -7,7 +7,7 @@
    and the exception is raised again.
    The typical use is to catch and report exceptions that
    escape a function application.</div></div>
-<pre><span class="VALcatch"><span class="keyword">val</span> catch</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">Printexc.catch fn x</code> is similar to  <a title="RK_element Printexc.print">Printexc.print</a>, but
+<pre><span class="VALcatch"><span class="keyword">val</span> catch</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">Printexc.catch fn x</code> is similar to  <a href="#Printexc.print">Printexc.print</a>, but
    aborts the program with exit code 2 after printing the
    uncaught exception.  This function is deprecated: the runtime
    system is now able to print uncaught exceptions as precisely

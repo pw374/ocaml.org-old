@@ -18,7 +18,7 @@
    will modify all other entries at the same time.<br/>   Raise <code class="code">Invalid_argument</code> if <code class="code">n &lt; 0</code> or <code class="code">n &gt; Sys.max_array_length</code>.
    If the value of <code class="code">x</code> is a floating-point number, then the maximum
    size is only <code class="code">Sys.max_array_length / 2</code>.</div></div>
-<pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -&gt; 'a -&gt; 'a array</code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span> <code class="code">Array.create</code> is an alias for  <a title="RK_element ArrayLabels.make">ArrayLabels.make</a>.<br/></div></div>
+<pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -&gt; 'a -&gt; 'a array</code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span> <code class="code">Array.create</code> is an alias for  <a href="#ArrayLabels.make">ArrayLabels.make</a>.<br/></div></div>
 <pre><span class="VALinit"><span class="keyword">val</span> init</span> : <code class="type">int -&gt; f:(int -&gt; 'a) -&gt; 'a array</code></pre><div class="info"><div class="info"><code class="code">Array.init n f</code> returns a fresh array of length <code class="code">n</code>,
    with element number <code class="code">i</code> initialized to the result of <code class="code">f i</code>.
    In other terms, <code class="code">Array.init n f</code> tabulates the results of <code class="code">f</code>
@@ -35,7 +35,7 @@
    If the value of <code class="code">e</code> is a floating-point number, then the maximum
    size is only <code class="code">Sys.max_array_length / 2</code>.</div></div>
 <pre><span class="VALcreate_matrix"><span class="keyword">val</span> create_matrix</span> : <code class="type">dimx:int -&gt; dimy:int -&gt; 'a -&gt; 'a array array</code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span> <code class="code">Array.create_matrix</code> is an alias for
-    <a title="RK_element ArrayLabels.make_matrix">ArrayLabels.make_matrix</a>.<br/></div></div>
+    <a href="#ArrayLabels.make_matrix">ArrayLabels.make_matrix</a>.<br/></div></div>
 <pre><span class="VALappend"><span class="keyword">val</span> append</span> : <code class="type">'a array -&gt; 'a array -&gt; 'a array</code></pre><div class="info"><div class="info"><code class="code">Array.append v1 v2</code> returns a fresh array containing the
    concatenation of the arrays <code class="code">v1</code> and <code class="code">v2</code>.</div></div>
 <pre><span class="VALconcat"><span class="keyword">val</span> concat</span> : <code class="type">'a array list -&gt; 'a array</code></pre><div class="info"><div class="info">Same as <code class="code">Array.append</code>, but concatenates a list of arrays.</div></div>
@@ -65,10 +65,10 @@
 <pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">f:('a -&gt; 'b) -&gt; 'a array -&gt; 'b array</code></pre><div class="info"><div class="info"><code class="code">Array.map f a</code> applies function <code class="code">f</code> to all the elements of <code class="code">a</code>,
    and builds an array with the results returned by <code class="code">f</code>:
    <code class="code">[| f a.(0); f a.(1); ...; f a.(Array.length a - 1) |]</code>.</div></div>
-<pre><span class="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">f:(int -&gt; 'a -&gt; unit) -&gt; 'a array -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ArrayLabels.iter">ArrayLabels.iter</a>, but the
+<pre><span class="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">f:(int -&gt; 'a -&gt; unit) -&gt; 'a array -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a href="#ArrayLabels.iter">ArrayLabels.iter</a>, but the
    function is applied to the index of the element as first argument,
    and the element itself as second argument.</div></div>
-<pre><span class="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">f:(int -&gt; 'a -&gt; 'b) -&gt; 'a array -&gt; 'b array</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ArrayLabels.map">ArrayLabels.map</a>, but the
+<pre><span class="VALmapi"><span class="keyword">val</span> mapi</span> : <code class="type">f:(int -&gt; 'a -&gt; 'b) -&gt; 'a array -&gt; 'b array</code></pre><div class="info"><div class="info">Same as  <a href="#ArrayLabels.map">ArrayLabels.map</a>, but the
    function is applied to the index of the element as first argument,
    and the element itself as second argument.</div></div>
 <pre><span class="VALfold_left"><span class="keyword">val</span> fold_left</span> : <code class="type">f:('a -&gt; 'b -&gt; 'a) -&gt; init:'a -&gt; 'b array -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">Array.fold_left f x a</code> computes
@@ -82,7 +82,7 @@
    function.  The comparison function must return 0 if its arguments
    compare as equal, a positive integer if the first is greater,
    and a negative integer if the first is smaller (see below for a
-   complete specification).  For example,  <a title="RK_element Pervasives.compare">Pervasives.compare</a> is
+   complete specification).  For example,  <a href="#Pervasives.compare">Pervasives.compare</a> is
    a suitable comparison function, provided there are no floating-point
    NaN values in the data.  After calling <code class="code">Array.sort</code>, the
    array is sorted in place in increasing order.
@@ -93,12 +93,12 @@
    must be true for all x, y, z in a :<ul><li>  <code class="code">cmp x y</code> &gt; 0 if and only if <code class="code">cmp y x</code> &lt; 0</li><li>  if <code class="code">cmp x y</code> &gt;= 0 and <code class="code">cmp y z</code> &gt;= 0 then <code class="code">cmp x z</code> &gt;= 0</li></ul>   When <code class="code">Array.sort</code> returns, <code class="code">a</code> contains the same elements as before,
    reordered in such a way that for all i and j valid indices of <code class="code">a</code> :<ul><li>  <code class="code">cmp a.(i) a.(j)</code> &gt;= 0 if and only if i &gt;= j
 </li></ul></div></div>
-<pre><span class="VALstable_sort"><span class="keyword">val</span> stable_sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a array -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element ArrayLabels.sort">ArrayLabels.sort</a>, but the sorting algorithm is stable (i.e.
+<pre><span class="VALstable_sort"><span class="keyword">val</span> stable_sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a array -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a href="#ArrayLabels.sort">ArrayLabels.sort</a>, but the sorting algorithm is stable (i.e.
    elements that compare equal are kept in their original order) and
    not guaranteed to run in constant heap space.<br/>   The current implementation uses Merge Sort. It uses <code class="code">n/2</code>
    words of heap space, where <code class="code">n</code> is the length of the array.
-   It is usually faster than the current implementation of  <a title="RK_element ArrayLabels.sort">ArrayLabels.sort</a>.</div></div>
-<pre><span class="VALfast_sort"><span class="keyword">val</span> fast_sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a array -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element Array.sort">Array.sort</a> or  <a title="RK_element Array.stable_sort">Array.stable_sort</a>, whichever is faster
+   It is usually faster than the current implementation of  <a href="#ArrayLabels.sort">ArrayLabels.sort</a>.</div></div>
+<pre><span class="VALfast_sort"><span class="keyword">val</span> fast_sort</span> : <code class="type">cmp:('a -&gt; 'a -&gt; int) -&gt; 'a array -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a href="#Array.sort">Array.sort</a> or  <a href="#Array.stable_sort">Array.stable_sort</a>, whichever is faster
     on typical input.</div></div>
 <pre><span class="VALunsafe_get"><span class="keyword">val</span> unsafe_get</span> : <code class="type">'a array -&gt; int -&gt; 'a</code></pre>
 <pre><span class="VALunsafe_set"><span class="keyword">val</span> unsafe_set</span> : <code class="type">'a array -&gt; int -&gt; 'a -&gt; unit</code></pre>

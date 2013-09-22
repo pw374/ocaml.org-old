@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">FTP client<br/> Currently implements:<ul><li>Core FTP (RFC 959), except compressed transfer modes, and except page
-   files</li><li>Negotiation of FTP extensions (RFC 2389)</li><li>Common FTP extensions (RFC 3659)</li><li>IPv6 (RFC 2428)</li><li>Internationalization (RFC 2640)</li><li>Directory walking (NVFS) and direct access (TVFS)</li></ul> The client is written in asynchronous style (using  <a title="RK_element Uq_engines">Uq_engines</a>).<br/> The interface of this module was changed in Ocamlnet-3.3. Before this
+   files</li><li>Negotiation of FTP extensions (RFC 2389)</li><li>Common FTP extensions (RFC 3659)</li><li>IPv6 (RFC 2428)</li><li>Internationalization (RFC 2640)</li><li>Directory walking (NVFS) and direct access (TVFS)</li></ul> The client is written in asynchronous style (using  <a href="#Uq_engines">Uq_engines</a>).<br/> The interface of this module was changed in Ocamlnet-3.3. Before this
  release, the module was marked as &quot;experimental&quot;. This is no longer
  the case, as the interface has been updated, and the missing features
  have been added (e.g. <code class="code">STOR</code> support).</div>
@@ -45,7 +45,7 @@
  selected representation. When files are downloaded, they are stored
  as they are received. When files are uploaded, they are sent as they
  are. The user of this client must do recodings when necessary
- (the class  <a title="RK_element Ftp_data_endpoint.data_converter">Ftp_data_endpoint.data_converter</a> may be useful for this).<br/> If no representation is selected, FTP servers assume <code class="code">`ASCII None</code>
+ (the class  <a href="#Ftp_data_endpoint.data_converter">Ftp_data_endpoint.data_converter</a> may be useful for this).<br/> If no representation is selected, FTP servers assume <code class="code">`ASCII None</code>
  as default.</div></div>
 <pre><span class="TYPEstructure"><span class="keyword">type</span> structure</span> = <code class="type">[ `File_structure | `Record_structure ]</code></pre><div class="info"><div class="info">The client supports two structures:<ul><li><code class="code">`File_structure</code>: Files are simply contiguous streams of bytes</li><li><code class="code">`Record_structure</code>: Files are sequences of records. FTP does
    not make a difference between variable and fixed length records.
@@ -55,8 +55,8 @@
    record-structured files often store text files in this format, i.e.
    every line is stored in its own record, without end-of-line marker.
    If record structure is selected by a STRU command, it is recommended
-   to use the classes  <a title="RK_element Ftp_data_endpoint.out_record_channel">Ftp_data_endpoint.out_record_channel</a> and
-    <a title="RK_element Ftp_data_endpoint.in_record_channel">Ftp_data_endpoint.in_record_channel</a> for the local representation
+   to use the classes  <a href="#Ftp_data_endpoint.out_record_channel">Ftp_data_endpoint.out_record_channel</a> and
+    <a href="#Ftp_data_endpoint.in_record_channel">Ftp_data_endpoint.in_record_channel</a> for the local representation
    of the files, otherwise the records may be incorrectly mapped
    to the local conventions.</li></ul> Page-structured files (i.e. indexed files) are not supported.<br/> If no structure is selected, FTP servers will assume file structure
  as default.</div></div>
@@ -164,7 +164,7 @@
 <pre><span class="METHODevent_system"><span class="keyword">method</span> event_system</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a></code></pre>
 <div class="info"><div class="info">The used event system</div></div>
 <pre><span class="METHODrequest_notification"><span class="keyword">method</span> request_notification</span> : <code class="code">(unit -&gt; bool) -&gt; unit</code></pre>
-<div class="info"><div class="info">as in  <a title="RK_element Uq_engines.engine">Uq_engines.engine</a></div></div>
+<div class="info"><div class="info">as in  <a href="#Uq_engines.engine">Uq_engines.engine</a></div></div>
 <pre><span class="METHODis_empty"><span class="keyword">method</span> is_empty</span> : <code class="code">bool</code></pre>
 <div class="info"><div class="info">Whether the queue is empty</div></div>
 <pre><span class="METHODneed_ip6"><span class="keyword">method</span> need_ip6</span> : <code class="code">bool</code></pre>
@@ -262,7 +262,7 @@ representation:<a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=represe
 process_result:(int64 -&gt; unit) -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_method">ftp_method</a></code></pre><div class="info"><div class="info">Determines the size of <code class="code">file</code>. On success, <code class="code">process_result</code> is called.
     The size depends on <code class="code">representation</code>.</div></div>
 <pre><span class="VALfeat_method"><span class="keyword">val</span> feat_method</span> : <code class="type">?process_result:((string * string option) list -&gt; unit) -&gt; unit -&gt; <a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_method">ftp_method</a></code></pre><div class="info"><div class="info">Get the list of feature tokens (see also
-       <a title="RK_element Ftp_client.ftp_state.ftp_features">Ftp_client.ftp_state.ftp_features</a>)</div></div>
+       <a href="#Ftp_client.ftp_state.ftp_features">Ftp_client.ftp_state.ftp_features</a>)</div></div>
 <pre><span class="TYPEentry"><span class="keyword">type</span> entry</span> = <code class="type">string * (string * string) list</code></pre><div class="info"><div class="info">A file entry <code class="code">(name, facts)</code>. The facts are given as pairs
 	<code class="code">(factname,value)</code> where <code class="code">factname</code> is always lowercase.
 	For parsers for common facts see below.</div></div>
@@ -303,13 +303,13 @@ store:(<a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_state">ftp_
 <div class="info"><div class="info">Runs the method asynchronously as engine.</div></div>
 <pre><span class="METHODexec"><span class="keyword">method</span> exec</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_method">ftp_method</a> -&gt; unit</code></pre>
 <div class="info"><div class="info">Runs the method synchronously. Note that this implies a call of
-	 <a title="RK_element Unixqueue.run">Unixqueue.run</a>.</div></div>
+	 <a href="#Unixqueue.run">Unixqueue.run</a>.</div></div>
 <pre><span class="METHODpi"><span class="keyword">method</span> pi</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_client_pi">ftp_client_pi</a></code></pre>
 <div class="info"><div class="info">The curerent protocol interpreter. It is allowed that a different <code class="code">pi</code>
 	is created when a new connection is opened.<br/>	The <code class="code">pi</code> is first available after running the first method. The
 	method fails if <code class="code">pi</code> is unavailable.</div></div>
 <pre><span class="METHODrun"><span class="keyword">method</span> run</span> : <code class="code">unit -&gt; unit</code></pre>
-<div class="info"><div class="info">Starts the event system; same as  <a title="RK_element Unixqueue.run">Unixqueue.run</a></div></div>
+<div class="info"><div class="info">Starts the event system; same as  <a href="#Unixqueue.run">Unixqueue.run</a></div></div>
 <pre><span class="METHODconfigure_timeout"><span class="keyword">method</span> configure_timeout</span> : <code class="code">float -&gt; unit</code></pre>
 <div class="info"><div class="info">Configures a timeout for both the control and the data connection.
 	This must be done before connecting to a server.</div></div>
@@ -357,5 +357,5 @@ store:(<a href="?package=ocamlnet&amp;module=Ftp_client&amp;type=ftp_state">ftp_
  <code class="code">Netconversion.conversion_pipe</code>.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Ftp_client.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables  <a title="RK_element Netlog">Netlog</a>-style debugging of this module</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables  <a href="#Netlog">Netlog</a>-style debugging of this module</div></div></div></div>
 </div>

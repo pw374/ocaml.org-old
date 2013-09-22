@@ -87,9 +87,9 @@
 <tr><td class="module"><a href="?package=camomile&amp;module=URe">URe</a></td><td><div class="info">Regular expression engine.</div></td></tr>
 <tr><td class="module"><a href="?package=camomile&amp;module=UReStr">UReStr</a></td><td><div class="info">Module for a Str-like regular expression syntax.
    The difference can be summarised as follows.<ul><li>Non-ASCII characters can be used if encoded by UTF-8, or
-   using the escape syntax \u&lt;code number as hex digits&gt;.</li><li>Each Unicode character is treated as a single character.</li><li>Character properties like Lu ( <a title="RK_element UCharInfo.general_category_type">UCharInfo.general_category_type</a>),
-   White_Space ( <a title="RK_element UCharInfo.character_property_type">UCharInfo.character_property_type</a>),
-   Ogham ( <a title="RK_element UCharInfo.script_type">UCharInfo.script_type</a>) can be used in character sets. e.g.
+   using the escape syntax \u&lt;code number as hex digits&gt;.</li><li>Each Unicode character is treated as a single character.</li><li>Character properties like Lu ( <a href="#UCharInfo.general_category_type">UCharInfo.general_category_type</a>),
+   White_Space ( <a href="#UCharInfo.character_property_type">UCharInfo.character_property_type</a>),
+   Ogham ( <a href="#UCharInfo.script_type">UCharInfo.script_type</a>) can be used in character sets. e.g.
    [{Lu &amp; ID_Start}][{ID_Continue}]* (capitalised identifier),
    \([{Han}]+\|[{Katakana}]+\)[{Hiragana}]* 
    (Japanese word component).
@@ -98,9 +98,9 @@
    in {...} notations.</li></ul></div></td></tr>
 <tr><td class="module"><a href="?package=camomile&amp;module=UReStr">UReStr</a></td><td><div class="info">Module for a Str-like regular expression syntax.
    The difference can be summarised as follows.<ul><li>Non-ASCII characters can be used if encoded by UTF-8, or
-   using the escape syntax \u&lt;code number as hex digits&gt;.</li><li>Each Unicode character is treated as a single character.</li><li>Character properties like Lu ( <a title="RK_element UCharInfo.general_category_type">UCharInfo.general_category_type</a>),
-   White_Space ( <a title="RK_element UCharInfo.character_property_type">UCharInfo.character_property_type</a>),
-   Ogham ( <a title="RK_element UCharInfo.script_type">UCharInfo.script_type</a>) can be used in character sets. e.g.
+   using the escape syntax \u&lt;code number as hex digits&gt;.</li><li>Each Unicode character is treated as a single character.</li><li>Character properties like Lu ( <a href="#UCharInfo.general_category_type">UCharInfo.general_category_type</a>),
+   White_Space ( <a href="#UCharInfo.character_property_type">UCharInfo.character_property_type</a>),
+   Ogham ( <a href="#UCharInfo.script_type">UCharInfo.script_type</a>) can be used in character sets. e.g.
    [{Lu &amp; ID_Start}][{ID_Continue}]* (capitalised identifier),
    \([{Han}]+\|[{Katakana}]+\)[{Hiragana}]* 
    (Japanese word component).
@@ -130,13 +130,13 @@
 <tr><td class="module"><a href="?package=camomile&amp;module=UText">UText</a></td><td><div class="info">An implementation of Unicode string.</div></td></tr>
 <tr><td class="module"><a href="?package=camomile&amp;module=UText">UText</a></td><td><div class="info">An implementation of Unicode string.</div></td></tr>
 <tr><td class="module"><a href="?package=camomile&amp;module=UnicodeString">UnicodeString</a></td><td><div class="info">Signature for Unicode strings.  
-    <a title="RK_element UText">UText</a>,  <a title="RK_element XString">XString</a>,  <a title="RK_element UTF8">UTF8</a>,  <a title="RK_element UTF16">UTF16</a>,  <a title="RK_element UCS4">UCS4</a>
+    <a href="#UText">UText</a>,  <a href="#XString">XString</a>,  <a href="#UTF8">UTF8</a>,  <a href="#UTF16">UTF16</a>,  <a href="#UCS4">UCS4</a>
    have matched signatures to UStorage
    and satisfy the semantics described below.  If users want to supply
    their own Unicode strings, please design the module with the 
    following signature and properties.</div></td></tr>
 <tr><td class="module"><a href="?package=camomile&amp;module=UnicodeString">UnicodeString</a></td><td><div class="info">Signature for Unicode strings.  
-    <a title="RK_element UText">UText</a>,  <a title="RK_element XString">XString</a>,  <a title="RK_element UTF8">UTF8</a>,  <a title="RK_element UTF16">UTF16</a>,  <a title="RK_element UCS4">UCS4</a>
+    <a href="#UText">UText</a>,  <a href="#XString">XString</a>,  <a href="#UTF8">UTF8</a>,  <a href="#UTF16">UTF16</a>,  <a href="#UCS4">UCS4</a>
    have matched signatures to UStorage
    and satisfy the semantics described below.  If users want to supply
    their own Unicode strings, please design the module with the 

@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">Pollsets for Win32</div>
 <pre><span class="EXCEPTIONToo_many_descriptors"><span class="keyword">exception</span> Too_many_descriptors</span></pre>
-<pre><span class="VALpollset"><span class="keyword">val</span> pollset</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Netsys_pollset&amp;type=pollset">Netsys_pollset.pollset</a></code></pre><div class="info"><div class="info">This is a pollset implementation that works for <ul><li>sockets, and</li><li>named pipes as provided by  <a title="RK_element Netsys_win32">Netsys_win32</a> (add the descriptors
+<pre><span class="VALpollset"><span class="keyword">val</span> pollset</span> : <code class="type">unit -&gt; <a href="?package=ocamlnet&amp;module=Netsys_pollset&amp;type=pollset">Netsys_pollset.pollset</a></code></pre><div class="info"><div class="info">This is a pollset implementation that works for <ul><li>sockets, and</li><li>named pipes as provided by  <a href="#Netsys_win32">Netsys_win32</a> (add the descriptors
          returned by <code class="code">pipe_descr</code> or <code class="code">pipe_server_descr</code> to the pollset)</li></ul>      The number of descriptors that can be added to the pollset
       has a quite low limit (usually 63 sockets or 31 pipes).
       If the number is exceeded the exception <code class="code">Too_many_descriptors</code>
@@ -10,5 +10,5 @@
       to the set. It is, however, only available for multi-threaded
       programs, because it uses helper threads.</div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netsys_pollset_win32.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables  <a title="RK_element Netlog">Netlog</a>-style debugging of this module</div></div></div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables  <a href="#Netlog">Netlog</a>-style debugging of this module</div></div></div></div>
 </div>

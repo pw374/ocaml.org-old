@@ -39,10 +39,10 @@ Netplex_types.processor_factory list -&gt; <a href="?package=ocamlnet&amp;module
  perform here further initializations, e.g. starting helper threads.<br/> The <code class="code">config_parser</code> is by default <code class="code">Netplex_config.read_config_file</code>.
  You can override it by whatever parser you would like to use. The
  parser is only used if a configuration tree is unavailable, and
- the configuration needs to be loaded from a file.<br/> As side-effect, the current logger of the  <a title="RK_element Netlog">Netlog</a> module is set
+ the configuration needs to be loaded from a file.<br/> As side-effect, the current logger of the  <a href="#Netlog">Netlog</a> module is set
  to selected Netplex logger. Note that this setting remains active
  even after <code class="code">startup</code> returns to the caller. Also note that log messages
- submitted via  <a title="RK_element Netlog">Netlog</a> appear as from component &quot;netplex.other&quot;
+ submitted via  <a href="#Netlog">Netlog</a> appear as from component &quot;netplex.other&quot;
  if they are sent from outside of a container.<br/> It is changed to <code class="code">/</code> as working directory (as required for a daemon).</div></div>
 <pre><span class="VALrun"><span class="keyword">val</span> run</span> : <code class="type">?config_parser:(string -&gt; Netplex_types.config_file) -&gt;
 late_initializer:(Netplex_types.config_file -&gt; Netplex_types.controller -&gt; 'a) -&gt;

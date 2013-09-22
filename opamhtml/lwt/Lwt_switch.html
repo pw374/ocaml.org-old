@@ -40,12 +40,12 @@
 <pre><span class="EXCEPTIONOff"><span class="keyword">exception</span> Off</span></pre><div class="info"><div class="info">Exception raised when trying to add a hook to a switch that is
       already off.</div></div>
 <pre><span class="VALcheck"><span class="keyword">val</span> check</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_switch&amp;type=t">t</a> option -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">check switch</code> does nothing if <code class="code">switch</code> is <code class="code">None</code> or contains an
-      switch that is currently on, and raise  <a title="RK_element Off">Off</a> otherwise.</div></div>
+      switch that is currently on, and raise  <a href="#Off">Off</a> otherwise.</div></div>
 <pre><span class="VALadd_hook"><span class="keyword">val</span> add_hook</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_switch&amp;type=t">t</a> option -&gt; (unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add_hook switch f</code> registers <code class="code">f</code> so it will be called when
-       <a title="RK_element turn_off">turn_off</a> is invoked. It does nothing if <code class="code">switch</code> is
+       <a href="#turn_off">turn_off</a> is invoked. It does nothing if <code class="code">switch</code> is
       <code class="code">None</code>. If <code class="code">switch</code> contains an switch that is already off then
-       <a title="RK_element Off">Off</a> is raised.</div></div>
-<pre><span class="VALadd_hook_or_exec"><span class="keyword">val</span> add_hook_or_exec</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_switch&amp;type=t">t</a> option -&gt; (unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">add_hook_or_exec switch f</code> is the same as  <a title="RK_element add_hook">add_hook</a> except
+       <a href="#Off">Off</a> is raised.</div></div>
+<pre><span class="VALadd_hook_or_exec"><span class="keyword">val</span> add_hook_or_exec</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_switch&amp;type=t">t</a> option -&gt; (unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">add_hook_or_exec switch f</code> is the same as  <a href="#add_hook">add_hook</a> except
       that if the switch is already off, then <code class="code">f</code> is called
       immediatly.</div></div>
 </div>

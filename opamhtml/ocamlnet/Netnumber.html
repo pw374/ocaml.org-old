@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Binary encodings of numbers</div>
-<div class="info"><div class="info">This is the successor of the  <a title="RK_element Rtypes">Rtypes</a> module</div></div>
+<div class="info"><div class="info">This is the successor of the  <a href="#Rtypes">Rtypes</a> module</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Numeric types</h2></div></div>
 <pre><span class="TYPEint4"><span class="keyword">type</span> int4</span> </pre><div class="info"><div class="info">32 bit signed integer</div></div>
 <pre><span class="TYPEint8"><span class="keyword">type</span> int8</span> </pre><div class="info"><div class="info">64 bit signed integer</div></div>
@@ -97,7 +97,7 @@
 <pre><span class="VALmax_uint8"><span class="keyword">val</span> max_uint8</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netnumber&amp;type=uint8">uint8</a></code></pre>
 <div class="ocaml_module sig" name="ENCDEC"><pre><span class="keyword">module type</span> <a href="?package=ocamlnet&amp;module=Netnumber.ENCDEC">ENCDEC</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="info"><div class="info">Encode/decode numbers as strings. These functions exist in two
-      flavors:<ul><li> <a title="RK_element Netnumber.BE">Netnumber.BE</a> implements network byte order (big endian)</li><li> <a title="RK_element Netnumber.LE">Netnumber.LE</a> implements little endian
+      flavors:<ul><li> <a href="#Netnumber.BE">Netnumber.BE</a> implements network byte order (big endian)</li><li> <a href="#Netnumber.LE">Netnumber.LE</a> implements little endian
    </li></ul></div></div>
 <pre><span class="VALread_int4"><span class="keyword">val</span> read_int4</span> : <code class="type">string -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=int4">int4</a></code></pre>
 <pre><span class="VALread_int8"><span class="keyword">val</span> read_int8</span> : <code class="type">string -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Netnumber&amp;type=int8">int8</a></code></pre>

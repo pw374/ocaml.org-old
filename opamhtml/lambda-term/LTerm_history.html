@@ -6,7 +6,7 @@
       history. Oldest entries are dropped if this limit is
       reached. The default is no <code class="code">max_int</code>.<br/>      <code class="code">init</code> is the initial contents of the history. All entries of
       <code class="code">init</code> are considered &quot;old&quot;. Old entries are not saved by
-       <a title="RK_element save">save</a> when <code class="code">append</code> is set to <code class="code">true</code>.<br/>      Note: the first element of <code class="code">init</code> must be the most recent
+       <a href="#save">save</a> when <code class="code">append</code> is set to <code class="code">true</code>.<br/>      Note: the first element of <code class="code">init</code> must be the most recent
       entry.</div></div>
 <pre><span class="VALadd"><span class="keyword">val</span> add</span> : <code class="type"><a href="?package=lambda-term&amp;module=LTerm_history&amp;type=t">t</a> -&gt; ?skip_empty:bool -&gt; ?skip_dup:bool -&gt; <a href="?package=zed&amp;module=Zed_utf8&amp;type=t">Zed_utf8.t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add history ?skip_empty ?skip_dup entry</code> adds <code class="code">entry</code> to the
       top of the history. If <code class="code">skip_empty</code> is <code class="code">true</code> (the default) and

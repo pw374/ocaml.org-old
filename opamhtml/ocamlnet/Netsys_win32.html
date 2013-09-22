@@ -54,7 +54,7 @@ float -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.fi
     <code class="code">pipe_read</code> and <code class="code">pipe_write</code> to access pipes, instead of
     <code class="code">Unix.read</code> and <code class="code">Unix.write</code>. If generic r/w functions are
     required that work for numerous kinds of descriptors, there are
-     <a title="RK_element Netsys.gread">Netsys.gread</a> and  <a title="RK_element Netsys.gwrite">Netsys.gwrite</a> which support named
+     <a href="#Netsys.gread">Netsys.gread</a> and  <a href="#Netsys.gwrite">Netsys.gwrite</a> which support named
     pipes.</div></div>
 <pre><span class="TYPEw32_pipe_server"><span class="keyword">type</span> w32_pipe_server</span> </pre><div class="info"><div class="info">A pipe server. Note that there is no such thing in the Win32 API.
       Actually, a <code class="code">w32_pipe_server</code> contains the server endpoints of 
@@ -336,7 +336,7 @@ float -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.fi
 <div class="info"><div class="info"><h1 id="1_TITLE">Miscelleneous</h1></div></div>
 <pre><span class="VALget_active_code_page"><span class="keyword">val</span> get_active_code_page</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info">Get the active code page. See 
       http://msdn.microsoft.com/en-us/library/dd317756%28v=VS.85%29.aspx
-      for a list of codes. Also see  <a title="RK_element Netconversion.win32_code_pages">Netconversion.win32_code_pages</a>.</div></div>
+      for a list of codes. Also see  <a href="#Netconversion.win32_code_pages">Netconversion.win32_code_pages</a>.</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Proxy Descriptors</h1></div></div>
 <div class="info"><div class="info">For a number of objects (<code class="code">w32_event</code>, <code class="code">w32_pipe</code>, and <code class="code">w32_pipe_server</code>) 
     it is possible
@@ -384,7 +384,7 @@ float -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.fi
       is used</div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Debugging</h1></div></div>
 <div class="ocaml_module sig" name="Debug"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netsys_win32.Debug">Debug</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
-<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables  <a title="RK_element Netlog">Netlog</a>-style debugging of the Ocaml wrapper</div></div>
+<pre><span class="VALenable"><span class="keyword">val</span> enable</span> : <code class="type">bool <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">Pervasives.ref</a></code></pre><div class="info"><div class="info">Enables  <a href="#Netlog">Netlog</a>-style debugging of the Ocaml wrapper</div></div>
 <pre><span class="VALdebug_c_wrapper"><span class="keyword">val</span> debug_c_wrapper</span> : <code class="type">bool -&gt; unit</code></pre><div class="info"><div class="info">Sets whether to debug the C wrapper part. The debug messages are
         simply written to stderr</div></div></div></div>
 <pre><span class="VALinput_thread_descr"><span class="keyword">val</span> input_thread_descr</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netsys_win32&amp;type=w32_input_thread">w32_input_thread</a> -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a></code></pre>

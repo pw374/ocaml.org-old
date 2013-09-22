@@ -1,4 +1,4 @@
-<div class="ocaml_toplevel_module"><div class="info">Uniform Resource Locators (URLs)<br/> <b>Contents</b><br/> -  <a title="RK_element Neturl.interface">Neturl.interface</a><br/> The tutorial has been moved to  <a title="RK_element Neturl_tut">Neturl_tut</a>.</div>
+<div class="ocaml_toplevel_module"><div class="info">Uniform Resource Locators (URLs)<br/> <b>Contents</b><br/> -  <a href="#Neturl.interface">Neturl.interface</a><br/> The tutorial has been moved to  <a href="#Neturl_tut">Neturl_tut</a>.</div>
 <div class="info"><div class="info"><h1 id="interface">Interface</h1><br/> This module provides functions to parse URLs, to print URLs, to
  store URLs, to modify URLs, and to apply relative URLs.<br/> URLs are strings formed according to pattern (1) or (2):<br/> + <code class="code">scheme://user;userparams:password@host:port/path;params?query#fragment</code><ol><li><code class="code">scheme:other;params?query#fragment</code></li></ol> The word at the beginning of the URL identifies the URL scheme
  (such as &quot;http&quot; or &quot;file&quot;). Depending on the scheme, not all of the
@@ -14,7 +14,7 @@
  In the following descriptions, the term &quot;encoded string&quot; means a string
  containing such <code class="code">%</code>-encoded characters, and the &quot;decoded string&quot; means a
  string not containing such characters.
- See the module  <a title="RK_element Netencoding.Url">Netencoding.Url</a> for functions encoding or decoding
+ See the module  <a href="#Netencoding.Url">Netencoding.Url</a> for functions encoding or decoding
  strings.<br/> The type <code class="code">url</code> describes values storing the components of a URL,
  and the <code class="code">url_syntax</code> for the URL. In general, the components are
  stored as encoded strings; however, not for all components the
@@ -259,7 +259,7 @@
  split_path &quot;a/b/&quot;  = [ &quot;a&quot;; &quot;b&quot;; &quot;&quot; ] </code></pre>
  Beware that <code class="code">split_path &quot;..&quot;</code> returns <code class="code">[&quot;..&quot;]</code> while <code class="code">split_path &quot;../&quot;</code>
  returns <code class="code">[&quot;..&quot;; &quot;&quot;]</code>.  The two will behave differently, for example
- when used with  <a title="RK_element Neturl.apply_relative_url">Neturl.apply_relative_url</a>.</div></div>
+ when used with  <a href="#Neturl.apply_relative_url">Neturl.apply_relative_url</a>.</div></div>
 <pre><span class="VALjoin_path"><span class="keyword">val</span> join_path</span> : <code class="type">string list -&gt; string</code></pre><div class="info"><div class="info">Concatenates the path components (reverse function of split_path).</div></div>
 <pre><span class="VALnorm_path"><span class="keyword">val</span> norm_path</span> : <code class="type">string list -&gt; string list</code></pre><div class="info"><div class="info">Removes <code class="code">&quot;.&quot;</code> and <code class="code">&quot;..&quot;</code> from the path if possible. Deletes double slashes.<br/> <b>Examples</b><br/> <ul><li><code class="code">norm_path [&quot;a&quot;; &quot;..&quot;] = []</code><br/>           means: &quot;a/..&quot; = &quot;&quot;</li><li><code class="code">norm_path [&quot;a&quot;; &quot;b&quot;; &quot;&quot;; &quot;..&quot;; &quot;c&quot;; &quot;&quot;] = [&quot;a&quot;; &quot;c&quot;; &quot;&quot;]</code><br/>           means: &quot;a/b//../c/&quot; = &quot;a/c/&quot;</li><li><code class="code">norm_path [&quot;&quot;;&quot;&quot;;&quot;a&quot;;&quot;&quot;;&quot;b&quot;] = [&quot;&quot;; &quot;a&quot;; &quot;b&quot;]</code><br/>           means: &quot;//a//b&quot; = &quot;/a/b&quot;</li><li><code class="code">norm_path [&quot;a&quot;; &quot;b&quot;; &quot;..&quot;; &quot;c&quot;; &quot;&quot;] = [&quot;a&quot;; &quot;c&quot;; &quot;&quot;]</code><br/>           means: &quot;a/b/../c/&quot; = &quot;a/c/&quot;</li><li><code class="code">norm_path [&quot;a&quot;; &quot;b&quot;; &quot;..&quot;; &quot;c&quot; ] = [&quot;a&quot;; &quot;c&quot;]</code><br/>           means: &quot;a/b/../c&quot; = &quot;a/c&quot;</li><li><code class="code">norm_path [&quot;..&quot;; &quot;&quot;] = [&quot;..&quot;; &quot;&quot;]</code><br/>           means: &quot;../&quot; = &quot;../&quot;</li><li><code class="code">norm_path [&quot;..&quot;] = [&quot;..&quot;; &quot;&quot;]</code><br/>           means: &quot;..&quot; = &quot;../&quot;</li><li><code class="code">norm_path [&quot;a&quot;; &quot;.&quot;; &quot;b&quot;; &quot;.&quot;] = [&quot;a&quot;; &quot;b&quot;; &quot;&quot;]</code><br/>           means: &quot;a/./b/.&quot; = &quot;a/b/&quot;</li><li><code class="code">norm_path [&quot;a&quot;; &quot;b&quot;; &quot;.&quot;] = [&quot;a&quot;; &quot;b&quot;; &quot;&quot;]</code><br/>           means: &quot;a/b/.&quot; = &quot;a/b/&quot;</li><li><code class="code">norm_path [&quot;a&quot;; &quot;.&quot;] = [&quot;a&quot;; &quot;&quot;]</code><br/>           means: &quot;a/.&quot; = &quot;a/&quot;</li><li><code class="code">norm_path [&quot;.&quot;; &quot;&quot;] = []</code><br/>           means: &quot;./&quot; = &quot;&quot;</li><li><code class="code">norm_path [&quot;.&quot;] = []</code><br/>           means: &quot;.&quot; = &quot;&quot;</li></ul></div></div>
 <pre><span class="VALapply_relative_url"><span class="keyword">val</span> apply_relative_url</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a> -&gt; <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a> -&gt; <a href="?package=ocamlnet&amp;module=Neturl&amp;type=url">url</a></code></pre><div class="info"><div class="info"><code class="code">apply_relative_url base rel</code>:
@@ -267,8 +267,8 @@
  function implements RFC 1808.<br/> It is not necessary that <code class="code">rel</code> has the same syntax as <code class="code">base</code>.
  Note, however, that it is checked whether the resulting URL is
  syntactically correct with the syntax of <code class="code">base</code>. If not, the
- exception <code class="code">Malformed_URL</code> will be raised.<br/> Examples (the URLs are represented as strings, see  <a title="RK_element Neturl.split_path">Neturl.split_path</a>
- to split them for  <a title="RK_element Neturl.make_url">Neturl.make_url</a>):<br/> base=&quot;x/y&quot;, url=&quot;a/b&quot; =&gt; result=&quot;x/a/b&quot;
+ exception <code class="code">Malformed_URL</code> will be raised.<br/> Examples (the URLs are represented as strings, see  <a href="#Neturl.split_path">Neturl.split_path</a>
+ to split them for  <a href="#Neturl.make_url">Neturl.make_url</a>):<br/> base=&quot;x/y&quot;, url=&quot;a/b&quot; =&gt; result=&quot;x/a/b&quot;
  base=&quot;x/y/&quot;, url=&quot;a/b&quot; =&gt; result=&quot;x/y/a/b&quot;
  base=&quot;x/y/..&quot;, url=&quot;a/b&quot; =&gt; result=&quot;x/y/a/b&quot;   (beware!)
  base=&quot;x/y/../&quot;, url=&quot;a/b&quot; =&gt; result=&quot;x/a/b&quot;</div></div>

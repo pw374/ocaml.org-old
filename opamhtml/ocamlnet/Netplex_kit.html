@@ -36,9 +36,9 @@ Netplex_types.container -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=f
       accessible socket, but starts a single regular container that looks
       like any other container. Whatever needs to be initialized must be
       done in the <code class="code">pre_start_hook</code> or the <code class="code">post_start_hook</code>.<br/>      This function must be called in controller context, for example
-      in the <code class="code">late_initializer</code> of  <a title="RK_element Netplex_main.startup">Netplex_main.startup</a>, but it can
+      in the <code class="code">late_initializer</code> of  <a href="#Netplex_main.startup">Netplex_main.startup</a>, but it can
       also be started later.<br/>      For an example, look at <code class="code">examples/netplex/helper_container.ml</code> in
-      the distributed source tarball.<br/>      For multi-threaded programs,  <a title="RK_element Netplex_cenv.run_in_controller_context">Netplex_cenv.run_in_controller_context</a>
+      the distributed source tarball.<br/>      For multi-threaded programs,  <a href="#Netplex_cenv.run_in_controller_context">Netplex_cenv.run_in_controller_context</a>
       is the required companion function to start helper threads at any
       time. Multi-processing programs do not have such an easy way to 
       add helpers. They should it at program startup time.<br/>      <b>Known bug.</b> The the helper component will be in &quot;starting&quot; state as 

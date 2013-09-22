@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">Compatibility with <code class="code">Lwt</code></div>
 <div class="info"><div class="info">Lwt is another library for event-driven programming. Here are some
-    helpers for running Lwt code on top of Ocamlnet event queues.<br/>    This is for Lwt-2.3 or better.<br/>    See also the comments in  <a title="RK_element Equeue_howto.lwt">Equeue_howto.lwt</a>.</div></div>
+    helpers for running Lwt code on top of Ocamlnet event queues.<br/>    This is for Lwt-2.3 or better.<br/>    See also the comments in  <a href="#Equeue_howto.lwt">Equeue_howto.lwt</a>.</div></div>
 <div class="ocaml_class sig" name="lwt_backend"><pre><span class="TYPElwt_backend"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Uq_lwt&amp;class=lwt_backend">lwt_backend</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">Adapter for turning an Ocamlnet <code class="code">event_system</code> into an Lwt <code class="code">Lwt_engine.t</code>.<br/>    Use it like:<br/>    <pre class="codepre"><code class="code">
        class lwt_engine esys =
        object

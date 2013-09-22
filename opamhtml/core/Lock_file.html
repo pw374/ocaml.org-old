@@ -39,7 +39,7 @@
 <pre><span class="VALblocking_create"><span class="keyword">val</span> blocking_create</span> : <code class="type">?message:string -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">blocking_create ?message path</code> like create, but sleeps for 1 second between lock
       attempts and does not return until it succeeds</div></div>
 <pre><span class="VALcritical_section"><span class="keyword">val</span> critical_section</span> : <code class="type">?message:string -&gt; string -&gt; f:(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">critical_section ?message path ~f</code> wrap function <code class="code">f</code> (including exceptions escaping
-      it) by first locking (using  <a title="RK_element create_exn">create_exn</a>) and then unlocking the given lock
+      it) by first locking (using  <a href="#create_exn">create_exn</a>) and then unlocking the given lock
       file.</div></div>
 <pre><span class="VALget_hostname_and_pid"><span class="keyword">val</span> get_hostname_and_pid</span> : <code class="type">string -&gt; (string * <a href="?package=core_kernel&amp;module=Std.Pid&amp;type=t">Core_kernel.Std.Pid.t</a>) option</code></pre><div class="info"><div class="info"><code class="code">get_hostname_and_pid path</code> reads the lock file at <code class="code">path</code> and returns the hostname
       and path in the file.  Returns <code class="code">None</code> if the file cannot be read.</div></div>

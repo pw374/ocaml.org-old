@@ -6,7 +6,7 @@
 ?directory:string -&gt; ?umask:[ `Keep | `Set of int ] -&gt; unit -&gt; unit</code></pre><div class="info"><div class="info">Put the current running process into daemon mode. I.e. it forks
       and exit the parent, detach it from its controlling terminal,
       and redict standard intputs/outputs..<br/>      Notes:<ul><li>if the process is already a daemon, it does nothing.</li><li>you must be sure that there is no pending threads when
-        calling this function, otherwise they may be canceled.</li></ul>      If <code class="code">syslog</code> is <code class="code">true</code> (the default), then  <a title="RK_element Lwt_log.default">Lwt_log.default</a> is
+        calling this function, otherwise they may be canceled.</li></ul>      If <code class="code">syslog</code> is <code class="code">true</code> (the default), then  <a href="#Lwt_log.default">Lwt_log.default</a> is
       set to <code class="code">Lwt_log.syslog ~facility:`Daemon ()</code>, otherwise it is
       kept unchanged.<br/>      <code class="code">stdin</code> is one of:<ul><li><code class="code">`Dev_null</code> which means that <code class="code">Unix.stdin</code> is reopened as
         <code class="code">/dev/null</code>, this is the default behavior</li><li><code class="code">`Close</code> means that <code class="code">Unix.stdin</code> is simply closed</li><li><code class="code">`Keep</code> means that <code class="code">Unix.stdin</code> is left unchanged</li></ul>      <code class="code">stdout</code> and <code class="code">stderr</code> control how the two associated file

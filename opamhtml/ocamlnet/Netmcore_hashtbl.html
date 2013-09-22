@@ -10,7 +10,7 @@
 <pre><span class="VALclear"><span class="keyword">val</span> clear</span> : <code class="type">('a, 'b, 'h) <a href="?package=ocamlnet&amp;module=Netmcore_hashtbl&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">Empty a hash table.</div></div>
 <pre><span class="VALadd"><span class="keyword">val</span> add</span> : <code class="type">('a, 'b, 'h) <a href="?package=ocamlnet&amp;module=Netmcore_hashtbl&amp;type=t">t</a> -&gt; 'a -&gt; 'b -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add tbl x y</code> adds a binding of <code class="code">x</code> to <code class="code">y</code> in table <code class="code">tbl</code>.
    Previous bindings for <code class="code">x</code> are not removed, but simply
-   hidden. That is, after performing  <a title="RK_element Netmcore_hashtbl.remove">Netmcore_hashtbl.remove</a><code class="code"> tbl x</code>,
+   hidden. That is, after performing  <a href="#Netmcore_hashtbl.remove">Netmcore_hashtbl.remove</a><code class="code"> tbl x</code>,
    the previous binding for <code class="code">x</code>, if any, is restored.
    (Same behavior as with association lists.)</div></div>
 <pre><span class="VALfind_ro"><span class="keyword">val</span> find_ro</span> : <code class="type">('a, 'b, 'h) <a href="?package=ocamlnet&amp;module=Netmcore_hashtbl&amp;type=t">t</a> -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">find_ro tbl x</code> returns the current binding of <code class="code">x</code> in <code class="code">tbl</code>,
@@ -42,8 +42,8 @@
 <pre><span class="VALreplace"><span class="keyword">val</span> replace</span> : <code class="type">('a, 'b, 'h) <a href="?package=ocamlnet&amp;module=Netmcore_hashtbl&amp;type=t">t</a> -&gt; 'a -&gt; 'b -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">Hashtbl.replace tbl x y</code> replaces the current binding of <code class="code">x</code>
    in <code class="code">tbl</code> by a binding of <code class="code">x</code> to <code class="code">y</code>.  If <code class="code">x</code> is unbound in <code class="code">tbl</code>,
    a binding of <code class="code">x</code> to <code class="code">y</code> is added to <code class="code">tbl</code>.
-   This is functionally equivalent to  <a title="RK_element Hashtbl.remove">Hashtbl.remove</a><code class="code"> tbl x</code>
-   followed by  <a title="RK_element Hashtbl.add">Hashtbl.add</a><code class="code"> tbl x y</code>.</div></div>
+   This is functionally equivalent to  <a href="#Hashtbl.remove">Hashtbl.remove</a><code class="code"> tbl x</code>
+   followed by  <a href="#Hashtbl.add">Hashtbl.add</a><code class="code"> tbl x y</code>.</div></div>
 <pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">('a -&gt; 'b -&gt; unit) -&gt; ('a, 'b, 'h) <a href="?package=ocamlnet&amp;module=Netmcore_hashtbl&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">Hashtbl.iter f tbl</code> applies <code class="code">f</code> to all bindings in table <code class="code">tbl</code>.
    <code class="code">f</code> receives the key as first argument, and the associated value
    as second argument. Each binding is presented exactly once to <code class="code">f</code>.

@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info"><h1 id="1_TITLE">Netplex support</h1></div>
 <div class="info"><div class="info">The important function is <code class="code">nethttpd_factory</code>, see below. The
-    other functions are only needed for special effects.<br/>    An example is explained here:  <a title="RK_element Netplex_intro.webserver">Netplex_intro.webserver</a></div></div>
+    other functions are only needed for special effects.<br/>    An example is explained here:  <a href="#Netplex_intro.webserver">Netplex_intro.webserver</a></div></div>
 <pre><span class="TYPEconfig_log_error"><span class="keyword">type</span> config_log_error</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=request_info">Nethttpd_types.request_info</a> -&gt; string -&gt; unit</code></pre>
 <pre><span class="TYPEconfig_log_access"><span class="keyword">type</span> config_log_access</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=full_info">Nethttpd_types.full_info</a> -&gt; unit</code></pre>
 <pre><span class="TYPEconfig_error_response"><span class="keyword">type</span> config_error_response</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Nethttpd_types&amp;type=error_response_params">Nethttpd_types.error_response_params</a> -&gt; string</code></pre><div class="info"><div class="info">Three type abbreviations for logging functions</div></div>
@@ -73,8 +73,8 @@ string -&gt;
       <code class="code">http_service</code>.<br/>      Such a function is usually <code class="code">read_file_service_config</code>, or
       <code class="code">read_dynamic_service_config</code>, or a derivative, whose return
       value is turned into a <code class="code">http_service</code>. This can be done with
-       <a title="RK_element Nethttpd_services.file_service">Nethttpd_services.file_service</a> and
-       <a title="RK_element Nethttpd_services.dynamic_service">Nethttpd_services.dynamic_service</a>.</div></div>
+       <a href="#Nethttpd_services.file_service">Nethttpd_services.file_service</a> and
+       <a href="#Nethttpd_services.dynamic_service">Nethttpd_services.dynamic_service</a>.</div></div>
 <pre><span class="VALdefault_services"><span class="keyword">val</span> default_services</span> : <code class="type">(string *
  (#<a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_activation">Netcgi.cgi_activation</a> as 'a,
   [ `Dynamic_service of 'a <a href="?package=ocamlnet&amp;module=Nethttpd_services&amp;type=dynamic_service">Nethttpd_services.dynamic_service</a>
@@ -177,16 +177,16 @@ list</code></pre><div class="info"><div class="info">The default services</div><
    be referenced by the &quot;type&quot; parameters in the <code class="code">processor</code> section
    of the config file.<ul><li><code class="code">hooks</code>: One can pass a Netplex hook object to set the hooks of the
    processor. (This argument is ignored if a <code class="code">processor_factory</code> is
-   passed to this function.)</li><li><code class="code">encap</code>: See  <a title="RK_element Nethttpd_plex.nethttpd_processor">Nethttpd_plex.nethttpd_processor</a>. (This argument is
+   passed to this function.)</li><li><code class="code">encap</code>: See  <a href="#Nethttpd_plex.nethttpd_processor">Nethttpd_plex.nethttpd_processor</a>. (This argument is
    ignored if a <code class="code">processor_factory</code> is
    passed to this function.)</li><li><code class="code">config_cgi</code>: The CGI configuration to use</li><li><code class="code">handlers</code>: a list of handler function. These functions can be
    referenced from a <code class="code">service</code> section in the config file where
    <code class="code">type=&quot;dynamic&quot;</code> (see example above). Defaults to the empty list.</li><li><code class="code">services</code>: A list of service handlers that can be used 
    by <code class="code">service</code> sections in the config files. Defaults to
-    <a title="RK_element Nethttpd_plex.default_services">Nethttpd_plex.default_services</a> which defines &quot;file&quot; and &quot;dynamic&quot;.</li><li><code class="code">log_error</code>: The error logger. Defaults to
-    <a title="RK_element Nethttpd_plex.std_log_error">Nethttpd_plex.std_log_error</a>.</li><li><code class="code">log_access</code>: The access logger. Defaults to
-    <a title="RK_element Nethttpd_plex.std_log_access">Nethttpd_plex.std_log_access</a>.</li><li><code class="code">error_response</code>: a handler which is invoked to generate error
-   responses. Defaults to  <a title="RK_element Nethttpd_plex.std_error_response">Nethttpd_plex.std_error_response</a>.</li><li><code class="code">processor_factory</code>: the function creating the processor.
+    <a href="#Nethttpd_plex.default_services">Nethttpd_plex.default_services</a> which defines &quot;file&quot; and &quot;dynamic&quot;.</li><li><code class="code">log_error</code>: The error logger. Defaults to
+    <a href="#Nethttpd_plex.std_log_error">Nethttpd_plex.std_log_error</a>.</li><li><code class="code">log_access</code>: The access logger. Defaults to
+    <a href="#Nethttpd_plex.std_log_access">Nethttpd_plex.std_log_access</a>.</li><li><code class="code">error_response</code>: a handler which is invoked to generate error
+   responses. Defaults to  <a href="#Nethttpd_plex.std_error_response">Nethttpd_plex.std_error_response</a>.</li><li><code class="code">processor_factory</code>: the function creating the processor.
    Default is <code class="code">nethttpd_processor</code>.
    </li></ul></div></div>
 </div>

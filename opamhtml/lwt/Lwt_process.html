@@ -85,7 +85,7 @@
         running.</div></div>
 <pre><span class="METHODterminate"><span class="keyword">method</span> terminate</span> : <code class="code">unit</code></pre>
 <div class="info"><div class="info">Terminates the process. It is equivalent to <code class="code">kill Sys.sigkill</code>
-        on Unix but also works on windows (unlike  <a title="RK_element kill">kill</a>).</div></div>
+        on Unix but also works on windows (unlike  <a href="#kill">kill</a>).</div></div>
 <pre><span class="METHODstatus"><span class="keyword">method</span> status</span> : <code class="code"><a href="?package=ocaml&amp;module=Unix&amp;type=process_status">Unix.process_status</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre>
 <div class="info"><div class="info">Threads which wait for the sub-process to exit then returns its
         exit status</div></div>

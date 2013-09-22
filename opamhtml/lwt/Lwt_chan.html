@@ -1,5 +1,5 @@
 <div class="ocaml_toplevel_module"><div class="info">Module <code class="code">Lwt_chan</code>: cooperative, <code class="code">Pervasives</code>-like, I/O functions</div>
-<div class="info"><div class="info">Note: the  <a title="RK_element Lwt_io">Lwt_io</a> module deprecates this module.</div></div>
+<div class="info"><div class="info">Note: the  <a href="#Lwt_io">Lwt_io</a> module deprecates this module.</div></div>
 <pre><span class="TYPEin_channel"><span class="keyword">type</span> in_channel</span> = <code class="type"><a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">Lwt_io.input_channel</a></code></pre><div class="info"><div class="info"><h2 id="2_TITLE">Cooperative input channels</h2></div></div>
 <pre><span class="VALin_channel_of_descr"><span class="keyword">val</span> in_channel_of_descr</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_unix&amp;type=file_descr">Lwt_unix.file_descr</a> -&gt; <a href="?package=lwt&amp;module=Lwt_chan&amp;type=in_channel">in_channel</a></code></pre>
 <pre><span class="VALmake_in_channel"><span class="keyword">val</span> make_in_channel</span> : <code class="type">?close:(unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt;

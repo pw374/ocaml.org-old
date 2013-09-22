@@ -15,14 +15,14 @@
    Raise <code class="code">Invalid_argument</code> if <code class="code">n &lt; 0</code> or <code class="code">n &gt; Sys.max_string_length</code>.</div></div>
 <pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">int -&gt; char -&gt; string</code></pre><div class="info"><div class="info"><code class="code">String.make n c</code> returns a fresh string of length <code class="code">n</code>,
    filled with the character <code class="code">c</code>.
-   Raise <code class="code">Invalid_argument</code> if <code class="code">n &lt; 0</code> or <code class="code">n &gt; </code> <a title="RK_element Sys.max_string_length">Sys.max_string_length</a>.</div></div>
+   Raise <code class="code">Invalid_argument</code> if <code class="code">n &lt; 0</code> or <code class="code">n &gt; </code> <a href="#Sys.max_string_length">Sys.max_string_length</a>.</div></div>
 <pre><span class="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">Return a copy of the given string.</div></div>
 <pre><span class="VALsub"><span class="keyword">val</span> sub</span> : <code class="type">string -&gt; pos:int -&gt; len:int -&gt; string</code></pre><div class="info"><div class="info"><code class="code">String.sub s start len</code> returns a fresh string of length <code class="code">len</code>,
    containing the characters number <code class="code">start</code> to <code class="code">start + len - 1</code>
    of string <code class="code">s</code>.
    Raise <code class="code">Invalid_argument</code> if <code class="code">start</code> and <code class="code">len</code> do not
    designate a valid substring of <code class="code">s</code>; that is, if <code class="code">start &lt; 0</code>,
-   or <code class="code">len &lt; 0</code>, or <code class="code">start + len &gt; </code> <a title="RK_element StringLabels.length">StringLabels.length</a><code class="code"> s</code>.</div></div>
+   or <code class="code">len &lt; 0</code>, or <code class="code">start + len &gt; </code> <a href="#StringLabels.length">StringLabels.length</a><code class="code"> s</code>.</div></div>
 <pre><span class="VALfill"><span class="keyword">val</span> fill</span> : <code class="type">string -&gt; pos:int -&gt; len:int -&gt; char -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">String.fill s start len c</code> modifies string <code class="code">s</code> in place,
    replacing the characters number <code class="code">start</code> to <code class="code">start + len - 1</code>
    by <code class="code">c</code>.
@@ -41,7 +41,7 @@
 <pre><span class="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">f:(char -&gt; unit) -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">String.iter f s</code> applies function <code class="code">f</code> in turn to all
    the characters of <code class="code">s</code>.  It is equivalent to
    <code class="code">f s.[0]; f s.[1]; ...; f s.[String.length s - 1]; ()</code>.</div></div>
-<pre><span class="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">f:(int -&gt; char -&gt; unit) -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a title="RK_element String.iter">String.iter</a>, but the
+<pre><span class="VALiteri"><span class="keyword">val</span> iteri</span> : <code class="type">f:(int -&gt; char -&gt; unit) -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Same as  <a href="#String.iter">String.iter</a>, but the
    function is applied to the index of the element as first argument
    (counting from 0), and the character itself as second argument.<b>Since</b> 4.00.0</div></div>
 <pre><span class="VALmap"><span class="keyword">val</span> map</span> : <code class="type">f:(char -&gt; char) -&gt; string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">String.map f s</code> applies function <code class="code">f</code> in turn to all
@@ -62,10 +62,10 @@
 <pre><span class="VALrindex"><span class="keyword">val</span> rindex</span> : <code class="type">string -&gt; char -&gt; int</code></pre><div class="info"><div class="info"><code class="code">String.rindex s c</code> returns the position of the rightmost
    occurrence of character <code class="code">c</code> in string <code class="code">s</code>.
    Raise <code class="code">Not_found</code> if <code class="code">c</code> does not occur in <code class="code">s</code>.</div></div>
-<pre><span class="VALindex_from"><span class="keyword">val</span> index_from</span> : <code class="type">string -&gt; int -&gt; char -&gt; int</code></pre><div class="info"><div class="info">Same as  <a title="RK_element StringLabels.index">StringLabels.index</a>, but start
+<pre><span class="VALindex_from"><span class="keyword">val</span> index_from</span> : <code class="type">string -&gt; int -&gt; char -&gt; int</code></pre><div class="info"><div class="info">Same as  <a href="#StringLabels.index">StringLabels.index</a>, but start
    searching at the character position given as second argument.
    <code class="code">String.index s c</code> is equivalent to <code class="code">String.index_from s 0 c</code>.</div></div>
-<pre><span class="VALrindex_from"><span class="keyword">val</span> rindex_from</span> : <code class="type">string -&gt; int -&gt; char -&gt; int</code></pre><div class="info"><div class="info">Same as  <a title="RK_element StringLabels.rindex">StringLabels.rindex</a>, but start
+<pre><span class="VALrindex_from"><span class="keyword">val</span> rindex_from</span> : <code class="type">string -&gt; int -&gt; char -&gt; int</code></pre><div class="info"><div class="info">Same as  <a href="#StringLabels.rindex">StringLabels.rindex</a>, but start
    searching at the character position given as second argument.
    <code class="code">String.rindex s c</code> is equivalent to
    <code class="code">String.rindex_from s (String.length s - 1) c</code>.</div></div>
@@ -89,9 +89,9 @@
 <pre><span class="VALuncapitalize"><span class="keyword">val</span> uncapitalize</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">Return a copy of the argument, with the first character set to lowercase.</div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type">string</code></pre><div class="info"><div class="info">An alias for the type of strings.</div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="?package=ocaml&amp;module=StringLabels&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=StringLabels&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">The comparison function for strings, with the same specification as
-     <a title="RK_element Pervasives.compare">Pervasives.compare</a>.  Along with the type <code class="code">t</code>, this function <code class="code">compare</code>
+     <a href="#Pervasives.compare">Pervasives.compare</a>.  Along with the type <code class="code">t</code>, this function <code class="code">compare</code>
     allows the module <code class="code">String</code> to be passed as argument to the functors
-     <a title="RK_element Set.Make">Set.Make</a> and  <a title="RK_element Map.Make">Map.Make</a>.</div></div>
+     <a href="#Set.Make">Set.Make</a> and  <a href="#Map.Make">Map.Make</a>.</div></div>
 <pre><span class="VALunsafe_get"><span class="keyword">val</span> unsafe_get</span> : <code class="type">string -&gt; int -&gt; char</code></pre>
 <pre><span class="VALunsafe_set"><span class="keyword">val</span> unsafe_set</span> : <code class="type">string -&gt; int -&gt; char -&gt; unit</code></pre>
 <pre><span class="VALunsafe_blit"><span class="keyword">val</span> unsafe_blit</span> : <code class="type">src:string -&gt; src_pos:int -&gt; dst:string -&gt; dst_pos:int -&gt; len:int -&gt; unit</code></pre>

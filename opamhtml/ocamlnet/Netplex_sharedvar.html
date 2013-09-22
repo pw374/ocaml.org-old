@@ -14,10 +14,10 @@
     when a lot of memory is allocated in the controller, all
     this memory needs to be copied when the <code class="code">fork</code> is done. As workaround,
     put such values into temporary files, and only pass the names of the
-    files around via variables.<br/>    Variables come in two flavors:<ul><li>String variables</li><li>Encapsulated variables (see  <a title="RK_element Netplex_encap">Netplex_encap</a>)</li></ul>    A string variable cannot be accessed as encapsulated variable, and
+    files around via variables.<br/>    Variables come in two flavors:<ul><li>String variables</li><li>Encapsulated variables (see  <a href="#Netplex_encap">Netplex_encap</a>)</li></ul>    A string variable cannot be accessed as encapsulated variable, and
     vice versa.<br/>    The latter kind is useful to safely store structured ocaml values in
     Netplex variables.<br/>    More documentation can also be found here:
-     <a title="RK_element Netplex_advanced.sharedvars">Netplex_advanced.sharedvars</a><br/>    <b>Thread safety:</b> Full. The functions can be called from any thread.</div></div>
+     <a href="#Netplex_advanced.sharedvars">Netplex_advanced.sharedvars</a><br/>    <b>Thread safety:</b> Full. The functions can be called from any thread.</div></div>
 <pre><span class="EXCEPTIONSharedvar_type_mismatch"><span class="keyword">exception</span> Sharedvar_type_mismatch</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">The (dynamically typed) variable has the wrong type (string/exn)</div></div>
 <pre><span class="EXCEPTIONSharedvar_no_permission"><span class="keyword">exception</span> Sharedvar_no_permission</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">It is not allowed to set the value</div></div>
 <pre><span class="EXCEPTIONSharedvar_not_found"><span class="keyword">exception</span> Sharedvar_not_found</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">The variable does not exist. Only used by <code class="code">Make_var_type</code></div></div>
@@ -27,7 +27,7 @@
       <code class="code">post_add_hook</code> of the processor.</div></div>
 <div class="info"><div class="info">The folloing functions can all be invoked in container
     contexts. In controller context, access is limited to <code class="code">get_value</code>.<br/>    If called from the wrong context the exception
-     <a title="RK_element Netplex_cenv.Not_in_container_thread">Netplex_cenv.Not_in_container_thread</a> is raised.</div></div>
+     <a href="#Netplex_cenv.Not_in_container_thread">Netplex_cenv.Not_in_container_thread</a> is raised.</div></div>
 <pre><span class="VALcreate_var"><span class="keyword">val</span> create_var</span> : <code class="type">?own:bool -&gt; ?ro:bool -&gt; ?enc:bool -&gt; string -&gt; bool</code></pre><div class="info"><div class="info">Create the variable with the passed name with an empty string
       (or the exception <code class="code">Sharedvar_null</code>) as
       initial value. If the creation is possible (i.e. the variable did
@@ -82,7 +82,7 @@
       is called by user code (which is allowed at any time), and
       <code class="code">get_lazily</code> is called again, the lazy value will again be computed.</div></div>
 <pre><span class="VALget_enc_lazily"><span class="keyword">val</span> get_enc_lazily</span> : <code class="type">string -&gt; (unit -&gt; Netplex_types.encap) -&gt; Netplex_types.encap option</code></pre><div class="info"><div class="info">Same for encapsulated values</div></div>
-<pre><span class="VALdump"><span class="keyword">val</span> dump</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netlog&amp;type=level">Netlog.level</a> -&gt; unit</code></pre><div class="info"><div class="info">Dumps the access counter of this variable to  <a title="RK_element Netlog">Netlog</a>. The
+<pre><span class="VALdump"><span class="keyword">val</span> dump</span> : <code class="type">string -&gt; <a href="?package=ocamlnet&amp;module=Netlog&amp;type=level">Netlog.level</a> -&gt; unit</code></pre><div class="info"><div class="info">Dumps the access counter of this variable to  <a href="#Netlog">Netlog</a>. The
       string argument &quot;*&quot; dumps all variables.</div></div>
 <div class="ocaml_module ident" name="Make_var_type" path="?package=ocamlnet&amp;module=Netplex_cenv.VAR_TYPE"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Netplex_sharedvar.Make_var_type">Make_var_type</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">T</code><code class="code"> : </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.TYPE">Netplex_cenv.TYPE</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=ocamlnet&amp;module=Netplex_cenv.VAR_TYPE">Netplex_cenv.VAR_TYPE</a></code> with type t = T.t</div></code></pre><div class="info"><div class="info">Creates a module with <code class="code">get</code> and <code class="code">set</code> functions to access variables
       of type <code class="code">T.t</code>. Call it like<br/>      <pre class="codepre"><code class="code">

@@ -18,7 +18,7 @@
     is not set.<br/>    Under Windows, the value of the <code class="code">TEMP</code> environment variable, or &quot;.&quot;  if the variable
     is not set.</div></div>
 <pre><span class="VALopen_temp_file"><span class="keyword">val</span> open_temp_file</span> : <code class="type">?perm:int -&gt;
-?in_dir:string -&gt; string -&gt; string -&gt; string * <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a></code></pre><div class="info"><div class="info">Same as  <a title="RK_element Core_filename.temp_file">Core_filename.temp_file</a>, but returns both the name of a fresh
+?in_dir:string -&gt; string -&gt; string -&gt; string * <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a></code></pre><div class="info"><div class="info">Same as  <a href="#Core_filename.temp_file">Core_filename.temp_file</a>, but returns both the name of a fresh
     temporary file, and an output channel opened (atomically) on
     this file.  This function is more secure than <code class="code">temp_file</code>: there
     is no risk that the temporary file will be modified (e.g. replaced
@@ -60,11 +60,11 @@
 <pre><span class="VALbasename"><span class="keyword">val</span> basename</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">Respects the posix semantic.<br/>   Split a file name into directory name / base file name.
    <code class="code">concat (dirname name) (basename name)</code> returns a file name
    which is equivalent to <code class="code">name</code>. Moreover, after setting the
-   current directory to <code class="code">dirname name</code> (with  <a title="RK_element Sys.chdir">Sys.chdir</a>),
+   current directory to <code class="code">dirname name</code> (with  <a href="#Sys.chdir">Sys.chdir</a>),
    references to <code class="code">basename name</code> (which is a relative file name)
-   designate the same file as <code class="code">name</code> before the call to  <a title="RK_element Sys.chdir">Sys.chdir</a>.<br/>   The result is not specified if the argument is not a valid file name
+   designate the same file as <code class="code">name</code> before the call to  <a href="#Sys.chdir">Sys.chdir</a>.<br/>   The result is not specified if the argument is not a valid file name
    (for example, under Unix if there is a NUL character in the string).</div></div>
-<pre><span class="VALdirname"><span class="keyword">val</span> dirname</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">See  <a title="RK_element Filename.basename">Filename.basename</a>.</div></div>
+<pre><span class="VALdirname"><span class="keyword">val</span> dirname</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">See  <a href="#Filename.basename">Filename.basename</a>.</div></div>
 <pre><span class="VALsplit"><span class="keyword">val</span> split</span> : <code class="type">string -&gt; string * string</code></pre><div class="info"><div class="info"><code class="code">split filename</code> returns (dirname filename, basename filename)</div></div>
 <pre><span class="VALparts"><span class="keyword">val</span> parts</span> : <code class="type">string -&gt; string list</code></pre><div class="info"><div class="info"><code class="code">parts filename</code> returns a list of path components in order.  For instance:
   /tmp/foo/bar/baz -&gt; <code class="code">&quot;/&quot;; &quot;tmp&quot;; &quot;foo&quot;; &quot;bar&quot;; &quot;baz&quot; </code></div></div>

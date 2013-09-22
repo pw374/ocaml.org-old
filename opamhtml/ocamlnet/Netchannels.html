@@ -1,5 +1,5 @@
-<div class="ocaml_toplevel_module"><div class="info">Object-oriented I/O: Basic types and classes <br/> <b>Contents</b><br/> -  <a title="RK_element Netchannels.types">Netchannels.types</a><ul><li> <a title="RK_element Netchannels.input">Netchannels.input</a></li><li> <a title="RK_element Netchannels.output">Netchannels.output</a></li><li> <a title="RK_element Netchannels.delegation">Netchannels.delegation</a></li><li> <a title="RK_element Netchannels.lifting">Netchannels.lifting</a></li><li> <a title="RK_element Netchannels.descriptors">Netchannels.descriptors</a></li><li> <a title="RK_element Netchannels.transactional">Netchannels.transactional</a></li><li> <a title="RK_element Netchannels.filters">Netchannels.filters</a>
-   <ul><li> <a title="RK_element Netchannels.filters_notes">Netchannels.filters_notes</a></li></ul></li></ul> The tutorial has been moved to  <a title="RK_element Netchannels_tut">Netchannels_tut</a>.</div>
+<div class="ocaml_toplevel_module"><div class="info">Object-oriented I/O: Basic types and classes <br/> <b>Contents</b><br/> -  <a href="#Netchannels.types">Netchannels.types</a><ul><li> <a href="#Netchannels.input">Netchannels.input</a></li><li> <a href="#Netchannels.output">Netchannels.output</a></li><li> <a href="#Netchannels.delegation">Netchannels.delegation</a></li><li> <a href="#Netchannels.lifting">Netchannels.lifting</a></li><li> <a href="#Netchannels.descriptors">Netchannels.descriptors</a></li><li> <a href="#Netchannels.transactional">Netchannels.transactional</a></li><li> <a href="#Netchannels.filters">Netchannels.filters</a>
+   <ul><li> <a href="#Netchannels.filters_notes">Netchannels.filters_notes</a></li></ul></li></ul> The tutorial has been moved to  <a href="#Netchannels_tut">Netchannels_tut</a>.</div>
 <div class="info"><div class="info"><h1 id="types">Types</h1></div></div>
 <div class="info"><div class="info">There are three levels of class types for channels:<ul><li><code class="code">rec_in_channel</code> and <code class="code">rec_out_channel</code>: Primitive, but standardized level</li><li><code class="code">raw_in_channel</code> and <code class="code">raw_out_channel</code>: Unix level</li><li><code class="code">in_obj_channel</code> and <code class="code">out_obj_channel</code>: Application level</li></ul> The &quot;rec&quot; level has been recently introduced to improve interoperability
  with other libraries (e.g. camomile). The idea is to standardize the
@@ -18,11 +18,11 @@
  process data, but is in non-blocking mode, both methods now return the
  value 0. In previous releases of ocamlnet, the behaviour was not
  defined.<br/> <b>Ocamlnet-3.0</b> changed the behavior of <code class="code">close_out</code>. Errors are no longer
- reported - instead, the exception is logged to  <a title="RK_element Netlog">Netlog</a>. For a stricter
+ reported - instead, the exception is logged to  <a href="#Netlog">Netlog</a>. For a stricter
  error handling, it is suggested to call <code class="code">flush</code> first. Also, <code class="code">close_in</code>
  and <code class="code">close_out</code> no longer raise <code class="code">Closed_channel</code> when the channel is
  already closed. Read more about this in the section
-  <a title="RK_element Netchannels.rec_out_channel.close_error">Netchannels.rec_out_channel.close_error</a>.</div></div>
+  <a href="#Netchannels.rec_out_channel.close_error">Netchannels.rec_out_channel.close_error</a>.</div></div>
 <pre><span class="EXCEPTIONClosed_channel"><span class="keyword">exception</span> Closed_channel</span></pre><div class="info"><div class="info">Raised when channel operations are called when the channel is closed</div></div>
 <pre><span class="EXCEPTIONBuffer_underrun"><span class="keyword">exception</span> Buffer_underrun</span></pre><div class="info"><div class="info">Raised by input methods if the internal buffer of the channel is too
  empty to read even one byte of data.
@@ -90,7 +90,7 @@
        the remaining data.<ul><li>When <code class="code">flush</code> raises an error exception, it should discard
        any data in the buffer. This is not obligatory, however,
        but considered good practice, and is subject to discussion.</li><li>The <code class="code">close_out</code> method usually does not report errors by
-       raising exceptions, but only by logging them via  <a title="RK_element Netlog">Netlog</a>.
+       raising exceptions, but only by logging them via  <a href="#Netlog">Netlog</a>.
        The OS resource is released in any case. As before, this
        behavior is not obligatory, but considered as good practice,
        and subject to discussion.</li></ul>     This ensures that the following code snippet reports all errors, but also
@@ -388,7 +388,7 @@
  shuts the socket down for reading, and when both directions are down,
  the descriptor is closed.<br/> The <code class="code">pos_in</code> and <code class="code">pos_out</code> methods returns logical positions.<br/> This class supports sockets and Win32 named pipes. Note, however,
  that for Win32 named pipes it is not possible to shut down only one
- direction of the bidirectional data channel.<div class="parameters"><div class="param_info"><code class="code">blocking</code> : See  <a title="RK_element input_descr">input_descr</a> and  <a title="RK_element output_descr">output_descr</a></div><div class="param_info"><code class="code">start_pos_in</code> : The position to which <code class="code">pos_in</code> is initialized when
+ direction of the bidirectional data channel.<div class="parameters"><div class="param_info"><code class="code">blocking</code> : See  <a href="#input_descr">input_descr</a> and  <a href="#output_descr">output_descr</a></div><div class="param_info"><code class="code">start_pos_in</code> : The position to which <code class="code">pos_in</code> is initialized when
  the channel is created, by default 0</div><div class="param_info"><code class="code">start_pos_out</code> : The position to which <code class="code">pos_out</code> is initialized when
  the channel is created, by default 0</div></div></div></div></div>
 <div class="info"><div class="info"><h1 id="transactional">Transactional channels</h1></div></div>
@@ -403,7 +403,7 @@
 unit -&gt; string * <a href="?package=ocaml&amp;module=Pervasives&amp;type=in_channel">Pervasives.in_channel</a> * <a href="?package=ocaml&amp;module=Pervasives&amp;type=out_channel">Pervasives.out_channel</a></code></pre><div class="info"><div class="info">Creates a temporary file in the directory <code class="code">tmp_directory</code> with a name
  prefix <code class="code">tmp_prefix</code> and a unique suffix. The function returns 
  the triple (name, inch, outch) containing the file <code class="code">name</code>,
- the file opened as in_channel <code class="code">inch</code> and as out_channel <code class="code">outch</code>.<div class="parameters"><div class="param_info"><code class="code">tmp_directory</code> : Defaults to  <a title="RK_element Netsys_tmp.tmp_directory()">Netsys_tmp.tmp_directory()</a></div><div class="param_info"><code class="code">tmp_prefix</code> : By default <code class="code">&quot;netstring&quot;</code>. This needs not to be
+ the file opened as in_channel <code class="code">inch</code> and as out_channel <code class="code">outch</code>.<div class="parameters"><div class="param_info"><code class="code">tmp_directory</code> : Defaults to  <a href="#Netsys_tmp.tmp_directory()">Netsys_tmp.tmp_directory()</a></div><div class="param_info"><code class="code">tmp_prefix</code> : By default <code class="code">&quot;netstring&quot;</code>. This needs not to be
    unique, but just descriptive.</div><div class="param_info"><code class="code">mode</code> : The creation mask of the file; defaults to 0o600, i.e. the
    file is private for the current user</div><div class="param_info"><code class="code">limit</code> : Limits the number of trials to find the unique suffix.
    Defaults to 1000.</div></div></div></div>
