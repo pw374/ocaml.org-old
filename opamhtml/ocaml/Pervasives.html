@@ -68,15 +68,15 @@
 <pre><span class="VALor"><span class="keyword">val</span> or</span> : <code class="type">bool -&gt; bool -&gt; bool</code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span>  <a href="#Pervasives.( || )">Pervasives.( || )</a> should be used instead.<br/></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Composition operators</h6></div></div>
 <pre><span class="VAL|&gt;"><span class="keyword">val</span> |&gt;</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info">Reverse-application operator: <code class="code">x |&gt; f |&gt; g</code> is exactly equivalent
- to <code class="code">g (f (x))</code>.<b>Since</b> 4.01</div></div>
+ to <code class="code">g (f (x))</code>. <b>Since</b> 4.01</div></div>
 <pre><span class="VAL@@"><span class="keyword">val</span> @@</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info">Application operator: <code class="code">g @@ f @@ x</code> is exactly equivalent to
- <code class="code">g (f (x))</code>.<b>Since</b> 4.01</div></div>
+ <code class="code">g (f (x))</code>. <b>Since</b> 4.01</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Integer arithmetic</h6></div></div>
 <div class="info"><div class="info">Integers are 31 bits wide (or 63 bits on 64-bit processors).
    All operations are taken modulo 2<sup class="superscript">31</sup> (or 2<sup class="superscript">63</sup>).
    They do not fail on overflow.</div></div>
 <pre><span class="VAL~-"><span class="keyword">val</span> ~-</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info">Unary negation. You can also write <code class="code">- e</code> instead of <code class="code">~- e</code>.</div></div>
-<pre><span class="VAL~+"><span class="keyword">val</span> ~+</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info">Unary addition. You can also write <code class="code">+ e</code> instead of <code class="code">~+ e</code>.<b>Since</b> 3.12.0</div></div>
+<pre><span class="VAL~+"><span class="keyword">val</span> ~+</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info">Unary addition. You can also write <code class="code">+ e</code> instead of <code class="code">~+ e</code>. <b>Since</b> 3.12.0</div></div>
 <pre><span class="VALsucc"><span class="keyword">val</span> succ</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">succ x</code> is <code class="code">x + 1</code>.</div></div>
 <pre><span class="VALpred"><span class="keyword">val</span> pred</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">pred x</code> is <code class="code">x - 1</code>.</div></div>
 <pre><span class="VAL+"><span class="keyword">val</span> +</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer addition.</div></div>
@@ -126,7 +126,7 @@
    <code class="code">1.0 /. infinity</code> is <code class="code">0.0</code>, and any arithmetic operation with <code class="code">nan</code>
    as argument returns <code class="code">nan</code> as result.</div></div>
 <pre><span class="VAL~-."><span class="keyword">val</span> ~-.</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Unary negation. You can also write <code class="code">-. e</code> instead of <code class="code">~-. e</code>.</div></div>
-<pre><span class="VAL~+."><span class="keyword">val</span> ~+.</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Unary addition. You can also write <code class="code">+. e</code> instead of <code class="code">~+. e</code>.<b>Since</b> 3.12.0</div></div>
+<pre><span class="VAL~+."><span class="keyword">val</span> ~+.</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Unary addition. You can also write <code class="code">+. e</code> instead of <code class="code">~+. e</code>. <b>Since</b> 3.12.0</div></div>
 <pre><span class="VAL+."><span class="keyword">val</span> +.</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point addition</div></div>
 <pre><span class="VAL-."><span class="keyword">val</span> -.</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point subtraction</div></div>
 <pre><span class="VAL*."><span class="keyword">val</span> *.</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point multiplication</div></div>
@@ -137,9 +137,9 @@
 <pre><span class="VALlog"><span class="keyword">val</span> log</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Natural logarithm.</div></div>
 <pre><span class="VALlog10"><span class="keyword">val</span> log10</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Base 10 logarithm.</div></div>
 <pre><span class="VALexpm1"><span class="keyword">val</span> expm1</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info"><code class="code">expm1 x</code> computes <code class="code">exp x -. 1.0</code>, giving numerically-accurate results
-    even if <code class="code">x</code> is close to <code class="code">0.0</code>.<b>Since</b> 3.12.0</div></div>
+    even if <code class="code">x</code> is close to <code class="code">0.0</code>. <b>Since</b> 3.12.0</div></div>
 <pre><span class="VALlog1p"><span class="keyword">val</span> log1p</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info"><code class="code">log1p x</code> computes <code class="code">log(1.0 +. x)</code> (natural logarithm),
-    giving numerically-accurate results even if <code class="code">x</code> is close to <code class="code">0.0</code>.<b>Since</b> 3.12.0</div></div>
+    giving numerically-accurate results even if <code class="code">x</code> is close to <code class="code">0.0</code>. <b>Since</b> 3.12.0</div></div>
 <pre><span class="VALcos"><span class="keyword">val</span> cos</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Cosine.  Argument is in radians.</div></div>
 <pre><span class="VALsin"><span class="keyword">val</span> sin</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Sine.  Argument is in radians.</div></div>
 <pre><span class="VALtan"><span class="keyword">val</span> tan</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Tangent.  Argument is in radians.</div></div>
@@ -155,7 +155,7 @@
 <pre><span class="VALhypot"><span class="keyword">val</span> hypot</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info"><code class="code">hypot x y</code> returns <code class="code">sqrt(x *. x + y *. y)</code>, that is, the length
   of the hypotenuse of a right-angled triangle with sides of length
   <code class="code">x</code> and <code class="code">y</code>, or, equivalently, the distance of the point <code class="code">(x,y)</code>
-  to origin.<b>Since</b> 4.00.0</div></div>
+  to origin. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALcosh"><span class="keyword">val</span> cosh</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Hyperbolic cosine.  Argument is in radians.</div></div>
 <pre><span class="VALsinh"><span class="keyword">val</span> sinh</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Hyperbolic sine.  Argument is in radians.</div></div>
 <pre><span class="VALtanh"><span class="keyword">val</span> tanh</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Hyperbolic tangent.  Argument is in radians.</div></div>
@@ -170,7 +170,7 @@
 <pre><span class="VALcopysign"><span class="keyword">val</span> copysign</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info"><code class="code">copysign x y</code> returns a float whose absolute value is that of <code class="code">x</code>
   and whose sign is that of <code class="code">y</code>.  If <code class="code">x</code> is <code class="code">nan</code>, returns <code class="code">nan</code>.
   If <code class="code">y</code> is <code class="code">nan</code>, returns either <code class="code">x</code> or <code class="code">-. x</code>, but it is not
-  specified which.<b>Since</b> 4.00.0</div></div>
+  specified which. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALmod_float"><span class="keyword">val</span> mod_float</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info"><code class="code">mod_float a b</code> returns the remainder of <code class="code">a</code> with respect to
    <code class="code">b</code>.  The returned value is <code class="code">a -. n *. b</code>, where <code class="code">n</code>
    is the quotient <code class="code">a /. b</code> rounded towards zero to an integer.</div></div>

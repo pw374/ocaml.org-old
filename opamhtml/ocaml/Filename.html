@@ -2,7 +2,7 @@
 <pre><span class="VALcurrent_dir_name"><span class="keyword">val</span> current_dir_name</span> : <code class="type">string</code></pre><div class="info"><div class="info">The conventional name for the current directory (e.g. <code class="code">.</code> in Unix).</div></div>
 <pre><span class="VALparent_dir_name"><span class="keyword">val</span> parent_dir_name</span> : <code class="type">string</code></pre><div class="info"><div class="info">The conventional name for the parent of the current directory
    (e.g. <code class="code">..</code> in Unix).</div></div>
-<pre><span class="VALdir_sep"><span class="keyword">val</span> dir_sep</span> : <code class="type">string</code></pre><div class="info"><div class="info">The directory separator (e.g. <code class="code">/</code> in Unix).<b>Since</b> 3.11.2</div></div>
+<pre><span class="VALdir_sep"><span class="keyword">val</span> dir_sep</span> : <code class="type">string</code></pre><div class="info"><div class="info">The directory separator (e.g. <code class="code">/</code> in Unix). <b>Since</b> 3.11.2</div></div>
 <pre><span class="VALconcat"><span class="keyword">val</span> concat</span> : <code class="type">string -&gt; string -&gt; string</code></pre><div class="info"><div class="info"><code class="code">concat dir file</code> returns a file name that designates file
    <code class="code">file</code> in directory <code class="code">dir</code>.</div></div>
 <pre><span class="VALis_relative"><span class="keyword">val</span> is_relative</span> : <code class="type">string -&gt; bool</code></pre><div class="info"><div class="info">Return <code class="code">true</code> if the file name is relative to the current
@@ -57,10 +57,10 @@
     if the variable is not set.
     Under Windows, the value of the <code class="code">TEMP</code> environment variable, or &quot;.&quot;
     if the variable is not set.
-    The temporary directory can be changed with  <a href="#Filename.set_temp_dir_name">Filename.set_temp_dir_name</a>.<b>Since</b> 4.00.0</div></div>
+    The temporary directory can be changed with  <a href="#Filename.set_temp_dir_name">Filename.set_temp_dir_name</a>. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALset_temp_dir_name"><span class="keyword">val</span> set_temp_dir_name</span> : <code class="type">string -&gt; unit</code></pre><div class="info"><div class="info">Change the temporary directory returned by  <a href="#Filename.get_temp_dir_name">Filename.get_temp_dir_name</a>
-    and used by  <a href="#Filename.temp_file">Filename.temp_file</a> and  <a href="#Filename.open_temp_file">Filename.open_temp_file</a>.<b>Since</b> 4.00.0</div></div>
-<pre><span class="VALtemp_dir_name"><span class="keyword">val</span> temp_dir_name</span> : <code class="type">string</code></pre><div class="info"><div class="info"><b>Since</b> 3.09.1<span class="warning">Deprecated.</span> The name of the initial temporary directory:
+    and used by  <a href="#Filename.temp_file">Filename.temp_file</a> and  <a href="#Filename.open_temp_file">Filename.open_temp_file</a>. <b>Since</b> 4.00.0</div></div>
+<pre><span class="VALtemp_dir_name"><span class="keyword">val</span> temp_dir_name</span> : <code class="type">string</code></pre><div class="info"><div class="info"> <b>Since</b> 3.09.1<span class="warning">Deprecated.</span> The name of the initial temporary directory:
     Under Unix, the value of the <code class="code">TMPDIR</code> environment variable, or &quot;/tmp&quot;
     if the variable is not set.
     Under Windows, the value of the <code class="code">TEMP</code> environment variable, or &quot;.&quot;

@@ -182,7 +182,7 @@
 <pre><span class="METHODcgi_properties"><span class="keyword">method</span> cgi_properties</span> : <code class="code">(string * string) list</code></pre>
 <div class="info"><div class="info">Return the parameter <code class="code">properties</code>.</div></div>
 <pre><span class="METHODcgi_https"><span class="keyword">method</span> cgi_https</span> : <code class="code">bool</code></pre>
-<div class="info"><div class="info"><b>Raises</b> <code>HTTP</code> if the HTTPS property is not understood.<br/></div></div>
+<div class="info"><div class="info"> <b>Raises</b> <code>HTTP</code> if the HTTPS property is not understood.<br/></div></div>
 <pre><span class="METHODinput_header"><span class="keyword">method</span> input_header</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_header">Netmime.mime_header</a></code></pre>
 <div class="info"><div class="info">For special header structures, just override this method.</div></div>
 <pre><span class="METHODinput_header_field"><span class="keyword">method</span> input_header_field</span> : <code class="code">?default:string -&gt; string -&gt; string</code></pre>
@@ -310,7 +310,7 @@
       of the <code class="code">cgi</code> class (as needed by some connectors).  The
       arguments of the cgi object are taken from the environment <code class="code">env</code>
       (for HEAD, GET, DELETE) or from the <code class="code">in_chan</code> (for POST, PUT)
-      and processed according to <code class="code">arg_store</code>.<b>Raises</b> <code>HTTP</code> if the data does not conform the standards or it not
+      and processed according to <code class="code">arg_store</code>. <b>Raises</b> <code>HTTP</code> if the data does not conform the standards or it not
       allowed.<br/></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Exceptions</h2></div></div>
 <pre><span class="EXCEPTIONHTTP"><span class="keyword">exception</span> HTTP</span> <span class="keyword">of</span> <code class="type"><a href="?package=ocamlnet&amp;module=Nethttp&amp;type=http_status">Nethttp.http_status</a> * string</code></pre><div class="info"><div class="info">Exception raised by various functions of this library to return
@@ -365,7 +365,7 @@ finally:(unit -&gt; unit) -&gt; (unit -&gt; exn option) -&gt; unit</code></pre><
       standardisation.</div></div>
 <pre><span class="VALrm_htspace"><span class="keyword">val</span> rm_htspace</span> : <code class="type">(char -&gt; bool) -&gt; string -&gt; int -&gt; int -&gt; string</code></pre><div class="info"><div class="info"><code class="code">rm_htspace is_space s low up</code> returns the substring <code class="code">s.[low
       .. up - 1]</code> stripped of possible heading and trailing spaces
-      identified by the function <code class="code">is_space</code>.<b>Raises</b> <code>Invalid_argument</code> if <code class="code">low &lt; 0</code> or <code class="code">up &gt; String.length s</code><br/></div></div>
+      identified by the function <code class="code">is_space</code>. <b>Raises</b> <code>Invalid_argument</code> if <code class="code">low &lt; 0</code> or <code class="code">up &gt; String.length s</code><br/></div></div>
 <pre><span class="VALrev_split"><span class="keyword">val</span> rev_split</span> : <code class="type">(char -&gt; bool) -&gt; string -&gt; string list</code></pre><div class="info"><div class="info"><code class="code">split_rev is_delim s</code> split <code class="code">s</code> at each character <code class="code">is_delim</code>
       and returns the list of substrings in reverse order.  Several
       consecutive delimiters are treated as a single one.  The

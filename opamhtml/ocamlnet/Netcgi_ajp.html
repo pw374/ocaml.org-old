@@ -4,7 +4,7 @@
 <a href="?package=ocaml&amp;module=Arg&amp;type=anon_fun">Arg.anon_fun</a> -&gt; <a href="?package=ocaml&amp;module=Arg&amp;type=usage_msg">Arg.usage_msg</a> -&gt; (string * string) list</code></pre><div class="info"><div class="info"><code class="code">arg_parse speclist anon_fun usage_msg</code> parses the command line
       and return an associative list describing the content of the
       property file (see  <a href="#Netcgi_ajp.props_of_file">Netcgi_ajp.props_of_file</a>).  This function
-      allows to fakes the &quot;java&quot; command (JVM startup):<br/>      - the option <code class="code">-classpath &lt;path&gt;</code> is ignored;<ul><li>the first anonymous argument (Java class name) is ignored;</li><li>the second anonymous argument is the name of the property file;</li><li>other options are interpreted according to the <code class="code">speclist</code>.</li></ul><b>Raises</b> <code>Failure</code> and prints a usage message if the property file
+      allows to fakes the &quot;java&quot; command (JVM startup):<br/>      - the option <code class="code">-classpath &lt;path&gt;</code> is ignored;<ul><li>the first anonymous argument (Java class name) is ignored;</li><li>the second anonymous argument is the name of the property file;</li><li>other options are interpreted according to the <code class="code">speclist</code>.</li></ul> <b>Raises</b> <code>Failure</code> and prints a usage message if the property file
       cannot be read.<br/></div></div>
 <pre><span class="VALprops_of_file"><span class="keyword">val</span> props_of_file</span> : <code class="type">string -&gt; (string * string) list</code></pre><div class="info"><div class="info"><code class="code">props_of_file fname</code> parses the property file <code class="code">fname</code> and
       returns it as an associative list.  The following properties are
@@ -17,7 +17,7 @@
       allowed to connect (this option can occur several times).
       DNS names are resolved at startup time.</li><li>&quot;jakarta.servletSubString&quot;: The substring that is used as indicator
       for the servlet name (for mod_jk only).  Defaults to &quot;/servlets/&quot;.</li><li>&quot;ocamlnet.https&quot;: Whether HTTPS is assumed as basic protocol or not.
-      Defaults to &quot;false&quot;.</li></ul>      Other properties are ignored.<b>Raises</b> <code>Invalid_argument</code> if the file does not exist or is not readable.<br/></div></div>
+      Defaults to &quot;false&quot;.</li></ul>      Other properties are ignored. <b>Raises</b> <code>Invalid_argument</code> if the file does not exist or is not readable.<br/></div></div>
 <pre><span class="VALrun"><span class="keyword">val</span> run</span> : <code class="type">?props:(string * string) list -&gt;
 ?config:<a href="?package=ocamlnet&amp;module=Netcgi&amp;type=config">Netcgi.config</a> -&gt;
 ?script_name:string -&gt;

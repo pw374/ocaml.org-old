@@ -37,7 +37,7 @@
    <code class="code">Pervasives.in_channel</code> value.
    A <code class="code">Scanf.Scanning.in_channel</code> value is also called a <i>formatted input
    channel</i> or equivalently a <i>scanning buffer</i>.
-   The type <code class="code">scanbuf</code> below is an alias for <code class="code">in_channel</code>.<b>Since</b> 3.12.0</div></div>
+   The type <code class="code">scanbuf</code> below is an alias for <code class="code">in_channel</code>. <b>Since</b> 3.12.0</div></div>
 <pre><span class="TYPEscanbuf"><span class="keyword">type</span> scanbuf</span> = <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a></code></pre><div class="info"><div class="info">The type of scanning buffers. A scanning buffer is the source from which a
     formatted input function gets characters. The scanning buffer holds the
     current state of the scan, plus a function to get the next char from the
@@ -51,18 +51,18 @@
     newline character that triggers the evaluation is incorporated in the
     input; thus, the scanning specifications must properly skip this
     additional newline character (for instance, simply add a <code class="code">'\n'</code> as the
-    last character of the format string).<b>Since</b> 3.12.0</div></div>
-<pre><span class="TYPEfile_name"><span class="keyword">type</span> file_name</span> = <code class="type">string</code></pre><div class="info"><div class="info">A convenient alias to designate a file name.<b>Since</b> 4.00.0</div></div>
+    last character of the format string). <b>Since</b> 3.12.0</div></div>
+<pre><span class="TYPEfile_name"><span class="keyword">type</span> file_name</span> = <code class="type">string</code></pre><div class="info"><div class="info">A convenient alias to designate a file name. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALopen_in"><span class="keyword">val</span> open_in</span> : <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=file_name">file_name</a> -&gt; <a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a></code></pre><div class="info"><div class="info"><code class="code">Scanning.open_in fname</code> returns a formatted input channel for bufferized
     reading in text mode from file <code class="code">fname</code>.<br/>    Note:
     <code class="code">open_in</code> returns a formatted input channel that efficiently reads
     characters in large chunks; in contrast, <code class="code">from_channel</code> below returns
     formatted input channels that must read one character at a time, leading
-    to a much slower scanning rate.<b>Since</b> 3.12.0</div></div>
+    to a much slower scanning rate. <b>Since</b> 3.12.0</div></div>
 <pre><span class="VALopen_in_bin"><span class="keyword">val</span> open_in_bin</span> : <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=file_name">file_name</a> -&gt; <a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a></code></pre><div class="info"><div class="info"><code class="code">Scanning.open_in_bin fname</code> returns a formatted input channel for
-    bufferized reading in binary mode from file <code class="code">fname</code>.<b>Since</b> 3.12.0</div></div>
+    bufferized reading in binary mode from file <code class="code">fname</code>. <b>Since</b> 3.12.0</div></div>
 <pre><span class="VALclose_in"><span class="keyword">val</span> close_in</span> : <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a> -&gt; unit</code></pre><div class="info"><div class="info">Closes the <code class="code">Pervasives.in_channel</code> associated with the given
-  <code class="code">Scanning.in_channel</code> formatted input channel.<b>Since</b> 3.12.0</div></div>
+  <code class="code">Scanning.in_channel</code> formatted input channel. <b>Since</b> 3.12.0</div></div>
 <pre><span class="VALfrom_file"><span class="keyword">val</span> from_file</span> : <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=file_name">file_name</a> -&gt; <a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a></code></pre><div class="info"><div class="info">An alias for <code class="code">open_in</code> above.</div></div>
 <pre><span class="VALfrom_file_bin"><span class="keyword">val</span> from_file_bin</span> : <code class="type">string -&gt; <a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a></code></pre><div class="info"><div class="info">An alias for <code class="code">open_in_bin</code> above.</div></div>
 <pre><span class="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">string -&gt; <a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a></code></pre><div class="info"><div class="info"><code class="code">Scanning.from_string s</code> returns a formatted input channel which reads
@@ -80,7 +80,7 @@
 <pre><span class="VALbeginning_of_input"><span class="keyword">val</span> beginning_of_input</span> : <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">Scanning.beginning_of_input ic</code> tests the beginning of input condition of
     the given formatted input channel.</div></div>
 <pre><span class="VALname_of_input"><span class="keyword">val</span> name_of_input</span> : <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a> -&gt; string</code></pre><div class="info"><div class="info"><code class="code">Scanning.name_of_input ic</code> returns the name of the character source
-    for the formatted input channel <code class="code">ic</code>.<b>Since</b> 3.09.0</div></div>
+    for the formatted input channel <code class="code">ic</code>. <b>Since</b> 3.09.0</div></div>
 <pre><span class="VALstdib"><span class="keyword">val</span> stdib</span> : <code class="type"><a href="?package=ocaml&amp;module=Scanf.Scanning&amp;type=in_channel">in_channel</a></code></pre><div class="info"><div class="info">A deprecated alias for <code class="code">Scanning.stdin</code>, the scanning buffer reading from
     <code class="code">Pervasives.stdin</code>.</div></div></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Type of formatted input functions</h6></div></div>
@@ -97,7 +97,7 @@
     functions must be provided before the receiver <code class="code">f</code> argument. For
     instance, if <code class="code">read_elem</code> is an input function for values of type <code class="code">t</code>,
     then <code class="code">bscanf ic &quot;%r;&quot; read_elem f</code> reads a value <code class="code">v</code> of type <code class="code">t</code> followed
-    by a <code class="code">';'</code> character, and returns <code class="code">f v</code>.<b>Since</b> 3.10.0</div></div>
+    by a <code class="code">';'</code> character, and returns <code class="code">f v</code>. <b>Since</b> 3.10.0</div></div>
 <pre><span class="EXCEPTIONScan_failure"><span class="keyword">exception</span> Scan_failure</span> <span class="keyword">of</span> <code class="type">string</code></pre><div class="info"><div class="info">The exception that formatted input functions raise when the input cannot
     be read according to the given format.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">The general formatted input function</h6></div></div>
@@ -262,17 +262,17 @@
     input channel <code class="code">ic</code>, according to the given format string <code class="code">fmt</code>, and
     applies <code class="code">f</code> to the resulting format string value.
     Raise <code class="code">Scan_failure</code> if the format string value read does not have the
-    same type as <code class="code">fmt</code>.<b>Since</b> 3.09.0</div></div>
+    same type as <code class="code">fmt</code>. <b>Since</b> 3.09.0</div></div>
 <pre><span class="VALsscanf_format"><span class="keyword">val</span> sscanf_format</span> : <code class="type">string -&gt;
 ('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt;
-(('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; 'g) -&gt; 'g</code></pre><div class="info"><div class="info">Same as  <a href="#Scanf.bscanf_format">Scanf.bscanf_format</a>, but reads from the given string.<b>Since</b> 3.09.0</div></div>
+(('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; 'g) -&gt; 'g</code></pre><div class="info"><div class="info">Same as  <a href="#Scanf.bscanf_format">Scanf.bscanf_format</a>, but reads from the given string. <b>Since</b> 3.09.0</div></div>
 <pre><span class="VALformat_from_string"><span class="keyword">val</span> format_from_string</span> : <code class="type">string -&gt;
 ('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt; ('a, 'b, 'c, 'd, 'e, 'f) format6</code></pre><div class="info"><div class="info"><code class="code">format_from_string s fmt</code> converts a string argument to a format string,
     according to the given format string <code class="code">fmt</code>.
     Raise <code class="code">Scan_failure</code> if <code class="code">s</code>, considered as a format string, does not
-    have the same type as <code class="code">fmt</code>.<b>Since</b> 3.10.0</div></div>
+    have the same type as <code class="code">fmt</code>. <b>Since</b> 3.10.0</div></div>
 <pre><span class="VALunescaped"><span class="keyword">val</span> unescaped</span> : <code class="type">string -&gt; string</code></pre><div class="info"><div class="info">Return a copy of the argument with escape sequences, following the
     lexical conventions of OCaml, replaced by their corresponding
     special characters. If there is no escape sequence in the
-    argument, still return a copy, contrary to String.escaped.<b>Since</b> 4.00.0</div></div>
+    argument, still return a copy, contrary to String.escaped. <b>Since</b> 4.00.0</div></div>
 </div>

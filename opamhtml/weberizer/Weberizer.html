@@ -71,14 +71,14 @@ string -&gt; (&lt; content : <a href="?package=weberizer&amp;module=Weberizer&am
 <pre><span class="VALsubst"><span class="keyword">val</span> subst</span> : <code class="type">?base:string -&gt; <a href="?package=weberizer&amp;module=Weberizer.Binding&amp;type=t">Binding.t</a> -&gt; <a href="?package=weberizer&amp;module=Weberizer&amp;type=html">html</a> -&gt; <a href="?package=weberizer&amp;module=Weberizer&amp;type=html">html</a></code></pre><div class="info"><div class="info"><code class="code">subst b html</code> return <code class="code">html</code> where all variables are substituted
     according to the bindings <code class="code">b</code>.<div class="parameters"><div class="param_info"><code class="code">base</code> : All relative file names in &quot;include&quot; directives are
     considered to be relative to <code class="code">base</code>.  Default: the current working
-    directory.</div></div><b>Raises</b> <code>Invalid_argument</code> if variable names are not valid or
+    directory.</div></div> <b>Raises</b> <code>Invalid_argument</code> if variable names are not valid or
     associated values do not correspond to their usage.<br/></div></div>
 <pre><span class="VALread"><span class="keyword">val</span> read</span> : <code class="type">?base:string -&gt; ?bindings:<a href="?package=weberizer&amp;module=Weberizer.Binding&amp;type=t">Binding.t</a> -&gt; string -&gt; <a href="?package=weberizer&amp;module=Weberizer&amp;type=html">html</a></code></pre><div class="info"><div class="info"><code class="code">read fname</code> reads the file <code class="code">fname</code> and returns its content in a
     structured form.<div class="parameters"><div class="param_info"><code class="code">base</code> : All relative file names in &quot;include&quot; directives are
     considered to be relative to <code class="code">base</code>.  Default: the <code class="code">Filename.dirname</code>
     of <code class="code">fname</code>.</div><div class="param_info"><code class="code">bindings</code> : if provided, perform the substitutions it
     mandates.  Otherwise, the &quot;raw&quot; HTML is returned (this is the
-    default).</div></div><b>Raises</b> <code>Sys_error</code> if the file cannot be read.<br/></div></div>
+    default).</div></div> <b>Raises</b> <code>Sys_error</code> if the file cannot be read.<br/></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Utilities</h1></div></div>
 <pre><span class="VALwrite_html"><span class="keyword">val</span> write_html</span> : <code class="type">?doctype:bool -&gt; ?perm:int -&gt; <a href="?package=weberizer&amp;module=Weberizer&amp;type=html">html</a> -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">write_html html fname</code> writes the textual representation of the
     <code class="code">html</code> to the file <code class="code">fname</code>.<div class="parameters"><div class="param_info"><code class="code">doctype</code> : whether to output a doctype (default: <code class="code">true</code>).</div><div class="param_info"><code class="code">perm</code> : the permissions of the created file (default: <code class="code">0o644</code>).
@@ -145,7 +145,7 @@ langs:string list -&gt; <a href="?package=weberizer&amp;module=Weberizer.Path&am
     final file or dir <code class="code">f</code>.  Default: accept all <code class="code">.html</code> files.
     Files and dirs starting with a dot are <i>always</i> excluded.</div><div class="param_info"><code class="code">out_dir</code> : a function s.t. <code class="code">out_dir lang</code> gives the outpout
     directory used for the language <code class="code">lang</code>.  Default: the identity.</div><div class="param_info"><code class="code">out_ext</code> : a function to transform the output extension given
-    the input one.  Default: the identity.</div></div><b>Raises</b> <code>Invalid_argument</code> if <code class="code">base</code> is not a
+    the input one.  Default: the identity.</div></div> <b>Raises</b> <code>Invalid_argument</code> if <code class="code">base</code> is not a
     directory.<br/><code>Invalid_argument</code> if languages are not lowercase only.<br/></div></div>
 <pre><span class="VALrelative_url_are_from_base"><span class="keyword">val</span> relative_url_are_from_base</span> : <code class="type"><a href="?package=weberizer&amp;module=Weberizer.Path&amp;type=t">Path.t</a> -&gt; <a href="?package=weberizer&amp;module=Weberizer&amp;type=html">html</a> -&gt; <a href="?package=weberizer&amp;module=Weberizer&amp;type=html">html</a></code></pre><div class="info"><div class="info"><code class="code">relative_url_are_from_base path html</code> prefix all relative URLs
     in <code class="code">html</code> so that they are specified according to the directory

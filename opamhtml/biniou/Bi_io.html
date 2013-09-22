@@ -35,7 +35,7 @@
 <pre><span class="VALread_field_hashtag"><span class="keyword">val</span> read_field_hashtag</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_inbuf&amp;type=t">Bi_inbuf.t</a> -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=hash">hash</a></code></pre><div class="info"><div class="info"><code class="code">read_field_hashtag ib</code> reads a field tag and returns the 31-bit hash.</div></div>
 <pre><span class="VALmake_unhash"><span class="keyword">val</span> make_unhash</span> : <code class="type">string list -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=hash">hash</a> -&gt; string option</code></pre><div class="info"><div class="info">Compute the hash of each string of the input list
       and return a function that converts a hash back
-      to the original string. Lookups do not allocate memory blocks.<b>Raises</b> <code>Failure</code> if the input list contains two different strings
+      to the original string. Lookups do not allocate memory blocks. <b>Raises</b> <code>Failure</code> if the input list contains two different strings
       with the same hash.<br/></div></div>
 <pre><span class="TYPEint7"><span class="keyword">type</span> int7</span> = <code class="type">int</code></pre><div class="info"><div class="info">7-bit int used to represent a num_variant tag.</div></div>
 <pre><span class="VALwrite_numtag"><span class="keyword">val</span> write_numtag</span> : <code class="type"><a href="?package=biniou&amp;module=Bi_outbuf&amp;type=t">Bi_outbuf.t</a> -&gt; <a href="?package=biniou&amp;module=Bi_io&amp;type=int7">int7</a> -&gt; bool -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">write_numtag ob i has_arg</code> writes the tag of a num_variant.

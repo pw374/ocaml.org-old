@@ -64,7 +64,7 @@
     of an offset.</div></div>
 <pre><span class="VALnew_line"><span class="keyword">val</span> new_line</span> : <code class="type"><a href="?package=ocaml&amp;module=Lexing&amp;type=lexbuf">lexbuf</a> -&gt; unit</code></pre><div class="info"><div class="info">Update the <code class="code">lex_curr_p</code> field of the lexbuf to reflect the start
     of a new line.  You can call this function in the semantic action
-    of the rule that matches the end-of-line character.<b>Since</b> 3.11.0</div></div>
+    of the rule that matches the end-of-line character. <b>Since</b> 3.11.0</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Miscellaneous functions</h6></div></div>
 <pre><span class="VALflush_input"><span class="keyword">val</span> flush_input</span> : <code class="type"><a href="?package=ocaml&amp;module=Lexing&amp;type=lexbuf">lexbuf</a> -&gt; unit</code></pre><div class="info"><div class="info">Discard the contents of the buffer and reset the current
     position to 0.  The next use of the lexbuf will trigger a

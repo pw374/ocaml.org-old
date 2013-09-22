@@ -465,7 +465,7 @@ pos_ref:<a href="?package=core&amp;module=Std.Bin_prot.Common&amp;type=pos">Core
         provide a <code class="code">stop</code>).</div></div>
 <pre><span class="VALsend"><span class="keyword">val</span> send</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Server&amp;type=t">t</a> -&gt;
 <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Remote_name&amp;type=t">Remote_name.t</a> -&gt;
-<a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Send&amp;type=t">Send.t</a> -&gt; [ `Dropped | `Sent of <a href="?package=core&amp;module=Std.Time&amp;type=t">Core.Std.Time.t</a> ] <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">send t client msg</code> send <code class="code">msg</code> to <code class="code">client</code>.<b>Returns</b> a
+<a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Send&amp;type=t">Send.t</a> -&gt; [ `Dropped | `Sent of <a href="?package=core&amp;module=Std.Time&amp;type=t">Core.Std.Time.t</a> ] <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">send t client msg</code> send <code class="code">msg</code> to <code class="code">client</code>. <b>Returns</b> a
         deferred that will become determined when the message has been
         sent.  In the case of an error, the message will be dropped,
         and the deferred will be filled with <code class="code">`Dropped</code> (meaning the
@@ -504,21 +504,21 @@ cutoff:unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t"
 ip:string -&gt;
 port:int -&gt;
 expected_remote_name:<a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Remote_name&amp;type=t">Remote_name.t</a> -&gt; <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.My_name&amp;type=t">My_name.t</a> -&gt; <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info">create a new (initially disconnected) client</div></div>
-<pre><span class="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">connect t</code> If the connection is not currently established, initiate one.<b>Returns</b> a deferred that becomes determined when the connection is established.</div></div>
+<pre><span class="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">connect t</code> If the connection is not currently established, initiate one. <b>Returns</b> a deferred that becomes determined when the connection is established.</div></div>
 <pre><span class="VALclose_connection"><span class="keyword">val</span> close_connection</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info">If a connection is currently established, close it.  Also, if we're trying to
         connect, give up.</div></div>
-<pre><span class="VALlisten"><span class="keyword">val</span> listen</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; (<a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Remote_name&amp;type=t">Remote_name.t</a>, <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Recv&amp;type=t">Recv.t</a>) <a href="?package=async_extra&amp;module=Versioned_typed_tcp.Client_msg&amp;type=t">Client_msg.t</a> <a href="?package=async_extra&amp;module=Import.Stream&amp;type=t">Import.Stream.t</a></code></pre><div class="info"><div class="info"><code class="code">listen t</code><b>Returns</b> a stream of messages from the server and errors</div></div>
+<pre><span class="VALlisten"><span class="keyword">val</span> listen</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; (<a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Remote_name&amp;type=t">Remote_name.t</a>, <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Recv&amp;type=t">Recv.t</a>) <a href="?package=async_extra&amp;module=Versioned_typed_tcp.Client_msg&amp;type=t">Client_msg.t</a> <a href="?package=async_extra&amp;module=Import.Stream&amp;type=t">Import.Stream.t</a></code></pre><div class="info"><div class="info"><code class="code">listen t</code> <b>Returns</b> a stream of messages from the server and errors</div></div>
 <pre><span class="VALlisten_ignore_errors"><span class="keyword">val</span> listen_ignore_errors</span> : <code class="type">?stop:unit <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a> -&gt; <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Recv&amp;type=t">Recv.t</a> <a href="?package=async_extra&amp;module=Import.Stream&amp;type=t">Import.Stream.t</a></code></pre><div class="info"><div class="info"><code class="code">listen_ignore_errors t</code> like <code class="code">listen</code>, but with no errors or meta data.  When
         listen_ignore_errors is called it installs a filter on the stream that never
         goes away (unless t is destroyed or you provide a stop), so you should
         not call it many times throwing away the result.  If you need to do this
         use listen.</div></div>
 <pre><span class="VALsend"><span class="keyword">val</span> send</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Send&amp;type=t">Send.t</a> -&gt; [ `Dropped | `Sent of <a href="?package=core&amp;module=Std.Time&amp;type=t">Core.Std.Time.t</a> ] <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">send t msg</code> send a message to the server. If the connection is
-        not currently established, initiate one.<b>Returns</b> a deferred that is filled in with either the time the
+        not currently established, initiate one. <b>Returns</b> a deferred that is filled in with either the time the
         message was handed to the OS, or <code class="code">`Dropped</code>. <code class="code">`Dropped</code> means that
         there was an error, and the message will not be sent.</div></div>
 <pre><span class="VALsend_ignore_errors"><span class="keyword">val</span> send_ignore_errors</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; <a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Send&amp;type=t">Send.t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">send_ignore_errors t</code> exactly like <code class="code">send</code> but with no error reporting.</div></div>
-<pre><span class="VALstate"><span class="keyword">val</span> state</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; [ `Connected | `Connecting | `Disconnected ]</code></pre><div class="info"><div class="info"><code class="code">state t</code><b>Returns</b> the state of the connection</div></div>
+<pre><span class="VALstate"><span class="keyword">val</span> state</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; [ `Connected | `Connecting | `Disconnected ]</code></pre><div class="info"><div class="info"><code class="code">state t</code> <b>Returns</b> the state of the connection</div></div>
 <pre><span class="VALlast_connect_error"><span class="keyword">val</span> last_connect_error</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; exn option</code></pre><div class="info"><div class="info"><code class="code">last_connect_error t</code> returns the error (if any) that happened on the
         last connection attempt.</div></div>
 <pre><span class="VALflushed"><span class="keyword">val</span> flushed</span> : <code class="type"><a href="?package=async_extra&amp;module=Versioned_typed_tcp.S.Client&amp;type=t">t</a> -&gt; [ `Flushed | `Pending of <a href="?package=core&amp;module=Std.Time&amp;type=t">Core.Std.Time.t</a> <a href="?package=async_extra&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a> ]</code></pre></div></div></div></div>
@@ -593,7 +593,7 @@ expected_remote_name:<a href="?package=async_extra&amp;module=Versioned_typed_tc
         metadata. When listen_ignore_errors is called it installs a filter on
         the stream that never goes away (unless t is destroyed, or you
         provide a <code class="code">stop</code>).</div></div>
-<div class="info"><div class="info"><code class="code">send t client msg</code> send <code class="code">msg</code> to <code class="code">client</code>.<b>Returns</b> a
+<div class="info"><div class="info"><code class="code">send t client msg</code> send <code class="code">msg</code> to <code class="code">client</code>. <b>Returns</b> a
         deferred that will become determined when the message has been
         sent.  In the case of an error, the message will be dropped,
         and the deferred will be filled with <code class="code">`Dropped</code> (meaning the
@@ -625,21 +625,21 @@ expected_remote_name:<a href="?package=async_extra&amp;module=Versioned_typed_tc
 <div class="info"><div class="info">defualt: Scheduler.cycle_start</div></div>
 <div class="info"><div class="info">default is <code class="code">true</code></div></div>
 <div class="info"><div class="info">remote name must match expected remote name.</div></div>
-<div class="info"><div class="info"><code class="code">connect t</code> If the connection is not currently established, initiate one.<b>Returns</b> a deferred that becomes determined when the connection is established.</div></div>
+<div class="info"><div class="info"><code class="code">connect t</code> If the connection is not currently established, initiate one. <b>Returns</b> a deferred that becomes determined when the connection is established.</div></div>
 <div class="info"><div class="info">If a connection is currently established, close it.  Also, if we're trying to
         connect, give up.</div></div>
-<div class="info"><div class="info"><code class="code">listen t</code><b>Returns</b> a stream of messages from the server and errors</div></div>
+<div class="info"><div class="info"><code class="code">listen t</code> <b>Returns</b> a stream of messages from the server and errors</div></div>
 <div class="info"><div class="info"><code class="code">listen_ignore_errors t</code> like <code class="code">listen</code>, but with no errors or meta data.  When
         listen_ignore_errors is called it installs a filter on the stream that never
         goes away (unless t is destroyed or you provide a stop), so you should
         not call it many times throwing away the result.  If you need to do this
         use listen.</div></div>
 <div class="info"><div class="info"><code class="code">send t msg</code> send a message to the server. If the connection is
-        not currently established, initiate one.<b>Returns</b> a deferred that is filled in with either the time the
+        not currently established, initiate one. <b>Returns</b> a deferred that is filled in with either the time the
         message was handed to the OS, or <code class="code">`Dropped</code>. <code class="code">`Dropped</code> means that
         there was an error, and the message will not be sent.</div></div>
 <div class="info"><div class="info"><code class="code">send_ignore_errors t</code> exactly like <code class="code">send</code> but with no error reporting.</div></div>
-<div class="info"><div class="info"><code class="code">state t</code><b>Returns</b> the state of the connection</div></div>
+<div class="info"><div class="info"><code class="code">state t</code> <b>Returns</b> the state of the connection</div></div>
 <div class="info"><div class="info"><code class="code">last_connect_error t</code> returns the error (if any) that happened on the
         last connection attempt.</div></div>
 <div class="info"><div class="info">sent successfuly to all clients</div></div>

@@ -7,7 +7,7 @@
 <pre><span class="VALfile_exists"><span class="keyword">val</span> file_exists</span> : <code class="type">string -&gt; bool</code></pre><div class="info"><div class="info">Test if a file with the given name exists.</div></div>
 <pre><span class="VALis_directory"><span class="keyword">val</span> is_directory</span> : <code class="type">string -&gt; bool</code></pre><div class="info"><div class="info">Returns <code class="code">true</code> if the given name refers to a directory,
     <code class="code">false</code> if it refers to another kind of file.
-    Raise <code class="code">Sys_error</code> if no file exists with the given name.<b>Since</b> 3.10.0</div></div>
+    Raise <code class="code">Sys_error</code> if no file exists with the given name. <b>Since</b> 3.10.0</div></div>
 <pre><span class="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">string -&gt; unit</code></pre><div class="info"><div class="info">Remove the given file name from the file system.</div></div>
 <pre><span class="VALrename"><span class="keyword">val</span> rename</span> : <code class="type">string -&gt; string -&gt; unit</code></pre><div class="info"><div class="info">Rename a file. The first argument is the old name and the
    second is the new name. If there is already another file
@@ -31,12 +31,12 @@
    programs and to <code class="code">true</code> if the code is being executed under
    the interactive toplevel system <code class="code">ocaml</code>.</div></div>
 <pre><span class="VALos_type"><span class="keyword">val</span> os_type</span> : <code class="type">string</code></pre><div class="info"><div class="info">Operating system currently executing the OCaml program. One of<ul><li> <code class="code">&quot;Unix&quot;</code> (for all Unix versions, including Linux and Mac OS X),</li><li> <code class="code">&quot;Win32&quot;</code> (for MS-Windows, OCaml compiled with MSVC++ or Mingw),</li><li> <code class="code">&quot;Cygwin&quot;</code> (for MS-Windows, OCaml compiled with Cygwin). </li></ul></div></div>
-<pre><span class="VALunix"><span class="keyword">val</span> unix</span> : <code class="type">bool</code></pre><div class="info"><div class="info">True if <code class="code">Sys.os_type = &quot;Unix&quot;</code>.<b>Since</b> 4.01.0</div></div>
-<pre><span class="VALwin32"><span class="keyword">val</span> win32</span> : <code class="type">bool</code></pre><div class="info"><div class="info">True if <code class="code">Sys.os_type = &quot;Win32&quot;</code>.<b>Since</b> 4.01.0</div></div>
-<pre><span class="VALcygwin"><span class="keyword">val</span> cygwin</span> : <code class="type">bool</code></pre><div class="info"><div class="info">True if <code class="code">Sys.os_type = &quot;Cygwin&quot;</code>.<b>Since</b> 4.01.0</div></div>
+<pre><span class="VALunix"><span class="keyword">val</span> unix</span> : <code class="type">bool</code></pre><div class="info"><div class="info">True if <code class="code">Sys.os_type = &quot;Unix&quot;</code>. <b>Since</b> 4.01.0</div></div>
+<pre><span class="VALwin32"><span class="keyword">val</span> win32</span> : <code class="type">bool</code></pre><div class="info"><div class="info">True if <code class="code">Sys.os_type = &quot;Win32&quot;</code>. <b>Since</b> 4.01.0</div></div>
+<pre><span class="VALcygwin"><span class="keyword">val</span> cygwin</span> : <code class="type">bool</code></pre><div class="info"><div class="info">True if <code class="code">Sys.os_type = &quot;Cygwin&quot;</code>. <b>Since</b> 4.01.0</div></div>
 <pre><span class="VALword_size"><span class="keyword">val</span> word_size</span> : <code class="type">int</code></pre><div class="info"><div class="info">Size of one word on the machine currently executing the OCaml
    program, in bits: 32 or 64.</div></div>
-<pre><span class="VALbig_endian"><span class="keyword">val</span> big_endian</span> : <code class="type">bool</code></pre><div class="info"><div class="info">Whether the machine currently executing the Caml program is big-endian.<b>Since</b> 4.00.0</div></div>
+<pre><span class="VALbig_endian"><span class="keyword">val</span> big_endian</span> : <code class="type">bool</code></pre><div class="info"><div class="info">Whether the machine currently executing the Caml program is big-endian. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALmax_string_length"><span class="keyword">val</span> max_string_length</span> : <code class="type">int</code></pre><div class="info"><div class="info">Maximum length of a string.</div></div>
 <pre><span class="VALmax_array_length"><span class="keyword">val</span> max_array_length</span> : <code class="type">int</code></pre><div class="info"><div class="info">Maximum length of a normal array.  The maximum length of a float
     array is <code class="code">max_array_length/2</code> on 32-bit machines and

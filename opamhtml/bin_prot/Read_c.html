@@ -1,9 +1,9 @@
 <div class="ocaml_toplevel_module"><div class="info">Wrapping unsafe C-style readers to safe ML-style ones.</div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Generic functions for easy creation of wrappers</h2></div></div>
-<pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Unsafe_read_c.reader</a> -&gt; 'a <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Read_ml.reader</a></code></pre><div class="info"><div class="info"><code class="code">make c_reader</code> takes an unsafe C-style reader <code class="code">c_reader</code>.<b>Returns</b> a safe ML-style reader.</div></div>
+<pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Unsafe_read_c.reader</a> -&gt; 'a <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Read_ml.reader</a></code></pre><div class="info"><div class="info"><code class="code">make c_reader</code> takes an unsafe C-style reader <code class="code">c_reader</code>. <b>Returns</b> a safe ML-style reader.</div></div>
 <pre><span class="VALmake1"><span class="keyword">val</span> make1</span> : <code class="type">('a, 'b) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader1">Unsafe_read_c.reader1</a> -&gt; ('a, 'b) <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader1">Read_ml.reader1</a></code></pre><div class="info"><div class="info"><code class="code">make1 mk_c_reader ml_el_reader</code> takes a higher-order C-style reader
     <code class="code">mk_c_reader</code> and an ML-reader <code class="code">ml_el_reader</code> that operates on the
-    same type as the argument of the C-style reader.<b>Returns</b> ML-style
+    same type as the argument of the C-style reader. <b>Returns</b> ML-style
     reader for the higher-order type.</div></div>
 <pre><span class="VALmake2"><span class="keyword">val</span> make2</span> : <code class="type">('a, 'b, 'c) <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader2">Unsafe_read_c.reader2</a> -&gt; ('a, 'b, 'c) <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader2">Read_ml.reader2</a></code></pre><div class="info"><div class="info"><code class="code">make2 mk_c_reader ml_el1_reader ml_el2_reader</code> like  <a href="#make1">make1</a> but
     operates on unsafe C-style write functions for types with two type
@@ -14,11 +14,11 @@
 <pre><span class="VALunmake"><span class="keyword">val</span> unmake</span> : <code class="type">'b <a href="?package=bin_prot&amp;module=Read_ml&amp;type=reader">Read_ml.reader</a> -&gt; <a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt; 'b <a href="?package=bin_prot&amp;module=Unsafe_read_c&amp;type=reader">Unsafe_read_c.reader</a></code></pre><div class="info"><div class="info"><code class="code">unmake ml_reader buf</code> takes an ML-style reader <code class="code">ml_reader</code> and a
     buffer.  This function can be used to wrap higher-order type
     conversion functions and, together with  <a href="#Unsafe_common.get_sptr_ptr">Unsafe_common.get_sptr_ptr</a>,
-    <span class="SK_custom">Unsafe_common.!set_sptr_ptr</span> and  <a href="#handle_error">handle_error</a>, is used in
-    e.g.  <a href="#make1">make1</a>,  <a href="#make2">make2</a> and  <a href="#make3">make3</a> for that purpose.<b>Returns</b> an
+    <span class="SK_custom">{Unsafe_common .!set_sptr_ptr}</span> and  <a href="#handle_error">handle_error</a>, is used in
+    e.g.  <a href="#make1">make1</a>,  <a href="#make2">make2</a> and  <a href="#make3">make3</a> for that purpose. <b>Returns</b> an
     unsafe C-style reader.</div></div>
 <pre><span class="VALhandle_error"><span class="keyword">val</span> handle_error</span> : <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt; <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr_ptr">Unsafe_common.sptr_ptr</a> -&gt; <a href="?package=bin_prot&amp;module=Common.ReadError&amp;type=t">Common.ReadError.t</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">handle_error buf sptr_ptr err</code> deallocates <code class="code">sptr_ptr</code> for buffer
-    <code class="code">buf</code>.<b>Raises</b> <code>ReadError</code> with the appropriate location information
+    <code class="code">buf</code>. <b>Raises</b> <code>ReadError</code> with the appropriate location information
     and <code class="code">err</code> then.<br/></div></div>
 <pre><span class="VALhandle_exc"><span class="keyword">val</span> handle_exc</span> : <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt; <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr_ptr">Unsafe_common.sptr_ptr</a> -&gt; exn -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">handle_exc buf sptr_ptr exc</code> deallocates <code class="code">sptr_ptr</code> for buffer
     <code class="code">buf</code>.  raise exc then.</div></div>

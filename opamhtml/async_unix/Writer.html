@@ -68,8 +68,8 @@ string -&gt; f:(<a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a>
     close completes, the result of <code class="code">with_file</code> becomes determined with the value of <code class="code">d</code>.<br/>    There is no need to call <code class="code">Writer.flushed</code> to ensure that <code class="code">with_file</code> waits for the
     writer to be flushed before closing it.  <code class="code">Writer.close</code> will already wait for the
     flush.</div></div>
-<pre><span class="VALid"><span class="keyword">val</span> id</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=async_unix&amp;module=Writer.Id&amp;type=t">Id.t</a></code></pre><div class="info"><div class="info"><code class="code">id t</code><b>Returns</b> an id for this writer that is unique among all other writers</div></div>
-<pre><span class="VALfd"><span class="keyword">val</span> fd</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=async_unix&amp;module=Fd&amp;type=t">Fd.t</a></code></pre><div class="info"><div class="info"><code class="code">fd t</code><b>Returns</b> the Fd.t used to create this writer</div></div>
+<pre><span class="VALid"><span class="keyword">val</span> id</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=async_unix&amp;module=Writer.Id&amp;type=t">Id.t</a></code></pre><div class="info"><div class="info"><code class="code">id t</code> <b>Returns</b> an id for this writer that is unique among all other writers</div></div>
+<pre><span class="VALfd"><span class="keyword">val</span> fd</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=async_unix&amp;module=Fd&amp;type=t">Fd.t</a></code></pre><div class="info"><div class="info"><code class="code">fd t</code> <b>Returns</b> the Fd.t used to create this writer</div></div>
 <pre><span class="VALset_fd"><span class="keyword">val</span> set_fd</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=async_unix&amp;module=Fd&amp;type=t">Fd.t</a> -&gt; unit <a href="?package=async_unix&amp;module=Import.Deferred&amp;type=t">Import.Deferred.t</a></code></pre><div class="info"><div class="info"><code class="code">set_fd t fd</code> sets the fd used by <code class="code">t</code> for its underlying system calls.  It first waits
     until everything being sent to the current fd is flushed.  Of course, one must
     understand how the writer works and what one is doing to use this.</div></div>
@@ -80,7 +80,7 @@ string -&gt; f:(<a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a>
 <pre><span class="VALwrite_substring"><span class="keyword">val</span> write_substring</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Std.Substring&amp;type=t">Core.Std.Substring.t</a> -&gt; unit</code></pre>
 <pre><span class="VALwrite_bigsubstring"><span class="keyword">val</span> write_bigsubstring</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Std.Bigsubstring&amp;type=t">Core.Std.Bigsubstring.t</a> -&gt; unit</code></pre>
 <pre><span class="VALwritef"><span class="keyword">val</span> writef</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; ('a, unit, string, unit) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'a</code></pre>
-<pre><span class="VALto_formatter"><span class="keyword">val</span> to_formatter</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a></code></pre><div class="info"><div class="info"><code class="code">to_formatter t</code><b>Returns</b> an OCaml-formatter that one can print to using
+<pre><span class="VALto_formatter"><span class="keyword">val</span> to_formatter</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Format&amp;type=formatter">Format.formatter</a></code></pre><div class="info"><div class="info"><code class="code">to_formatter t</code> <b>Returns</b> an OCaml-formatter that one can print to using
      <a href="#Format.fprintf">Format.fprintf</a>.  Note that flushing the formatter will only submit all buffered
     data to the writer, but does _not_ guarantee flushing to the operating system.</div></div>
 <pre><span class="VALwrite_char"><span class="keyword">val</span> write_char</span> : <code class="type"><a href="?package=async_unix&amp;module=Writer&amp;type=t">t</a> -&gt; char -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">write_char t c</code> writes the character</div></div>
@@ -252,15 +252,15 @@ string <a href="?package=async_unix&amp;module=Import.Pipe.Writer&amp;type=t">Im
 <div class="info"><div class="info">default is <code class="code">0o666</code></div></div>
 <div class="info"><div class="info">default is <code class="code">false</code></div></div>
 <div class="info"><div class="info">default is <code class="code">false</code></div></div>
-<div class="info"><div class="info"><code class="code">id t</code><b>Returns</b> an id for this writer that is unique among all other writers</div></div>
-<div class="info"><div class="info"><code class="code">fd t</code><b>Returns</b> the Fd.t used to create this writer</div></div>
+<div class="info"><div class="info"><code class="code">id t</code> <b>Returns</b> an id for this writer that is unique among all other writers</div></div>
+<div class="info"><div class="info"><code class="code">fd t</code> <b>Returns</b> the Fd.t used to create this writer</div></div>
 <div class="info"><div class="info"><code class="code">set_fd t fd</code> sets the fd used by <code class="code">t</code> for its underlying system calls.  It first waits
     until everything being sent to the current fd is flushed.  Of course, one must
     understand how the writer works and what one is doing to use this.</div></div>
 <div class="info"><div class="info"><code class="code">write ?pos ?len t s</code> adds a job to the writer's queue of pending writes.  The
     contents of the string are copied to an internal buffer before write returns, so
     clients can do whatever they want with <code class="code">s</code> after that.</div></div>
-<div class="info"><div class="info"><code class="code">to_formatter t</code><b>Returns</b> an OCaml-formatter that one can print to using
+<div class="info"><div class="info"><code class="code">to_formatter t</code> <b>Returns</b> an OCaml-formatter that one can print to using
      <a href="#Format.fprintf">Format.fprintf</a>.  Note that flushing the formatter will only submit all buffered
     data to the writer, but does _not_ guarantee flushing to the operating system.</div></div>
 <div class="info"><div class="info"><code class="code">write_char t c</code> writes the character</div></div>

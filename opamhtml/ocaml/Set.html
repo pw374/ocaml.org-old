@@ -70,7 +70,7 @@
           or <code class="code">true</code> if <code class="code">s</code> contains an element equal to <code class="code">x</code>.</div></div>
 <pre><span class="VALfind"><span class="keyword">val</span> find</span> : <code class="type"><a href="?package=ocaml&amp;module=Set.S&amp;type=elt">elt</a> -&gt; <a href="?package=ocaml&amp;module=Set.S&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Set.S&amp;type=elt">elt</a></code></pre><div class="info"><div class="info"><code class="code">find x s</code> returns the element of <code class="code">s</code> equal to <code class="code">x</code> (according
         to <code class="code">Ord.compare</code>), or raise <code class="code">Not_found</code> if no such element
-        exists.<b>Since</b> 4.01.0</div></div></div></div>
+        exists. <b>Since</b> 4.01.0</div></div></div></div>
 <div class="ocaml_module ident" name="Make" path="?package=ocaml&amp;module=Set.S"><pre><span class="keyword">module</span> <a href="?package=ocaml&amp;module=Set.Make">Make</a> : <code class="type"><div class="sig_block"><code class="code">functor (</code><code class="code">Ord</code><code class="code"> : </code><code class="code"><a href="?package=ocaml&amp;module=Set.OrderedType">OrderedType</a></code><code class="code">) -&gt; </code><code class="code"><a href="?package=ocaml&amp;module=Set.S">S</a></code> with type <a href="?package=ocaml&amp;module=Set.S&amp;type=elt">elt</a> = Ord.t</div></code></pre><div class="info"><div class="info">Functor building an implementation of the set structure
    given a totally ordered type.</div></div></div>
 </div>

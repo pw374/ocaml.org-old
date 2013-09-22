@@ -10,9 +10,9 @@
     initialized with <code class="code">Some x</code> or not signalled before.  The semaphore
     is reset to <code class="code">None</code>, i.e. calling <code class="code">wait</code> again will block unless the
     semaphore was signalled inbetween.</div></div>
-<pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Semaphore&amp;type=t">t</a> -&gt; 'a option</code></pre><div class="info"><div class="info"><code class="code">get sem</code><b>Returns</b> <code class="code">None</code> if semaphore is not set, <code class="code">Some value</code>
+<pre><span class="VALget"><span class="keyword">val</span> get</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Semaphore&amp;type=t">t</a> -&gt; 'a option</code></pre><div class="info"><div class="info"><code class="code">get sem</code> <b>Returns</b> <code class="code">None</code> if semaphore is not set, <code class="code">Some value</code>
     otherwise.  The semaphore is reset to <code class="code">None</code>, and a subsequent wait
     will block again.</div></div>
-<pre><span class="VALlook"><span class="keyword">val</span> look</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Semaphore&amp;type=t">t</a> -&gt; 'a option</code></pre><div class="info"><div class="info"><code class="code">look sem</code><b>Returns</b> <code class="code">None</code> if semaphore is not set, <code class="code">Some value</code>
+<pre><span class="VALlook"><span class="keyword">val</span> look</span> : <code class="type">'a <a href="?package=core_extended&amp;module=Semaphore&amp;type=t">t</a> -&gt; 'a option</code></pre><div class="info"><div class="info"><code class="code">look sem</code> <b>Returns</b> <code class="code">None</code> if semaphore is not set, <code class="code">Some value</code>
     otherwise.  The state of the semaphore remains unchanged.</div></div>
 </div>

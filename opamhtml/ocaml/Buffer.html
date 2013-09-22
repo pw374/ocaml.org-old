@@ -25,7 +25,7 @@ buffer itself is unaffected.</div></div>
    the current contents of the buffer <code class="code">src</code>, starting at offset <code class="code">srcoff</code>
    to string <code class="code">dst</code>, starting at character <code class="code">dstoff</code>.<br/>   Raise <code class="code">Invalid_argument</code> if <code class="code">srcoff</code> and <code class="code">len</code> do not designate a valid
    substring of <code class="code">src</code>, or if <code class="code">dstoff</code> and <code class="code">len</code> do not designate a valid
-   substring of <code class="code">dst</code>.<b>Since</b> 3.11.2</div></div>
+   substring of <code class="code">dst</code>. <b>Since</b> 3.11.2</div></div>
 <pre><span class="VALnth"><span class="keyword">val</span> nth</span> : <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">t</a> -&gt; int -&gt; char</code></pre><div class="info"><div class="info">get the n-th character of the buffer. Raise <code class="code">Invalid_argument</code> if
 index out of bounds</div></div>
 <pre><span class="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="?package=ocaml&amp;module=Buffer&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">Return the number of characters currently contained in the buffer.</div></div>

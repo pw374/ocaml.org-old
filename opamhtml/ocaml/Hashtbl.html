@@ -89,7 +89,7 @@
     time.<br/>    Note that once <code class="code">Hashtbl.randomize()</code> was called, there is no way
     to revert to the non-randomized default behavior of  <a href="#Hashtbl.create">Hashtbl.create</a>.
     This is intentional.  Non-randomized hash tables can still be
-    created using <code class="code">Hashtbl.create ~random:false</code>.<b>Since</b> 4.00.0</div></div>
+    created using <code class="code">Hashtbl.create ~random:false</code>. <b>Since</b> 4.00.0</div></div>
 <pre><code><span class="TYPEstatistics"><span class="keyword">type</span> statistics</span> = {</code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTstatistics.num_bindings">num_bindings</span> : <code class="type">int</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Number of bindings present in the table.
         Same value as returned by  <a href="#Hashtbl.length">Hashtbl.length</a>.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTstatistics.num_buckets">num_buckets</span> : <code class="type">int</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Number of buckets in the table.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTstatistics.max_bucket_length">max_bucket_length</span> : <code class="type">int</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Maximal number of bindings per bucket.</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTstatistics.bucket_histogram">bucket_histogram</span> : <code class="type">int array</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">Histogram of bucket sizes.  This array <code class="code">histo</code> has
@@ -97,7 +97,7 @@
         <code class="code">histo.(i)</code> is the number of buckets whose size is <code class="code">i</code>.</div></td></tr><tr><td>}</td></tr></table>
 <pre><span class="VALstats"><span class="keyword">val</span> stats</span> : <code class="type">('a, 'b) <a href="?package=ocaml&amp;module=Hashtbl&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Hashtbl&amp;type=statistics">statistics</a></code></pre><div class="info"><div class="info"><code class="code">Hashtbl.stats tbl</code> returns statistics about the table <code class="code">tbl</code>:
    number of buckets, size of the biggest bucket, distribution of
-   buckets by size.<b>Since</b> 4.00.0</div></div>
+   buckets by size. <b>Since</b> 4.00.0</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Functorial interface</h6></div></div>
 <div class="ocaml_module sig" name="HashedType"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Hashtbl.HashedType">HashedType</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The input signature of the functor  <a href="#Hashtbl.Make">Hashtbl.Make</a>.</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of the hashtable keys.</div></div>
@@ -138,7 +138,7 @@
     equality and hashing.  Since the hash function is not seeded,
     the <code class="code">create</code> operation of the result structure always returns
     non-randomized hash tables.</div></div></div>
-<div class="ocaml_module sig" name="SeededHashedType"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Hashtbl.SeededHashedType">SeededHashedType</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The input signature of the functor  <a href="#Hashtbl.MakeSeeded">Hashtbl.MakeSeeded</a>.<b>Since</b> 4.00.0</div></div><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="SeededHashedType"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Hashtbl.SeededHashedType">SeededHashedType</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The input signature of the functor  <a href="#Hashtbl.MakeSeeded">Hashtbl.MakeSeeded</a>. <b>Since</b> 4.00.0</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of the hashtable keys.</div></div>
 <pre><span class="VALequal"><span class="keyword">val</span> equal</span> : <code class="type"><a href="?package=ocaml&amp;module=Hashtbl.SeededHashedType&amp;type=t">t</a> -&gt; <a href="?package=ocaml&amp;module=Hashtbl.SeededHashedType&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info">The equality predicate used to compare keys.</div></div>
 <pre><span class="VALhash"><span class="keyword">val</span> hash</span> : <code class="type">int -&gt; <a href="?package=ocaml&amp;module=Hashtbl.SeededHashedType&amp;type=t">t</a> -&gt; int</code></pre><div class="info"><div class="info">A seeded hashing function on keys.  The first argument is
@@ -146,7 +146,7 @@
           then <code class="code">hash seed x = hash seed y</code> for any value of <code class="code">seed</code>.
           A suitable choice for <code class="code">hash</code> is the function  <a href="#Hashtbl.seeded_hash">Hashtbl.seeded_hash</a>
           below.</div></div></div></div>
-<div class="ocaml_module sig" name="SeededS"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Hashtbl.SeededS">SeededS</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The output signature of the functor  <a href="#Hashtbl.MakeSeeded">Hashtbl.MakeSeeded</a>.<b>Since</b> 4.00.0</div></div><div class="ocaml_module_content">
+<div class="ocaml_module sig" name="SeededS"><pre><span class="keyword">module type</span> <a href="?package=ocaml&amp;module=Hashtbl.SeededS">SeededS</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The output signature of the functor  <a href="#Hashtbl.MakeSeeded">Hashtbl.MakeSeeded</a>. <b>Since</b> 4.00.0</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEkey"><span class="keyword">type</span> key</span> </pre>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">'a </code>t</span> </pre>
 <pre><span class="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?random:bool -&gt; int -&gt; 'a <a href="?package=ocaml&amp;module=Hashtbl.SeededS&amp;type=t">t</a></code></pre>
@@ -173,14 +173,14 @@
     equality and hashing.  The <code class="code">create</code> operation of the
     result structure supports the <code class="code">~random</code> optional parameter
     and returns randomized hash tables if <code class="code">~random:true</code> is passed
-    or if randomization is globally on (see  <a href="#Hashtbl.randomize">Hashtbl.randomize</a>).<b>Since</b> 4.00.0</div></div></div>
+    or if randomization is globally on (see  <a href="#Hashtbl.randomize">Hashtbl.randomize</a>). <b>Since</b> 4.00.0</div></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">The polymorphic hash functions</h6></div></div>
 <pre><span class="VALhash"><span class="keyword">val</span> hash</span> : <code class="type">'a -&gt; int</code></pre><div class="info"><div class="info"><code class="code">Hashtbl.hash x</code> associates a nonnegative integer to any value of
    any type. It is guaranteed that
    if <code class="code">x = y</code> or <code class="code">Pervasives.compare x y = 0</code>, then <code class="code">hash x = hash y</code>.
    Moreover, <code class="code">hash</code> always terminates, even on cyclic structures.</div></div>
 <pre><span class="VALseeded_hash"><span class="keyword">val</span> seeded_hash</span> : <code class="type">int -&gt; 'a -&gt; int</code></pre><div class="info"><div class="info">A variant of  <a href="#Hashtbl.hash">Hashtbl.hash</a> that is further parameterized by
-   an integer seed.<b>Since</b> 4.00.0</div></div>
+   an integer seed. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALhash_param"><span class="keyword">val</span> hash_param</span> : <code class="type">int -&gt; int -&gt; 'a -&gt; int</code></pre><div class="info"><div class="info"><code class="code">Hashtbl.hash_param meaningful total x</code> computes a hash value for <code class="code">x</code>,
    with the same properties as for <code class="code">hash</code>. The two extra integer
    parameters <code class="code">meaningful</code> and <code class="code">total</code> give more precise control over
@@ -198,5 +198,5 @@
    <code class="code">meaningful = 10</code> and <code class="code">total = 100</code>.</div></div>
 <pre><span class="VALseeded_hash_param"><span class="keyword">val</span> seeded_hash_param</span> : <code class="type">int -&gt; int -&gt; int -&gt; 'a -&gt; int</code></pre><div class="info"><div class="info">A variant of  <a href="#Hashtbl.hash_param">Hashtbl.hash_param</a> that is further parameterized by
    an integer seed.  Usage:
-   <code class="code">Hashtbl.seeded_hash_param meaningful total seed x</code>.<b>Since</b> 4.00.0</div></div>
+   <code class="code">Hashtbl.seeded_hash_param meaningful total seed x</code>. <b>Since</b> 4.00.0</div></div>
 </div>

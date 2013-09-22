@@ -2,15 +2,15 @@
 <div class="info"><div class="info"><h2 id="2_TITLE">Generic functions for easy creation of wrappers</h2></div></div>
 <pre><span class="VALunsafe_get_init"><span class="keyword">val</span> unsafe_get_init</span> : <code class="type"><a href="?package=bin_prot&amp;module=Common&amp;type=buf">Common.buf</a> -&gt;
 pos:<a href="?package=bin_prot&amp;module=Common&amp;type=pos">Common.pos</a> -&gt;
-<a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr">Unsafe_common.sptr</a> * <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr">Unsafe_common.sptr</a> * <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=eptr">Unsafe_common.eptr</a></code></pre><div class="info"><div class="info"><code class="code">unsafe_get_init buf ~pos</code><b>Returns</b> the triple <code class="code">(start, sptr, eptr)</code>
+<a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr">Unsafe_common.sptr</a> * <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=sptr">Unsafe_common.sptr</a> * <a href="?package=bin_prot&amp;module=Unsafe_common&amp;type=eptr">Unsafe_common.eptr</a></code></pre><div class="info"><div class="info"><code class="code">unsafe_get_init buf ~pos</code> <b>Returns</b> the triple <code class="code">(start, sptr, eptr)</code>
     where <code class="code">start</code> is the pointer to the start of buffer <code class="code">buf</code>, <code class="code">sptr</code>
     the pointer to the position <code class="code">pos</code> in <code class="code">buf</code>, and <code class="code">eptr</code> the pointer to
     the end of the buffer.  NOTE: you must make sure that <code class="code">buf</code> remains
     unreclaimed as long as any of the three pointers is accessible!</div></div>
-<pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Unsafe_write_c.writer</a> -&gt; 'a <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Write_ml.writer</a></code></pre><div class="info"><div class="info"><code class="code">make c_writer</code> takes an unsafe C-style writer <code class="code">c_writer</code>.<b>Returns</b> a safe ML-style writer.</div></div>
+<pre><span class="VALmake"><span class="keyword">val</span> make</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Unsafe_write_c.writer</a> -&gt; 'a <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Write_ml.writer</a></code></pre><div class="info"><div class="info"><code class="code">make c_writer</code> takes an unsafe C-style writer <code class="code">c_writer</code>. <b>Returns</b> a safe ML-style writer.</div></div>
 <pre><span class="VALmake1"><span class="keyword">val</span> make1</span> : <code class="type">('a, 'b) <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer1">Unsafe_write_c.writer1</a> -&gt; ('a, 'b) <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer1">Write_ml.writer1</a></code></pre><div class="info"><div class="info"><code class="code">make1 mk_c_writer ml_el_writer</code> takes a higher-order C-style writer
     <code class="code">mk_c_writer</code> and an ML-writer <code class="code">ml_el_writer</code> that operates on the
-    same type as the argument of the C-style writer.<b>Returns</b> ML-style
+    same type as the argument of the C-style writer. <b>Returns</b> ML-style
     writer for the higher-order type.</div></div>
 <pre><span class="VALmake2"><span class="keyword">val</span> make2</span> : <code class="type">('a, 'b, 'c) <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer2">Unsafe_write_c.writer2</a> -&gt; ('a, 'b, 'c) <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer2">Write_ml.writer2</a></code></pre><div class="info"><div class="info"><code class="code">make2 mk_c_writer ml_el1_writer ml_el2_writer</code> like  <a href="#make1">make1</a> but
     operates on unsafe C-style write functions for types with two type
@@ -23,7 +23,7 @@ pos:<a href="?package=bin_prot&amp;module=Common&amp;type=pos">Common.pos</a> -&
     buffer, and the pointer <code class="code">start</code> to the start of the buffer.  This
     function can be used to wrap higher-order type conversion functions
     and, together with  <a href="#unsafe_get_init">unsafe_get_init</a>, is used in e.g.  <a href="#make1">make1</a>,
-     <a href="#make2">make2</a> and  <a href="#make3">make3</a> for that purpose.<b>Returns</b> an unsafe C-style
+     <a href="#make2">make2</a> and  <a href="#make3">make3</a> for that purpose. <b>Returns</b> an unsafe C-style
     writer.</div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Unsafe C-style writers for basic types wrapped as ML-style writers</h2></div></div>
 <pre><span class="VALbin_write_unit"><span class="keyword">val</span> bin_write_unit</span> : <code class="type">unit <a href="?package=bin_prot&amp;module=Write_ml&amp;type=writer">Write_ml.writer</a></code></pre>

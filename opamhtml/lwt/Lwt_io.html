@@ -82,7 +82,7 @@ mode:'mode <a href="?package=lwt&amp;module=Lwt_io&amp;type=mode">mode</a> -&gt;
 <div class="info"><div class="info"><h6 id="6_TITLE">Reading</h6></div></div>
 <div class="info"><div class="info">Note: except for functions dealing with streams ( <a href="#read_chars">read_chars</a> and
      <a href="#read_lines">read_lines</a>) all functions are <b>atomic</b>.</div></div>
-<pre><span class="VALread_char"><span class="keyword">val</span> read_char</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">input_channel</a> -&gt; char <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">read_char ic</code> reads the next character of <code class="code">ic</code>.<b>Raises</b> <code>End_of_file</code> if the end of the file is reached<br/></div></div>
+<pre><span class="VALread_char"><span class="keyword">val</span> read_char</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">input_channel</a> -&gt; char <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">read_char ic</code> reads the next character of <code class="code">ic</code>. <b>Raises</b> <code>End_of_file</code> if the end of the file is reached<br/></div></div>
 <pre><span class="VALread_char_opt"><span class="keyword">val</span> read_char_opt</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">input_channel</a> -&gt; char option <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Same as  <a href="#read_byte">read_byte</a> but does not raises <code class="code">End_of_file</code> on end of
       input</div></div>
 <pre><span class="VALread_chars"><span class="keyword">val</span> read_chars</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">input_channel</a> -&gt; char <a href="?package=lwt&amp;module=Lwt_stream&amp;type=t">Lwt_stream.t</a></code></pre><div class="info"><div class="info"><code class="code">read_chars ic</code> returns a stream holding all characters of
@@ -104,7 +104,7 @@ mode:'mode <a href="?package=lwt&amp;module=Lwt_io&amp;type=mode">mode</a> -&gt;
       number of bytes read.<br/>      Note: <code class="code">read_into</code> does not raise <code class="code">End_of_file</code>, it returns a
       length of <code class="code">0</code> instead.</div></div>
 <pre><span class="VALread_into_exactly"><span class="keyword">val</span> read_into_exactly</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">input_channel</a> -&gt; string -&gt; int -&gt; int -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">read_into_exactly ic buffer offset length</code> reads exactly
-      <code class="code">length</code> bytes and stores them in <code class="code">buffer</code> at offset <code class="code">offset</code>.<b>Raises</b> <code>End_of_file</code> on end of input<br/></div></div>
+      <code class="code">length</code> bytes and stores them in <code class="code">buffer</code> at offset <code class="code">offset</code>. <b>Raises</b> <code>End_of_file</code> on end of input<br/></div></div>
 <pre><span class="VALread_value"><span class="keyword">val</span> read_value</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">input_channel</a> -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">read_value ic</code> reads a marshaled value from <code class="code">ic</code></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Writing</h6></div></div>
 <div class="info"><div class="info">Note: as for reading functions, all functions except
@@ -151,7 +151,7 @@ mode:'mode <a href="?package=lwt&amp;module=Lwt_io&amp;type=mode">mode</a> -&gt;
 ?flags:<a href="?package=ocaml&amp;module=Unix&amp;type=open_flag">Unix.open_flag</a> list -&gt;
 ?perm:<a href="?package=ocaml&amp;module=Unix&amp;type=file_perm">Unix.file_perm</a> -&gt; mode:'a <a href="?package=lwt&amp;module=Lwt_io&amp;type=mode">mode</a> -&gt; <a href="?package=lwt&amp;module=Lwt_io&amp;type=file_name">file_name</a> -&gt; 'a <a href="?package=lwt&amp;module=Lwt_io&amp;type=channel">channel</a> <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">open_file ?buffer_size ?flags ?perm ~mode filename</code> open the
       file with name <code class="code">filename</code> and returns a channel for
-      reading/writing it.<b>Raises</b> <code>Unix.Unix_error</code> on error.<br/></div></div>
+      reading/writing it. <b>Raises</b> <code>Unix.Unix_error</code> on error.<br/></div></div>
 <pre><span class="VALwith_file"><span class="keyword">val</span> with_file</span> : <code class="type">?buffer_size:int -&gt;
 ?flags:<a href="?package=ocaml&amp;module=Unix&amp;type=open_flag">Unix.open_flag</a> list -&gt;
 ?perm:<a href="?package=ocaml&amp;module=Unix&amp;type=file_perm">Unix.file_perm</a> -&gt;
@@ -160,7 +160,7 @@ mode:'a <a href="?package=lwt&amp;module=Lwt_io&amp;type=mode">mode</a> -&gt; <a
       channel is closed when <code class="code">f ch</code> terminates (even if it fails).</div></div>
 <pre><span class="VALopen_connection"><span class="keyword">val</span> open_connection</span> : <code class="type">?buffer_size:int -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a> -&gt; (<a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">input_channel</a> * <a href="?package=lwt&amp;module=Lwt_io&amp;type=output_channel">output_channel</a>) <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">open_connection ?buffer_size addr</code> open a connection to
       the given address and returns two channels for using it.<br/>      The connection is completly closed when you close both
-      channels.<b>Raises</b> <code>Unix.Unix_error</code> on error.<br/></div></div>
+      channels. <b>Raises</b> <code>Unix.Unix_error</code> on error.<br/></div></div>
 <pre><span class="VALwith_connection"><span class="keyword">val</span> with_connection</span> : <code class="type">?buffer_size:int -&gt;
 <a href="?package=ocaml&amp;module=Unix&amp;type=sockaddr">Unix.sockaddr</a> -&gt; (<a href="?package=lwt&amp;module=Lwt_io&amp;type=input_channel">input_channel</a> * <a href="?package=lwt&amp;module=Lwt_io&amp;type=output_channel">output_channel</a> -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">with_connection ?buffer_size addr f</code> open a connection to
       the given address and passes the channels to <code class="code">f</code></div></div>
@@ -220,7 +220,7 @@ mode:'a <a href="?package=lwt&amp;module=Lwt_io&amp;type=mode">mode</a> -&gt; <a
 <div class="info"><div class="info"><h6 id="6_TITLE">Misc</h6></div></div>
 <pre><span class="VALdefault_buffer_size"><span class="keyword">val</span> default_buffer_size</span> : <code class="type">unit -&gt; int</code></pre><div class="info"><div class="info">Return the default size for buffers. Channels that are created
       without specific size use this one.</div></div>
-<pre><span class="VALset_default_buffer_size"><span class="keyword">val</span> set_default_buffer_size</span> : <code class="type">int -&gt; unit</code></pre><div class="info"><div class="info">Change the default buffer size.<b>Raises</b> <code>Invalid_argument</code> if the given size is smaller than <code class="code">16</code>
+<pre><span class="VALset_default_buffer_size"><span class="keyword">val</span> set_default_buffer_size</span> : <code class="type">int -&gt; unit</code></pre><div class="info"><div class="info">Change the default buffer size. <b>Raises</b> <code>Invalid_argument</code> if the given size is smaller than <code class="code">16</code>
       or greater than <code class="code">Sys.max_string_length</code><br/></div></div>
 <pre><span class="VALof_string"><span class="keyword">val</span> of_string</span> : <code class="type">mode:'mode <a href="?package=lwt&amp;module=Lwt_io&amp;type=mode">mode</a> -&gt; string -&gt; 'mode <a href="?package=lwt&amp;module=Lwt_io&amp;type=channel">channel</a></code></pre>
 </div>

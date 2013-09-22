@@ -12,11 +12,11 @@
 <pre><span class="METHODvalue"><span class="keyword">method</span> value</span> : <code class="code">string</code></pre>
 <div class="info"><div class="info">The value of the argument, after all transfer encodings have
         been removed.  If the value is stored in a file, the file will
-        be loaded.<b>Raises</b> <code>Argument.Oversized</code> if the argument was discarded.<br/><code>Failure</code> if the object has been finalized.<br/></div></div>
+        be loaded. <b>Raises</b> <code>Argument.Oversized</code> if the argument was discarded.<br/><code>Failure</code> if the object has been finalized.<br/></div></div>
 <pre><span class="METHODopen_value_rd"><span class="keyword">method</span> open_value_rd</span> : <code class="code">unit -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=in_obj_channel">Netchannels.in_obj_channel</a></code></pre>
 <div class="info"><div class="info">Open the contents of the value as an input channel.  This
         works for all kinds of arguments, regardless of their
-        <code class="code">#storage</code> and <code class="code">#representation</code>.<b>Raises</b> <code>Argument.Oversized</code> if the argument was discarded.<br/><code>Failure</code> if the object has been finalized.<br/></div></div>
+        <code class="code">#storage</code> and <code class="code">#representation</code>. <b>Raises</b> <code>Argument.Oversized</code> if the argument was discarded.<br/><code>Failure</code> if the object has been finalized.<br/></div></div>
 <pre><span class="METHODstore"><span class="keyword">method</span> store</span> : <code class="code">[ `File of string | `Memory ]</code></pre>
 <div class="info"><div class="info">Tells whether the argument is stored in memory (as a string)
         or as a file (the argument of <code class="code">`File</code> being the filename).</div></div>
@@ -248,7 +248,7 @@
         case-insensitive; if the name is a compound name, the parts
         are separated by &quot;-&quot;, e.g. <code class="code">&quot;content-length&quot;</code>.  If there are
         several fields with the same name only the first field will be
-        returned.<b>Raises</b> <code>Not_found</code> if the field does not exist, unless the
+        returned. <b>Raises</b> <code>Not_found</code> if the field does not exist, unless the
         <code class="code">default</code> argument is passed.  The <code class="code">default</code> argument is the
         result of the function in this case.<br/></div></div>
 <pre><span class="METHODmultiple_input_header_field"><span class="keyword">method</span> multiple_input_header_field</span> : <code class="code">string -&gt; string list</code></pre>
@@ -258,7 +258,7 @@
 <div class="info"><div class="info">Returns the input header as (name,value) pairs.  The names may
         consist of lowercase or uppercase letters.</div></div>
 <pre><span class="METHODcookie"><span class="keyword">method</span> cookie</span> : <code class="code">string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi.Cookie&amp;type=t">Cookie.t</a></code></pre>
-<div class="info"><div class="info"><code class="code">#cookie cn</code> returns the cookie with name <code class="code">cn</code>.<b>Raises</b> <code>Not_found</code> if such a cookie does not exists.<br/></div></div>
+<div class="info"><div class="info"><code class="code">#cookie cn</code> returns the cookie with name <code class="code">cn</code>. <b>Raises</b> <code>Not_found</code> if such a cookie does not exists.<br/></div></div>
 <pre><span class="METHODcookies"><span class="keyword">method</span> cookies</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netcgi.Cookie&amp;type=t">Cookie.t</a> list</code></pre>
 <div class="info"><div class="info">Returns the list of valid cookies found in the request header.
         Here &quot;valid&quot; means that the decode function does not raise an
@@ -267,12 +267,12 @@
 <div class="info"><div class="info">This is a convenience method that returns the <code class="code">&quot;User-agent&quot;</code>
         field of the HTTP request header.</div></div>
 <pre><span class="METHODinput_content_length"><span class="keyword">method</span> input_content_length</span> : <code class="code">int</code></pre>
-<div class="info"><div class="info">Returns the <code class="code">&quot;Content-length&quot;</code> request header field.<b>Raises</b> <code>Not_found</code> if it is not set.<br/></div></div>
+<div class="info"><div class="info">Returns the <code class="code">&quot;Content-length&quot;</code> request header field. <b>Raises</b> <code>Not_found</code> if it is not set.<br/></div></div>
 <pre><span class="METHODinput_content_type_string"><span class="keyword">method</span> input_content_type_string</span> : <code class="code">string</code></pre>
 <div class="info"><div class="info">Returns the <code class="code">&quot;Content-type&quot;</code> request header field as a plain
         string or <code class="code">&quot;&quot;</code> if it is not set.</div></div>
 <pre><span class="METHODinput_content_type"><span class="keyword">method</span> input_content_type</span> : <code class="code">unit -&gt; string * (string * <a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_param">Mimestring.s_param</a>) list</code></pre>
-<div class="info"><div class="info">Returns the parsed <code class="code">&quot;Content-type&quot;</code> request header field.<b>Raises</b> <code>Not_found</code> if it is not set.
+<div class="info"><div class="info">Returns the parsed <code class="code">&quot;Content-type&quot;</code> request header field. <b>Raises</b> <code>Not_found</code> if it is not set.
         See also  <a href="#Mimestring.scan_mime_type_ep">Mimestring.scan_mime_type_ep</a>.<br/></div></div>
 <div class="info"><div class="info"><h3 id="3_TITLE">Response header</h3></div></div>
 <pre><span class="METHODoutput_header"><span class="keyword">method</span> output_header</span> : <code class="code"><a href="?package=ocamlnet&amp;module=Netmime&amp;type=mime_header">Netmime.mime_header</a></code></pre>
@@ -358,7 +358,7 @@
 <pre><span class="METHODargument"><span class="keyword">method</span> argument</span> : <code class="code">string -&gt; <a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_argument">cgi_argument</a></code></pre>
 <div class="info"><div class="info"><code class="code">#argument name</code> returns the value of the argument named <code class="code">name</code>.
         If the argument appears several times, only one of its
-        instances is used.<b>Raises</b> <code>Not_found</code> if no such argument exists.<br/></div></div>
+        instances is used. <b>Raises</b> <code>Not_found</code> if no such argument exists.<br/></div></div>
 <pre><span class="METHODargument_value"><span class="keyword">method</span> argument_value</span> : <code class="code">?default:string -&gt; string -&gt; string</code></pre>
 <div class="info"><div class="info"><code class="code">#argument_value</code> returns the value of the argument as a
         string.  If the argument does not exist, the <code class="code">default</code> is

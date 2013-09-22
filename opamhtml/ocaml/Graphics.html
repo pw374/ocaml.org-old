@@ -160,7 +160,7 @@
 <pre><span class="VALloop_at_exit"><span class="keyword">val</span> loop_at_exit</span> : <code class="type"><a href="?package=ocaml&amp;module=Graphics&amp;type=event">event</a> list -&gt; (<a href="?package=ocaml&amp;module=Graphics&amp;type=status">status</a> -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info">Loop before exiting the program, the list given as argument is the
     list of handlers and the events on which these handlers are called.
     To exit cleanly the loop, the handler should raise Exit. Any other
-    exception will be propagated outside of the loop.<b>Since</b> 4.01</div></div>
+    exception will be propagated outside of the loop. <b>Since</b> 4.01</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Mouse and keyboard polling</h6></div></div>
 <pre><span class="VALmouse_pos"><span class="keyword">val</span> mouse_pos</span> : <code class="type">unit -&gt; int * int</code></pre><div class="info"><div class="info">Return the position of the mouse cursor, relative to the
    graphics window. If the mouse cursor is outside of the graphics

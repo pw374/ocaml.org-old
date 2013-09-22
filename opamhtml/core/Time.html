@@ -56,7 +56,7 @@
 <pre><span class="VALt_of_sexp_abs"><span class="keyword">val</span> t_of_sexp_abs</span> : <code class="type"><a href="?package=core_kernel&amp;module=Std.Sexp&amp;type=t">Core_kernel.Std.Sexp.t</a> -&gt; <a href="?package=core&amp;module=Time&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">t_of_sexp_abs sexp</code> as <code class="code">t_of_sexp</code>, but demands that <code class="code">sexp</code> indicate the timezone the
     time is expressed in.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Miscellaneous</h6></div></div>
-<pre><span class="VALnow"><span class="keyword">val</span> now</span> : <code class="type">unit -&gt; <a href="?package=core&amp;module=Time&amp;type=t">t</a></code></pre><div class="info"><div class="info"><b>Returns</b> the current time.</div></div>
+<pre><span class="VALnow"><span class="keyword">val</span> now</span> : <code class="type">unit -&gt; <a href="?package=core&amp;module=Time&amp;type=t">t</a></code></pre><div class="info"><div class="info"> <b>Returns</b> the current time.</div></div>
 <pre><span class="VALpause"><span class="keyword">val</span> pause</span> : <code class="type"><a href="?package=core&amp;module=Span&amp;type=t">Span.t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">pause span</code> sleeps for span time.</div></div>
 <pre><span class="VALinterruptible_pause"><span class="keyword">val</span> interruptible_pause</span> : <code class="type"><a href="?package=core&amp;module=Span&amp;type=t">Span.t</a> -&gt; [ `Ok | `Remaining of <a href="?package=core&amp;module=Span&amp;type=t">Span.t</a> ]</code></pre><div class="info"><div class="info"><code class="code">interruptible_pause span</code> sleeps for span time unless interrupted (e.g. by delivery
    of a signal), in which case the remaining unslept portion of time is returned.</div></div>
@@ -134,7 +134,7 @@
 <div class="info"><div class="info"><code class="code">t_of_sexp_abs sexp</code> as <code class="code">t_of_sexp</code>, but demands that <code class="code">sexp</code> indicate the timezone the
     time is expressed in.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Miscellaneous</h6></div></div>
-<div class="info"><div class="info"><b>Returns</b> the current time.</div></div>
+<div class="info"><div class="info"> <b>Returns</b> the current time.</div></div>
 <div class="info"><div class="info"><code class="code">pause span</code> sleeps for span time.</div></div>
 <div class="info"><div class="info"><code class="code">interruptible_pause span</code> sleeps for span time unless interrupted (e.g. by delivery
    of a signal), in which case the remaining unslept portion of time is returned.</div></div>

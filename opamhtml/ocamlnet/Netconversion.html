@@ -422,7 +422,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
  than 50 bytes.<br/> It is allowed that the input buffer ends with an incomplete
  multi-byte character. This character is not converted, i.e. the
  conversion ends just before this character. This special condition
- is not indicated to the caller.<b>Returns</b> The triple <code class="code">(in_n, out_n, in_enc')</code> is returned:<ul><li><code class="code">in_n</code> is the actual number of bytes that have been converted from
+ is not indicated to the caller. <b>Returns</b> The triple <code class="code">(in_n, out_n, in_enc')</code> is returned:<ul><li><code class="code">in_n</code> is the actual number of bytes that have been converted from
    <code class="code">in_buf</code>; <code class="code">in_n</code> may be smaller than <code class="code">in_len</code> because of incomplete
    multi-byte characters, or because the output buffer has less space
    for characters than the input buffer, or because of a change

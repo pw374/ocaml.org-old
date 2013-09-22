@@ -28,12 +28,12 @@
     recursively.
     If the computation of <code class="code">x</code> raises an exception, it is unspecified
     whether <code class="code">force_val x</code> raises the same exception or <code class="code">Undefined</code>.</div></div>
-<pre><span class="VALfrom_fun"><span class="keyword">val</span> from_fun</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a <a href="?package=ocaml&amp;module=Lazy&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">from_fun f</code> is the same as <code class="code">lazy (f ())</code> but slightly more efficient.<b>Since</b> 4.00.0</div></div>
+<pre><span class="VALfrom_fun"><span class="keyword">val</span> from_fun</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a <a href="?package=ocaml&amp;module=Lazy&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">from_fun f</code> is the same as <code class="code">lazy (f ())</code> but slightly more efficient. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALfrom_val"><span class="keyword">val</span> from_val</span> : <code class="type">'a -&gt; 'a <a href="?package=ocaml&amp;module=Lazy&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">from_val v</code> returns an already-forced suspension of <code class="code">v</code>.
     This is for special purposes only and should not be confused with
-    <code class="code">lazy (v)</code>.<b>Since</b> 4.00.0</div></div>
+    <code class="code">lazy (v)</code>. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALis_val"><span class="keyword">val</span> is_val</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Lazy&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">is_val x</code> returns <code class="code">true</code> if <code class="code">x</code> has already been forced and
-    did not raise an exception.<b>Since</b> 4.00.0</div></div>
+    did not raise an exception. <b>Since</b> 4.00.0</div></div>
 <pre><span class="VALlazy_from_fun"><span class="keyword">val</span> lazy_from_fun</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a <a href="?package=ocaml&amp;module=Lazy&amp;type=t">t</a></code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span> synonym for <code class="code">from_fun</code>.<br/></div></div>
 <pre><span class="VALlazy_from_val"><span class="keyword">val</span> lazy_from_val</span> : <code class="type">'a -&gt; 'a <a href="?package=ocaml&amp;module=Lazy&amp;type=t">t</a></code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span> synonym for <code class="code">from_val</code>.<br/></div></div>
 <pre><span class="VALlazy_is_val"><span class="keyword">val</span> lazy_is_val</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Lazy&amp;type=t">t</a> -&gt; bool</code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span> synonym for <code class="code">is_val</code>.<br/></div></div>
