@@ -34,7 +34,7 @@
 <pre><span class="VAL|&gt;"><span class="keyword">val</span> |&gt;</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre>
 <pre><span class="VALident"><span class="keyword">val</span> ident</span> : <code class="type">'a -&gt; 'a</code></pre>
 <pre><span class="VALconst"><span class="keyword">val</span> const</span> : <code class="type">'a -&gt; 'b -&gt; 'a</code></pre>
-<pre><span class="VAL==&gt;"><span class="keyword">val</span> ==&gt;</span> : <code class="type">bool -&gt; bool -&gt; bool</code></pre>
+<pre><span class="VAL(==&gt;)"><span class="keyword">val</span> (==&gt;)</span> : <code class="type">bool -&gt; bool -&gt; bool</code></pre>
 <pre><span class="VALfailwiths"><span class="keyword">val</span> failwiths</span> : <code class="type">string -&gt; 'a -&gt; ('a -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; 'b</code></pre>
 <pre><span class="VALfailwithp"><span class="keyword">val</span> failwithp</span> : <code class="type"><a href="?package=ocaml&amp;module=Lexing&amp;type=position">Lexing.position</a> -&gt; string -&gt; 'a -&gt; ('a -&gt; <a href="?package=sexplib&amp;module=Sexp&amp;type=t">Sexplib.Sexp.t</a>) -&gt; 'b</code></pre>
 <pre><span class="VALfailwithf"><span class="keyword">val</span> failwithf</span> : <code class="type">('r, unit, string, unit -&gt; 'a) <a href="?package=ocaml&amp;module=Pervasives&amp;type=format4">Pervasives.format4</a> -&gt; 'r</code></pre>
@@ -68,9 +68,9 @@
     <code class="code">phys_equal</code> because they too easily lead to mistakes (for example they don't even
     work right on Int64 or Float).  One can usually use the <code class="code">equal</code> function for a
     specific type, or use (=) or (&lt;&gt;) for built in types like char, int, float,</div></div>
-<pre><span class="VAL=="><span class="keyword">val</span> ==</span> : <code class="type">[ `Consider_using_phys_equal ] -&gt;
+<pre><span class="VAL(==)"><span class="keyword">val</span> (==)</span> : <code class="type">[ `Consider_using_phys_equal ] -&gt;
 [ `Consider_using_phys_equal ] -&gt; [ `Consider_using_phys_equal ]</code></pre>
-<pre><span class="VAL!="><span class="keyword">val</span> !=</span> : <code class="type">[ `Consider_using_phys_equal ] -&gt;
+<pre><span class="VAL(!=)"><span class="keyword">val</span> (!=)</span> : <code class="type">[ `Consider_using_phys_equal ] -&gt;
 [ `Consider_using_phys_equal ] -&gt; [ `Consider_using_phys_equal ]</code></pre>
 <pre><span class="VALforce"><span class="keyword">val</span> force</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Lazy&amp;type=t">Lazy.t</a> -&gt; 'a</code></pre>
 <pre><span class="VALstage"><span class="keyword">val</span> stage</span> : <code class="type">'a -&gt; 'a <a href="?package=core_kernel&amp;module=Staged&amp;type=t">Staged.t</a></code></pre><div class="info"><div class="info">See  <a href="#module : Staged ">module : Staged </a> for documentation</div></div>

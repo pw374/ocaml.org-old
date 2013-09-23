@@ -10,17 +10,17 @@
 <pre><span class="EXCEPTIONExit"><span class="keyword">exception</span> Exit</span></pre><div class="info"><div class="info">The <code class="code">Exit</code> exception is not raised by any library function.  It is
     provided for use in your programs.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Comparisons</h6></div></div>
-<pre><span class="VAL="><span class="keyword">val</span> =</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">e1 = e2</code> tests for structural equality of <code class="code">e1</code> and <code class="code">e2</code>.
+<pre><span class="VAL(=)"><span class="keyword">val</span> (=)</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">e1 = e2</code> tests for structural equality of <code class="code">e1</code> and <code class="code">e2</code>.
    Mutable structures (e.g. references and arrays) are equal
    if and only if their current contents are structurally equal,
    even if the two mutable objects are not the same physical object.
    Equality between functional values raises <code class="code">Invalid_argument</code>.
    Equality between cyclic data structures may not terminate.</div></div>
-<pre><span class="VAL&lt;&gt;"><span class="keyword">val</span> &lt;&gt;</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">Negation of  <a href="#Pervasives.( = )">Pervasives.( = )</a>.</div></div>
-<pre><span class="VAL&lt;"><span class="keyword">val</span> &lt;</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">See  <a href="#Pervasives.( &gt;= )">Pervasives.( &gt;= )</a>.</div></div>
-<pre><span class="VAL&gt;"><span class="keyword">val</span> &gt;</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">See  <a href="#Pervasives.( &gt;= )">Pervasives.( &gt;= )</a>.</div></div>
-<pre><span class="VAL&lt;="><span class="keyword">val</span> &lt;=</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">See  <a href="#Pervasives.( &gt;= )">Pervasives.( &gt;= )</a>.</div></div>
-<pre><span class="VAL&gt;="><span class="keyword">val</span> &gt;=</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">Structural ordering functions. These functions coincide with
+<pre><span class="VAL(&lt;&gt;)"><span class="keyword">val</span> (&lt;&gt;)</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">Negation of  <a href="#Pervasives.( = )">Pervasives.( = )</a>.</div></div>
+<pre><span class="VAL(&lt;)"><span class="keyword">val</span> (&lt;)</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">See  <a href="#Pervasives.( &gt;= )">Pervasives.( &gt;= )</a>.</div></div>
+<pre><span class="VAL(&gt;)"><span class="keyword">val</span> (&gt;)</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">See  <a href="#Pervasives.( &gt;= )">Pervasives.( &gt;= )</a>.</div></div>
+<pre><span class="VAL(&lt;=)"><span class="keyword">val</span> (&lt;=)</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">See  <a href="#Pervasives.( &gt;= )">Pervasives.( &gt;= )</a>.</div></div>
+<pre><span class="VAL(&gt;=)"><span class="keyword">val</span> (&gt;=)</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">Structural ordering functions. These functions coincide with
    the usual orderings over integers, characters, strings
    and floating-point numbers, and extend them to a
    total ordering over all types.
@@ -47,7 +47,7 @@
 <pre><span class="VALmax"><span class="keyword">val</span> max</span> : <code class="type">'a -&gt; 'a -&gt; 'a</code></pre><div class="info"><div class="info">Return the greater of the two arguments.
     The result is unspecified if one of the arguments contains
     the float value <code class="code">nan</code>.</div></div>
-<pre><span class="VAL=="><span class="keyword">val</span> ==</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">e1 == e2</code> tests for physical equality of <code class="code">e1</code> and <code class="code">e2</code>.
+<pre><span class="VAL(==)"><span class="keyword">val</span> (==)</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info"><code class="code">e1 == e2</code> tests for physical equality of <code class="code">e1</code> and <code class="code">e2</code>.
    On mutable types such as references, arrays, strings, records with
    mutable fields and objects with mutable instance variables,
    <code class="code">e1 == e2</code> is true if and only if physical modification of <code class="code">e1</code>
@@ -55,7 +55,7 @@
    On non-mutable types, the behavior of <code class="code">( == )</code> is
    implementation-dependent; however, it is guaranteed that
    <code class="code">e1 == e2</code> implies <code class="code">compare e1 e2 = 0</code>.</div></div>
-<pre><span class="VAL!="><span class="keyword">val</span> !=</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">Negation of  <a href="#Pervasives.( == )">Pervasives.( == )</a>.</div></div>
+<pre><span class="VAL(!=)"><span class="keyword">val</span> (!=)</span> : <code class="type">'a -&gt; 'a -&gt; bool</code></pre><div class="info"><div class="info">Negation of  <a href="#Pervasives.( == )">Pervasives.( == )</a>.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Boolean operations</h6></div></div>
 <pre><span class="VALnot"><span class="keyword">val</span> not</span> : <code class="type">bool -&gt; bool</code></pre><div class="info"><div class="info">The boolean negation.</div></div>
 <pre><span class="VAL&amp;&amp;"><span class="keyword">val</span> &amp;&amp;</span> : <code class="type">bool -&gt; bool -&gt; bool</code></pre><div class="info"><div class="info">The boolean 'and'. Evaluation is sequential, left-to-right:
@@ -65,11 +65,11 @@
 <pre><span class="VAL||"><span class="keyword">val</span> ||</span> : <code class="type">bool -&gt; bool -&gt; bool</code></pre><div class="info"><div class="info">The boolean 'or'. Evaluation is sequential, left-to-right:
    in <code class="code">e1 || e2</code>, <code class="code">e1</code> is evaluated first, and if it returns <code class="code">true</code>,
    <code class="code">e2</code> is not evaluated at all.</div></div>
-<pre><span class="VALor"><span class="keyword">val</span> or</span> : <code class="type">bool -&gt; bool -&gt; bool</code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span>  <a href="#Pervasives.( || )">Pervasives.( || )</a> should be used instead.<br/></div></div>
+<pre><span class="VAL(or)"><span class="keyword">val</span> (or)</span> : <code class="type">bool -&gt; bool -&gt; bool</code></pre><div class="info"><div class="info"><span class="warning">Deprecated.</span>  <a href="#Pervasives.( || )">Pervasives.( || )</a> should be used instead.<br/></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Composition operators</h6></div></div>
 <pre><span class="VAL|&gt;"><span class="keyword">val</span> |&gt;</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info">Reverse-application operator: <code class="code">x |&gt; f |&gt; g</code> is exactly equivalent
  to <code class="code">g (f (x))</code>. <b>Since</b> 4.01</div></div>
-<pre><span class="VAL@@"><span class="keyword">val</span> @@</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info">Application operator: <code class="code">g @@ f @@ x</code> is exactly equivalent to
+<pre><span class="VAL(@@)"><span class="keyword">val</span> (@@)</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info">Application operator: <code class="code">g @@ f @@ x</code> is exactly equivalent to
  <code class="code">g (f (x))</code>. <b>Since</b> 4.01</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Integer arithmetic</h6></div></div>
 <div class="info"><div class="info">Integers are 31 bits wide (or 63 bits on 64-bit processors).
@@ -79,16 +79,16 @@
 <pre><span class="VAL~+"><span class="keyword">val</span> ~+</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info">Unary addition. You can also write <code class="code">+ e</code> instead of <code class="code">~+ e</code>. <b>Since</b> 3.12.0</div></div>
 <pre><span class="VALsucc"><span class="keyword">val</span> succ</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">succ x</code> is <code class="code">x + 1</code>.</div></div>
 <pre><span class="VALpred"><span class="keyword">val</span> pred</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">pred x</code> is <code class="code">x - 1</code>.</div></div>
-<pre><span class="VAL+"><span class="keyword">val</span> +</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer addition.</div></div>
-<pre><span class="VAL-"><span class="keyword">val</span> -</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer subtraction.</div></div>
-<pre><span class="VAL*"><span class="keyword">val</span> *</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer multiplication.</div></div>
-<pre><span class="VAL/"><span class="keyword">val</span> /</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer division.
+<pre><span class="VAL(+)"><span class="keyword">val</span> (+)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer addition.</div></div>
+<pre><span class="VAL(-)"><span class="keyword">val</span> (-)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer subtraction.</div></div>
+<pre><span class="VAL( * )"><span class="keyword">val</span> ( * )</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer multiplication.</div></div>
+<pre><span class="VAL(/)"><span class="keyword">val</span> (/)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer division.
    Raise <code class="code">Division_by_zero</code> if the second argument is 0.
    Integer division rounds the real quotient of its arguments towards zero.
    More precisely, if <code class="code">x &gt;= 0</code> and <code class="code">y &gt; 0</code>, <code class="code">x / y</code> is the greatest integer
    less than or equal to the real quotient of <code class="code">x</code> by <code class="code">y</code>.  Moreover,
    <code class="code">(- x) / y = x / (- y) = - (x / y)</code>.</div></div>
-<pre><span class="VALmod"><span class="keyword">val</span> mod</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer remainder.  If <code class="code">y</code> is not zero, the result
+<pre><span class="VAL(mod)"><span class="keyword">val</span> (mod)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Integer remainder.  If <code class="code">y</code> is not zero, the result
    of <code class="code">x mod y</code> satisfies the following properties:
    <code class="code">x = (x / y) * y + x mod y</code> and
    <code class="code">abs(x mod y) &lt;= abs(y) - 1</code>.
@@ -100,19 +100,19 @@
 <pre><span class="VALmax_int"><span class="keyword">val</span> max_int</span> : <code class="type">int</code></pre><div class="info"><div class="info">The greatest representable integer.</div></div>
 <pre><span class="VALmin_int"><span class="keyword">val</span> min_int</span> : <code class="type">int</code></pre><div class="info"><div class="info">The smallest representable integer.</div></div>
 <div class="info"><div class="info"><div class="h7">Bitwise operations</div></div></div>
-<pre><span class="VALland"><span class="keyword">val</span> land</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Bitwise logical and.</div></div>
-<pre><span class="VALlor"><span class="keyword">val</span> lor</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Bitwise logical or.</div></div>
-<pre><span class="VALlxor"><span class="keyword">val</span> lxor</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Bitwise logical exclusive or.</div></div>
+<pre><span class="VAL(land)"><span class="keyword">val</span> (land)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Bitwise logical and.</div></div>
+<pre><span class="VAL(lor)"><span class="keyword">val</span> (lor)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Bitwise logical or.</div></div>
+<pre><span class="VAL(lxor)"><span class="keyword">val</span> (lxor)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Bitwise logical exclusive or.</div></div>
 <pre><span class="VALlnot"><span class="keyword">val</span> lnot</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info">Bitwise logical negation.</div></div>
-<pre><span class="VALlsl"><span class="keyword">val</span> lsl</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">n lsl m</code> shifts <code class="code">n</code> to the left by <code class="code">m</code> bits.
+<pre><span class="VAL(lsl)"><span class="keyword">val</span> (lsl)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">n lsl m</code> shifts <code class="code">n</code> to the left by <code class="code">m</code> bits.
    The result is unspecified if <code class="code">m &lt; 0</code> or <code class="code">m &gt;= bitsize</code>,
    where <code class="code">bitsize</code> is <code class="code">32</code> on a 32-bit platform and
    <code class="code">64</code> on a 64-bit platform.</div></div>
-<pre><span class="VALlsr"><span class="keyword">val</span> lsr</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">n lsr m</code> shifts <code class="code">n</code> to the right by <code class="code">m</code> bits.
+<pre><span class="VAL(lsr)"><span class="keyword">val</span> (lsr)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">n lsr m</code> shifts <code class="code">n</code> to the right by <code class="code">m</code> bits.
    This is a logical shift: zeroes are inserted regardless of
    the sign of <code class="code">n</code>.
    The result is unspecified if <code class="code">m &lt; 0</code> or <code class="code">m &gt;= bitsize</code>.</div></div>
-<pre><span class="VALasr"><span class="keyword">val</span> asr</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">n asr m</code> shifts <code class="code">n</code> to the right by <code class="code">m</code> bits.
+<pre><span class="VAL(asr)"><span class="keyword">val</span> (asr)</span> : <code class="type">int -&gt; int -&gt; int</code></pre><div class="info"><div class="info"><code class="code">n asr m</code> shifts <code class="code">n</code> to the right by <code class="code">m</code> bits.
    This is an arithmetic shift: the sign bit of <code class="code">n</code> is replicated.
    The result is unspecified if <code class="code">m &lt; 0</code> or <code class="code">m &gt;= bitsize</code>.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Floating-point arithmetic</h6><br/>   OCaml's floating-point numbers follow the
@@ -127,11 +127,11 @@
    as argument returns <code class="code">nan</code> as result.</div></div>
 <pre><span class="VAL~-."><span class="keyword">val</span> ~-.</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Unary negation. You can also write <code class="code">-. e</code> instead of <code class="code">~-. e</code>.</div></div>
 <pre><span class="VAL~+."><span class="keyword">val</span> ~+.</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Unary addition. You can also write <code class="code">+. e</code> instead of <code class="code">~+. e</code>. <b>Since</b> 3.12.0</div></div>
-<pre><span class="VAL+."><span class="keyword">val</span> +.</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point addition</div></div>
-<pre><span class="VAL-."><span class="keyword">val</span> -.</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point subtraction</div></div>
-<pre><span class="VAL*."><span class="keyword">val</span> *.</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point multiplication</div></div>
-<pre><span class="VAL/."><span class="keyword">val</span> /.</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point division.</div></div>
-<pre><span class="VAL**"><span class="keyword">val</span> **</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Exponentiation.</div></div>
+<pre><span class="VAL(+.)"><span class="keyword">val</span> (+.)</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point addition</div></div>
+<pre><span class="VAL(-.)"><span class="keyword">val</span> (-.)</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point subtraction</div></div>
+<pre><span class="VAL( *. )"><span class="keyword">val</span> ( *. )</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point multiplication</div></div>
+<pre><span class="VAL(/.)"><span class="keyword">val</span> (/.)</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Floating-point division.</div></div>
+<pre><span class="VAL( ** )"><span class="keyword">val</span> ( ** )</span> : <code class="type">float -&gt; float -&gt; float</code></pre><div class="info"><div class="info">Exponentiation.</div></div>
 <pre><span class="VALsqrt"><span class="keyword">val</span> sqrt</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Square root.</div></div>
 <pre><span class="VALexp"><span class="keyword">val</span> exp</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Exponential.</div></div>
 <pre><span class="VALlog"><span class="keyword">val</span> log</span> : <code class="type">float -&gt; float</code></pre><div class="info"><div class="info">Natural logarithm.</div></div>
@@ -206,7 +206,7 @@
 <pre><span class="VALclassify_float"><span class="keyword">val</span> classify_float</span> : <code class="type">float -&gt; <a href="?package=ocaml&amp;module=Pervasives&amp;type=fpclass">fpclass</a></code></pre><div class="info"><div class="info">Return the class of the given floating-point number:
    normal, subnormal, zero, infinite, or not a number.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">String operations</h6><br/>   More string operations are provided in module  <a href="#String">String</a>.</div></div>
-<pre><span class="VAL^"><span class="keyword">val</span> ^</span> : <code class="type">string -&gt; string -&gt; string</code></pre><div class="info"><div class="info">String concatenation.</div></div>
+<pre><span class="VAL(^)"><span class="keyword">val</span> (^)</span> : <code class="type">string -&gt; string -&gt; string</code></pre><div class="info"><div class="info">String concatenation.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Character operations</h6><br/>   More character operations are provided in module  <a href="#Char">Char</a>.</div></div>
 <pre><span class="VALint_of_char"><span class="keyword">val</span> int_of_char</span> : <code class="type">char -&gt; int</code></pre><div class="info"><div class="info">Return the ASCII code of the argument.</div></div>
 <pre><span class="VALchar_of_int"><span class="keyword">val</span> char_of_int</span> : <code class="type">int -&gt; char</code></pre><div class="info"><div class="info">Return the character with the given ASCII code.
@@ -240,7 +240,7 @@
 <pre><span class="VALfst"><span class="keyword">val</span> fst</span> : <code class="type">'a * 'b -&gt; 'a</code></pre><div class="info"><div class="info">Return the first component of a pair.</div></div>
 <pre><span class="VALsnd"><span class="keyword">val</span> snd</span> : <code class="type">'a * 'b -&gt; 'b</code></pre><div class="info"><div class="info">Return the second component of a pair.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">List operations</h6><br/>   More list operations are provided in module  <a href="#List">List</a>.</div></div>
-<pre><span class="VAL@"><span class="keyword">val</span> @</span> : <code class="type">'a list -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info">List concatenation.</div></div>
+<pre><span class="VAL(@)"><span class="keyword">val</span> (@)</span> : <code class="type">'a list -&gt; 'a list -&gt; 'a list</code></pre><div class="info"><div class="info">List concatenation.</div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Input/output</h6>
     Note: all input/output functions can raise <code class="code">Sys_error</code> when the system
     calls they invoke fail.</div></div>
@@ -441,9 +441,9 @@
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="keyword">mutable</span> <span class="TYPEELTref.contents">contents</span> : <code class="type">'a</code>;</code></td></tr><tr><td>}</td></tr></table><div class="info"><div class="info">The type of references (mutable indirection cells) containing
    a value of type <code class="code">'a</code>.</div></div>
 <pre><span class="VALref"><span class="keyword">val</span> ref</span> : <code class="type">'a -&gt; 'a <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">ref</a></code></pre><div class="info"><div class="info">Return a fresh reference containing the given value.</div></div>
-<pre><span class="VAL!"><span class="keyword">val</span> !</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">ref</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">!r</code> returns the current contents of reference <code class="code">r</code>.
+<pre><span class="VAL(!)"><span class="keyword">val</span> (!)</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">ref</a> -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">!r</code> returns the current contents of reference <code class="code">r</code>.
    Equivalent to <code class="code">fun r -&gt; r.contents</code>.</div></div>
-<pre><span class="VAL:="><span class="keyword">val</span> :=</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">ref</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">r := a</code> stores the value of <code class="code">a</code> in reference <code class="code">r</code>.
+<pre><span class="VAL(:=)"><span class="keyword">val</span> (:=)</span> : <code class="type">'a <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">ref</a> -&gt; 'a -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">r := a</code> stores the value of <code class="code">a</code> in reference <code class="code">r</code>.
    Equivalent to <code class="code">fun r v -&gt; r.contents &lt;- v</code>.</div></div>
 <pre><span class="VALincr"><span class="keyword">val</span> incr</span> : <code class="type">int <a href="?package=ocaml&amp;module=Pervasives&amp;type=ref">ref</a> -&gt; unit</code></pre><div class="info"><div class="info">Increment the integer contained in the given reference.
    Equivalent to <code class="code">fun r -&gt; r := succ !r</code>.</div></div>
@@ -496,7 +496,7 @@
     Note: <code class="code">format_of_string</code> can not convert a string argument that is not a
     literal. If you need this functionality, use the more general
      <a href="#Scanf.format_from_string">Scanf.format_from_string</a> function.</div></div>
-<pre><span class="VAL^^"><span class="keyword">val</span> ^^</span> : <code class="type">('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt;
+<pre><span class="VAL(^^)"><span class="keyword">val</span> (^^)</span> : <code class="type">('a, 'b, 'c, 'd, 'e, 'f) format6 -&gt;
 ('f, 'b, 'c, 'e, 'g, 'h) format6 -&gt; ('a, 'b, 'c, 'd, 'g, 'h) format6</code></pre><div class="info"><div class="info"><code class="code">f1 ^^ f2</code> catenates format strings <code class="code">f1</code> and <code class="code">f2</code>. The result is a
   format string that behaves as the concatenation of format strings <code class="code">f1</code> and
   <code class="code">f2</code>: in case of formatted output, it accepts arguments from <code class="code">f1</code>, then
