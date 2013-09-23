@@ -30,8 +30,8 @@
 <pre><span class="VALuw"><span class="keyword">val</span> uw</span> : <code class="type">'a option -&gt; 'a</code></pre><div class="info"><div class="info"><h6 id="6_TITLE">Option handling</h6></div></div>
 <pre><span class="VALis_none"><span class="keyword">val</span> is_none</span> : <code class="type">'a option -&gt; bool</code></pre>
 <pre><span class="VALis_some"><span class="keyword">val</span> is_some</span> : <code class="type">'a option -&gt; bool</code></pre>
-<pre><span class="VAL|!"><span class="keyword">val</span> |!</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info"><h6 id="6_TITLE">Functions from fn.ml</h6></div></div>
-<pre><span class="VAL|&gt;"><span class="keyword">val</span> |&gt;</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre>
+<pre><span class="VAL(|!)"><span class="keyword">val</span> (|!)</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info"><h6 id="6_TITLE">Functions from fn.ml</h6></div></div>
+<pre><span class="VAL(|&gt;)"><span class="keyword">val</span> (|&gt;)</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre>
 <pre><span class="VALident"><span class="keyword">val</span> ident</span> : <code class="type">'a -&gt; 'a</code></pre>
 <pre><span class="VALconst"><span class="keyword">val</span> const</span> : <code class="type">'a -&gt; 'b -&gt; 'a</code></pre>
 <pre><span class="VAL(==&gt;)"><span class="keyword">val</span> (==&gt;)</span> : <code class="type">bool -&gt; bool -&gt; bool</code></pre>
@@ -92,7 +92,7 @@
 <pre><span class="VALclose_in"><span class="keyword">val</span> close_in</span> : <code class="type">[ `Deprecated_use_in_channel ] -&gt; [ `Deprecated_use_in_channel ]</code></pre><div class="info"><div class="info">we have our own version of these two, the INRIA version doesn't release the runtime
     lock.</div></div>
 <pre><span class="VALclose_out"><span class="keyword">val</span> close_out</span> : <code class="type">[ `Deprecated_use_out_channel ] -&gt; [ `Deprecated_use_out_channel ]</code></pre>
-<pre><span class="VAL&amp;"><span class="keyword">val</span> &amp;</span> : <code class="type">[ `Deprecated_use_two_ampersands ] -&gt;
+<pre><span class="VAL(&amp;)"><span class="keyword">val</span> (&amp;)</span> : <code class="type">[ `Deprecated_use_two_ampersands ] -&gt;
 [ `Deprecated_use_two_ampersands ] -&gt; [ `Deprecated_use_two_ampersands ]</code></pre>
 <pre><span class="VALmax_int"><span class="keyword">val</span> max_int</span> : <code class="type">[ `Deprecated_use_int_module ]</code></pre>
 <pre><span class="VALmin_int"><span class="keyword">val</span> min_int</span> : <code class="type">[ `Deprecated_use_int_module ]</code></pre>

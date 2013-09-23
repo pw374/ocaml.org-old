@@ -1,6 +1,6 @@
 <div class="ocaml_toplevel_module"><div class="info">various combinators for functions</div>
-<pre><span class="VAL|!"><span class="keyword">val</span> |!</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info">A 'pipe' operator. Deprecated.</div></div>
-<pre><span class="VAL|&gt;"><span class="keyword">val</span> |&gt;</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info">A pipe operator, equivalent to |!, but this notation is more broadly accepted</div></div>
+<pre><span class="VAL(|!)"><span class="keyword">val</span> (|!)</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info">A 'pipe' operator. Deprecated.</div></div>
+<pre><span class="VAL(|&gt;)"><span class="keyword">val</span> (|&gt;)</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info">A pipe operator, equivalent to |!, but this notation is more broadly accepted</div></div>
 <pre><span class="VALconst"><span class="keyword">val</span> const</span> : <code class="type">'a -&gt; 'b -&gt; 'a</code></pre><div class="info"><div class="info">produces a function that just returns its first argument</div></div>
 <pre><span class="VALignore"><span class="keyword">val</span> ignore</span> : <code class="type">'a -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">ignore</code> is the same as <code class="code">Pervasives.ignore</code>.  It is useful to have here so
  that code that rebinds <code class="code">ignore</code> can still refer to <code class="code">Fn.ignore</code>.</div></div>

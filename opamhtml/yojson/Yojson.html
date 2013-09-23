@@ -268,7 +268,7 @@ let extract_titles (json : Yojson.Basic.json) : string list =
 <pre><span class="EXCEPTIONUndefined"><span class="keyword">exception</span> Undefined</span> <span class="keyword">of</span> <code class="type">string * <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a></code></pre><div class="info"><div class="info">Raised when the equivalent JavaScript operation on the JSON value would
       return undefined. Currently this only happens when an array index is out
       of bounds.</div></div>
-<pre><span class="VAL|&gt;"><span class="keyword">val</span> |&gt;</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info">Forward pipe operator; useful for composing JSON access functions
+<pre><span class="VAL(|&gt;)"><span class="keyword">val</span> (|&gt;)</span> : <code class="type">'a -&gt; ('a -&gt; 'b) -&gt; 'b</code></pre><div class="info"><div class="info">Forward pipe operator; useful for composing JSON access functions
       without too many parentheses</div></div>
 <pre><span class="VALmember"><span class="keyword">val</span> member</span> : <code class="type">string -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a> -&gt; <a href="?package=yojson&amp;module=Yojson.Basic&amp;type=json">json</a></code></pre><div class="info"><div class="info"><code class="code">member k obj</code> returns the value associated with the key <code class="code">k</code> in the JSON
       object <code class="code">obj</code>, or <code class="code">`Null</code> if <code class="code">k</code> is not present in <code class="code">obj</code>.</div></div>

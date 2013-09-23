@@ -128,7 +128,7 @@
 	 It is a variable name used in the man page to stand for their value.</li><li><code class="code">doc</code> is the man page information of the argument.
          The variable <code class="code">&quot;$(docv)&quot;</code> can be used to refer to the value 
          of <code class="code">docv</code> (see below).</li></ul></div></div>
-<pre><span class="VAL&amp;"><span class="keyword">val</span> &amp;</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">f &amp; v</code> is <code class="code">f v</code>, a right associative composition operator for
+<pre><span class="VAL(&amp;)"><span class="keyword">val</span> (&amp;)</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">f &amp; v</code> is <code class="code">f v</code>, a right associative composition operator for
       specifying argument terms.</div></div>
 <div class="info"><div class="info"><h1 id="optargs">Optional arguments</h1> <br/>    The information of an optional argument must have at least
     one name or <code class="code">Invalid_argument</code> is raised.</div></div>
