@@ -59,7 +59,7 @@ pkg:Makefile
 
 	mv md-pages/pkg/index.{html,md}
 
-	for l in md-pages/pkg/*/*.html ; do \
+	for l in md-pages/pkg/*/*/*.html ; do \
 	  (printf '<!-- {{! set title %s !}} -->\n' "$$(basename $$(dirname $$l))" ; cat "$$l") \
 		> "$$(dirname $$l)/$$(basename $$l html)"md ;\
 	  rm -f "$$l" ;\
