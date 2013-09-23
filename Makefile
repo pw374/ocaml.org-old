@@ -58,7 +58,7 @@ pkg:Makefile
 	rsync -r pkg-pages/* md-pages/pkg/
 	find md-pages/pkg -iname '*.html' -type f | while read l ; do  mv "$$l" "$$(dirname $$l)/$$(basename $$l html)"md ; done
 	printf '<!-- {{ set title Packages }} -->\n# Packages\n' > md-pages/pkg/index.html
-	cat md-pages/pkg/index.md > md-pages/pkg/index.html
+	cat md-pages/pkg/index.md >> md-pages/pkg/index.html
 	mv md-pages/pkg/index.html md-pages/pkg/index.md
 	rsync -r opamhtml/* md-pages/pkg/docs/
 	rm -f md-pages/pkg/docs/index.html
@@ -73,8 +73,8 @@ pkg:Makefile
 		fi; \
 	done
 
-	echo '<!-- Unfortunately, this file is generated, so do not edit manually. {{! set title opam packages documentation !}} -->' > md-pages/pkg/docs/index.md
-	echo '<div id="opamdoc-contents" class="span8 offset2"><h1>Packages list</h1><table class="indextable">' >> md-pages/pkg/docs/index.md
+	echo '<!-- Unfortunately, this file is generated, so do not edit manually. {{! set title Packages Documentation !}} -->' > md-pages/pkg/docs/index.md
+	echo '<div id="opamdoc-contents" class="span8 offset2"><h1>List of Packages</h1><table class="indextable">' >> md-pages/pkg/docs/index.md
 	frag -fr '.*<table.*' -tr '.*</table>.*' < opamhtml/index.html | sort >> md-pages/pkg/docs/index.md
 	echo '</table></div>' >> md-pages/pkg/docs/index.md
 	echo '<script type="text/javascript" src="opam_doc_loader.js"></script>' >> md-pages/pkg/docs/index.md
