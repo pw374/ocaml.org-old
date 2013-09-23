@@ -56,7 +56,15 @@ pkg:Makefile
 	rm -fr md-pages/pkg/
 	mkdir -p md-pages/pkg/docs/
 	rsync -r pkg-pages/* md-pages/pkg/
-	find md-pages/pkg -iname '*.html' -type f | while read l ; do  mv "$$l" "$$(dirname $$l)/$$(basename $$l html)"md ; done
+
+	mv md-pages/pkg/index.{html,md}
+
+	for l in md-pages/pkg/*/*.html ; do \
+	  (printf '<!-- {{! set title %s !}} -->\n' "$$(basename $$(dirname $$l))" ; cat "$$l") \
+		> "$$(dirname $$l)/$$(basename $$l html)"md ;\
+	  rm -f "$$l" ;\
+	done
+
 	printf '<!-- {{! set title Packages !}} -->\n# Packages\n' > md-pages/pkg/index.html
 	cat md-pages/pkg/index.md >> md-pages/pkg/index.html
 	mv md-pages/pkg/index.html md-pages/pkg/index.md
