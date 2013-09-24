@@ -1,128 +1,79 @@
-<?xml version="1.0"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- {{! set title License !}} -*-html-*- -->
 
-<xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-
-
-```ocaml
-
-```
-<content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<
-Licence
-</title>
-  </head>
-  <body>
-
-
-```ocaml
-<h1>
-```
-La licence d'OCaml
-</h1>
-
-<!--                                -*-html-*- -->
+# La licence d'OCaml
 
 <p>
-In the following, “the Library” refers to all files marked “Copyright
-Inria” in the following directories and their sub-directories of the
+In the following, &#8220;the Library&#8221; refers to all files marked &#8220;Copyright
+Inria&#8221; in the following directories and their sub-directories of the
 distribution:
 </p>
-
-
-
-
-
-
-
 <blockquote><p>
-  
-<tt>asmrun</tt>, <tt>byterun</tt>, <tt>camlp4</tt>, <tt>config</tt>,
-<tt>otherlibs</tt>, <tt>stdlib</tt>, <tt>win32caml</tt>
+  <tt>asmrun</tt>, 
+  <tt>byterun</tt>, 
+  <tt>camlp4</tt>, 
+  <tt>config</tt>, 
+  <tt>otherlibs</tt>, 
+  <tt>stdlib</tt>, 
+  <tt>win32caml</tt>
+
+</p></blockquote>
+<p>
+and &#8220;the Compiler&#8221; refers to all files marked &#8220;Copyright
+Inria&#8221; in the following directories and their sub-directories:
+</p>
+<blockquote><p>
+  <tt>asmcomp</tt>,
+  <tt>boot</tt>,
+  <tt>bytecomp</tt>,
+  <tt>debugger</tt>,
+  <tt>driver</tt>,
+  <tt>lex</tt>,
+  <tt>ocamldoc</tt>,
+  <tt>parsing</tt>,
+  <tt>tools</tt>,
+  <tt>toplevel</tt>,
+  <tt>typing</tt>,
+  <tt>utils</tt>,
+  <tt>yacc</tt>
 
 </p></blockquote>
 
-
-
 <p>
-and “the Compiler” refers to all files marked “Copyright Inria” in the
-following directories and their sub-directories:
+The Compiler is distributed under the terms of the <a href="#qpl" shape="rect">Q Public License</a> version 1.0
+ with a change to choice of law (included below).
 </p>
 
-
-
-
-
-
-
-<blockquote><p>
-  
-<tt>asmcomp</tt>, <tt>boot</tt>, <tt>bytecomp</tt>, <tt>debugger</tt>,
-<tt>driver</tt>, <tt>lex</tt>, <tt>ocamldoc</tt>, <tt>parsing</tt>,
-<tt>tools</tt>, <tt>toplevel</tt>, <tt>typing</tt>, <tt>utils</tt>,
-<tt>yacc</tt>
-
-</p></blockquote>
-
-
-
-
 <p>
-The Compiler is distributed under the terms of the
-<a href="#qpl" shape="rect">Q Public License</a> version 1.0 with a
-change to choice of law (included below).
+The Library is distributed under the terms of the <a href="#lgpl" shape="rect">GNU
+Library General Public License</a> version 2 (included below). 
 </p>
-
-
-
-
-<p>
-The Library is distributed under the terms of the
-<a href="#lgpl" shape="rect">GNU Library General Public License</a>
-version 2 (included below).
-</p>
-
-
-
 
 <p>
 
 As a special exception to the Q Public Licence, you may develop
-application programs, reusable components and other software items that
-link with the original or modified versions of the Compiler and are not
-made available to the general public, without any of the additional
-requirements listed in clause 6c of the Q Public licence.
+application programs, reusable components and other software items
+that link with the original or modified versions of the Compiler
+and are not made available to the general public, without any of the
+additional requirements listed in clause 6c of the Q Public licence.
 </p>
-
-
-
 
 <p>
 As a special exception to the GNU Library General Public License, you
-may link, statically or dynamically, a "work that uses the Library" with
-a publicly distributed version of the Library to produce an executable
-file containing portions of the Library, and distribute that executable
-file under terms of your choice, without any of the additional
-requirements listed in clause 6 of the GNU Library General Public
-License. By "a publicly distributed version of the Library", we mean
-either the unmodified Library as distributed by Inria, or a modified
-version of the Library that is distributed under the conditions defined
-in clause 3 of the GNU Library General Public License. This exception
-does not however invalidate any other reasons why the executable file
-might be covered by the GNU Library General Public License.
+may link, statically or dynamically, a "work that uses the Library"
+with a publicly distributed version of the Library to produce an
+executable file containing portions of the Library, and distribute
+that executable file under terms of your choice, without any of the
+additional requirements listed in clause 6 of the GNU Library General
+Public License.  By "a publicly distributed version of the Library",
+we mean either the unmodified Library as distributed by Inria, or a
+modified version of the Library that is distributed under the
+conditions defined in clause 3 of the GNU Library General Public
+License.  This exception does not however invalidate any other reasons
+why the executable file might be covered by the GNU Library General
+Public License.
 </p>
 
-
-
-
-<h2>
-<a name="qpl" id="qpl"><!--0--></a>The Q Public License, version 1.0
-</h2>
-
-
-
+<h2><a name="qpl" id="qpl"><!--0--></a>The Q Public License, version 1.0</h2>
 <pre xml:space="preserve">
               Copyright (C) 1999 Troll Tech AS, Norway.
                   Everyone is permitted to copy and
@@ -227,15 +178,7 @@ This license is governed by the Laws of France.
 </pre>
 
 
-
-
-<h2>
-<a name="lgpl" id="lgpl"><!--0--></a>The GNU Library General Public
-License, version 2
-</h2>
-
-
-
+<h2><a name="lgpl" id="lgpl"><!--0--></a>The GNU Library General Public License, version 2</h2>
 
 <pre xml:space="preserve">
  Copyright (C) 1991 Free Software Foundation, Inc.
@@ -717,10 +660,4 @@ necessary.  Here is a sample; alter the names:
   Ty Coon, President of Vice
 
 That's all there is to it!
-</pre>
-
-<br />
-
-</body>
-</html>
-
+</pre>    

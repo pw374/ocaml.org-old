@@ -1,4 +1,6 @@
-<!-- {{! set title OCaml's License !}} -*-html-*- -->
+<!-- {{! set title License !}} -*-html-*- -->
+
+# OCaml's License
 
 <p>
 In the following, &#8220;the Library&#8221; refers to all files marked &#8220;Copyright
