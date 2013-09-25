@@ -1,44 +1,44 @@
-    <div class="container">
-      <div class="row">
-{{!x ifdef toc
-        <div class="span4">
-          <nav id="nav-secondary">
-            <ul class="nav nav-list">
-              <li class="nav-header"><a href="#">Contents</a></li>
-{{! cat ((! get toc !)) !}}
-            </ul>
-          </nav>
-        </div>
-x!}}
-{{!x ifdef tryocaml
-        <div id="content-primary" class="span8">
-    <div id='tryocaml' class="content" style='display:none;'>
-      <div class="container">
-        <div class="row">
-          <div id="lesson-message"></div>
-          <div id="languages" style='display:none;'></div>
-          <div id="menu-lessons" style='display:none'>
-            <table class="zebra-striped">
-              <tr><td id="text-x"><code></code></td> <td id=""></td></tr>
-            </table>
-          </div>
-          <div class="span9 ocaml">
-            <div id="toplevel-container">
-              <pre id="output"></pre>
-              <div id="sharp">#</div>
-              <div id="toplevel"></div>
+<div class="container">
+  <div class="row">
+    {{!x ifdef toc
+    <div class="span4">
+      <nav id="nav-secondary">
+        <ul class="nav nav-list">
+          <li class="nav-header"><a href="#">Contents</a></li>
+          {{! cat ((! get toc !)) !}}
+        </ul>
+      </nav>
+    </div>
+    x!}}
+
+    <div id="content-primary" class="span8">
+      <div id='tryocaml' class="content" style='display:none;'>
+        <div class="container">
+          <div class="row">
+            <div id="lesson-message"></div>
+            <div id="languages" style='display:none;'></div>
+            <div id="menu-lessons" style='display:none'>
+              <table class="zebra-striped">
+                <tr><td id="text-x"><code></code></td> <td id=""></td></tr>
+              </table>
             </div>
-            <div id="buttons"></div>
-            <div id="graphics-title"></div>
-            <div id="graphics"></div>
+            <div class="span9 ocaml">
+              <div id="toplevel-container">
+                <pre id="output"></pre>
+                <div id="sharp">#</div>
+                <div id="toplevel"></div>
+              </div>
+              <div id="buttons"></div>
+              <div id="graphics-title"></div>
+              <div id="graphics"></div>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div id='main-contents' class="content">
+        {{! get contents !}}
       </div>
     </div>
-x!}}
-
-          <div id='main-contents' class="content">
-            {{! get contents !}}
-          </div>
-        </div>
-      </div>
+  </div>
+</div>
