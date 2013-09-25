@@ -1,12 +1,11 @@
 
-
 <div class="container">
     <h1>Documentation</h1>
     <div class="row">
         <section class="span6 condensed">
             <h1 class="ruled">Summary</h1>
             <p>Here you'll find links to documentation for the OCaml compiler, <a href="/releases">release</a> information and other resources.</p>
-            <p>Documentation for a given package can be found by following the link on that package's information page. <a href="/packages">Search the package list</a> to find what you need.</p>
+            <p>Documentation for a given package can be found by following the link on that package's information page. <a href="/pkg/">Search the package list</a> to find what you need.</p>
         </section>
         <section class="span6 condensed">
             <h1 class="ruled">Reference</h1>
