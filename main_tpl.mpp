@@ -63,9 +63,9 @@
 !}}
           </ul>
           <ul class="nav pull-right">
-            <li><a href="#">Feedback</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Find us on GitHub</a></li>
+            <li><a href="https://github.com/ocamllabs/sandbox-ocaml.org/issues">Feedback</a></li>
+            <li><a href="https://github.com/ocamllabs/sandbox-ocaml.org/issues">Contact us</a></li>
+            <li><a href="https://github.com/ocamllabs/sandbox-ocaml.org/">Find us on GitHub</a></li>
           </ul>
         </div>
       </div>
