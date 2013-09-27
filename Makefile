@@ -7,7 +7,6 @@ all:html-pages/static md-pages/pkg md-pages/pkg/docs
 html-pages/try-ocaml.js:try-ocaml.js
 	cp try-ocaml.js html-pages/
 
-
 html-pages/%.html:md-pages/%.md Makefile main_tpl.mpp core_tpl.mpp navbar_tpl.mpp htmlescape ocamlapplet.bash ocamltohtml html-pages/try-ocaml.js 
 	if grep -q '*Table of contents*' "$<" ; then omd -otoc -ts 2 "$<" > "$@.toc" ; fi
 	sed -e 's|\*Table of contents\*||g' "$<" | omd -r ocaml=./ocamltohtml -r tryocaml=./ocamlapplet.bash > "$@.tmp"
@@ -92,5 +91,7 @@ pkg:Makefile
 
 .PHONY: opamdoc pkg clean
 
+
+html-pages/learn/index.html:front_code_snippet_tpl.html
 front_code_snippet_tpl.html:front_code_snippet_tpl.md
 	omd -r ocaml=./ocamltohtml -r tryocaml=./ocamlapplet.bash $< > $@
