@@ -21,6 +21,7 @@
     <div class="row">
         <section class="span4 condensed">
             <h1 class="ruled">Code examples</h1>
+            ((! cat tryocaml.html !))
             ((! input front_code_snippet_tpl.html !))
         </section>
         <section class="span4 condensed">
