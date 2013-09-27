@@ -1144,14 +1144,14 @@ let open_env e =
           begin
             Stack.push e toclose;
             match e with
-              | NIL -> "<span class='nil'>"
-              | KWD1 -> "<span class='k'>"
-              | KWD2 -> "<span class='o'>"
-              | KWD -> "<span class='k'>"
-              | STR -> "<span class='s'>"
-              | MODULE -> "<span class='m'>"
-              | OP -> "<span class='o'>"
-              | COMMENTS -> "<span class='c'>"
+              | NIL -> "<span>"
+              | KWD1 -> "<span class='keyword 1'>"
+              | KWD2 -> "<span class='keyword 2'>"
+              | KWD -> "<span class='keyword 3'>"
+              | STR -> "<span class='string'>"
+              | MODULE -> "<span class='module'>"
+              | OP -> "<span class='keywordsign'>"
+              | COMMENTS -> "<span class='comments'>"
           end
     | 1 ->
         if e = COMMENTS then 
