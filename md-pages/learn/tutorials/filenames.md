@@ -81,7 +81,7 @@ programming:
 
 To produce them, just compile the `.mli` file:
 
-```ocaml
+```tryocaml
 ocamlc -c foo.mli
 
 ```

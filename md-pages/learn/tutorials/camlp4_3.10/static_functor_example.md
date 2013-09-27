@@ -1,7 +1,7 @@
 # Camlp4 3.10: static functor example
 static_functor_example.ml
 
-```ocaml
+```tryocaml
 type t1 = A | B
 type t2 = Foo of string * t1
 open Camlp4.PreCast

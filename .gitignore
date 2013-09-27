@@ -3,3 +3,8 @@
 .#*
 html-pages
 .DS_Store
+*.cmi
+*.cmo
+*.cmx
+*.cma
+*.o

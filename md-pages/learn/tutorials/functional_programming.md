@@ -28,7 +28,7 @@ The basic, and not very enlightening definition is this: in a
 Lot of words there that don't really make much sense. So let's have an
 example:
 
-```ocaml
+```tryocaml
   let double x = x * 2 in
   List.map double [ 1; 2; 3 ]
 ```
@@ -55,7 +55,7 @@ variables which were available at the point of its definition. Let's
 generalise the function above so that now we can take any list of
 integers and multiply each element by an arbitrary value `n`:
 
-```ocaml
+```tryocaml
   let multiply n list =
     let f x =
       n * x in
@@ -63,7 +63,7 @@ integers and multiply each element by an arbitrary value `n`:
 ```
 Hence:
 
-```ocaml
+```tryocaml
 multiply 2 [1; 2; 3];;
 multiply 5 [1; 2; 3];;
 ```
@@ -87,7 +87,7 @@ Here's a real example from lablgtk. This is actually a method on a class
 (we haven't talked about classes and objects yet, but just think of it
 as a function definition for now).
 
-```ocaml
+```tryocaml
 class html_skel obj = object (self)
   ...
   ...
@@ -108,7 +108,7 @@ alright because it keeps a reference to `chan` from its environment.
 ###  Partial function applications and currying
 Let's define a plus function which just adds two integers:
 
-```ocaml
+```tryocaml
   let plus a b =
     a + b
 ```
@@ -121,20 +121,20 @@ Some questions for people asleep at the back of the class.
 Question 1 is easy. `plus` is a function, it takes two arguments which
 are integers and it returns an integer. We write its type like this:
 
-```ocaml
+```tryocaml
   plus : int -> int -> int
 ```
 Question 2 is even easier. `plus 2 3` is a number, the integer `5`. We
 write its value and type like this:
 
-```ocaml
+```tryocaml
   5 : int
 ```
 But what about question 3? It looks like `plus 2` is a mistake, a bug.
 In fact, however, it isn't. If we type this into the OCaml toplevel, it
 tells us:
 
-```ocaml
+```tryocaml
   plus 2
 ```
 This isn't an error. It's telling us that `plus 2` is in fact a
@@ -143,7 +143,7 @@ function is this? We experiment by first of all giving this mysterious
 function a name (`f`), and then trying it out on a few integers to see
 what it does:
 
-```ocaml
+```tryocaml
 let f = plus 2;;
 f 10;;
 f 15;;
@@ -156,7 +156,7 @@ for us to state that `plus 2` is the function which adds 2 to things.
 Going back to the original definition, let's "fill in" the first
 argument (`a`) setting it to 2 to get:
 
-```ocaml
+```tryocaml
 let plus 2 b =       (* This is not real OCaml code! *)
   2 + b
 ```
@@ -166,7 +166,7 @@ to things.
 Looking at the types of these expressions we may be able to see some
 rationale for the strange -\> arrow notation used for function types:
 
-```ocaml
+```tryocaml
     plus : int -> int -> int
   plus 2 : int -> int
 plus 2 3 : int
@@ -183,7 +183,7 @@ Google](http://www.google.com/search?q=currying "http://www.google.com/search?q=
 Remember our `double` and `multiply` functions from earlier on?
 `multiply` was defined as this:
 
-```ocaml
+```tryocaml
   let multiply n list =
     let f x =
       n * x in
@@ -192,20 +192,20 @@ Remember our `double` and `multiply` functions from earlier on?
 We can now define `double`, `triple` &amp;c functions very easily just like
 this:
 
-```ocaml
+```tryocaml
 let double = multiply 2;;
 let triple = multiply 3;;
 ```
 They really are functions, look:
 
-```ocaml
+```tryocaml
 double [1; 2; 3];;
 triple [1; 2; 3];;
 ```
 You can also use partial application directly (without the intermediate
 `f` function) like this:
 
-```ocaml
+```tryocaml
 let multiply n = List.map (( * ) n);;
 let double = multiply 2;;
 let triple = multiply 3;;
@@ -219,13 +219,13 @@ think `(*` starts a comment.
 You can put infix operators into brackets to make functions. Here's an
 identical definition of the `plus` function as before:
 
-```ocaml
+```tryocaml
 let plus = ( + );;
 plus 2 3;;
 ```
 Here's some more currying fun:
 
-```ocaml
+```tryocaml
 List.map (plus 2) [1; 2; 3];;
 let list_of_functions = List.map plus [1; 2; 3];;
 ```
@@ -265,7 +265,7 @@ advantage is that if a function is pure, then if it is called several
 times with the same arguments, the compiler only needs to actually call
 the function once. A good example in C is:
 
-```ocaml
+```tryocaml
 for (i = 0; i < strlen (s); ++i)
   {
     // Do something which doesn't affect s.
@@ -295,7 +295,7 @@ and the results are then passed to the function. For example in a strict
 language, the call `give_me_a_three (1/0)` is always going to result in
 a divide-by-zero error:
 
-```ocaml
+```tryocaml
 let give_me_a_three _ = 3;;
 give_me_a_three (1/0);;
 ```
@@ -319,7 +319,7 @@ OCaml is a strict language, but has a `Lazy` module that lets you write
 lazy expressions. Here's an example. First we create a lazy expression
 for `1/0`:
 
-```ocaml
+```tryocaml
 let lazy_expr = lazy (1/0)
 ```
 Notice the type of this lazy expression is `int lazy_t`.
@@ -327,12 +327,12 @@ Notice the type of this lazy expression is `int lazy_t`.
 Because `give_me_a_three` takes `'a` (any type) we can pass this lazy
 expression into the function:
 
-```ocaml
+```tryocaml
 give_me_a_three lazy_expr
 ```
 To evaluate a lazy expression, you must use the `Lazy.force` function:
 
-```ocaml
+```tryocaml
 Lazy.force lazy_expr
 ```
 ###  Boxed vs. unboxed types
@@ -346,7 +346,7 @@ been allocated on the heap using `malloc` in C (or equivalently `new` in
 C++), and/or is referred to through a pointer. Take a look at this
 example C program:
 
-```ocaml
+```tryocaml
 #include <stdio.h>
 
 void

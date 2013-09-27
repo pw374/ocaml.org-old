@@ -22,7 +22,7 @@ L'autre méthode, plus correcte, est de stocker les âges dans un champ de
 type "entier ou NULL". Par exemple, en SQL, la table pour stocker les
 âges ressemblerait à :
 
-```ocaml
+```tryocaml
 create table users
 (
   userid serial,
@@ -51,7 +51,7 @@ OCaml propose une solution élégante pour les valeurs nulles, en
 utilisant un simple type variant polymorphique, défini (jusqu'à
 récemment, dans le module `Pervasives`) comme :
 
-```ocaml
+```tryocaml
 type 'a option = None | Some of 'a
 ```
 Une "valeur nulle" s'écrit `None`. Le type de age dans notre exemple (un
@@ -59,19 +59,19 @@ entier ou la valeur nulle) est `int option` (le type est écrit "à
 l'envers", comme `int list` ou `int binary_tree` dans le chapitre
 précédent).
 
-```ocaml
+```tryocaml
 # Some 3;;
 - : int option = Some 3
 ```
 Une liste d'entiers optionels ?
 
-```ocaml
+```tryocaml
 # [ None; Some 3; Some 6; None ];;
 - : int option list = [None; Some 3; Some 6; None]
 ```
 Et une liste optionelle d'entiers ?
 
-```ocaml
+```tryocaml
 # Some [1; 2; 3];;
 - : int list option = Some [1; 2; 3]
 ```
@@ -91,7 +91,7 @@ recommandé, tout particulièrement pour les débutants), son effet sera de
 stopper le programme, et d'afficher l'emplacement (nom du fichier,
 numéro de ligne et de colonne) où l'erreur est survenue. Par exemple :
 
-```ocaml
+```tryocaml
 # assert (Sys.os_type = "Win32");;
 Exception: Assert_failure ("", 0, 30).
 ```
@@ -105,7 +105,7 @@ elle aussi, à moins d'être rattrappée, va stopper le programme et
 afficher le message d'erreur fourni. `failwith` est souvent utilisé lors
 du filtrage, comme dans cet exemple réel :
 
-```ocaml
+```tryocaml
   match Sys.os_type with
     "Unix" | "Cygwin" ->   (* code omit *)
   | "Win32" ->             (* code omit *)
@@ -122,7 +122,7 @@ aversion pour les débogueurs autres que gdb, vous voudrez sûrement faire
 afficher des avertissements par vos fonctions. Voici un exemple (notez
 le code surligné) :
 
-```ocaml
+```tryocaml
 open Graphics;;
 
 open_graph " 640x480";;
@@ -137,7 +137,7 @@ read_line ();;
 Si vous préférez le style `printf` du langage C, essayez plutôt le
 module `Printf` d'OCaml :
 
-```ocaml
+```tryocaml
 open Graphics;;
 <em>open Printf;;</em>
 

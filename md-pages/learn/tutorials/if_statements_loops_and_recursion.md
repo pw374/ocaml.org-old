@@ -2,7 +2,7 @@
 ## If statements (actually these are if expressions)
 OCaml has an if statement with two variations, and the obvious meaning:
 
-```ocaml
+```tryocaml
 if boolean-condition then expression
 
 if boolean-condition then expression else other-expression
@@ -14,7 +14,7 @@ statements you may be used to.
 
 Here's a simple example of an `if` statement:
 
-```ocaml
+```tryocaml
 let max a b =
   if a > b then a else b
 ```
@@ -22,12 +22,12 @@ As a short aside, if you type this into the OCaml toplevel, you'll
 notice that OCaml decides that this function is polymorphic, with the
 following type:
 
-```ocaml
+```tryocaml
 max : 'a -> 'a -> 'a
 ```
 And indeed OCaml lets you use `max` on any type:
 
-```ocaml
+```tryocaml
 max 3 5;;
 max 3.5 13.0;;
 max "a" "b";;
@@ -42,7 +42,7 @@ function which I showed you earlier without much explanation. You should
 be able to combine your knowledge of recursive functions, lists and if
 expressions to see what it does:
 
-```ocaml
+```tryocaml
   let rec range a b =
     if a > b then []
     else a :: range (a+1) b
@@ -60,7 +60,7 @@ is just the same as `[ 10 ]`.
 
 Let's try `range 9 10`:
 
-```ocaml
+```tryocaml
 range 9 10
 → 9 :: (range 10 10)
 → 9 :: [ 10 ]
@@ -76,7 +76,7 @@ chapter.
 
 Back, temporarily, to if statements. What does this function do?
 
-```ocaml
+```tryocaml
 let f x y =
   x + if y > 0 then y else 0
 ```
@@ -86,14 +86,14 @@ diode](http://www.noir-medical.com/graphics/diode_graph.gif "http://www.noir-med
 
 The `abs` (absolute value) function is defined in `Pervasives` as:
 
-```ocaml
+```tryocaml
 let abs x =
   if x >= 0 then x else -x
 ```
 Also in `Pervasives`, the `string_of_float` function contains a complex
 pair of nested if expressions:
 
-```ocaml
+```tryocaml
 let string_of_float f =
   let s = format_float "%.12g" f in
   let l = string_length s in
@@ -131,7 +131,7 @@ in a way which prevents them from being used in `string_of_float`. Here,
 however, is a more straightforward, but approximately twice as slow, way
 of writing `string_of_float`:
 
-```ocaml
+```tryocaml
 let string_of_float f =
   let s = format_float "%.12g" f in
   if String.contains s '.' || String.contains s 'e'
@@ -141,7 +141,7 @@ let string_of_float f =
 ## Using begin ... end
 Here is some code from lablgtk:
 
-```ocaml
+```tryocaml
 if GtkBase.Object.is_a obj cls then
   fun _ -> f obj
 else begin
@@ -154,7 +154,7 @@ close parentheses. In the example above, all they do is group the two
 statements in the `else`-clause together. Suppose the author had written
 this instead:
 
-```ocaml
+```tryocaml
 if GtkBase.Object.is_a obj cls then
   fun _ -> f obj
 else
@@ -163,7 +163,7 @@ else
 ```
 Fully bracketing and properly indenting the above expression gives:
 
-```ocaml
+```tryocaml
 (if GtkBase.Object.is_a obj cls then
    fun _ -> f obj
  else
@@ -177,7 +177,7 @@ expression. You can also use plain ordinary parentheses `( ... )` if you
 prefer (and I do prefer, because I **loathe** Pascal :-). Here are two
 simple examples:
 
-```ocaml
+```tryocaml
   if 1 = 0 then
     print_endline "THEN"
   else begin
@@ -195,7 +195,7 @@ simple examples:
 ## For loops and while loops
 OCaml supports a rather limited form of the familiar `for` loop:
 
-```ocaml
+```tryocaml
 for variable = start_value to end_value do
   expression
 done
@@ -206,14 +206,14 @@ done
 ```
 A simple but real example from lablgtk:
 
-```ocaml
+```tryocaml
 for i = 1 to n_jobs () do
   do_next_job ()
 done
 ```
 In OCaml, `for` loops are just shorthand for writing:
 
-```ocaml
+```tryocaml
 let i = 1 in
 do_next_job ();
 let i = 2 in
@@ -236,7 +236,7 @@ The expression inside an OCaml for loop should evaluate to `unit`
 (otherwise you'll get a warning), and the for loop expression as a whole
 returns `unit`:
 
-```ocaml
+```tryocaml
 for i = 1 to 10 do i done;;
 ```
 Functional programmers tend to use recursion instead of explicit loops,
@@ -246,7 +246,7 @@ below.
 
 **While loops** in OCaml are written:
 
-```ocaml
+```tryocaml
 while boolean-condition do
   expression
 done
@@ -261,7 +261,7 @@ If you stop to consider while loops, you may see that they aren't really
 any use at all, except in conjunction with our old friend references.
 Let's imagine that OCaml didn't have references for a moment:
 
-```ocaml
+```tryocaml
 let quit_loop = false in
 while not quit_loop do
   print_string "Have you had enough yet? (y/n) ";
@@ -281,7 +281,7 @@ means "not" as in C/Java. It's used here to mean "dereference the
 pointer", similar in fact to Forth. You're better off reading `!` as
 "get" or "deref".
 
-```ocaml
+```tryocaml
 let quit_loop = ref false in
 while not !quit_loop do
   print_string "Have you had enough yet? (y/n) ";
@@ -299,13 +299,13 @@ I'll only talk about the most useful ones here.
 
 First off, let's define a list for us to use:
 
-```ocaml
+```tryocaml
 let my_list = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
 ```
 If you want to call a function once on every element of the list, use
 `List.iter`, like this:
 
-```ocaml
+```tryocaml
   let f elem =
     Printf.printf "I'm looking at element %d now\n" elem in
   List.iter f my_list
@@ -319,14 +319,14 @@ function will be familiar to people who've
 
 programmed in Perl before.
 
-```ocaml
+```tryocaml
   List.map (( * ) 2) my_list
 ```
 Perl has the useful function "grep" for filtering only elements of a
 list which satisfy some condition - eg. returning all even numbers in a
 list. In OCaml this function is called `List.filter`:
 
-```ocaml
+```tryocaml
   let is_even i =
     i mod 2 = 0 in
   List.filter is_even my_list
@@ -334,7 +334,7 @@ list. In OCaml this function is called `List.filter`:
 To find out if a list contains some element, use `List.mem` (short for
 member):
 
-```ocaml
+```tryocaml
   List.mem 12 my_list
 ```
 `List.for_all` and `List.exists` are the same as the "forall" and
@@ -351,7 +351,7 @@ list". Suppose I wanted to add all the numbers in my list together. In
 hand-waving terms what I want to do is insert a plus sign between the
 elements in my list:
 
-```ocaml
+```tryocaml
 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10
 ```
 The fold operation does this, although the exact details are a little
@@ -371,7 +371,7 @@ of fold, called `List.fold_left` (works left to right) and
 Let's use `List.fold_left` to define `sum` and `product` functions for
 integer lists:
 
-```ocaml
+```tryocaml
 let sum = List.fold_left ( + ) 0;;
 let product = List.fold_left ( * ) 1;;
 sum my_list;;
@@ -380,7 +380,7 @@ product my_list;;
 That was easy! Notice that I've accidentally come up with a way to do
 mathematical factorials:
 
-```ocaml
+```tryocaml
 let fact n = product (range 1 n);;
 fact 10;;
 ```
@@ -436,7 +436,7 @@ exception which the input functions throw when they reach the end of the
 input. Also we're going to use `Sys.argv.(1)` to get the first command
 line parameter.
 
-```ocaml
+```tryocaml
 (* Read whole file: Approach 1 *)
 
 let read_whole_chan chan =
@@ -458,7 +458,7 @@ Approach 1 works but is not very satisfactory because `read_whole_chan`
 won't work on non-file channels like keyboard input or sockets. Approach
 2 involves a while loop:
 
-```ocaml
+```tryocaml
 (* Read whole file: Approach 2 *)
 
 let read_whole_chan chan =
@@ -503,7 +503,7 @@ while loop the string could never actually be returned.
 Here's our recursive version. Notice that it's *shorter* than approach
 2, but not so easy to understand for imperative programmers at least:
 
-```ocaml
+```tryocaml
 (* Read whole file: Approach 3 *)
 
 let read_whole_chan chan =
@@ -541,7 +541,7 @@ In the next example we will show how recursion is great for constructing
 or examining certain types of data structures, particularly trees. Let's
 have a recursive type to represent files in a filesystem:
 
-```ocaml
+```tryocaml
 type filesystem = File of string | Directory of filesystem list
 ```
 The `opendir` and `readdir` functions are used to open a directory and
@@ -550,7 +550,7 @@ read elements from the directory. I'm going to define a handy
 exception that `readdir` throws when it reaches the end of the
 directory:
 
-```ocaml
+```tryocaml
 open Unix  (*  You may need to #load "Unix.cma" *)
 
 let readdir_no_ex dirh =
@@ -562,13 +562,13 @@ let readdir_no_ex dirh =
 The type of `readdir_no_ex` is this. Recall our earlier discussion about
 null pointers.
 
-```ocaml
+```tryocaml
 readdir_no_ex : dir_handle -> string option
 ```
 I'm also going to define a simple recursive function which I can use to
 convert the `filesystem` type into a string for (eg) printing:
 
-```ocaml
+```tryocaml
 let rec string_of_filesystem fs =
   match fs with
   | File filename -> filename ^ "\n"
@@ -587,7 +587,7 @@ and return a recursive `filesystem` data structure. I'm going to show
 this function in steps, but I'll print out the entire function at the
 end of this section. First the outline of the function:
 
-```ocaml
+```tryocaml
 let rec read_directory path =
   let dirh = opendir path in
   let rec loop () =
@@ -601,12 +601,12 @@ later. The return value of the function is going to be a
 write our function `loop` which returns a list of `filesystem`s. The
 type of `loop` will be:
 
-```ocaml
+```tryocaml
 loop : unit -> filesystem list
 ```
 How do we define loop? Let's take it in steps again.
 
-```ocaml
+```tryocaml
 let rec loop () =
   let filename = readdir_no_ex dirh in
   (* ..... *)
@@ -618,7 +618,7 @@ directory. We also need to ignore the `"."` and `".."` files (ie. the
 current directory and the parent directory). We can do all this with a
 nice pattern match:
 
-```ocaml
+```tryocaml
 let rec loop () =
   let filename = readdir_no_ex dirh in
   match filename with
@@ -646,7 +646,7 @@ something clever: we return `this :: loop ()`. This is the recursive
 call to `loop ()` to calculate the remaining directory members (a list),
 to which we prepend `this`.
 
-```ocaml
+```tryocaml
 let rec read_directory path =
   let dirh = opendir path in
   let rec loop () =
@@ -673,7 +673,7 @@ away from this are:
 * The use of recursion to build a list:
 
 <!-- -->
-```ocaml
+```tryocaml
 let rec loop () =
   a match or if statement
   | base case -> []
@@ -682,7 +682,7 @@ let rec loop () =
 Compare this to our previous `range` function. The pattern of recursion
 is exactly the same:
 
-```ocaml
+```tryocaml
 let rec range a b =
   if a > b then []            (* Base case *)
   else a :: range (a+1) b     (* Recursive case *)
@@ -691,7 +691,7 @@ let rec range a b =
 * The use of recursion to build up trees:
 
 <!-- -->
-```ocaml
+```tryocaml
 let rec read_directory path =
   (* blah blah *)
   if file-is-a-directory then
@@ -702,7 +702,7 @@ let rec read_directory path =
 All that remains now to make this a working program is a little bit of
 code to call `read_directory` and display the result:
 
-```ocaml
+```tryocaml
 let path = Sys.argv.(1) in
 let fs = read_directory path in
 print_endline (string_of_filesystem fs)
@@ -722,7 +722,7 @@ handles.
 The fix is pretty trivial: add a call to `closedir` at the end of the
 `read_directory` function:
 
-```ocaml
+```tryocaml
 let rec read_directory path =
   let dirh = opendir path in
     (* ... *)
@@ -749,7 +749,7 @@ far", so in the exceptional case (`End_of_file`) we give up and return
 the result so far. Here is his code with all the references to the
 accumulator argument in red:
 
-```ocaml
+```tryocaml
 let rec read_filesystem path =
   if (lstat path).st_kind = S_DIR then
     Directory (read_directory path)
@@ -790,7 +790,7 @@ doesn't mind you using the imperative approach when it makes sense.
 
 Here is the outline of the imperative approach by Fabrice Le Fessant:
 
-```ocaml
+```tryocaml
 let list = ref [] in
 let dir = opendir "......." in
 try
@@ -804,7 +804,7 @@ with End_of_file -> !list
 ###  Recursion example: maximum element in a list
 Remember the basic recursion pattern for lists:
 
-```ocaml
+```tryocaml
 let rec loop () =
   a match or if statement
   | base case -> []
@@ -847,7 +847,7 @@ the overall maximum of the whole list is `y = 4`.
 
 Let's now code those rules above up, to get a working function:
 
-```ocaml
+```tryocaml
   let rec list_max xs =
     match xs with
     | [] -> failwith "list_max called on empty list"  (* empty list: fail *)
@@ -859,7 +859,7 @@ decided upon above really correspond to lines of code.
 
 Does it work?
 
-```ocaml
+```tryocaml
 list_max [1; 2; 3; 4; 1];;
 list_max [];;
 list_max [5; 4; 3; 2; 1];;
@@ -879,7 +879,7 @@ nuclear power plants and higher quality software in general).
 ###  Tail recursion
 Let's look at the `range` function again for about the twentieth time:
 
-```ocaml
+```tryocaml
 let rec range a b =
   if a > b then []
   else a :: range (a+1) b
@@ -887,7 +887,7 @@ let rec range a b =
 I'm going to rewrite it slightly to make something about the structure
 of the program clearer (still the same function however):
 
-```ocaml
+```tryocaml
 let rec range a b =
   if a > b then []
   else
@@ -896,7 +896,7 @@ let rec range a b =
 ```
 Let's call it:
 
-```ocaml
+```tryocaml
 List.length (range 1 10);;
 List.length (range 1 1000000);;
 ```
@@ -914,7 +914,7 @@ These functions are called **tail-recursive functions**.
 In tail-recursive functions, the recursive call happens last of all.
 Remember our `loop ()` functions above? They all had the form:
 
-```ocaml
+```tryocaml
 let rec loop () =
   (* do something *)
   loop ()
@@ -939,7 +939,7 @@ properly on large inputs.
 Let's plan our rewritten `range` function which will use an accumulator
 argument to store the "result so far":
 
-```ocaml
+```tryocaml
 let rec range2 a b accum =
   (* ... *)
 
@@ -952,7 +952,7 @@ The `accum` argument is going to accumulate the result. It's the "result
 so far". We pass in the empty list ("no result so far"). The easy case
 is when `a > b`:
 
-```ocaml
+```tryocaml
 let rec range2 a b accum =
   if a > b then accum
   else
@@ -965,7 +965,7 @@ Now the trick is to write the `else`-clause and make sure that the call
 to `range2` is the very last thing that we do, so the function is
 tail-recursive:
 
-```ocaml
+```tryocaml
   let rec range2 a b accum =
     if a > b then accum
     else range2 (a+1) b (a :: accum)
@@ -973,19 +973,19 @@ tail-recursive:
 There's only one slight problem with this function: it constructs the
 list backwards! However, this is easy to rectify by redefining range as:
 
-```ocaml
+```tryocaml
  let range a b = List.rev (range2 a b []);;
 ```
 It works this time, although it's a bit slow to run because it really
 does have to construct a list with a million elements in it:
 
-```ocaml
+```tryocaml
   List.length (range 1 1000000)
 ```
 The following implementation is twice as fast as the previous one,
 because it does not need to reverse a list:
 
-```ocaml
+```tryocaml
   let rec range2 a b accum =
     if b < a then accum
     else range2 a (b-1) (b :: accum);;
@@ -1005,7 +1005,7 @@ while loops when possible.
 ## Mutable records, references (again!) and arrays
 Previously we mentioned records in passing. These are like C `struct`s:
 
-```ocaml
+```tryocaml
 type pair_of_ints = { a : int; b : int };;
 {a=3; b=5};;
 {a=3};;
@@ -1023,13 +1023,13 @@ count how many times the object has been accessed. You could imagine
 this being used in a caching scheme to decide which objects you'd evict
 from memory.
 
-```ocaml
+```tryocaml
   type name = { name : string; mutable access_count : int }
 ```
 Here is a function defined on names which prints the `name` field and
 increments the mutable `access_count` field:
 
-```ocaml
+```tryocaml
   let print_name name =
     print_endline ("The name is " ^ name.name);
     name.access_count <- name.access_count + 1
@@ -1042,7 +1042,7 @@ down your throat.
 
 Anyway, let's see `print_name` in action:
 
-```ocaml
+```tryocaml
   let n = { name = "Richard Jones"; access_count = 0 };;
   n;;
   print_name n;;
@@ -1054,20 +1054,20 @@ Only fields explicitly marked as `mutable` can be assigned to using the
 `<-` operator. If you try to assign to a non-mutable field, OCaml won't
 let you:
 
-```ocaml
+```tryocaml
   n.name <- "John Smith";;
 ```
 References, with which we should be familiar by now, are implemented
 using records with a mutable `contents` field. Check out the definition
 in `Pervasives`:
 
-```ocaml
+```tryocaml
 type 'a ref = { mutable contents : 'a }
 ```
 And look closely at what the OCaml toplevel prints out for the value of
 a reference:
 
-```ocaml
+```tryocaml
 let r = ref 100;;
 ```
 Arrays are another sort of mutable structure provided by OCaml. In
@@ -1082,7 +1082,7 @@ you can randomly change elements too.
 
 The basics of arrays are simple:
 
-```ocaml
+```tryocaml
   let a = Array.create 10 0;;
   for i = 0 to Array.length a - 1 do
     a.(i) <- i
@@ -1098,7 +1098,7 @@ vectors and matrices. Here is some benchmark code for doing dense matrix
 multiplication. Notice that it uses for-loops and is generally very
 imperative in style:
 
-```ocaml
+```tryocaml
 (*
  * $Id: index.shtml,v 1.3 2004/04/23 12:33:00 rich Exp $
  * http://www.bagley.org/~doug/shootout/

@@ -23,7 +23,7 @@ last element of a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec last = function
     | [] -> None
     | [x] -> Some x
@@ -36,7 +36,7 @@ Find the last but one (last and penultimate) elements of a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec last_two = function
     | [] | [_] -> None
     | [x;y] -> Some (x,y)
@@ -49,7 +49,7 @@ Find the `k`'th element of a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec at k = function
     | [] -> None
     | h :: t -> if k = 1 then Some h else at (k-1) t
@@ -65,7 +65,7 @@ solution.
 
 Solution
 
-```ocaml
+```tryocaml
   (* This function is tail-recursive: it uses a constant amount of
      stack memory regardless of list size. *)
   let length list =
@@ -84,7 +84,7 @@ it.
 
 Solution
 
-```ocaml
+```tryocaml
   let rev list =
     let rec aux acc = function
       | [] -> acc
@@ -99,7 +99,7 @@ HINT: a palindrome is its own reverse.
 
 Solution
 
-```ocaml
+```tryocaml
   let is_palindrome list =
     list = List.rev list
   (* One can use either the rev function from the previous problem, or the
@@ -110,7 +110,7 @@ Solution
 ```
 Flatten a nested list structure.
 
-```ocaml
+```tryocaml
   (* There is no nested list type in OCaml, so we need to define one
      first. A node of a nested list is either an element, or a list of
      nodes. *)
@@ -120,7 +120,7 @@ Flatten a nested list structure.
 ```
 Solution
 
-```ocaml
+```tryocaml
   (* This function traverses the list, prepending any encountered elements
     to an accumulator, which flattens the list in inverse order. It can
     then be reversed to obtain the actual flattened list. *)
@@ -139,7 +139,7 @@ Eliminate consecutive duplicates of list elements.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec compress = function
     | a :: (b :: _ as t) -> if a = b then compress t else a :: compress t
     | smaller -> smaller
@@ -151,7 +151,7 @@ Pack consecutive duplicates of list elements into sublists.
 
 Solution
 
-```ocaml
+```tryocaml
   let pack list =
     let rec aux current acc = function
       | [] -> []    (* Can only be reached if original list is empty *)
@@ -170,7 +170,7 @@ of a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let encode list =
     let rec aux count acc = function
       | [] -> [] (* Can only be reached if original list is empty *)
@@ -191,14 +191,14 @@ elements with duplicates are transferred as (N E) lists.
 Since OCaml lists are homogeneous, one needs to define a type to hold
 both single elements and sub-lists.
 
-```ocaml
+```tryocaml
   type 'a rle =
     | One of 'a
     | Many of (int * 'a)
 ```
 Solution
 
-```ocaml
+```tryocaml
   let pack list =
     let rec aux current acc = function
       | [] -> [] (* Can only be reached if original list is empty *)
@@ -224,7 +224,7 @@ problem, construct its uncompressed version.
 
 Solution
 
-```ocaml
+```tryocaml
   let decode list =
     let rec many acc n x =
       if n = 0 then acc else many (x :: acc) (n-1) x in
@@ -248,7 +248,7 @@ replacing the singleton lists (1 X) by X.
 
 Solution
 
-```ocaml
+```tryocaml
   let encode list =
     let rle count x = if count = 0 then One x else Many (count + 1, x) in
     let rec aux count acc = function
@@ -265,7 +265,7 @@ Duplicate the elements of a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec duplicate = function
     | [] -> []
     | h :: t -> h :: h :: duplicate t
@@ -276,7 +276,7 @@ Replicate the elements of a list a given number of times.
 
 Solution
 
-```ocaml
+```tryocaml
   let replicate list n =
     let rec prepend n acc x =
       if n = 0 then acc else prepend (n-1) (x :: acc) x in
@@ -293,7 +293,7 @@ Drop every N'th element from a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let drop list n =
     let rec aux i = function
       | [] -> []
@@ -310,7 +310,7 @@ first part is the list and the second part is empty.
 
 Solution
 
-```ocaml
+```tryocaml
   let split list n =
     let rec aux i acc = function
       | [] -> List.rev acc, []
@@ -331,7 +331,7 @@ way the `List` module numbers elements).
 
 Solution
 
-```ocaml
+```tryocaml
   let slice list i k =
     let rec take n = function
       | [] -> []
@@ -349,7 +349,7 @@ Rotate a list N places to the left.
 
 Solution
 
-```ocaml
+```tryocaml
   let split list n =
     let rec aux i acc = function
       | [] -> List.rev acc, []
@@ -375,7 +375,7 @@ The first element of the list is numbered 0, the second 1,...
 
 Solution
 
-```ocaml
+```tryocaml
   let rec remove_at n = function
     | [] -> []
     | h :: t -> if n = 0 then t else h :: remove_at (n-1) t
@@ -388,7 +388,7 @@ Start counting list elements with 0.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec insert_at x n = function
     | [] -> []
     | h :: t as l -> if n = 0 then x :: l else h :: insert_at x (n-1) t
@@ -402,7 +402,7 @@ order.
 
 Solution
 
-```ocaml
+```tryocaml
   let range a b =
     let rec aux a b =
       if a > b then [] else a :: aux (a+1) b  in
@@ -419,7 +419,7 @@ reproducibility.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec rand_select list n =
     let rec extract acc n = function
       | [] -> raise Not_found
@@ -444,7 +444,7 @@ The selected numbers shall be returned in a list.
 
 Solution
 
-```ocaml
+```tryocaml
   (* [range] and [rand_select] defined in problems above *)
   let lotto_select n m = rand_select (range 1 m) n
 
@@ -454,7 +454,7 @@ Generate a random permutation of the elements of a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec permutation list =
     let rec extract acc n = function
       | [] -> raise Not_found
@@ -483,7 +483,7 @@ possibilities in a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let extract k list =
     let rec aux k acc emit = function
       | [] -> acc
@@ -509,7 +509,7 @@ group sizes and the function will return a list of groups.
 
 Solution
 
-```ocaml
+```tryocaml
   (* This implementation is less streamlined than the one-extraction
      version, because more work is done on the lists after each transform
      to prepend the actual items. The end result is cleaner in terms of
@@ -563,7 +563,7 @@ first, others with a more frequent length come later.
 
 Solution
 
-```ocaml
+```tryocaml
   (* We might not be allowed to use built-in List.sort, so here's an
      eight-line implementation of insertion sort - O(n²) time complexity. *)
   let rec insert cmp e = function
@@ -621,7 +621,7 @@ solution. See the [Sieve of
 Eratosthenes](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) for a
 more clever one.
 
-```ocaml
+```tryocaml
   let is_prime n =
     let n = abs n in
     let rec is_not_divisor d =
@@ -638,7 +638,7 @@ Use Euclid's algorithm.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec gcd a b =
     if b = 0 then a else gcd b (a mod b)
 
@@ -651,7 +651,7 @@ Two numbers are coprime if their greatest common divisor equals 1.
 
 Solution
 
-```ocaml
+```tryocaml
   (* [gcd] is defined in the previous question *)
   let coprime a b = gcd a b = 1
 
@@ -671,7 +671,7 @@ ways that we shall discuss later).
 
 Solution
 
-```ocaml
+```tryocaml
   (* [coprime] is defined in the previous question *)
   let phi n =
     let rec count_coprime acc d =
@@ -690,7 +690,7 @@ Construct a flat list containing the prime factors in ascending order.
 
 Solution
 
-```ocaml
+```tryocaml
   (* Recall that d divides n iff [n mod d = 0] *)
   let factors n =
     let rec aux d n =
@@ -709,7 +709,7 @@ Construct a list containing the prime factors and their multiplicity.
 
 Solution
 
-```ocaml
+```tryocaml
   let factors n =
     let rec aux d n =
       if n = 1 then [] else
@@ -738,7 +738,7 @@ p2<sup>m2\ -\ 1</sup> × (p3 - 1) × p3<sup>m3\ -\ 1</sup> × ...
 
 Solution
 
-```ocaml
+```tryocaml
   (* Naive power function. *)
   let rec pow n p = if p < 1 then 1 else n * pow n (p-1) ;;
   (* [factors] is defined in the previous question. *)
@@ -761,7 +761,7 @@ calculate φ(10090) as an example.
 
 Solution
 
-```ocaml
+```tryocaml
   (* Naive [timeit] function.  It requires the [Unix] module to be loaded. *)
   let timeit f a =
     let t0 = Unix.gettimeofday() in
@@ -779,7 +779,7 @@ of all prime numbers in that range.
 
 Solution
 
-```ocaml
+```tryocaml
   let is_prime n =
     let n = max n (-n) in
     let rec is_not_divisor d =
@@ -804,7 +804,7 @@ sum up to a given even integer.
 
 Solution
 
-```ocaml
+```tryocaml
   (* [is_prime] is defined in the previous solution *)
   let goldbach n =
     let rec aux d =
@@ -826,7 +826,7 @@ range 2..3000.
 
 Solution
 
-```ocaml
+```tryocaml
   (* [goldbach] is defined in the previous question. *)
   let rec goldbach_list a b =
     if a > b then [] else
@@ -847,7 +847,7 @@ Solution
 Let us define a small “language” for boolean expressions containing
 variables:
 
-```ocaml
+```tryocaml
   type bool_expr =
     | Var of string
     | Not of bool_expr
@@ -857,7 +857,7 @@ variables:
 A logical expression in two variables can then be written in prefix
 notation, as in the following example:
 
-```ocaml
+```tryocaml
   And(Or(Var "a", Var "b"), And(Var "a", Var "b"))
 ```
 Truth tables for logical expressions (2 variables).
@@ -869,7 +869,7 @@ value must be a list of triples containing
 
 Solution
 
-```ocaml
+```tryocaml
   let rec eval2 a val_a b val_b = function
     | Var x -> if x = a then val_a
                else if x = b then val_b
@@ -899,7 +899,7 @@ expression `expr`, which contains the logical variables enumerated in
 
 Solution
 
-```ocaml
+```tryocaml
   (* [val_vars] is an associative list containing the truth value of
      each variable.  For efficiency, a Map or a Hashtlb should be preferred. *)
   let rec eval val_vars = function
@@ -932,7 +932,7 @@ Gray code.
 An n-bit Gray code is a sequence of n-bit strings constructed according
 to certain rules. For example,
 
-```ocaml
+```tryocaml
 n = 1: C(1) = ['0','1'].
 n = 2: C(2) = ['00','01','11','10'].
 n = 3: C(3) = ['000','001','011','010',´110´,´111´,´101´,´100´].
@@ -942,7 +942,7 @@ specification: `gray n` returns the `n`-bit Gray code.
 
 Solution
 
-```ocaml
+```tryocaml
 let prepend c s =
   (* Prepend the char [c] to the string [s]. *)
   let s' = String.create (String.length s + 1) in
@@ -988,14 +988,14 @@ two successors, which are binary trees themselves.*
 In OCaml, one can define a new type `binary_tree` that carries an
 arbitrary value of type `'a` at each node.
 
-```ocaml
+```tryocaml
   type 'a binary_tree =
     | Empty
     | Node of 'a * 'a binary_tree * 'a binary_tree
 ```
 An example of tree carrying `char` data is:
 
-```ocaml
+```tryocaml
   let example_tree =
     Node('a', Node('b', Node('d', Empty, Empty), Node('e', Empty, Empty)),
          Node('c', Empty, Node('f', Node('g', Empty, Empty), Empty)))
@@ -1018,7 +1018,7 @@ nodes of the tree.
 
 Solution
 
-```ocaml
+```tryocaml
   (* Build all trees with given [left] and [right] subtrees. *)
   let add_trees_with left right all =
     let add_right_tree all l =
@@ -1059,7 +1059,7 @@ not in the contents of the nodes.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec is_mirror t1 t2 =
     match t1, t2 with
     | Empty, Empty -> true
@@ -1079,7 +1079,7 @@ integer numbers.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec insert tree x = match tree with
     | Empty -> Node(x, Empty, Empty)
     | Node(y, l, r) ->
@@ -1095,7 +1095,7 @@ Solution
 ```
 Then use this function to test the solution of the previous problem.
 
-```ocaml
+```tryocaml
   is_symmetric(construct [5;3;18;1;4;12;21]);;
   not(is_symmetric(construct [3;2;5;7;4]))
 ```
@@ -1106,7 +1106,7 @@ completely balanced binary trees with a given number of nodes.
 
 Solution
 
-```ocaml
+```tryocaml
   let sym_cbal_trees n =
     List.filter is_symmetric (cbal_tree n)
 
@@ -1120,7 +1120,7 @@ How many such trees are there with 57 nodes? Investigate about how many
 solutions there are for a given number of nodes? What if the number is
 even? Write an appropriate function.
 
-```ocaml
+```tryocaml
   List.length (sym_cbal_trees 57);;
   List.map (fun n -> n, List.length(sym_cbal_trees n)) (range 10 20)
   = [(10, 0); (11, 4); (12, 0); (13, 4); (14, 0); (15, 1);
@@ -1139,7 +1139,7 @@ tree.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec hbal_tree n =
     if n = 0 then [Empty]
     else if n = 1 then [Node('x', Empty, Empty)]
@@ -1179,7 +1179,7 @@ list of all height-balanced binary tree with `n` nodes.
 
 Find out how many height-balanced trees exist for `n =       15`.
 
-```ocaml
+```tryocaml
   List.length (hbal_tree_nodes 15)
 ```
 Count the leaves of a binary tree
@@ -1189,7 +1189,7 @@ count them.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec count_leaves = function
     | Empty -> 0
     | Node(_, Empty, Empty) -> 1
@@ -1205,7 +1205,7 @@ collect them in a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec leaves = function
     | Empty -> []
     | Node(c, Empty, Empty) -> [c]
@@ -1221,7 +1221,7 @@ successors. Write a function `internals` to collect them in a list.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec internals = function
     | Empty | Node(_, Empty, Empty) -> []
     | Node(c, l, r) -> internals l @ (c :: internals r)
@@ -1238,7 +1238,7 @@ list.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec at_level t l = match t with
     | Empty -> []
     | Node(c, left, right) ->
@@ -1298,7 +1298,7 @@ following two rules:
 In order to store the position of the nodes, we redefine the OCaml type
 representing a node (and its successors) as follows:
 
-```ocaml
+```tryocaml
   type 'a pos_binary_tree =
     | E (* represents the empty tree *)
     | N of 'a * int * int * 'a pos_binary_tree * 'a pos_binary_tree
@@ -1414,20 +1414,20 @@ forest.*
 To represent multiway trees, we will use the following type which is a
 direct translation of the definition:
 
-```ocaml
+```tryocaml
   type 'a mult_tree = T of 'a * 'a mult_tree list
 ```
 The example tree depicted opposite is therefore represented by the
 following OCaml expression:
 
-```ocaml
+```tryocaml
   T('a', [T('f',[T('g',[])]); T('c',[]); T('b',[T('d',[]); T('e',[])])])
 ```
 Count the nodes of a multiway tree
 
 Solution
 
-```ocaml
+```tryocaml
   let rec count_nodes (T(_, sub)) =
     List.fold_left (fun n t -> n + count_nodes t) 1 sub
 
@@ -1453,7 +1453,7 @@ the string is given.
 
 Solution
 
-```ocaml
+```tryocaml
   (* We could build the final string by string concatenation but this is
      expensive due to the number of operations.  We use a buffer instead. *)
   let rec add_string_of_tree buf (T(c, sub)) =
@@ -1489,7 +1489,7 @@ internal path length of `tree`.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec ipl_sub len (T(_, sub)) =
     (* [len] is the distance of the current node to the root.  Add the
        distance of all sub-nodes. *)
@@ -1505,7 +1505,7 @@ of the nodes of the multiway tree `t`.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec prepend_bottom_up (T(c, sub)) l =
     List.fold_right (fun t l -> prepend_bottom_up t l) sub (c :: l)
   let bottom_up t = prepend_bottom_up t []
@@ -1531,7 +1531,7 @@ lispy notation of the tree.
 
 Solution
 
-```ocaml
+```tryocaml
   let rec add_lispy buf = function
     | T(c, []) -> Buffer.add_char buf c
     | T(c, sub) ->
@@ -1561,7 +1561,7 @@ There are several ways to represent graphs in OCaml.
  this form, the graph depicted opposite is represented as the
  following expression:
 
-```ocaml
+```tryocaml
       ['h', 'g';  'k', 'f';  'f', 'b';  'f', 'c';  'c', 'b']
     
 ```
@@ -1574,12 +1574,12 @@ be represented.
  According to the definition of the graph as a pair of two sets
  (nodes and edges), we may use the following OCaml type:
 
-```ocaml
+```tryocaml
   type 'a graph_term = { nodes : 'a list;  edges : ('a * 'a) list }
 ```
 Then, the above example graph is represented by:
 
-```ocaml
+```tryocaml
   let example_graph =
     { nodes = ['b'; 'c'; 'd'; 'f'; 'g'; 'h'; 'k'];
       edges = ['h', 'g';  'k', 'f';  'f', 'b';  'f', 'c';  'c', 'b'] }
@@ -1606,7 +1606,7 @@ may want to define a similar type using sets instead of lists.
  edges. If an X appears as an endpoint of an edge, it is
  automatically defined as a node. Our example could be written as:
 
-```ocaml
+```tryocaml
   "b-c f-c g-h d f-b k-f h-g"
 ```
 We call this the **human-friendly form**. As the example shows, the
@@ -1633,7 +1633,7 @@ the list of all paths via backtracking.
 
 Solution
 
-```ocaml
+```tryocaml
   (* The datastructures used here are far from the most efficient ones
      but allow for a straightforward implementation. *)
   (* Returns all neighbors satisfying the condition. *)
@@ -1664,7 +1664,7 @@ return the list of all cycles via backtracking.
 
 Solution
 
-```ocaml
+```tryocaml
   let cycles g a =
     let n = neighbors g a (fun _ -> true) in
     let p = List.concat(List.map (fun c -> list_path g a [c]) n) in
@@ -1689,7 +1689,7 @@ and `is_connected       Graph`. Both are five-minutes tasks!
 
 Solution
 
-```ocaml
+```tryocaml
   let g = { nodes = ['a'; 'b'; 'c'; 'd'; 'e'; 'f'; 'g'; 'h'];
             edges = [('a', 'b'); ('a', 'd'); ('b', 'c'); ('b', 'e');
                      ('c', 'e'); ('d', 'e'); ('d', 'f'); ('d', 'g');
@@ -1704,7 +1704,7 @@ Write a function `ms_tree graph` to construct the minimal spanning tree
 of a given labelled graph. A labelled graph will be represented as
 follows:
 
-```ocaml
+```tryocaml
   type ('a, 'b) labeled_graph = { nodes : 'a list;
                                   edges : ('a * 'a * 'b) list }
 ```
@@ -1718,7 +1718,7 @@ example graph to the right can be found below.
 
 Solution
 
-```ocaml
+```tryocaml
   let g = { nodes = ['a'; 'b'; 'c'; 'd'; 'e'; 'f'; 'g'; 'h'];
             edges = [('a', 'b', 5); ('a', 'd', 3); ('b', 'c', 2); ('b', 'e', 4);
                      ('c', 'e', 6); ('d', 'e', 7); ('d', 'f', 4); ('d', 'g', 3);
@@ -1876,7 +1876,7 @@ Sudoku
 
 Sudoku puzzles go like this:
 
-```ocaml
+```tryocaml
    Problem statement                 Solution
 
     .  .  4 | 8  .  . | .  1  7      9  3  4 | 8  2  5 | 6  1  7
@@ -1920,7 +1920,7 @@ rectangular bitmap is annotated with the respective lengths of its
 distinct strings of occupied cells. The person who solves the puzzle
 must complete the bitmap given only these lengths.
 
-```ocaml
+```tryocaml
           Problem statement:          Solution:
 
           |_|_|_|_|_|_|_|_| 3         |_|X|X|X|_|_|_|_| 3

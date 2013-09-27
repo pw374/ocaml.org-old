@@ -23,7 +23,7 @@ the long words and use primary colours everywhere.
 The other, correct method is to store the age in a field which has type
 "int or null". Here's a SQL table for storing ages:
 
-```ocaml
+```tryocaml
 create table users
 (
   userid serial,
@@ -49,24 +49,24 @@ be null, you'd have to first box it up into an object allocated by
 OCaml has an elegant solution to the problem of nulls, using a simple
 polymorphic variant type defined (in `Pervasives`) as:
 
-```ocaml
+```tryocaml
   type 'a option = None | Some of 'a
 ```
 A "null pointer" is written `None`. The type of age in our example above
 (an `int` which can be null) is `int option` [remember: backwards like
 `int list` and `int binary_tree`].
 
-```ocaml
+```tryocaml
   Some 3
 ```
 What about a list of optional ints?
 
-```ocaml
+```tryocaml
   [ None; Some 3; Some 6; None ]
 ```
 And what about an optional list of ints?
 
-```ocaml
+```tryocaml
   Some [1; 2; 3]
 ```
 ## Assert, warnings, fatal errors, and printing to stderr
@@ -83,7 +83,7 @@ unwise to catch this exception, particularly for beginners), this
 results in the program stopping and printing out the source file and
 line number where the error occurred. An example:
 
-```ocaml
+```tryocaml
   assert (Sys.os_type = "Win32")
 ```
 (Running this on Win32, of course, won't throw an error).
@@ -96,7 +96,7 @@ assuming you don't try to catch it, will stop the program with the given
 error message. `failwith` is often used during pattern matching, like
 this real example:
 
-```ocaml
+```tryocaml
 match Sys.os_type with
 | "Unix" | "Cygwin" ->   (* code omitted *)
 | "Win32" ->             (* code omitted *)
@@ -111,7 +111,7 @@ If you want to debug your program, but, like me, you have an aversion to
 debuggers which aren't gdb, then you'll probably want to print out a
 warning some way through your function. Here's an example:
 
-```ocaml
+```tryocaml
 open Graphics
 
 let () =
@@ -127,7 +127,7 @@ let () =
 If you prefer C-style `printf`'s then try using OCaml's `Printf` module
 instead:
 
-```ocaml
+```tryocaml
 open Graphics
 open Printf
 

@@ -8,7 +8,7 @@ For a basic OCaml program or library that doesn't use any library
 besides the standard library, just copy OCamlMakefile to the current
 directory and create the following Makefile:
 
-```ocaml
+```tryocaml
 RESULT = myprogram
 SOURCES = \
   mymodule1.mli mymodule1.ml \
@@ -27,7 +27,7 @@ The included OCamlMakefile provides a variety of targets. For details
 please refer to the documentation of OCamlMakefile, but here are the
 main ones:
 
-```ocaml
+```tryocaml
 nc     make a native code executable
 bc     make a bytecode executable
 ncl    make a native code library
@@ -50,14 +50,14 @@ by setting the LIBS and INCDIRS variable. LIBS is the list of the name
 of the library files (xxx.cma or xxx.cmxa) without the .cma or .cmxa
 extension:
 
-```ocaml
+```tryocaml
 LIBS = str unix
 ```
 If you use non-standard libraries that are not installed in the same
 directory as the standard library, the INCDIRS variable must contain the
 list of these directories:
 
-```ocaml
+```tryocaml
 INCDIRS = /path/to/somelibdirectory/
 ```
 Usually this requires some preliminary configuration as it is
@@ -67,13 +67,13 @@ directories which are not included in the search path by default such as
 /path/to/stdlib/camlp4. In this case, this should be enough and
 portable:
 
-```ocaml
+```tryocaml
 INCDIRS = +camlp4
 ```
 OK, but we prefer libraries that are installed with ocamlfind. To use
 them with OCamlMakefile, the PACKS variable must be set:
 
-```ocaml
+```tryocaml
 PACKS = netstring num
 ```
 Note that libraries that not part of the standard library but are
@@ -87,25 +87,25 @@ extensions, which are bytecode units that are loaded by the
 preprocessor. With OCamlMakefile, a preprocessor to be used can be
 defined in the first line of the file:
 
-```ocaml
+```tryocaml
 (*pp ...
 ```
 So it could be something like:
 
-```ocaml
+```tryocaml
 (*pp camlp4o -I /path/to/pa_infix pa_infix.cmo *)
 ```
 Well, this form is not very convenient, so we will use the same
 preprocessor for each file and store its value in the PP variable of the
 Makefile:
 
-```ocaml
+```tryocaml
 PP = camlp4o -I /path/to/pa_infix pa_infix.cmo
 export PP
 ```
 So each OCaml file will start with:
 
-```ocaml
+```tryocaml
 (*pp $PP *)
 ```
 This way of defining the preprocessor is still not satisfying: we would
@@ -116,7 +116,7 @@ Every package which we use will listed as usual in the PACKS variable,
 and camlp4find will call ocamlfind to know which syntax extensions to
 load:
 
-```ocaml
+```tryocaml
 PACKS = unix micmatch_pcre \
    pa_tryfinally pa_lettry pa_forin pa_forstep pa_repeat pa_arg
 PP = camlp4find $(PACKS)
@@ -137,7 +137,7 @@ You need:
 Full example using ocamllex and the unix and micmatch_pcre libraries.
 The Makefile file would be:
 
-```ocaml
+```tryocaml
 RESULT = myprogram
 SOURCES = mymodule1.mll mymodule2.mli mymodule2.ml mymainmodule.ml
 PACKS = unix micmatch_pcre
@@ -149,7 +149,7 @@ include $(OCAMLMAKEFILE)
 ```
 And each .ml or .mli file starts with:
 
-```ocaml
+```tryocaml
 (*pp $PP *)
 
 ```

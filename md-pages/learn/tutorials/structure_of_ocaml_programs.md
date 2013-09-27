@@ -14,7 +14,7 @@ overall shape of the programs and the features which I'll point out.
 Let's take the `average` function and add a local variable in C.
 (Compare it to the first definition we had above).
 
-```ocaml
+```tryocaml
 double
 average (double a, double b)
 {
@@ -24,7 +24,7 @@ average (double a, double b)
 ```
 Now let's do the same to our OCaml version:
 
-```ocaml
+```tryocaml
 let average a b =
   let sum = a +. b in
   sum /. 2.0;;
@@ -48,7 +48,7 @@ Here's another example to make this clearer. The following two code
 snippets should return the same value (namely (a+b) +
 (a+b)<sup>2</sup>):
 
-```ocaml
+```tryocaml
 let f a b =
   (a +. b) +. (a +. b) ** 2.
   ;;
@@ -68,7 +68,7 @@ You can also define global names for things at the top level, and as
 with our local "variables" above, these aren't really variable at all,
 just shorthand names for things. Here's a real (but cut-down) example:
 
-```ocaml
+```tryocaml
 let html =
   let content = read_whole_file file in
   GHtml.html_from_string content
@@ -110,7 +110,7 @@ Perl, references are references - the same thing as in OCaml.
 
 Here's how we create a reference to an `int` in OCaml:
 
-```ocaml
+```tryocaml
 ref 0;;
 ```
 Actually that statement wasn't really very useful. We created the
@@ -118,18 +118,18 @@ reference and then, because we didn't name it, the garbage collector
 came along and collected it immediately afterwards! (actually, it was
 probably thrown away at compile-time.) Let's name the reference:
 
-```ocaml
+```tryocaml
 let my_ref = ref 0
 ```
 This reference is currently storing a zero integer. Let's put something
 else into it (assignment):
 
-```ocaml
+```tryocaml
 my_ref := 100
 ```
 And let's find out what the reference contains now:
 
-```ocaml
+```tryocaml
 !my_ref
 ```
 So the `:=` operator is used to assign to references, and the `!`
@@ -140,7 +140,7 @@ OCaml
 
 C/C++
 
-```ocaml
+```tryocaml
 let my_ref = ref 0;;
 my_ref := 100;;
 !my_ref
@@ -165,7 +165,7 @@ A "nested function" is a function defined inside another function.
 name is local to the block where it is defined. For example, here we
 define a nested function named `square', and call it twice:
 
-```ocaml
+```tryocaml
 foo (double a, double b)
 {
   double square (double z) { return z * z; }
@@ -178,7 +178,7 @@ function that are visible at the point of its definition. This is called
 "lexical scoping". For example, here we show a nested function which
 uses an inherited variable named `offset':
 
-```ocaml
+```tryocaml
 bar (int *array, int offset, int size)
 {
   int access (int *array, int index)
@@ -193,7 +193,7 @@ You get the idea. Nested functions are, however, very useful and very
 heavily used in OCaml. Here is an example of a nested function from some
 real code:
 
-```ocaml
+```tryocaml
   let read_whole_channel chan =
     let buf = Buffer.create 4096 in
     let rec loop () =
@@ -232,7 +232,7 @@ going to concentrate on one quite simple module called `Graphics`.
 
 The `Graphics` module is installed into 5 files (on my system):
 
-```ocaml
+```tryocaml
 /usr/lib/ocaml/3.08/graphics.a
 /usr/lib/ocaml/3.08/graphics.cma
 /usr/lib/ocaml/3.08/graphics.cmi
@@ -259,7 +259,7 @@ A couple of examples should make this clear. (The two examples draw
 different things - try them out). Note the first example calls
 `open_graph` and the second one `Graphics.open_graph`.
 
-```ocaml
+```tryocaml
 (* To compile this example: ocamlc graphics.cma grtest1.ml -o grtest1 *)
 open Graphics;;
 
@@ -311,7 +311,7 @@ What happens if you want to use symbols in the `Graphics` module, but
 you don't want to import all of them and you can't be bothered to type
 `Graphics` each time? Just rename it using this trick:
 
-```ocaml
+```tryocaml
 module Gr = Graphics;;
 
 Gr.open_graph " 640x480";;
@@ -334,7 +334,7 @@ other kind of statement.
 
 Have a look at a section from the second graphics example above:
 
-```ocaml
+```tryocaml
 Random.self_init ();;
 Graphics.open_graph " 640x480";;
 
@@ -363,7 +363,7 @@ other peoples' code you'll need to know that sometimes we can elide
 
 Here is some working code with `;;` elided wherever possible:
 
-```ocaml
+```tryocaml
 open Random                   (* ;; *)
 open Graphics;;
 
@@ -404,7 +404,7 @@ them with a single `;`, *except* for the very last one.
 The inner for-loop in our example above is a good demonstration. Notice
 that we never use any single `;` in this code:
 
-```ocaml
+```tryocaml
 for i = 0 to 39 do
   let x_init = Random.float 1.0 in
   let x_final = iterate r x_init 500 in
@@ -433,7 +433,7 @@ Brian Hurt writes to correct me on ";"
 > expression. The following code is perfectly legal (and all do the same
 > thing):
 > 
-> ```ocaml
+> ```tryocaml
 > let f x b y = if b then x+y else x+0
 > let f x b y = x + (if b then y else 0)
 > let f x b y = x + (match b with true -> y | false -> 0)
@@ -444,7 +444,7 @@ Brian Hurt writes to correct me on ";"
 > Note especially the last one - I'm using `;` as an operator to "join"
 > two statements. All functions in OCaml can be expressed as:
 > 
-> ```ocaml
+> ```tryocaml
 >  let name [parameters] = expression
 > ```
 > 
@@ -457,7 +457,7 @@ Brian Hurt writes to correct me on ";"
 > `+` just like a function. For instance, I can define a `sum_list`
 > function, to sum a list of ints, like:
 > 
-> ```ocaml
+> ```tryocaml
 >  let sum_list = List.fold_left ( + ) 0
 > ```
 
@@ -488,7 +488,7 @@ this function he defines a named expression called `sel` using a
 two-line `let sel = ... in` statement. Then he calls several methods on
 `sel`.
 
-```ocaml
+```tryocaml
 (* First snippet *)
 open StdLabels
 open GMain
@@ -504,7 +504,7 @@ Second snippet: Just a long list of global names at the top level.
 Notice that the author elided every single one of the `;;` because of
 Rule #2.
 
-```ocaml
+```tryocaml
 (* Second snippet *)
 let window = GWindow.window ~width:500 ~height:300 ~title:"editor" ()
 let vbox = GPack.vbox ~packing:window#add ()
@@ -532,7 +532,7 @@ and it doesn't get returned until the application finally exits.
 Notice in this snippet how we have a long series of essentially
 procedural commands. This is really a classic imperative program.
 
-```ocaml
+```tryocaml
 (* Third snippet *)
 open GdkKeysyms
 

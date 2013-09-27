@@ -11,7 +11,7 @@ This note quickly presents two techniques to debug OCaml programs:
 The simplest way to debug programs in the toplevel is to follow the
 function calls, by “tracing” the faulty function:
 
-```ocaml
+```tryocaml
   let rec fib x = if x <= 1 then 1 else fib (x - 1) + fib (x - 2);;
 # #trace fib;;
 fib is now traced.
@@ -35,7 +35,7 @@ A difficulty with polymorphic functions is that the output of the trace
 system is not very informative in case of polymorphic arguments and/or
 results. Consider a sorting algorithm (say bubble sort):
 
-```ocaml
+```tryocaml
   let exchange i j v =
     let aux = v.(i) in
     v.(i) <- v.(j); v.(j) <- aux;;
@@ -83,7 +83,7 @@ polymorphic version of the function. For our sorting routine, a single
 type constraint on the argument of the `exchange` function warranties a
 monomorphic typing, that allows a proper trace of function calls:
 
-```ocaml
+```tryocaml
 # let exchange i j (v : int vect) =
     [...]
 exchange : int -> int -> int vect -> unit = <fun>
@@ -144,7 +144,7 @@ native Windows ports of OCaml (but it runs under the Cygwin port.
 Consider the following obviously wrong program written in the file
 `uncaught.ml`:
 
-```ocaml
+```tryocaml
 (* file uncaught.ml *)
 let l = ref [];;
 let find_address name = List.assoc name !l;;
@@ -158,19 +158,19 @@ can proceed as follows:
 
 1. we compile the program in debug mode:<br />
 
-```ocaml
+```tryocaml
 ocamlc -g uncaught.ml
 ```
 1. we launch the debugger:
 
-```ocaml
+```tryocaml
 ocamldebug a.out
 ```
 
 
 Then the debugger answers with a banner and a prompt:
 
-```ocaml
+```tryocaml
         OCaml Debugger version 4.00.1
 
 (ocd)
@@ -178,7 +178,7 @@ Then the debugger answers with a banner and a prompt:
 ###  Finding the cause of a spurious exception
 Type `r` (for *run*); you get
 
-```ocaml
+```tryocaml
 (ocd) r
 Loading program... done.
 Time : 12
@@ -190,7 +190,7 @@ Self explanatory, is'nt it? So, you want to step backward to set the
 program counter before the time the exception is raised; hence type in
 `b` as *backstep*, and you get
 
-```ocaml
+```tryocaml
 (ocd) b
 Time : 11 - pc : 15500 - module List
 143     [] -> <|b|>raise Not_found
@@ -204,7 +204,7 @@ But, as you know, you want the debugger to tell you which procedure
 calls the one from `List`, and also who calls the procedure that calls
 the one from `List`; hence, you want a backtrace of the execution stack:
 
-```ocaml
+```tryocaml
 (ocd) bt
 #0  Pc : 15500  List char 3562
 #1  Pc : 19128  Uncaught char 221
@@ -212,7 +212,7 @@ the one from `List`; hence, you want a backtrace of the execution stack:
 So the last function called is from module `List` at character 3562,
 that is :
 
-```ocaml
+```tryocaml
 let rec assoc x = function
     [] -> raise Not_found
           ^
@@ -221,7 +221,7 @@ let rec assoc x = function
 The function that calls it is in module `Uncaught`, file `uncaught.ml`
 char 221:
 
-```ocaml
+```tryocaml
 print_string (find_address "INRIA"); print_newline ();;
                                   ^
 ```
@@ -234,7 +234,7 @@ find a spurious exception you just need to type `ocamldebug a.out`, then
 To get more info about the current status of the debugger you can ask it
 directly at the toplevel prompt of the debugger; for instance:
 
-```ocaml
+```tryocaml
 (ocd) info breakpoints
 No breakpoint.
 
@@ -249,7 +249,7 @@ break @ [module] # characternum
 Let's set up a breakpoint and rerun the entire program from the
 beginning (`(g)oto 0` then `(r)un`):
 
-```ocaml
+```tryocaml
 (ocd) break @Uncaught 9
 Breakpoint 3 at 19112 : file Uncaught, line 9 column 34
 
@@ -265,7 +265,7 @@ Breakpoint : 1
 Then, we can step and find what happens when `find_address` is about to
 be called
 
-```ocaml
+```tryocaml
 (ocd) s
 Time : 7 - pc : 19012 - module Uncaught
 5 let find_address name = <|b|>List.assoc name !l;;

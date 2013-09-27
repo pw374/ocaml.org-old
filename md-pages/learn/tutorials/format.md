@@ -64,14 +64,14 @@ the value of the break that is explained below):
 
 * within a “h” box:
 
-```ocaml
+```tryocaml
    --b--b--
 ```
 
 
 * within a “v” box:
 
-```ocaml
+```tryocaml
    --b
    --b
    --
@@ -82,12 +82,12 @@ the value of the break that is explained below):
 
 If there is enough room to print the box on the line:
 
-```ocaml
+```tryocaml
    --b--b--
 ```
 But "---b---b---" that cannot fit on the line is written
 
-```ocaml
+```tryocaml
    ---b
    ---b
    ---
@@ -98,12 +98,12 @@ But "---b---b---" that cannot fit on the line is written
 
 If there is enough room to print the box on the line:
 
-```ocaml
+```tryocaml
    --b--b--
 ```
 But if "---b---b---" cannot fit on the line, it is written as
 
-```ocaml
+```tryocaml
    ---b---b
    ---
 ```
@@ -113,7 +113,7 @@ there is no more room to print the material following it. If the
 room left on the line were even shorter, the first break hint may
 lead to a new line and "---b---b---" is written as:
 
-```ocaml
+```tryocaml
     ---b
     ---b
     ---
@@ -132,14 +132,14 @@ For instance, if b is `break 1 0` in the output "--b--b--", we get
 
 * within a “h” box:
 
-```ocaml
+```tryocaml
    -- -- --
 ```
 
 
 * within a “v” box:
 
-```ocaml
+```tryocaml
    --
    --
    --
@@ -148,12 +148,12 @@ For instance, if b is `break 1 0` in the output "--b--b--", we get
 
 * within a “hv” box:
 
-```ocaml
+```tryocaml
    -- -- --
 ```
 or, according to the remaining room on the line:
 
-```ocaml
+```tryocaml
    --
    --
    --
@@ -177,13 +177,13 @@ The user gets 2 ways to fix the indentation of new lines:
  indented 1 more than the initial indentation of the box. With output
  "---[--b--b--b--", we get:
 
-```ocaml
+```tryocaml
    ---[--b--b
         --b--
 ```
 with `open_hovbox 2`, we get
 
-```ocaml
+```tryocaml
    ---[--b--b
          --b--
 ```
@@ -191,7 +191,7 @@ Note: the `[` sign in the display is not visible on the screen, it
 is just there to materialise the aperture of the pretty-printing
 box. Last “screen” stands for:
 
-```ocaml
+```tryocaml
     -----b--b
          --b--
 ```
@@ -207,7 +207,7 @@ box. Last “screen” stands for:
  `print_break       1       2`, then from output "---[--b--b--b--",
  we get:
 
-```ocaml
+```tryocaml
    ---[-- --
          --
          --
@@ -238,7 +238,7 @@ each break hint will lead to a new line. For instance, when printing
 indentation (`print_cut ()`). If "[" means opening of a packing “hov”
 box (open_hovbox), "[(---[(----[(---b)]b)]b)]" is printed as follows:
 
-```ocaml
+```tryocaml
 (---
  (----
   (---)))
@@ -248,7 +248,7 @@ break hint that precedes a closing parenthesis can show the boxes
 structure, if it leads to a new line; hence "[(---[(----[(---b)]b)]b)]"
 is printed like this:
 
-```ocaml
+```tryocaml
 (---
  (----
   (---
@@ -319,7 +319,7 @@ be called from within a `printf` format string. For instance
 
 For instance
 
-```ocaml
+```tryocaml
 printf "@[<1>%s@ =@ %d@ %s@]@." "Prix TTC" 100 "Euros";;
 Prix TTC = 100 Euros
 
@@ -336,7 +336,7 @@ applications to arguments.
 First, I give the abstract syntax of lambda-terms (we illustrate is in
 the [interactive system](../description.html#interactive)):
 
-```ocaml
+```tryocaml
   type lambda =
     | Lambda of string * lambda
     | Var of string
@@ -344,7 +344,7 @@ the [interactive system](../description.html#interactive)):
 ```
 I use the format library to print the lambda-terms:
 
-```ocaml
+```tryocaml
   open Format;;
 
   let ident = print_string
@@ -368,7 +368,7 @@ I use the format library to print the lambda-terms:
 ```
 In Caml Light, replace the first line by:
 
-```ocaml
+```tryocaml
 #open "format";;
 ```
 ###  Most general pretty-printing: using `fprintf`
@@ -387,7 +387,7 @@ argument).
 Using `fprintf`, the lambda-terms printing routines can be written as
 follows:
 
-```ocaml
+```tryocaml
   open Format;;
 
   let ident ppf s = fprintf ppf "%s" s
@@ -411,7 +411,7 @@ follows:
 Given those general printing routines, procedures to print to `stdout`
 or `stderr` is just a matter of partial application:
 
-```ocaml
+```tryocaml
   let print_lambda = pr_lambda std_formatter
   let eprint_lambda = pr_lambda err_formatter
 

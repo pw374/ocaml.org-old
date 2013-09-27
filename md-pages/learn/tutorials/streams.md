@@ -9,7 +9,7 @@ well when the file is large.
 More commonly, the `input_line` function can be used to read one line at
 a time from a channel. This typically looks like:
 
-```ocaml
+```tryocaml
 let in_channel = open_in "lines.txt" in
 try
   while true do
@@ -34,7 +34,7 @@ channels, and they replace the `End_of_file` exception with a more
 structured approach to dealing with the end of input. Here is a function
 that builds a stream of lines from an input channel:
 
-```ocaml
+```tryocaml
 let line_stream_of_channel channel =
   Stream.from
     (fun _ ->
@@ -52,14 +52,14 @@ type of `'a Stream.t`.
 With this simple function, we can now easily construct line streams from
 any input channel:
 
-```ocaml
+```tryocaml
 let in_channel = open_in "_oasis";;
 let lines = line_stream_of_channel in_channel;;
 ```
 This variable `lines` is a stream of strings, one string per line. We
 can now begin reading lines from it by passing it to `Stream.next`:
 
-```ocaml
+```tryocaml
 Stream.next lines;;
 Stream.next lines;;
 Stream.next lines;;
@@ -72,14 +72,14 @@ empty. Likewise, with a little help from the `Stream.of_list`
 constructor and the `Str` regular expression module, we could build a
 stream of lines from a string in memory:
 
-```ocaml
+```tryocaml
 #load "str.cma";;
 let line_stream_of_string string =
   Stream.of_list (Str.split (Str.regexp "\n") string)
 ```
 and these streams could be used exactly the same way:
 
-```ocaml
+```tryocaml
 let lines = line_stream_of_string "hello\nstream\nworld";;
 Stream.next lines;;
 Stream.next lines;;
@@ -95,7 +95,7 @@ The `Stream.iter` function automates the common task of performing an
 operation for each item. With it, we can rewrite the original example as
 follows:
 
-```ocaml
+```tryocaml
   let in_channel = open_in "_oasis" in
   try
     Stream.iter
@@ -113,7 +113,7 @@ can deal with them independently from the end-of-file condition. This
 separation of concerns allows us to decompose this into simpler and more
 reusable functions:
 
-```ocaml
+```tryocaml
 let process_line line =
   print_endline line
 
@@ -148,7 +148,7 @@ of any type. It is not limited to I/O and can even produce infinite
 sequences. Here are a few simple stream builders defined with
 `Stream.from`:
 
-```ocaml
+```tryocaml
   (* A stream that is always empty. *)
   let empty_stream () = Stream.from (fun _ -> None);;
   (* A stream that yields the same item repeatedly. *)
@@ -165,7 +165,7 @@ known as "look ahead", is very useful when writing parsers. Even if you
 don't need to look ahead, the peek/junk protocol may be nicer to work
 with because it uses options instead of exceptions:
 
-```ocaml
+```tryocaml
 let lines = line_stream_of_string "hello\nworld";;
 Stream.peek lines;;
 Stream.peek lines;;
@@ -183,7 +183,7 @@ next item. `Stream.peek` will always give you either the next item or
 Here is a function that converts a line stream into a paragraph stream.
 As such, it is both a stream consumer and a stream producer.
 
-```ocaml
+```tryocaml
   let paragraphs lines =
     let rec next para_lines i =
       match Stream.peek lines, para_lines with
@@ -223,7 +223,7 @@ ensure that we are handling all possible cases.
 With this new tool, we can now work just as easily with paragraphs as we
 could before with lines:
 
-```ocaml
+```tryocaml
   (* Print each paragraph, followed by a separator. *)
   let lines = line_stream_of_channel in_channel in
   Stream.iter
@@ -241,7 +241,7 @@ Just like lists and arrays, common iteration patterns such as `map`,
 provide such functions, but they can be built easily using
 `Stream.from`:
 
-```ocaml
+```tryocaml
   let stream_map f stream =
     let rec next i =
       try Some (f (Stream.next stream))
@@ -265,7 +265,7 @@ provide such functions, but they can be built easily using
 ```
 For example, here is a stream of leap years starting with 2000:
 
-```ocaml
+```tryocaml
   let is_leap year =
     year mod 4 = 0 && (year mod 100 <> 0 || year mod 400 = 0)
   let leap_years = stream_filter is_leap (count_stream 2000)
@@ -275,14 +275,14 @@ item. In this case, we'll peek at the next 30 items to make sure that
 the year 2100 is not a leap year (since it's divisible by 100 but not
 400!):
 
-```ocaml
+```tryocaml
 Stream.npeek 30 leap_years;;
 ```
 Note that we must be careful not to use `Stream.iter` on an infinite
 stream like `leap_years`. This applies to `stream_fold`, as well as any
 function that attempts to consume the entire stream.
 
-```ocaml
+```tryocaml
 stream_fold (+) (Stream.of_list [1; 2; 3]) 0;;
 ```
 `stream_fold (+) (count_stream 0) 0` runs forever.
@@ -292,7 +292,7 @@ The previously defined `const_stream` function builds a stream that
 repeats a single value. It is also useful to build a stream that repeats
 a sequence of values. The following function does just that:
 
-```ocaml
+```tryocaml
   let cycle items =
     let buf = ref [] in
     let rec next i =
@@ -308,7 +308,7 @@ with `stream_combine`, explained in the next section, an infinite stream
 of background colors can be combined with a finite stream of data to
 produce a sequence of HTML blocks:
 
-```ocaml
+```tryocaml
   let stream_combine stream1 stream2 =
     let rec next i =
       try Some (Stream.next stream1, Stream.next stream2)
@@ -324,7 +324,7 @@ produce a sequence of HTML blocks:
 ```
 Here is a simple `range` function that produces a sequence of integers:
 
-```ocaml
+```tryocaml
   let range ?(start=0) ?(stop=0) ?(step=1) () =
     let in_range = if step < 0 then (>) else (<) in
     let current = ref start in
@@ -339,7 +339,7 @@ This works just like Python's `xrange` built-in function, providing an
 easy way to produce an assortment of lazy integer sequences by
 specifying combinations of `start`, `stop`, or `step` values:
 
-```ocaml
+```tryocaml
 Stream.npeek 10 (range ~start:5 ~stop:10 ());;
 Stream.npeek 10 (range ~stop:10 ~step:2 ());;
 Stream.npeek 10 (range ~start:10 ~step:(-1) ());;
@@ -351,7 +351,7 @@ streams and then concatenate them into a single stream. The following
 function works just like `List.concat`, but instead of turning a list of
 lists into a list, it turns a stream of streams into a stream:
 
-```ocaml
+```tryocaml
   let stream_concat streams =
     let current_stream = ref None in
     let rec next i =
@@ -371,7 +371,7 @@ lists into a list, it turns a stream of streams into a stream:
 Here is a sequence of ranges which are themselves derived from a range,
 concatenated with `stream_concat` to produce a flattened `int Stream.t`.
 
-```ocaml
+```tryocaml
   Stream.npeek 10
     (stream_concat
        (stream_map
@@ -381,7 +381,7 @@ concatenated with `stream_concat` to produce a flattened `int Stream.t`.
 Another way to combine streams is to iterate through them in a pairwise
 fashion:
 
-```ocaml
+```tryocaml
   let stream_combine stream1 stream2 =
     let rec next i =
       try Some (Stream.next stream1, Stream.next stream2)
@@ -392,7 +392,7 @@ This is useful, for instance, if you have a stream of keys and a stream
 of corresponding values. Iterating through key value pairs is then as
 simple as:
 
-```ocaml
+```tryocaml
 Stream.iter
   (fun (key, value) ->
      (* do something with 'key' and 'value' *)
@@ -403,7 +403,7 @@ Since `stream_combine` stops as soon as either of its input streams runs
 out, it can be used to combine an infinite stream with a finite one.
 This provides a neat way to add indexes to a sequence:
 
-```ocaml
+```tryocaml
   let items = ["this"; "is"; "a"; "test"];;
   Stream.iter
     (fun (index, value) ->
@@ -418,7 +418,7 @@ following function creates two output streams from one input stream,
 intelligently queueing unseen values until they have been produced by
 both streams:
 
-```ocaml
+```tryocaml
   let stream_tee stream =
     let next self other i =
       try
@@ -436,7 +436,7 @@ both streams:
 ```
 Here is an example of a stream tee in action:
 
-```ocaml
+```tryocaml
 let letters = Stream.of_list ['a'; 'b'; 'c'; 'd'; 'e'];;
 let s1, s2 = stream_tee letters;;
 Stream.next s1;;
@@ -449,7 +449,7 @@ Stream.next s2;;
 Again, since streams are destructive, you probably want to leave the
 original stream alone or you will lose items from the copied streams:
 
-```ocaml
+```tryocaml
 Stream.next letters;;
 Stream.next s1;;
 Stream.next s2;;
@@ -460,7 +460,7 @@ arrays, and hash tables. These probably belong in the standard library,
 but they are simple to define anyhow. Again, beware of infinite streams,
 which will cause these functions to hang.
 
-```ocaml
+```tryocaml
   (* This one is free. *)
   let stream_of_list = Stream.of_list
 
@@ -493,7 +493,7 @@ What if you want to convert arbitary data types to streams? Well, if the
 data type defines an `iter` function, and you don't mind using threads,
 you can use a producer-consumer arrangement to invert control:
 
-```ocaml
+```tryocaml
   #directory "+threads";;
   #load "threads.cma";;
   let elements iter coll =
@@ -510,7 +510,7 @@ you can use a producer-consumer arrangement to invert control:
 Now it is possible to build a stream from an `iter` function and a
 corresponding value:
 
-```ocaml
+```tryocaml
 module StringSet = Set.Make(String);;
 
 let set = StringSet.empty;;
@@ -524,7 +524,7 @@ Stream.iter print_endline stream;;
 Some data types, like Hashtbl and Map, provide an `iter` function that
 iterates through key-value pairs. Here's a function for those, too:
 
-```ocaml
+```tryocaml
   let items iter coll =
     let channel = Event.new_channel () in
     let producer () =
@@ -540,7 +540,7 @@ iterates through key-value pairs. Here's a function for those, too:
 If we want just the keys, or just the values, it is simple to transform
 the output of `items` using `stream_map`:
 
-```ocaml
+```tryocaml
 let keys iter coll = stream_map (fun (k, v) -> k) (items iter coll)
 let values iter coll = stream_map (fun (k, v) -> v) (items iter coll)
 ```

@@ -6,7 +6,7 @@ Avec le système interactif, définissons la fonction `square` (carré) et
 la fonction factorielle dans sa version récursive. Puis, appliquons ces
 fonctions à quelques valeurs choisies :
 
-```ocaml
+```tryocaml
 let square x = x * x;;
   square 3;;
   let rec fact x =
@@ -23,7 +23,7 @@ Les listes sont prédéfinies en OCaml. La liste vide est notée `[]`. Le
 constructeur d'ajout d'un élément à une liste est noté `::` (sous forme
 infixe).
 
-```ocaml
+```tryocaml
 let l = 1 :: 2 :: 3 :: [];;
 [1; 2; 3];;
 5 :: l;;
@@ -31,7 +31,7 @@ let l = 1 :: 2 :: 3 :: [];;
 ## Polymorphisme : le tri des listes
 Le tri par insertion est défini à l'aide de deux fonctions récursives.
 
-```ocaml
+```tryocaml
 let rec sort = function
   | [] -> []
   | x :: l -> insert x (sort l)
@@ -45,7 +45,7 @@ est représenté par une *variable de types* `'a`. La fonction `sort` peut
 donc être appliquée aussi bien à une liste d'entiers qu'à une liste de
 chaînes de caractères.
 
-```ocaml
+```tryocaml
 sort [2; 1; 0];;
 sort ["yes"; "ok"; "sure"; "ya"; "yep"];;
 ```
@@ -54,7 +54,7 @@ Représentons les polynômes des tableaux de coefficients entiers. Alors,
 pour ajouter deux polynômes, on alloue d'abord le tableau résultat, puis
 on le remplit à l'aide de deux boucles `for` successives.
 
-```ocaml
+```tryocaml
 let add_polynom p1 p2 =
   let n1 = Array.length p1
   and n2 = Array.length p2 in
@@ -72,7 +72,7 @@ OCaml offre des cellules mémoire modifiables appelées *références* :
 On peut redéfinir `fact` à l'aide d'une référence et d'une boucle `for`
 :
 
-```ocaml
+```tryocaml
   let fact n =
     let result = ref 1 in
     for i = 2 to n do
@@ -87,7 +87,7 @@ passés en argument à d'autres fonctions. Définissons une fonction
 `sigma` qui renvoie la somme des résultats de l'application d'une
 fonction `f` donnée aux éléments d'une liste :
 
-```ocaml
+```tryocaml
   let rec sigma f = function
     | [] -> 0
     | x :: l -> f x + sigma f l
@@ -95,13 +95,13 @@ fonction `f` donnée aux éléments d'une liste :
 On peut définir des fonctions anonymes à l'aide de la construction `fun`
 ou `function` :
 
-```ocaml
+```tryocaml
 sigma (fun x -> x * x) [1; 2; 3];;
 ```
 Polymorphisme et fonctions d'ordre supérieur permettent de définir la
 composition de fonctions sous sa forme la plus générale :
 
-```ocaml
+```tryocaml
   let compose f g = fun x -> f (g x);;
   let square_o_fact = compose square fact;;
   square_o_fact 5;;
@@ -110,7 +110,7 @@ composition de fonctions sous sa forme la plus générale :
 La puissance des fonctions ne peut pas être mieux illustrée que par la
 fonction « puissance » :
 
-```ocaml
+```tryocaml
   let rec power f n = 
     if n = 0 then fun x -> x 
     else compose f (power f (n - 1));;
@@ -118,7 +118,7 @@ fonction « puissance » :
 La dérivée `n`<sup>ième</sup> d'une fonction peut alors se définir comme
 en mathématiques en élevant la fonction dérivée à la puissance `n` :
 
-```ocaml
+```tryocaml
   let derivative dx f = fun x -> (f (x +. dx) -. f x) /. dx;;
   let sin''' = power (derivative 1e-5) 3 sin;;
   let pi = 4.0 *. atan 1.0 in sin''' pi;;
@@ -129,7 +129,7 @@ des variables, un opérateur de liaison `let`, et des opérateurs
 binaires. Ces expressions peuvent être définies à l'aide d'un nouveau
 type de données, de la façon suivante :
 
-```ocaml
+```tryocaml
   type expression =
     | Num of int
     | Var of string
@@ -139,7 +139,7 @@ type de données, de la façon suivante :
 L'évaluation de ces expressions utilise un environnement qui à un
 identificateur associe une valeur, représenté par une liste de paires.
 
-```ocaml
+```tryocaml
   let rec eval env = function
     | Num i -> i
     | Var x -> List.assoc x env
@@ -160,7 +160,7 @@ identificateur associe une valeur, représenté par une liste de paires.
 ```
 Évaluons par exemple la phrase `let x =   1 in x + x` :
 
-```ocaml
+```tryocaml
   eval [] (Let ("x", Num 1, Binop ("+", Var "x", Var "x")));;
 ```
 L'emploi du filtrage facilite la définition des fonctions opérant sur
@@ -173,7 +173,7 @@ type `expression`.
 Pour terminer, voici le moyen le plus élémentaire pour espionner les
 fonctions :
 
-```ocaml
+```tryocaml
   let rec fib x = if x <= 1 then 1 else fib (x - 1) + fib (x - 2);;
 # #trace fib;;
 fib is now traced.

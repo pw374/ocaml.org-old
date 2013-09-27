@@ -21,7 +21,7 @@ You build big numbers using conversion from (small) integers or
 character strings. For printing in the toplevel, a custom printer can be
 used. An example under OCaml is given below.
 
-```ocaml
+```tryocaml
   #load "nums.cma";;
   open Num
   open Format;;
@@ -41,7 +41,7 @@ OCaml there are no implicit array copying. If you give two names to the
 same array, every modification on one array will be visible to the
 other:
 
-```ocaml
+```tryocaml
   let v = Array.make 3 0;;
   let w = v;;
   w.(0) <- 4;;
@@ -60,7 +60,7 @@ The naive way to define multidimensional arrays is bogus: the result is
 not right because there is some unexpected physical sharing between the
 lines of the new array (see also previous entry):
 
-```ocaml
+```tryocaml
   let m = Array.make 2 (Array.make 3 0);;
   m.(0).(0) <- 1;;
   m;;
@@ -74,7 +74,7 @@ matrix with all elements equal to the initial value provided.
 Alternatively, write the program that allocates a new line for each line
 of your matrix. For instance:
 
-```ocaml
+```tryocaml
   let matrix n m init =
     let result = Array.make n (Array.make m init) in
     for i = 1 to n - 1 do
@@ -86,7 +86,7 @@ In the same vein, the `copy_vect` primitive gives strange results, when
 applied to matrices: you need to write a function that explicitly copies
 each line of the matrix at hand:
 
-```ocaml
+```tryocaml
   let copy_matrix m =
     let l = Array.length m in
     if l = 0 then m else
@@ -102,14 +102,14 @@ How to define an enumerated type?
 An enumerated type is a sum type with only constants. For instance, a
 type with 3 constants:
 
-```ocaml
+```tryocaml
   type color = Blue | White | Red;;
   Blue;;
 ```
 The names `Blue`, `White` and `Red` are the constructors of the `color`
 type. One can define functions on this type by pattern matching:
 
-```ocaml
+```tryocaml
   let string_of_color =function
     | Blue -> "blue"
     | White -> "white"
@@ -120,7 +120,7 @@ How to share a label between two different record types?
 When you define two types sharing a label name, the last defined type
 hides the labels of the first type. For instance:
 
-```ocaml
+```tryocaml
   type point_3d = {x : float; y : float; z : float};;
   type point_2d = {x : float; y : float};;
   {x = 10.; y = 20.; z = 30.};;
@@ -128,14 +128,14 @@ hides the labels of the first type. For instance:
 The simplest way to overcome this problem is simply ... to use different
 names! For instance
 
-```ocaml
+```tryocaml
   type point3d = {x3d : float; y3d : float; z3d : float};;
   type point2d = {x2d : float; y2d : float};;
 ```
 With OCaml, one can propose two others solutions. First, it is possible
 to use modules to define the two types in different name spaces:
 
-```ocaml
+```tryocaml
   module D3 = struct
     type point = {x : float; y : float; z : float}
   end;;
@@ -146,13 +146,13 @@ to use modules to define the two types in different name spaces:
 ```
 This way labels can be fully qualified as `D3.x` `D2.x`:
 
-```ocaml
+```tryocaml
   {D3.x = 10.; D3.y = 20.; D3.z = 30.};;
   {D2.x = 10.; D2.y = 20.};;
 ```
 You can also use objects that provide overloading on method names:
 
-```ocaml
+```tryocaml
   class point_3d ~x ~y ~z = object
     method x : float = x
     method y : float = y
@@ -178,7 +178,7 @@ module names. With OCaml you can alternatively use polymorphic variants,
 i.e. constructors that are, in some sense, *predefined*, since they are
 not defined by a type definition. For instance:
 
-```ocaml
+```tryocaml
   type ids = [ `Name | `Val ];;
   type person = [ `Name of string ];;
   let f : person -> string = function `Name s -> s;;
@@ -192,13 +192,13 @@ usage: the definition is introduced by the keyword `let`, followed by
 the name of the function and its arguments; then the formula that
 computes the image of the argument is written after an `=` sign.
 
-```ocaml
+```tryocaml
   let successor (n) = n + 1;;
 ```
 In fact, parens surrounding the argument may be omitted, so we generally
 write:
 
-```ocaml
+```tryocaml
   let successor n = n + 1;;
 ```
 How to define a recursive function?
@@ -206,7 +206,7 @@ How to define a recursive function?
 You need to explicitly tell that you want to define a recursive
 function: use “let rec” instead of “let”. For instance:
 
-```ocaml
+```tryocaml
   let rec fact n =
     if n = 0 then 1 else n * fact (n - 1);;
   let rec fib n =
@@ -214,7 +214,7 @@ function: use “let rec” instead of “let”. For instance:
 ```
 Functions may be mutually recursive:
 
-```ocaml
+```tryocaml
   let rec odd n =
     if n = 0 then true
     else if n = 1 then false else even (n - 1)
@@ -253,7 +253,7 @@ newline on the terminal, gets no meaningful argument: it has type
  Procedures with argument are defined exactly as ordinary functions. For
 instance:
 
-```ocaml
+```tryocaml
   let message s = print_string s; print_newline();;
   message "Hello world!";;
 ```
@@ -265,13 +265,13 @@ to call it afterwards. In the following fragment `double_newline` is
 bound to `()`, and its further evaluation never produces carriage
 returns as may be erroneously expected by the user.
 
-```ocaml
+```tryocaml
   let double_newline = print_newline(); print_newline();;
   double_newline;;
 ```
 The correct definition and usage of this procedure is:
 
-```ocaml
+```tryocaml
   let double_newline () = print_newline(); print_newline();;
   double_newline;;
   double_newline ();;
@@ -281,19 +281,19 @@ How to define a function with more than one argument?
 Just write the list of successive arguments when defining the function.
 For instance:
 
-```ocaml
+```tryocaml
   let sum x y = x + y;;
 ```
 then gives the actual arguments in the same order when applying the
 function:
 
-```ocaml
+```tryocaml
   sum 1 2;;
 ```
 These functions are named “curried” functions, as opposed to functions
 with tuples as argument:
 
-```ocaml
+```tryocaml
   let sum' (x, y) = x + y;;
   sum' (1, 2);;
 ```
@@ -301,7 +301,7 @@ How to define a function that has several results?
 
 You can define a function that return a pair or a tuple:
 
-```ocaml
+```tryocaml
   let div_mod x y = (x / y, x mod y);;
   div_mod 15 7;;
 ```
@@ -312,7 +312,7 @@ or anonymous functions. A functional value is introduced by the keyword
 `fun`, followed by its argument, then an arrow `->` and the function
 body. For instance:
 
-```ocaml
+```tryocaml
   fun x -> x + 1;;
   (fun x -> x + 1) 2;;
 ```
@@ -321,19 +321,19 @@ What is the difference between `fun` and `function`?
 Functions are usually introduced by the keyword `fun`. Each parameter is
 introduced by its own `fun` construct. For instance, the construct:
 
-```ocaml
+```tryocaml
   fun x -> fun y -> ...
 ```
 defines a function with two parameters `x` and `y`. An equivalent but
 shorter form is:
 
-```ocaml
+```tryocaml
   fun x y -> ...
 ```
 Functions that use pattern-matching are introduced by the keyword
 `function`. For example:
 
-```ocaml
+```tryocaml
   function None -> false | Some _ -> true
 ```
 My function is never applied
@@ -345,7 +345,7 @@ but the function is evidently not applied. Example: if you evaluate
 `print_newline` without argument, there is no error, but nothing
 happens. The compiler issues a warning in case of a blatant misuse.
 
-```ocaml
+```tryocaml
   print_newline;;
   print_newline ();;
 ```
@@ -357,7 +357,7 @@ is written inside another pattern matching. In effect, the internal
 pattern matching “catches” all the pattern matching clauses that are
 written after it. For instance:
 
-```ocaml
+```tryocaml
 let f = function
   | 0 -> match ... with | a -> ... | b -> ...
   | 1 -> ...
@@ -365,7 +365,7 @@ let f = function
 ```
 is parsed as
 
-```ocaml
+```tryocaml
 let f = function
   | 0 ->
      match ... with
@@ -379,7 +379,7 @@ matching: `function`, `match       .. with` and `try ... with`. The
 usual trick is to enclose inner pattern matchings with `begin` and
 `end`. One write:
 
-```ocaml
+```tryocaml
 let f = function
   | 0 ->
      begin match ... with
@@ -400,7 +400,7 @@ using the interactive system.<br />
 compiler does not confuse the two types, but the types are evidently
 written the same. Consider for instance:
 
-```ocaml
+```tryocaml
   type t = T of int;;
   let x = T 1;;
   type t = T of int;;
@@ -426,7 +426,7 @@ with an explicit functional abstraction, that is, add a `function`
 construct or an extra parameter (this rewriting is known as
 eta-expansion):
 
-```ocaml
+```tryocaml
   let map_id = List.map (function x -> x) (* Result is weakly polymorphic *);;
   map_id [1;2];;
   map_id (* No longer polymorphic *);;
@@ -448,7 +448,7 @@ are are called “weak” (and are displayed by an underscore: `'_a`); they
 will disappear thanks to type inference as soon as enough informations
 will be given.
 
-```ocaml
+```tryocaml
   let r = ref [];;
   let f = List.map (fun x -> x);;
 ```
@@ -468,7 +468,7 @@ How to write a function with polymorphic arguments?
 In ML, an argument of a function cannot be polymorphic inside the body
 of the function; hence the following typing:
 
-```ocaml
+```tryocaml
   let f (g : 'a -> 'a) x y = g x, g y;;
 ```
 The function is not as polymorphic as we could have hoped.<br />
@@ -476,7 +476,7 @@ The function is not as polymorphic as we could have hoped.<br />
 For this, you can use either records or objects; in the case of records,
 you need to declare the type before using it in the function.
 
-```ocaml
+```tryocaml
   let f (o : < g : 'a. 'a -> 'a >) x y = o#g x, o#g y;;
   type id = { g : 'a. 'a -> 'a };;
   let f r x y = r.g x, r.g y;;
@@ -495,7 +495,7 @@ order to find out the proper line breaking to perform with the material
 at hand. By contrast low level output is performed with no more
 buffering than usual I/O buffering.
 
-```ocaml
+```tryocaml
   print_endline "before";
   Format.print_string "MIDDLE";
   print_endline "after";;
@@ -590,20 +590,20 @@ How do I express sharing constraints between modules?
 Use manifest type specifications in the arguments of the functor. For
 instance, assume defined the following signatures:
 
-```ocaml
+```tryocaml
 module type S1 = sig ... type t ... end
 module type S2 = sig ... type u ... end
 ```
 To define a functor `F` that takes two arguments `X:S1` and `Y:S2` such
 that `X.t` and `Y.u` are the same, write:
 
-```ocaml
+```tryocaml
 module F (X: S1) (Y: S2 with type u = X.t) =
   struct ... end
 ```
 Indeed, internally this expands to
 
-```ocaml
+```tryocaml
 module F (X: S1) (Y: sig ... type u = X.t ... end) =
   struct ... end
 ```

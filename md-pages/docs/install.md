@@ -46,7 +46,7 @@ the README.
 
 For the impatient, do the following
 
-```ocaml
+```tryocaml
 wget http://download.camlcity.org/download/godi-rocketboost-20110811.tar.gz
 tar xzvf http://download.camlcity.org/download/godi-rocketboost-20110811.tar.gz
 cd godi-rocketboost-20110811
@@ -68,14 +68,14 @@ For the impatient, do the following
 
 Quick install:
 
-```ocaml
+```tryocaml
           $ wget http://www.ocamlpro.com/pub/opam_installer.sh
           $ sh ./opam_installer.sh /usr/local/bin  # You can change the path to install it in an other place.
           
 ```
 From source:
 
-```ocaml
+```tryocaml
           $ git clone https://github.com/OCamlPro/opam
           $ cd opam
           $ ./configure # (or ./configure --prefix=$HOME if you want to install under your $HOME)
@@ -119,24 +119,24 @@ wide range of packages available.
 
 To install the OCaml compiler just do:
 
-```ocaml
+```tryocaml
         yum install ocaml
 ```
 To install an OCaml library called '`foo`', and any dependencies it
 needs, you would do:
 
-```ocaml
+```tryocaml
         yum install ocaml-foo-devel
 ```
 A good set of basic development libraries can be installed by doing:
 
-```ocaml
+```tryocaml
         yum install ocaml-camlp4-devel ocaml-ocamldoc ocaml-findlib-devel \
           ocaml-extlib-devel ocaml-calendar-devel
 ```
 To list all OCaml packages use:
 
-```ocaml
+```tryocaml
         yum search ocaml
 ```
 **Packaging policy and mailing lists**
@@ -161,12 +161,12 @@ ocaml application and libraries easy.
 
 To install the OCaml compiler using packages do:
 
-```ocaml
+```tryocaml
         pkg_add -r ocaml
 ```
 or
 
-```ocaml
+```tryocaml
     pkg_add -r ocaml-nox11
 ```
 to install OCaml without X11-dependent libraries (e.g. to deploy on a
@@ -184,14 +184,14 @@ system as well as in the specific topic-related categories.
 In order to get the basic tools under
 [Gentoo](http://gentoo-portage.com/dev-ml/), execute:
 
-```ocaml
+```tryocaml
         emerge ocaml  
 ```
 while being logged in as a user that is a member of the `portage` group
 (e.g. root). If you want to see what other related packages are
 available execute
 
-```ocaml
+```tryocaml
         emerge -S ocaml 
 ```
 ## SuSE
@@ -205,29 +205,29 @@ distribution.
 
 To install the OCaml compilers just do:
 
-```ocaml
+```tryocaml
         urpmi ocaml-compiler
 ```
 ocaml-compiler has no dependency on X11 libs, to install the libs that
 have some (for example the module Graphics):
 
-```ocaml
+```tryocaml
         urpmi ocaml-x11
 ```
 To install camlp4:
 
-```ocaml
+```tryocaml
         urpmi camlp4
 ```
 To install an OCaml library called '`foo`', and any dependencies it
 needs, you would do:
 
-```ocaml
+```tryocaml
         urpmi ocaml-foo-devel
 ```
 A good set of basic development libraries can be installed by doing:
 
-```ocaml
+```tryocaml
         urpmi camlp4-devel ocaml-doc ocaml-findlib-devel \
           ocaml-extlib-devel ocaml-extlib-doc ocaml-batteries-devel \
           ocaml-ounit-devel ocaml-sexplib-devel ocaml-xml-light-devel \
@@ -235,7 +235,7 @@ A good set of basic development libraries can be installed by doing:
 ```
 To list OCaml packages use:
 
-```ocaml
+```tryocaml
         urpmq --list | grep ocaml
 ```
 **Packaging policy**
@@ -447,7 +447,7 @@ to build labltk (provided fink is set up to install its packages in the
 This framework comes with OS X 10.4 and later. Configure the OCaml build
 by using the following flags:
 
-```ocaml
+```tryocaml
           ./configure -tkdefs \
           "-I/Library/Frameworks/Tcl.framework/Headers \
           -I/Library/Frameworks/Tk.framework/Headers" \
@@ -461,7 +461,7 @@ As mentioned above, any programs using labltk must be compiled using
 application can be used. For example, with the simple program,
 `hello.ml`:
 
-```ocaml
+```tryocaml
           open Tk;;
           let hello () =
           print_endline "Hello!"; flush stdout in
@@ -481,7 +481,7 @@ a Mac OS X .app structure.
 To add a resource fork, one needs to use the program `Rez`, included in
 the OS X Developer tools. This can be done with the following command:
 
-```ocaml
+```tryocaml
           /Developer/Tools/Rez -t APPL -o hello ~/dev/mac.r \
           -i /Library/Frameworks/Tcl.framework/Headers \
           -i /Library/Frameworks/Tk.framework/Headers   
@@ -502,7 +502,7 @@ To do this, after compiling with
 `ocamlopt -o hello -I     +labltk labltk.cmxa hello.ml`, the following
 steps will build the bundle:
 
-```ocaml
+```tryocaml
           mkdir hello.app
           mkdir hello.app/Contents
           mkdir hello.app/Contents/MacOS
@@ -511,7 +511,7 @@ steps will build the bundle:
 Next, create a file `hello.app/Contents/Info.plist` with the following
 contents:
 
-```ocaml
+```tryocaml
           <?xml version="1.0" encoding="UTF-8"?>
 
           <plist version="1.0">
@@ -538,13 +538,13 @@ and hit return to get its html file loaded in your preferred browser.
 with the option -p (this is unsupported) simply use Shark. Shark can be
 invoked directly from the command line as follows :
 
-```ocaml
+```tryocaml
         > shark -i -1 -q myprogram.opt args   
 ```
 This will write a .mshark file in the directory that you can open with
 Shark.app.
 
-```ocaml
+```tryocaml
         > open *.mshark  
 ```
 Note that if your executable doesn't run for long enough Shark won't be

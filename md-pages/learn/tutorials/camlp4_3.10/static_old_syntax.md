@@ -1,7 +1,7 @@
 # Camlp4 3.10: static old syntax
 static_old_syntax.ml:
 
-```ocaml
+```tryocaml
 type t1 = A | B
 type t2 = Foo of string * t1
 module Gram = Grammar.GMake(...)

@@ -12,13 +12,13 @@ simplifying many common stream-oriented tasks.
 To enable stream expression support in the toplevel, you can type the
 following:
 
-```ocaml
+```tryocaml
 #load "dynlink.cma";;
 #load "camlp4o.cma";;
 ```
 Or, if you are using findlib:
 
-```ocaml
+```tryocaml
 #use "topfind";;
 #camlp4o;;
 ```
@@ -27,18 +27,18 @@ Stream expressions are enclosed by "[\<" and "\>]" brackets, and using
 them is a lot like using lists. The simplest stream possible is the
 empty stream:
 
-```ocaml
+```tryocaml
 [< >]
 ```
 Literal values in stream expressions are prefixied by single-quotes:
 
-```ocaml
+```tryocaml
 let more_numbers = [< '1; '2; '(1 + 2) >]  (* Equivalent to Stream.of_list [1; 2; 3] *)
 ```
 This is to distinguish them from streams, which are automatically
 concatenated:
 
-```ocaml
+```tryocaml
 [< '1; '2; more_numbers; '99 >]
 ```
 In the above example, the stream will produce the integers 1 and 2,
@@ -51,7 +51,7 @@ Streams can be defined with recursive functions, providing a
 straightforward and familiar mechanism to produce infinite sequences.
 The following defines an never-ending stream of 1s:
 
-```ocaml
+```tryocaml
   let ones =
     let rec aux () =
       [< '1; aux () >] in
@@ -61,13 +61,13 @@ Note the auxiliary function, `aux`, which is called recursively to form
 a loop. This is necessarily different from infinite lists, which can be
 defined with "let rec" without a helper function:
 
-```ocaml
+```tryocaml
 let rec ones = 1 :: ones
 ```
 The stream expression syntax is not able to interpret recursive values
 like this, and attempts to do this will result in a syntax error:
 
-```ocaml
+```tryocaml
 let rec ones = [< '1; ones >];;
 ```
 This is only a minor inconvenience, since most streams will be built
@@ -75,18 +75,18 @@ from one or more parameters. For example, here is the `const_stream`
 from the [Streams](streams.html "Streams") chapter, redefined using
 stream expression syntax:
 
-```ocaml
+```tryocaml
 let rec const_stream k = [< 'k; const_stream k >]
 ```
 Similarly, this simple one-liner is all it takes to produce a counter:
 
-```ocaml
+```tryocaml
 let rec count_stream i = [< 'i; count_stream (i + 1) >]
 ```
 Below is a slightly more complicated example, using two stream
 expressions to define a Fibonacci sequence:
 
-```ocaml
+```tryocaml
   let fib =
     let rec aux a b =
       [< '(a + b); aux b (a + b) >] in
@@ -97,7 +97,7 @@ expressions to define a Fibonacci sequence:
 As a more practical example, we can define a recursive directory walker
 that avoids loading the entire directory tree into memory:
 
-```ocaml
+```tryocaml
 let rec walk dir =
   let items =
     try
@@ -128,7 +128,7 @@ exceptions can be handled or ignored as needed.
 
 The expanding of subdirectories
 
-```ocaml
+```tryocaml
 [< 'item; walk path; rest >]
 ```
 illustrates a convenient feature of stream expressions: any number of
@@ -141,7 +141,7 @@ defined in the [Streams](streams.html "Streams") chapter.
 With little effort, we can now print the names of all the directories
 and files underneath "/var/log":
 
-```ocaml
+```tryocaml
 let () =
   Stream.iter
     (function

@@ -20,7 +20,7 @@ Then, let us apply these functions to sample values. Unlike the majority
 of languages, OCaml uses parentheses for grouping but not for the
 arguments of a function.
 
-```ocaml
+```tryocaml
 let square x = x * x;;
   square 3;;
   let rec fact x =
@@ -36,7 +36,7 @@ Lists are predefined in OCaml. The empty list is written `[]`. The
 constructor that allows prepending an element to a list is written `::`
 (in infix form).
 
-```ocaml
+```tryocaml
 let l = 1 :: 2 :: 3 :: [];;
 [1; 2; 3];;
 5 :: l;;
@@ -44,7 +44,7 @@ let l = 1 :: 2 :: 3 :: [];;
 ## Polymorphism: sorting lists
 Insertion sort is defined using two recursive functions.
 
-```ocaml
+```tryocaml
 let rec sort = function
   | [] -> []
   | x :: l -> insert x (sort l)
@@ -57,7 +57,7 @@ Note that the type of the list elements remains unspecified: it is
 represented by a *type variable* `'a`. Thus, `sort` can be applied both
 to a list of integers and to a list of strings.
 
-```ocaml
+```tryocaml
 sort [2; 1; 0];;
 sort ["yes"; "ok"; "sure"; "ya"; "yep"];;
 ```
@@ -66,7 +66,7 @@ Let us encode polynomials as arrays of integer coefficients. Then, to
 add two polynomials, we first allocate the result array, then fill its
 slots using two successive `for` loops.
 
-```ocaml
+```tryocaml
 let add_polynom p1 p2 =
   let n1 = Array.length p1
   and n2 = Array.length p2 in
@@ -83,7 +83,7 @@ current contents of `cell`, and `cell := v` writes the value `v` into
 
 We may redefine `fact` using a reference cell and a `for` loop:
 
-```ocaml
+```tryocaml
   let fact n =
     let result = ref 1 in
     for i = 2 to n do
@@ -98,7 +98,7 @@ arguments to other functions. Let us define a function `sigma` that
 returns the sum of the results of applying a given function `f` to each
 element of a list:
 
-```ocaml
+```tryocaml
   let rec sigma f = function
     | [] -> 0
     | x :: l -> f x + sigma f l
@@ -106,13 +106,13 @@ element of a list:
 Anonymous functions may be defined using the `fun` or `function`
 construct:
 
-```ocaml
+```tryocaml
 sigma (fun x -> x * x) [1; 2; 3];;
 ```
 Polymorphism and higher-order functions allow defining function
 composition in its most general form:
 
-```ocaml
+```tryocaml
   let compose f g = fun x -> f (g x);;
   let square_o_fact = compose square fact;;
   square_o_fact 5;;
@@ -121,7 +121,7 @@ composition in its most general form:
 The power of functions cannot be better illustrated than by the `power`
 function:
 
-```ocaml
+```tryocaml
   let rec power f n = 
     if n = 0 then fun x -> x 
     else compose f (power f (n - 1));;
@@ -130,7 +130,7 @@ The `n`<sup>th</sup> derivative of a function can be computed as in
 mathematics by raising the derivative function to the `n`<sup>th</sup>
 power:
 
-```ocaml
+```tryocaml
   let derivative dx f = fun x -> (f (x +. dx) -. f x) /. dx;;
   let sin''' = power (derivative 1e-5) 3 sin;;
   let pi = 4.0 *. atan 1.0 in sin''' pi;;
@@ -140,7 +140,7 @@ Let us consider simple symbolic expressions made up of integers,
 variables, `let` bindings, and binary operators. Such expressions can be
 defined as a new data type, as follows:
 
-```ocaml
+```tryocaml
   type expression =
     | Num of int
     | Var of string
@@ -150,7 +150,7 @@ defined as a new data type, as follows:
 Evaluation of these expressions involves an environment that maps
 identifiers to values, represented as a list of pairs.
 
-```ocaml
+```tryocaml
   let rec eval env = function
     | Num i -> i
     | Var x -> List.assoc x env
@@ -171,7 +171,7 @@ identifiers to values, represented as a list of pairs.
 ```
 As an example, we evaluate the phrase `let   x = 1 in x   +       x`:
 
-```ocaml
+```tryocaml
   eval [] (Let ("x", Num 1, Binop ("+", Var "x", Var "x")));;
 ```
 Pattern matching eases the definition of functions operating on symbolic
@@ -182,7 +182,7 @@ shapes. Indeed, note the close resemblance between the definition of the
 ## Elementary debugging
 To conclude, here is the simplest way of spying over functions:
 
-```ocaml
+```tryocaml
   let rec fib x = if x <= 1 then 1 else fib (x - 1) + fib (x - 2);;
 # #trace fib;;
 fib is now traced.

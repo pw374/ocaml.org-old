@@ -4,7 +4,7 @@ The Basics
 ## Comments
 OCaml comments are delimited by `(*` and `*)`, like this:
 
-```ocaml
+```tryocaml
 (* This is a single-line comment. *)
 
 (* This is a
@@ -19,7 +19,7 @@ In other words, the commenting convention is very similar to original C
 OCaml counts nested `(* ... *)` blocks, and this allows you to comment
 out regions of code very easily:
 
-```ocaml
+```tryocaml
 (* This code is broken ...
 
 (* Primality test. *)
@@ -35,7 +35,7 @@ contains original `s` repeated `n` times.
 
 In most C-derived languages a call to this function will look like this:
 
-```ocaml
+```tryocaml
 repeated ("hello", 3)  /* this is C code */
 ```
 This means "call the function `repeated` with two arguments, first
@@ -45,7 +45,7 @@ OCaml, in common with other functional languages, writes and brackets
 function calls differently, and this is the cause of many mistakes. Here
 is the same function call in OCaml:
 
-```ocaml
+```tryocaml
 repeated "hello" 3  (* this is OCaml code *)
 ```
 Note — **no** brackets, and **no** comma between the arguments.
@@ -63,7 +63,7 @@ Let's have another function - `prompt_string` - which takes a string to
 prompt and returns the string entered by the user. We want to pass this
 string into `repeated`. Here are the C and OCaml versions:
 
-```ocaml
+```tryocaml
 /* C code: */
 repeated (prompt_string ("Name please: "), 3)
 
@@ -77,7 +77,7 @@ the rule is: "bracket around the whole function call - don't put
 brackets around the arguments to a function call". Here are some more
 examples:
 
-```ocaml
+```tryocaml
 f 5 (g "hello") 3    (* f has three arguments, g has one argument *)
 f (g 3 4)            (* f has one argument, g has two arguments *)
 
@@ -91,14 +91,14 @@ in our existing languages. How do we do it in OCaml?
 The OCaml syntax is pleasantly concise. Here's a function which takes
 two floating point numbers and calculates the average:
 
-```ocaml
+```tryocaml
 let average a b =
   (a +. b) /. 2.0;;
 ```
 Type this into the OCaml "toplevel" (on Unix, type the command `ocaml`
 from the shell) and you'll see this:
 
-```ocaml
+```tryocaml
   let average a b =
     (a +. b) /. 2.0;;
 ```
@@ -113,7 +113,7 @@ and define the same function in C (the Java definition would be fairly
 similar to C), and hopefully that should raise even more questions.
 Here's our C version of `average`:
 
-```ocaml
+```tryocaml
 double
 average (double a, double b)
 {
@@ -155,7 +155,7 @@ We will present more details in the following sections and chapters.
 ## Basic types
 The basic types in OCaml are:
 
-```ocaml
+```tryocaml
 OCaml type     Range
 
 int            31-bit signed int (roughly +/- 1 billion) on 32-bit processors,
@@ -207,7 +207,7 @@ OCaml never does implicit casts like this. In OCaml, `1 + 2.5` is a type
 error. The `+` operator in OCaml requires two ints as arguments, and
 here we're giving it an int and a float, so it reports this error:
 
-```ocaml
+```tryocaml
 1 + 2.5;;
 ```
 (In the "translated from the French" language of OCaml error messages
@@ -219,7 +219,7 @@ To add two floats together you need to use a different operator, `+.`
 OCaml doesn't promote ints to floats automatically so this is also an
 error:
 
-```ocaml
+```tryocaml
 1 +. 2.5
 ```
 Here OCaml is now complaining about the first argument.
@@ -228,7 +228,7 @@ What if you actually want to add an integer and a floating point number
 together? (Say they are stored as `i` and `f`). In OCaml you need to
 explicitly cast:
 
-```ocaml
+```tryocaml
  (float_of_int i) +. f
 ```
 `float_of_int` is a function which takes an `int` and returns a `float`.
@@ -240,7 +240,7 @@ Since converting an `int` to a `float` is a particularly common
 operation, the `float_of_int` function has a shorter alias: the above
 example could simply have been written
 
-```ocaml
+```tryocaml
 float i +. f
 ```
 (Note that unlike C, it is perfectly valid in OCaml for a type and a
@@ -265,7 +265,7 @@ Unlike in C-derived languages, a function isn't recursive unless you
 explicitly say so by using `let rec` instead of just `let`. Here's an
 example of a recursive function:
 
-```ocaml
+```tryocaml
 let rec range a b =
   if a > b then []
   else a :: range (a+1) b
@@ -279,7 +279,7 @@ then the call to `range` would have tried to look for an existing
 currently-being-defined function. Using `let` (without `rec`) allows you
 to re-define a value in terms of the previous definition. For example:
 
-```ocaml
+```tryocaml
 let positive_sum a b = 
   let a = max a 0
   and b = max b 0 in
@@ -302,7 +302,7 @@ what it thinks are the types of your functions, so you need to know the
 syntax for this. For a function `f` which takes arguments `arg1`,
 `arg2`, ... `argn`, and returns type `rettype`, the compiler will print:
 
-```ocaml
+```tryocaml
 f : arg1 -> arg2 -> ... -> argn -> rettype
 ```
 The arrow syntax looks strange now, but when we come to so-called
@@ -312,25 +312,25 @@ you some examples.
 Our function `repeated` which takes a string and an integer and returns
 a string has type:
 
-```ocaml
+```tryocaml
 repeated : string -> int -> string
 ```
 Our function `average` which takes two floats and returns a float has
 type:
 
-```ocaml
+```tryocaml
 average : float -> float -> float
 ```
 The OCaml standard `int_of_char` casting function:
 
-```ocaml
+```tryocaml
 int_of_char : char -> int
 ```
 If a function returns nothing (`void` for C and Java programmers), then
 we write that it returns the `unit` type. Here, for instance, is the
 OCaml equivalent of `fputc`:
 
-```ocaml
+```tryocaml
 output_char : out_channel -> char -> unit
 ```
 ###  Polymorphic functions
@@ -338,14 +338,14 @@ Now for something a bit stranger. What about a function which takes
 *anything* as an argument? Here's a odd function which takes an
 argument, but just ignores it and always returns 3:
 
-```ocaml
+```tryocaml
 let give_me_a_three x = 3
 ```
 What is the type of this function? In OCaml we use a special placeholder
 to mean "any type you fancy". It's a single quote character followed by
 a letter. The type of the above function would normally be written:
 
-```ocaml
+```tryocaml
 give_me_a_three : 'a -> int
 ```
 where `'a` really does mean any type. You can, for example, call this
@@ -381,7 +381,7 @@ probably need to bypass the type checking.
 Let's go back to the `average` function which we typed into the OCaml
 toplevel:
 
-```ocaml
+```tryocaml
   let average a b =
     (a +. b) /. 2.0
 ```
@@ -397,7 +397,7 @@ Secondly, the `/.` function returns a `float`, and this is the same as
 the return value of the `average` function, so `average` must return a
 `float`. The conclusion is that `average` has this type signature:
 
-```ocaml
+```tryocaml
 average : float -> float -> float
 ```
 Type inference is obviously easy for such a short program, but it works

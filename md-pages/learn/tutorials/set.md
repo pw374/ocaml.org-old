@@ -4,23 +4,23 @@ Set
 ## Module Set
 To make a set of strings:
 
-```ocaml
+```tryocaml
 module SS = Set.Make(String);;
 ```
 To create a set you need to start somewhere so here is the empty set
 
-```ocaml
+```tryocaml
 let s = SS.empty;;
 ```
 Alternatively if we know an element to start with we can create a set
 like
 
-```ocaml
+```tryocaml
 let s = SS.singleton "hello";;
 ```
 To add some elements to the the set we can do.
 
-```ocaml
+```tryocaml
 let s = List.fold_right SS.add ["hello"; "world"; "community"; "manager";
                                  "stuff"; "blue"; "green"] s;;
 ```
@@ -28,7 +28,7 @@ Now if we are playing around with sets we will probably want to see what
 is in the set that we have created. To do this we can write a function
 that will print the set out.
 
-```ocaml
+```tryocaml
 (* Prints a new line "\n" after each string is printed *)
 let print_set s = 
    SS.iter print_endline s;;
@@ -40,25 +40,25 @@ longer than 5 characters.
 
 This can be written as:
 
-```ocaml
+```tryocaml
 let my_filter str =
   String.length str <= 5;;
 let s2 = SS.filter my_filter s;;
 ```
 or using an anonymous function:
 
-```ocaml
+```tryocaml
 let s2 = SS.filter (fun str -> String.length str <= 5) s;;
 ```
 If we want to check and see if an element is in the set it might look
 like this.
 
-```ocaml
+```tryocaml
 SS.exists (fun str -> str = "hello") s2;;
 ```
 or even:
 
-```ocaml
+```tryocaml
 SS.exists (( = ) "hello") s2;;
 ```
 The Set module also provides the set theoretic operations union,
@@ -66,7 +66,7 @@ intersection and difference. For example, the difference of the original
 set and the set with short strings (\<=5 characters) is the set of long
 strings:
 
-```ocaml
+```tryocaml
 print_set (SS.diff s s2);;
 ```
 Note that the Set module provides a purely functional data structure:

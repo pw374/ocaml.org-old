@@ -59,7 +59,7 @@ computer scientists, yet it has one big practical advantage over full
 garbage collectors. With reference counting, you can avoid many explicit
 calls to `close`/`closedir` in code. For example:
 
-```ocaml
+```tryocaml
 foreach (@files)
 {
   my $io = new IO::File "< $_" or die;
@@ -75,7 +75,7 @@ closed).
 
 Consider the equivalent OCaml code:
 
-```ocaml
+```tryocaml
 let read_file filename =
   let chan = open_in filename in
   (* read from chan *) in
@@ -114,7 +114,7 @@ the garbage collector from OCaml programs.
 Here is a program which runs and then prints out GC statistics just
 before quitting:
 
-```ocaml
+```tryocaml
 let rec iterate r x_init i =
   if i = 1 then x_init
   else
@@ -138,7 +138,7 @@ let () =
 ```
 Here is what it printed out for me:
 
-```ocaml
+```tryocaml
 minor_words: 115926165          # Total number of words allocated
 promoted_words: 31217           # Promoted from minor -> major
 major_words: 31902              # Large objects allocated in major directly
@@ -168,7 +168,7 @@ We can instruct the GC to print out debugging messages when one of
 several events happen (eg. on every major collection). Try adding the
 following code to the example above near the beginning:
 
-```ocaml
+```tryocaml
 Gc.set { (Gc.get ()) with Gc.verbose = 0x01 }
 ```
 (We haven't seen the `{ expression with field = value }` form before,
@@ -202,7 +202,7 @@ when we hold copies of them in memory.
 The *public* interface to our "in-memory object database cache" is going
 to be just two functions:
 
-```ocaml
+```tryocaml
 type record = { mutable name : string; mutable address : string }
 
 val get_record : int -> record
@@ -222,7 +222,7 @@ OCaml doesn't currently run finalisers at exit. However you can easily
 force it to by adding the following command to your code. This command
 causes a full major GC cycle on exit:
 
-```ocaml
+```tryocaml
 at_exit Gc.full_major
 ```
 Our code is also going to implement a cache of recently accessed records
@@ -242,7 +242,7 @@ the in-memory copy is written back out to the file, the program must
 release the lock. Here is some code to define the on-disk format and
 some low-level functions to read, write, lock and unlock records:
 
-```ocaml
+```tryocaml
 open Unix
 
 (* On-disk format. *)
@@ -275,7 +275,7 @@ let unlock_record n fd =
 ```
 We also need a function to create new, empty in-memory `record` objects:
 
-```ocaml
+```tryocaml
 (* Create a new, empty record. *)
 let new_record () =
   { name = (String.make name_size ' ');
@@ -284,7 +284,7 @@ let new_record () =
 Because this is a really simple program, we're going to fix the number
 of records in advance:
 
-```ocaml
+```tryocaml
 (* Total number of records. *)
 let nr_records = 10000
 
@@ -296,7 +296,7 @@ running the program.
 
 Our cache of records is very simple:
 
-```ocaml
+```tryocaml
 (* Cache of records. *)
 let cache = Weak.create nr_records
 ```
@@ -308,7 +308,7 @@ from the cache. If the cache gives us `Some record` then we just return
 `record` (this promotes the weak pointer to the record to a normal
 pointer).
 
-```ocaml
+```tryocaml
 open Printf
 
 (* The finaliser function. *)
@@ -339,7 +339,7 @@ records. But it doesn't necessarily mean that the GC *will* collect the
 records straightaway (in fact it's not likely that it will), so to force
 the GC to collect the records immediately, we also invoke a major cycle:
 
-```ocaml
+```tryocaml
 (* Synchronise all records. *)
 let sync_records () =
   Weak.fill cache 0 nr_records None;
@@ -349,7 +349,7 @@ Finally we have some test code. I won't reproduce the test code, but you
 can download the complete program and test code
 [objcache.ml](_file/objcache.ml), and compile it with:
 
-```ocaml
+```tryocaml
 ocamlc -w s unix.cma objcache.ml -o objcache
 ```
 ## Exercises

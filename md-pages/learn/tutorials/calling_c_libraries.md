@@ -32,7 +32,7 @@ I also wanted to rationalise the module naming scheme for Gtk. So there
 is exactly one top-level module called (surprise!) `Gtk` and all classes
 are inside this module. A test program looks like this:
 
-```ocaml
+```tryocaml
 let win = new Gtk.window ~title:"My window" ();;
 let lbl = new Gtk.label ~text:"Hello" ();;
 win#add lbl;;
@@ -44,7 +44,7 @@ I defined a single abstract type to cover all `GtkObject`s (and
 "subclasses" of this C structure). In the `Gtk` module you'll find this
 type definition:
 
-```ocaml
+```tryocaml
 type obj
 ```
 As discussed in the last chapter, this defines an abstract type of which
@@ -53,7 +53,7 @@ functions are going to create instances of this type. For instance, the
 function which creates new labels (ie. `GtkLabel` structures) is defined
 this way:
 
-```ocaml
+```tryocaml
 external gtk_label_new : string -> obj = "gtk_label_new_c"
 ```
 This strange function definition defines an \<dfn\>external
@@ -67,7 +67,7 @@ from OCaml's internal types and C types. `gtk_label_new_c` (note the
 additional `_c`) is my wrapper around the real Gtk C function called
 `gtk_label_new`. Here it is. I'll explain more about it later.
 
-```ocaml
+```tryocaml
 CAMLprim value
 gtk_label_new_c (value str)
 {
@@ -84,7 +84,7 @@ class is derived `GtkWidget` and the whole variety of Gtk widgets are
 derived from this. So we define our own `GtkObject` equivalent class
 like this (note that `object` is a reserved word in OCaml).
 
-```ocaml
+```tryocaml
 type obj
 
 class virtual gtk_object (obj : obj) =
@@ -105,7 +105,7 @@ pass the return value of, for instance, `gtk_label_new` (go back and
 have a look at how that `external` function was typed). This is shown
 below:
 
-```ocaml
+```tryocaml
 (* Example code, not really part of MiniGtk! *)
 class label text =
   let obj = gtk_label_new text in
@@ -119,7 +119,7 @@ Of course the real `label` class doesn't inherit directly from
 Following the Gtk class hierarchy the only class derived directly from
 `gtk_object` is our `widget` class, defined like this:
 
-```ocaml
+```tryocaml
 external gtk_widget_show : obj -> unit = "gtk_widget_show_c"
 external gtk_widget_show_all : obj -> unit = "gtk_widget_show_all_c"
 
@@ -134,7 +134,7 @@ class virtual widget ?show obj =
 This class is considerably more complex. Let's look at the
 initialization code first:
 
-```ocaml
+```tryocaml
 class virtual widget ?show obj =
   object (self)
     inherit gtk_object obj
@@ -155,7 +155,7 @@ of external functions. These are basically direct calls to the C library
 (well, in fact there's a tiny bit of wrapper code, but that's not
 functionally important).
 
-```ocaml
+```tryocaml
 method show = gtk_widget_show obj
 method show_all = gtk_widget_show_all obj
 ```
@@ -169,7 +169,7 @@ between `widget` and `label` is `misc`, a generic class which describes
 a large class of miscellaneous widgets. This class just adds padding and
 alignment around a widget such as a label. Here is its definition:
 
-```ocaml
+```tryocaml
 let may f x =
   match x with
   | None -> ()
@@ -202,7 +202,7 @@ initialization code. First notice that we take optional `alignment` and
 and mandatory `obj` arguments directly up to `widget`. What do we do
 with the optional `alignment` and `padding`? The initializer uses these:
 
-```ocaml
+```tryocaml
 initializer
   may (gtk_misc_set_alignment obj) alignment;
   may (gtk_misc_set_padding obj) padding 
@@ -219,7 +219,7 @@ this is done.
 Now we can finally get to the `label` class, which is derived directly
 from `misc`:
 
-```ocaml
+```tryocaml
 external gtk_label_new :
     string -> obj  = "gtk_label_new_c"
 external gtk_label_set_text :
@@ -253,7 +253,7 @@ virtual. You can create instances of this class which means it finally
 has to call `gtk_..._new`. This is the initialization code (we discussed
 this pattern above):
 
-```ocaml
+```tryocaml
 class label ~text ... () =
   let obj = gtk_label_new text in
   object (self)
@@ -269,7 +269,7 @@ instances?)
 Now we'll look in more detail at actually wrapping up calls to C library
 functions. Here's a simple example:
 
-```ocaml
+```tryocaml
 /* external gtk_label_set_text :
      obj -> string -> unit
        = "gtk_label_set_text_c" */
@@ -328,7 +328,7 @@ garbage collector when you finish using those roots too, of course. This
 is done by framing the function within `CAMLparamN` ... `CAMLreturn`.
 Hence:
 
-```ocaml
+```tryocaml
 CAMLparam2 (obj, str);
 ...
 CAMLreturn (Val_unit); 
@@ -341,7 +341,7 @@ what code is inlined when you write `CAMLparam2 (obj, str)`. This is the
 generated code (with the author's version of OCaml, so it might vary
 between implementations slightly):
 
-```ocaml
+```tryocaml
 struct caml__roots_block *caml__frame
     = local_roots;
 struct caml__roots_block caml__roots_obj;
@@ -355,7 +355,7 @@ caml__roots_obj.tables [1] = &str;
 ```
 And for `CAMLreturn (foo)`:
 
-```ocaml
+```tryocaml
 local_roots = caml__frame;
 return (foo); 
 ```

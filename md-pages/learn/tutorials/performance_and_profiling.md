@@ -35,7 +35,7 @@ frames), and `%esp` (the stack pointer).
 The Linux assembler (in common with other Unix assemblers, but opposite
 to MS-derived assemblers) writes moves to and from registers/memory as:
 
-```ocaml
+```tryocaml
 movl from, to
 ```
 So `movl %ebx, %eax` means "copy the contents of register `%ebx` into
@@ -59,7 +59,7 @@ the text segment.
 Similarly, the `.data` directive switches the assembler so it starts
 writing into the data segment (part) of the executable.
 
-```ocaml
+```tryocaml
   .globl foo
 foo:
 ```
@@ -68,7 +68,7 @@ next thing to come can be named `foo`. Writing just `foo:` without the
 preceeding `.globl` directive declares a local symbol (local to just the
 current file).
 
-```ocaml
+```tryocaml
 .long 12345
 .byte 9
 .ascii "hello"
@@ -83,12 +83,12 @@ in the data segment.
 Enough assembler. Put the following program into a file called
 `smallest.ml`:
 
-```ocaml
+```tryocaml
 print_string "hello, world\n"
 ```
 And compile it to a native code executable using:
 
-```ocaml
+```tryocaml
 ocamlopt -S smallest.ml -o smallest
 ```
 The `-S` (capital S) tells the compiler to leave the assembly language
@@ -97,7 +97,7 @@ file (called `smallest.s` - lowercase s) instead of deleting it.
 Here are the edited highlights of the `smallest.s` file with my comments
 added. First of all the data segment:
 
-```ocaml
+```tryocaml
         .data
         .long   4348                     ; header for string
         .globl  Smallest__1
@@ -108,7 +108,7 @@ Smallest__1:
 ```
 Next up the text (program code) segment:
 
-```ocaml
+```tryocaml
         .text
         .globl  Smallest__entry          ; entry point to the program
 Smallest__entry:
@@ -141,7 +141,7 @@ Now look at the code that OCaml has generated. The original code said
 equivalent of `Pervasives.output_string stdout "hello, world\n"`. Why?
 If you look into `pervasives.ml` you'll see why:
 
-```ocaml
+```tryocaml
 let print_string s = output_string stdout s
 ```
 OCaml has *inlined* this function. **Inlining** - taking a function and
@@ -165,7 +165,7 @@ by a trailing NUL (`\0`) character. OCaml stores strings in a different
 way, as we can see from the data segment above. This string is stored
 like this:
 
-```ocaml
+```tryocaml
 4 byte header: 4348
 the string:    h e l l o , SP w o r l d \n
 padding:       \0 \0 \002
@@ -194,7 +194,7 @@ a header which tells the garbage collector about how large the object is
 in words, and something about what the object contains. Writing the
 number 4348 in binary:
 
-```ocaml
+```tryocaml
 length of the object in words:  0000 0000 0000 0000 0001 00 (4 words)
 color (used by GC):             00
 tag:                            1111 1100 (String_tag)
@@ -227,7 +227,7 @@ We mentioned in chapter 6 that OCaml can turn tail-recursive function
 calls into simple loops. Is this actually true? Let's look at what
 simple tail recursion compiles to:
 
-```ocaml
+```tryocaml
 let rec loop () =
   print_string "I go on forever ...";
   loop ()
@@ -241,7 +241,7 @@ identically named functions from one another).
 
 Here is the assembler for just the `loop` function defined above:
 
-```ocaml
+```tryocaml
         .text
         .globl  Tail__loop_56
 Tail__loop_56:
@@ -305,7 +305,7 @@ at compile time, might have an impact on performance. Suppose we require
 a function to work out the maximum of two integers. Our first attempt
 is:
 
-```ocaml
+```tryocaml
 let max a b =
   if a > b then a else b
 ```
@@ -313,14 +313,14 @@ Simple enough, but recall that the \> (greater than) operator in OCaml
 is polymorphic. It has type `'a -> 'a -> bool`, and this means that the
 `max` function we defined above is going to be polymorphic:
 
-```ocaml
+```tryocaml
   let max a b =
     if a > b then a else b
 ```
 This is indeed reflected in the code that OCaml generates for this
 function, which is pretty complex:
 
-```ocaml
+```tryocaml
         .text
         .globl  Max__max_56
 Max__max_56:
@@ -373,13 +373,13 @@ hint to the OCaml compiler that the arguments are in fact integers. Then
 OCaml will generate a specialised version of `max` which only works on
 `int` arguments:
 
-```ocaml
+```tryocaml
 let max (a : int) (b : int) =
   if a > b then a else b
 ```
 Here is the assembly code generated for this function:
 
-```ocaml
+```tryocaml
         .text
         .globl  Max_int__max_56
 Max_int__max_56:
@@ -407,7 +407,7 @@ it.
 
 What about this code:
 
-```ocaml
+```tryocaml
 let max a b =
   if a > b then a else b
 
@@ -421,7 +421,7 @@ module), and it doesn't inline the function.
 
 Here's another variation:
 
-```ocaml
+```tryocaml
 let max a b =
   if a > b then a else b in
 print_int (max 2 3)
@@ -441,7 +441,7 @@ happens to the "missing" bit?
 
 Write this to `int.ml`:
 
-```ocaml
+```tryocaml
 print_int 3;;
 ```
 and compile with `ocamlopt -S int.ml -o int` to generate assembly
@@ -450,7 +450,7 @@ expecting OCaml to inline the `print_int` function as
 `output_string (string_of_int 3)`, and examining the assembly language
 output we can see that this is exactly what OCaml does:
 
-```ocaml
+```tryocaml
         .text
         .globl  Int__entry
 Int__entry:
@@ -537,14 +537,14 @@ this at run time however.
 Floats are, by default, boxed (allocated on the heap). Save this as
 `float.ml` and compile it with `ocamlopt -S float.ml -o float`:
 
-```ocaml
+```tryocaml
 print_float 3.0
 ```
 The number is not passed directly to `string_of_float` in the `%eax`
 register as happened above with ints. Instead, it is created statically
 in the data segment:
 
-```ocaml
+```tryocaml
         .data
         .long   2301
         .globl  Float__1
@@ -553,7 +553,7 @@ Float__1:
 ```
 and a pointer to the float is passed in `%eax` instead:
 
-```ocaml
+```tryocaml
         movl    $Float__1, %eax
         call    Pervasives__string_of_float_157
 ```
@@ -561,7 +561,7 @@ Note the structure of the floating point number: it has a header (2301),
 followed by the 8 byte (2 word) representation of the number itself. The
 header can be decoded by writing it as binary:
 
-```ocaml
+```tryocaml
 Length of the object in words:  0000 0000 0000 0000 0000 10 (8 bytes)
 Color:                          00
 Tag:                            1111 1101 (Double_tag)
@@ -580,7 +580,7 @@ faster, OCaml implements \<dfn\>arrays of unboxed floats\</dfn\>. This
 means that in the special case where we have an object of type
 `float array` (array of floats), OCaml stores them the same way as in C:
 
-```ocaml
+```tryocaml
 double array[10];
 ```
 ... instead of having an array of pointers to ten separately allocated
@@ -588,7 +588,7 @@ floats on the heap.
 
 Let's see this in practice:
 
-```ocaml
+```tryocaml
 let a = Array.create 10 0.0;;
 for i = 0 to 9 do
   a.(i) <- float_of_int i
@@ -598,7 +598,7 @@ I'm going to compile this code with the `-unsafe` option to remove
 bounds checking (simplifying the code for our exposition here). The
 first line, which creates the array, is compiled to a simple C call:
 
-```ocaml
+```tryocaml
         pushl   $Arrayfloats__1     ; Boxed float 0.0
         pushl   $21                 ; The integer 10
         movl    $make_vect, %eax    ; Address of the C function to call
@@ -609,7 +609,7 @@ first line, which creates the array, is compiled to a simple C call:
 ```
 The loop is compiled to this relatively simple assembly language:
 
-```ocaml
+```tryocaml
         movl    $1, %eax            ; Let %eax = 0. %eax is going to store i.
         cmpl    $19, %eax           ; If %eax > 9, then jump out of the
         jg      .L100               ;   loop (to label .L100 at the end).
@@ -637,7 +637,7 @@ The loop is compiled to this relatively simple assembly language:
 The important statement is the one which stores the float into the
 array. It is:
 
-```ocaml
+```tryocaml
         fstpl   -4(%ecx, %eax, 4)
 ```
 The assembler syntax is rather complex, but the bracketed expression
@@ -646,7 +646,7 @@ that `%eax` is the OCaml representation of i, complete with tag bit, so
 it is essentially equal to `i*2+1`, so let's substitute that and
 multiply it out:
 
-```ocaml
+```tryocaml
   %ecx + 4*%eax - 4
 = %ecx + 4*(i*2+1) - 4
 = %ecx + 4*i*2 + 4 - 4
@@ -660,7 +660,7 @@ So arrays of floats are unboxed, as expected.
 How does OCaml compile functions which are only partially applied? Let's
 compile this code:
 
-```ocaml
+```tryocaml
 Array.map ((+) 2) [| 1; 2; 3; 4; 5 |]
 ```
 If you recall the syntax, `[| ... |]` declares an array (in this case an
@@ -670,7 +670,7 @@ things".
 Compiling this code reveals some interesting new features. Firstly the
 code which allocates the array:
 
-```ocaml
+```tryocaml
         
         movl    $24, %eax           ; Allocate 5 * 4 + 4 = 24 bytes of memory.
         call    caml_alloc
@@ -685,7 +685,7 @@ data word, ie. 4 bytes into the allocated memory block.
 
 Next OCaml generates code to initialize the array:
 
-```ocaml
+```tryocaml
         movl    $5120, -4(%eax)
         movl    $3, (%eax)
         movl    $5, 4(%eax)
@@ -706,7 +706,7 @@ about this array).
 Next the closure `((+) 2)` is created. The closure is represented by
 this block allocated in the data segment:
 
-```ocaml
+```tryocaml
         .data
         .long   3319
         .globl  Closure__1
@@ -719,7 +719,7 @@ The header is 3319, indicating a `Closure_tag` with length 3 words. The
 3 words in the block are the address of the function `caml_curry2`, the
 integer number 2 and the address of this function:
 
-```ocaml
+```tryocaml
         .text
         .globl  Closure__fun_58
 Closure__fun_58:
@@ -740,7 +740,7 @@ the OCaml representation for integers. Let's represent them as:
 where `a` and `b` are the actual integer arguments. So this function
 returns:
 
-```ocaml
+```tryocaml
   %eax + %ebx - 1
 = 2 * a + 1 + 2 * b + 1 - 1
 = 2 * a + 2 * b + 1
@@ -782,7 +782,7 @@ There are two types of profiling that you can do on OCaml programs:
 The `ocamlcp` and `ocamlprof` programs perform profiling on bytecode.
 Here is an example:
 
-```ocaml
+```tryocaml
 (* $ ocamlcp -p a graphics.cma graphtest.ml -o graphtest
    $ ./graphtest
    $ ocamlprof graphtest.ml *)
@@ -818,7 +818,7 @@ code](http://www.bagley.org/~doug/ocaml/Notes/lazy.shtml "http://www.bagley.org/
 This program uses streams and camlp4, techniques which we haven't
 covered in this tutorial.
 
-```ocaml
+```tryocaml
 let rec filter p = parser
   [< 'n; s >] -> if p n then [< 'n; filter p s >] else [< filter p s >]
 
@@ -838,13 +838,13 @@ let () =
 We compile it using the `-p` option to `ocamlopt` which tells the
 compiler to include profiling information for `gprof`:
 
-```ocaml
+```tryocaml
 $ ocamlopt -p -pp "camlp4o pa_extend.cmo" -I +camlp4 sieve.ml -o sieve
 ```
 After running the program as normal, the profiling code dumps out a file
 `gmon.out` which we can interpret with `gprof`:
 
-```ocaml
+```tryocaml
 $ gprof ./sieve
 Flat profile:
 

@@ -15,7 +15,7 @@ basics of writing object-oriented OCaml.
 Here's some basic code to provide a stack of integers. The class is
 implemented using a linked list.
 
-```ocaml
+```tryocaml
   class stack_of_ints =
     object (self)
       val mutable the_list = ( [] : int list )   (* instance variable *)
@@ -48,7 +48,7 @@ anything" but is in fact the narrower "list of `int`". The syntax
 overrule the type inference engine, only to narrow a general type to
 make it more specific. So you can't write, for example, `( 1 : float )`:
 
-```ocaml
+```tryocaml
 (1 : float);;
 ```
 Type safety is preserved. Back to the example ...
@@ -66,12 +66,12 @@ stack (ie. the length of the list).
 Let's write some code to test stacks of ints. First let's create a new
 object. We use the familiar `new` operator:
 
-```ocaml
+```tryocaml
   let s = new stack_of_ints
 ```
 Now we'll push and pop some elements off the stack:
 
-```ocaml
+```tryocaml
   for i = 1 to 10 do
     s#push i
   done;;
@@ -86,7 +86,7 @@ familiar with in imperative languages.
 In the OCaml toplevel we can examine the types of objects and methods in
 more detail:
 
-```ocaml
+```tryocaml
   let s = new stack_of_ints;;
   s#push;;
 ```
@@ -99,7 +99,7 @@ type? (Not a single stack that can store a mixture of types, but
 multiple stacks each storing objects of any single type). As with
 `'a list`, we can define `'a stack`:
 
-```ocaml
+```tryocaml
   class ['a] stack =
     object (self)
       val mutable list = ( [] : 'a list )    (* instance variable *)
@@ -121,7 +121,7 @@ number of classes!) Let's try and use our `'a stack` class. In this
 instance we create a stack and push a floating point number onto the
 stack. Notice the type of the stack:
 
-```ocaml
+```tryocaml
 let s = new stack;;
 s#push 1.0;;
 s;;
@@ -134,7 +134,7 @@ FAQ](http://caml.inria.fr/FAQ/FAQ_EXPERT-eng.html "http://caml.inria.fr/FAQ/FAQ_
 FAQ](http://caml.inria.fr/pub/old_caml_site/FAQ/FAQ_EXPERT-eng.html "http://caml.inria.fr/pub/old_caml_site/FAQ/FAQ_EXPERT-eng.html")).
 Let's demonstrate the type-safety of our new `float stack`:
 
-```ocaml
+```tryocaml
 s#push 3.0;;
 s#pop;;
 s#pop;;
@@ -143,7 +143,7 @@ s#push "a string";;
 We can define polymorphic functions which can operate on any type of
 stack. Our first attempt is this one:
 
-```ocaml
+```tryocaml
   let drain_stack s =
     while s#size > 0 do
       ignore (s#pop)
@@ -160,7 +160,7 @@ We can force OCaml to be more specific and only allow `drain_stack` to
 be called on `'a stack`s by narrowing the type of the `s` argument, like
 this:
 
-```ocaml
+```tryocaml
   let drain_stack (s : 'a stack) =
     while s#size > 0 do
       ignore (s#pop)
@@ -178,7 +178,7 @@ Let's consider an imaginary OCaml widget library similar to Java's
 Swing. We will define buttons and labels with the following class
 hierarchy:
 
-```ocaml
+```tryocaml
 widget  (superclass for all widgets)
   |
   +----> container  (any widget that can contain other widgets)
@@ -194,7 +194,7 @@ label or an image, depending on what is displayed on the button).
 to have a name (just a string) which is constant over the life of that
 widget. This was my first attempt:
 
-```ocaml
+```tryocaml
   class virtual widget name =
     object (self)
       method get_name =
@@ -207,7 +207,7 @@ that it is `'a`. But that defines a polymorphic class, and I didn't
 declare the class as polymorphic (`class ['a] widget`). I need to narrow
 the type of `name` like this:
 
-```ocaml
+```tryocaml
   class virtual widget (name : string) =
     object (self)
       method get_name =
@@ -220,7 +220,7 @@ class contains an **initializer**. This is an argument to the class
 (`name`) which you can think of as exactly the equivalent of an argument
 to a constructor in, eg., Java:
 
-```ocaml
+```tryocaml
 public class Widget
 {
   public Widget (String name)
@@ -233,7 +233,7 @@ In OCaml a constructor constructs the whole class, it's not just a
 specially named function, so we write the arguments as if they are
 arguments to the class:
 
-```ocaml
+```tryocaml
 class foo arg1 arg2 ... =
 ```
 Secondly the class contains a virtual method, and thus the whole class
@@ -249,14 +249,14 @@ by using `class virtual ...`.
 As in C++ and Java, virtual classes cannot be directly instantiated
 using `new`:
 
-```ocaml
+```tryocaml
 let w = new widget "my widget"
 ```
 Now my `container` class is more interesting. It must inherit from
 `widget` and have the mechanics for storing the list of contained
 widgets. Here is my simple implementation for `container`:
 
-```ocaml
+```tryocaml
   class virtual container name =
     object (self)
       inherit widget name
@@ -288,7 +288,7 @@ Notes:
  immutable. Let's imagine that someone wrote this code:
 
 <!-- -->
-```ocaml
+```tryocaml
 let list = container#get_widgets in
 x :: list
 ```
@@ -304,7 +304,7 @@ Last, but not least, we have implemented the previously virtual
 contained widgets. Notice I use `List.iter` to iterate over the list,
 and I also use a probably unfamiliar anonymous function expression:
 
-```ocaml
+```tryocaml
 (fun w -> w#repaint)
 ```
 which defines an anonymous function with one argument `w` that just
@@ -313,7 +313,7 @@ calls `w#repaint` (the `repaint` method on widget `w`).
 In this instance our `button` class is simple (rather unrealistically
 simple in fact, but nevermind that):
 
-```ocaml
+```tryocaml
   type button_state = Released | Pressed;;
 
   class button ?callback name =
@@ -360,7 +360,7 @@ Notes:
 Before defining our `label` class, let's play with the `button` class in
 the OCaml toplevel:
 
-```ocaml
+```tryocaml
   let b = new button ~callback:(fun () -> print_endline "Ouch!") "button";;
 b#repaint;;
   b#press;;
@@ -369,7 +369,7 @@ b#repaint;;
 ```
 Here's our comparatively trivial `label` class:
 
-```ocaml
+```tryocaml
   class label name text =
     object (self)
       inherit widget name
@@ -379,7 +379,7 @@ Here's our comparatively trivial `label` class:
 ```
 Let's create a label which says "Press me!" and add it to the button:
 
-```ocaml
+```tryocaml
 let l = new label "label" "Press me!";;
 b#add l;;
 b#repaint;;
@@ -387,7 +387,7 @@ b#repaint;;
 ###  A note about `self`
 In all the examples above we defined classes using the general pattern:
 
-```ocaml
+```tryocaml
 class name =
   object (self)
     (* ... *)
@@ -404,7 +404,7 @@ the class and require the reference to `self`. There is no penalty for
 having it.
 
 ###  Inheritance and coercions
-```ocaml
+```tryocaml
 let b = new button "button";;
 let l = new label "label" "Press me!";;
 [b; l];;
@@ -414,7 +414,7 @@ containing both, but I got an error. Yet `b` and `l` are both `widget`s,
 so why can't I put them into the same list? Perhaps OCaml can't guess
 that I want a `widget list`? Let's try telling it:
 
-```ocaml
+```tryocaml
 let wl = ([] : widget list);;
 let wl = b :: wl;;
 ```
@@ -422,7 +422,7 @@ It turns out that OCaml doesn't coerce subclasses to the type of the
 superclass by default, but you can tell it to by using the `:>`
 (coercion) operator:
 
-```ocaml
+```tryocaml
 let wl = (b :> widget) :: wl;;
 let wl = (l :> widget) :: wl;;
 ```
@@ -498,7 +498,7 @@ definitions. In addition, objects can be created without a class. They
 are called *immediate objects*. Here is the definition of an immediate
 object:
 
-```ocaml
+```tryocaml
   let o =
     object 
       val mutable n = 0 
@@ -511,18 +511,18 @@ Values are not visible and neither are private methods (not shown).
 Unlike records, such a type does not need to be predefined explicitely,
 but doing so can make things clearer. We can do it like this:
 
-```ocaml
+```tryocaml
   type counter = < get : int;  incr : unit >
 ```
 Compare with an equivalent record type definition:
 
-```ocaml
+```tryocaml
   type counter_r = { get : unit -> int;
                      incr : unit -> unit }
 ```
 The implementation of a record working like our object would be:
 
-```ocaml
+```tryocaml
   let r =
     let n = ref 0 in
     { get = (fun () -> !n);
@@ -552,7 +552,7 @@ record type or a tuple.
 When a class is defined, both a *class type* and an object *type* of the
 same name are defined:
 
-```ocaml
+```tryocaml
   class t =      
     object
       val x = 0
@@ -566,14 +566,14 @@ create. Objects that derive from different classes or no class at all
 (immediate objects) can be mixed together as long as they have the same
 type:
 
-```ocaml
+```tryocaml
 let x = object method get = 123 end;;
 let l = [ new t; x ];;
 ```
 Mixing objects that share a common subtype can be done, but requires
 explicit type coercion using the `:>` operator:
 
-```ocaml
+```tryocaml
 let x = object method get = 123 end;;
 let y = object method get = 80 method special = "hello" end;;
 let l = [ x; y ];;

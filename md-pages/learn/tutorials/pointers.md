@@ -30,7 +30,7 @@ Let's examine the simple example of linked lists (integer lists to be
 simple). This data type is defined in C (or in Pascal) using explicit
 pointers, for instance:
 
-```ocaml
+```tryocaml
 /* Cells and lists type in C */
 struct cell {
   int hd;
@@ -50,7 +50,7 @@ type
 We can translate this in OCaml, using a sum type definition, without
 pointers:
 
-```ocaml
+```tryocaml
   type list = Nil | Cons of int * list
 ```
 Cell lists are thus represented as pairs, and the recursive structure of
@@ -61,7 +61,7 @@ when allocating list values: one just writes `Cons (x, l)` to add `x` in
 front of the list `l`. In C, you need to write this function, to
 allocate a new cell and then fill its fields. For instance:
 
-```ocaml
+```tryocaml
 /* The empty list */
 #define nil NULL
 
@@ -77,7 +77,7 @@ list cons (element x, list l)
 ```
 Similarly, in Pascal:
 
-```ocaml
+```tryocaml
 {Creating a list cell}
 function cons (x: integer; l: list): list;
  var p: list;
@@ -98,7 +98,7 @@ for other reasons than mere initialization, OCaml provides records with
 mutable fields. For instance, a list type defining lists whose elements
 can be in place modified could be written:
 
-```ocaml
+```tryocaml
 type list = Nil | Cons of cell
 and cell = { mutable hd : int; tl : list }
 ```
@@ -106,7 +106,7 @@ If the structure of the list itself must also be modified (cells must be
 physically removed from the list), the `tl` field would also be declared
 as mutable:
 
-```ocaml
+```tryocaml
 type list = Nil | Cons of cell
 and cell = {mutable hd : int; mutable tl : list};;
 ```
@@ -135,7 +135,7 @@ The general pointer type can be defined using the definition of a
 pointer: a pointer is either null, or a pointer to an assignable memory
 location:
 
-```ocaml
+```tryocaml
 type 'a pointer = Null | Pointer of 'a ref
 ```
 Explicit dereferencing (or reading the pointer's designated value) and
@@ -143,7 +143,7 @@ pointer assignment (or writing to the pointer's designated memory
 location) are easily defined. We define dereferencing as a prefix
 operator named `!^`, and assigment as the infix `^:=`.
 
-```ocaml
+```tryocaml
   let ( !^ ) = function
     | Null -> invalid_arg "Attempt to dereference the null pointer"
     | Pointer r -> !r;;
@@ -156,12 +156,12 @@ operator named `!^`, and assigment as the infix `^:=`.
 Now we define the allocation of a new pointer initialized to points to a
 given value:
 
-```ocaml
+```tryocaml
   let new_pointer x = Pointer (ref x);;
 ```
 For instance, let's define and then assign a pointer to an integer:
 
-```ocaml
+```tryocaml
   let p = new_pointer 0;;
   p ^:= 1;;
   !^p;;
@@ -170,7 +170,7 @@ For instance, let's define and then assign a pointer to an integer:
 Now we can define lists using explicit pointers as in usual imperative
 languages:
 
-```ocaml
+```tryocaml
   (* The list type ``à la Pascal'' *)
   type ilist = cell pointer
   and cell = {mutable hd : int; mutable tl : ilist}
@@ -178,7 +178,7 @@ languages:
 We then define allocation of a new cell, the list constructor and its
 associated destructors.
 
-```ocaml
+```tryocaml
   let new_cell () = {hd = 0; tl = Null};;
 
   let cons x l =
@@ -197,7 +197,7 @@ concatenation, as often described in litterature, physically modifies
 its first list argument, hooking the second list to the end of the
 first:
 
-```ocaml
+```tryocaml
   (* Physical append *)
   let append (l1 : ilist) (l2 : ilist) =
     let temp = ref l1 in
@@ -215,7 +215,7 @@ first:
 ```
 The lists `l1` and `l2` are effectively catenated:
 
-```ocaml
+```tryocaml
   l1;;
 ```
 Just a nasty side effect of physical list concatenation: `l1` now
@@ -226,12 +226,12 @@ history, that is on the sequence of function calls that use the value.
 This strange behaviour leads to a lot of difficulties when explicitely
 manipulating pointers. Try for instance, the seemingly harmless:
 
-```ocaml
+```tryocaml
   append l1 l1;;
 ```
 Then evaluate `l1`:
 
-```ocaml
+```tryocaml
   l1;;
 ```
 ## Polymorphic lists
@@ -239,7 +239,7 @@ To go beyond Pascal type system, we define polymorphic lists using
 pointers; here is a simple implementation of those polymorphic mutable
 lists:
 
-```ocaml
+```tryocaml
   type 'a lists = 'a cell pointer
   and 'a cell = {mutable hd : 'a pointer; mutable tl : 'a lists};;
 

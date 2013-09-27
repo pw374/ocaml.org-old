@@ -70,14 +70,14 @@ valeur de la coupure comme expliqué ci-après) :
 
 * dans une boîte « h » :
 
-```ocaml
+```tryocaml
    --b--b--
 ```
 
 
 * dans une boîte « v » :
 
-```ocaml
+```tryocaml
    --b
    --b
    --
@@ -88,12 +88,12 @@ valeur de la coupure comme expliqué ci-après) :
 
 S'il y a assez de place pour imprimer toute la boîte sur la ligne :
 
-```ocaml
+```tryocaml
    --b--b--
 ```
 Mais si "---b---b---" ne peut tenir sur la ligne, la sortie est
 
-```ocaml
+```tryocaml
    ---b
    ---b
    ---
@@ -104,12 +104,12 @@ Mais si "---b---b---" ne peut tenir sur la ligne, la sortie est
 
 S'il y a assez de place pour imprimer toute la boîte sur la ligne :
 
-```ocaml
+```tryocaml
    --b--b--
 ```
 Mais si "---b---b---" ne peut tenir sur la ligne, la sortie est
 
-```ocaml
+```tryocaml
    ---b---b
    ---
 ```
@@ -121,7 +121,7 @@ sur la ligne était encore plus courte, la première indication de
 coupure aurait aussi donné lieu à un retour à la ligne et
 "---b---b---" aurait été imprimé ainsi:
 
-```ocaml
+```tryocaml
     ---b
     ---b
     ---
@@ -144,14 +144,14 @@ suivante :
 
 * dans une boîte « h » :
 
-```ocaml
+```tryocaml
    -- -- --
 ```
 
 
 * dans une boîte « v » :
 
-```ocaml
+```tryocaml
    --
    --
    --
@@ -160,12 +160,12 @@ suivante :
 
 * dans une boîte « hv » :
 
-```ocaml
+```tryocaml
    -- -- --
 ```
 ou, suivant la place restante sur la ligne :
 
-```ocaml
+```tryocaml
    --
    --
    --
@@ -189,13 +189,13 @@ On dispose de deux moyens de fixer l'indentation des lignes :
  seront indentées de 1 par rapport à l'indentation initiale de la
  boîte. Ainsi avec "---[--b--b--b--", on obtient :
 
-```ocaml
+```tryocaml
    ---[--b--b
         --b--
 ```
 tandis qu'avec `open_hovbox 2`, on obtient :
 
-```ocaml
+```tryocaml
    ---[--b--b
          --b--
 ```
@@ -203,7 +203,7 @@ Note: le symbole `[` n'est évidemment pas visible sur la sortie
 écran, je l'écris pour matérialiser l'ouverture de la boîte
 d'impression. Ainsi le dernier « écran » est en fait :
 
-```ocaml
+```tryocaml
     -----b--b
          --b--
 ```
@@ -220,7 +220,7 @@ d'impression. Ainsi le dernier « écran » est en fait :
  `print_break       1       2`, alors la sortie de "---[--b--b--b--",
  sera imprimée :
 
-```ocaml
+```tryocaml
    ---[-- --
          --
          --
@@ -260,7 +260,7 @@ sans indentation supplémentaire (`print_cut     ()`). Ainsi, si "["
 représente l'ouverture de boîtes « hov » tassantes (`open_hovbox`),
 "[(---[(----[(---b)]b)]b)]" est imprimé ainsi:
 
-```ocaml
+```tryocaml
 (---
  (----
   (---)))
@@ -270,7 +270,7 @@ hov » structurelles (`open_box`), chaque indication de coupure placée
 avant chaque parenthèse fermante est susceptible de montrer la structure
 de boîte et produit donc une coupure; on obtient alors :
 
-```ocaml
+```tryocaml
 (---
  (----
   (---
@@ -348,7 +348,7 @@ Ainsi :
 
 Par exemple
 
-```ocaml
+```tryocaml
 printf "@[<1>%s@ =@ %d@ %s@]@." "Prix TTC" 100 "Euros";;
 Prix TTC = 100 Euros
 
@@ -366,7 +366,7 @@ D'abord, je donne la syntaxe abstraite des lambda-termes (nous utilisons
 le [système interactif](../description.html#interactive) pour évaluer ce
 code) :
 
-```ocaml
+```tryocaml
   type lambda =
     | Lambda of string * lambda
     | Var of string
@@ -374,7 +374,7 @@ code) :
 ```
 J'utilise le module format pour imprimer les lambda-termes:
 
-```ocaml
+```tryocaml
   open Format;;
 
   let ident = print_string
@@ -398,7 +398,7 @@ J'utilise le module format pour imprimer les lambda-termes:
 ```
 En Caml Light, remplacez la première ligne par :
 
-```ocaml
+```tryocaml
 #open "format";;
 ```
 ###  Impression la plus générale: utilisation de `fprintf`
@@ -415,7 +415,7 @@ l'utilisateur prennent aussi un formatteur en premier argument).
 Voici la fonction d'impression des lambda-termes à l'aide des formats
 d'impression à la `fprintf`.
 
-```ocaml
+```tryocaml
   open Format;;
 
   let ident ppf s = fprintf ppf "%s" s
@@ -440,7 +440,7 @@ Armés de ces fonctions d'impression générales, les procédures
 d'impression sur la sortie standard ou la sortie d'erreur s'obtiennent
 facilement par application partielle:.
 
-```ocaml
+```tryocaml
   let print_lambda = pr_lambda std_formatter
   let eprint_lambda = pr_lambda err_formatter
 

@@ -32,7 +32,7 @@ using `ocamlopt`. For now, we also assume that they do not use any other
 library than the standard library, which is automatically loaded. You
 can compile the program in one single step:
 
-```ocaml
+```tryocaml
 ocamlopt -o progprog module1.ml module2.ml
 ```
 That's it. The compiler produced an executable named `progprog` or
@@ -61,7 +61,7 @@ to 3D graphics. You must understand the following:
 If your program uses only the unix library (provides system calls not
 only for Unix systems), the command line would be:
 
-```ocaml
+```tryocaml
 ocamlopt -o progprog unix.cmxa module1.ml module2.ml
 ```
 `.cmxa` is the extension of native code libraries, while `.cma` is the
@@ -94,7 +94,7 @@ ocamlfind.
 You can see which packages and subpackages are available in your system
 by typing:
 
-```ocaml
+```tryocaml
 ocamlfind list
 ```
 This shows the list of package names, with their version ID.
@@ -106,7 +106,7 @@ worry about that since `ocamlfind` knows it.
 
 The command for compiling our program will be:
 
-```ocaml
+```tryocaml
 ocamlfind ocamlopt -o progprog -linkpkg \
   -package lablGL,sdl,sdl.sdlimage,sdl.sdlmixer,sdl.sdlttf \
   module1.ml module2.ml
@@ -119,7 +119,7 @@ you want to recompile only some parts of the programs. Here are the
 equivalent commands that perform a separate compilation of the source
 files and link them together in a final step:
 
-```ocaml
+```tryocaml
 ocamlfind ocamlopt -c \
   -package lablGL,sdl,sdl.sdlimage,sdl.sdlmixer,sdl.sdlttf \
   module1.ml

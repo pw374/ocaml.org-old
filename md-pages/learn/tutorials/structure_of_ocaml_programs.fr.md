@@ -12,7 +12,7 @@ et aux fonctionnalités mises en avant.
 Prenons la fonction `average` écrite en C, et ajoutons lui une variable
 locale. (à comparer avec la première version que nous avions)
 
-```ocaml
+```tryocaml
 double
 average (double a, double b)
 {
@@ -22,7 +22,7 @@ average (double a, double b)
 ```
 Faisons la même chose avec notre version OCaml :
 
-```ocaml
+```tryocaml
 let average a b =
   let sum = a +. b in
   sum /. 2.0;;
@@ -47,7 +47,7 @@ Voyons un autre exemple qui devrait clarifier les choses. Les deux bouts
 de code suivants devraient retourner la même valeur (à savoir (a+b) +
 (a+b)<sup>2</sup>):
 
-```ocaml
+```tryocaml
 let f a b =
   (a +. b) +. (a +. b) ** 2.
   ;;
@@ -69,7 +69,7 @@ global, et comme pour les "variables" locales ci-dessus, ce ne sont pas
 vraiment des variables, mais des abbréviations pour ces choses. Voici un
 exemple pris dans un programme réel :
 
-```ocaml
+```tryocaml
 let html =
   let content = read_whole_file file in
   GHtml.html_from_string content
@@ -114,7 +114,7 @@ références - comme en OCaml.
 
 Voici comment créer une référence sur un entier (`int`) en OCaml :
 
-```ocaml
+```tryocaml
 ref 0;;
 ```
 En fait cette instruction n'est pas très utile. Nous avons créé une
@@ -123,18 +123,18 @@ fait son travail et l'a immédiatement libérée! (Il est même probable que
 le compileur ait éliminé cette instruction à la compilation). Donnons un
 nom à cette référence :
 
-```ocaml
+```tryocaml
 let my_ref = ref 0;;
 ```
 Cette référence contient maintenant l'entier 0. Mettons une autre valeur
 à la place (assignement) :
 
-```ocaml
+```tryocaml
 my_ref := 100;;
 ```
 Voyons ce que la référence contient à présent :
 
-```ocaml
+```tryocaml
 # !my_ref;;
 - : int = 100
 ```
@@ -142,7 +142,7 @@ Donc l'opérateur `:=` est utilisé pour assigner les références, et `!`
 pour les déréférencer et accéder au contenu. Voici une comparaison
 approximative avec C/C++ :
 
-```ocaml
+```tryocaml
 OCaml                   C/C++
 
 let my_ref = ref 0;;    int a = 0; int *my_ptr = &a;
@@ -166,7 +166,7 @@ C++.) Le nom de la fonction imbriquée est local au bloc dans lequel il
 est défini. Par exemple, définissons une fonction imbriquée nommée
 `square', et appelons-là deux fois :
 
-```ocaml
+```tryocaml
 foo (double a, double b)
 {
   double square (double z) { return z * z; }
@@ -179,7 +179,7 @@ englobante qui sont visibles à l'emplacement de sa définition. Cela
 s'appelle la "portée lexicale". Par exemple, voici une fonction
 imbriquée qui utilise une variable héritée nommée `offset' :
 
-```ocaml
+```tryocaml
 bar (int *array, int offset, int size)
 {
   int access (int *array, int index)
@@ -194,7 +194,7 @@ Vous comprenez l'idée. Les fonctions imbriquées sont, cependant, très
 utiles et largement employées en OCaml. Voici un exemple d'utilisation
 réel de fonction imbriquées :
 
-```ocaml
+```tryocaml
 let read_whole_channel chan =
   let buf = Buffer.create 4096 in
   let rec loop () =
@@ -237,7 +237,7 @@ relativement simple appelé `Graphics`.
 
 Le module `Graphics` est constitué de cinq fichiers (sur mon système) :
 
-```ocaml
+```tryocaml
 /usr/lib/ocaml/graphics.a
 /usr/lib/ocaml/graphics.cma
 /usr/lib/ocaml/graphics.cmi
@@ -260,7 +260,7 @@ Une paire d'exemples devrait éclaircir ce point. (Les deux exemples
 dessinent des choses différentes - essayez-les). Remarquez que le
 premier exemple appelle `open_graph` et le second `Graphics.open_graph`.
 
-```ocaml
+```tryocaml
 (* To compile this example: ocamlc graphics.cma grtest1.ml -o grtest1 *)
 
 open Graphics;;
@@ -314,7 +314,7 @@ Que faire si vous voulez utiliser des symboles en provenance du module
 `Graphics`, mais ne voulez pas tous les importer, et n'avez pas envie de
 taper `Graphics.` à chaque fois ? Renommez le module avec cette astuce :
 
-```ocaml
+```tryocaml
 module Gr = Graphics;;
 
 Gr.open_graph " 640x480";;
@@ -338,7 +338,7 @@ d'une définition de fonction ou d'aucune autre instruction.
 
 Reprenons un bout du second exemple graphique précédent:
 
-```ocaml
+```tryocaml
 Random.self_init ();;
 Graphics.open_graph " 640x480";;
 
@@ -368,7 +368,7 @@ peut parfois être omis. Les endroits où cela est possible sont :
 Voici un exemple de code correct, où `;;` a été omis quand c'était
 possible :
 
-```ocaml
+```tryocaml
 open Random                   (* ;; *)
 open Graphics;;
 
@@ -410,7 +410,7 @@ La boucle for interne de notre exemple ci-dessus est une bonne
 démonstration. Remarquez que nous n'utilisons jamais de simple `;` dans
 ce code :
 
-```ocaml
+```tryocaml
         for i = 0 to 39 do
                 let x_init = Random.float 1.0 in
                 let x_final = iterate r x_init 500 in
@@ -439,7 +439,7 @@ est une expression. `a ; b` est une expression. `match foo with ...` est
 une expression. Les codes suivants sont parfaitement légaux (et tous
 font la même chose) :
 
-```ocaml
+```tryocaml
 let f x b y = if b then x+y else x+0
 
 let f x b y = x + (if b then y else 0)
@@ -454,7 +454,7 @@ Notez tout particulièrement la dernière fonction - j'utilise `;` comme
 opérateur pour "joindre" deux instructions. En OCaml, toutes les
 fonctions peuvent être exprimées par :
 
-```ocaml
+```tryocaml
 let nom [paramètres] = expression
 ```
 La définition de ce qu'est une expression en OCaml est juste un peu plus
@@ -466,7 +466,7 @@ Une différence entre `;` et `+` est que je peux utiliser `+` comme une
 fonction. Par exemple, je peux définir une fonction `sum_list` pour
 calculer la somme d'une liste d'entier comme ceci :
 
-```ocaml
+```tryocaml
 let sum_list = List.fold_left ( + ) 0
 ```
 ## Toutes ces notions ensemble : un exemple de code réel
@@ -499,7 +499,7 @@ Premier fragment : Le programmeur ouvre une paire de modules standards
 appelée `sel` en utilisant une instruction `let sel = ... in` de deux
 lignes. Puis il appelle plusieurs méthodes de `sel`.
 
-```ocaml
+```tryocaml
 (* First snippet *)
 
 open StdLabels
@@ -516,7 +516,7 @@ Deuxième fragment : Juste une longue liste de définitions au niveau
 global. Remarquez que l'auteur a omis toutes les occurrences de `;;`
 grâce à la règle n°2.
 
-```ocaml
+```tryocaml
 (* Second snippet *)
 
 let window = GWindow.window ~width:500 ~height:300 ~title:"editor" ()
@@ -546,7 +546,7 @@ est en train de se terminer.
 Remarquez que dans ce fragment nous avons de longues successions de
 commandes procédurales. C'est un programme impératif classique.
 
-```ocaml
+```tryocaml
 (* Third snippet *)
 
 open GdkKeysyms
