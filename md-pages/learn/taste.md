@@ -84,13 +84,13 @@ current contents of `cell`, and `cell := v` writes the value `v` into
 We may redefine `fact` using a reference cell and a `for` loop:
 
 ```tryocaml
-  let fact n =
-    let result = ref 1 in
-    for i = 2 to n do
-      result := i * !result
-    done;
-    !result;;
-  fact 5;;
+let fact n =
+  let result = ref 1 in
+  for i = 2 to n do
+    result := i * !result
+  done;
+  !result;;
+fact 5;;
 ```
 ## Higher-order functions
 There is no restriction on functions, which may thus be passed as
@@ -99,9 +99,9 @@ returns the sum of the results of applying a given function `f` to each
 element of a list:
 
 ```tryocaml
-  let rec sigma f = function
-    | [] -> 0
-    | x :: l -> f x + sigma f l
+let rec sigma f = function
+  | [] -> 0
+  | x :: l -> f x + sigma f l
 ```
 Anonymous functions may be defined using the `fun` or `function`
 construct:
@@ -113,27 +113,27 @@ Polymorphism and higher-order functions allow defining function
 composition in its most general form:
 
 ```tryocaml
-  let compose f g = fun x -> f (g x);;
-  let square_o_fact = compose square fact;;
-  square_o_fact 5;;
+let compose f g = fun x -> f (g x);;
+let square_o_fact = compose square fact;;
+square_o_fact 5;;
 ```
 ## The power of functions
 The power of functions cannot be better illustrated than by the `power`
 function:
 
 ```tryocaml
-  let rec power f n = 
-    if n = 0 then fun x -> x 
-    else compose f (power f (n - 1));;
+let rec power f n = 
+  if n = 0 then fun x -> x 
+  else compose f (power f (n - 1));;
 ```
 The `n`<sup>th</sup> derivative of a function can be computed as in
 mathematics by raising the derivative function to the `n`<sup>th</sup>
 power:
 
 ```tryocaml
-  let derivative dx f = fun x -> (f (x +. dx) -. f x) /. dx;;
-  let sin''' = power (derivative 1e-5) 3 sin;;
-  let pi = 4.0 *. atan 1.0 in sin''' pi;;
+let derivative dx f = fun x -> (f (x +. dx) -. f x) /. dx;;
+let sin''' = power (derivative 1e-5) 3 sin;;
+let pi = 4.0 *. atan 1.0 in sin''' pi;;
 ```
 ## Symbolic computation
 Let us consider simple symbolic expressions made up of integers,
@@ -141,38 +141,38 @@ variables, `let` bindings, and binary operators. Such expressions can be
 defined as a new data type, as follows:
 
 ```tryocaml
-  type expression =
-    | Num of int
-    | Var of string
-    | Let of string * expression * expression
-    | Binop of string * expression * expression;;
+type expression =
+  | Num of int
+  | Var of string
+  | Let of string * expression * expression
+  | Binop of string * expression * expression;;
 ```
 Evaluation of these expressions involves an environment that maps
 identifiers to values, represented as a list of pairs.
 
 ```tryocaml
-  let rec eval env = function
-    | Num i -> i
-    | Var x -> List.assoc x env
-    | Let (x, e1, in_e2) ->
-       let val_x = eval env e1 in
-       eval ((x, val_x) :: env) in_e2
-    | Binop (op, e1, e2) ->
-       let v1 = eval env e1 in
-       let v2 = eval env e2 in
-       eval_op op v1 v2
-  and eval_op op v1 v2 =
-    match op with
-    | "+" -> v1 + v2
-    | "-" -> v1 - v2
-    | "*" -> v1 * v2
-    | "/" -> v1 / v2
-    | _ -> failwith ("Unknown operator: " ^ op);;
+let rec eval env = function
+  | Num i -> i
+  | Var x -> List.assoc x env
+  | Let (x, e1, in_e2) ->
+     let val_x = eval env e1 in
+     eval ((x, val_x) :: env) in_e2
+  | Binop (op, e1, e2) ->
+     let v1 = eval env e1 in
+     let v2 = eval env e2 in
+     eval_op op v1 v2
+and eval_op op v1 v2 =
+  match op with
+  | "+" -> v1 + v2
+  | "-" -> v1 - v2
+  | "*" -> v1 * v2
+  | "/" -> v1 / v2
+  | _ -> failwith ("Unknown operator: " ^ op);;
 ```
 As an example, we evaluate the phrase `let   x = 1 in x   +       x`:
 
 ```tryocaml
-  eval [] (Let ("x", Num 1, Binop ("+", Var "x", Var "x")));;
+eval [] (Let ("x", Num 1, Binop ("+", Var "x", Var "x")));;
 ```
 Pattern matching eases the definition of functions operating on symbolic
 data, by giving function definitions and type declarations similar
@@ -182,8 +182,8 @@ shapes. Indeed, note the close resemblance between the definition of the
 ## Elementary debugging
 To conclude, here is the simplest way of spying over functions:
 
-```tryocaml
-  let rec fib x = if x <= 1 then 1 else fib (x - 1) + fib (x - 2);;
+```ocaml
+let rec fib x = if x <= 1 then 1 else fib (x - 1) + fib (x - 2);;
 # #trace fib;;
 fib is now traced.
 # fib 3;;
