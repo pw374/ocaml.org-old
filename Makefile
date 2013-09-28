@@ -44,8 +44,8 @@ clean:
 htmlescape:htmlescape.ml
 	ocamlopt $< -o $@
 
-ocamltohtml:ocamltohtml_all.ml
-	ocamlopt $< -o $@
+ocamltohtml:lexer.ml ocamltohtml.ml
+	ocamlopt $+ -o $@
 
 md-pages/pkg:pkg-pages Makefile
 	make pkg
