@@ -39,8 +39,8 @@
     padding-right:0.75ex;
 }
 #opamdoc-contents div.info {
-    margin:2pt 0 1.5em 1em;
-    padding:0;
+    /* margin:2pt 0 1.5em 1em; */
+    /* padding:0; */
 }
 #opamdoc-contents ul {
     margin: 0 0 0 4ex;
