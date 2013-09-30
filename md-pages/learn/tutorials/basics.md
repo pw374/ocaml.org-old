@@ -35,7 +35,7 @@ contains original `s` repeated `n` times.
 
 In most C-derived languages a call to this function will look like this:
 
-```tryocaml
+```
 repeated ("hello", 3)  /* this is C code */
 ```
 This means "call the function `repeated` with two arguments, first
@@ -63,10 +63,12 @@ Let's have another function - `prompt_string` - which takes a string to
 prompt and returns the string entered by the user. We want to pass this
 string into `repeated`. Here are the C and OCaml versions:
 
-```tryocaml
+```
 /* C code: */
 repeated (prompt_string ("Name please: "), 3)
+```
 
+```tryocaml
 (* OCaml code: *)
 repeated (prompt_string "Name please: ") 3
 ```
@@ -77,7 +79,7 @@ the rule is: "bracket around the whole function call - don't put
 brackets around the arguments to a function call". Here are some more
 examples:
 
-```tryocaml
+```ocaml
 f 5 (g "hello") 3    (* f has three arguments, g has one argument *)
 f (g 3 4)            (* f has one argument, g has two arguments *)
 
@@ -113,7 +115,7 @@ and define the same function in C (the Java definition would be fairly
 similar to C), and hopefully that should raise even more questions.
 Here's our C version of `average`:
 
-```tryocaml
+```
 double
 average (double a, double b)
 {
@@ -155,7 +157,7 @@ We will present more details in the following sections and chapters.
 ## Basic types
 The basic types in OCaml are:
 
-```tryocaml
+```
 OCaml type     Range
 
 int            31-bit signed int (roughly +/- 1 billion) on 32-bit processors,
@@ -229,7 +231,7 @@ together? (Say they are stored as `i` and `f`). In OCaml you need to
 explicitly cast:
 
 ```tryocaml
- (float_of_int i) +. f
+(float_of_int i) +. f
 ```
 `float_of_int` is a function which takes an `int` and returns a `float`.
 There are a whole load of these functions, called such things as
@@ -302,7 +304,7 @@ what it thinks are the types of your functions, so you need to know the
 syntax for this. For a function `f` which takes arguments `arg1`,
 `arg2`, ... `argn`, and returns type `rettype`, the compiler will print:
 
-```tryocaml
+```ocaml
 f : arg1 -> arg2 -> ... -> argn -> rettype
 ```
 The arrow syntax looks strange now, but when we come to so-called
@@ -312,25 +314,25 @@ you some examples.
 Our function `repeated` which takes a string and an integer and returns
 a string has type:
 
-```tryocaml
+```ocaml
 repeated : string -> int -> string
 ```
 Our function `average` which takes two floats and returns a float has
 type:
 
-```tryocaml
+```ocaml
 average : float -> float -> float
 ```
 The OCaml standard `int_of_char` casting function:
 
-```tryocaml
+```ocaml
 int_of_char : char -> int
 ```
 If a function returns nothing (`void` for C and Java programmers), then
 we write that it returns the `unit` type. Here, for instance, is the
 OCaml equivalent of `fputc`:
 
-```tryocaml
+```ocaml
 output_char : out_channel -> char -> unit
 ```
 ###  Polymorphic functions
@@ -345,7 +347,7 @@ What is the type of this function? In OCaml we use a special placeholder
 to mean "any type you fancy". It's a single quote character followed by
 a letter. The type of the above function would normally be written:
 
-```tryocaml
+```ocaml
 give_me_a_three : 'a -> int
 ```
 where `'a` really does mean any type. You can, for example, call this
@@ -382,8 +384,8 @@ Let's go back to the `average` function which we typed into the OCaml
 toplevel:
 
 ```tryocaml
-  let average a b =
-    (a +. b) /. 2.0
+let average a b =
+  (a +. b) /. 2.0
 ```
 Mirabile dictu! OCaml worked out all on its own that the function takes
 two `float` arguments and returns a `float`.
@@ -397,7 +399,7 @@ Secondly, the `/.` function returns a `float`, and this is the same as
 the return value of the `average` function, so `average` must return a
 `float`. The conclusion is that `average` has this type signature:
 
-```tryocaml
+```ocaml
 average : float -> float -> float
 ```
 Type inference is obviously easy for such a short program, but it works
