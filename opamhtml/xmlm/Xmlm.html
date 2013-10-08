@@ -26,9 +26,9 @@
 <pre><span class="TYPEtag"><span class="keyword">type</span> tag</span> = <code class="type"><a href="?package=xmlm&amp;module=Xmlm&amp;type=name">name</a> * <a href="?package=xmlm&amp;module=Xmlm&amp;type=attribute">attribute</a> list</code></pre><div class="info"><div class="info">The type for an element tag. Tag name and attribute list.</div></div>
 <pre><span class="TYPEsignal"><span class="keyword">type</span> signal</span> = <code class="type">[ `Data of string | `Dtd of <a href="?package=xmlm&amp;module=Xmlm&amp;type=dtd">dtd</a> | `El_end | `El_start of <a href="?package=xmlm&amp;module=Xmlm&amp;type=tag">tag</a> ]</code></pre><div class="info"><div class="info">The type for signals. A <em>well-formed</em> sequence of signals belongs
     to the language of the <code class="code">doc</code> grammar :
-    <code class="code">doc ::= `Dtd tree
+    <pre class="code"><code>doc ::= `Dtd tree
 tree ::= `El_start child `El_end
-child ::= `Data | tree | epsilon </code>
+child ::= `Data | tree | epsilon </code></pre>
     Input and output deal only with well-formed sequences or
     exceptions are raised.</div></div>
 <pre><span class="VALns_xml"><span class="keyword">val</span> ns_xml</span> : <code class="type">string</code></pre><div class="info"><div class="info">Namespace name  <a href="http://www.w3.org/XML/1998/namespace">value</a> bound to the 
@@ -289,12 +289,12 @@ child ::= `Data | tree | epsilon </code>
     of attributes belonging to the  <a href="#ns_xmlns">ns_xmlns</a> namespace. For example to set 
     the default namespace of an element to <i>http://example.org/myns</i>, 
     use the following attribute :
-    </p><code class="code">(* xmlns='http://example.org/myns' *)
-let default_ns = (Xmlm.ns_xmlns, &quot;xmlns&quot;), &quot;http://example.org/myns&quot;</code>
+    </p><pre class="code"><code>(* xmlns='http://example.org/myns' *)
+let default_ns = (Xmlm.ns_xmlns, &quot;xmlns&quot;), &quot;http://example.org/myns&quot;</code></pre>
     To bind the prefix <code class="code">&quot;ex&quot;</code> to <i>http://example.org/ex</i>, use the 
     following attribute :
-    <code class="code">(* xmlns:ex='http://example.org/ex' *)
-let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</code>
+    <pre class="code"><code>(* xmlns:ex='http://example.org/ex' *)
+let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</code></pre>
     Note that outputing input signals without
     touching namespace declaration attributes will preserve existing
     prefixes and bindings provided the same namespace name is not
@@ -330,7 +330,7 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
        input with <code class="code">strip = false</code> and output with <code class="code">indent = None</code>.</li></ul><p>    </p><h1 id="ex">Examples</h1> <p>    </p><h2 id="exseq">Sequential processing</h2>    <p>    Sequential processing has the advantage that you don't need to get
     the whole document tree in memory to process it.</p><p>    The following function reads a <em>single</em> document on an
     input channel and outputs it.
-</p><code class="code">let id ic oc = 
+</p><pre class="code"><code>let id ic oc = 
   let i = Xmlm.make_input (`Channel ic) in 
   let o = Xmlm.make_output (`Channel oc) in 
   let rec pull i o depth = 
@@ -343,16 +343,16 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
   in
   Xmlm.output o (Xmlm.input i); (* `Dtd *)
   pull i o 0;
-  if not (Xmlm.eoi i) then invalid_arg &quot;document not well-formed&quot;</code><p>    The following function reads a <em>sequence</em> of documents on an
+  if not (Xmlm.eoi i) then invalid_arg &quot;document not well-formed&quot;</code></pre><p>    The following function reads a <em>sequence</em> of documents on an
     input channel and outputs it.
-</p><code class="code">let id_seq ic oc = 
+</p><pre class="code"><code>let id_seq ic oc = 
   let i = Xmlm.make_input (`Channel ic) in 
   let o = Xmlm.make_output ~nl:true (`Channel oc) in 
-  while not (Xmlm.eoi i) do Xmlm.output o (Xmlm.input i) done</code>
+  while not (Xmlm.eoi i) do Xmlm.output o (Xmlm.input i) done</code></pre>
     The following function reads a <em>sequence</em> of documents on the 
     input channel. In each document's tree it prunes non root elements
     whose name belongs to <code class="code">prune_list</code>.
-<code class="code">let prune_docs prune_list ic oc = 
+<pre class="code"><code>let prune_docs prune_list ic oc = 
   let i = Xmlm.make_input (`Channel ic) in
   let o = Xmlm.make_output ~nl:true (`Channel oc) in
   let copy i o = Xmlm.output o (Xmlm.input i) in
@@ -376,12 +376,12 @@ let ex_ns = (Xmlm.ns_xmlns, &quot;ex&quot;), &quot;http://example.org/ex&quot;</
     process i o 0;
     if Xmlm.eoi i then () else docs i o
   in
-  docs i o</code><p>    </p><h2 id="extree">Tree processing</h2> <p>    A document's sequence of signals can be easily converted
+  docs i o</code></pre><p>    </p><h2 id="extree">Tree processing</h2> <p>    A document's sequence of signals can be easily converted
     to an arborescent data structure. Assume your trees are defined by :
-    </p><code class="code">type tree = E of Xmlm.tag * tree list | D of string</code>
+    </p><pre class="code"><code>type tree = E of Xmlm.tag * tree list | D of string</code></pre>
     The following functions input/output xml documents from/to abstractions 
     as value of type <code class="code">tree</code>.
-<code class="code">let in_tree i = 
+<pre class="code"><code>let in_tree i = 
   let el tag childs = E (tag, childs)  in
   let data d = D d in
   Xmlm.input_doc_tree ~el ~data i
@@ -391,7 +391,7 @@ let out_tree o t =
   | E (tag, childs) -&gt; `El (tag, childs) 
   | D d -&gt; `Data d 
   in
-  Xmlm.output_doc_tree frag o t</code> <p>    </p><h2 id="exrow">Tabular data processing</h2><p>    We show how to process XML data that represents tabular data (some
+  Xmlm.output_doc_tree frag o t</code></pre> <p>    </p><h2 id="exrow">Tabular data processing</h2><p>    We show how to process XML data that represents tabular data (some
     people like do that).</p><p>    The file we need to deal with represents nominal data about
      <a href="http://www.w3.org/">W3C bureaucrats</a>. There are no namespaces
     and attributes are ignored. The element structure of the document
@@ -403,15 +403,15 @@ let out_tree o t =
                worked on.</li><li>&lt;obfuscation_level&gt; its grade on the
                open scale of obfuscation (mandatory, float).</li><li>&lt;honest&gt; present iff he implemented one of its spec 
                (optional, empty).</li><li>&lt;surname&gt; its surname (mandatory, string).</li><li>&lt;name&gt; its name (mandatory, string).</li></ul></li></ul></li></ul><p>    In OCaml we represent a W3C bureaucrat by this type :
-</p><code class="code">type w3c_bureaucrat = { 
+</p><pre class="code"><code>type w3c_bureaucrat = { 
     name : string; 
     surname : string; 
     honest : bool; 
     obfuscation_level : float;
-    trs : string list; }</code>
+    trs : string list; }</code></pre>
     The following functions input and output W3C bureaucrats as lists
     of values of type <code class="code">w3c_bureaucrat</code>.
-<code class="code">let in_w3c_bureaucrats src = 
+<pre class="code"><code>let in_w3c_bureaucrats src = 
   let i = Xmlm.make_input ~strip:true src in
   let tag n = (&quot;&quot;, n), [] in
   let error () = invalid_arg &quot;parse error&quot; in
@@ -476,5 +476,5 @@ let out_w3c_bureaucrats dst bl =
   out (`Dtd None);
   out (`El_start (tag &quot;list&quot;));
   List.iter o_bureaucrat bl;
-  out (`El_end)</code></div></div>
+  out (`El_end)</code></pre></div></div>
 </div>

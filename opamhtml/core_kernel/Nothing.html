@@ -4,13 +4,13 @@
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> = <code class="type"><a href="?package=core_kernel&amp;module=Nothing0&amp;type=t">Nothing0.t</a></code></pre>
 <pre><span class="VALunreachable_code"><span class="keyword">val</span> unreachable_code</span> : <code class="type"><a href="?package=core_kernel&amp;module=Nothing&amp;type=t">t</a> -&gt; 'a</code></pre><div class="info"><div class="info">Because there are no values of type <code class="code">Nothing.t</code>, a piece of code that has a value of
     type <code class="code">Nothing.t</code> must be unreachable.  In such an unreachable piece of code, one can
-    use <code class="code">unreachable_code</code> to give the code whatever type one needs.  For example:<p>    </p><code class="code">
+    use <code class="code">unreachable_code</code> to give the code whatever type one needs.  For example:<p>    </p><pre class="code"><code>
       let f (r : (int, Nothing.t) Result.t) : int =
         match r with
         | Ok i -&gt; i
         | Error n -&gt; Nothing.unreachable_code n
       ;;
-    </code></div></div>
+    </code></pre></div></div>
 <div class="ocaml_include ident" path="?package=core_kernel&amp;module=Identifiable.S" items="[&quot;Hash_queue&quot;,&quot;Hash_set&quot;,&quot;Pooled_hashtbl&quot;,&quot;Table&quot;,&quot;Hashable&quot;,&quot;Set&quot;,&quot;Map&quot;,&quot;Replace_polymorphic_compare&quot;]"><pre><span class="keyword">include</span> <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Identifiable.S">Identifiable.S</a></code> with type t := <a href="?package=core_kernel&amp;module=Nothing&amp;type=t">t</a></code></pre><div class="info"><div class="info">It may seem weird that this is identifiable, but we're just trying to anticipate all
     the contexts in which people may need this. It would be a crying shame if you had some
     variant type involving <code class="code">Nothing.t</code> that you wished to make identifiable, but were

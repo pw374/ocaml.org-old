@@ -3,9 +3,9 @@
 <div class="ocaml_include ident" path="?package=core_kernel&amp;module=Container.S1" items="[]"><pre><span class="keyword">include</span> <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Container.S1">Container.S1</a></code> with type t := 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre></div>
 <div class="ocaml_include ident" path="?package=core_kernel&amp;module=Monad.S" items="[&quot;Monad_infix&quot;]"><pre><span class="keyword">include</span> <code class="type"><code class="code"><a href="?package=core_kernel&amp;module=Monad.S">Monad.S</a></code> with type t := 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre></div>
 <pre><span class="VALof_list"><span class="keyword">val</span> of_list</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">of_list</code> is the identity function.  It is useful so that the <code class="code">List</code> module matches
-    the same signature that other container modules do, namely:<p>    </p><code class="code">
+    the same signature that other container modules do, namely:<p>    </p><pre class="code"><code>
       val of_list : 'a List.t -&gt; 'a t
-    </code></div></div>
+    </code></pre></div></div>
 <pre><span class="VALnth"><span class="keyword">val</span> nth</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; int -&gt; 'a option</code></pre>
 <pre><span class="VALnth_exn"><span class="keyword">val</span> nth_exn</span> : <code class="type">'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> -&gt; int -&gt; 'a</code></pre><div class="info"><div class="info">Return the <code class="code">n</code>-th element of the given list.
     The first element (head of the list) is at position 0.
@@ -199,9 +199,9 @@
 <pre><span class="VALbin_write_t_"><span class="keyword">val</span> bin_write_t_</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Unsafe_write_c&amp;type=writer">Bin_prot.Unsafe_write_c.writer</a></code></pre>
 <pre><span class="VALbin_writer_t"><span class="keyword">val</span> bin_writer_t</span> : <code class="type">'a <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a> -&gt; 'a <a href="?package=core_kernel&amp;module=Core_list&amp;type=t">t</a> <a href="?package=bin_prot&amp;module=Type_class&amp;type=writer">Bin_prot.Type_class.writer</a></code></pre>
 <div class="info"><div class="info"><code class="code">of_list</code> is the identity function.  It is useful so that the <code class="code">List</code> module matches
-    the same signature that other container modules do, namely:<p>    </p><code class="code">
+    the same signature that other container modules do, namely:<p>    </p><pre class="code"><code>
       val of_list : 'a List.t -&gt; 'a t
-    </code></div></div>
+    </code></pre></div></div>
 <div class="info"><div class="info">Return the <code class="code">n</code>-th element of the given list.
     The first element (head of the list) is at position 0.
     Raise <code class="code">Failure &quot;nth&quot;</code> if the list is too short.

@@ -23,9 +23,9 @@ log:(string -&gt; unit) option -&gt; <a href="?package=ocaml&amp;module=Unix&amp
       errors are passed through to the FCGI client.</p><p>      The other arguments are just like for <code class="code">run</code>.</p><p>      The return value indicates whether the connection can be kept
       open or must be closed.</p></div></div>
 <div class="info"><div class="info"><h2 id="setup">Setup</h2><p>    Add to httpd.conf or to, say, scgi.conf in /etc/apache/conf.d
-    </p><code class="code">
+    </p><pre class="code"><code>
     LoadModule scgi_module /usr/lib/apache/1.3/mod_scgi.so
     # Serve the URL /scgi by contacting 127.0.0.1 on port 8888
     SCGIMount /scgi 127.0.0.1:8888
-    </code></div></div>
+    </code></pre></div></div>
 </div>

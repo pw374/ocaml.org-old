@@ -37,9 +37,9 @@
       <code class="code">f acc line</code> where <code class="code">acc</code> is the current accumulator
       (initialized with <code class="code">acc0</code>), and <code class="code">line</code> is the current line
       w/o terminator.<p>      The lines can be terminated with CR/LF or LF.</p><p>      The function is tail-recursive.</p><p>      Example: Get the lines as list:
-      </p><code class="code">
+      </p><pre class="code"><code>
          List.rev(fold_lines (fun l acc -&gt; acc::l) [] s pos len)
-      </code></div></div>
+      </code></pre></div></div>
 <pre><span class="VALiter_lines"><span class="keyword">val</span> iter_lines</span> : <code class="type">(string -&gt; unit) -&gt; string -&gt; int -&gt; int -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">iter_lines f s pos len</code>: Splits the substring of <code class="code">s</code> 
       from <code class="code">pos</code>
       to <code class="code">pos+len</code> into lines, and calls <code class="code">f line</code> for each
@@ -59,12 +59,12 @@
   consist of a header and a body; the first empty line separates both
   parts. The header contains lines &quot;<i>param-name</i><code class="code">:</code> <i>param-value</i>&quot; where
   the param-name must begin on column 0 of the line, and the &quot;<code class="code">:</code>&quot;
-  separates the name and the value. So the format is roughly:</p><p>  </p><code class="code">
+  separates the name and the value. So the format is roughly:</p><p>  </p><pre class="code"><code>
    param1-name: param1-value
    ...
    paramN-name: paramN-value
    _
-   body </code><p>   (Where &quot;_&quot; denotes an empty line.)</p><p>   <b>Details</b></p><p>   Note that parameter values are restricted; you cannot represent
+   body </code></pre><p>   (Where &quot;_&quot; denotes an empty line.)</p><p>   <b>Details</b></p><p>   Note that parameter values are restricted; you cannot represent
    arbitrary strings. The following problems can arise:</p><ul><li>Values cannot begin with whitespace characters, because there
       may be an arbitrary number of whitespaces between the &quot;<code class="code">:</code>&quot; and the
       value.</li><li>Values (and names of parameters, too) must only be formed of
@@ -135,31 +135,31 @@ string -&gt; start_pos:int -&gt; end_pos:int -&gt; (string * string) list * int<
  header and returns it. After that, the stream position is after
  the header and the terminating empty line (i.e. at the beginning of
  the message body).<p> The options <code class="code">downcase</code>, <code class="code">unfold</code>, and <code class="code">strip</code> have the same meaning
- as in <code class="code">scan_header</code>.</p><p> <b>Example</b></p><p> To read the mail message &quot;<code class="code">file.txt</code>&quot;:</p><p> </p><code class="code">
+ as in <code class="code">scan_header</code>.</p><p> <b>Example</b></p><p> To read the mail message &quot;<code class="code">file.txt</code>&quot;:</p><p> </p><pre class="code"><code>
  let ch = new Netchannels.input_channel (open_in &quot;file.txt&quot;) in
  let stream = new Netstream.input_stream ch in
  let header = read_header stream in
  stream#close_in()  (* no need to close ch *)
- </code></div></div>
+ </code></pre></div></div>
 <pre><span class="VALwrite_header"><span class="keyword">val</span> write_header</span> : <code class="type">?soft_eol:string -&gt;
 ?eol:string -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=out_obj_channel">Netchannels.out_obj_channel</a> -&gt; (string * string) list -&gt; unit</code></pre><div class="info"><div class="info">This function writes the header to the passed <code class="code">out_obj_channel</code>. The
  empty line following the header is also written.<p> Exact output format: 
  </p><ul><li>Whitespace at the end of a header field is suppressed. One field
     is separated from the next field by printing <code class="code">eol</code> once.</li><li>Empty lines (and lines only consisting of whitespace) are suppressed
     if they occur inside the header.<p>    <b>Example:</b></p><p>    <code class="code">write_header ch [&quot;x&quot;,&quot;Field\n\nvalue&quot;]</code> outputs:
- </p><code class="code"> x: Field\r\n
-  value</code></li><li>The end-of-line sequences LF, and CRLF, followed by
+ </p><pre class="code"><code> x: Field\r\n
+  value</code></pre></li><li>The end-of-line sequences LF, and CRLF, followed by
     whitespace are replaced by the passed <code class="code">soft_eol</code> string. If the
     necessary space or tab character following the eol is missing, an
     additional space character will be inserted.<p>    <b>Example:</b></p><p>    <code class="code">write_header ch [&quot;x&quot;,&quot;Field\nvalue&quot;; &quot;y&quot;,&quot;Other\r\n\tvalue&quot;]</code> outputs:
- </p><code class="code"> x: Field\r\n
+ </p><pre class="code"><code> x: Field\r\n
   value
  y: Other\r\n
- \tvalue</code></li><li>However, this function helps getting some details right. First,
+ \tvalue</code></pre></li><li>However, this function helps getting some details right. First,
     whitespace at the beginning of field values is suppressed.<p>    <b>Example:</b></p><p>    <code class="code">write_header ch [&quot;x&quot;,&quot;Field value&quot;; &quot;y&quot;,&quot;   Other value&quot;]</code> outputs:
- </p><code class="code"> x: Field value\r\n
+ </p><pre class="code"><code> x: Field value\r\n
  y: Other value\r\n
- \r\n</code></li><li>The header is not folded, i.e. no additional CRLF sequences
+ \r\n</code></pre></li><li>The header is not folded, i.e. no additional CRLF sequences
     are inserted into the header to avoid long header lines.
     In order to produce correct headers, the necessary CRLF bytes
     must already exist in the field values. (You can use the
@@ -244,54 +244,54 @@ string -&gt; start_pos:int -&gt; end_pos:int -&gt; (string * string) list * int<
  be used for pattern matching. <code class="code">s_extended_token</code> is a wrapper that 
  additionally contains information where the token occurs.</p><p> <b>Scanning Using the Simple Interface</b></p><p> Instead of creating a <code class="code">mime_scanner</code> and calling the scan functions,
  you may also invoke <code class="code">scan_structured_value</code>. This function returns the
- list of tokens directly; however, it is restricted to <code class="code">s_token</code>.</p><p> <b>Examples</b></p><p> - Simple address: </p><code class="code">
+ list of tokens directly; however, it is restricted to <code class="code">s_token</code>.</p><p> <b>Examples</b></p><p> - Simple address: </p><pre class="code"><code>
  scan_structured_value &quot;user@domain.com&quot; [ '@'; '.' ] []
    = [ Atom &quot;user&quot;; Special '@'; Atom &quot;domain&quot;; Special '.'; Atom &quot;com&quot; ]
- </code><ul><li>Spaces are not returned: <code class="code">
+ </code></pre><ul><li>Spaces are not returned: <pre class="code"><code>
  scan_structured_value &quot;user @ domain . com&quot; [ '@'; '.' ] []
    = [ Atom &quot;user&quot;; Special '@'; Atom &quot;domain&quot;; Special '.'; Atom &quot;com&quot; ]
- </code></li><li>Comments are not returned: <code class="code">
+ </code></pre></li><li>Comments are not returned: <pre class="code"><code>
  scan_structured_value &quot;user(Do you know him?)@domain.com&quot; [ '@'; '.' ] []
    = [ Atom &quot;user&quot;; Special '@'; Atom &quot;domain&quot;; Special '.'; Atom &quot;com&quot; ]
- </code></li><li>Comments are indicated if requested: <code class="code">
+ </code></pre></li><li>Comments are indicated if requested: <pre class="code"><code>
  scan_structured_value &quot;user(Do you know him?)@domain.com&quot; [ '@'; '.' ] 
      [ Return_comments ]
    = [ Atom &quot;user&quot;; Comment; Special '@'; Atom &quot;domain&quot;; Special '.'; 
        Atom &quot;com&quot; ]
- </code></li><li>Spaces are returned if special: <code class="code">
+ </code></pre></li><li>Spaces are returned if special: <pre class="code"><code>
  scan_structured_value &quot;user (Do you know him?) @ domain . com&quot; 
      [ '@'; '.'; ' ' ] []
    = [ Atom &quot;user&quot;; Special ' '; Special ' '; Special ' '; Special '@'; 
        Special ' '; Atom &quot;domain&quot;;
        Special ' '; Special '.'; Special ' '; Atom &quot;com&quot; ]
- </code></li><li>Both spaces and comments are requested: <code class="code">
+ </code></pre></li><li>Both spaces and comments are requested: <pre class="code"><code>
  scan_structured_value &quot;user (Do you know him?) @ domain . com&quot; 
      [ '@'; '.'; ' ' ] [ Return_comments ]
    = [ Atom &quot;user&quot;; Special ' '; Comment; Special ' '; Special '@'; 
        Special ' '; Atom &quot;domain&quot;;
        Special ' '; Special '.'; Special ' '; Atom &quot;com&quot; ]
- </code></li><li>Another case: <code class="code">
+ </code></pre></li><li>Another case: <pre class="code"><code>
  scan_structured_value &quot;user @ domain . com&quot; [ '@'; '.'; ' ' ] []
    = [ Atom &quot;user&quot;; Special ' '; Special '@'; Special ' '; Atom &quot;domain&quot;;
        Special ' '; Special '.'; Special ' '; Atom &quot;com&quot; ]
- </code></li><li>'(' is special: <code class="code">
+ </code></pre></li><li>'(' is special: <pre class="code"><code>
  scan_structured_value &quot;user(Do you know him?)@domain.com&quot; ['@'; '.'; '(']
      []
    = [ Atom &quot;user&quot;; Special '('; Atom &quot;Do&quot;; Atom &quot;you&quot;; Atom &quot;know&quot;;
        Atom &quot;him?)&quot;; Special '@'; Atom &quot;domain&quot;; Special '.'; Atom &quot;com&quot; ]
- </code></li><li>Quoted strings: <code class="code">
+ </code></pre></li><li>Quoted strings: <pre class="code"><code>
  scan_structured_value &quot;\&quot;My.name\&quot;@domain.com&quot; [ '@'; '.' ] []
    = [ QString &quot;My.name&quot;; Special '@'; Atom &quot;domain&quot;; Special '.';
        Atom &quot;com&quot; ]
- </code></li><li>Encoded words are not returned: <code class="code">
+ </code></pre></li><li>Encoded words are not returned: <pre class="code"><code>
  scan_structured_value &quot;=?ISO-8859-1?Q?Keld_J=F8rn_Simonsen?=&quot; 
      [ ] [ ] 
    = [ Atom &quot;=?ISO-8859-1?Q?Keld_J=F8rn_Simonsen?=&quot; ]
- </code></li><li>Encoded words are returned if requested: <code class="code">
+ </code></pre></li><li>Encoded words are returned if requested: <pre class="code"><code>
  scan_structured_value &quot;=?ISO-8859-1?Q?Keld_J=F8rn_Simonsen?=&quot; 
      [ ] [ Recognize_encoded_words ] 
    = [ EncodedWord((&quot;ISO-8859-1&quot;,&quot;&quot;), &quot;Q&quot;, &quot;Keld_J=F8rn_Simonsen&quot;) ]
- </code>
+ </code></pre>
  </li></ul></div></div>
 <pre><code><span class="TYPEs_token"><span class="keyword">type</span> s_token</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTs_token.Atom"><span class="constructor">Atom</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTs_token.EncodedWord"><span class="constructor">EncodedWord</span></span> <span class="keyword">of</span> <code class="type">(string * string) * string * string</code></code></td><td class="typefieldcomment" align="left"><div class="info">Args: <code class="code">((charset,lang),encoding,encoded_word)</code></div></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTs_token.QString"><span class="constructor">QString</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTs_token.Control"><span class="constructor">Control</span></span> <span class="keyword">of</span> <code class="type">char</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTs_token.Special"><span class="constructor">Special</span></span> <span class="keyword">of</span> <code class="type">char</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTs_token.DomainLiteral"><span class="constructor">DomainLiteral</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTs_token.Comment"><span class="constructor">Comment</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTs_token.End"><span class="constructor">End</span></span></code></td><td class="typefieldcomment" align="left"/></tr></table><div class="info"><div class="info">A token may be one of:<ul><li><code class="code">QString s</code>: The quoted string <code class="code">s</code>, i.e a string between double
@@ -355,16 +355,16 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
  <code class="code">scan_options</code> and before the string argument, so you can specify
  scanners by partially applying arguments to <code class="code">create_mime_scanner</code>
  which are not yet connected with a particular string:
- </p><code class="code">
+ </p><pre class="code"><code>
  let my_scanner_spec = create_mime_scanner my_specials my_options in
  ...
  let my_scanner = my_scanner_spec my_string in 
- ...</code></div></div>
+ ...</code></pre></div></div>
 <pre><span class="VALget_pos_of_scanner"><span class="keyword">val</span> get_pos_of_scanner</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Mimestring&amp;type=mime_scanner">mime_scanner</a> -&gt; int</code></pre>
 <pre><span class="VALget_line_of_scanner"><span class="keyword">val</span> get_line_of_scanner</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Mimestring&amp;type=mime_scanner">mime_scanner</a> -&gt; int</code></pre>
 <pre><span class="VALget_column_of_scanner"><span class="keyword">val</span> get_column_of_scanner</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Mimestring&amp;type=mime_scanner">mime_scanner</a> -&gt; int</code></pre><div class="info"><div class="info">Return the current position, line, and column of a <code class="code">mime_scanner</code>.
  The primary purpose of these functions is to simplify switching
- from one <code class="code">mime_scanner</code> to another within a string:<p> </p><code class="code">
+ from one <code class="code">mime_scanner</code> to another within a string:<p> </p><pre class="code"><code>
  let scanner1 = create_mime_scanner ... s in
  ... now scanning some tokens from s using scanner1 ...
  let scanner2 = create_mime_scanner ... 
@@ -372,7 +372,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
                   ?line:(get_line_of_scanner scanner1)
                   ?column:(get_column_of_scanner scanner1)
                   s in
- ... scanning more tokens from s using scanner2 ... </code><p> <b>Restriction:</b> These functions are not available if the option
+ ... scanning more tokens from s using scanner2 ... </code></pre><p> <b>Restriction:</b> These functions are not available if the option
  <code class="code">Recognize_encoded_words</code> is on. The reason is that this option
  enables look-ahead scanning; please use the location of the last
  scanned token instead.</p><p> Note: To improve the performance of switching, it is recommended to
@@ -401,14 +401,14 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
  be parsed.<p> The values may or may not be quoted. The characters &quot;;&quot;, &quot;=&quot;, and
  even &quot;,&quot; are only accepted as part of values when they are quoted.
  On sytax errors, the function fails.</p><p> RFC 2231: This function supports some features of this RFC:
- Continued parameter values are concatenated. For example:</p><p> </p><code class="code">
+ Continued parameter values are concatenated. For example:</p><p> </p><pre class="code"><code>
  Content-Type: message/external-body; access-type=URL;
     URL*0=&quot;ftp://&quot;;
-    URL*1=&quot;cs.utk.edu/pub/moore/bulk-mailer/bulk-mailer.tar&quot; </code><p> This is returned as:
- </p><code class="code">&quot;message/external-body&quot;, 
+    URL*1=&quot;cs.utk.edu/pub/moore/bulk-mailer/bulk-mailer.tar&quot; </code></pre><p> This is returned as:
+ </p><pre class="code"><code>&quot;message/external-body&quot;, 
    [ (&quot;access-type&quot;, &quot;URL&quot;);
      (&quot;URL&quot;, &quot;ftp://cs.utk.edu/pub/moore/bulk-mailer/bulk-mailer.tar&quot;) ]
-      ) </code><p> However, encoded parameter values are not handled specially. The
+      ) </code></pre><p> However, encoded parameter values are not handled specially. The
  parameter
    <code class="code">title*=us-ascii'en-us'This%20is%20%2A%2A%2Afun%2A%2A%2A</code>
  would be returned as
@@ -461,7 +461,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
  <code class="code">maxlen1</code> and <code class="code">maxlen</code>. The value is split into lines by inserting
  &quot;folding space&quot; at certain locations (which is usually a linefeed
  followed by a space character, see below). The following
- table specifies between which tokens folding may happen:</p><p> </p><code class="code">
+ table specifies between which tokens folding may happen:</p><p> </p><pre class="code"><code>
                +=========================================================+
  1st   \   2nd | Atom | QString | DLiteral | EncWord | Special | Spec ' '|
  ==============+======+=========+==========+=========+=========+=========+
@@ -472,7 +472,7 @@ scan_options:<a href="?package=ocamlnet&amp;module=Mimestring&amp;type=s_option"
        Special | -    |  -      |   -      |   -     |    -    |    F    |
    Special ' ' | -    |  -      |   -      |   -     |    -    |    -    |
  ==============+======+=========+==========+=========+=========+=========+
-</code><p> The table shows between which two types of tokens a space or a folding
+</code></pre><p> The table shows between which two types of tokens a space or a folding
  space is inserted:</p><ul><li><code class="code">FS</code>: folding space</li><li><code class="code">F</code>:  linefeed without extra space</li><li><code class="code">-</code>:  nothing can be inserted here</li></ul> Folding space is <code class="code">&quot;\n &quot;</code>, i.e. only LF, not CRLF is used as end-of-line
  character. The function <code class="code">write_header</code> will convert these LF to CRLF
  if needed.<p> <code class="code">Special '\t'</code> is handled like <code class="code">Special ' '</code>. Control characters are just
@@ -561,7 +561,7 @@ end_pos:int -&gt; boundary:string -&gt; ((string * string) list * string) list</
  e.g. <code class="code">multipart/mixed</code> or <code class="code">multipart/form-data</code>. Multipart types MUST
  have a <code class="code">boundary</code> parameter because boundaries are essential for the
  representation.</p><p>    Multipart messages have a format like (where &quot;_&quot; denotes empty lines):
- </p><code class="code">
+ </p><pre class="code"><code>
  ...Header...
  Content-type: multipart/xyz; boundary=&quot;abc&quot;
  ...Header...
@@ -578,7 +578,7 @@ end_pos:int -&gt; boundary:string -&gt; ((string * string) list * string) list</
  --abc
  ...
  --abc--
- Epilogue </code><p> The parts are separated by boundary lines which begin with &quot;--&quot; and
+ Epilogue </code></pre><p> The parts are separated by boundary lines which begin with &quot;--&quot; and
  the string passed as boundary parameter. (Note that there may follow
  arbitrary text on boundary lines after &quot;--abc&quot;.) The boundary is
  chosen such that it does not occur as prefix of any line of the

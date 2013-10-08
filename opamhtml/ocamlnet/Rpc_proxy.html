@@ -99,11 +99,11 @@
       is configured with at least one program, and this program must
       have a procedure number 0 of type <code class="code">void -&gt; void</code>.<p>      In multi-threaded programs, threads must not share managed clients.</p><p>      Managed clients can be used together with ocamlrpcgen-generated
       modules. Provided the generated module <code class="code">M_clnt</code> contains the
-      client code for program <code class="code">P</code> and version <code class="code">V</code>, one can do</p><p>      </p><code class="code">
+      client code for program <code class="code">P</code> and version <code class="code">V</code>, one can do</p><p>      </p><pre class="code"><code>
          module MC = M_clnt.Make'P(Rpc_proxy.ManagedClient)
-      </code><p>      and call RPCs <code class="code">f</code> as in</p><p>      </p><code class="code">
+      </code></pre><p>      and call RPCs <code class="code">f</code> as in</p><p>      </p><pre class="code"><code>
          let res = MC.V.f mc arg
-      </code><p>      (if <code class="code">mc</code> is the managed client, and <code class="code">arg</code> the argument).</p></div></div>
+      </code></pre><p>      (if <code class="code">mc</code> is the managed client, and <code class="code">arg</code> the argument).</p></div></div>
 <pre><span class="TYPEmclient"><span class="keyword">type</span> mclient</span> </pre><div class="info"><div class="info">A managed client</div></div>
 <pre><code><span class="TYPEmclient_config"><span class="keyword">type</span> mclient_config</span> = {</code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_rcache">mclient_rcache</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ReliabilityCache&amp;type=rcache">ReliabilityCache.rcache</a></code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The rcache</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_socket_config">mclient_socket_config</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=socket_config">Rpc_client.socket_config</a></code>;</code></td><td class="typefieldcomment" align="left"><div class="info">The socket configuration</div></td></tr><tr><td align="left" valign="top"><code>  </code></td><td align="left" valign="top"><code><span class="TYPEELTmclient_config.mclient_idle_timeout">mclient_idle_timeout</span> : <code class="type">float</code>;</code></td><td class="typefieldcomment" align="left"><div class="info">After how many seconds unused connections are closed.
@@ -177,7 +177,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
 <pre><span class="VALset_batch_call"><span class="keyword">val</span> set_batch_call</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt; unit</code></pre><div class="info"><div class="info">The next call is a batch call. See  <a href="#Rpc_client.set_batch_call">Rpc_client.set_batch_call</a></div></div>
 <pre><span class="VALrpc_engine"><span class="keyword">val</span> rpc_engine</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt;
 (<a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt; 'a -&gt; ((unit -&gt; 'b) -&gt; unit) -&gt; unit) -&gt;
-'a -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info">Call an RPC function in engine style:<p>        </p><code class="code"> let e = rpc_engine mc f_rpc </code><p>        where <code class="code">f_rpc</code> is one of the generated client functions (async
+'a -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">Uq_engines.engine</a></code></pre><div class="info"><div class="info">Call an RPC function in engine style:<p>        </p><pre class="code"><code> let e = rpc_engine mc f_rpc </code></pre><p>        where <code class="code">f_rpc</code> is one of the generated client functions (async
 	signature). The engine reaches <code class="code">`Done r</code> when the result <code class="code">r</code>
 	has arrived.</p><p>	The engine is not abortable (shut the client down instead).</p></div></div>
 <pre><span class="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;type=mclient">mclient</a> -&gt; int</code></pre><div class="info"><div class="info"><code class="code">ManagedClient</code> can be used with <code class="code">Set.Make</code> and <code class="code">Map.Make</code></div></div>
@@ -254,16 +254,16 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
    connection terminations triggered by the RPC server.</p><p>   <b>How to use managed clients:</b> For a <i>normal</i> RPC client the
    generator <code class="code">ocamlrpcgen</code> creates all required glue code to easily
    start RPC calls. For example, if a file <code class="code">proto.x</code> is taken as input
-   for <code class="code">ocamlrpcgen</code>, a piece of code doing a call could look like:</p><p>   </p><code class="code"> 
+   for <code class="code">ocamlrpcgen</code>, a piece of code doing a call could look like:</p><p>   </p><pre class="code"><code> 
       let client =
         Proto_clnt.PROG.VERS.create_client connector protocol
       let result =
         Proto_clnt.PROG.VERS.procedure client argument
-   </code><p>   (Here, <code class="code">PROG</code>, <code class="code">VERS</code>, <code class="code">procedure</code> are just placeholders for the
+   </code></pre><p>   (Here, <code class="code">PROG</code>, <code class="code">VERS</code>, <code class="code">procedure</code> are just placeholders for the
    name of the program, the version identifier, and the procedure name.)</p><p>   For RPC proxies, however, this is slightly more complicated. <code class="code">ocamlrpcgen</code>
    does not produce a managed client that is ready for use. Instead,
    only a functor is provided that can take the
-    <a href="#Rpc_proxy.ManagedlClient">Rpc_proxy.ManagedlClient</a> module as input:</p><p>   </p><code class="code">
+    <a href="#Rpc_proxy.ManagedlClient">Rpc_proxy.ManagedlClient</a> module as input:</p><p>   </p><pre class="code"><code>
       module M = Proto_clnt.Make'PROG(Rpc_proxy.ManagedClient)
 
       let esys =
@@ -276,7 +276,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
         Rpc_proxy.ManagedClient.create_mclient mclient_config connector esys
       let result =
         M.VERS.procedure mclient argument
-   </code><p>   (The functor approach has been chosen, because it gives the
+   </code></pre><p>   (The functor approach has been chosen, because it gives the
    user more flexibility - it is possible to apply the functor
    on other implementations of improved clients than 
     <a href="#Rpc_proxy.ManagedClient">Rpc_proxy.ManagedClient</a>.)</p><p>   Note that <code class="code">esys</code> is always explicit, even in the case the
@@ -327,7 +327,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
     client side, or to several server endpoints that provide the same
     service.  The latter can be used for client-driven load balancing,
     and for client-driven failover management of HA setups (HA = high
-    availability).</p><p>    For creating a managed set, the code looks like</p><p>    </p><code class="code">
+    availability).</p><p>    For creating a managed set, the code looks like</p><p>    </p><pre class="code"><code>
       module M = Proto_clnt.Make'PROG(Rpc_proxy.ManagedClient)
 
       let esys =
@@ -351,14 +351,14 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
         Rpc_proxy.ManagedSet.mset_pick mset in
       let result =
         M.VERS.procedure mclient argument
-    </code><p>    The managed clients are internally created by the set - one
+    </code></pre><p>    The managed clients are internally created by the set - one
     only should pass in <code class="code">mclient_config</code> so the set knows what kind of
     client is preferred. For the simple application of maintaining
     several connections to the same server, one would create the <code class="code">mset</code>
-    with a one-element service array:</p><p>    </p><code class="code">
+    with a one-element service array:</p><p>    </p><pre class="code"><code>
        let services =
           [| connector, n_connections |]
-    </code><p>    where <code class="code">connector</code> describes the server port, and <code class="code">n_connections</code> is
+    </code></pre><p>    where <code class="code">connector</code> describes the server port, and <code class="code">n_connections</code> is
     the maximum number of connections to create and maintain. 
     The  <a href="#Rpc_proxy.ManagedSet.mset_pick">Rpc_proxy.ManagedSet.mset_pick</a>
     function creates internally up to <code class="code">n_connections</code> managed clients,
@@ -392,14 +392,14 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
    can create your own, and configure it in <code class="code">mclient_config</code>.</p><p>   The global cache object is automatically used when nothing else
    is specified. The global cache object is by default configured in
    a way so it does not have any effect, though. So we have to
-   change this in order to enable the cache:</p><p>   </p><code class="code">
+   change this in order to enable the cache:</p><p>   </p><pre class="code"><code>
      let rcache_config =
        Rpc_proxy.ReliabilityCache.create_rcache_config
         ~policy:`Independent
         ~threshold:3
         () in
      Rpc_proxy.ReliabilityCache.set_global_rcache_config rcache_config
-   </code><p>   This means that 3 errors in sequence disable a service port. <code class="code">`Independent</code>
+   </code></pre><p>   This means that 3 errors in sequence disable a service port. <code class="code">`Independent</code>
    means that each port is handled independently in this respect.</p><p>    At the first time, the port is only disabled for one second. The
     duration of the time span is increased by each additional error
     until it reaches 64 seconds. These durations can be changed, of
@@ -408,7 +408,7 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
     ( <a href="#Rpc_proxy.ReliabilityCache.create_rcache">Rpc_proxy.ReliabilityCache.create_rcache</a>). Another way is
     to derive a semi-private object from the global one. This means
     that the error counters are global, but the interpretation can
-    be set individually in each use. This would look like:</p><p>    </p><code class="code">
+    be set individually in each use. This would look like:</p><p>    </p><pre class="code"><code>
     let rcache_config =
       Rpc_proxy.ReliabilityCache.create_rcache_config
         ~policy:`Independent
@@ -425,19 +425,19 @@ unit -&gt; <a href="?package=ocamlnet&amp;module=Rpc_proxy.ManagedClient&amp;typ
         ~rcache
         ...
         ()
-    </code><p>  </p><h2 id="2_TITLE">Idempotent calls</h2><p>    In the layer of managed sets there is some limited support for
-    automatically repeating failing idempotent RPC calls.</p><p>    Instead of calling the RPC with</p><p>    </p><code class="code">
+    </code></pre><p>  </p><h2 id="2_TITLE">Idempotent calls</h2><p>    In the layer of managed sets there is some limited support for
+    automatically repeating failing idempotent RPC calls.</p><p>    Instead of calling the RPC with</p><p>    </p><pre class="code"><code>
       let mclient, idx =
         Rpc_proxy.ManagedSet.mset_pick mset in
       let result =
         M.VERS.procedure mclient argument
-    </code><p>    one uses</p><p>    </p><code class="code">
+    </code></pre><p>    one uses</p><p>    </p><pre class="code"><code>
       let result =
         Rpc_proxy.ManagedSet.idempotent_sync_call
           mset
           M.VERS.procedure'async
           argument
-    </code><p>    The effet is that  <a href="#Rpc_proxy.ManagedSet.idempotent_sync_call">Rpc_proxy.ManagedSet.idempotent_sync_call</a>
+    </code></pre><p>    The effet is that  <a href="#Rpc_proxy.ManagedSet.idempotent_sync_call">Rpc_proxy.ManagedSet.idempotent_sync_call</a>
     repeats automatically the call when an error occurs. It is
     assumed that the call is idempotent so it can be repeated
     without changing the meaning.</p><p>    The call may be repeated several times. This is configured in

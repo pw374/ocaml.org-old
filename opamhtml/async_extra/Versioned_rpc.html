@@ -174,7 +174,7 @@
       versioning schemes in such a way that one can smoothly add a new version of the rpc
       to a shared library, and it doesn't matter whether the callee or caller upgrades to
       the latest version of the shared library first, the new version will not be
-      exercised until both sides support it.<p>      </p><code class="code">
+      exercised until both sides support it.<p>      </p><pre class="code"><code>
                       (conv)   (conv)                          (conv)   (conv)
                       caller   callee                          callee   caller
                       |        |                               |        |
@@ -184,7 +184,7 @@
                   \---&gt;-- Q2 --&gt;---\           |           /---&gt;-- R2 --&gt;---/
                    \                \          |          /                /
                     `-&gt;-- Q3 --&gt;---- Q.callee --&gt; R.callee ----&gt;-- R3 --&gt;-'
-      </code></div></div>
+      </code></pre></div></div>
 <div class="ocaml_module sig" name="Plain"><pre><span class="keyword">module</span> <a href="?package=async_extra&amp;module=Versioned_rpc.Both_convert.Plain">Plain</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <div class="ocaml_module sig" name="S"><pre><span class="keyword">module type</span> <a href="?package=async_extra&amp;module=Versioned_rpc.Both_convert.Plain.S">S</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="ocaml_module_content">
 <pre><span class="TYPEcaller_query"><span class="keyword">type</span> caller_query</span> </pre>

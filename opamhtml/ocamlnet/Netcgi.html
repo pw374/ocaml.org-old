@@ -178,9 +178,9 @@
       this option off.</div></td></tr><tr><td>}</td></tr></table>
 <pre><span class="VALdefault_config"><span class="keyword">val</span> default_config</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi&amp;type=config">config</a></code></pre><div class="info"><div class="info">The default configuration is:<ul><li><code class="code">tmp_directory</code>:  <a href="#Netsys_tmp.tmp_directory()">Netsys_tmp.tmp_directory()</a></li><li><code class="code">tmp_prefix</code>: &quot;netcgi&quot;</li><li><code class="code">permitted_http_methods</code>: <code class="code">`GET</code>, <code class="code">`HEAD</code>, <code class="code">`POST</code>.</li><li><code class="code">permitted_input_content_types</code>: <code class="code">&quot;multipart/form-data&quot;</code>,
       <code class="code">&quot;application/x-www-form-urlencoded&quot;</code>.</li><li><code class="code">input_content_length_limit</code>: <code class="code">maxint</code> (i.e., no limit).</li><li><code class="code">max_arguments = 10000</code> (for security reasons)</li><li><code class="code">workarounds</code>: all of them.</li><li><code class="code">default_exn_handler</code>: set to <code class="code">true</code>.</li></ul>      To create a custom configuration, it is recommended to use this syntax:
-      <code class="code">
+      <pre class="code"><code>
       let custom_config = { default_config with tmp_prefix = &quot;my_prefix&quot; }
-      </code>
+      </code></pre>
       (This syntax is also robust w.r.t. the possible addition of new
       config flields.)</div></div>
 <div class="ocaml_class sig" name="cgi_environment"><pre><span class="TYPEcgi_environment"><span class="keyword">class type</span> <a href="?package=ocamlnet&amp;module=Netcgi&amp;class=cgi_environment">cgi_environment</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">The environment of a request consists of the information available
@@ -228,8 +228,8 @@
         the <code class="code">default</code> argument is passed.  The <code class="code">default</code> argument
         determines the result of the function in this case.<p>        The method takes the case-sensitive name and returns the value
         of the property. Usually, these properties have uppercase
-        names.</p><p>        For example, <code class="code">cgi_gateway_interface</code> returns the same as </p><code class="code">
-        cgi_property ~default:&quot;&quot; &quot;GATEWAY_INTERFACE&quot; </code><p>        You cannot access the fields coming from the HTTP header.  Use
+        names.</p><p>        For example, <code class="code">cgi_gateway_interface</code> returns the same as </p><pre class="code"><code>
+        cgi_property ~default:&quot;&quot; &quot;GATEWAY_INTERFACE&quot; </code></pre><p>        You cannot access the fields coming from the HTTP header.  Use
         the method <code class="code">input_header_field</code> instead.</p></div></div>
 <pre><span class="METHODcgi_properties"><span class="keyword">method</span> cgi_properties</span> : <code class="code">(string * string) list</code></pre>
 <div class="info"><div class="info">Return all properties as an associative list.</div></div>
@@ -484,13 +484,13 @@
         Implementations are free to support transactions or not.</p><p>        After all data have been written, the method <code class="code">#commit_work()</code>
         <b>must</b> be called, even if there is no support for
         transactions.</p><p>        Simple Example:
-        </p><code class="code">
+        </p><pre class="code"><code>
         cgi # out_channel # output_string &quot;Hello world!\n&quot;;
         cgi # out_channel # commit_work()
-        </code><p>        Example for an error handler and a transaction buffer: If an
+        </code></pre><p>        Example for an error handler and a transaction buffer: If an
         error happens, it is possible to roll the channel back, and to
         write the error message.
-        </p><code class="code">
+        </p><pre class="code"><code>
         try
           cgi # set_header ... ();
           cgi # out_channel # output_string &quot;Hello World!&quot;; ...
@@ -500,7 +500,7 @@
           cgi # set_header ... ();
           cgi # out_channel # output_string &quot;Software error!&quot;; ...
           cgi # out_channel # commit_work();
-        </code></div></div>
+        </code></pre></div></div>
 <pre><span class="METHODat_exit"><span class="keyword">method</span> at_exit</span> : <code class="code">(unit -&gt; unit) -&gt; unit</code></pre>
 <div class="info"><div class="info"><code class="code">#at_exit f</code> registers the function <code class="code">f</code> to be executed when
 	<code class="code">#finalize</code> is called (which is done automatically when the
@@ -528,13 +528,13 @@
         invocation forces the buffered data to be sent to the
         browser. If, however, <code class="code">rollback_work</code> is called, the buffer is
         cleared.<p>      Two important examples for <code class="code">`Transactional</code> are:</p><ul><li>The transaction buffer is implemented in memory:
-      <code class="code">
+      <pre class="code"><code>
       let buffered _ ch = new Netchannels.buffered_trans_channel ch in
       `Transactional buffered
-      </code></li><li>The transaction buffer is implemented as an external file:
-      <code class="code">
+      </code></pre></li><li>The transaction buffer is implemented as an external file:
+      <pre class="code"><code>
       `Transactional(fun _ ch -&gt; new Netchannels.tempfile_output_channel ch)
-      </code>
+      </code></pre>
   </li></ul></div></div>
 <pre><span class="VALbuffered_transactional_outtype"><span class="keyword">val</span> buffered_transactional_outtype</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi&amp;type=output_type">output_type</a></code></pre><div class="info"><div class="info">The <code class="code">output_type</code> implementing transactions with a RAM-based buffer</div></div>
 <pre><span class="VALbuffered_transactional_optype"><span class="keyword">val</span> buffered_transactional_optype</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi&amp;type=output_type">output_type</a></code></pre><div class="info"><div class="info"><b>Deprecated</b> name for <code class="code">buffered_transactional_outtype</code></div></div>
@@ -571,7 +571,7 @@ string -&gt;
 <pre><span class="TYPEexn_handler"><span class="keyword">type</span> exn_handler</span> = <code class="type"><a href="?package=ocamlnet&amp;module=Netcgi&amp;type=cgi_environment">cgi_environment</a> -&gt; (unit -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info">A function of type <code class="code">exn_handler</code> allows to define a custom
       handler of uncaught exceptions raised by the <code class="code">unit -&gt; unit</code>
       parameter.  A typical example of <code class="code">exn_handler</code> is as follows:
-      <code class="code">
+      <pre class="code"><code>
       let exn_handler env f =
         try f()
         with
@@ -581,12 +581,12 @@ string -&gt;
             env#out_channel#output_string &quot;...&quot;;
             env#out_channel#close_out()
         | ...
-      </code></div></div>
+      </code></pre></div></div>
 <pre><span class="TYPEconnection_directive"><span class="keyword">type</span> connection_directive</span> = <code class="type">[ `Conn_close | `Conn_close_linger | `Conn_error of exn | `Conn_keep_alive ]</code></pre><div class="info"><div class="info">Directive how to go on with the current connection:<ul><li><code class="code">`Conn_close</code>: Just shut down and close descriptor</li><li><code class="code">`Conn_close_linger</code>: Linger, shut down, and close descriptor</li><li><code class="code">`Conn_keep_alive</code>: Check for another request on the same connection</li><li><code class="code">`Conn_error e</code>: Shut down and close descriptor, and handle the
    exception <code class="code">e</code>
    </li></ul></div></div>
 <div class="info"><div class="info">Specific connectors can be found in separate modules.  For example:<p>    -  <a href="#Netcgi_cgi">Netcgi_cgi</a>:  classical CGI.</p><ul><li> <a href="#Netcgi_fcgi">Netcgi_fcgi</a>: FastCGI protocol.</li><li> <a href="#Netcgi_ajp">Netcgi_ajp</a>:  AJP 1.3 connector (JSERV protocol).</li><li> <a href="#Netcgi_mod">Netcgi_mod</a>:  connector binding to Apache API.</li><li> <a href="#Netcgi_scgi">Netcgi_scgi</a>: SCGI connector.</li><li> <a href="#Netcgi_test">Netcgi_test</a>: special &quot;connector&quot; to test your code.</li></ul>    A typical use is as follows:
-    <code class="code">
+    <pre class="code"><code>
     open Netcgi
 
     let main (cgi:cgi) =
@@ -597,5 +597,5 @@ string -&gt;
     let () =
       let buffered _ ch = new Netchannels.buffered_trans_channel ch in
       Netcgi_cgi.run ~output_type:(`Transactional buffered) main
-    </code></div></div>
+    </code></pre></div></div>
 </div>

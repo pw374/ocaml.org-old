@@ -10,14 +10,14 @@ Netplex_types.container -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=f
 <div class="ocaml_class ident" name="empty_processor_hooks"><pre><span class="TYPEempty_processor_hooks"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=empty_processor_hooks">empty_processor_hooks</a></span> : <code class="type">unit -&gt; </code>Netplex_types.processor_hooks</pre></div>
 <div class="ocaml_class ident" name="processor_hooks_delegation"><pre><span class="TYPEprocessor_hooks_delegation"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=processor_hooks_delegation">processor_hooks_delegation</a></span> : <code class="type">Netplex_types.processor_hooks -&gt; </code>Netplex_types.processor_hooks</pre></div>
 <div class="ocaml_class ident" name="processor_base" path="?package=ocamlnet&amp;module=Netplex_kit&amp;class=v_processor"><pre><span class="TYPEprocessor_base"><span class="keyword">class</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=processor_base">processor_base</a></span> : <code class="type">Netplex_types.processor_hooks -&gt; </code><a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=v_processor">v_processor</a></pre><div class="info"><div class="info">A virtual (incomplete) base class for processors. As argument the
- user-supplied hooks are passed in. Use this class as in:<p> </p><code class="code">
+ user-supplied hooks are passed in. Use this class as in:<p> </p><pre class="code"><code>
     class my_processor hooks =
     object(self)
       inherit Netplex_kit.processor_base hooks
       method process ~when_done container fd proto_name = ...
       method supported_ptypes = ...
     end
- </code><p> In order to run actions from hooks, redefine the hook methods as in:</p><p> </p><code class="code">
+ </code></pre><p> In order to run actions from hooks, redefine the hook methods as in:</p><p> </p><pre class="code"><code>
     class my_processor hooks =
     object(self)
       inherit Netplex_kit.processor_base hooks as super
@@ -27,7 +27,7 @@ Netplex_types.container -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=f
         ... (* my action *);
         super # post_start_hook container
     end
- </code></div></div></div>
+ </code></pre></div></div></div>
 <div class="ocaml_class ident" name="protocol_switch_processor"><pre><span class="TYPEprotocol_switch_processor"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=protocol_switch_processor">protocol_switch_processor</a></span> : <code class="type">(string * Netplex_types.processor) list -&gt; </code>Netplex_types.processor</pre></div>
 <div class="ocaml_class ident" name="protocol_switch_factory"><pre><span class="TYPEprotocol_switch_factory"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netplex_kit&amp;class=protocol_switch_factory">protocol_switch_factory</a></span> : <code class="type">string -&gt; (string * Netplex_types.processor_factory) list -&gt; </code>Netplex_types.processor_factory</pre></div>
 <pre><span class="VALadd_helper_service"><span class="keyword">val</span> add_helper_service</span> : <code class="type">Netplex_types.controller -&gt; string -&gt; Netplex_types.processor_hooks -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add_helper_service ctrl name hooks</code>: Adds a helper service <code class="code">name</code> to

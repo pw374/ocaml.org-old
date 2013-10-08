@@ -1,10 +1,10 @@
 <div class="ocaml_toplevel_module"><div class="info"><code class="code">Ordering</code> is intended to make code that matches on the result of a comparison
-    more concise and easier to read.  For example, one would write:<p>    </p><code class="code">
+    more concise and easier to read.  For example, one would write:<p>    </p><pre class="code"><code>
       match Ordering.of_int (compare x y) with
       | Less -&gt; ...
       | Equal -&gt; ...
       | Greater -&gt; ...
-    </code><p>    rather than:</p><p>    </p><code class="code">
+    </code></pre><p>    rather than:</p><p>    </p><pre class="code"><code>
       let r = compare x y in
       if r &lt; 0 then
         ...
@@ -12,7 +12,7 @@
         ...
       else
         ...
-    </code></div>
+    </code></pre></div>
 <pre><code><span class="TYPEt"><span class="keyword">type</span> t</span> = </code></pre><table class="typetable">
 		    <tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTt.Less"><span class="constructor">Less</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTt.Equal"><span class="constructor">Equal</span></span></code></td></tr><tr><td align="left" valign="top"><code><span class="keyword">|</span></code></td><td align="left" valign="top"><code><span class="TYPEELTt.Greater"><span class="constructor">Greater</span></span></code></td></tr></table><div class="info"><div class="info"><code class="code">of_int n</code> is:<p>    <span class="verbatim">      Less     if n &lt; 0
       Equal    if n = 0

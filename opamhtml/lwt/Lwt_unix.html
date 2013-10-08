@@ -14,9 +14,9 @@
     <code class="code">sock2</code> and you want to read something from <code class="code">sock1</code> or exclusively
     from <code class="code">sock2</code>, and fail with an exception if a timeout of 1 second
     expires, without reading anything from <code class="code">sock1</code> and <code class="code">sock2</code>, even
-    if they become readable in the future.</p><p>    Then you can do:</p><p>    </p><code class="code">
+    if they become readable in the future.</p><p>    Then you can do:</p><p>    </p><pre class="code"><code>
       Lwt.pick [Lwt_unix.timeout 1.0; read sock1 buf1 ofs1 len1; read sock2 buf2 ofs2 len2]
-    </code><p>    In this case it is guaranteed that exactly one of the three
+    </code></pre><p>    In this case it is guaranteed that exactly one of the three
     operations will completes, and other will just be cancelled.</p></div></div>
 <pre><span class="VALhandle_unix_error"><span class="keyword">val</span> handle_unix_error</span> : <code class="type">('a -&gt; 'b <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; 'a -&gt; 'b <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info">Same as <code class="code">Unix.handle_unix_error</code> but catches lwt-level
       exceptions</div></div>
@@ -38,15 +38,15 @@
 <pre><span class="VALasync_method"><span class="keyword">val</span> async_method</span> : <code class="type">unit -&gt; <a href="?package=lwt&amp;module=Lwt_unix&amp;type=async_method">async_method</a></code></pre><div class="info"><div class="info"><code class="code">async_method ()</code> returns the async method used in the current
       thread.</div></div>
 <pre><span class="VALasync_method_key"><span class="keyword">val</span> async_method_key</span> : <code class="type"><a href="?package=lwt&amp;module=Lwt_unix&amp;type=async_method">async_method</a> <a href="?package=lwt&amp;module=Lwt&amp;type=key">Lwt.key</a></code></pre><div class="info"><div class="info">The key for storing the local async method.</div></div>
-<pre><span class="VALwith_async_none"><span class="keyword">val</span> with_async_none</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">with_async_none f</code> is a shorthand for:<p>      </p><code class="code">
+<pre><span class="VALwith_async_none"><span class="keyword">val</span> with_async_none</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">with_async_none f</code> is a shorthand for:<p>      </p><pre class="code"><code>
         Lwt.with_value async_method_key (Some Async_none) f
-      </code></div></div>
-<pre><span class="VALwith_async_detach"><span class="keyword">val</span> with_async_detach</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">with_async_none f</code> is a shorthand for:<p>      </p><code class="code">
+      </code></pre></div></div>
+<pre><span class="VALwith_async_detach"><span class="keyword">val</span> with_async_detach</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">with_async_none f</code> is a shorthand for:<p>      </p><pre class="code"><code>
         Lwt.with_value async_method_key (Some Async_detach) f
-      </code></div></div>
-<pre><span class="VALwith_async_switch"><span class="keyword">val</span> with_async_switch</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">with_async_none f</code> is a shorthand for:<p>      </p><code class="code">
+      </code></pre></div></div>
+<pre><span class="VALwith_async_switch"><span class="keyword">val</span> with_async_switch</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a</code></pre><div class="info"><div class="info"><code class="code">with_async_none f</code> is a shorthand for:<p>      </p><pre class="code"><code>
         Lwt.with_value async_method_key (Some Async_switch) f
-      </code></div></div>
+      </code></pre></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Sleeping</h6></div></div>
 <pre><span class="VALsleep"><span class="keyword">val</span> sleep</span> : <code class="type">float -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">sleep d</code> is a threads which remain suspended for <code class="code">d</code> seconds
       and then terminates.</div></div>
@@ -57,9 +57,9 @@
 <pre><span class="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span></pre><div class="info"><div class="info">Exception raised by timeout operations</div></div>
 <pre><span class="VALtimeout"><span class="keyword">val</span> timeout</span> : <code class="type">float -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">timeout d</code> is a thread which remains suspended for <code class="code">d</code> seconds
       then fails with  <a href="#Timeout">Timeout</a></div></div>
-<pre><span class="VALwith_timeout"><span class="keyword">val</span> with_timeout</span> : <code class="type">float -&gt; (unit -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">with_timeout d f</code> is a short-hand for:<p>      </p><code class="code">
+<pre><span class="VALwith_timeout"><span class="keyword">val</span> with_timeout</span> : <code class="type">float -&gt; (unit -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a>) -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">Lwt.t</a></code></pre><div class="info"><div class="info"><code class="code">with_timeout d f</code> is a short-hand for:<p>      </p><pre class="code"><code>
         Lwt.pick [Lwt_unix.timeout d; f ()]
-      </code></div></div>
+      </code></pre></div></div>
 <div class="info"><div class="info"><h6 id="6_TITLE">Operation on file-descriptors</h6></div></div>
 <pre><span class="TYPEfile_descr"><span class="keyword">type</span> file_descr</span> </pre><div class="info"><div class="info">The abstract type for <b>file descriptor</b>s. A Lwt <b>file
       descriptor</b> is a pair of a unix <b>file descriptor</b> (of type

@@ -7,10 +7,10 @@
     with the <b>flush</b> operation. Note that byte channles of this
     modules are automatically flushed when there is nothing else to do
     (i.e. before the program goes into idle), so this means that you
-    no longer have to write:</p><p>    </p><code class="code">
+    no longer have to write:</p><p>    </p><pre class="code"><code>
       eprintf &quot;log message\n&quot;;
       flush stderr;
-    </code><p>    to have you messages displayed.</p><p>    Note about errors: input functions of this module raise
+    </code></pre><p>    to have you messages displayed.</p><p>    Note about errors: input functions of this module raise
     <code class="code">End_of_file</code> when the end-of-file is reached (i.e. when the read
     function returns <code class="code">0</code>). Other exceptions are ones caused by the
     backend read/write functions, such as <code class="code">Unix.Unix_error</code>.</p></div></div>

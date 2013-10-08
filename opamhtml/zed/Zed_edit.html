@@ -101,10 +101,10 @@
       position, it removes everything until the beginning of the
       text.</div></div>
 <pre><span class="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">'a <a href="?package=zed&amp;module=Zed_edit&amp;type=context">context</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">Alias for  <a href="#remove_next">remove_next</a></div></div>
-<pre><span class="VALreplace"><span class="keyword">val</span> replace</span> : <code class="type">'a <a href="?package=zed&amp;module=Zed_edit&amp;type=context">context</a> -&gt; int -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">Zed_rope.t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">replace ctx n rope</code> does the same as:<p>      </p><code class="code">
+<pre><span class="VALreplace"><span class="keyword">val</span> replace</span> : <code class="type">'a <a href="?package=zed&amp;module=Zed_edit&amp;type=context">context</a> -&gt; int -&gt; <a href="?package=zed&amp;module=Zed_rope&amp;type=t">Zed_rope.t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">replace ctx n rope</code> does the same as:<p>      </p><pre class="code"><code>
         remove ctx n;
         insert_no_erase ctx rope
-      </code><p>      but in one atomic operation.</p></div></div>
+      </code></pre><p>      but in one atomic operation.</p></div></div>
 <pre><span class="VALnewline"><span class="keyword">val</span> newline</span> : <code class="type">'a <a href="?package=zed&amp;module=Zed_edit&amp;type=context">context</a> -&gt; unit</code></pre><div class="info"><div class="info">Insert a newline character.</div></div>
 <pre><span class="VALnext_char"><span class="keyword">val</span> next_char</span> : <code class="type">'a <a href="?package=zed&amp;module=Zed_edit&amp;type=context">context</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">next_char ctx</code> moves the cursor to the next character. It does
       nothing if the cursor is at the end of the text.</div></div>

@@ -13,14 +13,14 @@
   they were immutable, rather than copying them.  In particular,
   string literals are shared: a single copy of the string is created
   at program loading time and returned by all evaluations of the
-  string literal.  Consider for example:</p><p>  </p><code class="code">
+  string literal.  Consider for example:</p><p>  </p><pre class="code"><code>
       # let f () = &quot;foo&quot;;;
       val f : unit -&gt; string = &lt;fun&gt;
       # (f ()).[0] &lt;- 'b';;
       - : unit = ()
       # f ();;
       - : string = &quot;boo&quot;
-  </code><p>  Likewise, many functions from the standard library can return string
+  </code></pre><p>  Likewise, many functions from the standard library can return string
   literals or one of their string arguments.  Therefore, the returned strings
   must not be modified directly.  If mutation is absolutely necessary,
   it should be performed on a fresh copy of the string, as produced by

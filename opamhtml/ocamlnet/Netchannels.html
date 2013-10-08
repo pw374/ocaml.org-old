@@ -94,13 +94,13 @@
        The OS resource is released in any case. As before, this
        behavior is not obligatory, but considered as good practice,
        and subject to discussion.</li></ul>     This ensures that the following code snippet reports all errors, but also
-     releases OS resources:<p>     </p><code class="code">
+     releases OS resources:<p>     </p><pre class="code"><code>
        try 
          ch # flush();
          ch # close_out();
        with error -&gt; 
           ch # close_out(); raise error
-     </code><p>     There are some cases where data can be first written when it is
+     </code></pre><p>     There are some cases where data can be first written when it is
      known that the channel is closed. These data would not be written
      by a preceding <code class="code">flush</code>. In such cases:</p><p>     - The best way to deal with it is to define another method,
        e.g. called <code class="code">write_eof</code>, that marks the data as logically 
@@ -248,18 +248,18 @@
  name <code class="code">m</code> of the parameter object. This is very useful in order
  to redefine methods individually.<p> For example, to redefine the method <code class="code">pos_in</code> of an <code class="code">in_obj_channel</code>,
  use
- </p><code class="code">
+ </p><pre class="code"><code>
  class my_channel = object(self)
    inherit in_obj_channel_delegation ...
    method pos_in = ...
  end
- </code><p> As a special feature, the following delegation classes can suppress
+ </code></pre><p> As a special feature, the following delegation classes can suppress
  the delegation of <code class="code">close_in</code> or <code class="code">close_out</code>, whatever applies.
  Just pass <code class="code">close:false</code> to get this effect, e.g.
- </p><code class="code">
+ </p><pre class="code"><code>
  class input_channel_don't_close c =
    in_obj_channel_delegation ~close:false (new input_channel c)
- </code>
+ </code></pre>
  This class does not close <code class="code">c : in_channel</code> when the <code class="code">close_in</code>
  method is called.</div></div>
 <div class="ocaml_class ident" name="rec_in_channel_delegation" path="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel"><pre><span class="TYPErec_in_channel_delegation"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel_delegation">rec_in_channel_delegation</a></span> : <code class="type">bool option -&gt; <a href="?package=ocamlnet&amp;module=Netchannels&amp;type=rec_in_channel">rec_in_channel</a> -&gt; </code><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=rec_in_channel">rec_in_channel</a></pre></div>
@@ -280,10 +280,10 @@
  variant, into a full <code class="code">in_obj_channel</code> object. (This is a convenience
  function, you can also use the classes below directly.) If you
  want to define a class for the lifted object, use
- <code class="code">
+ <pre class="code"><code>
  class lifted_ch ... =
    in_obj_channel_delegation (lift_in ...)
- </code><div class="parameters"><div class="param_info"><code class="code">eol</code> : The accepted end-of-line delimiters. The method 
+ </code></pre><div class="parameters"><div class="param_info"><code class="code">eol</code> : The accepted end-of-line delimiters. The method 
    <code class="code">input_line</code> recognizes any of the passed strings as EOL
    delimiters. When more than one delimiter matches, the longest
    is taken. Defaults to <code class="code"> [&quot;\n&quot;] </code>. The default cannot be
@@ -299,10 +299,10 @@
  variant, into a full <code class="code">out_obj_channel</code> object. (This is a convenience
  function, you can also use the classes below directly.) If you
  want to define a class for the lifted object, use
- <code class="code">
+ <pre class="code"><code>
  class lifted_ch ... =
    out_obj_channel_delegation (lift_out ...)
- </code><div class="parameters"><div class="param_info"><code class="code">buffered</code> : Whether a buffer is added, by default <b>true</b></div><div class="param_info"><code class="code">buffer_size</code> : The size of the buffer, if any, by default 4096</div><div class="param_info"><code class="code">pass_through</code> : If the write request has at least this size,
+ </code></pre><div class="parameters"><div class="param_info"><code class="code">buffered</code> : Whether a buffer is added, by default <b>true</b></div><div class="param_info"><code class="code">buffer_size</code> : The size of the buffer, if any, by default 4096</div><div class="param_info"><code class="code">pass_through</code> : If the write request has at least this size,
    and the buffer is currently empty, the buffer will be bypassed.
    Defaults to <code class="code">max_int</code>, i.e. it is off.</div></div></div></div>
 <div class="ocaml_class sig" name="augment_raw_in_channel"><pre><span class="TYPEaugment_raw_in_channel"><span class="keyword">class</span> <span class="keyword">virtual </span><a href="?package=ocamlnet&amp;module=Netchannels&amp;class=augment_raw_in_channel">augment_raw_in_channel</a></span> : <code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">This class implements the methods from <code class="code">compl_in_channel</code> by calling
@@ -447,13 +447,13 @@ unit -&gt; string * <a href="?package=ocaml&amp;module=Pervasives&amp;type=in_ch
 <div class="info"><div class="info"><h2 id="filters_notes">Notes, Examples</h2></div></div>
 <div class="info"><div class="info">If you have the choice, prefer <code class="code">output_filter</code> over <code class="code">input_filter</code>.
  The latter is slower.<p> The primary application of filters is to encode or decode a channel
- on the fly. For example, the following lines write a BASE64-encoded file:</p><p> </p><code class="code">let ch = new output_channel (open_out &quot;file.b64&quot;) in
+ on the fly. For example, the following lines write a BASE64-encoded file:</p><p> </p><pre class="code"><code>let ch = new output_channel (open_out &quot;file.b64&quot;) in
  let encoder = new Netencoding.Base64.encoding_pipe ~linelength:76 () in
  let ch' = new output_filter encoder ch in
  ... (* write to ch' *)
  ch' # close_out();
  ch  # close_out();  (* you must close both channels! *)
- </code><p> All bytes written to <code class="code">ch'</code> are BASE64-encoded and the encoded bytes are
+ </code></pre><p> All bytes written to <code class="code">ch'</code> are BASE64-encoded and the encoded bytes are
  written to <code class="code">ch</code>.</p><p> There are also pipes to decode BASE64, and to encode and decode the
  &quot;Quoted printable&quot; format. Encoding and decoding work even if the
  data is delivered in disadvantageous chunks, because the data is

@@ -7,12 +7,12 @@
       with this object as argument. This can e.g. be done in the
       <code class="code">post_add_hook</code> of the processor.</div></div>
 <div class="info"><div class="info">How to use this module:<p>    - Encapsulate the type of the messages:
-      </p><code class="code"> module Msg_type = struct type t = &lt;some_type&gt; end </code><p>    - Create the box module for this type:
-      </p><code class="code"> module Mbox_type = Netplex_mbox.Make_mbox_type(Msg_type) </code><p>    - Call functions of this module, e.g.
-      </p><code class="code">
+      </p><pre class="code"><code> module Msg_type = struct type t = &lt;some_type&gt; end </code></pre><p>    - Create the box module for this type:
+      </p><pre class="code"><code> module Mbox_type = Netplex_mbox.Make_mbox_type(Msg_type) </code></pre><p>    - Call functions of this module, e.g.
+      </p><pre class="code"><code>
 let box = Mbox_type.create &quot;my_box&quot;
 let msg = Mbox_type.receive box
-      </code></div></div>
+      </code></pre></div></div>
 <div class="ocaml_module sig" name="MBOX"><pre><span class="keyword">module type</span> <a href="?package=ocamlnet&amp;module=Netplex_mbox.MBOX">MBOX</a> = <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">The type of mailboxes <code class="code">mbox</code> with messages of type <code class="code">t</code></div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre><div class="info"><div class="info">The type of messages</div></div>
 <pre><span class="TYPEmbox"><span class="keyword">type</span> mbox</span> </pre><div class="info"><div class="info">The type of the mailboxes</div></div>

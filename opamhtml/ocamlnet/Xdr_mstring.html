@@ -1,8 +1,8 @@
 <div class="ocaml_toplevel_module"><div class="info">Managed Strings</div>
 <div class="info"><div class="info">Managed strings are used in XDR context for constant strings that
-    are stored either as string or as memory (bigarray of char).<p>    A managed string <code class="code">ms</code> is declared in the XDR file as in</p><p>    </p><code class="code">
+    are stored either as string or as memory (bigarray of char).<p>    A managed string <code class="code">ms</code> is declared in the XDR file as in</p><p>    </p><pre class="code"><code>
       typedef _managed string ms&lt;&gt;;
-    </code><p>    In the encoded XDR stream there is no difference between strings and
+    </code></pre><p>    In the encoded XDR stream there is no difference between strings and
     managed strings, i.e. the wire representation is identical. Only
     the Ocaml type differs to which the managed string is mapped. This
     type is  <a href="#Xdr_mstring.mstring">Xdr_mstring.mstring</a> (below).</p><p>    In the RPC context there is often the problem that the I/O backend

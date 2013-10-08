@@ -64,12 +64,12 @@
 <pre><span class="VALflip_hi"><span class="keyword">val</span> flip_hi</span> : <code class="type">('a, <a href="?package=core&amp;module=Iobuf&amp;type=seek">seek</a>) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">flip_hi t</code> sets the window to range from the the upper bound of the current window to
     the upper limit.  This operation is dual to <code class="code">flip_lo</code> and is typically called when the
     data in the current (narrowed) window has been processed and the window needs to be
-    positioned over the remaining data in the buffer.  For example:<p>    </p><code class="code">
+    positioned over the remaining data in the buffer.  For example:<p>    </p><pre class="code"><code>
       (* ... determine initial_data_len ... *)
       Iobuf.resize buf ~len:initial_data_len;
       (* ... and process initial data ... *)
       Iobuf.flip_hi buf;
-    </code><p>    Now the window of <code class="code">buf</code> ranges over the remainder of the data.</p></div></div>
+    </code></pre><p>    Now the window of <code class="code">buf</code> ranges over the remainder of the data.</p></div></div>
 <pre><span class="VALbounded_flip_hi"><span class="keyword">val</span> bounded_flip_hi</span> : <code class="type">('a, <a href="?package=core&amp;module=Iobuf&amp;type=seek">seek</a>) <a href="?package=core&amp;module=Iobuf&amp;type=t">t</a> -&gt; <a href="?package=core&amp;module=Iobuf.Hi_bound&amp;type=t">Hi_bound.t</a> -&gt; unit</code></pre>
 <div class="info"><div class="info"><h1 id="1_TITLE">Getting and setting data</h1></div></div>
 <div class="info"><div class="info">&quot;consume&quot; and &quot;fill&quot; functions access data at the lower bound of the window and
@@ -179,12 +179,12 @@
 <div class="info"><div class="info"><code class="code">flip_hi t</code> sets the window to range from the the upper bound of the current window to
     the upper limit.  This operation is dual to <code class="code">flip_lo</code> and is typically called when the
     data in the current (narrowed) window has been processed and the window needs to be
-    positioned over the remaining data in the buffer.  For example:<p>    </p><code class="code">
+    positioned over the remaining data in the buffer.  For example:<p>    </p><pre class="code"><code>
       (* ... determine initial_data_len ... *)
       Iobuf.resize buf ~len:initial_data_len;
       (* ... and process initial data ... *)
       Iobuf.flip_hi buf;
-    </code><p>    Now the window of <code class="code">buf</code> ranges over the remainder of the data.</p></div></div>
+    </code></pre><p>    Now the window of <code class="code">buf</code> ranges over the remainder of the data.</p></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Getting and setting data</h1></div></div>
 <div class="info"><div class="info">&quot;consume&quot; and &quot;fill&quot; functions access data at the lower bound of the window and
     advance lower bound of the window.  &quot;peek&quot; and &quot;poke&quot; functions access data but do not

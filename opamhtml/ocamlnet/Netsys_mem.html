@@ -99,7 +99,7 @@
       Returns in <code class="code">voffset</code> the offset where the value starts
       (i.e. <code class="code">offset</code> plus one word), and in <code class="code">bytelen</code> the number
       of bytes used in <code class="code">mem</code>. <p>      <code class="code">offset</code> must be a multiple of the word size in bytes.</p><p>      The string can be accessed with
-      </p><code class="code"> let s = (as_value mem voffset : string) </code><p>      The function is useful for initializing shared memory as string
+      </p><pre class="code"><code> let s = (as_value mem voffset : string) </code></pre><p>      The function is useful for initializing shared memory as string
       so that several processes can directly access the string.</p><p>      The string has the GC color <code class="code">White</code>.</p><p>      Raises <code class="code">Out_of_space</code> if the memory block is too small.</p></div></div>
 <pre><span class="VALinit_string_bytelen"><span class="keyword">val</span> init_string_bytelen</span> : <code class="type">int -&gt; int</code></pre><div class="info"><div class="info">Returns <code class="code">bytelen</code> if <code class="code">init_string</code> was called with the passed
       <code class="code">len</code>.</div></div>
@@ -109,7 +109,7 @@
       Returns in <code class="code">voffset</code> the offset where the value starts
       (i.e. <code class="code">offset</code> plus one word), and in <code class="code">bytelen</code> the number
       of bytes used in <code class="code">mem</code>. <p>      The array cannot be used as float array.</p><p>      <code class="code">offset</code> must be a multiple of the word size in bytes.</p><p>      The array can be accessed with
-      </p><code class="code"> let a = (as_value mem voffset : _ array) </code><p>      The elements of the array have a value but it might not be
+      </p><pre class="code"><code> let a = (as_value mem voffset : _ array) </code></pre><p>      The elements of the array have a value but it might not be
       valid for the element type of the array. Because of this, it
       is unwise to access the elements before setting them for the
       first time.</p><p>      The array has the GC color <code class="code">White</code>.</p><p>      Raises <code class="code">Out_of_space</code> if the memory block is too small.</p></div></div>
@@ -129,7 +129,7 @@
       Returns in <code class="code">voffset</code> the offset where the value starts
       (i.e. <code class="code">offset</code> plus one word), and in <code class="code">bytelen</code> the number
       of bytes used in <code class="code">mem</code>. <p>      The copied value can then be accessed with
-      </p><code class="code"> let v' = (as_value mem voffset : 'a) </code><p>      <code class="code">offset</code> must be a multiple of the word size in bytes.</p><p>      The input value <code class="code">v</code> must be heap-allocated. Also, a number of
+      </p><pre class="code"><code> let v' = (as_value mem voffset : 'a) </code></pre><p>      <code class="code">offset</code> must be a multiple of the word size in bytes.</p><p>      The input value <code class="code">v</code> must be heap-allocated. Also, a number of
       restrictions and caveats apply:</p><ul><li>Objects, closures, and lazy values are not supported</li><li>Bigarrays are only supported if the <code class="code">Copy_bigarray</code> flag
         is given. In this case, a copy of the bigarray is also made
         and appended to the value copy (i.e. it is also placed into

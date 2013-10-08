@@ -3,7 +3,7 @@
  not work for multi-threaded programs, because the state of the module
  is visible to the outside. The module <code class="code">Netstring_str</code> is similar to <code class="code">Str</code>,
  but has a thread-compatible interface.</p><p> For an explanation why we need this module, please read  <a href="#Regexp">Regexp</a>.</p></div>
-<div class="info"><div class="info"><b>Supported regexp syntax</b><p> </p><code class="code">
+<div class="info"><div class="info"><b>Supported regexp syntax</b><p> </p><pre class="code"><code>
  .             matches every character but newline
  e*            matches e several times
  e+            matches e several times but at least once
@@ -16,7 +16,7 @@
  \n            back reference (n is digit)
  ^             matches at beginning of line
  $             matches at end of line
- </code><p> This is exactly what <code class="code">Str</code> supports. Character classes
+ </code></pre><p> This is exactly what <code class="code">Str</code> supports. Character classes
  are not implemented.</p></div></div>
 <pre><span class="TYPEregexp"><span class="keyword">type</span> regexp</span> </pre><div class="info"><div class="info">The type of regular expressions</div></div>
 <pre><span class="TYPEsplit_result"><span class="keyword">type</span> split_result</span> = <code class="type"><a href="?package=ocaml&amp;module=Str&amp;type=split_result">Str.split_result</a></code></pre><table class="typetable">

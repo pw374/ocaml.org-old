@@ -34,14 +34,14 @@
 <pre><span class="VALarea_for_additions"><span class="keyword">val</span> area_for_additions</span> : <code class="type">?len:int -&gt; <a href="?package=ocamlnet&amp;module=Netbuffer&amp;type=t">t</a> -&gt; string * int * int</code></pre>
 <pre><span class="VALadvance"><span class="keyword">val</span> advance</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netbuffer&amp;type=t">t</a> -&gt; int -&gt; unit</code></pre><div class="info"><div class="info">These two functions work together, so that the effect of <code class="code">add_inplace</code>
       can be obtained in two steps. First, the user calls
-      <code class="code">
+      <pre class="code"><code>
         let (s,pos,len) = area_for_additions nb
-      </code>
+      </code></pre>
       to get the area where to put new data of length <code class="code">n</code>, with <code class="code">n &lt;= len</code>.
       After this the data is made valid by
-      <code class="code">
+      <pre class="code"><code>
         advance n
-      </code></div></div>
+      </code></pre></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Inserting strings</h2></div></div>
 <pre><span class="VALinsert_string"><span class="keyword">val</span> insert_string</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netbuffer&amp;type=t">t</a> -&gt; int -&gt; string -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">insert_string nb p s</code>: Inserts the value of string <code class="code">s</code> at position
  <code class="code">p</code> into the netbuffer <code class="code">nb</code></div></div>

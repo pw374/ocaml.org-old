@@ -97,7 +97,7 @@
       of <code class="code">join</code>). The same happens for any unplanned termination of the
       process.</p><p>      It is allowed to immediately release the <code class="code">join_point</code> if there is
       no interest in catching the termination of started processes.</p><p>      Here is an example how to define a process that takes a <code class="code">string</code>
-      argument and returns an <code class="code">int</code>:</p><p>      </p><code class="code">
+      argument and returns an <code class="code">int</code>:</p><p>      </p><pre class="code"><code>
       module String_encap = Netplex_encap.Make_encap(struct type t=string end)
       module Int_encap = Netplex_encap.Make_encap(struct type t=int end)
 
@@ -108,14 +108,14 @@
             let (r:int) = ... in
             Int_encap.wrap r
           )
-      </code><p>      The wrapping and unwrapping is required for ensuring type-safety
-      (see  <a href="#Netplex_encap">Netplex_encap</a> for the details of the idea).</p><p>      Calling this process is done with (also see below):</p><p>      </p><code class="code">
+      </code></pre><p>      The wrapping and unwrapping is required for ensuring type-safety
+      (see  <a href="#Netplex_encap">Netplex_encap</a> for the details of the idea).</p><p>      Calling this process is done with (also see below):</p><p>      </p><pre class="code"><code>
       let pid = Netmcore.start my_process_fork (String_encap.wrap s) in
       let r_encap_opt = Netmcore.join my_process_join pid in
       match r_encap_opt with
         | None -&gt; failwith &quot;Something went wrong&quot;
         | Some r_encap -&gt; Int_encap.unwrap r_encap
-      </code></div></div>
+      </code></pre></div></div>
 <div class="info"><div class="info">The following functions can also be called from worker processes
     (i.e. Netplex containers)</div></div>
 <pre><span class="VALstart"><span class="keyword">val</span> start</span> : <code class="type">?inherit_resources:<a href="?package=ocamlnet&amp;module=Netmcore&amp;type=inherit_request">inherit_request</a> -&gt;

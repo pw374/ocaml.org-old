@@ -9,9 +9,9 @@ sub_fun:('a -&gt; pos:int -&gt; len:int -&gt; 'a) -&gt; 'a -&gt; int -&gt; int -
     <code class="code">pos</code> and <code class="code">len</code> specifying a subrange of the sequence.  Such functions should call
     <code class="code">get_pos_len</code> with the length of the sequence and the optional <code class="code">pos</code> and <code class="code">len</code>, and it
     will return the <code class="code">pos</code> and <code class="code">len</code> specifying the range, where the default <code class="code">pos</code> is zero
-    and the default <code class="code">len</code> is to go to the end of the sequence.<p>    It should be the case that:</p><p>    </p><code class="code">
+    and the default <code class="code">len</code> is to go to the end of the sequence.<p>    It should be the case that:</p><p>    </p><pre class="code"><code>
       pos &gt;= 0 &amp;&amp; len &gt;= 0 &amp;&amp; pos + len &lt;= length
-    </code><p>    Note that this allows <code class="code">pos = length</code> and <code class="code">len = 0</code>, i.e. an empty subrange
+    </code></pre><p>    Note that this allows <code class="code">pos = length</code> and <code class="code">len = 0</code>, i.e. an empty subrange
     at the end of the sequence.</p><p>    <code class="code">get_pos_len</code> returns <code class="code">(pos', len')</code> specifying a subrange where:</p><p>    <span class="verbatim">      pos' = match pos with None -&gt; 0 | Some i -&gt; i
       len' = match len with None -&gt; length - pos | Some i -&gt; i
     </span></p></div></div>

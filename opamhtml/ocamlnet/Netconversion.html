@@ -25,13 +25,13 @@
  what the O'Caml language specially supports: A <code class="code">string</code> is
  a sequence of <code class="code">char</code>s, where <code class="code">char</code> means an 8 bit quantity
  interpreted as character. For example, the following piece of code allocates
- a <code class="code">string</code> of four <code class="code">char</code>s, and assigns them individually:</p><p> </p><code class="code">
+ a <code class="code">string</code> of four <code class="code">char</code>s, and assigns them individually:</p><p> </p><pre class="code"><code>
  let s = String.create 4 in
  s.[0] &lt;- 'G';
  s.[1] &lt;- 'e';
  s.[2] &lt;- 'r';
  s.[3] &lt;- 'd';
- </code><p> In a <b>multi-byte encoding</b> there are code points that are represented
+ </code></pre><p> In a <b>multi-byte encoding</b> there are code points that are represented
  by several bytes. As we still represent such text as <code class="code">string</code>, the
  problem arises that a single <code class="code">char</code>, actually a byte, often represents 
  only a fraction of a full multi-byte character. There are two solutions:</p><ul><li>Give up the principle that text is represented by <code class="code">string</code>.
@@ -49,14 +49,14 @@
    algorithms. Note that the majority of text processing falls into
    this class.</li></ul> The corresponding piece of code for Ocamlnet's Unicode implementation
  is:
- <code class="code">
+ <pre class="code"><code>
  let b = Buffer.create 80 in
  Buffer.add b (ustring_of_uchar `Enc_utf8 71);  (* 71 = code point of 'G' *)
  Buffer.add b (ustring_of_uchar `Enc_utf8 101); (* 101 = code point of 'e' *)
  Buffer.add b (ustring_of_uchar `Enc_utf8 114); (* 114 = code point of 'r' *)
  Buffer.add b (ustring_of_uchar `Enc_utf8 100); (* 100 = code point of 'd' *)
  let s = Buffer.contents b
- </code><p> It is important to always remember that a <code class="code">char</code> is no longer 
+ </code></pre><p> It is important to always remember that a <code class="code">char</code> is no longer 
  a character but simply a byte. In many of the following explanations,
  we strictly distinguish between <b>byte positions</b> or <b>byte counts</b>,
  and <b>character positions</b> or <b>character counts</b>.</p><p> There a number of special effects that usually only occur in
@@ -119,8 +119,8 @@
  the existing one <code class="code">e</code>, but to only accept the code points for which
  the definition function <code class="code">def</code> yields the value <code class="code">true</code>. For example,
  the encoding 
- </p><code class="code"> `Enc_subset(`Enc_usascii, 
-             fun i -&gt; i &lt;&gt; 34 &amp;&amp; i &lt;&gt; 38 &amp;&amp; i &lt;&gt; 60 &amp;&amp; i &lt;&gt; 62) </code>
+ </p><pre class="code"><code> `Enc_subset(`Enc_usascii, 
+             fun i -&gt; i &lt;&gt; 34 &amp;&amp; i &lt;&gt; 38 &amp;&amp; i &lt;&gt; 60 &amp;&amp; i &lt;&gt; 62) </code></pre>
  is ASCII without the bracket angles, the quotation mark, and the
  ampersand character, i.e. the subset of ASCII that can be included
  in HTML text without escaping.<p> If a code point is not defined by the encoding but found in a text, 
@@ -297,12 +297,12 @@
  called several times for the same encoding. In this case, it is recommended
  to apply the function once partially with the encoding argument, and to
  call the resulting closure instead. For example, <code class="code">ustring_of_uchar</code> supports
- this technique:</p><p> </p><code class="code">
+ this technique:</p><p> </p><pre class="code"><code>
    let my_ustring_of_uchar = ustring_of_uchar my_enc in
    let s1 = my_ustring_of_uchar u1 ...
-   let s2 = my_ustring_of_uchar u2 ... </code><p> This is <b>much</b> faster than</p><p> </p><code class="code">
+   let s2 = my_ustring_of_uchar u2 ... </code></pre><p> This is <b>much</b> faster than</p><p> </p><pre class="code"><code>
    let s1 = ustring_of_uchar my_enc u1 ...
-   let s2 = ustring_of_uchar my_enc u2 ... </code><p> The availability of this optimization is indicated by the predicate
+   let s2 = ustring_of_uchar my_enc u2 ... </code></pre><p> The availability of this optimization is indicated by the predicate
  PRE_EVAL(<i>arg</i>) where <i>arg</i> identifies the encoding argument.</p><p> <b>Inlining</b></p><p> When a function can be inlined across module/library boundaries,
  this is indicated by the predicate INLINED. Of course, this works
  only for the ocamlopt compiler.</p></div></div>
@@ -367,8 +367,8 @@
       http://msdn.microsoft.com/en-us/library/dd317756%28v=VS.85%29.aspx</div></div>
 <div class="info"><div class="info"><h2 id="direct_conv">Direct Conversion</h2></div></div>
 <div class="info"><div class="info">In order to convert a string from one encoding to another, call
- <code class="code">convert</code> like in<p> </p><code class="code"> let s_utf8 = 
-    convert ~in_enc:`Enc_iso88591 ~out_enc:`Enc_utf8 s_latin1 </code><p> which converts the ISO-8859-1 string <code class="code">s_latin1</code> to the UTF-8 string
+ <code class="code">convert</code> like in<p> </p><pre class="code"><code> let s_utf8 = 
+    convert ~in_enc:`Enc_iso88591 ~out_enc:`Enc_utf8 s_latin1 </code></pre><p> which converts the ISO-8859-1 string <code class="code">s_latin1</code> to the UTF-8 string
  <code class="code">s_utf8</code>.</p><p> It is also possible to convert while reading from or writing to a file.
  This use case is effectively handled by the class 
   <a href="#Netconversion.conversion_pipe">Netconversion.conversion_pipe</a>.
@@ -440,7 +440,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
  detected, and the exception <code class="code">Malformed_code</code> will be raised.
  This exception is also raised for other encoding errors in the
  channel data.</p><p> <b>Example.</b> Convert ISO-8859-1 to UTF-8 while writing to the file
- <code class="code">&quot;output.txt&quot;</code>:</p><p> </p><code class="code">
+ <code class="code">&quot;output.txt&quot;</code>:</p><p> </p><pre class="code"><code>
     let ch = new output_channel (open_out &quot;output.txt&quot;) in
     let encoder = 
       new conversion_pipe ~in_enc:`Enc_iso88591 ~out_enc:`Enc_utf8 () in
@@ -448,9 +448,9 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
     ... (* write to ch' *)
     ch' # close_out();
     ch  # close_out();  (* you must close both channels! *)
- </code><p> If you write as UTF-16, don't forget to output the byte order
+ </code></pre><p> If you write as UTF-16, don't forget to output the byte order
  mark yourself, as the channel does not do this.</p><p> <b>Example.</b> Convert UTF-16 to UTF-8 while reading from the file
- <code class="code">&quot;input.txt&quot;</code>:</p><p> </p><code class="code">
+ <code class="code">&quot;input.txt&quot;</code>:</p><p> </p><pre class="code"><code>
     let ch = new input_channel (open_in &quot;input.txt&quot;) in
     let encoder = 
       new conversion_pipe ~in_enc:`Enc_utf16 ~out_enc:`Enc_utf8 () in
@@ -458,7 +458,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
     ... (* read from ch' *)
     ch' # close_in();
     ch  # close_in();  (* you must close both channels! *)
- </code><div class="parameters"><div class="param_info"><code class="code">subst</code> : This function is invoked for code points of <code class="code">in_enc</code> that
+ </code></pre><div class="parameters"><div class="param_info"><code class="code">subst</code> : This function is invoked for code points of <code class="code">in_enc</code> that
    cannot be represented in <code class="code">out_enc</code>, and the result of the function 
    invocation is substituted (directly, without any further conversion).
    Restriction: The string returned by <code class="code">subst</code> must not be longer than 50
@@ -470,7 +470,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
 <div class="info"><div class="info"><h2 id="cursors">Reading Text Using Cursors</h2><p> A cursor is a reference to a character in an encoded string. The
  properties of the current character can be obtained, and the cursor
  can be moved relative to its current position.</p><p> For example, the following loop outputs the Unicode code points
- of all characters of the UTF-8 input string <code class="code">s</code>:</p><p> </p><code class="code">
+ of all characters of the UTF-8 input string <code class="code">s</code>:</p><p> </p><pre class="code"><code>
  let cs = create_cursor `Enc_utf8 s in
  while not (cursor_at_end cs) do
    let n = cursor_char_count cs in
@@ -478,7 +478,7 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
    printf &quot;At position %d: %d\n&quot; n ch;
    move cs;
  done
- </code><p> For a more exact definition, cursors are modeled as follows: The reference
+ </code></pre><p> For a more exact definition, cursors are modeled as follows: The reference
  to the encoded string is contained in the cursor. This
  can be a complete string, or an arbitrary substring (denoted by a
  range of valid byte positions). The cursor
@@ -610,9 +610,9 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
 <pre><span class="VALcursor_blit_positions"><span class="keyword">val</span> cursor_blit_positions</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netconversion&amp;type=cursor">cursor</a> -&gt; int array -&gt; int -&gt; int -&gt; int</code></pre><div class="info"><div class="info">Works like <code class="code">cursor_blit</code>, but copies the byte positions of the
  characters into <code class="code">ua</code> instead of the code points.<p> When called directly after <code class="code">cursor_blit</code> for the same cursor and
  with the same value of <code class="code">len</code>, this function copies as many characters
- and thus returns the same number:</p><p> </p><code class="code">let n1 = cursor_blit     cs ua ua_pos len in
+ and thus returns the same number:</p><p> </p><pre class="code"><code>let n1 = cursor_blit     cs ua ua_pos len in
  let n2 = cursor_blit_pos cs pa pa_pos len in
- assert (n1 = n2)</code></div></div>
+ assert (n1 = n2)</code></pre></div></div>
 <div class="info"><div class="info"><h3 id="bom">Byte Order Marks</h3><p> Because UTF-16 allows both little and big endian, files and other
  permanent representations of UTF-16 text are usually prepended by
  a byte order mark (BOM). There is confusion about the BOM among
@@ -645,9 +645,9 @@ out_len:int -&gt; max_chars:int -&gt; subst:(int -&gt; string) -&gt; int * int *
  two-byte character consisting of the bytes 195 and 164:</p><p> <code class="code"> move cs ;; </code></p><p> <code class="code"> uchar_at cs </code> <i>returns</i> <code class="code">228</code> (i.e. a-Umlaut)</p><p> One can easily move the cursor to the end of the string:</p><p> <code class="code"> move ~num:max_int cs ;; </code></p><p> This raises <code class="code">Cursor_out_of_range</code>, but places the cursor at the end.
  This is the position past the last letter 'r':</p><p> <code class="code"> uchar_at cs </code> <i>raises</i> <code class="code">End_of_string</code></p><p> Go one character to the left:</p><p> <code class="code"> move ~num:(-1) cs ;; </code></p><p> <code class="code"> uchar_at cs </code> <i>returns</i> <code class="code">114</code> (i.e. r)</p><p> Cursors can only move relative to their current position. Of course,
  one can easily write a function that moves to an absolute position,
- like</p><p> </p><code class="code"> let move_abs n cs = 
+ like</p><p> </p><pre class="code"><code> let move_abs n cs = 
     let delta = n - cursor_pos cs in
-    move ~num:delta cs </code><p> However, this operation is expensive (O(string length)), and should
+    move ~num:delta cs </code></pre><p> However, this operation is expensive (O(string length)), and should
  be avoided for efficient algorithms. Cursors are not arrays, and an
  algorithm should only be based on cursors when it is possible to
  iterate over the characters of the string one after another.</p></div></div>

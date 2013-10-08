@@ -2,11 +2,11 @@
     that can only be used in unit tests.<p>    Under the hood, <code class="code">'a t = (unit -&gt; 'a)</code> and the only thing that ever forces them
     is the <code class="code">run_tests_and_exit</code> function below which actually runs the unit tests.</p><p>    For example, suppose in some module, <code class="code">type t</code> is actually an <code class="code">int</code>.  You
     want to keep the type definition opaque, but use the underlying
-    representation in unit tests.  You could write in the ml:</p><p>    </p><code class="code">let test_to_int t = Only_in_test.return t
-    [let test_of_int n = Only_in_test.return n</code><p>    You would then expose in the mli:</p><p>    </p><code class="code">type t
+    representation in unit tests.  You could write in the ml:</p><p>    </p><pre class="code"><code>let test_to_int t = Only_in_test.return t
+    [let test_of_int n = Only_in_test.return n</code></pre><p>    You would then expose in the mli:</p><p>    </p><pre class="code"><code>type t
     ... functions for use in regular programming...
     val test_to_int : t -&gt; int Only_in_test.t
-    val test_of_int : int -&gt; t Only_in_test.t</code><p>    Finally, if you have specific values that you might want to use in unit
+    val test_of_int : int -&gt; t Only_in_test.t</code></pre><p>    Finally, if you have specific values that you might want to use in unit
     tests, but that have top-level side-effects or take too long to compute, you
     can delay the side-effects or computation until the unit tests are run by
     writing, e.g.:</p><p>    <code class="code">let (test_special_value : t Only_in_test.t) =

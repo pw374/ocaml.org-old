@@ -56,20 +56,20 @@
 <pre><span class="VALfinalize"><span class="keyword">val</span> finalize</span> : <code class="type">(unit -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a>) -&gt; (unit -&gt; unit <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a>) -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">finalize f g</code> returns the same result as <code class="code">f ()</code> whether it
       fails or not. In both cases, <code class="code">g ()</code> is executed after <code class="code">f</code>.</div></div>
 <pre><span class="VALwrap"><span class="keyword">val</span> wrap</span> : <code class="type">(unit -&gt; 'a) -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">wrap f</code> calls <code class="code">f</code> and transform the result into a monad. If <code class="code">f</code>
-      raise an exception, it is catched by Lwt.<p>      This is actually the same as:</p><p>      </p><code class="code">
+      raise an exception, it is catched by Lwt.<p>      This is actually the same as:</p><p>      </p><pre class="code"><code>
         try
           return (f ())
         with exn -&gt;
           fail exn
-      </code></div></div>
+      </code></pre></div></div>
 <pre><span class="VALwrap1"><span class="keyword">val</span> wrap1</span> : <code class="type">('a -&gt; 'b) -&gt; 'a -&gt; 'b <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">wrap1 f x</code> applies <code class="code">f</code> on <code class="code">x</code> and returns the result as a
       thread. If the application of <code class="code">f</code> to <code class="code">x</code> raise an exception it
       is catched and a thread is returned.<p>      Note that you must use  <a href="#wrap">wrap</a> instead of  <a href="#wrap1">wrap1</a> if the
-      evaluation of <code class="code">x</code> may raise an exception.</p><p>      for example the following code is not ok:</p><p>      </p><code class="code">
+      evaluation of <code class="code">x</code> may raise an exception.</p><p>      for example the following code is not ok:</p><p>      </p><pre class="code"><code>
         wrap1 f (Hashtbl.find table key)
-      </code><p>      you should write instead:</p><p>      </p><code class="code">
+      </code></pre><p>      you should write instead:</p><p>      </p><pre class="code"><code>
         wrap (fun () -&gt; f (Hashtbl.find table key))
-      </code></div></div>
+      </code></pre></div></div>
 <pre><span class="VALwrap2"><span class="keyword">val</span> wrap2</span> : <code class="type">('a -&gt; 'b -&gt; 'c) -&gt; 'a -&gt; 'b -&gt; 'c <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre>
 <pre><span class="VALwrap3"><span class="keyword">val</span> wrap3</span> : <code class="type">('a -&gt; 'b -&gt; 'c -&gt; 'd) -&gt; 'a -&gt; 'b -&gt; 'c -&gt; 'd <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre>
 <pre><span class="VALwrap4"><span class="keyword">val</span> wrap4</span> : <code class="type">('a -&gt; 'b -&gt; 'c -&gt; 'd -&gt; 'e) -&gt; 'a -&gt; 'b -&gt; 'c -&gt; 'd -&gt; 'e <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre>
@@ -152,10 +152,10 @@
       canceled, it is removed from <code class="code">seq</code>.</div></div>
 <pre><span class="VALcancel"><span class="keyword">val</span> cancel</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">cancel t</code> cancels the threads <code class="code">t</code>. This means that the deepest
       sleeping thread created with <code class="code">task</code> and connected to <code class="code">t</code> is
-      woken up with the exception  <a href="#Canceled">Canceled</a>.<p>      For example, in the following code:</p><p>      </p><code class="code">
+      woken up with the exception  <a href="#Canceled">Canceled</a>.<p>      For example, in the following code:</p><p>      </p><pre class="code"><code>
         let waiter, wakener = task () in
         cancel (waiter &gt;&gt; printl &quot;plop&quot;)
-      </code><p>      <code class="code">waiter</code> will be woken up with  <a href="#Canceled">Canceled</a>.</p></div></div>
+      </code></pre><p>      <code class="code">waiter</code> will be woken up with  <a href="#Canceled">Canceled</a>.</p></div></div>
 <pre><span class="VALpick"><span class="keyword">val</span> pick</span> : <code class="type">'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a> list -&gt; 'a <a href="?package=lwt&amp;module=Lwt&amp;type=t">t</a></code></pre><div class="info"><div class="info"><code class="code">pick l</code> is the same as  <a href="#choose">choose</a>, except that it cancels all
       sleeping threads when one terminates.<p>      Note:  <a href="#pick">pick</a> leaves the local values of the current thread
       unchanged.</p></div></div>

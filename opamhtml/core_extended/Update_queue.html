@@ -1,15 +1,15 @@
 <div class="ocaml_toplevel_module"><div class="info"><div class="info">A <code class="code">'state t</code> keeps track of updates of type <code class="code">'state -&gt; 'state</code> queued to it and runs
     them sequentially.<p>    This has the primary feature that if an update itself schedules another update, that
-    other update will be run after the first update has finished.</p><p>    For example, consider the code:</p><p>    </p><code class="code">let x = create ~init:1 () in
+    other update will be run after the first update has finished.</p><p>    For example, consider the code:</p><p>    </p><pre class="code"><code>let x = create ~init:1 () in
     enqueue_update x (fun x -&gt;
     enqueue_update (fun x -&gt; x + 1);
-    x + 1)</code><p>    At the end, <code class="code">x</code>'s state will be 2, as you would expect.  However, suppose you did
-    this with an <code class="code">int ref</code>:</p><p>    </p><code class="code">let x = ref 1 in
+    x + 1)</code></pre><p>    At the end, <code class="code">x</code>'s state will be 2, as you would expect.  However, suppose you did
+    this with an <code class="code">int ref</code>:</p><p>    </p><pre class="code"><code>let x = ref 1 in
     let update_x f = x := f !x in
     update_x (fun x -&gt;
       update_x (fun x -&gt; x + 1);
       x + 1
-    )</code><p>    At the end of this, <code class="code">!x</code> would be 1.</p><p>    Another feature is that the initial value does not have to be specified at creation.
+    )</code></pre><p>    At the end of this, <code class="code">!x</code> would be 1.</p><p>    Another feature is that the initial value does not have to be specified at creation.
     If it is not, enqueued updates will be kept around until an initial value is specified
     with <code class="code">init</code>.</p></div></div>
 <pre><span class="TYPEt"><span class="keyword">type</span> <code class="type">('perm, 'state) </code>t</span> </pre>

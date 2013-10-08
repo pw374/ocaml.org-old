@@ -2,8 +2,8 @@
    as a function from character streams to token streams. It implements
    roughly the lexical conventions of OCaml, but is parameterized by the
    set of keywords of your language.</p><p>   Example: a lexer suitable for a desk calculator is obtained by
-   </p><code class="code">     let lexer = make_lexer [&quot;+&quot;;&quot;-&quot;;&quot;*&quot;;&quot;/&quot;;&quot;let&quot;;&quot;=&quot;; &quot;(&quot;; &quot;)&quot;]  </code><p>   The associated parser would be a function from <code class="code">token stream</code>
-   to, for instance, <code class="code">int</code>, and would have rules such as:</p><p>   </p><code class="code">
+   </p><pre class="code"><code>     let lexer = make_lexer [&quot;+&quot;;&quot;-&quot;;&quot;*&quot;;&quot;/&quot;;&quot;let&quot;;&quot;=&quot;; &quot;(&quot;; &quot;)&quot;]  </code></pre><p>   The associated parser would be a function from <code class="code">token stream</code>
+   to, for instance, <code class="code">int</code>, and would have rules such as:</p><p>   </p><pre class="code"><code>
            let rec parse_expr = parser
              | [&lt; n1 = parse_atom; n2 = parse_remainder n1 &gt;] -&gt; n2
            and parse_atom = parser
@@ -12,7 +12,7 @@
            and parse_remainder n1 = parser
              | [&lt; 'Kwd &quot;+&quot;; n2 = parse_expr &gt;] -&gt; n1+n2
              | [&lt; &gt;] -&gt; n1
-   </code><p>   One should notice that the use of the <code class="code">parser</code> keyword and associated
+   </code></pre><p>   One should notice that the use of the <code class="code">parser</code> keyword and associated
    notation for streams are only available through camlp4 extensions. This
    means that one has to preprocess its sources <i>e. g.</i> by using the
    <code class="code">&quot;-pp&quot;</code> command-line switch of the compilers.</p></div>

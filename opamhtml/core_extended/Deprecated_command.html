@@ -160,7 +160,7 @@ usage_arg:string -&gt; flags:unit <a href="?package=core_extended&amp;module=Dep
 <pre><span class="VALprint_version"><span class="keyword">val</span> print_version</span> : <code class="type">?version:string -&gt; unit -&gt; unit</code></pre></div></div>
 <div class="ocaml_module sig" name="Annotated_field"><pre><span class="keyword">module</span> <a href="?package=core_extended&amp;module=Deprecated_command.Annotated_field">Annotated_field</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">This module is intended to help in using pa_fields to easily generate
    Command.t's when you have a record type each field of which you would
-   like specified as a command line argument.<p>   An example is as follows:</p><code class="code">module M = struct
+   like specified as a command line argument.<p>   An example is as follows:</p><pre class="code"><code>module M = struct
   type t = {
     field1 : int;
     field2 : float;
@@ -190,7 +190,7 @@ usage_arg:string -&gt; flags:unit <a href="?package=core_extended&amp;module=Dep
         ~field3:(get bool_of_string)
         ~field4:(get_opt ident)
     )
-    ~main:(fun _ -&gt; assert false)</code>
+    ~main:(fun _ -&gt; assert false)</code></pre>
 end</div></div><div class="ocaml_module_content">
 <pre><span class="TYPEt"><span class="keyword">type</span> t</span> </pre>
 <pre><span class="TYPEaccum"><span class="keyword">type</span> accum</span> </pre>

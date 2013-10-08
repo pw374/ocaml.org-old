@@ -1,46 +1,46 @@
 <div class="ocaml_toplevel_module"><div class="info">Syntactic sugars for lwt</div>
-<div class="info"><div class="info">This extension add the following sugars:<p>    - anonymous bind:</p><p>      </p><code class="code">
+<div class="info"><div class="info">This extension add the following sugars:<p>    - anonymous bind:</p><p>      </p><pre class="code"><code>
          write stdio &quot;Hello, &quot; &gt;&gt; write stdio &quot;world!&quot;
-      </code><p>    - lwt-binding:</p><p>      </p><code class="code">
+      </code></pre><p>    - lwt-binding:</p><p>      </p><pre class="code"><code>
          lwt ch = get_char stdin in
          code
-      </code><p>      is the same as <code class="code">bind (get_char stdin) (fun ch -&gt; code)</code></p><p>      Moreover it supports parallel binding:</p><p>      </p><code class="code">
+      </code></pre><p>      is the same as <code class="code">bind (get_char stdin) (fun ch -&gt; code)</code></p><p>      Moreover it supports parallel binding:</p><p>      </p><pre class="code"><code>
          lwt x = do_something1 ()
          and y = do_something2 in
          code
-      </code><p>      will let <code class="code">do_something1 ()</code> and <code class="code">do_something2 ()</code> runs then
-      bind their result to <code class="code">x</code> and <code class="code">y</code>. It is the same as:</p><p>      </p><code class="code">
+      </code></pre><p>      will let <code class="code">do_something1 ()</code> and <code class="code">do_something2 ()</code> runs then
+      bind their result to <code class="code">x</code> and <code class="code">y</code>. It is the same as:</p><p>      </p><pre class="code"><code>
          let t1 = do_something1
          and t2 = do_something2 in
          bind t1 (fun x -&gt; bind t2 (fun y -&gt; code))
-      </code><p>    - exception catching:</p><p>      </p><code class="code">
+      </code></pre><p>    - exception catching:</p><p>      </p><pre class="code"><code>
          try_lwt
            &lt;expr&gt;
-      </code>,<p>      </p><code class="code">
-         try_lwt
-           &lt;expr&gt;
-         with
-           &lt;branches&gt;
-      </code>,<p>      </p><code class="code">
-         try_lwt
-           &lt;expr&gt;
-         finally
-           &lt;expr&gt;
-       </code><p>    and:</p><p>      </p><code class="code">
+      </code></pre>,<p>      </p><pre class="code"><code>
          try_lwt
            &lt;expr&gt;
          with
            &lt;branches&gt;
+      </code></pre>,<p>      </p><pre class="code"><code>
+         try_lwt
+           &lt;expr&gt;
          finally
            &lt;expr&gt;
-      </code><p>    For example:</p><p>      </p><code class="code">
+       </code></pre><p>    and:</p><p>      </p><pre class="code"><code>
+         try_lwt
+           &lt;expr&gt;
+         with
+           &lt;branches&gt;
+         finally
+           &lt;expr&gt;
+      </code></pre><p>    For example:</p><p>      </p><pre class="code"><code>
          try_lwt
            f x
          with
            | Failure msg -&gt;
                prerr_endline msg;
                return ()
-      </code><p>    is expanded to:</p><p>      </p><code class="code">
+      </code></pre><p>    is expanded to:</p><p>      </p><pre class="code"><code>
          catch (fun _ -&gt; f x)
            (function
               | Failure msg -&gt;
@@ -48,33 +48,33 @@
                   return ()
               | exn -&gt;
                   Lwt.fail exn)
-      </code><p>    Note that the <code class="code">exn -&gt; Lwt.fail exn</code> branch is automatically addedd
+      </code></pre><p>    Note that the <code class="code">exn -&gt; Lwt.fail exn</code> branch is automatically addedd
     when needed.</p><p>    The construction <code class="code">try_lwt &lt;expr&gt;</code> just catch regular exception
-    into lwt exception. i.e. it is the same as <code class="code">catch (fun _ -&gt; &lt;expr&gt;) fail</code>.</p><p>    - exception raising:</p><p>      </p><code class="code">
+    into lwt exception. i.e. it is the same as <code class="code">catch (fun _ -&gt; &lt;expr&gt;) fail</code>.</p><p>    - exception raising:</p><p>      </p><pre class="code"><code>
         raise_lwt &lt;expr&gt;
-      </code><p>      This allow exception to be traced when the -lwt-debug switch is passed
-      to the syntax extension.</p><p>    - assertion:</p><p>      </p><code class="code">
+      </code></pre><p>      This allow exception to be traced when the -lwt-debug switch is passed
+      to the syntax extension.</p><p>    - assertion:</p><p>      </p><pre class="code"><code>
         assert_lwt &lt;expr&gt;
-      </code><p>    - for loop:</p><p>      </p><code class="code">
+      </code></pre><p>    - for loop:</p><p>      </p><pre class="code"><code>
         for_lwt i = &lt;expr&gt; to &lt;expr&gt; do
           &lt;expr&gt;
         done
-      </code><p>    and:</p><p>      </p><code class="code">
+      </code></pre><p>    and:</p><p>      </p><pre class="code"><code>
         for_lwt i = &lt;expr&gt; downto &lt;expr&gt; do
           &lt;expr&gt;
         done
-      </code><p>    - iteration over streams:</p><p>      </p><code class="code">
+      </code></pre><p>    - iteration over streams:</p><p>      </p><pre class="code"><code>
         for_lwt &lt;patt&gt; in &lt;expr&gt; do
           &lt;expr&gt;
         done
-      </code><p>    - while loop:</p><p>      </p><code class="code">
+      </code></pre><p>    - while loop:</p><p>      </p><pre class="code"><code>
         while_lwt &lt;expr&gt; do
           &lt;expr&gt;
         done
-      </code><p>    - pattern mattching:</p><p>      </p><code class="code">
+      </code></pre><p>    - pattern mattching:</p><p>      </p><pre class="code"><code>
         match_lwt &lt;expr&gt; with
           | &lt;patt_1&gt; -&gt; &lt;expr_1&gt;
           ...
           | &lt;patt_n&gt; -&gt; &lt;expr_n&gt;
-      </code></div></div>
+      </code></pre></div></div>
 </div>

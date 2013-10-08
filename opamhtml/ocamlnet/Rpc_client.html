@@ -352,7 +352,7 @@ string -&gt; <a href="?package=ocamlnet&amp;module=Xdr&amp;type=xdr_value">Xdr.x
 <pre><span class="VALadd_call"><span class="keyword">val</span> add_call</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Rpc_client&amp;type=t">t</a> -&gt; string -&gt; <a href="?package=ocamlnet&amp;module=Xdr&amp;type=xdr_value">Xdr.xdr_value</a> -&gt; ((unit -&gt; <a href="?package=ocamlnet&amp;module=Xdr&amp;type=xdr_value">Xdr.xdr_value</a>) -&gt; unit) -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">add_call client proc_name arg f</code>: add the call to the procedure <code class="code">name</code>
  with argument <code class="code">arg</code> to the queue of unprocessed calls.<p> When the reply has arrived or an error situation is detected, the
  function <code class="code">f</code> is called back. The argument of <code class="code">f</code> is another function
- that will return the result or raise an exception:</p><p> </p><code class="code"> let my_f get_result =
+ that will return the result or raise an exception:</p><p> </p><pre class="code"><code> let my_f get_result =
       try
         let result = get_result() in
         ...
@@ -360,7 +360,7 @@ string -&gt; <a href="?package=ocamlnet&amp;module=Xdr&amp;type=xdr_value">Xdr.x
          exn -&gt; ...
     in
     add_call client name arg my_f
- </code><p> If <code class="code">f</code> does not catch the exception, the pluggable exception handler
+ </code></pre><p> If <code class="code">f</code> does not catch the exception, the pluggable exception handler
  of the client is called (see <code class="code">set_exception_handler</code>). Exceptions are
  either <code class="code">Message_lost</code>, <code class="code">Message_timeout</code>, or <code class="code">Communication_error</code>.</p><p> The function <code class="code">f</code> can raise the exception <code class="code">Keep_call</code> to indicate
  the special handling that a further reply of the call is expected

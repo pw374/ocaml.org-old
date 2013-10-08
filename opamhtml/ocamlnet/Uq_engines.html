@@ -114,14 +114,14 @@
       mapping function is called when the argument engine reaches a
       final state, and this state can be mapped to another final state.</div></div></div>
 <pre><span class="VALfmap_engine"><span class="keyword">val</span> fmap_engine</span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; ('a <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=final_state">final_state</a> -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=final_state">final_state</a>) -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">engine</a></code></pre><div class="info"><div class="info">Same as function<p>      After opening  <a href="#Uq_engines.Operators">Uq_engines.Operators</a>, this is also available
-      as operator <code class="code">&gt;&gt;</code>, e.g.</p><p>      </p><code class="code"> 
+      as operator <code class="code">&gt;&gt;</code>, e.g.</p><p>      </p><pre class="code"><code> 
          e &gt;&gt;
            (function
              | `Done r -&gt; ...
              | `Error error -&gt; ...
              | `Aborted -&gt; ...
            )
-       </code></div></div>
+       </code></pre></div></div>
 <div class="ocaml_class ident" name="meta_engine" path="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine"><pre><span class="TYPEmeta_engine"><span class="keyword">class</span> <code class="type">['a] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=meta_engine">meta_engine</a></span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; </code><code class="type">['a <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=final_state">final_state</a>] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a></pre><div class="info"><div class="info">maps the final state <code class="code">s</code> to <code class="code">`Done s</code></div></div></div>
 <pre><span class="VALmeta_engine"><span class="keyword">val</span> meta_engine</span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; 'a <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=final_state">final_state</a> <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">engine</a></code></pre><div class="info"><div class="info">Same as function</div></div>
 <div class="ocaml_class ident" name="epsilon_engine" path="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine"><pre><span class="TYPEepsilon_engine"><span class="keyword">class</span> <code class="type">['t] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=epsilon_engine">epsilon_engine</a></span> : <code class="type">'t <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine_state">engine_state</a> -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; </code><code class="type">['t] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a></pre><div class="info"><div class="info">This engine transitions from its initial state <code class="code">`Working 0</code> in one
@@ -134,15 +134,15 @@
  To avoid programming errors because of the misnomer, this class has been
  renamed.</p></div></div></div>
 <pre><span class="VALepsilon_engine"><span class="keyword">val</span> epsilon_engine</span> : <code class="type">'t <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine_state">engine_state</a> -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; 't <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">engine</a></code></pre><div class="info"><div class="info">Same as function</div></div>
-<div class="ocaml_class ident" name="seq_engine" path="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine"><pre><span class="TYPEseq_engine"><span class="keyword">class</span> <code class="type">['a, 'b] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=seq_engine">seq_engine</a></span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; 'a -&gt; 'b #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; </code><code class="type">['b] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a></pre><div class="info"><div class="info">This engine runs two engines in sequential order. It is called<p> </p><code class="code"> let eng_s = new seq_engine eng_a f </code><p> When <code class="code">eng_a</code> goes to the state <code class="code">`Done arg</code>, the function <code class="code">f</code> is called to
- obtain</p><p> </p><code class="code"> let eng_b = f arg </code><p> <code class="code">eng_b</code> runs until it is also in state <code class="code">`Done</code>.</p><p> If <code class="code">eng_a</code> or <code class="code">eng_b</code> go to states <code class="code">`Aborted</code> or <code class="code">`Error</code>, the
+<div class="ocaml_class ident" name="seq_engine" path="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine"><pre><span class="TYPEseq_engine"><span class="keyword">class</span> <code class="type">['a, 'b] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=seq_engine">seq_engine</a></span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; 'a -&gt; 'b #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; </code><code class="type">['b] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a></pre><div class="info"><div class="info">This engine runs two engines in sequential order. It is called<p> </p><pre class="code"><code> let eng_s = new seq_engine eng_a f </code></pre><p> When <code class="code">eng_a</code> goes to the state <code class="code">`Done arg</code>, the function <code class="code">f</code> is called to
+ obtain</p><p> </p><pre class="code"><code> let eng_b = f arg </code></pre><p> <code class="code">eng_b</code> runs until it is also in state <code class="code">`Done</code>.</p><p> If <code class="code">eng_a</code> or <code class="code">eng_b</code> go to states <code class="code">`Aborted</code> or <code class="code">`Error</code>, the
  sequential engine <code class="code">eng_s</code> does so, too. If <code class="code">eng_s</code> is aborted,
  this request will be forwarded to the currently active engine,
  <code class="code">eng_a</code> or <code class="code">eng_b</code>.</p><p> If calling <code class="code">f</code> results in an exception, this is handled as if <code class="code">eng_a</code>
  signaled an exception.</p></div></div></div>
 <pre><span class="VALseq_engine"><span class="keyword">val</span> seq_engine</span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; ('a -&gt; 'b #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a>) -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">engine</a></code></pre><div class="info"><div class="info">Same as function.<p> After opening  <a href="#Uq_engines.Operators">Uq_engines.Operators</a>, this is also available
  as operator <code class="code">++</code>, e.g.
- </p><code class="code"> e1 ++ (fun r1 -&gt; e2) </code>
+ </p><pre class="code"><code> e1 ++ (fun r1 -&gt; e2) </code></pre>
  (when <code class="code">e1</code> and <code class="code">e2</code> are engines, and <code class="code">r1</code> is the result of <code class="code">e1</code>).</div></div>
 <div class="ocaml_class ident" name="qseq_engine" path="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine"><pre><span class="TYPEqseq_engine"><span class="keyword">class</span> <code class="type">['a, 'b] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=qseq_engine">qseq_engine</a></span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; 'a -&gt; 'b #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; </code><code class="type">['b] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a></pre></div>
 <pre><span class="VALqseq_engine"><span class="keyword">val</span> qseq_engine</span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; ('a -&gt; 'b #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a>) -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">engine</a></code></pre><div class="info"><div class="info">Almost the same as <code class="code">seq_engine</code>, but this version does not
@@ -253,16 +253,16 @@
 <div class="ocaml_module sig" name="Operators"><pre><span class="keyword">module</span> <a href="?package=ocamlnet&amp;module=Uq_engines.Operators">Operators</a> : <code class="type"><code class="code">sig</code> .. <code class="code">end</code></code></pre><div class="info"><div class="info">Handy operators: <code class="code">++</code>, <code class="code">&gt;&gt;</code>, and <code class="code">eps_e</code></div></div><div class="ocaml_module_content">
 <div class="info"><div class="info">The most important operators. This module should be opened.</div></div>
 <pre><span class="VAL(++)"><span class="keyword">val</span> (++)</span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; ('a -&gt; 'b #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a>) -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">engine</a></code></pre><div class="info"><div class="info">Another name for <code class="code">qseq_engine</code>. Use this operator to run engines in
-	sequence:<p>	</p><code class="code">
+	sequence:<p>	</p><pre class="code"><code>
 	    e1 ++ (fun r1 -&gt; e2) ++ (fun r2 -&gt; e3) ++ ...
-	</code><p>	Here <code class="code">rK</code> is the result of engine <code class="code">eK</code>.</p><p>        Change in OCamlnet-3.6.4: <code class="code">++</code> is now <code class="code">qseq_engine</code>, and no longer
+	</code></pre><p>	Here <code class="code">rK</code> is the result of engine <code class="code">eK</code>.</p><p>        Change in OCamlnet-3.6.4: <code class="code">++</code> is now <code class="code">qseq_engine</code>, and no longer
         <code class="code">seq_engine</code>, and hence it does not support progress reporting anymore.
         Redefine <code class="code">++</code> as <code class="code">seq_engine</code> in your own code if you need the old
         behavior.</p></div></div>
 <pre><span class="VAL(&gt;&gt;)"><span class="keyword">val</span> (&gt;&gt;)</span> : <code class="type">'a #<a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a> -&gt; ('a <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=final_state">final_state</a> -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=final_state">final_state</a>) -&gt; 'b <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">engine</a></code></pre><div class="info"><div class="info">Another name for <code class="code">fmap_engine</code>. Use this operator to map the
-	final value of an engine:<p>	</p><code class="code">
+	final value of an engine:<p>	</p><pre class="code"><code>
 	    e &gt;&gt; (function `Done x -&gt; ... | `Error e -&gt; ... | `Aborted -&gt; ...)
-	</code></div></div>
+	</code></pre></div></div>
 <pre><span class="VALeps_e"><span class="keyword">val</span> eps_e</span> : <code class="type">'t <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine_state">engine_state</a> -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; 't <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=engine">engine</a></code></pre><div class="info"><div class="info">Same as <code class="code">epsilon_engine</code></div></div></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Basic I/O engines</h1></div></div>
 <div class="ocaml_class sig" name="poll_engine"><pre><span class="TYPEpoll_engine"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=poll_engine">poll_engine</a></span> : <code class="type"><a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; (<a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=operation">Unixqueue.operation</a> * float) list -&gt; (exn -&gt; bool) option -&gt; </code><code class="code">object</code> .. <code class="code">end</code></pre><div class="info"><div class="info">This engine waits until one of the passed operations can be 
@@ -290,7 +290,7 @@
       becomes readable, and calls then <code class="code">let x = f fd</code> to read from the
       descriptor. The result <code class="code">x</code> is the result of the engine.<p>      If the file descriptor does not become readable within <code class="code">tmo</code> seconds,
       the resulting engine transitions to <code class="code">`Error Timeout</code>.</p><p>      Use this class to construct engines reading via <code class="code">Unix.read</code> or
-      comparable I/O functions:</p><p>      </p><code class="code">
+      comparable I/O functions:</p><p>      </p><pre class="code"><code>
       let read_engine fd tmo esys =
         new input_engine (fun fd -&gt;
                             let buf = String.create 4096 in
@@ -298,20 +298,20 @@
                             String.sub buf 0 n
                          )
                          fd tmo esys
-      </code><p>      This engine returns the read data as string.</p><p>      See also  <a href="#Uq_io.input_e">Uq_io.input_e</a> for a more generic way of reading with
+      </code></pre><p>      This engine returns the read data as string.</p><p>      See also  <a href="#Uq_io.input_e">Uq_io.input_e</a> for a more generic way of reading with
       engines.</p></div></div></div>
 <div class="ocaml_class ident" name="output_engine" path="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine"><pre><span class="TYPEoutput_engine"><span class="keyword">class</span> <code class="type">['a] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=output_engine">output_engine</a></span> : <code class="type"><a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; 'a -&gt; <a href="?package=ocaml&amp;module=Unix&amp;type=file_descr">Unix.file_descr</a> -&gt; float -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; </code><code class="type">['a] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a></pre><div class="info"><div class="info">Generic output engine for writing to a file descriptor:
       <code class="code">let e = new output_engine f fd tmo</code> - Waits until the file descriptor
       becomes writable, and calls then <code class="code">let x = f fd</code> to write to the
       descriptor. The result <code class="code">x</code> is the result of the engine.<p>      If the file descriptor does not become writable within <code class="code">tmo</code> seconds,
       the resulting engine transitions to <code class="code">`Error Timeout</code>.</p><p>      Use this class to construct engines writing via <code class="code">Unix.single_write</code> or
-      comparable I/O functions:</p><p>      </p><code class="code">
+      comparable I/O functions:</p><p>      </p><pre class="code"><code>
       let write_engine fd s tmo esys =
         new output_engine (fun fd -&gt;
                              Unix.single_write fd s 0 (String.length s)
                           )
                           fd tmo esys
-      </code><p>      This engine returns the number of written bytes.</p><p>      See also  <a href="#Uq_io.output_e">Uq_io.output_e</a> for a more generic way of writing with
+      </code></pre><p>      This engine returns the number of written bytes.</p><p>      See also  <a href="#Uq_io.output_e">Uq_io.output_e</a> for a more generic way of writing with
       engines.</p></div></div></div>
 <div class="ocaml_class ident" name="poll_process_engine" path="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine"><pre><span class="TYPEpoll_process_engine"><span class="keyword">class</span> <a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=poll_process_engine">poll_process_engine</a></span> : <code class="type">float option -&gt; int -&gt; <a href="?package=ocamlnet&amp;module=Unixqueue&amp;type=event_system">Unixqueue.event_system</a> -&gt; </code><code class="type">[<a href="?package=ocaml&amp;module=Unix&amp;type=process_status">Unix.process_status</a>] </code><a href="?package=ocamlnet&amp;module=Uq_engines&amp;class=engine">engine</a></pre><div class="info"><div class="info"><b>This class is deprecated!</b> Use the classes in  <a href="#Shell_uq">Shell_uq</a> instead.<p> This engine waits until the process with the ID <code class="code">pid</code> terminates.
  When this happens, the state of the engine changes to 
@@ -325,7 +325,7 @@
  is usually very likely), a <code class="code">Signal</code> event will be generated, and
  the engine will check the process status very soon. Note that it is
  not guaranteed that a terminating process triggers a <code class="code">Signal</code> event,
- although it is very likely.</p><p> You can define an empty SIGCHLD handler with:</p><p> </p><code class="code"> Sys.set_signal Sys.sigchld (Sys.Signal_handle (fun _ -&gt; ())) </code><div class="parameters"><div class="param_info"><code class="code">period</code> : Every <code class="code">period</code> seconds the process status is checked.
+ although it is very likely.</p><p> You can define an empty SIGCHLD handler with:</p><p> </p><pre class="code"><code> Sys.set_signal Sys.sigchld (Sys.Signal_handle (fun _ -&gt; ())) </code></pre><div class="parameters"><div class="param_info"><code class="code">period</code> : Every <code class="code">period</code> seconds the process status is checked.
    Defaults to 0.1 seconds.</div></div></div></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">More I/O</h2><p>    The module  <a href="#Uq_io">Uq_io</a> provides a bunch of functions to read and write
     data via various &quot;devices&quot;. All these functions return engines, and
@@ -559,7 +559,7 @@
  <code class="code">Not_found</code>.</p></div></div>
 <div class="info"><div class="info"><b>Example</b> of using <code class="code">connector</code>: This engine <code class="code">e</code> connects to the
     &quot;echo&quot; service as provided by inetd, sends a line of data to it,
-    and awaits the response.<p>    </p><code class="code">
+    and awaits the response.<p>    </p><pre class="code"><code>
 	let e =
 	  Uq_engines.connector
 	    (`Socket(`Sock_inet_byname(Unix.SOCK_STREAM, &quot;localhost&quot;, 7),
@@ -584,7 +584,7 @@
 			 )
 		  | _ -&gt; assert false
 	     )
-    </code></div></div>
+    </code></pre></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Server sockets</h2></div></div>
 <pre><span class="TYPElisten_address"><span class="keyword">type</span> listen_address</span> = <code class="type">[ `Socket of <a href="?package=ocamlnet&amp;module=Uq_engines&amp;type=sockspec">sockspec</a> * listen_options
 | `W32_pipe of <a href="?package=ocamlnet&amp;module=Netsys_win32&amp;type=pipe_mode">Netsys_win32.pipe_mode</a> * string * listen_options ]</code></pre><div class="info"><div class="info">Specifies the resource to listen on:<p> - <code class="code">`Socket(addr,opts)</code>: It is listened on a socket with address <code class="code">addr</code></p><ul><li><code class="code">`W32_pipe(mode,name,opts)</code>: It is listened on a pipe server with
@@ -710,10 +710,10 @@ when_done:(exn option -&gt; int -&gt; unit) -&gt; string -&gt; int -&gt; int -&g
  after <code class="code">when_done</code> has been invoked.</p><p> It is an error to start reading several times.</p><p> The function <code class="code">peek</code> is called immediately before data is read in
  from the underlying communication channel.</p><p> For getting an engine-based version of <code class="code">start_reading</code>, use
  a <code class="code">signal_engine</code>:
- </p><code class="code"> 
+ </p><pre class="code"><code> 
     let (e, signal) = signal_engine esys in
     mplex # start_reading ~when_done:(fun xo n -&gt; signal (xo,n)) ...
- </code>
+ </code></pre>
  Now <code class="code">e</code> will transition to <code class="code">`Done(x0,n)</code> when the read is done.</div></div>
 <pre><span class="METHODstart_mem_reading"><span class="keyword">method</span> start_mem_reading</span> : <code class="code">?peek:(unit -&gt; unit) -&gt;
 when_done:(exn option -&gt; int -&gt; unit) -&gt;
@@ -859,7 +859,7 @@ when_done:(exn option -&gt; int -&gt; unit) -&gt;
  in this case.</p></div></div></div>
 <div class="info"><div class="info"><h1 id="1_TITLE">Recursion</h1></div></div>
 <div class="info"><div class="info">When programming with engines, it is normal to use recursion for any
-    kind of loops. For example, to read the lines from a file:<p>    </p><code class="code">
+    kind of loops. For example, to read the lines from a file:<p>    </p><pre class="code"><code>
       open Uq_engines.Operators  (* for &quot;&gt;&gt;&quot; and &quot;++&quot; *)
 
       let fd = 
@@ -883,7 +883,7 @@ when_done:(exn option -&gt; int -&gt; unit) -&gt;
           ) in
 
       let e = read_lines []
-    </code><p>    There is generally the question whether this style leads to stack
+    </code></pre><p>    There is generally the question whether this style leads to stack
     overflows. This depends on the mechanisms that come into play:</p><p>    - The engine mechanism passing control from one engine to the next is
       not tail-recursive, and thus the stack can overflow when the
       recursion becomes too deep</p><ul><li>The event queue mechanism, however, does not have this problem.

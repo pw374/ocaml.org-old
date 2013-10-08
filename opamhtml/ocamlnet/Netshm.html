@@ -58,18 +58,18 @@
  a new process, and to keep using the already existing
  <code class="code">shm_descr</code> or <code class="code">shm_table</code> in the subprocess. (This doesn't work
  because the underlying file descriptor would be shared.)</p></div></div>
-<pre><span class="VALgroup"><span class="keyword">val</span> group</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netshm&amp;type=shm_table">shm_table</a> -&gt; ('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info">Execute a sequence of operations in a group:<p> </p><code class="code">
+<pre><span class="VALgroup"><span class="keyword">val</span> group</span> : <code class="type"><a href="?package=ocamlnet&amp;module=Netshm&amp;type=shm_table">shm_table</a> -&gt; ('a -&gt; 'b) -&gt; 'a -&gt; 'b</code></pre><div class="info"><div class="info">Execute a sequence of operations in a group:<p> </p><pre class="code"><code>
  let r =
     group table
       (fun arg -&gt;
          operation1; operation2; ...)
       arg
- </code><p> Operations can be any reading or writing functions from below. The
+ </code></pre><p> Operations can be any reading or writing functions from below. The
  effect is that the locking requirements of the operations are merged,
  so that no operation of another process can interfer with the grouped
  sequence. Note, however, that this gives no real atomicity as there
  is no way to roll back half-executed sequences.</p><p> Groups can be nested.</p><p> An example of <code class="code">group</code> is to set a binding depending on the previous
- value of the binding. Here, we add 1:</p><p> </p><code class="code">
+ value of the binding. Here, we add 1:</p><p> </p><pre class="code"><code>
  let add_one table =
     group table
       (fun key -&gt;
@@ -80,7 +80,7 @@
         ba.{ 0 } &lt;- Int32.succ ba.{ 0 };
         replace table key ba
       )
- </code><p> Grouping protects the update from modifications done by other processes
+ </code></pre><p> Grouping protects the update from modifications done by other processes
  at the same time. In particular, without grouping it can happen that
  another process also modifies the same value between <code class="code">find</code> and
  <code class="code">replace</code>.</p></div></div>

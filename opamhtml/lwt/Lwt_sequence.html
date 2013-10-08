@@ -42,13 +42,13 @@
 <pre><span class="VALiter_node_r"><span class="keyword">val</span> iter_node_r</span> : <code class="type">('a <a href="?package=lwt&amp;module=Lwt_sequence&amp;type=node">node</a> -&gt; unit) -&gt; 'a <a href="?package=lwt&amp;module=Lwt_sequence&amp;type=t">t</a> -&gt; unit</code></pre><div class="info"><div class="info"><code class="code">iter_l f s</code> applies <code class="code">f</code> on all nodes of <code class="code">s</code> starting from
       the right</div></div>
 <pre><span class="VALfold_l"><span class="keyword">val</span> fold_l</span> : <code class="type">('a -&gt; 'b -&gt; 'b) -&gt; 'a <a href="?package=lwt&amp;module=Lwt_sequence&amp;type=t">t</a> -&gt; 'b -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">fold_l f s</code> is:
-      <code class="code">
+      <pre class="code"><code>
         fold_l f s x = f en (... (f e2 (f e1 x)))
-      </code>
+      </code></pre>
       where <code class="code">e1</code>, <code class="code">e2</code>, ..., <code class="code">en</code> are the elements of <code class="code">s</code></div></div>
 <pre><span class="VALfold_r"><span class="keyword">val</span> fold_r</span> : <code class="type">('a -&gt; 'b -&gt; 'b) -&gt; 'a <a href="?package=lwt&amp;module=Lwt_sequence&amp;type=t">t</a> -&gt; 'b -&gt; 'b</code></pre><div class="info"><div class="info"><code class="code">fold_r f s</code> is:
-      <code class="code">
+      <pre class="code"><code>
         fold_r f s x = f e1 (f e2 (... (f en x)))
-      </code>
+      </code></pre>
       where <code class="code">e1</code>, <code class="code">e2</code>, ..., <code class="code">en</code> are the elements of <code class="code">s</code></div></div>
 </div>

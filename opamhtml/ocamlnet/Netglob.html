@@ -1,7 +1,7 @@
 <div class="ocaml_toplevel_module"><div class="info">Globbing</div>
-<div class="info"><div class="info">Globbing resolves shell wildcards like &quot;*&quot; and &quot;?&quot;. For example,<p>    </p><code class="code">
+<div class="info"><div class="info">Globbing resolves shell wildcards like &quot;*&quot; and &quot;?&quot;. For example,<p>    </p><pre class="code"><code>
     let files = Netglob.glob (`String &quot;*.cm[iox]&quot;)
-    </code><p>    would return all files matching this pattern (e.g. module.cmi,
+    </code></pre><p>    would return all files matching this pattern (e.g. module.cmi,
     module.cmo).</p><p>    The main user function is  <a href="#Netglob.glob">Netglob.glob</a>. Globbing accesses the
     local filesystem by default, but one can also run the globbing
     algorithm on any other filesystem, provided the access primitives
@@ -185,24 +185,24 @@
  encoding, pass <code class="code">fsys</code>, e.g. as <code class="code">local_fsys()</code>, and call the
  <code class="code">path_encoding</code> method of <code class="code">fsys</code>.)</p></div></div>
 <div class="info"><div class="info"><h2 id="2_TITLE">Remarks</h2></div></div>
-<div class="info"><div class="info"><b>Examples demonstrating the effect of encodings:</b> (Linux)<p>    </p><code class="code">
+<div class="info"><div class="info"><b>Examples demonstrating the effect of encodings:</b> (Linux)<p>    </p><pre class="code"><code>
        let fsys = local_fsys ~encoding:`Enc_utf8()
        let l = glob ~fsys (`String &quot;\214*&quot;)
-    </code><p>    The byte 214 is O-umlaut in ISO-8859-1 (the default encoding for
+    </code></pre><p>    The byte 214 is O-umlaut in ISO-8859-1 (the default encoding for
     patterns). By passing an <code class="code">fsys</code> argument we change the encoding
     for filenames to UTF-8. For example, if</p><p>    &quot;\195\150ffentlich&quot;</p><p>    was a file in the current directory, it would be found and 
     returned in <code class="code">l</code>.</p><p>    Conversions: For example, assume we have a file
-    &quot;\226\130\172uro&quot; (EUR-uro in UTF-8). The glob</p><p>    </p><code class="code">
+    &quot;\226\130\172uro&quot; (EUR-uro in UTF-8). The glob</p><p>    </p><pre class="code"><code>
        let fsys = local_fsys ~encoding:`Enc_utf8()
        let l = glob ~fsys (`String &quot;*&quot;)
-    </code><p>    finds it although the euro sign cannot be represented
+    </code></pre><p>    finds it although the euro sign cannot be represented
     in ISO-8859-1, the default pattern encoding.</p><p>    We run into a problem, however, if we want to generate the
     euro sign even if the file is not present, and the filesystem
-    uses an encoding that does not include this sign:</p><p>    </p><code class="code">
+    uses an encoding that does not include this sign:</p><p>    </p><pre class="code"><code>
        let fsys = local_fsys ~encoding:`Enc_iso88591()
        let l = glob ~fsys ~encoding:`Enc_utf8 ~mode:`All_paths 
                   (`String &quot;\226\130\172uro&quot;)
-    </code><p>    This raises an exception <code class="code">Netconversion.Cannot_represent 8364</code>.</p></div></div>
+    </code></pre><p>    This raises an exception <code class="code">Netconversion.Cannot_represent 8364</code>.</p></div></div>
 <div class="info"><div class="info"><b>Notes for Win32:</b><p>  - Globbing only supports forward slashes, not backslashes as path
     separators</p><ul><li>Globbing does neither recognize drive letters nor UNC
     paths as special cases. This may lead to subtle bugs. Glob
@@ -238,7 +238,7 @@
     parse the expression, and then interpret it. However, users interested in
     a higher degree of compatibility can call the  <a href="#Netglob">Netglob</a> parsing,
     processing and printing functions in the required order, and emulate
-    the shell behavior. For example,<p>    </p><code class="code">
+    the shell behavior. For example,<p>    </p><pre class="code"><code>
   let alt_glob pat =
     let g1 = 
        parse_glob_expr 
@@ -255,6 +255,6 @@
          pat2_list in
     List.flatten
       (List.map (fun g3 -&gt; glob (`Expr g3)) g3_list)
-    </code><p>    would parse and expand brace expressions in a separate step before 
+    </code></pre><p>    would parse and expand brace expressions in a separate step before 
     running <code class="code">glob</code> on the remaining syntactic elements.</p></div></div>
 </div>

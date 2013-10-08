@@ -102,7 +102,7 @@ list</code></pre><div class="info"><div class="info">The default services</div><
 ?log_access:(?debug:bool -&gt; Netplex_types.container -&gt; <a href="?package=ocamlnet&amp;module=Nethttpd_plex&amp;type=config_log_access">config_log_access</a>) -&gt;
 ?error_response:<a href="?package=ocamlnet&amp;module=Nethttpd_plex&amp;type=config_error_response">config_error_response</a> -&gt;
 ?processor_factory:<a href="?package=ocamlnet&amp;module=Nethttpd_plex&amp;type=httpd_factory">httpd_factory</a> -&gt; unit -&gt; Netplex_types.processor_factory</code></pre><div class="info"><div class="info">Factory for a web server component.<p> <b>Configuration file.</b> Reads a configuration section like
- </p><code class="code">
+ </p><pre class="code"><code>
     processor {
       type = &quot;nethttpd&quot;;          (* or what is passed as &quot;name&quot; arg *)
       timeout = 300.0;
@@ -132,7 +132,7 @@ list</code></pre><div class="info"><div class="info">The default services</div><
         ...
       }
     }
- </code><p> The <code class="code">access_log</code> parameter can be set to <code class="code">off</code>, <code class="code">enabled</code>, or <code class="code">debug</code>.
+ </code></pre><p> The <code class="code">access_log</code> parameter can be set to <code class="code">off</code>, <code class="code">enabled</code>, or <code class="code">debug</code>.
  The default is <code class="code">off</code>. Access messages go to the &quot;access&quot; subchannel
  of the component logger. If <code class="code">enabled</code>, one line is printed with the
  most important data. If <code class="code">debug</code> is set, all access data are printed.</p><p> If <code class="code">suppress_broken_pipe</code> the error &quot;Broken pipe&quot; is not logged
@@ -142,7 +142,7 @@ list</code></pre><div class="info"><div class="info">The default services</div><
  used. For example, if a <code class="code">host</code> section already contains <code class="code">uri</code>
  subsections, it is not allowed to add <code class="code">method</code> subsections.
  Furthermore, the outermost section must be <code class="code">host</code>.</p><p> The <code class="code">service</code> section may be one of (at least if the <code class="code">services</code>
- parameter is not overridden):</p><p> </p><code class="code">
+ parameter is not overridden):</p><p> </p><pre class="code"><code>
     service {
       type = &quot;file&quot;;
       docroot = &quot;/a/path/in/the/filesystem&quot;;
@@ -158,20 +158,20 @@ list</code></pre><div class="info"><div class="info">The default services</div><
       enable_listings = true;
       hide_from_listings = &quot;README&quot;;   (* list of PCRE regexps *)
     }
- </code><p> Note that <code class="code">uri</code> is taken from the surrounding <code class="code">uri</code> section (or
- assumed to be &quot;/&quot; if there is none) if omitted.</p><p> </p><code class="code">
+ </code></pre><p> Note that <code class="code">uri</code> is taken from the surrounding <code class="code">uri</code> section (or
+ assumed to be &quot;/&quot; if there is none) if omitted.</p><p> </p><pre class="code"><code>
     service {
       type = &quot;dynamic&quot;;
       handler = &quot;name_of_handler&quot;;
     }
- </code><p> Binds the passed handler here.</p><p> Any of <code class="code">host</code>, <code class="code">uri</code>, and <code class="code">method</code> sections may contain one or several
- <code class="code">access</code> sections (which are AND-connected):</p><p> </p><code class="code">
+ </code></pre><p> Binds the passed handler here.</p><p> Any of <code class="code">host</code>, <code class="code">uri</code>, and <code class="code">method</code> sections may contain one or several
+ <code class="code">access</code> sections (which are AND-connected):</p><p> </p><pre class="code"><code>
     access {
       type = &quot;host&quot;;
       allow = &quot;host1 host2 ...&quot;;
       (* or deny = &quot;host1 host2 ...&quot;; *)
     }
- </code><p> Other access control methods are not yet available.</p><p> The <code class="code">services</code> optional argument can be used to change the service
+ </code></pre><p> Other access control methods are not yet available.</p><p> The <code class="code">services</code> optional argument can be used to change the service
  types understood. If not passed, it defaults to <code class="code">default_services</code>.
  The default includes &quot;file&quot; and &quot;dynamic&quot;.</p><p> <b>Arguments.</b></p><p> - <code class="code">name</code>: The processor name. Defaults to &quot;nethttpd&quot;. This name can
    be referenced by the &quot;type&quot; parameters in the <code class="code">processor</code> section
