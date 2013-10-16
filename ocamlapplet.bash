@@ -19,8 +19,12 @@ function hash() {
 
 ./ocamltohtml < $tmpfile.ml > $tmpfile.html
 
-e="$(./htmlescape < $tmpfile.ml)"
-echo -n "<a href=\"javascript:octry('$(sed 's/\&#39;/\\&/g'<<<"$e")');\">[try]</a>" >> $tmpfile.html
+# deactivate tryocaml until it works fine (TODO = mainly fix CSS)
+if [[ "$TRYOCAMLON" != "" ]]
+then
+    e="$(./htmlescape < $tmpfile.ml)"
+    echo -n "<a href=\"javascript:octry('$(sed 's/\&#39;/\\&/g'<<<"$e")');\">[try]</a>" >> $tmpfile.html
+fi
 
 cat $tmpfile.html
 
