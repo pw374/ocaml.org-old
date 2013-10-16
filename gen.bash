@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if which -s mpp && which -s omd 
+if which mpp && which omd
 then
     true
 else
