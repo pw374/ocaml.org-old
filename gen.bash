@@ -49,5 +49,6 @@ make html-pages/list.html
 rm -f md-pages/list.md
 )
 
-rsync opamhtml/doc_loader.js html-pages/pkg/docs/opam_doc_loader.js
+mkdir -p html-pages/pkg/docs/
+cp opamhtml/doc_loader.js html-pages/pkg/docs/opam_doc_loader.js
 
