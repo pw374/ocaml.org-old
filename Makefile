@@ -3,7 +3,7 @@ AUTOFILES = src/lib/ocamlorg.ml \
             src/lib/ocamlorg.mli \
             setup.ml
 
-default: web all
+default: web html-pages
 
 # build the website
 WWW = www
@@ -93,7 +93,7 @@ publish:
 MPP_OPTIONS = -so '((!' -sc '!))' -son '{{!' -scn '!}}' -soc '' -scc '' -sec '' -sos '{{<' -scs '>}}' -its 
 MPP = mpp ${MPP_OPTIONS}
 
-all:html-pages/static md-pages/pkg md-pages/pkg/docs
+html-pages:html-pages/static md-pages/pkg md-pages/pkg/docs
 	bash gen.bash md-pages
 
 html-pages/try-ocaml.js:try-ocaml.js
@@ -181,7 +181,7 @@ pkg:Makefile
 	echo '<script type="text/javascript">opamdoc_contents = document.getElementById("opamdoc-contents");</script>' >> md-pages/pkg/docs/index.md
 
 
-.PHONY: opamdoc pkg clean
+.PHONY: opamdoc pkg clean html-pages
 
 
 html-pages/learn/index.html:front_code_snippet_tpl.html
