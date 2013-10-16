@@ -1,0 +1,30 @@
+        <div class="span4">
+          <nav id="nav-secondary">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="#">Contents</a></li>
+              <li><a href="#Strengths">Strengths</a></li>
+              <li><a href="#AWidelyUsedProgrammingLanguage">A Widely Used Programming Language</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#OverviewoftheOCamllanguageandtools" data-target="#" data-toggle="dropdown">Overview of the OCaml language and tools</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#Safety"> Safety</a></li>
+                  <li><a href="#Functions"> Functions</a></li>
+                  <li><a href="#Imperativefeatures"> Imperative features</a></li>
+                  <li><a href="#Errorrecovery"> Error recovery</a></li>
+                  <li><a href="#DataTypes"> Data Types</a></li>
+                  <li><a href="#Aptnesstosymboliccomputation"> Aptness to symbolic computation</a></li>
+                  <li><a href="#Polymorphism"> Polymorphism</a></li>
+                  <li><a href="#Programminginthelarge"> Programming in the large</a></li>
+                  <li><a href="#Objectorientedprogramming"> Object-oriented programming</a></li>
+                  <li><a href="#Automaticmemorymanagementandincrementalgarbagecollection"> Automatic memory management and incremental garbage collection</a></li>
+                  <li><a href="#Evaluationregime"> Evaluation regime</a></li>
+                  <li><a href="#Efficientcompilerefficientcompiledcode"> Efficient compiler, efficient compiled code</a></li>
+                  <li><a href="#Interactivity"> Interactivity</a></li>
+                  <li><a href="#Debuggingfacilities"> Debugging facilities</a></li>
+                  <li><a href="#Parsing"> Parsing</a></li>
+                  <li><a href="#Portability"> Portability</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>

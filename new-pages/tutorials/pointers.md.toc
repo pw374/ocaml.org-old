@@ -1,0 +1,17 @@
+        <div class="span4">
+          <nav id="nav-secondary">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="#">Contents</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#StatusofpointersinOCaml" data-target="#" data-toggle="dropdown">Status of pointers in OCaml</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#ExplicitpointersareOCamlvaluesoftypecoderefcode"> Explicit pointers are OCaml values of type <code>ref</code></a></li>
+                  <li><a href="#Pointersandmutablefieldsorvectors"> Pointers and mutable fields or vectors</a></li>
+                </ul>
+              </li>
+              <li><a href="#DefiningpointersinOCaml">Defining pointers in OCaml</a></li>
+              <li><a href="#IntegerLists">Integer Lists</a></li>
+              <li><a href="#Polymorphiclists">Polymorphic lists</a></li>
+            </ul>
+          </nav>
+        </div>

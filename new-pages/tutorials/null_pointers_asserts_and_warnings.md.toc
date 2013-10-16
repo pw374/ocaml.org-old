@@ -1,0 +1,9 @@
+        <div class="span4">
+          <nav id="nav-secondary">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="#">Contents</a></li>
+              <li><a href="#Nullpointers">Null pointers</a></li>
+              <li><a href="#Assertwarningsfatalerrorsandprintingtostderr">Assert, warnings, fatal errors, and printing to stderr</a></li>
+            </ul>
+          </nav>
+        </div>

@@ -1,0 +1,16 @@
+        <div class="span4">
+          <nav id="nav-secondary">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="#">Contents</a></li>
+              <li><a href="#JaneStreet">Jane Street</a></li>
+              <li><a href="#TheUnisonFileSynchronizer">The Unison File Synchronizer</a></li>
+              <li><a href="#TheMLdonkeypeertopeerclient">The MLdonkey peer-to-peer client</a></li>
+              <li><a href="#LexiFiapossModelingLanguageforFinance">LexiFi&apos;s Modeling Language for Finance</a></li>
+              <li><a href="#TheCoqProofAssistant">The Coq Proof Assistant</a></li>
+              <li><a href="#TheASTREStaticAnalyzer">The ASTRÉE Static Analyzer</a></li>
+              <li><a href="#SLAM">SLAM</a></li>
+              <li><a href="#FFTW">FFTW</a></li>
+              <li><a href="#Liquidsoap">Liquidsoap</a></li>
+            </ul>
+          </nav>
+        </div>

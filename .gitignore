@@ -3,6 +3,11 @@ _build/
 setup.data
 setup.log
 configure
+*.cmi
+*.cmo
+*.cmx
+*.cma
+*.o
 *.native
 *.byte
 doclib.docdir
@@ -12,4 +17,8 @@ src/lib/META
 src/lib/ocamlorg.mllib
 src/lib/doclib.odocl
 www/
+#*
+.#*
+html-pages
+.DS_Store
 

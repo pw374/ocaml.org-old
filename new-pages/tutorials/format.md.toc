@@ -1,0 +1,26 @@
+        <div class="span4">
+          <nav id="nav-secondary">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="#">Contents</a></li>
+              <li><a href="#Principles">Principles</a></li>
+              <li><a href="#Boxes">Boxes</a></li>
+              <li><a href="#Printingspaces">Printing spaces</a></li>
+              <li><a href="#Indentationofnewlines">Indentation of new lines</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#Refinementonhovboxes" data-target="#" data-toggle="dropdown">Refinement on “hov” boxes</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#Packingandstructuralhovboxes"> Packing and structural “hov” boxes</a></li>
+                  <li><a href="#Differencesbetweenapackingandastructuralhovbox"> Differences between a packing and a structural “hov” box</a></li>
+                </ul>
+              </li>
+              <li><a href="#Practicaladvice">Practical advice</a></li>
+              <li><a href="#Printingtocodestdoutcodeusingcodeprintfcode">Printing to <code>stdout</code>: using <code>printf</code></a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#Aconcreteexample" data-target="#" data-toggle="dropdown">A concrete example</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#Mostgeneralprettyprintingusingcodefprintfcode"> Most general pretty-printing: using <code>fprintf</code></a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
